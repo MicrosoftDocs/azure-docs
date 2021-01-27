@@ -219,8 +219,6 @@ To reset the password for a CyberX or Support user:
 
 1. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Upload your recovery file to get a new password.":::
-
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
     > [!NOTE]

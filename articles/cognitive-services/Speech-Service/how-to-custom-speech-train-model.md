@@ -30,12 +30,12 @@ If you're encountering recognition problems with a base model, you can use human
 
 The first step to train a model is to upload training data. See [Prepare and test your data](./how-to-custom-speech-test-and-train.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you upload training data, follow these instructions to start training your model:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a [region with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 2. Go to **Speech-to-text** > **Custom Speech** > **[name of project]** > **Training**.
 3. Select **Train model**.
 4. Give your training a **Name** and **Description**.
 5. In the **Scenario and Baseline model** list, select the scenario that best fits your domain. If you're not sure which scenario to choose, select **General**. The baseline model is the starting point for training. The latest model is usually the best choice.
-6. On the **Select training data** page, choose one or more audio + human-labeled transcription datasets that you want to use for training.
+6. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training. When you train a new model, start with related text; training with audio + human-labeled transcription might take much longer (up to [several days](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. After training is complete, you can do accuracy testing on the newly trained model. This step is optional.
 8. Select **Create** to build your custom model.
 

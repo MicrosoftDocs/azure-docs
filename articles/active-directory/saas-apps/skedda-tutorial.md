@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: jeedes
 ---
 
@@ -68,23 +68,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Skedda** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-     In the **Reply URL** text box, enter one of the following URL:
-
-	| Reply URL|
-	|----------|
-	| `https://www.skedda.com/saml2/acs` |
-	| `https://app.skedda.com/saml2/acs` |
+     In the **Reply URL** text box, type the URL: `https://app.skedda.com/saml2/acs`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://www.skedda.com/account/externallogin?returnUrl=<CUSTOM_URL>`
+    `https://app.skedda.com/account/externallogin?returnUrl=<CUSTOM_URL>`
 
     > [!NOTE]
 	> The value is not real. Update the value with the actual Sign-on URL. Contact [Skedda Client support team](mailto:info@skedda.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -144,7 +139,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Skedda for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Skedda tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Skedda for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Skedda tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Skedda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

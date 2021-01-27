@@ -1,13 +1,10 @@
 ---
 title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to manage resources for Spark clusters on Azure HDInsight for better performance.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 01/12/2021
 ---
 
 # Manage resources for Apache Spark cluster on Azure HDInsight
@@ -79,6 +76,9 @@ The following command is an example of how to change the configuration parameter
 ```bash
 curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 ```
+
+> [!Note]
+> Copy the JAR file to your cluster storage account. Do not copy the JAR file directly to the head node.
 
 ### Change these parameters on a Spark Thrift Server
 

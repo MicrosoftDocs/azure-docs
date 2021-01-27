@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
-ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
+ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020

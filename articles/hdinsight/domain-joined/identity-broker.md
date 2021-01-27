@@ -2,9 +2,6 @@
 title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
 ---
@@ -121,9 +118,9 @@ To troubleshoot authentication issues, see [this guide](./domain-joined-authenti
 
 In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in [this document](../../storage/common/storage-auth-aad-app.md) to acquire the token with the following information:
 
-*	OAuth resource uri: `https://hib.azurehdinsight.net` 
+*    OAuth resource uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*	Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 After you acquire the OAuth token, use it in the authorization header of the HTTP request to the cluster gateway (for example, https://<clustername>-int.azurehdinsight.net). A sample curl command to Apache Livy API might look like this example:
     
@@ -141,7 +138,7 @@ For each cluster, a third party application will be registered in AAD with the c
 In AAD, consent is required for all third party applications before it can authenticate users or access data.
 
 ### Can the consent be approved programatically?
-Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant)
 The sequence to automate the consent is:
 
 * Register an app and grant Application.ReadWrite.All permissions to the app, to access Microsoft Graph

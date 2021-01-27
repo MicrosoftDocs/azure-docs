@@ -2,7 +2,7 @@
 title: Azure AD role descriptions and permissions - Azure Active Directory | Microsoft Docs
 description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 search.appverid: MET150
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ The following administrator roles are available:
 
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph API.
+This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of application permissions on the Microsoft Graph API.
 
 > [!IMPORTANT]
 > This exception means that you can still consent to permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered), but not to permissions on Azure AD itself. You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires an Azure AD admin. This means that a malicious user cannot easily elevate their permissions, for example by creating and consenting to an app that can write to the entire directory and through that app's permissions elevate themselves to become a global admin.
@@ -82,6 +82,14 @@ The [Privileged authentication administrator](#privileged-authentication-adminis
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+### [Attack Payload Author](#attack-payload-author-permissions)
+
+Users in this role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
+
+### [Attack Simulation Administrator](#attack-simulation-administrator-permissions)
+
+Users in this role can create and manage all aspects of attack simulation creation, launch/scheduling of a simulation, and the review of simulation results. Members of this role have this access for all simulations in the tenant.
 
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
@@ -416,7 +424,7 @@ Users with this role can manage alerts and have global read-only access on secur
 In | Can do
 --- | ---
 [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
+Azure AD Identity Protection | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails.
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role
 [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
 Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
@@ -483,6 +491,10 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 ### [Teams Service Administrator](#teams-service-administrator-permissions)
 
 Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health.
+
+### [Usage Summary Reports Reader](#usage-summary-reports-reader-permissions)
+
+Users with this role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score but cannot access any user level details or insights. In Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role gives an extra layer of protection on individual user identifiable data, which was requested by both customers and legal teams. 
 
 ### [User Administrator](#user-administrator-permissions)
 
@@ -586,6 +598,25 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.directory/users/password/update | Update passwords for all users in the Microsoft 365 organization. See online documentation for more detail. |
+
+### Attack Payload Author permissions
+
+Can create attack payloads that can be deployed by an administrator later.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training. |
+
+### Attack Simulation Administrator permissions
+
+Can create and manage all aspects of attack simulation campaigns.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training. |
+| microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator. |
 
 ### Azure DevOps Administrator permissions
 
@@ -734,6 +765,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directoryRoles, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
@@ -795,6 +827,7 @@ Can read and manage compliance configuration and reports in Azure AD and Microso
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1097,6 +1130,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.directory/directoryRoles/eligibleMembers/read    | Read directoryRoles.eligibleMembers property in Azure Active Directory. |
 | microsoft.directory/directoryRoles/members/read    | Read directoryRoles.members property in Azure Active Directory. |
 | microsoft.directory/domains/basic/read    | Read basic properties on domains in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/appRoleAssignments/read    | Read groups.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/groups/basic/read    | Read basic properties on groups in Azure Active Directory. |
 | microsoft.directory/groups/hiddenMembers/read    | Read groups.hiddenMembers property in Azure Active Directory. |
@@ -1195,7 +1229,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 
 ### Hybrid Identity Administrator permissions
 
-Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning and authentication services. 
+Can manage AD to Azure AD cloud provisioning and federation settings. 
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -1213,8 +1247,10 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
-| microsoft.directory/federatedAuthentication/allProperties/allTasks | Manage all aspects of Active Directory Federated Services (ADFS) or 3rd party federation provider in Azure AD. |
+| microsoft.directory/domains/allProperties/read | Read all properties of domains. |
+| microsoft.directory/domains/federation/update | Update federation property of domains. |
 | microsoft.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
+| microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 | microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
@@ -1429,6 +1465,14 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Manage app roles and request delegated permissions for applications. |
+| microsoft.directory/applications/audience/update | Update audience on all types of applications. |
+| microsoft.directory/applications/authentication/update | Update authentication on all types of applications. |
+| microsoft.directory/applications/basic/update | Update basic properties on all types of applications. |
+| microsoft.directory/applications/credentials/update | Update credentials on all types of applications. |
+| microsoft.directory/applications/owners/update | Update owners on all types of applications. |
+| microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
@@ -1462,6 +1506,14 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Manage app roles and request delegated permissions for applications. |
+| microsoft.directory/applications/audience/update | Update audience on all types of applications. |
+| microsoft.directory/applications/authentication/update | Update authentication on all types of applications. |
+| microsoft.directory/applications/basic/update | Update basic properties on all types of applications. |
+| microsoft.directory/applications/credentials/update | Update credentials on all types of applications. |
+| microsoft.directory/applications/owners/update | Update owners on all types of applications. |
+| microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
@@ -1656,9 +1708,10 @@ Can read security information and reports,and manage configuration in Azure AD a
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
@@ -1709,6 +1762,7 @@ Can read security information and reports in Azure AD and Microsoft 365.
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
@@ -1855,6 +1909,14 @@ Can manage the Microsoft Teams service.
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams. |
 
+### Usage Summary Reports Reader permissions
+Can see only tenant level aggregates in M365 Usage Analytics and Productivity Score.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.usageReports/allEntities/standard/read | Read tenant-level aggregated Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal.|
+
 ### User Administrator permissions
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
 
@@ -1866,6 +1928,7 @@ Can manage all aspects of users and groups, including resetting passwords for li
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
 | microsoft.directory/groups/create | Create groups in Azure Active Directory. |
@@ -1901,6 +1964,9 @@ Graph displayName | Azure portal display name | directoryRoleTemplateId
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Attack Payload Author | Attack payload author | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+Attack Simulation Administrator | Attack simulation administrator | c430b396-e693-46cc-96f3-db01bf8bb62a
+Azure AD Joined Device Local Administrator | Azure AD Joined Device Local Administrator | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Azure DevOps Administrator | Azure DevOps administrator | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1908,24 +1974,23 @@ B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475
 Billing Administrator | Billing administrator | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Cloud Application Administrator | Cloud application administrator | 158c047a-c907-4556-b7ef-446551a6b5f7
 Cloud Device Administrator | Cloud device administrator | 7698a772-787b-4ac8-901f-60d6b08affd2
-Company Administrator | Global administrator | 62e90394-69f5-4237-9190-012177145e10
 Compliance Administrator | Compliance administrator | 17315797-102d-40b4-93e0-432062caca18
 Compliance Data Administrator | Compliance data administrator | e6d1a23a-da11-4be4-9570-befc86d067a7
 Conditional Access Administrator | Conditional Access administrator | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-CRM Service Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af-f5787879f96a
 Customer LockBox Access Approver | Customer Lockbox access approver | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Desktop Analytics Administrator | Desktop Analytics Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Device Administrators | Device administrators | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Device Join | Deprecated | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Device Managers | Deprecated | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Device Users | Deprecated | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
 Directory Writers | Directory Writers | 9360feb5-f418-4baa-8175-e2a00bac4301
-Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Dynamics 365 Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af-f5787879f96a
+Exchange Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
 External Id User Flow Attribute Administrator | External Id User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Global Administrator | Global administrator | 62e90394-69f5-4237-9190-012177145e10
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Groups Administrator | Groups administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -1933,10 +1998,9 @@ Helpdesk Administrator | Helpdesk administrator | 729827e3-9c14-49f7-bb1b-9608f1
 Hybrid Identity Administrator | Hybrid identity administrator | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Insights Administrator | Insights administrator | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
 Insights Business Leader | Insights business leader | 31e939ad-9672-4796-9c2e-873181342d2d
-Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Intune Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Modern Commerce User | Modern Commerce User | d24aef57-1500-4070-84db-2666f29cf966
@@ -1945,7 +2009,7 @@ Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-
 Partner Tier1 Support | Not shown because it shouldn't be used | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partner Tier2 Support | Not shown because it shouldn't be used | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
+Power BI Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform Administrator | Power platform administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Printer Administrator | Printer administrator | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
 Printer Technician | Printer technician | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
@@ -1958,14 +2022,16 @@ Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b3
 Security Operator | Security operator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service support administrator | f023fd81-a637-4b56-95fd-791ac0226033
-SharePoint Service Administrator | SharePoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+SharePoint Administrator | SharePoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Skype for Business Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Teams Communications Administrator | Teams Communications Administrator | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
 Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams Devices Administrator | Teams Devices Administrator | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Teams Administrator | Teams Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Usage Summary Reports Reader | Usage summary reports reader | 75934031-6c7e-415a-99d7-48dbd49e875e
 User | Not shown because it can't be used | a0b1b346-4d3e-4e8b-98f8-753987be4970
-User Account Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
+User Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
 Workplace Device Join | Deprecated | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## Deprecated roles
@@ -1986,15 +2052,11 @@ Not every role returned by PowerShell or MS Graph API is visible in Azure portal
 
 API name | Azure portal name | Notes
 -------- | ------------------- | -------------
-Company Administrator | Global Administrator | [Name changed for better clarity](permissions-reference.md#role-template-ids)
-CRM Service Administrator | Dynamics 365 administrator | [Reflects current product branding](permissions-reference.md#role-template-ids)
 Device Join | Deprecated | [Deprecated roles documentation](permissions-reference.md#deprecated-roles)
 Device Managers | Deprecated | [Deprecated roles documentation](permissions-reference.md#deprecated-roles)
 Device Users | Deprecated | [Deprecated roles documentation](permissions-reference.md#deprecated-roles)
 Directory Synchronization Accounts | Not shown because it shouldn't be used | [Directory Synchronization Accounts documentation](permissions-reference.md#directory-synchronization-accounts)
-Directory Writers | Not shown because it shouldn't be used | [Directory Writers documentation](permissions-reference.md#directory-writers)
 Guest User | Not shown because it can't be used  | NA
-Lync Service Administrator | Skype for Business administrator | [Reflects current product branding](permissions-reference.md#role-template-ids)
 Partner Tier 1 Support | Not shown because it shouldn't be used | [Partner Tier1 Support documentation](permissions-reference.md#partner-tier1-support)
 Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2 Support documentation](permissions-reference.md#partner-tier2-support)
 Restricted Guest User | Not shown because it can't be used | NA

@@ -14,9 +14,15 @@ ms.author: cherylmc
 
 # Azure Virtual WAN logs and metrics
 
-You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. For Azure Firewall information, see [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor.
 
 This article discusses metrics and diagnostics that are available through the portal. Metrics are lightweight and can support near real-time scenarios, making them useful for alerting and fast issue detection.
+
+## Monitoring Secured Hub (Azure Firewall) 
+
+You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
+
+If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 
 ## Metrics
 

@@ -1,7 +1,7 @@
 ---
 title: FedRAMP High blueprint sample controls
 description: Control mapping of the FedRAMP High blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the FedRAMP High blueprint sample

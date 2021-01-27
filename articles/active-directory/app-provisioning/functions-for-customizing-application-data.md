@@ -357,7 +357,7 @@ The Item function returns one item from a multi-valued string/attribute.
 | **index** |Required |Integer | Index to an item in the multi-valued string|
 
 **Example:**
-`Item([proxyAddresses], 1)`
+`Item([proxyAddresses], 1)` returns the second item in the multi-valued attribute.
 
 ---
 ### Join
@@ -535,7 +535,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
  - This is a top-level function, it cannot be nested.
  - This function cannot be applied to attributes that have a matching precedence. 	
  - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
- - This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
+ - This function is currently only supported for "Workday to Active Directory User Provisioning" and "SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:** 

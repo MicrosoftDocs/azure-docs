@@ -24,7 +24,7 @@ Azure Synapse Analytics is an analytics service that brings together enterprise 
 
 Dedicated SQL pool (formerly SQL DW) represents a collection of analytic resources that are provisioned when using Synapse SQL. The size of a dedicated SQL pool (formerly SQL DW) is determined by Data Warehousing Units (DWU).
 
-Once your dedicated SQL pool is created, you can import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics. As you integrate and analyze the data, dedicated SQL pool (formerly SQL DW) will become the single version of truth your business can count on for faster and more robust insights.
+Once your dedicated SQL pool is created, you can import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics. As you integrate and analyze the data, dedicated SQL pool (formerly SQL DW) will become the single version of truth your business can count on for faster and more robust insights.
 
 > [!NOTE]
 >Explore the [Azure Synapse Analytics documentation](../overview-what-is.md).
@@ -46,7 +46,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 
 - Explore [Azure Synapse architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a dedicated SQL pool](create-data-warehouse-portal.md)
-- [Load sample data](load-data-from-azure-blob-storage-using-polybase.md).
+- [Load sample data](./load-data-from-azure-blob-storage-using-copy.md).
 - Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Or look at some of these other Azure Synapse resources.
@@ -54,5 +54,5 @@ Or look at some of these other Azure Synapse resources.
 - Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- Search [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- Search [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

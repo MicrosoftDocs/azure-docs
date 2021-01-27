@@ -221,14 +221,6 @@ If you misconfigure a policy, it can lock the organizations out of the Azure por
 
 * Create a user account dedicated to policy administration and excluded from all your policies.
 
-* Break glass scenario for hybrid environments:
-
-  * Create an on-premises security group and sync it to Azure AD. The security group should contain your dedicated policy administration account. 
-
-   * EXEMPT this security group form all Conditional Access policies.
-
-   * When a service outage occurs, add your other administrators to the on-premises group as appropriate, and force a sync. This animates their exemption to Conditional Access policies.
-
 ### Set up report-only mode
 
 It can be difficult to predict the number and names of users affected by common deployment initiatives such as:
@@ -490,4 +482,4 @@ Once you have collected the information, See the following resources:
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy)
