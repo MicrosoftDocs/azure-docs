@@ -51,7 +51,9 @@ landingContent:
           - text: Scaling Your cluster
             url: cassandra-mi-scale.md     
       - linkListType: concept
-        links:       
+        links:   
+          - text: Frequently asked questions
+            url: cassandra-mi-faq.md             
           - text: Getting started with CQL queries
             url: cql-query-getting-started.md       
       - linkListType: tutorial
