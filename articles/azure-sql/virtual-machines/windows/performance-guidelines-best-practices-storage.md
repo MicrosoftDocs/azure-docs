@@ -106,21 +106,30 @@ The limits of the cache will vary based on the virtual machine size. For example
 You can manually enable host caching on an existing VM though you should stop all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
 
 
-## Data files caching policies
+## Data file caching policies
 
-### SQL Server data disks 
+Your storage caching policy varies depending on the type of SQL Server data file is hosted on the drive. 
 
-For SQL Server workloads, we recommend only enabling caching for the data disks and setting the caching level to be read-only. ReadOnly caching has improved read latency and higher IOPS and throughput since the reads will be coming directly from the optimized cache which is local in the virtual machines RAM and local SSD. 
+
+### Data files 
+
+For disks hosting SQL Server data files, enable read-only caching for the disk. ReadOnly caching has improved read latency and higher IOPS and throughput since the reads will be coming directly from the optimized cache which is local in the virtual machines RAM and local SSD. 
 
 Reads from cache will be much faster than the uncached reads that would otherwise come from the data disk.
 
+
+
 Additionally, reads provided by the Azure Blob Cache do not count against the virtual machine's uncached IOPS and throughput limits providing the ability to scale beyond these limitations. 
 
-### SQL Server transaction log files
+### Transaction log files
+
+For disks hosting 
+
 For SQL Server workloads, we do not recommend enabling caching for the transaction log drive as there is no performance benefit and there is also a potential for corruption if 'Read/Write' is used. 
 It is recommended to set the caching policy to 'None' for transaction log disks.
 
-### Operating System OS disk
+### Operating System (OS) disk
+
 The operating system disk will have a caching level set to Read-only or Read/write. The Read/write caching level is meant for workloads that achieve a balance of read and write operations. 
 The default caching policy is Read/write for the premium disk Virtual Machine OS drive. If the OS drive is Standard HDD then the default will be set to 'Read-only'. It is not recommended to change the caching level of the OS drive.
 
