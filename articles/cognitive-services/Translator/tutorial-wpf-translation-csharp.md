@@ -3,13 +3,13 @@ title: "Tutorial: Create a translation app with WPF, C#  - Translator"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a WPF app to perform text translation, language detection, and spell checking with a single subscription key.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
