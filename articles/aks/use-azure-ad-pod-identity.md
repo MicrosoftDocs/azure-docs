@@ -74,6 +74,29 @@ export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n $
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
 ```
 
+## Assign Role Permissions to Cluster Identity
+
+The roles *Managed Identity Operator* and *Virtual Machine Contributor* must be assigned to the cluster managed identity before deploying AAD Pod Identity so that it can assign and un-assign identities from the underlying VM/VMSS. To get the ID for the Managed Identity for your AKS cluster execute the following command
+
+```azurecli-interactive
+MANAGED_IDENTITY_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query identityProfile.kubeletidentity.clientId -otsv)
+```
+
+Now to assign the above roles on the node resource group, execute the following commands after replacing the value of SUBSCRIPTION_ID and NODE_RESOURCE_GROUP.
+
+```azurecli-interactive
+az role assignment create --role "Managed Identity Operator" --assignee $MANAGED_IDENTITY_ID --scope subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<NODE_RESOURCE_GROUP>
+
+az role assignment create --role "Virtual Machine Contributor" --assignee $MANAGED_IDENTITY_ID --scope subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<NODE_RESOURCE_GROUP>
+```
+
+One can find the NODE_RESOURCE_GROUP by running
+
+```azurecli-interactive
+az aks show -g myResourceGroup -n myAKSCluster --query "nodeResourceGroup" -otsv
+```
+For more details on Role Assignments, refer to this [article][az-pod-identity-role-assignment]
+
 ## Create a pod identity
 
 Create a pod identity for the cluster using `az aks pod-identity add`.
@@ -177,3 +200,4 @@ For more information on managed identities, see [Managed identities for Azure re
 [az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
 [az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-pod-identity-role-assignment]: https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/
