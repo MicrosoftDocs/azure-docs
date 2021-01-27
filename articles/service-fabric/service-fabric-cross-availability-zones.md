@@ -388,6 +388,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
+        "reliabilityLevel": "Platinum",
         "SFZonalUpgradeMode": "Hierarchical",
         "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [
