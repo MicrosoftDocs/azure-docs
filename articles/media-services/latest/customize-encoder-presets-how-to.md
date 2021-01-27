@@ -1,5 +1,5 @@
 ---
-title: Encode custom transform using Media Services v3 .NET - Azure | Microsoft Docs
+title: Encode custom transform using Media Services v3 .NET - Azure 
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using .NET.
 services: media-services
 documentationcenter: ''

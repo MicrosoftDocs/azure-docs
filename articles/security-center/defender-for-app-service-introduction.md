@@ -21,7 +21,7 @@ Azure App Service is a fully managed platform for building and hosting your web 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|[Azure Defender for App Service](azure-defender.md) is billed as shown on [the pricing page](security-center-pricing.md)<br>The pricing and settings page lists the number of instances for your **Resource Quantity**. That number is the total number of compute instances, in all App Service plans on this subscription, running at the moment you opened the pricing tier page.<br>To validate the count, open **App Service plans** in the Azure portal and check the number of compute instances used by each plan.|
 |Supported App Service plans:|![Yes](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolated, or Linux<br>![No](./media/icons/no-icon.png) Free, Shared, or Consumption<br>[Learn more about App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

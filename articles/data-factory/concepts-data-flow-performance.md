@@ -157,7 +157,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 
 #### Isolation level
 
-The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### Read using query
 
@@ -204,7 +204,7 @@ These can both be done natively using Pre and Post-SQL scripts within an Azure S
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
 > [!WARNING]
-> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### Scaling up your database
 
@@ -212,7 +212,7 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [SQL Copy Command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [SQL Copy Command](/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
 
 Other than Staging, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
