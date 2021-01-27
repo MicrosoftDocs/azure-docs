@@ -56,12 +56,6 @@ landingContent:
             url: request-limits.md
           - text: Language support
             url: language-support.md
-  - title: Document Translation
-    linkLists:
-      - linkListType: overview
-        links: 
-          - text: Document Translation
-            url: document-translation/doc-translation-overview.md
   - title: Custom Translation
     linkLists:
       - linkListType: quickstart
