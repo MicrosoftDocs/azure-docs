@@ -4,7 +4,7 @@ description: Learn how to use the Azure SDK to download large amounts of random 
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -50,11 +50,11 @@ public static void Main(string[] args)
     try
     {
         // Call the UploadFilesAsync function.
-        await UploadFilesAsync();
+        // await UploadFilesAsync();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
         // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files.
-        // await DownloadFilesAsync();
+        await DownloadFilesAsync();
     }
     catch (Exception ex)
     {
@@ -91,35 +91,40 @@ Type `dotnet run` to run the application.
 dotnet run
 ```
 
-The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
-The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) that are defined for each blob as it is downloaded.
+The `DownloadFilesAsync` task is shown in the following example:
+
+# [.NET v12](#tab/dotnet)
+
+The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs using the [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) method and downloads them to the local machine using the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
+
+# [.NET v11](#tab/dotnet11)
+
+The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
+
+The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) defined for each blob as it is downloaded.
 
 |Property|Value|Description|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| This property determines if an MD5 hash is calculated and stored.   |
 
-The `DownloadFilesAsync` task is shown in the following example:
-
-# [.NET v12](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
-
-# [.NET v11](#tab/dotnet11)
-
 ```csharp
 private static async Task DownloadFilesAsync()
 {
     CloudBlobClient blobClient = GetCloudBlobClient();
 
-    // Define the BlobRequestOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
+    // Define the BlobRequestOptions on the download, including disabling MD5 
+    // hash validation for this example, this improves the download speed.
     BlobRequestOptions options = new BlobRequestOptions
     {
         DisableContentMD5Validation = true,
         StoreBlobContentMD5 = false
     };
 
-    // Retrieve the list of containers in the storage account.  Create a directory and configure variables for use later.
+    // Retrieve the list of containers in the storage account.
+    // Create a directory and configure variables for use later.
     BlobContinuationToken continuationToken = null;
     List<CloudBlobContainer> containers = new List<CloudBlobContainer>();
     do
@@ -141,7 +146,8 @@ private static async Task DownloadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Create a new instance of the SemaphoreSlim class to define the number of threads to use in the application.
+        // Create a new instance of the SemaphoreSlim class to
+        // define the number of threads to use in the application.
         SemaphoreSlim sem = new SemaphoreSlim(max_outstanding, max_outstanding);
 
         // Iterate through the containers
@@ -149,7 +155,7 @@ private static async Task DownloadFilesAsync()
         {
             do
             {
-                // Return the blobs from the container lazily 10 at a time.
+                // Return the blobs from the container, 10 at a time.
                 resultSegment = await container.ListBlobsSegmentedAsync(null, true, BlobListingDetails.All, 10, continuationToken, null, null);
                 continuationToken = resultSegment.ContinuationToken;
                 {
@@ -188,11 +194,12 @@ private static async Task DownloadFilesAsync()
     Console.ReadLine();
 }
 ```
+
 ---
 
 ### Validate the connections
 
-While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, over 280 connections were open when downloading the random files from the storage account.
+While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a console window and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened. As you can see from the following example, over 280 connections were open when downloading files from the storage account.
 
 ```console
 C:\>netstat -a | find /c "blob:https"
@@ -203,13 +210,13 @@ C:\>
 
 ## Next steps
 
-In part three of the series, you learned about downloading large amounts of random data from a storage account, such as how to:
+In part three of the series, you learned about downloading large amounts of data from a storage account, including how to:
 
 > [!div class="checklist"]
 > * Run the application
 > * Validate the number of connections
 
-Advance to part four of the series to verify throughput and latency metrics in the portal.
+Go to part four of the series to verify throughput and latency metrics in the portal.
 
 > [!div class="nextstepaction"]
 > [Verify throughput and latency metrics in the portal](storage-blob-scalable-app-verify-metrics.md)
