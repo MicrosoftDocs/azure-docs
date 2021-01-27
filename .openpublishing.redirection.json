@@ -8,7 +8,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -12999,6 +12999,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/backup-avs-vms-with-mabs.md",
       "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
       "redirect_document_id": false
@@ -13366,11 +13371,6 @@
     {
       "source_path_from_root": "/articles/billing-upgrade-azure-subscription.md",
       "redirect_url": "/azure/billing/billing-upgrade-azure-subscription",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/billing/billing-usage-rate-card-overview",
       "redirect_document_id": false
     },
     {
@@ -16060,8 +16060,18 @@
     },
     {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/cost-management-billing/manage/usage-rate-card-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/manage/usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/billing/billing-view-all-accounts.md",
@@ -22789,6 +22799,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/how-to-manage-dps-with-cli.md",
+      "redirect_url": "/azure/iot-dps/quick-setup-auto-provision-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
       "redirect_url": "/azure/iot-edge/about-iot-edge",
       "redirect_document_id": false
@@ -22976,6 +22991,11 @@
     {
       "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-x509.md",
       "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-edge/deploy-trusted-applications.md",
+      "redirect_url": "/azure/iot-edge/deploy-confidential-applications",
       "redirect_document_id": false
     },
     {
@@ -32240,7 +32260,7 @@
     },
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
-      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
+      "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
       "redirect_document_id": false
     },
     {
@@ -47649,6 +47669,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/hdinsight/kafka/schema-registry.md",
+      "redirect_url": "/azure/hdinsight/kafka/apache-kafka-producer-consumer-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/response-center.md",
       "redirect_url": "https://www.microsoft.com/msrc",
       "redirect_document_id": false
@@ -61513,6 +61538,21 @@
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-manage-account-basics.md",
+      "redirect_url": "/azure/batch/accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/view-master-logs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
       "redirect_document_id": false
     }
   ]
