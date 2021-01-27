@@ -210,7 +210,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 ### Metric use cases
 
-Choosing a primary metric for automated machine learning to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then  consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
+Choosing a primary metric for automated machine learning to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
 
 
 #### Classification
