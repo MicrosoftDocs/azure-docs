@@ -40,8 +40,8 @@ Azure Monitor for VMs is available for Azure Arc enabled servers in regions wher
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../agents/agents-overview.md#supported-operating-systems). |
-| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../agents/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../agents/agents-overview.md#supported-operating-systems). |
+| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../agents/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
 ## Supported operating systems
@@ -63,13 +63,13 @@ See the following list of considerations on Linux support of the Dependency agen
 ## Log Analytics workspace
 Azure Monitor for VMs requires a Log Analytics workspace. See [Configure Log Analytics workspace for Azure Monitor for VMs](vminsights-configure-workspace.md) for details and requirements of this workspace.
 ## Agents
-Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. To onboard the resource, install these agents and connect them to the workspace.  See [Network requirements](../platform/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
+Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. To onboard the resource, install these agents and connect them to the workspace.  See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
-- [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
+- [Log Analytics agent](../agents/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
 > [!NOTE]
-> The Log Analytics agent is the same agent used by System Center Operations Manager. Azure Monitor for VMs can monitor agents that are also monitored by Operations Manager if they are directly connected, and you install the Dependency agent on them. Agents connected to Azure Monitor through a [management group connection](../tform/../platform/om-agents.md) cannot be monitored by Azure Monitor for VMs.
+> The Log Analytics agent is the same agent used by System Center Operations Manager. Azure Monitor for VMs can monitor agents that are also monitored by Operations Manager if they are directly connected, and you install the Dependency agent on them. Agents connected to Azure Monitor through a [management group connection](../tform/../agents/om-agents.md) cannot be monitored by Azure Monitor for VMs.
 
 The following are multiple methods for deploying these agents. 
 

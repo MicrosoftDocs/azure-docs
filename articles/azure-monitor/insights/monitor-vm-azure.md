@@ -231,7 +231,7 @@ Features of Azure Monitor that augment an existing Operations Manager features i
 - Use Log Analytics to interactively analyze your log and performance data.
 - Use log alerts to define alerting conditions across multiple virtual machines and using long term trends that aren't possible using alerts in Operations Manager.   
 
-See [Connect Operations Manager to Azure Monitor](../platform/om-agents.md) for details on connecting your existing Operations Manager management group to your Log Analytics workspace.
+See [Connect Operations Manager to Azure Monitor](../agents/om-agents.md) for details on connecting your existing Operations Manager management group to your Log Analytics workspace.
 
 
 ## Next steps

@@ -220,7 +220,7 @@ Additionally, enable Azure Monitor for access to your audit and activity logs wh
 
 * [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Windows](../extensions/oms-windows.md)
 
@@ -266,7 +266,7 @@ Analyze and monitor logs for anomalous behavior and regularly review results. Us
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to monitor and review your logs.
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Windows](../extensions/oms-windows.md)
 

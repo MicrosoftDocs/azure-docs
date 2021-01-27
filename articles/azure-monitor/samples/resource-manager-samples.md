@@ -39,7 +39,7 @@ az deployment group create \
 
 ## List of sample templates
 
-- [Agents](resource-manager-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
+- [Agents](../agents/resource-manager-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
 - Alerts
   - [Log alert rules](resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
   - [Metric alert rules](resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.

@@ -70,7 +70,7 @@
     - name: Overview
       href: samples/resource-manager-samples.md
     - name: Agents
-      href: samples/resource-manager-agent.md
+      href: agents/resource-manager-agent.md
     - name: Alerts
       items:
       - name: Log alert rules
@@ -88,7 +88,7 @@
         - name: Azure Functions
           href: samples/resource-manager-function-app.md
     - name: Data collection rules
-      href: samples/resource-manager-data-collection-rules.md
+      href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -371,7 +371,7 @@
     - name: Log Analytics agent
       items:
       - name: Overview
-        href: platform/log-analytics-agent.md
+        href: agents/log-analytics-agent.md
       - name: Windows agents
         href: agents/agent-windows.md
       - name: Linux agents
@@ -381,7 +381,7 @@
       - name: VM Extension for Linux
         href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics gateway
-        href: platform/gateway.md
+        href: agents/gateway.md
       - name: Agent management
         href: agents/agent-manage.md
       - name: Agent Health
@@ -1272,7 +1272,7 @@
   - name: System Center integration
     items:
     - name: Connect Operations Manager
-      href: platform/om-agents.md
+      href: agents/om-agents.md
     - name: Assess Operations Manager
       href: insights/scom-assessment.md
     - name: Connect Configuration Manager
@@ -1434,6 +1434,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

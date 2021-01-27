@@ -44,7 +44,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
    ![Performance counters](media/diagnostics-extension-windows-install/performance-counters.png)
 
-6. In the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](log-analytics-agent.md) to collect guest logs to Azure Monitor.
+6. In the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](../agents/log-analytics-agent.md) to collect guest logs to Azure Monitor.
 
    ![Screenshot shows the Logs tab with different logs selected for a virtual machine.](media/diagnostics-extension-windows-install/logs.png)
 

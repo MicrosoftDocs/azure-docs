@@ -137,7 +137,7 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ## Linux
 
-The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
+The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
 
 ### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
 
@@ -193,7 +193,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
+The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
 
 ### <a name="mma-not-running"></a>Scenario: The Log Analytics agent for Windows isn't running
 

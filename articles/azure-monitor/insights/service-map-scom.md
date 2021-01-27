@@ -20,7 +20,7 @@ In Azure Monitor for VMs, you can view discovered application components on Wind
 
 * A System Center Operations Manager management group (2012 R2 or later).
 * A Log Analytics workspace configured to support Azure Monitor for VMs.
-* One or more Windows and Linux virtual machines or physical computers that are monitored by Operations Manager and sending data to your Log Analytics workspace. Linux servers reporting to an Operations Manager management group need to be configured to directly connect to Azure Monitor. For more information, review the overview in [Collect log data with the Log Analytics agent](../platform/log-analytics-agent.md).
+* One or more Windows and Linux virtual machines or physical computers that are monitored by Operations Manager and sending data to your Log Analytics workspace. Linux servers reporting to an Operations Manager management group need to be configured to directly connect to Azure Monitor. For more information, review the overview in [Collect log data with the Log Analytics agent](../agents/log-analytics-agent.md).
 * A service principal with access to the Azure subscription that is associated with the Log Analytics workspace. For more information, go to [Create a service principal](#create-a-service-principal).
 
 ## Install the Service Map management pack

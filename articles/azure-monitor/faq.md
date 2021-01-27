@@ -39,7 +39,7 @@ No. Azure Monitor is a scalable cloud service that processes and stores large am
 Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
 
 ### Does Azure Monitor integrate with System Center Operations Manager?
-You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md).
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
 
 ### What IP addresses does Azure Monitor use?
 See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. 
@@ -183,7 +183,7 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
+See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations

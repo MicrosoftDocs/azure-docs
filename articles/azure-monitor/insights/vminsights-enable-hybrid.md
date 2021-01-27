@@ -27,7 +27,7 @@ Virtual machines outside of Azure require the same Log Analytics agent and Depen
 See [Connect Windows computers to Azure Monitor](../agents/agent-windows.md) or [Connect Linux computers to Azure Monitor](../agents/agent-linux.md) for details on deploying the Log Analytics agent. Details for the Dependency agent are provided in this article. 
 
 ## Firewall requirements
-Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../platform/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 ## Dependency agent
