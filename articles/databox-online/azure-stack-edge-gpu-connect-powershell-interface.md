@@ -523,7 +523,7 @@ To change the memory or processor limits for Kubernetes worker node, do the foll
     [10.100.10.10]: PS>    
     ```
 
-While assigning the memory and processor, follow these guidelines.
+While changing the memory and processor usage, follow these guidelines.
 
 - Default memory is 25% of device specification.
 - Default processor count is 30% of device specification.
