@@ -2,7 +2,7 @@
 title: Tutorial - Network planning checklist
 description: Learn about the network requirement prerequisites and details on network connectivity and network ports for Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 01/27/2021
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -17,6 +17,9 @@ In this tutorial, you'll learn about:
 > * Required network ports for to communicate with the services
 > * DHCP and DNS considerations in Azure VMware Solution
 
+## Prerequisite
+Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
+
 ## Virtual network and ExpressRoute circuit considerations
 When you create a virtual network connection in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key, and a peering ID that you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
 
@@ -28,9 +31,9 @@ When deploying a private cloud, you receive IP addresses for vCenter and NSX-T M
 The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 gateway and Tier-1 gateway is pre-provisioned for you. You can create a segment and attach it to the existing Tier-1 gateway or attach it to a new Tier-1 gateway that you define. NSX-T logical networking components provide East-West connectivity between workloads and provide North-South connectivity to the internet and Azure services.
 
 ## Routing and subnet considerations
-The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing is Border Gateway Protocol (BGP) based, automatically provisioned, and enabled by default for each private cloud deployment. 
+The Azure VMware Solution private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing is Border Gateway Protocol (BGP) based, automatically provisioned, and enabled by default for each private cloud deployment. 
 
-AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. The address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks get provisioned automatically.
+Azure VMware Solution private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. The address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks get provisioned automatically.
 
 >[!NOTE]
 >Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
