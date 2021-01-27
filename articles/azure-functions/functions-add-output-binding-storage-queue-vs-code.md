@@ -144,7 +144,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
-## Update the test set
+## Update the tests
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
@@ -152,9 +152,15 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 <!--- Local testing section --->
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
+
+1. With Core Tools running, navigate to the following URL to execute a GET request, which includes `?name=Functions` query string.
+
+    `http://localhost:7071/api/HttpExample?name=Functions`
+
+1. After response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.
 
 ::: zone-end
 
@@ -165,14 +171,6 @@ After the binding is defined, you can use the `name` of the binding to access it
 ::: zone-end
 
 A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
-
-::: zone pivot="programming-language-java"  
-
-## Update the tests
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
 
 ### Connect Storage Explorer to your account
 
