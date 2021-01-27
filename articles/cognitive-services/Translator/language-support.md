@@ -3,13 +3,13 @@ title: Language support - Translator
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
@@ -85,7 +85,7 @@ Translator supports the following languages for text to text translation.
 | Pashto | `ps` |
 | Persian | `fa` |
 | Polish | `pl` |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Portuguese (Portugal) | `pt-pt` |
 | Punjabi | `pa` |
 | Queretaro Otomi | `otq` |
@@ -188,6 +188,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabic | `ar` | Arabic `Arab` | <--> | Latin `Latn` |
+| Assamese | `as` | Bengali `Beng` | <--> | Latin `Latn` |
 | Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
 |Belarusian| `be` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Bulgarian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
@@ -202,6 +203,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
 |Kazakh| `kk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Korean| `ko` | Korean `Kore`  | <--> | Latin `Latn` |
 |Kyrgyz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Macedonian| `mk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
@@ -214,6 +216,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 |Sindhi| `sd` | Arabic `Arab`  | <--> | Latin `Latn` |
+|Sinhala| `si` | Sinhala `Sinh`  | <--> | Latin `Latn` |
 |Tajik| `tg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
 |Tatar| `tt` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
@@ -334,7 +337,7 @@ The following languages are available for customization to or from English using
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |

@@ -38,24 +38,23 @@ If you're using Service Map, you can view the service desk items created in ITSM
 
 ![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## Troubleshoot ITSM connections
-
-- If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message, take the following steps:
-   - For ServiceNow, Cherwell, and Provance connections:  
-     - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
-     - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
-   - For Service Manager connections:  
-     - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
-   -  ITSMC: The solution shows a [summary of connections](itsmc-dashboard.md), work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
-   You can see details about the messages in the table - [here](itsmc-dashboard-errors.md).
-   - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
-
 ## Common Symptoms - how should it be resolved?
 
 The list below contain common symptoms and how should it be resolved:
 
+* **Symptom**: If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message.
+
+    **Cause**: the cause can be one of the options:
+    * Incorrect credentials
+     * Insufficient privileges
+     * Web app should be deployed correctly
+
+    **Resolution**:
+    * For ServiceNow, Cherwell, and Provance connections:
+        * Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
+        * For ServiceNow: Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection as [specified](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * For Service Manager connections:  
+      * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Symptom**: Duplicate work items are created
 
     **Cause**: the cause can be one of the two options:

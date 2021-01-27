@@ -17,7 +17,7 @@ ms.author: irenehua
 # How to update/delete Azure Load Balancer used by Virtual Machine Scale Sets
 
 ## How to set up Azure Load Balancer for scaling out Virtual Machine Scale Sets
-  * Make sure that the Load Balancer has [inbound NAT pool](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) set up and that the Virtual Machine Scale Set is put in the backend pool of the Load Balancer. Azure Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new Virtual Machine instances are added to the Virtual Machine Scale Set. 
+  * Make sure that the Load Balancer has [inbound NAT pool](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) set up and that the Virtual Machine Scale Set is put in the backend pool of the Load Balancer. Azure Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new Virtual Machine instances are added to the Virtual Machine Scale Set. 
   * To check whether inbound NAT pool is properly set up, 
   1. Sign in to the Azure portal at https://portal.azure.com.
   
@@ -29,7 +29,7 @@ If you see on the right pane, a list of rules created for each individual instan
 ## How to add inbound NAT rules? 
   * Individual inbound NAT rule cannot be added. However, you can add a set of inbound NAT rules with defined frontend port range and backend port for all instances in the Virtual Machine Scale Set.
   * In order to add a whole set of inbound NAT rules for the Virtual Machine Scale Sets, you need to first create an inbound NAT pool in the Load Balancer, and then reference the inbound NAT pool from the network profile of Virtual Machine Scale Set. A full example using CLI is shown below.
-  * The new inbound NAT pool should not have overlapping frontend port range with existing inbound NAT pools. To view existing inbound NAT pools set up, you can use this [CLI command](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+  * The new inbound NAT pool should not have overlapping frontend port range with existing inbound NAT pools. To view existing inbound NAT pools set up, you can use this [CLI command](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
@@ -86,7 +86,7 @@ az network lb inbound-nat-pool update
    
 1. On the **Add frontend IP address** page, type in the values and select **OK**
 
-1. Follow [Step 5](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) and [Step 6](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) in this tutorial if new load balancing rules are needed
+1. Follow [Step 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) and [Step 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) in this tutorial if new load balancing rules are needed
 
 1. Create new set of inbound NAT rules using the newly created frontend IP Configurations if needed. Example can be found here in the [previous section].
 

@@ -13,7 +13,7 @@ ms.reviewer: akjosh
 
 # Create a scale set from a specialized image using PowerShell 
 
-Create a VM from a specialized image version stored in a [Shared Image Gallery](shared-image-galleries.md) using Azure PowerShell. If want to create a scale set using a generalized image version, see [Create scale set instances from a generalized image version](instance-generalized-image-version-powershell.md).
+Create a VM from a specialized image version stored in a [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) using Azure PowerShell. If want to create a scale set using a generalized image version, see [Create scale set instances from a generalized image version](instance-generalized-image-version-powershell.md).
 
 Once you have a specialized image in your gallery, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
 
@@ -129,7 +129,7 @@ New-AzVmss `
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 ## Next steps
-[Azure Image Builder (preview)](../virtual-machines/linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
+[Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
@@ -137,5 +137,4 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../virtual-machines/troubleshooting-shared-images.md).
-
+For more information about Shared Image Galleries, see the [Overview](../virtual-machines/shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../virtual-machines/troubleshooting-shared-images.md).
