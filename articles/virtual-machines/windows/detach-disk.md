@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 
 ---
@@ -55,4 +55,6 @@ The disk stays in storage but is no longer attached to a virtual machine.
 
 ## Next steps
 
-If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md)
+If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md).
+
+If you want to delete the disk, so that you no longer incur storage costs, see [Find and delete unattached Azure managed and unmanaged disks - Azure portal](../disks-find-unattached-portal.md).
