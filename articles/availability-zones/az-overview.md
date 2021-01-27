@@ -4,7 +4,7 @@ description: Learn about regions and Availability Zones in Azure to meet your te
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ---

@@ -25,7 +25,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
