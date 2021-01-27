@@ -54,7 +54,7 @@ To set up your local environment, you'll have to clone the repository, switch to
     npm install
     ```
 
-> [!NOTE]
+> [!TIP]
 > To make sure you have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The Software Engineers use the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
 
 ## Step 2: Configure JSON files, Static website, and CORS settings
@@ -210,7 +210,7 @@ Configure the file:
 
 1. Save and close the file.
 
-1. Run the data generation script, which will upload content through the REST API:
+1. Run the data generation script to upload content through the REST API:
 
     ```sh
     cd scripts.v2
@@ -259,7 +259,7 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
 
 1. Open Windows Command Prompt or PowerShell.
 
-1. Run this Azure CLI command:
+1. Enter this Azure CLI command:
 
     ```azurecli
     az storage blob upload-batch --source dist/website --destination $web --connection-string <account-connection-string>
@@ -267,11 +267,13 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
 
 1. Replace `<account-connection-string>` with the connection string of your storage account. You can get it from the **Access keys** section of your storage account.
 
+1. Run the command.
+
 ![API Management developer portal development - publish portal](media/dev-portal/readme-dev-upload.png)
 
 ## Step 8: Go to your website
 
-Your website is now live under the hostname specified in your Azure Storage properties (*Primary endpoint* in *Static websites*).
+Your website is now live under the hostname specified in your Azure Storage properties (**Primary endpoint** in **Static websites**).
 
 ![API Management developer portal development - visit portal](media/dev-portal/readme-dev-visit.png)
 
@@ -284,7 +286,9 @@ In particular, carry out the following changes to the default templates:
 > [!NOTE]
 > The values in the **Updated** sections assume that you're hosting the portal at **https:\//portal.contoso.com/**.
 
-### Email Change Confirmation
+### Email change confirmation
+
+Update the developer portal URL in the **Email change confirmation** notification template:
 
 **Original content**
 
@@ -302,6 +306,8 @@ In particular, carry out the following changes to the default templates:
 
 ### New developer account confirmation
 
+Update the developer portal URL in the **New developer account confirmation** notification template:
+
 **Original content**
 
 ```html
@@ -318,6 +324,8 @@ In particular, carry out the following changes to the default templates:
 
 ### Invite user
 
+Update the developer portal URL in the **Invite user** notification template:
+
 **Original content**
 
 ```html
@@ -331,6 +339,8 @@ In particular, carry out the following changes to the default templates:
 ```
 
 ### New subscription activated
+
+Update the developer portal URL in the **New subscription activated** notification template:
 
 **Original content**
 
@@ -388,12 +398,15 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 **Updated**
 
 ```html
-<!--Remove corresponding content seen above: 
-    Feature your app ..., You can publish ...,
+<!--Remove the content above: 
+    Feature your app ...,
+    You can publish ...,
     Stay in touch, and so on.-->
 ```
 
 ### Password change confirmation
+
+Update the developer portal URL in the **Password change confirmation** notification template:
 
 **Original content**
 
@@ -409,7 +422,7 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 
 ### All templates
 
-For any template that has a link to the Dev Portal in the footer:
+Update the developer portal URL in any template that has a link in the footer:
 
 **Original content**
 
