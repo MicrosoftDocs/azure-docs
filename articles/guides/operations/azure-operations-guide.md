@@ -131,9 +131,9 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 ### Datacenters and regions
 
-Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
+Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a specific datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
-One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It's optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries/regions.
+One of the benefits of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can affect the performance of your application. It's optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries/regions.
 
 ### Azure portal
 
@@ -169,7 +169,7 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### Azure Cloud Shell
 
-Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal, as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## Azure subscriptions
 
@@ -183,7 +183,7 @@ Before you can work with Azure services, you need a subscription. Several subscr
 
 **MSDN subscriptions**: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
 
-If you exceed the credit amount, your service are disabled until the next month starts. You can turn off the spending limit and add a credit card to be used for the additional costs. Some of these costs are discounted for MSDN accounts. For example, you pay the Linux price for VMs running Windows Server, and there is no additional charge for Microsoft servers such as Microsoft SQL Server. This makes MSDN accounts ideal for development and test scenarios.
+If you exceed the credit amount, your service is disabled until the next month starts. You can turn off the spending limit and add a credit card to be used for the additional costs. Some of these costs are discounted for MSDN accounts. For example, you pay the Linux price for VMs running Windows Server, and there is no additional charge for Microsoft servers such as Microsoft SQL Server. This makes MSDN accounts ideal for development and test scenarios.
 
 **BizSpark accounts**: The Microsoft BizSpark program provides many benefits to startups. One of those benefits is access to all the Microsoft software for development and test environments for up to five MSDN accounts. You get $150 in Azure credit for each of those five MSDN accounts, and you pay reduced rates for several of the Azure services, such as Virtual Machines.
 
@@ -285,7 +285,7 @@ You can grant operational access to user accounts at a specified scope: subscrip
 
 To grant access, you assign a role to the user or user group. There are many predefined roles. You can also define your own custom roles.
 
-Here are a few example [built-in roles in Azure](../../role-based-access-control/built-in-roles.md):
+Here are a few examples of [built-in roles in Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Owner**: A user with this role can manage everything, including access.
 
@@ -431,7 +431,7 @@ Azure storage accounts can be accessed through many different storage explorers,
 
 #### Storage API
 
-Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management and automatic retries. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, and automatic retries. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 #### Storage access keys
 
