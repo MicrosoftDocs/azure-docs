@@ -61619,6 +61619,31 @@
       "source_path_from_root": "/articles/azure-monitor/platform/activity-log-schema.md",
       "redirect_url": "/azure/azure-monitor/essentials/activity-log-schema",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/gateway.md",
+      "redirect_url": "/azure/azure-monitor/agents/gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/log-analytics-agent.md",
+      "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/om-agents.md",
+      "redirect_url": "/azure/azure-monitor/agents/om-agents",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-agent.md",
+      "redirect_url": "/azure/azure-monitor/agents/resource-manager-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-data-collection-rules.md",
+      "redirect_url": "/azure/azure-monitor/agents/resource-manager-data-collection-rules",
+      "redirect_document_id": false
     }
   ]
 }

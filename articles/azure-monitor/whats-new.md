@@ -78,7 +78,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Updated for Azure Arc support.
 - [Install the Azure Monitor agent](agents/azure-monitor-agent-install.md) - New article.
 - [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md) - Updated for Azure Arc support.
-- [Resource Manager template samples for agents](samples/resource-manager-agent.md) - Updated for Azure Arc support.
+- [Resource Manager template samples for agents](agents/resource-manager-agent.md) - Updated for Azure Arc support.
 
 ### Alerts
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added source IP addresses for webhooks.
@@ -95,7 +95,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
 - [Data Collection Rules in Azure Monitor (preview)](agents/data-collection-rule-overview.md) - Updated for Azure Arc support.
-- [Resource Manager template samples for data collection rules](samples/resource-manager-data-collection-rules.md) - New article.
+- [Resource Manager template samples for data collection rules](agents/resource-manager-data-collection-rules.md) - New article.
 
 ### Insights and solutions
 - [Connect Azure to ITSM tools by using Secure Export](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on connecting to ServiceNow.
@@ -272,7 +272,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
 - [Install Log Analytics agent on Linux computers](agents/agent-linux.md)
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
-- [Log Analytics agent overview](platform/log-analytics-agent.md)
+- [Log Analytics agent overview](agents/log-analytics-agent.md)
 
 ### Application Insights
 - [Azure Application Insights for JavaScript web apps](app/javascript.md) - Added section clarifying client server correlation and configuration for CORS correlation.
@@ -384,7 +384,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Updated billingtype property. Added PowerShell commands.
 
 ### Agents
-- [Log Analytics agent overview](platform/log-analytics-agent.md) - Added Python 2 requirement.
+- [Log Analytics agent overview](agents/log-analytics-agent.md) - Added Python 2 requirement.
 
 ### Alerts
 - [How to update alert rules or action rules when their target resource moves to a different Azure region](platform/alerts-resource-move.md) - New article.
@@ -472,7 +472,7 @@ New and updated articles from restructure and consolidation of platform log cont
 #### New Resource Manager template samples 
 - [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md)
 - [Resource Manager template samples for action groups](samples/resource-manager-action-groups.md)
-- [Resource Manager template samples for agents](samples/resource-manager-agent.md)
+- [Resource Manager template samples for agents](agents/resource-manager-agent.md)
 - [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)
 - [Resource Manager template samples for Azure Monitor for VMs](samples/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md)
@@ -484,7 +484,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Agents
 - [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
-- [Log Analytics agent overview](platform/log-analytics-agent.md) - Added supported Linux versions.
+- [Log Analytics agent overview](agents/log-analytics-agent.md) - Added supported Linux versions.
 
 ### Application Insights
 
@@ -726,7 +726,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Agents
 
-- [Collect log data with Azure Log Analytics agent](platform/log-analytics-agent.md) - Updated network firewall requirements table.
+- [Collect log data with Azure Log Analytics agent](agents/log-analytics-agent.md) - Updated network firewall requirements table.
 
 ### Alerts
 

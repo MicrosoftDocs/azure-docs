@@ -70,7 +70,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../agents/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../agents/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 ### Where to install the agents 
 

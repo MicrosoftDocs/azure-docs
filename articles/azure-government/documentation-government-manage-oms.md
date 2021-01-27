@@ -55,7 +55,7 @@ Azure Monitor logs also supports collecting logging information from other monit
 ![Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3b.png)
 <p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension</p>
 
-Information about setting up Azure Monitor logs with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
+Information about setting up Azure Monitor logs with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/agents/om-agents.md).
 
 ## Applying intelligence through management solutions
 Now that you have various sources for logging data, you have to make sense of all this data.

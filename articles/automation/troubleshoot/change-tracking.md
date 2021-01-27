@@ -91,7 +91,7 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md).
+If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md).
 
 If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 

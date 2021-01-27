@@ -140,6 +140,6 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
 * [Learn more about Log Analytics agent](../platform/log-analytics-agent.md).
 * [Learn more about diagnostic extension](../platform/diagnostics-extension-overview.md).

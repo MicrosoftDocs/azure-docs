@@ -803,6 +803,6 @@ The following sample enables and configures the diagnostic extension on a Linux 
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
 * [Learn more about Log Analytics agent](../platform/log-analytics-agent.md).
 * [Learn more about diagnostic extension](../platform/diagnostics-extension-overview.md).

@@ -116,7 +116,7 @@ After you've installed Docker, use the following settings for your container hos
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](../platform/log-analytics-agent.md).
+- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](../agents/log-analytics-agent.md).
 
 **For all Linux container hosts including CoreOS:**
 

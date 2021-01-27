@@ -34,7 +34,7 @@ Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Mon
 
 - [How to set up Private Link for Azure Monitor](platform/private-link-security.md)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md)
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](agents/gateway.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -47,9 +47,9 @@ Azure Monitor is a core service and does not support deploying directly into a v
 
 When using Azure Monitor with Private Link, you get access to network logging such as 'Data processed by the Private Endpoint (IN/OUT)'.
 
-- [Network requirements for Azure Monitor agents](platform/log-analytics-agent.md#network-requirements)
+- [Network requirements for Azure Monitor agents](agents/log-analytics-agent.md#network-requirements)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md)
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](agents/gateway.md)
 
 - [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -75,9 +75,9 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 **Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately. Azure Monitor components, including the Azure Monitor Agent, and Application Insights SDK may be deployed with your resources, and this may impact the security posture of those resources.
 
-- [Network requirements for Azure Monitor agents](platform/log-analytics-agent.md#network-requirements)
+- [Network requirements for Azure Monitor agents](agents/log-analytics-agent.md#network-requirements)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md) 
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](agents/gateway.md) 
 
 - [See getting started with Application Insights](./app/app-insights-overview.md#get-started)
 

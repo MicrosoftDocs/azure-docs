@@ -98,7 +98,7 @@ This solution analyzes NSG Flow logs and provides insights into the following.
 You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting September 5, the Network Security Group Analytics solution will be removed from the marketplace and made available through the community as a [Azure QuickStart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## System Center Operations Manager
-If you've [connected your Operations Manager management group to Log Analytics](om-agents.md), then it will continue to work with no changes. For new connections though, you must follow the guidance in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog).
+If you've [connected your Operations Manager management group to Log Analytics](../agents/om-agents.md), then it will continue to work with no changes. For new connections though, you must follow the guidance in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog).
 
 ## Next steps
 - See [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../overview.md) for guidance on moving from the OMS portal to the Azure portal.

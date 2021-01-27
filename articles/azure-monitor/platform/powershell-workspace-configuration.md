@@ -40,7 +40,7 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku
 
 ## Create workspace and configure data sources
 
-The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](log-analytics-agent.md).
+The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md).
 
 This script performs the following functions:
 

@@ -39,7 +39,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 ## What is the Log Analytics agent?
 
-To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
 
 The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
 
@@ -263,7 +263,7 @@ When Security Center detects suspicious activity on the VM, the customer is noti
 ## Will Security Center work using an OMS gateway?
 
 Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent.
-To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
+To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/agents/gateway.md).
 
 
 ## Does the Monitoring Agent impact the performance of my servers?

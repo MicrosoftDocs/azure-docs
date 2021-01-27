@@ -28,7 +28,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 - [Filer network traffic with a network security group](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md) 
 
@@ -44,7 +44,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -68,7 +68,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md) 
 

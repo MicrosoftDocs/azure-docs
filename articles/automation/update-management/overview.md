@@ -24,7 +24,7 @@ Before deploying Update Management and enabling your machines for management, ma
 
 Machines that are managed by Update Management rely on the following to perform assessment and to deploy updates:
 
-* [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux
+* [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux
 * Automation Hybrid Runbook Worker (automatically installed when you enable Update Management on the machine)
 * Microsoft Update or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) for Windows machines
@@ -141,7 +141,7 @@ You can add the Windows machine to a user Hybrid Runbook Worker group in your Au
 
 ### Management packs
 
-If your Operations Manager management group is [connected to a Log Analytics workspace](../../azure-monitor/platform/om-agents.md), the following management packs are installed in Operations Manager. These management packs are also installed for Update Management on directly connected Windows machines. You don't need to configure or manage these management packs.
+If your Operations Manager management group is [connected to a Log Analytics workspace](../../azure-monitor/agents/om-agents.md), the following management packs are installed in Operations Manager. These management packs are also installed for Update Management on directly connected Windows machines. You don't need to configure or manage these management packs.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -150,7 +150,7 @@ If your Operations Manager management group is [connected to a Log Analytics wor
 > [!NOTE]
 > If you have an Operations Manager 1807 or 2019 management group connected to a Log Analytics workspace with agents configured in the management group to collect log data, you need to override the parameter `IsAutoRegistrationEnabled` and set it to True in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
 
-For more information about updates to management packs, see [Connect Operations Manager to Azure Monitor logs](../../azure-monitor/platform/om-agents.md).
+For more information about updates to management packs, see [Connect Operations Manager to Azure Monitor logs](../../azure-monitor/agents/om-agents.md).
 
 > [!NOTE]
 > For Update Management to fully manage machines with the Log Analytics agent, you must update to the Log Analytics agent for Windows or the Log Analytics agent for Linux. To learn how to update the agent, see [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents). In environments that use Operations Manager, you must be running System Center Operations Manager 2012 R2 UR 14 or later.
@@ -196,7 +196,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../.
 
 For more information about ports required for the Hybrid Runbook Worker, see [Update Management addresses for Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
+If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
 ## Update classifications
 
