@@ -3,7 +3,7 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/18/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ---
 ## Configure the relying party policy
@@ -27,11 +27,5 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the **Ref
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
-## Test your custom policy
 
-1. Select your relying party policy, for example `B2C_1A_signup_signin`
-1. For **Application**, select a web application that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Select the **Run now** button.
-
-If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 

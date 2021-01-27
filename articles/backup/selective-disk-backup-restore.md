@@ -332,4 +332,4 @@ Selective disk backup feature is a capability provided on top of the Azure virtu
 ## Next steps
 
 - [Support matrix for Azure VM backup](backup-support-matrix-iaas.md)
-- [Frequently asked questions-Back up Azure VMs](backup-azure-vm-backup-faq.md)
+- [Frequently asked questions-Back up Azure VMs](backup-azure-vm-backup-faq.yml)

@@ -20,8 +20,3 @@ Form Recognizer works on input documents that meet these requirements:
 * Text must use the Latin alphabet (English characters).
 * For unsupervised learning (without labeled data), data must contain keys and values.
 * For unsupervised learning (without labeled data), keys must appear above or to the left of the values; they can't appear below or to the right.
-
-Form Recognizer doesn't currently support these types of input data:
-
-* Complex tables (nested tables, merged headers or cells, and so on).
-* Checkboxes or radio buttons.
