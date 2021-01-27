@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Tutorial: Develop a sample SCIM endpoint
 
-No one wants to build a new endpoint from scratch, so we've created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [SCIM](https://aka.ms/scimoverview). This tutorial describes how to deploy the SCIM reference code in Azure and test it using postman or by integrating with the Azure AD SCIM client. You can get your SCIM endpoint up and running with no code in just 5 minutes. This tutorial is intended for developers who are looking to get started with SCIM or others interested in testing out a SICM endpoint. 
+No one wants to build a new endpoint from scratch, so we've created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [SCIM](https://aka.ms/scimoverview). This tutorial describes how to deploy the SCIM reference code in Azure and test it using Postman or by integrating with the Azure AD SCIM client. You can get your SCIM endpoint up and running with no code in just 5 minutes. This tutorial is intended for developers who are looking to get started with SCIM or others interested in testing out a SICM endpoint. 
 
 In this tutorial, learn how to:
 
@@ -25,7 +25,7 @@ In this tutorial, learn how to:
 
 ## Deploy your SCIM endpoint in Azure
 
-The steps provided here deploy the SCIM endpoint to a service using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Services](https://docs.microsoft.com/azure/app-service/). The SCIM reference code can also be run locally, hosted by a on-premises server, or deployed to another external service. 
+The steps provided here deploy the SCIM endpoint to a service using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Services](https://docs.microsoft.com/azure/app-service/). The SCIM reference code can also be run locally, hosted by an on-premises server, or deployed to another external service. 
 
 ### Open solution and deploy to Azure App Service
 
@@ -62,14 +62,14 @@ That's it! Your SCIM endpoint is now published and allows you to use the Azure A
 
 ## Test your SCIM endpoint
 
-The requests to a SCIM endpoint requires authorization and the SCIM standard leaves multiple options for authentication and authorization, such as cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
+The requests to a SCIM endpoint require authorization and the SCIM standard leaves multiple options for authentication and authorization, such as cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
 
 Be sure to avoid insecure methods, such as username/password, in favor of a more secure method such as OAuth. Azure AD supports long-lived bearer tokens (for gallery and non-gallery applications) and the OAuth authorization grant (for applications published in the app gallery).
 
 > [!NOTE]
 > The authorization methods provided in the repo are for testing only. When integrating with Azure AD, you can review the authorization guidance, see [Plan provisioning for a SCIM endpoint](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery). 
 
-The development environment enables features unsafe for production, such as reference code to control the behavior of the security token validation. The token validation code is configured to use a self signed security token and the signing key is stored in the configuration file, see the **Token:IssuerSigningKey** parameter in the *appsettings.Development.json* file.
+The development environment enables features unsafe for production, such as reference code to control the behavior of the security token validation. The token validation code is configured to use a self-signed security token and the signing key is stored in the configuration file, see the **Token:IssuerSigningKey** parameter in the *appsettings.Development.json* file.
 
 ```json
 "Token": {
@@ -94,7 +94,7 @@ The default token validation code is configured to use a token issued by Azure A
 
 ### Use Postman to test endpoints
 
-After the SCIM endpoint is deployed, you can test to ensure it's SCIM RFC compliant. This example provides a set of tests in **Postman** to validate CRUD operations on users and groups, filtering, updates to group membership, and disabling users.
+After the SCIM endpoint is deployed, you can test to ensure its SCIM RFC compliant. This example provides a set of tests in **Postman** to validate CRUD operations on users and groups, filtering, updates to group membership, and disabling users.
 
 The endpoints are located in the `{host}/scim/` directory and can be interacted with using standard HTTP requests. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
@@ -136,7 +136,7 @@ That's it! You can now run the **Postman** collection to test the SCIM endpoint 
 
 ## Next Steps
 
-To develop a SCIM compliant user and group endpoint with interoperability for a client, see the [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
+To develop a SCIM-compliant user and group endpoint with interoperability for a client, see the [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)
