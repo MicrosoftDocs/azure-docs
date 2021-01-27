@@ -11,11 +11,13 @@ manager: gwallace
 ---
 # Use a custom NuGet feed with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces needs to access this feed in order for dependencies to be properly installed in the Docker container.
 
 ## Set up a NuGet feed
 
-Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) for your dependency in the `*.csproj` file under the `PackageReference` node. For example:
+Add a [package reference](/nuget/consume-packages/package-references-in-project-files) for your dependency in the `*.csproj` file under the `PackageReference` node. For example:
 
 ```xml
 <ItemGroup>
@@ -25,7 +27,7 @@ Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/pack
 </ItemGroup>
 ```
 
-Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
+Create a [NuGet.Config](/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
 
 ```xml
 <packageSources>
@@ -65,4 +67,4 @@ The next time you run `azds up` or hit `F5` in Visual Studio Code or Visual Stud
 
 ## Next steps
 
-Learn more about [NuGet and how it works](https://docs.microsoft.com/nuget/what-is-nuget).
+Learn more about [NuGet and how it works](/nuget/what-is-nuget).

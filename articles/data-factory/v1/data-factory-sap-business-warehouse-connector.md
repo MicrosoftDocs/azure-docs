@@ -241,7 +241,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<MDX query for SAP BW>"
+                        "query": "<MDX query for SAP BW>"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -275,8 +275,6 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     }
 }
 ```
-
-
 
 ### Type mapping for SAP BW
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:

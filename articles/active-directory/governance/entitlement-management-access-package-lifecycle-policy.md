@@ -1,24 +1,24 @@
 ---
 title: Change lifecycle settings for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change lifecycle settings for an access package in Azure Active Directory entitlement management.
+description: Learn how to change requestor information & lifecycle settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
+#Customer intent: As an administrator, I want detailed information about how I can edit an access package to include requestor infromation to screen requestors and get requestors the resources they need to perform their job.
 
 ---
 # Change lifecycle settings for an access package in Azure AD entitlement management
@@ -26,6 +26,9 @@ ms.collection: M365-identity-device-management
 As an access package manager, you can change the lifecycle settings for an access package at any time by editing an existing policy. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
 
 This article describes how to change the lifecycle settings for an existing access package.
+
+## Open requestor information
+To ensure users have the right access to an access package, custom questions can be configured to ask users requesting access to certain access packages. Configuration options include: localization, required/optional, and text/multiple choice answer formats. Requestors  will see the questions when they request the package and approvers see the answers to the questions to help them make their decision. Use the following steps to configure questions in an access package:
 
 ## Open lifecycle settings
 

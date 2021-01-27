@@ -9,7 +9,7 @@ ms.date: 05/12/2020
 
 In this overview of the core components of the Azure Batch service, we discuss the high-level workflow that Batch developers can use to build large-scale parallel compute solutions, along with the primary service resources that are used.
 
-Whether you're developing a distributed computational application or service that issues direct [REST API](https://docs.microsoft.com/rest/api/batchservice/) calls or you're using another one of the [Batch SDKs](batch-apis-tools.md#batch-service-apis), you'll use many of the resources and features discussed here.
+Whether you're developing a distributed computational application or service that issues direct [REST API](/rest/api/batchservice/) calls or you're using another one of the [Batch SDKs](batch-apis-tools.md#batch-service-apis), you'll use many of the resources and features discussed here.
 
 > [!TIP]
 > For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md). Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
@@ -42,4 +42,4 @@ The following topics discuss the resources of Batch that enable your distributed
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 - Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 - Download and install [Batch Explorer](https://azure.github.io/BatchExplorer/) for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications.
-- See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum](https://docs.microsoft.com/answers/topics/azure-batch.html).
+- See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum](/answers/topics/azure-batch.html).

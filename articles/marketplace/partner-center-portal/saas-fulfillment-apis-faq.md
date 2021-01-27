@@ -1,12 +1,12 @@
 ---
 title: SaaS fulfillment API FAQ - Microsoft commercial marketplace
 description: Learn about several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.
-author: dsindona
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Common questions about SaaS fulfillment APIs
@@ -41,7 +41,7 @@ When the Azure user is redirected to the landing page, a token is added to the q
 
 ![Customer subscription flow](media/saas-metering-service-integration-flow-a.png)
 
-For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-api-v2.md).
 
 ### How do you know the SaaS offer to which the user subscribes in Azure?
 
@@ -58,13 +58,13 @@ The response to the `Resolve` API includes the offer and plan information associ
 >[!Note]
 >You can block downgrades if you do not want to support specific conversion paths.
 
-The sequence below captures the flow when an Azure customer changes plan in the SaaS experience:
+The sequence below captures the flow when an Azure customer changes a plan in the SaaS experience:
 
 ![Customer plan change flow](media/saas-metering-service-integration-flow-b.png)
 
-The sequence below captures the flow when an Azure customer changes plan in Microsoft's storefront
+The sequence below captures the flow when an Azure customer changes a plan in Microsoft's online store:
 
-![Customer storefront plan change flow](media/saas-metering-service-integration-flow-c.png)
+![Customer online store plan change flow](media/saas-metering-service-integration-flow-c.png)
 
 ### How can the Azure user unsubscribe from the plan associated with Azure subscription?
 
@@ -74,9 +74,9 @@ The sequence below captures the flow when an Azure customer unsubscribes to the 
 
 ![Customer unsubscribes in the SaaS experience](media/saas-metering-service-integration-flow-d.png)
 
-The sequence below captures the flow when Azure user unsubscribes in Microsoft's storefront:
+The sequence below captures the flow when Azure user unsubscribes in Microsoft's online store:
 
-![Customer unsubscribes in Microsoft's storefront](media/saas-metering-service-integration-flow-e.png)
+![Customer unsubscribes in Microsoft's online store](media/saas-metering-service-integration-flow-e.png)
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Configure Postman for Azure Media Services v3 REST API calls
 description: This article shows you how to configure Postman so it can be used to call Azure Media Services (AMS) REST APIs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,12 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/05/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 # Configure Postman for Media Services v3 REST API calls
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to configure **Postman** so it can be used to call Azure Media Services (AMS) REST APIs. The article shows how to import environment and collection files into **Postman**. The collection contains grouped definitions of HTTP requests that call Azure Media Services (AMS) REST APIs. The environment file contains variables that are used by the collection.
 
@@ -24,8 +26,8 @@ Before you start developing, review [Developing with Media Services v3 APIs](med
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
-- Get information needed to [access APIs](access-api-cli-how-to.md)
+- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
+- Get information needed to [access APIs](./access-api-howto.md)
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
@@ -95,7 +97,6 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 
 ## See also
 
-- [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
 - [Create filters with Media Services - REST](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 

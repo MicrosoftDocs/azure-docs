@@ -89,7 +89,7 @@ To request a quota increase, go to the portal and file a support issue. In the s
 
 1. Select **Subscriptions**.
 
-   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
+   ![Screen capture shows the Azure Portal menu with Subscriptions selected.](./media/error-resource-quota/subscriptions.png)
 
 2. Select the subscription that needs an increased quota.
 

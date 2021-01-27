@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub bindings for Azure Functions
+title: Azure IoT Hub trigger for Azure Functions
 description: Learn to respond to events sent to an IoT hub event stream in Azure Functions.
 author: craigshoemaker
 ms.topic: reference

@@ -11,8 +11,8 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
-+ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
++ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + The Azure Functions Core Tools version that corresponds to your installed Python version:
@@ -33,15 +33,14 @@ Before you begin, you must have the following:
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)
++ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. 
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
-> [!IMPORTANT]
-> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
+::: zone-end
+::: zone pivot="programming-language-other"
++ Development tools for the language you are using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end

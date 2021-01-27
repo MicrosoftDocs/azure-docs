@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ---
@@ -70,7 +70,7 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
-    ![Manage support requests](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
+    ![Manage support requests 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Select and click a support request. You can view the status and the details for this request. Click **+ New message** if you want to follow up on this request.
 

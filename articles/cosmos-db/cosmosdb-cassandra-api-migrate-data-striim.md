@@ -3,13 +3,15 @@ title: Migrate data to Azure Cosmos DB Cassandra API account using Striim
 description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB Cassandra API account. 
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.subservice: cosmosdb-cassandra
+ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ---
 
 # Migrate data to Azure Cosmos DB Cassandra API account using Striim
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB Cassandra API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
@@ -17,7 +19,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Prerequisites
 
-* If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * An Oracle database running on-premises with some data in it.
 
@@ -27,11 +29,11 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 1. Select **Create a resource** and search for **Striim** in the Azure marketplace. Select the first option and **Create**.
 
-   ![Find Striim marketplace item](./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Find Striim marketplace item":::
 
 1. Next, enter the configuration properties of the Striim instance. The Striim environment is deployed in a virtual machine. From the **Basics** pane, enter the **VM user name**, **VM password** (this password is used to SSH into the VM). Select your **Subscription**, **Resource Group**, and **Location details** where you’d like to deploy Striim. Once complete, select **OK**.
 
-   ![Configure basic settings for Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configure basic settings for Striim":::
 
 
 1. In the **Striim Cluster settings** pane, choose the type of Striim deployment and the virtual machine size.
@@ -46,7 +48,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 1. In the **Striim access settings** pane, configure the **Public IP address** (choose the default values), **Domain name for Striim**, **Admin password** that you’d like to use to login to the Striim UI. Configure a VNET and Subnet (choose the default values). After filling in the details, select **OK** to continue.
 
-   ![Striim access settings](./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim access settings":::
 
 1. Azure will validate the deployment and make sure everything looks good; validation takes few minutes to complete. After the validation is completed, select **OK**.
   
@@ -66,7 +68,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Table** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new Keyspace named **StriimDemo** with an Orders container. Provision the container with **1000 RUs**(this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the primary key. These values will differ depending on your source data. 
 
-   ![Create Cassandra API account](./media/cosmosdb-cassandra-api-migrate-data-striim/create-cassandra-api-account.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-cassandra-api-account.png" alt-text="Create Cassandra API account":::
 
 ## Configure Oracle to Azure Cosmos DB data flow
 
@@ -74,11 +76,11 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 1. Navigate to the Striim instance that you deployed in the Azure portal. Select the **Connect** button in the upper menu bar and from the **SSH** tab, copy the URL in **Login using VM local account** field.
 
-   ![Get the SSH URL](./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Get the SSH URL":::
 
 1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
 
-   ![Connect to Striim VM](./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Connect to Striim VM":::
 
 1. Now, open a new terminal tab to copy the **ojdbc8.jar** file you downloaded previously. Use the following SCP command to copy the jar file from your local machine to the tmp folder of the Striim instance running in Azure:
 
@@ -87,7 +89,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
    scp ojdbc8.jar striimdemo@striimdemo.westus.cloudapp.azure.com:/tmp
    ```
 
-   ![Copy the Jar file from location machine to Striim](./media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Copy the Jar file from location machine to Striim":::
 
 1. Next, navigate back to the window where you did SSH to the Striim instance and Login as sudo. Move the **ojdbc8.jar** file from the **/tmp** directory into the **lib** directory of your Striim instance with the following commands:
 
@@ -98,7 +100,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
    chmod +x ojdbc8.jar
    ```
 
-   ![Move the Jar file to lib folder](./media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Move the Jar file to lib folder":::
 
 
 1. From the same terminal window, restart the Striim server by executing the following commands:
@@ -118,37 +120,37 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 1. Now, navigate back to Azure and copy the Public IP address of your Striim VM. 
 
-   ![Copy Striim VM IP address](./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copy Striim VM IP address":::
 
 1. To navigate to the Striim’s Web UI, open a new tab in a browser and copy the public IP followed by: 9080. Sign in by using the **admin** username, along with the admin password you specified in the Azure portal.
 
-   ![Sign in to Striim](./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Sign in to Striim":::
 
 1. Now you’ll arrive at Striim’s home page. There are three different panes – **Dashboards**, **Apps**, and **SourcePreview**. The Dashboards pane allows you to move data in real time and visualize it. The Apps pane contains your streaming data pipelines, or data flows. On the right hand of the page is SourcePreview where you can preview your data before moving it.
 
 1. Select the **Apps** pane, we’ll focus on this pane for now. There are a variety of sample apps that you can use to learn about Striim, however in this article you will create our own. Select the **Add App** button in the top right-hand corner.
 
-   ![Add the Striim app](./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png)
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Add the Striim app":::
 
 1. There are a few different ways to create Striim applications. Select **Start from Scratch** for this scenario.
 
-   ![Start the app from scratch](./media/cosmosdb-cassandra-api-migrate-data-striim/start-app-from-scratch.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-app-from-scratch.png" alt-text="Start the app from scratch":::
 
 1. Give a friendly name for your application, something like **oraToCosmosDB** and select **Save**.
 
-   ![Create a new application](./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="Create a new application":::
 
 1. You’ll arrive at the Flow Designer, where you can drag and drop out of the box connectors to create your streaming applications. Type **Oracle** in the search bar, drag and drop the **Oracle CDC** source onto the app canvas.  
 
-   ![Oracle CDC source](./media/cosmosdb-cassandra-api-migrate-data-striim/oracle-cdc-source.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/oracle-cdc-source.png" alt-text="Oracle CDC source":::
 
 1. Enter the source configuration properties of your Oracle instance. The source name is just a naming convention for the Striim application, you can use a name such as  **src_onPremOracle**. Also enter other details like Adapter type, connection URL, username, password, table name. Select **Save** to continue.
 
-   ![Configure source parameters](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-source-parameters.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configure source parameters":::
 
 1. Now, click the wave icon of the stream to connect the target Azure Cosmos DB instance. 
 
-   ![Connect to target](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png" alt-text="Connect to target":::
 
 1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
@@ -164,24 +166,24 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    * **Tables** - Target tables must have primary keys and primary keys can not be updated.
 
-   ![Configure target properties](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png" alt-text="Screenshot that shows the configurable target properties.":::
 
-   ![Configure target properties](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png" alt-text="Configure target properties":::
 
 1. Now, we’ll go ahead and run the Striim application. In the upper menu bar select **Created**, and then **Deploy App**. In the deployment window you can specify if you want to run certain parts of your application on specific parts of your deployment topology. Since we’re running in a simple deployment topology through Azure, we’ll use the default option.
 
-   ![Deploy the app](./media/cosmosdb-cassandra-api-migrate-data-striim/deploy-the-app.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/deploy-the-app.png" alt-text="Deploy the app":::
 
 
 1. Now, we’ll go ahead and preview the stream to see data flowing through the Striim. Click the wave icon and click the eye icon next to it. After deploying, you can preview the stream to see data flowing through. Select the **wave** icon and the **eyeball** next to it. Select the **Deployed** button in the top menu bar, and select **Start App**.
 
-   ![Start the app](./media/cosmosdb-cassandra-api-migrate-data-striim/start-the-app.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-the-app.png" alt-text="Start the app":::
 
 1. By using a **CDC(Change Data Capture)** reader, Striim will pick up only new changes on the database. If you have data flowing through your source tables, you’ll see it. However, since this is a sample table, the source that isn’t connected to any application. If you use a sample data generator, you can insert a chain of events into your Oracle database.
 
 1. You’ll see data flowing through the Striim platform. Striim picks up all the metadata associated with your table as well, which is helpful to monitor the data and make sure that the data lands on the right target.
 
-   ![Set up the CDC pipeline](./media/cosmosdb-cassandra-api-migrate-data-striim/setup-cdc-pipeline.png)
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/setup-cdc-pipeline.png" alt-text="Set up the CDC pipeline":::
 
 1. Finally, let’s sign into Azure and navigate to your Azure Cosmos account. Refresh the Data Explorer, and you can see that data has arrived. 
 

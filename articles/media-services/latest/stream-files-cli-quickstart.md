@@ -1,22 +1,24 @@
 ---
 title: Stream video files with Azure Media Services and the Azure CLI
-description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+description: Follow the steps of this tutorial to use Azure CLI to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: azure media services, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: 
-ms.date: 08/19/2019
-ms.author: juliako
+ms.custom: devx-track-azurecli
+ms.date: 08/31/2020
+ms.author: inhenkel
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
 # Tutorial: Encode a remote file based on URL and stream the video - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This tutorial shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 

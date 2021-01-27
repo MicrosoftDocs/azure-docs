@@ -12,17 +12,17 @@
 1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Connectivity** section, select **Hubs**.
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
 
-    ![Basics](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
+    ![Screenshot shows the Create virtual hub pane with the Basics tab selected.](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
 3. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
     **Project details**
 
    * Region (previously referred to as Location)
    * Name
-   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation.
+   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation. Azure Virtual WAN being a managed service by Microsoft creates the appropriate subnets in the virtual hub for the different gateways/services (e.g VPN Gateways, ExpressRoute Gateways, User VPN/Point-to-site Gateways, Firewall, Routing etc.). There is no need for the user to explicitly plan for subnet address space for the services in the Virtual Hub as Microsoft does this as a part of the service.
 4. Select **Next: Site-to-site**.
 
-    ![Site-to-site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site-to-site")
+    ![Screenshot shows the Create virtual hub pane with Site to site selected.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site-to-site")
 
 5. On the **Site-to-site** tab, complete the following fields:
 

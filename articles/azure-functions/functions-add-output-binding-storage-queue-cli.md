@@ -3,16 +3,34 @@ title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project. 
 ms.date: 02/07/2020
 ms.topic: quickstart
+ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Connect Azure Functions to Azure Storage using command line tools
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in [the previous quickstart](functions-create-first-azure-function-azure-cli.md). You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Configure your local environment
 
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](functions-create-first-azure-function-azure-cli.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+::: zone pivot="programming-language-csharp"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
+::: zone pivot="programming-language-java"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-typescript.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
+::: zone pivot="programming-language-python"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-powershell.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -123,33 +141,41 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 + [Work with Azure Functions Core Tools](functions-run-local.md)  
 
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+
 ::: zone pivot="programming-language-csharp"  
 + [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
 
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-cli-csharp.md
+
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
 + [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
 + [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
 
 + [Azure Functions Python developer guide](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-cli-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
 
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-cli-powershell.md
 ::: zone-end
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-
-+ [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
-
-+ [Estimating Consumption plan costs](functions-consumption-costs.md) 

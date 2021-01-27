@@ -1,29 +1,37 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions| Microsoft Docs
+title: Azure Media Services v3 frequently asked questions
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Media Services v3 frequently asked questions
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article gives answers to frequently asked questions about Azure Media Services v3.
 
 ## General
 
+### What are the Azure portal limitations for Media Services v3?
+
+You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
+If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.  
+
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
-See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
+See [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
 
 ### How do I stream to Apple iOS devices?
 
@@ -37,7 +45,7 @@ For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended method to process videos?
 
-Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
 ### I uploaded, encoded, and published a video. Why won't the video play when I try to stream it?
 
@@ -49,7 +57,7 @@ When you're using pagination, you should always use the next link to enumerate t
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [Feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [the Migration Guide](migrate-v-2-v-3-migration-introduction.md).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
@@ -150,19 +158,19 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
 * Manage [Live Events](live-events-outputs-concept.md) in Media Services v3. 
 * View (not manage) v3 [assets](assets-concept.md). 
-* [Get info about accessing APIs](access-api-portal.md). 
+* [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](https://docs.microsoft.com/rest/api/media/), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
 The `AssetFile` concept was removed from the Media Services API to separate Media Services from Storage SDK dependency. Now Azure Storage, not Media Services, keeps the information that belongs in the Storage SDK. 
 
-For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+For more information, see [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### Where did client-side storage encryption go?
 
-We now recommend that you use server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+We now recommend that you use server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
 ## Offline streaming
 

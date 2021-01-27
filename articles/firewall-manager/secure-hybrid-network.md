@@ -1,21 +1,19 @@
 ---
-title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager preview'
+title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager'
 description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your hub virtual network using Azure Firewall Manager preview 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# Tutorial: Secure your hub virtual network using Azure Firewall Manager
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
-Using Azure Firewall Manager Preview, you can create a hub virtual network to secure your hybrid network traffic destined to private IP addresses, Azure PaaS, and the Internet. You can use Azure Firewall Manager to control network access in a hybrid network using policies that define allowed and denied network traffic.
+Using Azure Firewall Manager, you can create a hub virtual network to secure your hybrid network traffic destined to private IP addresses, Azure PaaS, and the Internet. You can use Azure Firewall Manager to control network access in a hybrid network using policies that define allowed and denied network traffic.
 
 Firewall Manager also supports a secured virtual hub architecture. For a comparison of the secured virtual hub and hub virtual network architecture types, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
@@ -104,7 +102,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create the firewall hub virtual network
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
@@ -440,4 +438,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Secure your virtual WAN using Azure Firewall Manager preview](secure-cloud-network.md)
+> [Tutorial: Secure your virtual WAN using Azure Firewall Manager](secure-cloud-network.md)

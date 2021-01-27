@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BenSelect | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BenSelect.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with BenSelect
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate BenSelect with Azure Active Dire
 * Enable your users to be automatically signed-in to BenSelect with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -92,15 +85,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. BenSelect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with default attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
 
 1. Click on the **Edit** icon to edit the **Name identifier value**.
 
-	![image](media/benselect-tutorial/mail-prefix1.png)
+	![Screenshot shows the User Attributes & Claims pane with the Edit icon called out.](media/benselect-tutorial/mail-prefix1.png)
 
 1. On the **Manage user claims** section, perform the following steps:
 
-	![image](media/benselect-tutorial/mail-prefix2.png)
+	![Screenshot shows Manage user claims where you can enter the values described in this step.](media/benselect-tutorial/mail-prefix2.png)
 
 	a. Select **Transformation** as a **Source**.
 
@@ -163,15 +156,14 @@ In this section, you create a user called Britta Simon in BenSelect. Work with 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the BenSelect tile in the Access Panel, you should be automatically signed in to the BenSelect for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the BenSelect tile in the Access Panel, you should be automatically signed in to the BenSelect for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try BenSelect with Azure AD](https://aad.portal.azure.com/)
-

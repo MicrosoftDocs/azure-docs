@@ -2,18 +2,19 @@
 title: Request a quota increase
 description: This page describes how to create a support request to increase the quotas for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.topic: conceptual
+ms.service: sql-db-mi
+ms.subservice: service
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
+ms.date: 06/04/2020
 ---
 
 # Request quota increases for Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region.
+This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region and how to request enabling specific hardware in a region.
 
 ## <a id="newquota"></a> Create a new support request
 
@@ -44,19 +45,19 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![Select a quota type](./media/quota-increase-request/select-quota-type.png)
 
-1. In the **Details** window, select **Provide details** to enter additional information.
+1. In the **Details** window, select **Enter details** to enter additional information.
 
-   ![The "Provide details" link](./media/quota-increase-request/provide-details-link.png)
+   ![Enter details link](./media/quota-increase-request/provide-details-link.png)
 
-Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
+Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
 
 ## <a id="sqldbquota"></a> SQL Database quota types
 
-The following sections describe three quota increase options for the **SQL Database** quota types:
+The following sections describe the quota increase options for the **SQL Database** quota types:
 
 - Database transaction units (DTUs) per server
 - Servers per subscription
-- Enable subscription access to a region
+- Region access for subscriptions or specific hardware
 
 ### Database transaction units (DTUs) per server
 
@@ -86,27 +87,31 @@ Use the following steps to request an increase in the number of servers per subs
 
 For more information, see [SQL Database resource limits and resource governance](resource-limits-logical-server.md).
 
-### <a id="other"></a> Enable subscription access to a region
+### <a id="region"></a> Enable subscription access to a region
 
 Some offer types are not available in every region. You may see an error such as the following:
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+If your subscription needs access in a particular region, select the **Region access** option. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Other quota details](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Select the **Region access** quota type.
 
-## <a id="sqlmiquota"></a> SQL Managed Instance quota type
+1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
 
-For the **SQL Managed Instance** quota type, use the following steps:
+1. Enter the **Purchase Model**, and **Expected Consumption** details.
 
-1. In the **Region** list, select the Azure region to target.
+   ![Request region access](./media/quota-increase-request/quota-request.png)
 
-1. Enter the new limits you are requesting for **Subnet** and **vCore**.
+### Request enabling specific hardware in a region
 
-   ![SQL Managed Instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
+If a [hardware generation](service-tiers-vcore.md#hardware-generations) you want to use is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
 
-For more information, see [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
+1. Select the **Other quota request** quota type.
+
+1. In the **Description** field, state your request, including the name of the hardware generation and the name of the region you need it in.
+
+   ![Request hardware in a new region](./media/quota-increase-request/hardware-in-new-region.png)
 
 ## Submit your request
 

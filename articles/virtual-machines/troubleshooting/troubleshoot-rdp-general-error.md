@@ -57,7 +57,7 @@ The RDP listener is misconfigured.
 
 ## Solution
 
-To resolve this problem, [back up the operating system disk](../windows/snapshot-copy-managed-disk.md), and [attach the operating system disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the steps.
+Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. To resolve this problem, use Serial control or repair the VM offline.
 
 ### Serial Console
 
@@ -75,29 +75,37 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 #### Step 2: Check the values of RDP registry keys:
 
-1. Check if the RDP is disabled by polices.
+1. Check if the RDP is disabled by group polices.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy setting
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    If the group policy states that RDP is disabled (fDenyTSConnections value is 0x1), run the following command to enable the TermService service. If the registry key is not found, there is no group policy configured to disabled the RDP. You can move to the next step.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > This step enables the TermService service temporarily. The change will be reset when the group policy settings are refreshed. To resolve the issue, you need to check if the TermService service is disabled by the local group policy or the domain group policy, and then update the policy settings correspondingly.
+    
+2. Check the current remote connection configuration.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    If the command returns 0x1, the VM is not allowing remote connection. Then, allow remote connection using the following command:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Check the current configuration of the terminal server.
 
-      - If the domain policy exists, the setup on the local policy is overwritten.
-      - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
-      - If the domain policy states that RDP is enabled (0), then no update is needed.
-      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Check the current configuration of the terminal server.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       If the command returns 0, the terminal server is disabled. Then, enable the terminal server as follows:
 
@@ -172,7 +180,7 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
 #### Step 1: Turn on Remote Desktop
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. Start a Remote Desktop connection to the recovery VM.
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 4. Start a Remote Desktop connection to the recovery VM.

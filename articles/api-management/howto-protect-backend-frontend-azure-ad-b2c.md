@@ -6,7 +6,7 @@ services: api-management, azure-ad-b2c, app-service
 documentationcenter: ''
 author: WillEastbury
 manager: alberts
-editor: ''	
+editor: ''
 
 ms.service: api-management
 ms.workload: mobile
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
+ms.custom: fasttrack-new, devx-track-js
 ---
 
 # Protect SPA backend with OAuth 2.0, Azure Active Directory B2C and Azure API Management
@@ -396,7 +396,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey}, 					url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;
@@ -459,7 +460,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
 ## Next steps
-* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 * [Create an API Management service instance](get-started-create-service-instance.md).

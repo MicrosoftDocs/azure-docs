@@ -3,15 +3,17 @@ title: Hive Warehouse Connector - Apache Zeppelin using Livy - Azure HDInsight
 description: Learn how to integrate Hive Warehouse Connector with Apache Zeppelin on Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/22/2020
+ms.topic: how-to
+ms.date: 05/28/2020
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight
 
 HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we'll focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Prerequisite
 
@@ -86,10 +88,17 @@ Following configurations are required to access hive tables from Zeppelin with t
 
     | Configuration| Value|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node of the Interactive Query cluster.
-    Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
+    * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You will see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
+
+        ![hive warehouse connector Head Node](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
+
+        ![hive warehouse connector AAD Domain](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * For instance, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
 
 1. Save the changes and restart the Livy interpreter.
 

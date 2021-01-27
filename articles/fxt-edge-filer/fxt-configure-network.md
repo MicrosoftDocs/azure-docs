@@ -10,20 +10,21 @@ ms.date: 06/20/2019
 
 # Tutorial: Configure the cluster's network settings
 
-Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow. 
+Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow.
 
-This tutorial explains the network settings that you might need to adjust for a new cluster. 
+This tutorial explains the network settings that you might need to adjust for a new cluster.
 
-You will learn: 
+You will learn:
 
 > [!div class="checklist"]
+>
 > * Which network settings might need to be updated after creating a cluster
-> * Which Azure FXT Edge Filer use cases require an AD server or a DNS server 
+> * Which Azure FXT Edge Filer use cases require an AD server or a DNS server
 > * How to configure round-robin DNS (RRDNS) to automatically load balance client requests to the FXT cluster
 
 The amount of time it takes to complete these steps depends on how many configuration changes are needed in your system:
 
-* If you only need to read through the tutorial and check a few settings, it should take 10 to 15 minutes. 
+* If you only need to read through the tutorial and check a few settings, it should take 10 to 15 minutes.
 * If you need to configure round-robin DNS, that task can take an hour or more.
 
 ## Adjust network settings
@@ -73,20 +74,20 @@ If you need to upload certificates to the cluster, use the **Cluster** > **Certi
 
 To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative TLS.
 
-> [!Note] 
-> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details. 
+> [!Note]
+> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details.
 
 ## Configure DNS for load balancing
 
-This section explains the basics of configuring a round-robin DNS (RRDNS) system to distribute client load among all client-facing IP addresses in your FXT Edge Filer cluster. 
+This section explains the basics of configuring a round-robin DNS (RRDNS) system to distribute client load among all client-facing IP addresses in your FXT Edge Filer cluster.
 
 ### Decide whether or not to use DNS
 
-Load balancing is always recommended, but you don't have to always use DNS. For example, with some types of client workflows it might make more sense to use a script to assign cluster IP addresses evenly among clients when they mount the cluster. Some methods are described in [Mount the cluster](fxt-mount-clients.md). 
+Load balancing is always recommended, but you don't have to always use DNS. For example, with some types of client workflows it might make more sense to use a script to assign cluster IP addresses evenly among clients when they mount the cluster. Some methods are described in [Mount the cluster](fxt-mount-clients.md).
 
-Keep these things in mind when deciding whether or not to use a DNS server: 
+Keep these things in mind when deciding whether or not to use a DNS server:
 
-* If your system is accessed by NFS clients only, DNS is not required. It is possible to specify all network addresses by using numeric IP addresses. 
+* If your system is accessed by NFS clients only, DNS is not required. It is possible to specify all network addresses by using numeric IP addresses.
 
 * If your system supports SMB (CIFS) access, DNS is required, because you must specify a DNS domain for the Active Directory server.
 
@@ -105,7 +106,7 @@ A cluster vserver is shown on the left, and IP addresses appear in the center an
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
 
-Clients mount the cluster using the vserver name as the server argument. 
+Clients mount the cluster using the vserver name as the server argument.
 
 Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your vserver. This option ensures that all of the available values are cycled through. Add a statement like the following:
 
@@ -131,7 +132,7 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-### Enable DNS in the cluster 
+### Enable DNS in the cluster
 
 Specify the DNS server that the cluster uses in the **Cluster** > **Administrative Network** settings page. Settings on that page include:
 
@@ -143,8 +144,8 @@ For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_
 
 ## Next steps
 
-This is the last basic configuration step for the Azure FXT Edge Filer cluster. 
+This is the last basic configuration step for the Azure FXT Edge Filer cluster.
 
 * Learn about the system's LEDs and other indicators in [Monitor hardware status](fxt-monitor.md).
-* Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md). 
-* For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md).
+* For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html).

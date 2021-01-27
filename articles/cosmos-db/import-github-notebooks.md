@@ -4,12 +4,14 @@ description: Learn how to connect to GitHub and import the notebooks from a GitH
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.subservice: cosmosdb-sql
+ms.topic: how-to
 ms.date: 05/19/2020
 
 ---
 
 # Import notebooks from a GitHub repo into Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 After you [enable notebook support](enable-notebooks.md) for your Azure Cosmos accounts, you can create new notebooks, upload new notebooks from your local computer, or import the existing notebooks from your GitHub accounts. This article shows how to connect your notebooks workspace to GitHub and import the notebooks from a GitHub repo to your Azure Cosmos account. After importing, you can run them, make changes, and save the changes back to GitHub.
 
@@ -25,7 +27,7 @@ You can connect to your own GitHub repositories or other public GitHub repositor
 
 1. A tab opens where you can choose to connect to **Public repos** only or **Public and private repos**.  After choosing the required option, select **Authorize access**. Authorization is required for Azure Cosmos DB to access the repositories in your GitHub account.
 
-   ![Authorize Azure Cosmos DB to access your GitHub repositories](./media/import-github-notebooks/authorize-access-github.png)
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Authorize Azure Cosmos DB to access your GitHub repositories":::
 
 1. You are redirected to "github.com" web page where you can confirm the authorization. Select the **Authorize AzureCosmosDBNotebooks** button and enter your GitHub account password in the prompt.
 
@@ -33,7 +35,7 @@ You can connect to your own GitHub repositories or other public GitHub repositor
 
 1. Once you select the required repo, the repo entry moves from the **Unpinned repos** section to **Pinned repos** section. If needed, you can also choose a specific branch of that repo to import the notebooks from.
 
-   ![Choose a repository and a branch](./media/import-github-notebooks/choose-repo-branch.png)
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Choose a repository and a branch":::
 
 1. Select **OK** to complete the import operation. All the notebooks available in the selected branch of your repo are imported into your Azure Cosmos account.
 
@@ -49,7 +51,7 @@ After you edit an existing notebook, select **Save**. A dialog box opens where y
 
 In the regular GitHub flow after committing the changes, you will typically push changes to a remote. However, in this case the commit option serves the purpose of “staging, committing, and pushing” your updates to GitHub.
 
-![Edit notebooks and commit changes to GitHub](./media/import-github-notebooks/commit-changes-github.png)
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edit notebooks and commit changes to GitHub":::
 
 ## Next steps
 

@@ -18,7 +18,7 @@ The Device Simulation solution accelerator lets you generate telemetry from simu
 
 To follow the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The steps in this how-to guide assume you've deployed the Device Simulation solution accelerator to your Azure subscription. If you haven't deployed the solution accelerator, follow the steps in the [Deploy and run a cloud-based device simulation solution](quickstart-device-simulation-deploy.md) quickstart.
+The steps in this how-to guide assume you've deployed the Device Simulation solution accelerator to your Azure subscription. If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
 
 This article assumes the name of your solution accelerator is **contoso-simulation**. Replace **contoso-simulation** with the name of your solution accelerator as you complete the following steps.
 
@@ -108,7 +108,7 @@ Create a new event source to connect to your IoT hub. Use the consumer group you
 1. Click **Create**.
 
 > [!NOTE]
-> You can [grant additional users access](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) to the Time Series Insights explorer.
+> You can [grant additional users access](../time-series-insights/concepts-access-policies.md#grant-data-access) to the Time Series Insights explorer.
 
 ## Start a simulation
 
@@ -132,7 +132,7 @@ The Time Series Insights explorer is a web app you can use to visualize your tel
 
 1. In the terms panel on the left, select **temperature** as the **Measure** and **iothub-connection-device-id** as the **Split By** value:
 
-    ![Time Series Insights explorer query](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Screenshot that shows the Time Series Insights "terms" panel, with the "Measure" and "Split by" values highlighted.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Right-click on the chart and select **Explore events**:
 

@@ -54,5 +54,5 @@ BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob
 The BypassList doesn't support wildcards like '*.windows.net' but giving windows.net is good enough to bypass. 
 
 ## Next steps:
-- Read [networking guidance](site-recovery-azure-to-azure-networking-guidance.md)  for replicating Azure VMs.
-- Deploy disaster recovery by [replicating Azure VMs](site-recovery-azure-to-azure.md).
+- Read [networking guidance](./azure-to-azure-about-networking.md)  for replicating Azure VMs.
+- Deploy disaster recovery by [replicating Azure VMs](./azure-to-azure-quickstart.md).

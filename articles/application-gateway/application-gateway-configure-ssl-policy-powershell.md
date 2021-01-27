@@ -5,7 +5,7 @@ description: This article provides instructions to configure TLS Policy on Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ---
@@ -212,4 +212,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## Next steps
 
-Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.
+Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.

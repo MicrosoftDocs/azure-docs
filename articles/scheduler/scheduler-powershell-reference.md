@@ -28,9 +28,9 @@ you can use PowerShell cmdlets. This article lists
 the major PowerShell cmdlets for Azure Scheduler 
 with links to their reference articles. 
 To install Azure PowerShell for your Azure subscription, 
-see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
-For more information about [Azure Resource Manager cmdlets](/powershell/azure/overview), 
-see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+see [How to install and configure Azure PowerShell](/powershell/azure/). 
+For more information about [Azure Resource Manager cmdlets](/powershell/azure/), 
+see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -2,14 +2,14 @@
 title: Manage historical data in temporal tables
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/25/2018
 ---
 # Manage historical data in Temporal tables with retention policy

@@ -4,7 +4,7 @@ description: Learn how to use Packer to create images of Linux virtual machines 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
@@ -119,7 +119,7 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 
 
 ## Build Packer image
-If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
+If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install).
 
 Build the image by specifying your Packer template file as follows:
 

@@ -4,10 +4,9 @@ description: Learn to perform an offline migration from SQLite to Azure SQL Data
 services: sql-database
 author: joplum
 ms.author: joplum
-manager: prda
 ms.service: sql-database
 ms.workload: data-services
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ---
@@ -105,4 +104,4 @@ Once you have followed the below steps, your database will be migrated into Azur
 ## Next steps
 
 - To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](single-database-create-quickstart.md).
-- For resource limits, see [Serverless compute tier resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- For resource limits, see [Serverless compute tier resource limits](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

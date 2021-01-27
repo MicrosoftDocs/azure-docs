@@ -17,9 +17,9 @@ ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about issues with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
 ---
 
-# Known issues on Internet Explorer and Microsoft Edge browsers (MSAL.js)
+# Known issues on Internet Explorer browsers (MSAL.js)
 
-Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
+The Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 
 ## Run an app in Internet Explorer
 If you intend to use MSAL.js in applications that can run in Internet Explorer, you will need to add a reference to a promise polyfill before referencing the MSAL.js script.

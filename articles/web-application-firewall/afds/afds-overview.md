@@ -4,7 +4,7 @@ description: Learn how Azure web application firewall on Azure Front Door servic
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
 ---

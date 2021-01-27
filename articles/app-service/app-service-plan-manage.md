@@ -77,7 +77,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
+To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 

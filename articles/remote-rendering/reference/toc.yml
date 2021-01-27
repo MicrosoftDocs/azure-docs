@@ -1,3 +1,5 @@
+- name: Server sizes
+  href: vm-sizes.md
 - name: Material mapping for model formats
   href: material-mapping.md
 - name: Regions
@@ -9,6 +11,8 @@
 - name: Remote Rendering samples repository (GitHub)
   href: https://github.com/Azure/azure-remote-rendering
 - name: Azure Mixed Reality Resource Management REST API
-  href: https://docs.microsoft.com/rest/api/mixedreality/
+  href: /rest/api/mixedreality/
 - name: C# API documentation
-  href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering
+  href: /dotnet/api/Microsoft.Azure.RemoteRendering
+- name: C++ API documentation
+  href: https://docs.microsoft.com/cpp/api/remote-rendering

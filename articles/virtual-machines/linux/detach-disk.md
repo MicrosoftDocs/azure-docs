@@ -3,10 +3,11 @@ title: Detach a data disk from a Linux VM - Azure
 description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurecli
 
 ---
 # How to detach a data disk from a Linux virtual machine
@@ -111,5 +112,6 @@ The disk stays in storage but is no longer attached to a virtual machine.
 
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md).
 
+If you want to delete the disk, so that you no longer incur storage costs, see [Find and delete unattached Azure managed and unmanaged disks - Azure portal](../disks-find-unattached-portal.md).

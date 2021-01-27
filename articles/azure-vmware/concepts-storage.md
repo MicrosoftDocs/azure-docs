@@ -1,13 +1,13 @@
 ---
 title: Concepts - Storage
-description: Learn about the key storage capabilities in Azure VMware Solution (AVS) Preview private clouds.
+description: Learn about the key storage capabilities in  Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 11/03/2020
 ---
 
-# Azure VMware Solution (AVS) Preview storage concepts
+#  Azure VMware Solution storage concepts
 
-AVS private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
+Azure VMware Solution private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
 ## vSAN clusters
 
@@ -23,7 +23,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Data-at-rest encryption
 
-vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an HSM-based Azure Key Vault master key. When a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
+vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an Azure Key Vault master key. When a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
 
 ## Scaling
 
@@ -40,5 +40,5 @@ The next step is to learn about [private cloud identity concepts][concepts-ident
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

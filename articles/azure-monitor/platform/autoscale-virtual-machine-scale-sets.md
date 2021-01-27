@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 02/22/2016
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -16,8 +16,8 @@ ms.custom: mimckitt
 You can scale-in and scale-out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
 
 > [!NOTE]
-> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
-> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) and [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
+> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md)
+> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) and [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
 >
 >
 
@@ -60,7 +60,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following configuration:
 
-    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![Screenshot shows the profiles element.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -192,7 +192,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
+    For supported fields and their values, see [Autoscale REST API documentation](/rest/api/monitor/autoscalesettings). Now your autoscale setting contains the three profiles explained previously.
 
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription
@@ -240,9 +240,9 @@ Use these links to learn more about autoscaling.
 
 [Best Practices for Azure Autoscale](autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Manage Autoscale using PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](cli-samples.md#autoscale)
+[Manage Autoscale using CLI](../samples/cli-samples.md#autoscale)
 
 [Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md)
 

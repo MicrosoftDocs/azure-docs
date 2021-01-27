@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using Azure CLI
-description: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
+title: Tutorial - Configure message routing for Azure IoT Hub using Azure CLI
+description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using PowerShell.
 ---
 
@@ -132,13 +132,13 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
+3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Select **Blob storage**. You see the **Add a storage endpoint** pane.
+4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
-   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 

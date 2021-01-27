@@ -1,24 +1,26 @@
 ---
 title: "Quickstart: Create a blueprint with PowerShell"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 05/06/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization, such as:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
-
-If it isn't already installed, follow the instructions in
-[Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
-install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- If it isn't already installed, follow the instructions in
+  [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
+  install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you've not used Azure Blueprints before, register the resource provider through Azure
+  PowerShell with `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,8 +28,8 @@ install and validate the **Az.Blueprint** module from the PowerShell Gallery.
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
 available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
-a role assignment on the resource group.
+assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+assignment on the resource group.
 
 > [!NOTE]
 > When using PowerShell, the _blueprint_ object is created first. For each _artifact_ to be added
@@ -210,14 +212,14 @@ a role assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **TemplateFile** for a Resource Manager template includes
-   the normal JSON component of the template. The template also reuses the **storageAccountType**,
-   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
-   parameters are available to the template by using parameter **TemplateParameterFile** and inside
-   the template JSON that key-value pair is used to inject the value. The blueprint and template
+1. Add template under resource group. The **TemplateFile** for an ARM template includes the normal
+   JSON component of the template. The template also reuses the **storageAccountType**, **tagName**,
+   and **tagValue** blueprint parameters by passing each to the template. The blueprint parameters
+   are available to the template by using parameter **TemplateParameterFile** and inside the
+   template JSON that key-value pair is used to inject the value. The blueprint and template
    parameter names could be the same.
 
-   - JSON Azure Resource Manager template file - \artifacts\templateStorage.json
+   - JSON ARM template file - \artifacts\templateStorage.json
 
      ```json
      {
@@ -271,7 +273,7 @@ a role assignment on the resource group.
      }
      ```
 
-   - JSON Azure Resource Manager template parameter file - \artifacts\templateStorageParams.json
+   - JSON ARM template parameter file - \artifacts\templateStorageParams.json
 
      ```json
      {

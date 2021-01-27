@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 12/17/2020
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
@@ -86,7 +86,7 @@ Set-AzKeyVaultAccessPolicy `
 For more information about creating key vaults and adding secrets, see:
 
 - [Set and retrieve a secret by using CLI](../../key-vault/secrets/quick-create-cli.md)
-- [Set and retrieve a secret by using Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Set and retrieve a secret by using PowerShell](../../key-vault/secrets/quick-create-powershell.md)
 - [Set and retrieve a secret by using the portal](../../key-vault/secrets/quick-create-portal.md)
 - [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
 - [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
@@ -157,7 +157,7 @@ The following template deploys a SQL server that includes an administrator passw
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -195,7 +195,7 @@ In the following parameter file, the key vault secret must already exist, and yo
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -261,7 +261,7 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -308,7 +308,7 @@ The following template dynamically creates the key vault ID and passes it as a p
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -371,3 +371,4 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 - For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For a Microsoft Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).

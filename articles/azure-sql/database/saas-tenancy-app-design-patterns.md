@@ -72,7 +72,7 @@ Each tenant database is deployed as a single database.  This model provides the 
 
 #### Vendor management
 
-The vendor can access all the databases in all the standalone app instances, even if the app instances are installed in different tenant subscriptions.  The access is achieved via SQL connections.  This cross-instance access can enable the vendor to centralize schema management and cross-database query for reporting or analytics purposes.  If this kind of centralized management is desired, a catalog must be deployed that maps tenant identifiers to database URIs.  Azure SQL Database provides a sharding library that is used together with a SQL database to provide a catalog.  The sharding library is formally named the [Elastic Database Client Library][docu-elastic-db-client-library-536r].
+The vendor can access all the databases in all the standalone app instances, even if the app instances are installed in different tenant subscriptions.  The access is achieved via SQL connections.  This cross-instance access can enable the vendor to centralize schema management and cross-database query for reporting or analytics purposes.  If this kind of centralized management is desired, a catalog must be deployed that maps tenant identifiers to database URIs.  Azure SQL Database provides a sharding library that is used together to provide a catalog.  The sharding library is formally named the [Elastic Database Client Library][docu-elastic-db-client-library-536r].
 
 ## D. Multi-tenant app with database-per-tenant
 
@@ -198,7 +198,7 @@ The following table summarizes the differences between the main tenancy models.
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -215,4 +215,3 @@ The following table summarizes the differences between the main tenancy models.
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design of multi-tenant app with database-per-tenant, using elastic pool."
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design of multi-tenant app with sharded multi-tenant databases."
-

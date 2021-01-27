@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/02/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,20 +17,23 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 When you first install IoT Edge and provision your device, the device is set up with temporary certificates so that you can test the service.
 These temporary certificates expire in 90 days, or can be reset by restarting your machine.
-Once you're ready to move your devices into a production scenario, or you want to create a gateway scenario, you need to provide your own certificates.
+Once you move into a production scenario, or you want to create a gateway device, you need to provide your own certificates.
 This article demonstrates the steps to install certificates on your IoT Edge devices.
 
-To learn more about the different types of certificates and their roles in an IoT Edge scenario, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+To learn more about the different types of certificates and their roles, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 >[!NOTE]
 >The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
 ### Prerequisites
 
-* An IoT Edge device, running either on [Windows](how-to-install-iot-edge-windows.md) or [Linux](how-to-install-iot-edge-linux.md).
+* An IoT Edge device.
+
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+
 * Have a root certificate authority (CA) certificate, either self-signed or purchased from a trusted commercial certificate authority like Baltimore, Verisign, DigiCert, or GlobalSign.
 
-If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
+  If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
 ### Create production certificates
 
@@ -41,6 +44,9 @@ You should use your own certificate authority to create the following files:
 * Device CA private key
 
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
+
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -56,31 +62,31 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 1. Copy the three certificate and key files onto your IoT Edge device.
 
-   You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
+   You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
 1. Open the IoT Edge security daemon config file.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Set the **certificate** properties in the config.yaml file to the full path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
+1. Set the **certificate** properties in config.yaml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
-        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
-        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "<path>/device-ca.cert.pem"
-        device_ca_pk: "<path>/device-ca.key.pem"
-        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///<path>/<device CA cert>"
+        device_ca_pk: "file:///<path>/<device CA key>"
+        trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
 1. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
@@ -103,9 +109,11 @@ For more information about the function of the different certificates on an IoT 
 For these two automatically generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
->There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
 
-To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config.yaml file.
+To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the **config.yaml** file.
+
+Upon expiry after the specified number of days, the IoT Edge security daemon has to be restarted to regenerate the Device CA certificate, it won't be renewed automatically.
 
 ```yaml
 certificates:
@@ -115,9 +123,10 @@ certificates:
   auto_generated_ca_lifetime_days: <value>
 ```
 
-If you provided your own device CA certificates, then this value still applies to the workload CA certificate, provided the lifetime value you set is shorter than the lifetime of the device CA certificate.
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
-After you specify the flag in the config.yaml file, take the following steps:
+After you specify the value in the config.yaml file, take the following steps:
 
 1. Delete the contents of the `hsm` folder.
 

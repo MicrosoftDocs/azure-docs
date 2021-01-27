@@ -6,11 +6,11 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
-ms.date: 03/12/2019
+ms.topic: sample
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
+ms.date: 06/06/2020
 ---
 # Event File target code for extended events in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -19,13 +19,12 @@ ms.date: 03/12/2019
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
-In Microsoft SQL Server, the [Event File target](https://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
 This topic presents a two-phase code sample:
 
 - PowerShell, to create an Azure Storage container in the cloud.
 - Transact-SQL:
-  
   - To assign the Azure Storage container to an Event File target.
   - To create and start the event session, and so on.
 
@@ -34,7 +33,7 @@ This topic presents a two-phase code sample:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - Any database you can create a table in.
@@ -44,7 +43,7 @@ This topic presents a two-phase code sample:
 - SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
   You can download the latest ssms.exe from:
   
-  - Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  - Topic titled [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - You must have the [Azure PowerShell modules](https://go.microsoft.com/?linkid=9811175) installed.
@@ -65,7 +64,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
    - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
 
-![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
+![PowerShell ISE, with Azure module installed, ready to run script.](./media/xevent-code-event-file/event-file-powershell-ise-b30.png)
 
 ### PowerShell code
 
@@ -226,6 +225,15 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 ```
 
 Take note of the few named values that the PowerShell script prints when it ends. You must edit those values into the Transact-SQL script that follows as phase 2.
+
+<!--
+TODO:   Consider whether the preceding PowerShell code example deserves to be updated to the latest package (AzureRM.SQL?).
+2020/June/06   Adding the !NOTE below about "ADLS Gen2 storage accounts".
+Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
+-->
+
+> [!NOTE]
+> In the preceding PowerShell code example, SQL extended events are not compatible with the ADLS Gen2 storage accounts.
 
 ## Phase 2: Transact-SQL code that uses Azure Storage container
 
@@ -482,11 +490,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 The preceding Transact-SQL script used the following system function to read the event_file:
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 An explanation of advanced options for the viewing of data from extended events is available at:
 
-- [Advanced Viewing of Target Data from Extended Events](https://msdn.microsoft.com/library/mt752502.aspx)
+- [Advanced Viewing of Target Data from Extended Events](/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## Converting the code sample to run on SQL Server
 
@@ -503,11 +511,8 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 For more info about accounts and containers in the Azure Storage service, see:
 
 - [How to use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [Working with the Root Container](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lesson 2: Create a SQL Server credential using a shared access signature](https://msdn.microsoft.com/library/dn466435.aspx)
-- [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
-
-<!-- Image references. -->
-[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png
+- [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [Working with the Root Container](/rest/api/storageservices/Working-with-the-Root-Container)
+- [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [Lesson 2: Create a SQL Server credential using a shared access signature](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
+- [Extended Events for Microsoft SQL Server](/sql/relational-databases/extended-events/extended-events)

@@ -6,44 +6,63 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 10/01/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
-ms.reviewer: scottsta
+ms.reviewer: calui
 
 ---
-# Sign-in to Azure using email as an alternate login ID (preview)
+# Sign-in to Azure Active Directory using email as an alternate login ID (preview)
 
-Many organizations want to let users sign in to Azure using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
+> [!NOTE]
+> Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Many organizations want to let users sign in to Azure Active Directory (Azure AD) using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
 
-* By default, the Azure Active Directory (Azure AD) user principal name (UPN) is set to the same UPN as the on-premises directory.
-* Changing the Azure AD UPN creates a mis-match between on-prem and Azure environments that could cause problems with certain applications and services.
-* Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure.
+* By default, the Azure AD user principal name (UPN) is set to the same UPN as the on-premises directory.
+* Changing the Azure AD UPN creates a mis-match between on-prem and Azure AD environments that could cause problems with certain applications and services.
+* Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
-To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in to Azure with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure using their assigned email, such as `balas@fabrikam.com`.
+To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure AD using their assigned email, such as `balas@fabrikam.com`.
 
-|     |
-| --- |
-| Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
+
+> [!NOTE]
+> This feature is for cloud-authenticated Azure AD users only.
+
+> [!NOTE]
+> Currently, this feature is not supported on Azure AD joined Windows 10 devices for tenants with cloud authentication. This feature is not applicable to Hybrid Azure AD joined devices.
 
 ## Overview of Azure AD sign-in approaches
 
-User Principal Names (UPNs) are unique identifiers for a user account in both your on-premises directory, and in Azure AD. Each user account in a directory is represented by a UPN, such as `balas@contoso.com`. By default, when you synchronize an on-premises Active Directory Domain Services (AD DS) environment with Azure AD, the Azure AD UPN is to set to match the on-premises UPN.
+To sign in to Azure AD, users enter a name that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in name.
 
-In many organizations, it's fine to set the on-premises UPN and Azure AD UPN to match. When users sign in to Azure applications and services, they use their Azure AD UPN. However, some organizations can't use matching UPNs for sign-in due to business policies or user experience issues.
+For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Azure AD UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
 
-Organizations that can't use matching UPNs in Azure AD have a few options:
+However, in some organizations the on-premises UPN isn't used as a sign-in name. In the on-premises environments, you would configure the local AD DS to allow sign in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users sign in with that value.
 
-* One approach is to set the Azure AD UPN to something different based on the business needs, such as `balas@fabrikam.com`.
-    * However, not all applications and services are compatible with using a different value for the on-premises UPN and the Azure AD UPN.
-* A better approach is to ensure the Azure AD and on-premises UPNs are set to the same value, and configure Azure AD to let users sign into Azure with their email as an alternate login ID.
+The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premises AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
-With email as an alternate login ID, users can still sign in to Azure by entering their UPN, but can also sign in using their email. To support this, you define an email address in the user's *ProxyAddresses* attribute in the on-premises directory. This *ProxyAddress* attribute supports one or more email addresses.
+A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
+
+## Preview limitations
+
+Sign in to Azure AD with email as an alternate login ID is available in the Azure AD Free edition and higher.
+
+In the current preview state, the following limitations apply when a user signs in with a non-UPN email as an alternate login ID:
+
+* Users may see their UPN, even when the signed in with their non-UPN email. The following example behavior may be seen:
+    * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
+    * When a user signs in with a non-UPN email and enters an incorrect password, the *"Enter your password"* page changes to display the UPN.
+    * On some Microsoft sites and apps, such as [https://portal.azure.com](https://portal.azure.com) and Microsoft Office, the **Account Manager** control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
+
+* Some flows are currently not compatible with the non-UPN email, such as the following:
+    * Identity protection currently doesn't match email alternate login IDs with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
+    * B2B invites sent to an alternate login ID email aren't fully supported. After accepting an invite sent to an email as an alternate login ID, sign in with the alternate email may not work for the user on the tenanted endpoint.
 
 ## Synchronize sign-in email addresses to Azure AD
 
@@ -147,9 +166,77 @@ During preview, you can currently only enable the sign-in with email as an alter
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
+With the policy applied, it can take up to an hour to propagate and for users to be able to sign in using their alternate login ID.
+
 ## Test user sign-in with email
 
 To test that users can sign in with email, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, such as `balas@fabrikam.com`, not their UPN, such as `balas@contoso.com`. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
+
+## Enable staged rollout to test user sign-in with an email address  
+
+[Staged rollout][staged-rollout] allows tenant administrators to enable features for specific groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use a Home Realm Discovery policy.  
+
+
+You need *tenant administrator* permissions to complete the following steps:
+
+1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    If prompted, select **Y** to install NuGet or to install from an untrusted repository.
+
+2. Sign in to your Azure AD tenant as a *tenant administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    The command returns information about your account, environment, and tenant ID.
+
+3. List all existing staged rollout policies using the following cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. If there are no existing staged rollout policies for this feature, create a new staged rollout policy and take note of the policy ID:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Find the directoryObject ID for the group to be added to the staged rollout policy. Note the value returned for the *Id* parameter, because it will be used in the next step.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Add the group to the staged rollout policy as shown in the following example. Replace the value in the *-Id* parameter with the value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the group can use their proxy addresses to sign-in.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+For new members added to the group, it may take up to 24 hours before they can use their proxy addresses to sign-in.
+
+### Removing groups
+
+To remove a group from a staged rollout policy, run the following command:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### Removing policies
+
+To remove a staged rollout policy, first disable the policy then remove it from the system:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
 
 ## Troubleshoot
 
@@ -176,6 +263,7 @@ For more information on hybrid identity operations, see [how password hash sync]
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module
@@ -183,4 +271,5 @@ For more information on hybrid identity operations, see [how password hash sync]
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -49,7 +49,7 @@ Use the following steps.
 
 **Resources**
 
-For more information, see the article [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+For more information, see the article [Temporal Tables](/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
 ### Migration of tables includes one or more columns with the hierarchyid data type
 
@@ -85,7 +85,7 @@ Use the following steps.
      select * from sys.triggers where is_disabled =0
      ```
 
-2. Disable the triggers on your source database using the steps provided in the article [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+2. Disable the triggers on your source database using the steps provided in the article [DISABLE TRIGGER (Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Rerun the migration activity.
 
@@ -137,7 +137,9 @@ To get to specific failure details, use the following steps.
 
 Migration fails with an error message containing the following text:
 
-     “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+```output
+"** encountered a fatal error", "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode.
+```
 
 **Workaround**
 
@@ -149,7 +151,9 @@ While Azure Database Migration Service supports the Geography data type for offl
 
 Migration fails with an error message containing the following text:
 
-    Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```output
+Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```
 
 **Workaround**
 

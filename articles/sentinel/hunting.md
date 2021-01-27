@@ -1,6 +1,6 @@
 ---
 title: Hunting capabilities in Azure Sentinel| Microsoft Docs
-description: This article describes how to use the Azure Sentinel hunting capabilities.
+description: Use Azure Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -62,7 +62,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 ## Query language 
 
-Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](/azure/azure-monitor/log-query/get-started-queries).
+Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](../azure-monitor/log-query/get-started-queries.md).
 
 ## Public hunting query GitHub repository
 

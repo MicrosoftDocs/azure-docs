@@ -11,62 +11,70 @@ services: iot-edge
 ---
 # Tutorial: Train and deploy an Azure Machine Learning model
 
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
-
 In this article, we do the following tasks:
 
-* Use Azure Notebooks to train a machine learning model.
+* Use Azure Machine Learning Studio to train a machine learning model.
 * Package the trained model as a container image.
 * Deploy the container image as an Azure IoT Edge module.
 
-The Azure Notebooks take advantage of an Azure Machine Learning workspace, a foundational block used to experiment, train, and deploy machine learning models.
+The Azure Machine Learning Studio is a foundational block used to experiment, train, and deploy machine learning models.
 
 The steps in this article might be typically performed by data scientists.
 
-## Set up Azure Notebooks
+In this section of the tutorial, you learn how to:
 
-We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks, here are a couple of introductory documents:
+> [!div class="checklist"]
+> * Create Jupyter Notebooks in Azure Machine Learning Workspace to train a machine learning model.
+> * Containerize the trained machine learning model.
+> * Create an Azure IoT Edge module from the containerized machine learning model.
 
-* **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+## Prerequisites
 
-Using Azure notebooks ensures a consistent environment for the exercise.
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
+
+## Set up Azure Machine Learning 
+
+We use Azure Machine Learning Studio to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Machine Learning project. If you have not used Jupyter and/or Azure Machine Learning Studio , here are a couple of introductory documents:
+
+* **Jupyter Notebooks:** [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+* **Azure Machine Learning:** [Get Started with Azure Machine Learning in Jupyter Notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
+
 
 > [!NOTE]
-> Once set up, the Azure Notebooks service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
+> Once set up, the Azure Machine Learning service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
 
-### Create an Azure Notebooks account
+### Install Azure Machine Learning Visual Studio Code extension
+VS Code on the development VM should have this extension installed. If you are running on a different instance, please reinstall the extension as described [here.](../machine-learning/tutorial-setup-vscode-extension.md)
 
-To use Azure Notebooks, you need to create an account. Azure Notebook accounts are independent from Azure subscriptions.
+### Create an Azure Machine Learning account  
+In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials.
 
-1. Navigate to [Azure notebooks](https://notebooks.azure.com).
+1. In Visual Studio Code, open the command palette by selecting **View** > **Command Palette** from the menu bar. 
 
-1. Click **Sign In** in the upper right corner of the page.
+1. Enter the command `Azure: Sign In` into the command palette to start the sign in process. Follow the instructions to complete sign in. 
 
-1. Sign in with either your work or school account (Azure Active Directory) or your personal account (Microsoft Account).
+1. Create an Azure ML Compute instance to run your workload. Using Command pallet enter the command `Azure ML: Create Compute`. 
+1. Select your Azure Subscription
+1. Select **+ Create new Azure ML workspace** and enter name `turbofandemo`.
+1. Select the resource group that you have been using for this demo.
+1. You should be able to see the progress of workspace creation in the lower right hand corner of your VS Code window: **Creating Workspace: turobofandemo** (this can take a minute or two). 
+1. Please wait for the workspace to be created successfully. It should say **Azure ML workspace turbofandemo created**.
 
-1. If you have not used Azure Notebooks before, you will be prompted to grant access for the Azure Notebooks app.
 
-1. Create a user ID for Azure Notebooks.
+### Upload Jupyter Notebook files
 
-### Upload Jupyter notebook files
+We will upload sample notebook files into a new Azure ML workspace.
 
-We will upload sample notebook files into a new Azure Notebooks project.
+1. Navigate to ml.azure.com and sign in.
+1. Select your Microsoft Directory, Azure Subscription and the newly created Azure ML workspace.
 
-1. From the user page of your new account, select **My Projects** from the top menu bar.
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-studio-workspace.png" alt-text="Select your Azure ML workspace." :::
 
-1. Add a new project by selecting the **+** button.
+1. Once logged into your Azure ML workspace, navigate to the **Notebooks** section using the left side menu.
+1. Select the **My files** tab.
 
-1. On the **Create New Project** dialog  box, provide a **Project Name**. 
+1. Select **Upload** (the up arrow icon) 
 
-1. Leave **Public** and **README** unchecked as there is no need for the project to be public or to have a readme.
-
-1. Select **Create**.
-
-1. Select **Upload** (the up arrow icon) and choose **From Computer**.
-
-1. Select **Choose files**.
 
 1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
 
@@ -74,9 +82,9 @@ We will upload sample notebook files into a new Azure Notebooks project.
 
 1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
 
-### Azure notebook files
+### Jupyter Notebook files
 
-Let's review the files you uploaded into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files, which use a few supporting files.
+Let's review the files you uploaded into your Azure ML workspace. The activities in this portion of the tutorial span across two notebook files, which use a few supporting files.
 
 * **01-turbofan\_regression.ipynb:** This notebook uses the Machine Learning service workspace to create and run a machine learning experiment. Broadly, the notebook does the following steps:
 
@@ -100,13 +108,13 @@ Let's review the files you uploaded into your Azure Notebooks project. The activ
 
 * **README.md:** Readme describing the use of the notebooks.  
 
-## Run Azure Notebooks
+## Run Jupyter Notebooks
 
-Now that the project is created, you can run the notebooks. 
+Now that the workspace is created, you can run the notebooks. 
 
-1. From your project page, select **01-turbofan\_regression.ipynb**.
+1. From your **My files** page, select **01-turbofan\_regression.ipynb**.
 
-    ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-notebook.png" alt-text="Select first notebook to run. ":::
 
 1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
@@ -147,7 +155,7 @@ Now that the project is created, you can run the notebooks.
 
 To verify that the notebooks have completed successfully, verify that a few items were created.
 
-1. On your Azure Notebooks project page, select **Show hidden items** so that item names that begin with a period appear.
+1. On your Azure ML Notebooks**My files** tab, select **refresh**.
 
 1. Verify that the following files were created:
 
@@ -173,9 +181,13 @@ You can insert Python statements into the notebook for debugging, such as the `p
 
 You may have to delete previously created files and Azure resources if you need to redo the notebooks.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
-In this article, we used two Jupyter Notebooks running in Azure Notebooks to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
+In this article, we used two Jupyter Notebooks running in Azure ML Studio to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
 
 Continue to the next article to create an IoT Edge device.
 

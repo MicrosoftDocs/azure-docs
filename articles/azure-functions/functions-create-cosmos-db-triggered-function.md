@@ -23,6 +23,7 @@ To complete this tutorial:
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## Sign in to Azure
+
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Create an Azure Cosmos DB account
@@ -31,7 +32,7 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Create an Azure Function app
+## Create a function app in Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -95,7 +96,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` contain
     | ---|---|--- |
     | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |
     | **Container ID** | Items | The name for the new container. This must match the name defined in your function binding.  |
-    | **[Partition key](../cosmos-db/partition-data.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
+    | **[Partition key](../cosmos-db/partitioning-overview.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |    
 
 1. Click **OK** to create the Items container. It may take a short time for the container to get created.
@@ -110,11 +111,13 @@ After the container specified in the function binding exists, you can test the f
 
 1. Replace the contents of the new item with the following content, then choose **Save**.
 
-        {
-            "id": "task1",
-            "category": "general",
-            "description": "some task"
-        }
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
+    }
+    ```
 
 1. Switch to the first browser tab that contains your function in the portal. Expand the function logs and verify that the new document has triggered the function. See that the `task1` document ID value is written to the logs. 
 

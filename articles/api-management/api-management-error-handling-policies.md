@@ -47,7 +47,7 @@ During the processing of a request, built-in steps are executed along with any p
 The `on-error` policy section can be used at any scope. API publishers can configure custom behavior such as logging the error to event hubs or creating a new response to return to the caller.
 
 > [!NOTE]
-> The `on-error` section is not present in policies by default. To add the `on-error` section to a policy, browse to the desired policy in the policy editor and add it. For more information about configuring policies, see [Policies in API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> The `on-error` section is not present in policies by default. To add the `on-error` section to a policy, browse to the desired policy in the policy editor and add it. For more information about configuring policies, see [Policies in API Management](./api-management-howto-policies.md).
 >
 > If there is no `on-error` section, callers will receive 400 or 500 HTTP response messages if an error condition occurs.
 
@@ -67,6 +67,10 @@ The following policies can be used in the `on-error` policy section.
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
+-   [mock-response](api-management-advanced-policies.md#mock-response)
+-   [retry](api-management-advanced-policies.md#Retry)
+-   [trace](api-management-advanced-policies.md#Trace)
 
 ## LastError
 
@@ -181,5 +185,5 @@ For more information working with policies, see:
 
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
--   [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
+-   [Policy samples](./policy-reference.md)

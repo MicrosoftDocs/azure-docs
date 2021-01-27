@@ -3,19 +3,19 @@ title: Get started - Translator
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to sign up for the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # How to sign up for Translator
 
 ## Sign in to the Azure portal
 
-- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
+- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/cognitive-services) to experiment at no charge.
 - Already have an account? [Sign in](https://ms.portal.azure.com/)
 
 ## Create a subscription for Translator
@@ -35,7 +35,7 @@ After you sign in to the portal, you can create a subscription to Translator as 
 When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator.
 
 1. Retrieve your authentication key by first selecting the appropriate subscription.
-1. Select **Keys** in the **Resource Management** section of your subscription's details.
+1. Select **Keys and Endpoint** in the **Resource Management** section of your subscription's details.
 1. Copy either of the keys listed for your subscription.
 
 ## Learn, test, and get support

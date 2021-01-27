@@ -1,12 +1,11 @@
 ---
 title: Assess large numbers of physical servers for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of physical servers for migration to Azure using the Azure Migrate service.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 01/19/2020
-ms.author: hamusa
 ---
 
 # Assess large numbers of physical servers for migration to Azure
@@ -25,7 +24,7 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-prepare-physical.md).
+> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](./tutorial-discover-physical.md).
 
 ## Plan for assessment
 
@@ -42,7 +41,7 @@ Use the limits summarized in this table for planning.
 **Planning** | **Limits**
 --- | --- 
 **Azure Migrate projects** | Assess up to 35,000 servers in a project.
-**Azure Migrate appliance** | An appliance can discover up to 250 servers.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
+**Azure Migrate appliance** | An appliance can discover up to 1000 servers.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
 **Group** | You can add up to 35,000 servers in a single group.
 **Azure Migrate assessment** | You can assess up to 35,000 servers in a single assessment.
 
@@ -59,7 +58,7 @@ Prepare Azure and physical servers for server assessment.
 2. Set up permissions for your Azure account to interact with Azure Migrate.
 3. Prepare the physical servers.
 
-Follow the instructions in [this tutorial](tutorial-prepare-physical.md) to configure these settings.
+Follow the instructions in [this tutorial](./tutorial-discover-physical.md) to configure these settings.
 
 ## Create a project
 
@@ -68,7 +67,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate project.
 2. Add the Azure Migrate Server Assessment tool to the projects.
 
-[Learn more](how-to-add-tool-first-time.md)
+[Learn more](./create-manage-projects.md)
 
 ## Create and review an assessment
 

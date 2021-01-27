@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a metrics chart in Azure Monitor
-description: Learn how to create your first metric chart with Azure metrics explorer.
+description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
 ms.subservice: metrics
@@ -35,7 +35,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 1. Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu.
 
-1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu.
+1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu. To learn more about the various capabilities of the resource scope picker, visit [this article](../platform/metrics-charts.md#resource-scope-picker).
 
     ![Select a scope](media/tutorial-metrics-explorer/scope-picker.png)
 
@@ -47,7 +47,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 4. Optionally, change the metric **Aggregation**. This defines how the metric values will aggregated across the time granularity for the graph. For example, if the time granularity is set to 15 minutes and the aggregation is set to sum, then each point in the graph will be the sum of all collected values over each 15 minute segment.
 
-    ![Chart](media/tutorial-metrics-explorer/chart.png)
+    ![Screenshot shows a chart titled Sum Ingress for contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **New chart** button.
 
@@ -65,20 +65,20 @@ Use the **time brush** to investigate an interesting area of the chart such as a
 ## Apply dimension filters and splitting
 See the following references for advanced features that allow you to perform additional analysis on your metrics and identify potential outliers in your data.
 
-- [Filtering](../platform/metrics-charts.md#apply-filters-to-charts) lets you choose which dimension values are included in the chart. For example, you might want to show only successful requests when charting a *server response time* metric. 
+- [Filtering](../platform/metrics-charts.md#filters) lets you choose which dimension values are included in the chart. For example, you might want to show only successful requests when charting a *server response time* metric. 
 
-- [Splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you might want to see one line for an average response time across all server instances or you may want separate lines for each server. 
+- [Splitting](../platform/metrics-charts.md#apply-splitting) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you might want to see one line for an average response time across all server instances or you may want separate lines for each server. 
 
 See [examples of the charts](../platform/metric-chart-samples.md) that have filtering and splitting applied.
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../platform/metrics-charts.md#locking the-range-of-the-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 
 ## Next steps
 Now that you've learned how to work with metrics in Azure Monitor, learn how to use metrics to send proactive alerts.
 
 > [!div class="nextstepaction"]
-> [Create, view, and manage metric alerts using Azure Monitor](../platform/alerts-metric.md)
+> [Create, view, and manage metric alerts using Azure Monitor](../platform/metrics-charts.md#alert-rules)
 

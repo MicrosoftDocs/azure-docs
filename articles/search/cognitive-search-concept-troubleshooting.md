@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/08/2020
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 
@@ -44,7 +44,16 @@ In that case, you may want to tell the indexer to ignore errors. Do that by sett
    }
 }
 ```
-## Tip 4: Looking at enriched documents under the hood 
+> [!NOTE]
+> As a best practice, set the maxFailedItems, maxFailedItemsPerBatch to 0 for production workloads
+
+## Tip 4: Use Debug sessions to identify and resolve issues with your skillset 
+
+Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and commit changes to a production skillset in the AI enrichment pipeline. This is a preview feature [read the documentation](./cognitive-search-debug-session.md). For more information about concepts and getting started, see [Debug sessions](./cognitive-search-tutorial-debug-sessions.md).
+
+Debug sessions work on a single document are a great way for you to iteratively build more complex enrichment pipelines.
+
+## Tip 5: Looking at enriched documents under the hood 
 Enriched documents are temporary structures created during enrichment, and then deleted when processing is complete.
 
 To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
@@ -72,7 +81,7 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
 }
 ```
 
-## Tip 5: Expected content fails to appear
+## Tip 6: Expected content fails to appear
 
 Missing content could be the result of documents getting dropped during indexing. Free and Basic tiers have low limits on document size. Any file exceeding the limit is dropped during indexing. You can check for dropped documents in the Azure portal. In the search service dashboard, double-click the Indexers tile. Review the ratio of successful documents indexed. If it is not 100%, you can click the ratio to get more detail. 
 
@@ -80,7 +89,7 @@ If the problem is related to file size, you might see an error like this: "The b
 
 A second reason for content failing to appear might be related input/output mapping errors. For example, an output target name is "People" but the index field name is lower-case "people". The system could return 201 success messages for the entire pipeline so you think indexing succeeded, when in fact a field is empty. 
 
-## Tip 6: Extend processing beyond maximum run time (24-hour window)
+## Tip 7: Extend processing beyond maximum run time (24-hour window)
 
 Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. 
 
@@ -93,15 +102,14 @@ For scheduled indexers, indexing resumes on schedule at the last known good docu
 
 For portal-based indexing (as described in the quickstart), choosing the "run once" indexer option limits processing to 1 hour (`"maxRunTime": "PT1H"`). You might want to extend the processing window to something longer.
 
-## Tip 7: Increase indexing throughput
+## Tip 8: Increase indexing throughput
 
 For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
-For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
+
 + [Quickstart: Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

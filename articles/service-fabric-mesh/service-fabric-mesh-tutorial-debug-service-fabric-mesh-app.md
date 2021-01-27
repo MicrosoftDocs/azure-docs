@@ -1,10 +1,10 @@
 ---
 title: Debug an Azure Service Fabric Mesh web app running locally
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 10/31/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app on my local development cluster
 ---
@@ -73,7 +73,7 @@ There's currently an issue that causes the call to `using (HttpResponseMessage r
 
 If you get the **No Service Fabric local cluster is running** error, make sure that the Service Fabric Local Custer Manager (LCM) is running and right-click the LCM icon in the task bar, then click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
 
-If you get a **404** error when the app starts, it could mean that your environment variables in **service.yaml** are incorrect. Make sure that `ApiHostPort` and `ToDoServiceName` are set correctly per the instructions in [Create environment variables](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+If you get a **404** error when the app starts, it could mean that your environment variables in **service.yaml** are incorrect. Make sure that `ApiHostPort` and `ToDoServiceName` are set correctly per the instructions in [Create environment variables](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines. Also, for now, you must build the app using the English locale.
 

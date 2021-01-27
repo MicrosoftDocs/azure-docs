@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sugar CRM | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sugar CRM.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3331b9fc-ebc0-4a3a-9f7b-bf20ee35d180
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Sugar CRM
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Sugar CRM with Azure Active Dire
 * Enable your users to be automatically signed-in to Sugar CRM with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -84,18 +77,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.sugarondemand.com`|
-	| `https://<companyname>.trial.sugarcrm`|
+	- `https://<companyname>.sugarondemand.com`
+	- `https://<companyname>.trial.sugarcrm`
 
 	b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.sugarondemand.com/<companyname>`|
-	| `https://<companyname>.trial.sugarcrm.com/<companyname>`|
-    | `https://<companyname>.trial.sugarcrm.eu/<companyname>`|
+	- `https://<companyname>.sugarondemand.com/<companyname>`
+	- `https://<companyname>.trial.sugarcrm.com/<companyname>`
+    - `https://<companyname>.trial.sugarcrm.eu/<companyname>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -148,11 +137,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Administration** section, click **Password Management**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
+    ![Screenshot shows the Administration section where you can select Password Management.](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
 1. Select **Enable SAML Authentication**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
+    ![Screenshot shows the option to select SAML Authentication.](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
 1. In the **SAML Authentication** section, perform the following steps:
 
@@ -180,7 +169,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. In the **Administration** section, click **User Management**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
+    ![Screenshot shows the Administration section where you can select User Management.](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
 1. Go to **Users \> Create New User**.
 
@@ -188,7 +177,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. On the **User Profile** tab, perform the following steps:
 
-    ![New User](./media/sugarcrm-tutorial/ic795895.png "New User")
+    ![Screenshot shows the User Profile tab where you can where you can enter the values described.](./media/sugarcrm-tutorial/ic795895.png "New User")
 
     * Type the **user name**, **last name**, and **email address** of a valid Azure Active Directory user into the related textboxes.
   
@@ -196,7 +185,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. On the Password tab, perform the following steps:
 
-    ![New User](./media/sugarcrm-tutorial/ic795896.png "New User")
+    ![Screenshot shows the Password tab where you can where you can enter the values described.](./media/sugarcrm-tutorial/ic795896.png "New User")
 
     a. Type the password into the related textbox.
 
@@ -209,15 +198,14 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Sugar CRM tile in the Access Panel, you should be automatically signed in to the Sugar CRM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Sugar CRM tile in the Access Panel, you should be automatically signed in to the Sugar CRM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Sugar CRM with Azure AD](https://aad.portal.azure.com/)
-

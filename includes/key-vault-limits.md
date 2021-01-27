@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020	
 ms.author: jroth
@@ -35,13 +35,16 @@ ms.author: jroth
 | --- | --- |
 | All transactions |2,000 |
 
-For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/key-vault-ovw-throttling.md).
+For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 5,000 transactions in 10 seconds per subscription.
 
 ### Azure Private Link integration
 
+> [!NOTE]
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+
 | Resource | Limit |
 | -------- | ----- |
 | Private endpoints per key vault | 64 |
-| Key vaults with private endpoints per subscription | 64 |
+| Key vaults with private endpoints per subscription | 400 |

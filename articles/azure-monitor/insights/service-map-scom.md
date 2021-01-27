@@ -69,11 +69,11 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
 6. Optional: Select the All Management Servers Resource Pool to communicate with Log Analytics, and then click **Add Workspace**.
 
-    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-pool.png)
+    ![Screenshot of the Server Pool screen in Add Microsoft Operations Management Suite Workspace with All Management Servers Resource Pool selected.](media/service-map-scom/scom-config-pool.png)
 
     It might take a minute to configure and register the Log Analytics workspace. After it is configured, Operations Manager initiates the first Map sync.
 
-    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-success.png)
+    ![Screenshot of the Completion screen in Add Microsoft Operations Management Suite Workspace confirming that the Workspace has been added.](media/service-map-scom/scom-config-success.png)
 
 ## Monitor integration
 
@@ -94,11 +94,11 @@ The Service Map folder has four nodes:
 
 * **Machine Group Dependency Views**: Lists all machine groups that are synced from the Map feature. You can click any group to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-group-dad.png)
+    ![Screenshot from Service Map showing a diagram with images for each machine group and lines indicating the dependencies between them.](media/service-map-scom/scom-group-dad.png)
 
 * **Server Dependency Views**: Lists all servers that are synced from the Map feature. You can click any server to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-dad.png)
+    ![Screenshot from Service Map showing a diagram with images for each server and lines indicating the dependencies between them.](media/service-map-scom/scom-dad.png)
 
 ## Edit or delete the workspace
 
@@ -136,9 +136,11 @@ The current design presents the following issues and limitations:
 
 For official Azure documentation about creating a service principal, see:
 
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Create a service principal by using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
-### Feedback
+### Suggestions
+
 Do you have any feedback for us about integration with Azure Monitor for VMs Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
+

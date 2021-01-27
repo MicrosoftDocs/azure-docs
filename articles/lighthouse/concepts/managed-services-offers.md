@@ -1,25 +1,28 @@
 ---
 title: Managed Service offers in Azure Marketplace
-description: Managed Service offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-ms.date: 05/04/2020
+description: Managed Service offers let you sell resource management offers to customers in Azure Marketplace.
+ms.date: 07/28/2020
 ms.topic: conceptual
 ---
 
 # Managed Service offers in Azure Marketplace
 
-This article describes the **Managed Service** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed Service offers allow you to offer resource management services to customers through [Azure delegated resource management](azure-delegated-resource-management.md). You can make these offers available to all potential customers, or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
+This article describes the **Managed Service** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed Service offers allow you to offer resource management services to customers through [Azure Lighthouse](../overview.md). You can make these offers available to all potential customers, or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
 
 ## Understand Managed Service offers
 
-Managed Service offers streamline the process of onboarding customers for Azure delegated resource management. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded.
+Managed Service offers streamline the process of onboarding customers to Azure Lighthouse. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded.
 
-After that, users in your organization will be able to work on those resources from within your organization's tenant, according to the access you defined when creating the offer. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
+After that, users in your organization will be able to work on those resources from within your managing tenant through [Azure delegated resource management](azure-delegated-resource-management.md), according to the access you defined when creating the offer. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
 
 ## Public and private offers
 
 Each Managed Services offer includes one or more plans. Plans can be either private or public.
 
-If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+
+> [!NOTE]
+> Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 Public plans let you promote your services to new customers. These are usually more appropriate when you only require limited access to the customer's tenant. Once you've established a relationship with a customer, if they decide to grant your organization additional access, you can do so either by publishing a new private plan for that customer only, or by [onboarding them for further access using Azure Resource Manager templates](../how-to/onboard-customer.md).
 

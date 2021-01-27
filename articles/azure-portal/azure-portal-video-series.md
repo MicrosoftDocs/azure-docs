@@ -1,34 +1,28 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-services: azure-portal
 keywords: 
-author: mgblythe
-ms.author: mblythe
-ms.date: 05/11/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
 ---
+
 # Azure portal how-to video series
 
 The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we show you how to connect to a storage account using Azure Private Link.
+In this featured video, we show you how to get started in Azure using the Azure Quickstart Center.
 
-> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
+> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
 
-[How to connect to a storage account using Azure Private Link](https://www.youtube.com/watch?v=vM7yDwHSc_o)
+[How to get started in Azure using the Azure Quickstart Center](https://www.youtube.com/watch?v=mb5k9nXMtBM)
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [How to manage applications in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [How to build Azure Workbooks using logs and parameters](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about the new Azure Functions experience](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Image of YouTube video deploying your web app using GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Image of YouTube video about using service information cards](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
-| [The new Azure Functions experience](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Deploying your web app using GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Using service information cards](https://www.youtube.com/watch?v=u00TU531qsQ) |
+| [![Image of YouTube video about how to manage applications in Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Image of YouTube video about how to build Azure Workbooks using logs and parameters](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
 
 ## Video playlist
 

@@ -1,6 +1,6 @@
 ---
 title: Create Windows VM with accelerated networking - Azure PowerShell
-description: Learn how to create a Linux virtual machine with accelerated networking.
+description: Create a Windows virtual machine (VM) with accelerated networking to greatly improve its networking performance.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
@@ -57,11 +57,13 @@ The following distributions are supported directly from the Azure Gallery:
 
 ### Supported VM instances
 
-Accelerated networking is supported on most general purpose and compute-optimized instance sizes with two or more virtual CPUs (vCPUs).  These supported series are: Dv2/DSv2 and F/Fs.
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
 
-On instances that support hyperthreading, accelerated networking is supported on VM instances with four or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, and Ms/Mmsv2.
+Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
-For more information on VM instances, see [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+### Custom images
+
+If you're using a custom image and your image supports Accelerated Networking, be sure that you have the required drivers that work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
 
 ### Regions
 
@@ -200,7 +202,7 @@ In the following examples, replace example parameter names with your own values.
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    For a list of all VM sizes and characteristics, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    For a list of all VM sizes and characteristics, see [Windows VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Create the rest of your VM configuration with [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). The following command creates a Windows Server 2016 VM:
 
@@ -323,7 +325,7 @@ A virtual machine scale set is slightly different, but it follows the same workf
 3. Set the applied updates to automatic so that the changes are immediately picked up:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

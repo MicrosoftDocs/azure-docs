@@ -5,8 +5,8 @@ description: Using the Azure AD Conditional Access insights and reporting workbo
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/01/2020
+ms.topic: conceptual
+ms.date: 08/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -94,6 +94,22 @@ View the breakdown of users or sign-ins for each of the conditions. You can filt
 
 You can also investigate the sign-ins of a specific user by searching for sign-ins at the bottom of the dashboard. The query on the left displays the most frequent users. Selecting a user will filter the query to the right.  
 
+> [!NOTE]
+> When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
+
+## Configure a Conditional Access policy in report-only mode
+
+To configure a Conditional Access policy in report-only mode:
+
+1. Sign into the **Azure portal** as a Conditional Access administrator, security administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Select an existing policy or create a new policy.
+1. Under **Enable policy** set the toggle to **Report-only** mode.
+1. Select **Save**
+
+> [!TIP]
+> Editing the **Enable policy** state of an existing policy from **On** to **Report-only** disables existing policy enforcement. 
+
 ## Troubleshooting
 
 ### Why are queries failing due to a permissions error?
@@ -108,6 +124,10 @@ In order to access the workbook, you need the proper Azure AD permissions as wel
 ![Troubleshoot failing queries](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### Why are the queries in the workbook failing?
+
+Customers have noticed that queries sometimes fail if the wrong or multiple workspaces are associated with the workbook. To fix this problem, click **Edit** at the top of the workbook and then the Settings gear. Select and then remove workspaces that are not associated with the workbook. There should be only one workspace associated with each workbook.
 
 ### Why is the Conditional Access policies parameter is empty?
 
@@ -131,4 +151,8 @@ You can edit and customize the workbook by going to **Azure Active Directory** >
  
 ## Next steps
 
-[Conditional Access report-only mode](concept-conditional-access-report-only.md)
+- [Conditional Access report-only mode](concept-conditional-access-report-only.md)
+
+- For more information about Azure AD workbooks, see the article, [How to use Azure Monitor workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)

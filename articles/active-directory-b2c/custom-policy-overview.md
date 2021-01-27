@@ -8,7 +8,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/06/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,7 +22,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 
 ## Comparing user flows and custom policies
 
-| | User flows | Custom policies |
+| Context | User flows | Custom policies |
 |-|-------------------|-----------------|
 | Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenID Connect flows and understand identity providers and claims-based authentication. |
 | Configuration method | Azure portal with a user-friendly user-interface (UI). | Directly editing XML files and then uploading to the Azure portal. |

@@ -2,12 +2,13 @@
 title: 'Azure ExpressRoute: Link a VNet to a circuit: classic'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
@@ -37,7 +38,7 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual n
    * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have your connectivity provider enable the circuit.
    * Ensure that you have Azure private peering configured for your circuit. See the [Configure routing](expressroute-howto-routing-classic.md) article for routing instructions.
    * Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
-   * You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [configure a virtual network for ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [configure a virtual network for ExpressRoute](./expressroute-howto-add-gateway-portal-resource-manager.md).
 
 ### Download the latest PowerShell cmdlets
 

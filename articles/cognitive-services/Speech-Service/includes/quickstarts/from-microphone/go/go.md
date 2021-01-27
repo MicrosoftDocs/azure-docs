@@ -11,7 +11,7 @@ ms.author: trrwilson
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Set up your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -20,7 +20,7 @@ Before you get started:
 Update the go.mod file with the latest SDK version by adding this line
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.12.0-alpha1
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
 )
 ```
 

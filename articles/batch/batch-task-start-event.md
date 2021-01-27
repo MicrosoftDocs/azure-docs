@@ -2,7 +2,7 @@
 title: Azure Batch task start event
 description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
 ms.topic: reference
-ms.date: 04/20/2017
+ms.date: 10/08/2020
 ---
 
 # Task start event
@@ -14,23 +14,24 @@ ms.date: 04/20/2017
 
 ```
 {
-	"jobId": "myJob",
-	"id": "myTask",
-	"taskType": "User",
-	"systemTaskVersion": 220192842,
-	"nodeInfo": {
-		"poolId": "pool-001",
-		"nodeId": "tvm-257509324_1-20160908t162728z"
-	},
-	"multiInstanceSettings": {
-		"numberOfInstances": 1
-	},
-	"constraints": {
-		"maxTaskRetryCount": 2
-	},
-	"executionInfo": {
-		"retryCount": 0
-	}
+    "jobId": "myJob",
+    "id": "myTask",
+    "taskType": "User",
+    "systemTaskVersion": 220192842,
+    "requiredSlots": 1,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "retryCount": 0
+    }
 }
 ```
 
@@ -40,8 +41,9 @@ ms.date: 04/20/2017
 |`id`|String|The ID of the task.|
 |`taskType`|String|The type of the task. This can either be 'JobManager' indicating it is a job manager task or 'User' indicating it is not a job manager task.|
 |`systemTaskVersion`|Int32|This is the internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
+|`requiredSlots`|Int32|The required slots to run the task.|
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task  is Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) for details.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task  is Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) for details.|
 |[`constraints`](#constraints)|Complex Type|The execution constraints that apply to this task.|
 |[`executionInfo`](#executionInfo)|Complex Type|Contains information about the execution of the task.|
 

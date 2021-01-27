@@ -1,11 +1,8 @@
 ---
 title: Multiple HDInsight clusters & one Azure Data Lake Storage account
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Storage account
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ---
@@ -13,7 +10,7 @@ ms.date: 12/18/2019
 # Use multiple HDInsight clusters with an Azure Data Lake Storage account
 
 Starting with HDInsight version 3.5, you can create HDInsight clusters with  Azure Data Lake Storage accounts as the default filesystem.
-Data Lake Storage supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Storage Account. For instructions on how to create an HDInsight cluster with Data Lake Storage as the storage, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Data Lake Storage supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Storage Account. For instructions on how to create an HDInsight cluster with Data Lake Storage as the storage, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
 This article provides recommendations to the Data Lake Storage administrator for setting up a single and shared Data Lake Storage Account that can be used across multiple **active** HDInsight clusters. These recommendations apply to hosting multiple secure as well as non-secure Apache Hadoop clusters on a shared Data Lake Storage account.
 
@@ -39,7 +36,7 @@ In the table,
 - **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
 - **FINGRP** is a user group created in AAD that contains users from the Finance organization.
 
-For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Some key points to consider.
 
@@ -74,7 +71,9 @@ When a new Azure Data Lake Storage account is created, the root directory is aut
 
 These settings are known to affect one specific HDInsight use-case captured in [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Job submissions could fail with an error message similar to this:
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 As stated in the YARN JIRA linked earlier, while localizing public resources, the localizer validates that all the requested resources are indeed public by checking their permissions on the remote file-system. Any LocalResource that doesn't fit that condition is rejected for localization. The check for permissions, includes read-access to the file for "others". This scenario doesn't work out-of-the-box when hosting HDInsight clusters on Azure Data Lake, since Azure Data Lake denies all access to "others" at root folder level.
 
@@ -84,5 +83,5 @@ Set read-execute permissions for **others** through the hierarchy, for example, 
 
 ## See also
 
-- [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+- [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)

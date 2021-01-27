@@ -9,7 +9,7 @@ ms.subservice: alerts
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [retired](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), though still in limited use for resources that do not yet support the new alerts. 
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts.
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
@@ -35,9 +35,9 @@ The newer metric alerts have the following benefits over the classic metric aler
 - **Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 - **More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics.
 - **Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period.
-- **Better notification system**: All newer alerts use [action groups](../../azure-monitor/platform/action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
+- **Better notification system**: All newer alerts use [action groups](./action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
 - **Metrics from Logs** (public preview): Log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
-See [Alerts (classic)](alerts-classic.overview.md) for the terminology specific to classic alerts. 
+See [Alerts (classic)]() for the terminology specific to classic alerts. 
 
 
 ## Classic alerts on Azure Monitor data
@@ -47,7 +47,7 @@ There are two types of classic alerts available -  metric alerts and activity lo
 
 * **Classic activity log alerts** - A streaming log alert that triggers on an Activity Log event entry that matches your filter criteria. These alerts have only one state, "Activated". The alert engine simply applies the filter criteria to any new event. It does not search to find older entries. These alerts can notify you when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
 
-For resource log data available through Azure Monitor, route the data into Log Analytics and use a log query alert. Log Analytics now uses the [new alerting method](../../azure-monitor/platform/alerts-overview.md) 
+For resource log data available through Azure Monitor, route the data into Log Analytics and use a log query alert. Log Analytics now uses the [new alerting method](./alerts-overview.md) 
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
@@ -64,7 +64,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 ## How do I receive a notification from an Azure Monitor classic alert?
 Historically, Azure alerts from different services used their own built-in notification methods. 
 
-Azure Monitor created a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. Any time an alert is activated that references the Action Group, all receivers receive that notification. Action groups allow you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions.  For more information, see [action groups](../../azure-monitor/platform/action-groups.md). 
+Azure Monitor created a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. Any time an alert is activated that references the Action Group, all receivers receive that notification. Action groups allow you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions.  For more information, see [action groups](./action-groups.md). 
 
 Older classic Activity Log alerts use action groups.
 
@@ -85,10 +85,11 @@ Get information about alert rules and configuring them by using:
 * Configure [classic Metric Alerts via Azure portal](alerts-classic-portal.md)
 * Configure [classic Metric Alerts PowerShell](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alerts-classic-portal.md)
-* Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configure [classic Metric Alerts Azure Monitor REST API](/rest/api/monitor/alertrules)
 * Learn more about [Activity Log](platform-logs-overview.md)
 * Configure [Activity Log Alerts via Azure portal](activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)
 * Review the [activity log alert webhook schema](activity-log-alerts-webhook.md)
 * Learn more about [Action groups](action-groups.md)
 * Configure [newer Alerts](alerts-metric.md)
+

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Upload and bind TLS/SSL'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to bind a custom TLS/SSL certificate to an app.
 author: msangapu-msft
@@ -7,14 +7,14 @@ tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
 # Bind a custom TLS/SSL certificate to a web app using PowerShell
 
 This sample script creates a web app in App Service with its related resources, then binds the TLS/SSL certificate of a custom domain name to it. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. Also, ensure that:
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure. Also, ensure that:
 
 - A connection with Azure has been created using the `az login` command.
 - You have access to your domain registrar's DNS configuration page.
@@ -49,6 +49,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).

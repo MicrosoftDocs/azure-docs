@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
+ms.date: 06/12/2020
 ---
 
 # Copy data from Dynamics AX by using Azure Data Factory
@@ -32,7 +32,7 @@ You can copy data from Dynamics AX to any supported sink data store. For a list 
 Specifically, this Dynamics AX connector supports copying data from Dynamics AX using **OData protocol** with **Service Principal authentication**.
 
 >[!TIP]
->You can also use this connector to copy data from **Dynamics 365 Finance and Operations**. Refer to Dynamics 365's [OData support](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) and [Authentication method](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
+>You can also use this connector to copy data from **Dynamics 365 Finance and Operations**. Refer to Dynamics 365's [OData support](/dynamics365/unified-operations/dev-itpro/data-entities/odata) and [Authentication method](/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
 
 ## Get started
 
@@ -138,6 +138,7 @@ To copy data from Dynamics AX, set the **source** type in Copy Activity to **Dyn
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **DynamicsAXSource**. | Yes |
 | query | OData query options for filtering data. Example: `"?$select=Name,Description&$top=5"`.<br/><br/>**Note**: The connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 **Example**
 

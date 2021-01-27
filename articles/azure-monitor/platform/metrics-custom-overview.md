@@ -1,17 +1,16 @@
 ---
 title: Custom metrics in Azure Monitor (Preview)
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
-
+ms.date: 01/25/2021
 ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor (Preview)
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. 
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](./metrics-supported.md). However, they're limited in nature. 
 
 You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
@@ -21,18 +20,19 @@ Azure Monitor custom metrics are current in public preview.
 
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
+- Install the Azure Monitor Agent (Preview) on your [Windows or Linux Azure VM](azure-monitor-agent-overview.md) and use a [data collection rule](data-collection-rule-azure-monitor-agent.md) to send performance counters to Azure Monitor metrics.
 - Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](collect-custom-metrics-guestos-vm-classic.md), or [classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
-- Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Send custom metrics [directly to the Azure Monitor REST API](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## Pricing model and rentention
+## Pricing model and retention
 
-Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incurr costs when they enter general availability. Metric API queries do incurr costs.
+Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incur costs when they enter general availability. Metric API queries do incur costs.
 
 Custom metrics are retained for the [same amount of time as platform metrics](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](../app/pricing.md#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## How to send custom metrics
@@ -41,8 +41,8 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. There are a few supported ways to acquire a valid bearer token:
-1. [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Gives an identity to an Azure resource itself, such as a VM. Managed Service Identity (MSI) is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the MSI can emit metrics for other resources as well.
-2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
+1. [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Gives an identity to an Azure resource itself, such as a VM. Managed Service Identity (MSI) is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the MSI can emit metrics for other resources as well.
+2. [Azure AD Service Principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
 To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!TIP]  
@@ -73,7 +73,7 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
+A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
@@ -99,7 +99,6 @@ For example, if there were four sign-in transactions to your app during a given 
 |Transaction 1|Transaction 2|Transaction 3|Transaction 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
-|
 
 Then the resulting metric publication to Azure Monitor would be as follows:
 * Min: 4
@@ -128,7 +127,8 @@ In the following example, you create a custom metric called **Memory Bytes in Us
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -168,7 +168,7 @@ There's no need to predefine a custom metric in Azure Monitor before it's emitte
 After custom metrics are submitted to Azure Monitor, you can browse them via the Azure portal and query them via the Azure Monitor REST APIs. You can also create alerts on them to notify you when certain conditions are met.
 
 > [!NOTE]
-> You need to be a reader or contributor role to view custom metrics.
+> You need to be a reader or contributor role to view custom metrics. See [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### Browse your custom metrics via the Azure portal
 1.    Go to the [Azure portal](https://portal.azure.com).
@@ -178,33 +178,19 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 5.    Select the metrics namespace for your custom metric.
 6.    Select the custom metric.
 
+> [!NOTE]
+> See [Getting started with Azure Metrics Explorer](./metrics-getting-started.md) for more info on viewing metrics in the Azure portal.
+
 ## Supported regions
-During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
+During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. See [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) for more info on Azure regions. The Azure region code used in the below endpoints is just the name of the region with whitespace removed The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
 |Azure region |Regional endpoint prefix|
 |---|---|
-| **US and Canada** | |
-|West Central US | https:\//westcentralus.monitoring.azure.com/ |
-|West US 2       | https:\//westus2.monitoring.azure.com/ |
-|North Central US | https:\//northcentralus.monitoring.azure.com
-|South Central US| https:\//southcentralus.monitoring.azure.com/ |
-|Central US      | https:\//centralus.monitoring.azure.com |
-|Canada Central | https:\//canadacentral.monitoring.azure.comc
-|East US| https:\//eastus.monitoring.azure.com/ |
-| **Europe** | |
-|North Europe    | https:\//northeurope.monitoring.azure.com/ |
-|West Europe     | https:\//westeurope.monitoring.azure.com/ |
-|UK South | https:\//uksouth.monitoring.azure.com
-|France Central | https:\//francecentral.monitoring.azure.com |
-| **Africa** | |
-|South Africa North | https:\//southafricanorth.monitoring.azure.com
-| **Asia** | |
-|Central India | https:\//centralindia.monitoring.azure.com
-|Australia East | https:\//australiaeast.monitoring.azure.com
-|Japan East | https:\//japaneast.monitoring.azure.com
-|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
-|East Asia | https:\//eastasia.monitoring.azure.com
-|Korea Central   | https:\//koreacentral.monitoring.azure.com
+| All Public Cloud Regions | https://<azure_region_code>.monitoring.azure.com |
+| **Azure Government** | |
+| US Gov Arizona | https:\//usgovarizona.monitoring.azure.us |
+| **China** | |
+| China East 2 | https:\//chinaeast2.monitoring.azure.cn |
 
 ## Latency and storage retention
 
@@ -229,6 +215,7 @@ Use custom metrics from different services:
  - [Virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (classic)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine using the Telegraf agent](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](./metrics-store-custom-rest-api.md)
  - [Classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

@@ -21,10 +21,8 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: How-to guides
   items:
-    - name: Connect devices
+    - name: Connect and develop devices
       items:
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Prepare and connect a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Monitor device connectivity using Azure CLI
@@ -86,34 +84,34 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../../iot-fundamentals/iot-support-help.md
     - name: Azure IoT services
       items:
       - name: IoT Hub
-        href: /azure/iot-hub
+        href: ../../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
-        href: /azure/iot-dps
+        href: ../../iot-dps/index.yml
       - name: IoT Central
-        href: https://docs.microsoft.com/microsoft-iot-central/
+        href: /microsoft-iot-central/
       - name: IoT Edge
-        href: /azure/iot-edge
+        href: ../../iot-edge/index.yml
       - name: IoT solution accelerators
-        href: /azure/iot-accelerators
+        href: ../../iot-accelerators/index.yml
       - name: IoT Plug and Play
-        href: /azure/iot-pnp
+        href: ../../iot-pnp/index.yml
       - name: Azure Maps
-        href: /azure/azure-maps
+        href: ../../azure-maps/index.yml
       - name: Time Series Insights
-        href: /azure/time-series-insights
+        href: ../../time-series-insights/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Supported browsers
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Azure IoT Central (legacy templates)
-      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central
+      href: /previous-versions/azure/iot-central/core/overview-iot-central

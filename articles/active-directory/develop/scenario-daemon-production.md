@@ -1,5 +1,6 @@
 ---
-title: Move a daemon app that calls web APIs to production - Microsoft identity platform | Azure
+title: Move a daemon app that calls web APIs to production | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
 author: jmprieur
@@ -13,7 +14,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -30,20 +31,17 @@ If you're an ISV creating a daemon application that can run in several tenants, 
 
 You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## Next steps
-
-Here are a few links to help you learn more:
+## Code samples
 
 # [.NET](#tab/dotnet)
 
-- Quickstart: [Acquire a token and call Microsoft Graph API from a console app by using app's identity](./quickstart-v2-netcore-daemon.md).
 - Reference documentation for:
-  - Instantiating [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Calling [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - Instantiating [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Other samples/tutorials:
-  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a simple .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
+  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a small .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
 
     ![Sample daemon app topology](media/scenario-daemon-app/daemon-app-sample.svg)
 
@@ -54,6 +52,12 @@ Here are a few links to help you learn more:
   - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) features an ASP.NET MVC web application that syncs data from Microsoft Graph by using the identity of the application instead of on behalf of a user. This sample also illustrates the admin consent process.
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
+
+---
+
+## Next steps
+
+Here are a few links to help you learn more:
 
 # [Python](#tab/python)
 

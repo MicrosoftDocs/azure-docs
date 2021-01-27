@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 09/02/2020
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -33,7 +33,7 @@ No.
 
 The following cross-premises connections are supported:
 
-* Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](./tutorial-site-to-site-portal.md).
 * Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -71,7 +71,7 @@ No. An Azure Vnet gateway type cannot be changed from policy-based to route-bas
    - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Create a new gateway of the type you want and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+1. [Create a new gateway of the type you want and complete the VPN setup](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -121,6 +121,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 ### Can I configure Force Tunneling?
 
 Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
+
+### Can I use NAT-T on my VPN connections?
+
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels.  In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 

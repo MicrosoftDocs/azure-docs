@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
 
-Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service.
+Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service. 
+
+For cost model specific to cross-region replication, see [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## Calculation of capacity consumption
 
@@ -56,6 +58,7 @@ You can manually increase or decrease the pool size. However, the following cons
 * A 1-TiB increment after the initial 4-TiB minimum purchase
 * A one-hour minimum billing increment
 * The provisioned pool size may not be decreased to less than the total used capacity in the pool.
+* For capacity pools with manual QoS, the pool size can only be decreased if the size and service level provide more throughput than the actual assigned throughput of all volumes.
 
 ## Behavior of maximum-size pool overage   
 
@@ -89,3 +92,4 @@ The capacity consumption of snapshots in Azure NetApp Files is charged against t
 * [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

@@ -28,7 +28,7 @@ This article shows you how to use Create and Manage Azure Notification Hubs usin
 - Create a Notification Hub
 - Set Credentials
 
-If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell. The best approach from PowerShell is to reference the Microsoft.Azure.NotificationHubs.dll assembly. The assembly is distributed with the [Microsoft Azure Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -146,9 +146,9 @@ else
 
 ## Additional Resources
 
-- [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [How to create Service Bus queues, topics and subscriptions using a PowerShell script](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [How to create Service Bus queues, topics and subscriptions using a PowerShell script](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Some ready-made scripts are also available for download:
 
@@ -157,8 +157,8 @@ Some ready-made scripts are also available for download:
 [Purchase Options]: https://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: https://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[.NET API for Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[Install and configure Azure PowerShell]: /powershell/azure/
+[.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

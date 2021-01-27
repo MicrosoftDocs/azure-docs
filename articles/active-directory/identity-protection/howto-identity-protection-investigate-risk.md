@@ -5,8 +5,8 @@ description: Learn how to investigate risky users, detections, and sign-ins in A
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 12/13/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -87,6 +87,10 @@ With the information provided by the risk detections report, administrators can 
 - Link out to more detail from Microsoft Cloud App Security (MCAS).
 
 Administrators can then choose to return to the user's risk or sign-ins report to take actions based on information gathered.
+
+> [!NOTE] 
+> Our system may detect that the risk event that contributed to the risk user risk score was a false positives or the user risk was remediated with policy enforcement such as completing an MFA prompt or secure password change. Therefore our system will dismiss the risk state and a risk detail of “AI confirmed sign-in safe” will surface and it will no longer contribute to the user’s risk. 
+
 
 ## Next steps
 

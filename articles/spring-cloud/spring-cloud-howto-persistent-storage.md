@@ -6,10 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Use persistent storage in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 Azure Spring Cloud provides two types of storage for your application: persistent and temporary.
 

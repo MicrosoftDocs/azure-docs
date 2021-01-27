@@ -6,6 +6,7 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
+ms.custom: devx-track-csharp
 ---
 # Secure WCF-based communications for a service
 Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article talks about how to improve security when you're using service remoting.
@@ -115,4 +116,4 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+As a next step, read [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md).

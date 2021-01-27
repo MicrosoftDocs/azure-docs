@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy an Azure Firewall with mul
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ---

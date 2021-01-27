@@ -3,12 +3,14 @@ title: ORDER BY clause in Azure Cosmos DB
 description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/06/2020
 ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 
@@ -210,6 +212,11 @@ The results are:
     }
 ]
 ```
+
+> [!Note]
+> Only the .NET SDK version 3.4.0 or later supports ORDER BY with mixed types. Therefore, if you want to sort by a combination of undefined and defined values, you should use this version (or later).
+
+You can't control the order that different types appear in the results. In the above example, we showed how undefined values were sorted before string values. If instead, for example, you wanted more control over the sort order of undefined values, you could assign any undefined properties a string value of "aaaaaaaaa" or "zzzzzzzz" to ensure they were either first or last.
 
 ## Next steps
 

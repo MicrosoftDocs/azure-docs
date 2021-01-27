@@ -30,14 +30,14 @@ backups to be performed than **Standard** tier.
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** page, first select the backup source.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Screenshot that shows where to select the backup source.](./media/web-sites-restore/021ChooseSource1.png)
    
     The **App backup** option shows you all the existing backups of the current app, and you can easily select one.
     The **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription.
     If you're trying to restore a backup of another app, use the **Storage** option.
 3. Then, specify the destination for the app restore in **Restore destination**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Screenshot that shows where to specify the destination for the app restore.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your current app is erased and overwritten. Before you click **OK**,
@@ -79,7 +79,7 @@ The details page displays the available information related to the restore opera
 
 ## Automate with scripts
 
-You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 For samples, see:
 
