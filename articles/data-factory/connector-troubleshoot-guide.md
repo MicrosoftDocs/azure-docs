@@ -30,7 +30,7 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 ### Invalid property during copy activity
 
-- **Message**: "Copy activity \<Activity Name> has an invalid "source" property. The source type is not compatible with the dataset \<Dataset Name> and its linked service \<Linked Service Name>. Please verify your input against."
+- **Message**: `Copy activity \<Activity Name> has an invalid "source" property. The source type is not compatible with the dataset \<Dataset Name> and its linked service \<Linked Service Name>. Please verify your input against.`
 
 - **Cause**: The type defined in the dataset is inconsistent with the source or sink type that's defined in the copy activity.
 
@@ -41,7 +41,7 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 ### Error message: Request size is too large
 
-- **Symptoms**: When you copy data into Azure Cosmos DB with a default write batch size, you receive the following error: "Request size is too large."
+- **Symptoms**: When you copy data into Azure Cosmos DB with a default write batch size, you receive the following error: `Request size is too large.`
 
 - **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large. You can tune the write batch size.
 
@@ -51,8 +51,8 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 - **Symptoms**: When you copy data into Azure Cosmos DB, you receive the following error:
 
-    "Message=Partition range id 0 | Failed to import mini-batch. 
-    Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}..."
+    `Message=Partition range id 0 | Failed to import mini-batch. 
+    Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}...`
 
 - **Cause**: There are two possible causes:
 
@@ -68,8 +68,8 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 - **Symptoms**: When you copy data into Azure Cosmos DB, you receive the following error:
 
-    "Type=Microsoft.Azure.Documents.DocumentClientException,
-    Message=Message: {"Errors":["Request rate is large"]}"
+    `Type=Microsoft.Azure.Documents.DocumentClientException,
+    Message=Message: {"Errors":["Request rate is large"]}`
 
 - **Cause**: The number of used request units (RUs) is greater than the available RUs configured in Azure Cosmos DB. To learn how
 Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos-db/request-units.md#request-unit-considerations).
@@ -95,9 +95,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you copy data from Azure Cosmos DB MongoAPI or MongoDB with the universally unique identifier (UUID) field, you receive the following error:
 
-    "Failed to read data via MongoDB client., 
+    `Failed to read data via MongoDB client., 
     Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException, 
-    Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,"
+    Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,`
 
 - **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
 
@@ -107,7 +107,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  CosmosDbSqlApiOperationFailed
 
-- **Message**: "CosmosDbSqlApi operation Failed. ErrorMessage: %msg;."
+- **Message**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
 - **Cause**: A problem with the CosmosDbSqlApi operation.
 
@@ -120,7 +120,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Copy activity fails with the following error: 
 
-    "Message: ErrorCode = \`UserErrorFailedFileOperation\`, Error Message = \`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`."
+    `Message: ErrorCode = \`UserErrorFailedFileOperation\`, Error Message = \`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`.`
 
 - **Cause**: The certificate validation failed during the TLS handshake.
 
@@ -133,8 +133,8 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Copy activity fail with the following error: 
 
-   "Message: The remote server returned an error: (403) Forbidden.   
-    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)...."
+   `Message: The remote server returned an error: (403) Forbidden.   
+    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....`
 
 - **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access certain folders or files.
 
@@ -144,10 +144,10 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Copy activity fails with the following error:
 
-    "Failed to get access token by using service principal.  
-    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable."
+    `Failed to get access token by using service principal.  
+    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.`
 
-- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not unavailable (that is, it's too busy to handle requests), it returns HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 
@@ -156,7 +156,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code: ADLSGen2OperationFailed
 
-- **Message**: "ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;."
+- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
 - **Cause**: If Azure Data Lake Storage Gen2 throws this error, the operation has failed.
 
@@ -174,7 +174,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: 
   * Error Code = `UserErrorFailedBlobFSOperation`
-  * Error Message = "BlobFS operation failed for: A task was canceled."
+  * Error Message = `BlobFS operation failed for: A task was canceled.`
 
 - **Cause**: The issue is caused by the Azure Data Lake Storage Gen2 sink timeout error, which usually occurs on the Self-hosted Integration Runtime (IR) machine.
 
@@ -203,7 +203,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  AzureFileOperationFailed
 
-- **Message**: "Azure File operation Failed. Path: %path;. ErrorMessage: %msg;."
+- **Message**: `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
 
 - **Cause**: A problem with the Azure Files storage operation.
 
@@ -214,7 +214,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlFailedToConnect
 
-- **Message**: "Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access."
+- **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
 - **Cause**: For Azure SQL, if the error message contains the string "SqlErrorNumber=47073," it means that public network access is denied in the connectivity setting.
 
@@ -243,7 +243,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlOperationFailed
 
-- **Message**: "A database operation failed. Please search error to get more details."
+- **Message**: `A database operation failed. Please search error to get more details.`
 
 - **Cause**: If the error message contains the string "SqlException," SQL Database throws an error indicating some specific operation failed.
 
@@ -262,7 +262,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlUnauthorizedAccess
 
-- **Message**: "Cannot connect to '%connectorName;'. Detail Message: '%message;'"
+- **Message**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
 - **Cause**: The credentials are incorrect or the login account can't access the SQL database.
 
@@ -271,7 +271,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlOpenConnectionTimeout
 
-- **Message**: "Open connection to database timeout after '%timeoutValue;' seconds."
+- **Message**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
 - **Cause**: The problem could be a SQL database transient failure.
 
@@ -280,7 +280,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlAutoCreateTableTypeMapFailed
 
-- **Message**: "Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table."
+- **Message**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
 - **Cause**: The autocreation table can't meet the source requirement.
 
@@ -289,7 +289,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlDataTypeNotSupported
 
-- **Message**: "A database operation failed. Check the SQL errors."
+- **Message**: `A database operation failed. Check the SQL errors.`
 
 - **Cause**: If the issue occurs in the SQL source and the error is related to SqlDateTime overflow, the data value exceeds the logic type range (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
 
@@ -302,7 +302,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlInvalidDbStoredProcedure
 
-- **Message**: "The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'."
+- **Message**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
 - **Cause**: The specified stored procedure is invalid. The cause might be that the stored procedure doesn't return any data.
 
@@ -311,7 +311,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlInvalidDbQueryString
 
-- **Message**: "The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'"
+- **Message**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
 - **Cause**: The specified SQL query is invalid. The cause might be that the query doesn't return any data
 
@@ -320,7 +320,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlInvalidColumnName
 
-- **Message**: "Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'."
+- **Message**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
 - **Cause**: The column can't be found because the configuration might be incorrect.
 
@@ -329,7 +329,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlBatchWriteTimeout
 
-- **Message**: "Timeouts in SQL write operation."
+- **Message**: `Timeouts in SQL write operation.`
 
 - **Cause**: The problem could be caused by a SQL database transient failure.
 
@@ -338,7 +338,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlBatchWriteTransactionFailed
 
-- **Message**: "SQL transaction commits failed."
+- **Message**: `SQL transaction commits failed.`
 
 - **Cause**: If exception details constantly indicate a transaction timeout, the network latency between the integration runtime and the database is greater than the default threshold of 30 seconds.
 
@@ -351,7 +351,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlBulkCopyInvalidColumnLength
 
-- **Message**: "SQL Bulk Copy failed due to receive an invalid column length from the bcp client."
+- **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
 - **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program utility (bcp) client.
 
@@ -360,7 +360,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SqlConnectionIsClosed
 
-- **Message**: "The connection is closed by SQL Database."
+- **Message**: `The connection is closed by SQL Database.`
 
 - **Cause**: The SQL connection is closed by the SQL database when a high concurrent run and the server terminate the connection.
 
@@ -371,10 +371,10 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you copy data from a tabular data source (such as SQL Server) into Azure Synapse Analytics using staged copy and PolyBase, you receive the following error:
 
-   "ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException, 
+   `ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException, 
     Message=Error happened when loading data into Azure Synapse Analytics., 
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException, 
-    Message=Conversion failed when converting from a character string to uniqueidentifier..."
+    Message=Conversion failed when converting from a character string to uniqueidentifier...`
 
 - **Cause**: Azure Synapse Analytics PolyBase can't convert an empty string to a GUID.
 
@@ -385,11 +385,11 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you copy data from a tabular data source (such as SQL Server) into Azure Synapse Analytics by using staged copy and PolyBase, you receive the following error:
 
-    "ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException, 
+    `ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException, 
     Message=Error happened when loading data into Azure Synapse Analytics., 
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException, 
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt)  
-    Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:.."
+    Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..`
 
 - **Cause**: Azure Synapse Analytics PolyBase can't insert an empty string (null value) into a decimal column.
 
@@ -400,10 +400,10 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: You copy data into Azure Synapse Analytics by using PolyBase and receive the following error:
 
-    "Message=110802;An internal DMS error occurred that caused this operation to fail.  
+    `Message=110802;An internal DMS error occurred that caused this operation to fail.  
     Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, 
     Message: Java exception raised on call to HdfsBridge_CreateRecordReader.  
-    Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file....."
+    Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....`
 
 - **Cause**: The cause might be that the schema (total column width) is too large (larger than 1 MB). Check the schema of the target Azure Synapse Analytics table by adding the size of all columns:
 
@@ -432,7 +432,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: You use SQL query to pull data from Azure Synapse Analytics and receive the following error:
 
-    "...StorageException: The condition specified using HTTP conditional header(s) is not met..."
+    `...StorageException: The condition specified using HTTP conditional header(s) is not met...`
 
 - **Cause**: Azure Synapse Analytics encountered an issue while querying the external table in Azure Storage.
 
@@ -441,7 +441,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Performance tier is low and leads to copy failure
 
-- **Symptoms**: You copy data into Azure SQL Database and receive the following error: "Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed."
+- **Symptoms**: You copy data into Azure SQL Database and receive the following error: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
 - **Cause**: Azure SQL Database s1 has hit input/output (I/O) limits.
 
@@ -450,7 +450,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### SQL table can't be found 
 
-- **Symptoms**: You copy data from hybrid into an on-premises SQL Server table and receive the following error："Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions."
+- **Symptoms**: You copy data from hybrid into an on-premises SQL Server table and receive the following error：`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
 
 - **Cause**: The current SQL account doesn't have sufficient permissions to execute requests issued by .NET SqlBulkCopy.WriteToServer.
 
@@ -479,9 +479,11 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  AzureTableDuplicateColumnsFromSource
 
-- **Message**: "Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink."
+- **Message**: `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink.`
 
-- **Cause**: It could be common for SQL query with join, or unstructured csv files.
+- **Cause**: Duplicated source columns might occur for one of the following reasons:
+   * You're using the database as a source and applied table joins.
+   * You have unstructured CSV files with duplicated column names in the header row.
 
 - **Recommendation**:  Double-check and fix the source columns, as necessary.
 
@@ -490,7 +492,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DB2DriverRunFailed
 
-- **Message**: "Error thrown from driver. Sql code: '%code;'"
+- **Message**: `Error thrown from driver. Sql code: '%code;'`
 
 - **Cause**: If the error message contains the string "SQLSTATE=51002 SQLCODE=-805," follow the "Tip" in [Copy data from DB2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties).
 
@@ -501,7 +503,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DelimitedTextColumnNameNotAllowNull
 
-- **Message**: "The name of column index %index; is empty. Make sure column name is properly specified in the header row."
+- **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
 - **Cause**: When 'firstRowAsHeader' is set in the activity, the first row is used as the column name. This error means that the first row contains an empty value (for example, 'ColumnA, ColumnB').
 
@@ -510,7 +512,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DelimitedTextMoreColumnsThanDefined
 
-- **Message**: "Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;."
+- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
 - **Cause**: The problematic row's column count is larger than the first row's column count. It might be caused by a data issue or incorrect column delimiter or quote char settings.
 
@@ -529,7 +531,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DynamicsCreateServiceClientError
 
-- **Message**: "This is a transient issue on Dynamics server side. Try to rerun the pipeline."
+- **Message**: `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
 - **Cause**: The problem is a transient issue on the Dynamics server side.
 
@@ -538,7 +540,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Missing columns when you import schema or preview data
 
-- **Symptoms**: Some columns are missing when you import schema or preview data. Error message: "The valid structure information (column name and type) are required for Dynamics source."
+- **Symptoms**: Some columns are missing when you import schema or preview data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
 
 - **Cause**: This issue is by design, because Data Factory is unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
@@ -547,7 +549,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DynamicsMissingTargetForMultiTargetLookupField
 
-- **Message**: "Cannot find the target column for multi-target lookup field: '%fieldName;'."
+- **Message**: `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
 - **Cause**: The target column doesn't exist in the source or in the column mapping.
 
@@ -558,7 +560,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DynamicsInvalidTargetForMultiTargetLookupField
 
-- **Message**: "The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;""
+- **Message**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
 - **Cause**: A wrong entity name is provided as target entity of a multi-target lookup field.
 
@@ -567,7 +569,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DynamicsInvalidTypeForMultiTargetLookupField
 
-- **Message**: "The provided target type is not a valid string. Field: '%fieldName;'."
+- **Message**: `The provided target type is not a valid string. Field: '%fieldName;'.`
 
 - **Cause**: The value in the target column is not a string.
 
@@ -576,7 +578,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  DynamicsFailedToRequetServer
 
-- **Message**: "The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details."
+- **Message**: `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **Cause**: The Dynamics server is instable or inaccessible, or the network is experiencing issues.
 
@@ -587,7 +589,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  FtpFailedToConnectToFtpServer
 
-- **Message**: "Failed to connect to FTP server. Please make sure the provided server information is correct, and try again."
+- **Message**: `Failed to connect to FTP server. Please make sure the provided server information is correct, and try again.`
 
 - **Cause**: An incorrect linked service type might be used for the FTP server, such as using the Secure FTP (SFTP) linked service to connect to an FTP server.
 
@@ -598,7 +600,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  HttpFileFailedToRead
 
-- **Message**: "Failed to read data from http server. Check the error from http server：%message;"
+- **Message**: `Failed to read data from http server. Check the error from http server：%message;`
 
 - **Cause**: This error occurs when Azure Data Factory talks to the HTTP server, but the HTTP request operation fails.
 
@@ -609,7 +611,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code: ArgumentOutOfRangeException
 
-- **Message**: "Hour, Minute, and Second parameters describe an un-representable DateTime."
+- **Message**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
 - **Cause**: In Data Factory, DateTime values are supported in the range from 0001-01-01 00:00:00 to 9999-12-31 23:59:59. However, Oracle supports a wider range of DateTime values, such as the BC century or min/sec>59, which leads to failure in Data Factory.
 
@@ -624,7 +626,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  OrcJavaInvocationException
 
-- **Message**: "An error occurred when invoking Java, message: %javaException;."
+- **Message**: `An error occurred when invoking Java, message: %javaException;.`
 
 - **Cause**: When the error message contains the strings "java.lang.OutOfMemory," "Java heap space," and "doubleCapacity," it's usually a memory management issue in an old version of integration runtime.
 
@@ -648,7 +650,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  OrcDateTimeExceedLimit
 
-- **Message**: "The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000."
+- **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
 - **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be caused by the differences between the [Julian calendar and the Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
 
@@ -659,7 +661,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetJavaInvocationException
 
-- **Message**: "An error occurred when invoking java, message: %javaException;."
+- **Message**: `An error occurred when invoking java, message: %javaException;.`
 
 - **Cause**: When the error message contains the strings "java.lang.OutOfMemory," "Java heap space," and "doubleCapacity," it's usually a memory management issue in an old version of Integration Runtime.
 
@@ -676,7 +678,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetInvalidFile
 
-- **Message**: "File is not a valid Parquet file."
+- **Message**: `File is not a valid Parquet file.`
 
 - **Cause**: This is a Parquet file issue.
 
@@ -685,7 +687,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetNotSupportedType
 
-- **Message**: "Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;."
+- **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
 - **Cause**: The Parquet format is not supported in Azure Data Factory.
 
@@ -694,7 +696,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetMissedDecimalPrecisionScale
 
-- **Message**: "Decimal Precision or Scale information is not found in schema for column: %column;."
+- **Message**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
 - **Cause**: The number precision and scale were parsed, but no such information was provided.
 
@@ -703,7 +705,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetInvalidDecimalPrecisionScale
 
-- **Message**: "Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;."
+- **Message**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
 - **Cause**: The schema is invalid.
 
@@ -712,7 +714,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetColumnNotFound
 
-- **Message**: "Column %column; does not exist in Parquet file."
+- **Message**: `Column %column; does not exist in Parquet file.`
 
 - **Cause**: The source schema is a mismatch with the sink schema.
 
@@ -721,7 +723,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetInvalidDataFormat
 
-- **Message**: "Incorrect format of %srcValue; for converting to %dstType;."
+- **Message**: `Incorrect format of %srcValue; for converting to %dstType;.`
 
 - **Cause**: The data can't be converted into the type that's specified in mappings.source.
 
@@ -730,7 +732,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetDataCountNotMatchColumnCount
 
-- **Message**: "The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema."
+- **Message**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
 - **Cause**:  A mismatch between the source column count and the sink column count.
 
@@ -739,7 +741,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetDataTypeNotMatchColumnType
 
-- **Message**: The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.
+- **Message**: `The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.`
 
 - **Cause**: The data from the source can't be converted to the type that's defined in the sink.
 
@@ -748,7 +750,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetBridgeInvalidData
 
-- **Message**: "%message;"
+- **Message**: `%message;`
 
 - **Cause**: The data value has exceeded the limit.
 
@@ -757,7 +759,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetUnsupportedInterpretation
 
-- **Message**: "The given interpretation '%interpretation;' of Parquet format is not supported."
+- **Message**: `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
 - **Cause**: This scenario isn't supported.
 
@@ -766,7 +768,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  ParquetUnsupportFileLevelCompressionOption
 
-- **Message**: "File level compression is not supported for Parquet."
+- **Message**: `File level compression is not supported for Parquet.`
 
 - **Cause**: This scenario isn't supported.
 
@@ -775,7 +777,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  UserErrorJniException
 
-- **Message**: "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]"
+- **Message**: `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
 
 - **Cause**: A Java Virtual Machine (JVM) can't be created because some illegal (global) arguments are set.
 
@@ -784,7 +786,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Arithmetic overflow
 
-- **Symptoms**: Error message occurred when you copy Parquet files: "Message = Arithmetic Overflow., Source = Microsoft.DataTransfer.Common"
+- **Symptoms**: Error message occurred when you copy Parquet files: `Message = Arithmetic Overflow., Source = Microsoft.DataTransfer.Common`
 
 - **Cause**: Currently only the decimal of precision <= 38 and length of integer part <= 20 are supported when you copy files from Oracle to Parquet. 
 
@@ -815,7 +817,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  RestSinkCallFailed
 
-- **Message**: "Rest Endpoint responded with Failure from server. Check the error from server:%message;"
+- **Message**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
 - **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
 
@@ -847,7 +849,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 #### Error code:  SftpOperationFail
 
-- **Message**: "Failed to '%operation;'. Check detailed error from SFTP."
+- **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
 - **Cause**: A problem with the SFTP operation.
 
@@ -856,7 +858,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SftpRenameOperationFail
 
-- **Message**: "Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file."
+- **Message**: `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
 - **Cause**: Your SFTP server doesn't support renaming the temp file.
 
@@ -865,7 +867,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  SftpInvalidSftpCredential
 
-- **Message**: "Invalid Sftp credential provided for '%type;' authentication type."
+- **Message**: `Invalid SFTP credential provided for '%type;' authentication type.`
 
 - **Cause**: Private key content is fetched from the Azure key vault or SDK, but it's not encoded correctly.
 
@@ -920,16 +922,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: 
   * Error code: UserErrorInvalidColumnMappingColumnNotFound 
-  * Error message: "Column 'AccMngr' specified in column mapping cannot be found in source data."
+  * Error message: `Column 'AccMngr' specified in column mapping cannot be found in source data.`
 
-- **Cause**: The source doesn't include a column named "AccMngr".
+- **Cause**: The source doesn't include a column named "AccMngr."
 
 - **Resolution**: To determine whether the "AccMngr" column exists, double-check your dataset configuration by mapping the destination dataset column.
 
 
 ### Error code:  SftpFailedToConnectToSftpServer
 
-- **Message**: "Failed to connect to Sftp server '%server;'."
+- **Message**: `Failed to connect to SFTP server '%server;'.`
 
 - **Cause**: If the error message contains the string "Socket read operation has timed out after 30000 milliseconds," one possible cause is that an incorrect linked service type is used for the SFTP server. For example, you might be using the FTP linked service to connect to the SFTP server.
 
@@ -943,16 +945,14 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     If you want to promote the low throughput, contact your SFTP administrator to increase the concurrent connection count limit, or you can do one of the following:
 
-    * If you're using a managed IR, add [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-    * Install Self-hosted IR if you don't want to add a large list of IP ranges into the SFTP server allow list.
-    * If you're using Self-hosted IR, add the machine IP that installed Self-hosted IR to the allow list.
-
+    * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allow list.
+    * If you're using Azure IR, add [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses). If you don't want to add a range of IPs to the SFTP server allow list, use Self-hosted IR instead.
 
 ## SharePoint Online list
 
 ### Error code:  SharePointOnlineAuthFailed
 
-- **Message**: "The access token generated failed, status code: %code;, error message: %message;."
+- **Message**: `The access token generated failed, status code: %code;, error message: %message;.`
 
 - **Cause**: The service principal ID and key might not be set correctly.
 
@@ -963,7 +963,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  XmlSinkNotSupported
 
-- **Message**: "Write data in XML format is not supported yet, choose a different format!"
+- **Message**: `Write data in XML format is not supported yet, choose a different format!`
 
 - **Cause**: An XML dataset was used as a sink dataset in your copy activity.
 
@@ -972,7 +972,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  XmlAttributeColumnNameConflict
 
-- **Message**: "Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'."
+- **Message**: `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
 
 - **Cause**: An attribute prefix was used, which caused the conflict.
 
@@ -981,7 +981,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  XmlValueColumnNameConflict
 
-- **Message**: "Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name."
+- **Message**: `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
 
 - **Cause**: One of the child element names was used as the column name for the element value.
 
@@ -990,7 +990,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  XmlInvalid
 
-- **Message**: "Input XML file '%file;' is invalid with parsing error '%error;'."
+- **Message**: `Input XML file '%file;' is invalid with parsing error '%error;'.`
 
 - **Cause**: The input XML file is not well formed.
 
@@ -1001,7 +1001,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  JreNotFound
 
-- **Message**: "Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine."
+- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
 - **Cause**: The self-hosted IR can't find Java Runtime. Java Runtime is required for reading particular sources.
 
@@ -1010,7 +1010,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code:  WildcardPathSinkNotSupported
 
-- **Message**: "Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'."
+- **Message**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 
 - **Cause**: The sink dataset doesn't support wildcard values.
 
@@ -1019,7 +1019,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### FIPS issue
 
-- **Symptoms**: Copy activity fails on a FIPS-enabled self-hosted IR machine with the following error message: "This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms." 
+- **Symptoms**: Copy activity fails on a FIPS-enabled self-hosted IR machine with the following error message: `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.` 
 
 - **Cause**: This error might occur when you copy data with connectors such as Azure Blob, SFTP, and so on. Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that copy activity depends on are blocked in some scenarios.
 
