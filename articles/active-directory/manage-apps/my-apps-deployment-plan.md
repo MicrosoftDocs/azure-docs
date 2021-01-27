@@ -6,7 +6,7 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: Conceptual
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
@@ -169,8 +169,7 @@ End users can also customize their experience by
 
 * Creating their own app collections.
 
-* Hiding and reordering app collections.
-access-panel-collections.md).
+* [Hiding and reordering app collections](access-panel-collections.md).
 
 ![Screenshot of self-service configuration](media\my-apps-dp\collections.png)
 
@@ -199,7 +198,7 @@ You can enable users to discover and request access to applications via the My A
 
 * create a group for application access
 
-![Screenshot of self-service configuration](media\my-apps-dp\my-apps-self-service.png)
+![Screen shot of My Apps self service configuration](media\my-apps-dp\my-apps-self-service.png)
 
 When users request access, they're requesting access to the underlying group, and group owners can be delegate permission to manage the group membership and thus application access. Approval workflows are available for explicit approval to access applications. Users who are approvers will receive notifications within the My Apps portal when there are pending request for access to the application.
 
@@ -275,10 +274,3 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 [Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
 
  
-
- 
-
- 
-
-#  
-
