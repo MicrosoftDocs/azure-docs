@@ -18,8 +18,8 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge device u
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. 
 
-        > [!IMPORTANT] 
-        > We recommend that you enable Multi-Factor Authentication (MFA) for the user who is managing virtual machines deployed on your device from the cloud.
+> [!IMPORTANT] 
+> We recommend that you enable multifactor authentication for the user who manages VMs that are deployed on your device from the cloud.
         
 ## VM deployment workflow
 
