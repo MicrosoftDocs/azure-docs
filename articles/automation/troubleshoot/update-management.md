@@ -2,9 +2,9 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
+ms.subservice: update-management
 ms.date: 01/13/2021
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Update Management issues
