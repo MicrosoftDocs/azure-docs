@@ -346,7 +346,7 @@ You can delete old terms of use policies using the following procedure.
 User acceptance records are deleted:
 
 - When the admin explicitly deletes the ToU. When this happens all the acceptance records associated with that specific ToU are also deleted.
-- When the tenant loses its AAD Premium license.
+- When the tenant loses its Azure Active Directory Premium license.
 - When the tenant is deleted.
 
 ## Policy changes
