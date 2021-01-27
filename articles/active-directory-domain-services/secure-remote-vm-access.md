@@ -1,8 +1,8 @@
 ---
 title: Secure remote VM access in Azure AD Domain Services | Microsoft Docs
-description: Learn how to secure remote access to VMs using Network Policy Server (NPS) and Azure Multi-Factor Authentication with a Remote Desktop Services deployment in an Azure Active Directory Domain Services managed domain.
+description: Learn how to secure remote access to VMs using Network Policy Server (NPS) and Azure AD Multi-Factor Authentication with a Remote Desktop Services deployment in an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Secure remote access to virtual machines in Azure Active Directory Domain Services
 
-To secure remote access to virtual machines (VMs) that run in an Azure Active Directory Domain Services (Azure AD DS) managed domain, you can use Remote Desktop Services (RDS) and Network Policy Server (NPS). Azure AD DS authenticates users as they request access through the RDS environment. For enhanced security, you can integrate Azure Multi-Factor Authentication to provide an additional authentication prompt during sign-in events. Azure Multi-Factor Authentication uses an extension for NPS to provide this feature.
+To secure remote access to virtual machines (VMs) that run in an Azure Active Directory Domain Services (Azure AD DS) managed domain, you can use Remote Desktop Services (RDS) and Network Policy Server (NPS). Azure AD DS authenticates users as they request access through the RDS environment. For enhanced security, you can integrate Azure AD Multi-Factor Authentication to provide an additional authentication prompt during sign-in events. Azure AD Multi-Factor Authentication uses an extension for NPS to provide this feature.
 
 > [!IMPORTANT]
 > The recommended way to securely connect to your VMs in an Azure AD DS managed domain is using Azure Bastion, a fully platform-managed PaaS service that you provision inside your virtual network. A bastion host provides secure and seamless Remote Desktop Protocol (RDP) connectivity to your VMs directly in the Azure portal over SSL. When you connect via a bastion host, your VMs don't need a public IP address, and you don't need to use network security groups to expose access to RDP on TCP port 3389.
@@ -24,7 +24,7 @@ To secure remote access to virtual machines (VMs) that run in an Azure Active Di
 >
 > For more information, see [What is Azure Bastion?][bastion-overview].
 
-This article shows you how to configure RDS in Azure AD DS and optionally use the Azure Multi-Factor Authentication NPS extension.
+This article shows you how to configure RDS in Azure AD DS and optionally use the Azure AD Multi-Factor Authentication NPS extension.
 
 ![Remote Desktop Services (RDS) overview](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -62,32 +62,32 @@ The RD environment deployment contains a number of steps. The existing RD deploy
 
 With RD deployed into the managed domain, you can manage and use the service as you would with an on-premises AD DS domain.
 
-## Deploy and configure NPS and the Azure MFA NPS extension
+## Deploy and configure NPS and the Azure AD MFA NPS extension
 
-If you want to increase the security of the user sign-in experience, you can optionally integrate the RD environment with Azure Multi-Factor Authentication. With this configuration, users receive an additional prompt during sign-in to confirm their identity.
+If you want to increase the security of the user sign-in experience, you can optionally integrate the RD environment with Azure AD Multi-Factor Authentication. With this configuration, users receive an additional prompt during sign-in to confirm their identity.
 
-To provide this capability, an additional Network Policy Server (NPS) is installed in your environment along with the Azure Multi-Factor Authentication NPS extension. This extension integrates with Azure AD to request and return the status of multi-factor authentication prompts.
+To provide this capability, an additional Network Policy Server (NPS) is installed in your environment along with the Azure AD Multi-Factor Authentication NPS extension. This extension integrates with Azure AD to request and return the status of multi-factor authentication prompts.
 
-Users must be [registered to use Azure Multi-Factor Authentication][user-mfa-registration], which may require additional Azure AD licenses.
+Users must be [registered to use Azure AD Multi-Factor Authentication][user-mfa-registration], which may require additional Azure AD licenses.
 
-To integrate Azure Multi-Factor Authentication in to your Azure AD DS Remote Desktop environment, create an NPS Server and install the extension:
+To integrate Azure AD Multi-Factor Authentication in to your Azure AD DS Remote Desktop environment, create an NPS Server and install the extension:
 
 1. Create an additional Windows Server 2016 or 2019 VM, such as *NPSVM01*, that's connected to a *workloads* subnet in your Azure AD DS virtual network. Join the VM to the managed domain.
 1. Sign in to NPS VM as account that's part of the *Azure AD DC Administrators* group, such as *contosoadmin*.
 1. From **Server Manager**, select **Add Roles and Features**, then install the *Network Policy and Access Services* role.
-1. Use the existing how-to article to [install and configure the Azure MFA NPS extension][nps-extension].
+1. Use the existing how-to article to [install and configure the Azure AD MFA NPS extension][nps-extension].
 
-With the NPS server and Azure Multi-Factor Authentication NPS extension installed, complete the next section to configure it for use with the RD environment.
+With the NPS server and Azure AD Multi-Factor Authentication NPS extension installed, complete the next section to configure it for use with the RD environment.
 
-## Integrate Remote Desktop Gateway and Azure Multi-Factor Authentication
+## Integrate Remote Desktop Gateway and Azure AD Multi-Factor Authentication
 
-To integrate the Azure Multi-Factor Authentication NPS extension, use the existing how-to article to [integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD][azure-mfa-nps-integration].
+To integrate the Azure AD Multi-Factor Authentication NPS extension, use the existing how-to article to [integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD][azure-mfa-nps-integration].
 
 The following additional configuration options are needed to integrate with a managed domain:
 
 1. Don't [register the NPS server in Active Directory][register-nps-ad]. This step fails in a managed domain.
 1. In [step 4 to configure network policy][create-nps-policy], also check the box to **Ignore user account dial-in properties**.
-1. If you use Windows Server 2019 for the NPS server and Azure Multi-Factor Authentication NPS extension, run the following command to update the secure channel to allow the NPS server to communicate correctly:
+1. If you use Windows Server 2019 for the NPS server and Azure AD Multi-Factor Authentication NPS extension, run the following command to update the secure channel to allow the NPS server to communicate correctly:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -99,7 +99,7 @@ Users are now prompted for an additional authentication factor when they sign in
 
 For more information on improving resiliency of your deployment, see [Remote Desktop Services - High availability][rds-high-availability].
 
-For more information about securing user sign-in, see [How it works: Azure Multi-Factor Authentication][concepts-mfa].
+For more information about securing user sign-in, see [How it works: Azure AD Multi-Factor Authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure Kubernetes Service - Azure Database for MySQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
@@ -40,4 +40,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Next steps
 - [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
-- Learn how to [Install WordPress from a Helm chart using OSBA and Azure Database for MySQL](../aks/integrate-azure.md)
+- Learn how to [Install WordPress from a Helm chart using OSBA and Azure Database for MySQL](../aks/index.yml)

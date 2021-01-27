@@ -1,6 +1,6 @@
 ---
-title: Weather Services concepts in Microsoft Azure Maps
-description: Learn about the concepts that apply to Microsoft Azure Maps Weather Services.
+title: Weather services (Preview) concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather services (Preview).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -10,13 +10,18 @@ services: azure-maps
 manager: philmea
 ---
 
-# Weather services in Azure Maps
+# Weather services (Preview) in Azure Maps
 
-This article introduces concepts that apply to the [Azure Maps Weather Services](https://aka.ms/AzureMapsWeatherService). We recommend going through this article before starting out with the weather APIs.
+> [!IMPORTANT]
+> Azure Maps Weather services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
+Some of the Weather service (Preview) APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -47,7 +52,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service (Preview) APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -95,7 +100,7 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
@@ -470,7 +475,7 @@ Detailed color palette for infrared satellite tiles is shown below.
 
 ## Index IDs and Index Groups IDs
 
-[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) allows users to
+[Get Daily Indices API](/rest/api/maps/weather) allows users to
 restrict returned results to specific index types or index
 groups.
 
@@ -544,7 +549,7 @@ Below is the list of available Index groups (indexGroupId):
 
 ## Daily index range sets
 
-[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
 
 ### Poor-Excellent 1
 

@@ -2,7 +2,7 @@
 title: Azure AD Domain Services for Cloud Solution Providers | Microsoft Docs
 description: Learn how to enable and manage Azure Active Directory Domain Services managed domains for Azure Cloud Solution Providers
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Azure Active Directory Domain Services deployment and management for Azure Cloud Solution Providers

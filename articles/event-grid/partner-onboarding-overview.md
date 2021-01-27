@@ -1,28 +1,27 @@
 ---
-title: Onboard as an Azure Event Grid partner
-description: Onboard as an Azure Event Grid partner topic type. Understand the resource model and publishing flow for partner topics.
+title: Partner onboarding overview (Azure Event Grid)
+description: Provides an overview how you can onboard as an Event Grid partner. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/29/2020
 ---
 
-# Onboard as an Azure Event Grid partner
+# Partner onboarding overview (Azure Event Grid)
 
 This article describes how to privately use the Azure Event Grid partner resources and how to become a publicly available partner topic type.
 
 You don't need special permission to begin using the Event Grid resource types associated with publishing events as an Event Grid partner. In fact, you can use them today to publish events privately to your own Azure subscriptions and to test out the resource model if you're considering becoming a partner.
 
-## Become an Event Grid partner
+> [!NOTE]
+> For step-by-step instruction on how to onboard as an Event Grid partner by using the Azure portal, see [How to onboard as an Event Grid partner (Azure portal)](onboard-partner.md). 
 
-If you're interested in becoming a public Event Grid partner, begin by filling out [this form](https://aka.ms/gridpartnerform). Then contact the Event Grid team at [GridPartner@microsoft.com](mailto:gridpartner@microsoft.com).
+## How Partner Events work
+The Partner Events feature take the existing architecture that Event Grid already uses to publish events from Azure resources, such as Azure Storage and Azure IoT Hub, and makes those tools publicly available for anyone to use. Using these tools is by default private to your Azure subscription only. To make your events publicly available, fill out the form and [contact the Event Grid team](mailto:gridpartner@microsoft.com).
 
-## How partner topics work
-Partner topics take the existing architecture that Event Grid already uses to publish events from Azure resources, such as Azure Storage and Azure IoT Hub, and makes those tools publicly available for anyone to use. Using these tools is by default private to your Azure subscription only. To make your events publicly available, fill out the form and [contact the Event Grid team](mailto:gridpartner@microsoft.com).
+The Partner Events feature allow you to publish events to Azure Event Grid for multitenant consumption.
 
-Partner topics allow you to publish events to Azure Event Grid for multitenant consumption.
+## Onboarding and event publishing overview
 
-### Onboarding and event publishing overview
-
-#### Partner flow
+### Partner flow
 
 1. Create an Azure tenant if you don't already have one.
 1. Use the Azure CLI to create a new Event Grid `partnerRegistration`. This resource includes information such as display name, description, setup URI, and so on.
@@ -36,7 +35,7 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 1. Provide a way for customers to register in your system that they want a partner topic.
 1. Contact the Event Grid team to let them know you want your partner topic type to become public.
 
-#### Customer flow
+### Customer flow
 
 1. Your customer visits the Azure portal to note the Azure subscription ID and resource group they want the partner topic created in.
 1. The customer requests a partner topic via your system. In response, you create an event tunnel to your partner namespace.
@@ -49,9 +48,7 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
     ![Activate a partner topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## Resource model
-
-
-The following resource model is for partner topics.
+The following resource model is for Partner Events.
 
 ### Partner registrations
 * Resource: `partnerRegistrations`
@@ -64,7 +61,7 @@ The following resource model is for partner topics.
 * Scope: Created in the partner's Azure subscription. Metadata is visible to customers after it's made public.
 
 ### Partner namespaces
-* Resource: partnerNamespaces
+* Resource: `partnerNamespaces`
 * Used by: Partners
 * Description: Provides a regional resource for publishing customer events to. Each partner namespace has a publishing endpoint and auth keys. The namespace is also how the partner requests a partner topic for a given customer and lists active customers.
 * Scope: Lives in the partner's subscription.
@@ -72,7 +69,7 @@ The following resource model is for partner topics.
 ### Event channel
 * Resource: `partnerNamespaces/eventChannels`
 * Used by: Partners
-* Description: The event tunnels are a mirror of the customer's partner topic. By creating an event tunnel and specifying the customer's Azure subscription and resource group in the metadata, you signal to Event Grid to create a partner topic for the customer. Event Grid issues an ARM call to create a corresponding partnerTopic in the customer's subscription. The partner topic is created in a pending state. There's a one-to-one link between each event tunnel and partner topic.
+* Description: The event channels are a mirror of the customer's partner topic. By creating an event channel and specifying the customer's Azure subscription and resource group in the metadata, you signal to Event Grid to create a partner topic for the customer. Event Grid issues an Azure Resource Manager call to create a corresponding partner topic in the customer's subscription. The partner topic is created in a pending state. There's a one-to-one link between each event channel and partner topic.
 * Scope: Lives in the partner's subscription.
 
 ### Partner topics
@@ -80,7 +77,7 @@ The following resource model is for partner topics.
 * Used by: Customers
 * Description: Partner topics are similar to custom topics and system topics in Event Grid. Each partner topic is associated with a specific source (for example, `Contoso:myaccount`) and a specific partner topic type (for example, Contoso). Customers create event subscriptions on the partner topic to route events to various event handlers.
 
-    Customers can't directly create this resource. The only way to create a partner topic is through a partner operation that creates an event tunnel.
+    Customers can't directly create this resource. The only way to create a partner topic is through a partner operation that creates an event channel.
 * Scope: Lives in the customer's subscription.
 
 ### Partner topic types
@@ -90,7 +87,7 @@ The following resource model is for partner topics.
 * Scope: Global
 
 ## Publish events to Event Grid
-When you create a partner namespace in an Azure region, you get a regional endpoint and corresponding auth keys. Publish batches of events to this endpoint for all customer event tunnels in that namespace. Based on the source field in the event, Azure Event Grid maps each event with the corresponding partner topics.
+When you create a partner namespace in an Azure region, you get a regional endpoint and corresponding auth keys. Publish batches of events to this endpoint for all customer event channels in that namespace. Based on the source field in the event, Azure Event Grid maps each event with the corresponding partner topics.
 
 ### Event schema: CloudEvents v1.0
 Publish events to Azure Event Grid by using the CloudEvents 1.0 schema. Event Grid supports both structured mode and batched mode. CloudEvents 1.0 is the only supported event schema for partner namespaces.
@@ -100,7 +97,7 @@ Publish events to Azure Event Grid by using the CloudEvents 1.0 schema. Event Gr
 1.	The publishing service does an HTTP POST to `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 1.	In the request, include a header value named aeg-sas-key that contains a key for authentication. This key is provisioned during the creation of the partner namespace. For example, a valid header value is aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
 1.	Set the Content-Type header to "application/cloudevents-batch+json; charset=UTF-8a".
-1.	Perform an HTTP POST to the publishing URL with a batch of events that correspond to that region. For example:
+1.	Run an HTTP POST query to the publishing URL with a batch of events that correspond to that region. For example:
 
 ``` json
 [
@@ -135,7 +132,7 @@ Publish events to Azure Event Grid by using the CloudEvents 1.0 schema. Event Gr
 ]
 ```
 
-After posting to the partnerNamespace endpoint, you receive a response. The response is a standard HTTP response code. Some common responses are:
+After posting to the partner namespace endpoint, you receive a response. The response is a standard HTTP response code. Some common responses are:
 
 | Result                             | Response              |
 |------------------------------------|-----------------------|
@@ -151,7 +148,7 @@ After posting to the partnerNamespace endpoint, you receive a response. The resp
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST APIs](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [CLI extension](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [CLI extension](/cli/azure/ext/eventgrid/)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
@@ -163,7 +160,7 @@ After posting to the partnerNamespace endpoint, you receive a response. The resp
 
 
 ## Next steps
-- [Partner topics overview](partner-topics-overview.md)
+- [Partner topics overview](partner-events-overview.md)
 - [Partner topics onboarding form](https://aka.ms/gridpartnerform)
 - [Auth0 partner topic](auth0-overview.md)
 - [How to use the Auth0 partner topic](auth0-how-to.md)

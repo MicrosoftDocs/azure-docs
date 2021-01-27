@@ -10,11 +10,11 @@ ms.subservice: imaging
 ---
 # Preview: Create a Windows image and distribute it to a Shared Image Gallery 
 
-This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
+This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
 We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 
-To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
+To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 

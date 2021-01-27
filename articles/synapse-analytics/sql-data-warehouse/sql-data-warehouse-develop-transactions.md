@@ -1,5 +1,5 @@
 ---
-title: Use transactions in Synapse SQL pool
+title: Use transactions in Azure Synapse Analytics SQL pool
 description: This article includes tips for implementing transactions and developing solutions in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
 ---
 
-# Use transactions in Synapse SQL pool
+# Use transactions in a SQL pool in Azure Synapse 
 
-This article includes tips for implementing transactions and developing solutions in SQL pool.
+This article includes tips for implementing transactions and developing solutions in a SQL pool.
 
 ## What to expect
 
@@ -22,9 +23,9 @@ As you would expect, SQL pool supports transactions as part of the data warehous
 
 ## Transaction isolation levels
 
-SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
+SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user SQL pool when connected to the master database.  
 
-Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for details.
+Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for details.
 
 ## Transaction size
 
@@ -39,7 +40,7 @@ In the following table, two assumptions have been made:
 
 ## Gen2
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -60,7 +61,7 @@ In the following table, two assumptions have been made:
 
 ## Gen1
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

@@ -1,17 +1,20 @@
 ---
-title: Collect custom logs in Azure Monitor | Microsoft Docs
+title: Collect custom logs with Log Analytics agent in Azure Monitor
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
+ms.date: 10/21/2020
 
 ---
 
-# Custom logs in Azure Monitor
+# Collect custom logs with Log Analytics agent in Azure Monitor
 
-The Custom Logs data source in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+
+> [!IMPORTANT]
+> This article covers collecting custom logs with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -23,6 +26,7 @@ The log files to be collected must match the following criteria.
 
 - The log file must not allow circular logging or log rotation, where the file is overwritten with new entries.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
+- For Linux, time zone conversion is not supported for time stamps in the logs.
 
 >[!NOTE]
 > If there are duplicate entries in the log file, Azure Monitor will collect them. However, the query results will be inconsistent where the filter results show more events than the result count. It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  

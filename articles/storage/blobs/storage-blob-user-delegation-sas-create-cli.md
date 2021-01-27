@@ -99,7 +99,7 @@ az storage blob generate-sas \
     --permissions acdrw \
     --expiry <date-time> \
     --auth-mode login \
-    --as-user
+    --as-user \
     --full-uri
 ```
 

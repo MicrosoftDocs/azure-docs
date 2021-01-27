@@ -63,7 +63,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 ### To find your SendGrid credentials
 1. Click the key icon to find your **Username**.
 
-    !Screenshot of the ContosoSendGrid account page with the Key icon highlighted.][key]
+    ![Screenshot of the ContosoSendGrid account page with the Key icon highlighted.][key]
 2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
 
 To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.

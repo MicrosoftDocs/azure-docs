@@ -5,7 +5,7 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 12/11/2020
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -18,3 +18,4 @@ These samples show how to use Azure Monitor to create alerts for subscriptions t
 | [alert-using-actiongroup](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/alert-using-actiongroup) | This template creates an Azure alert and connects to an existing Action Group.|
 | [multiple-loganalytics-alerts](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/multiple-loganalytics-alerts) | Creates multiple Log alerts based on Kusto queries.|
 | [delegation-alert-for-customer](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegation-alert-for-customer) | Deploys an alert in a tenant when a user delegates a subscription to a managing tenant.|
+| [workbook-activitylogs-by-domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) | Displays Azure Activity logs across subscriptions with an option to filter them by domain name. |

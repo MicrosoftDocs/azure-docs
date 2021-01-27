@@ -3,8 +3,8 @@ title: "Tutorial: Use Debug sessions to diagnose, fix, and commit changes to you
 titleSuffix: Azure Cognitive Search
 description: Debug sessions (preview) provide a portal-based interface to assess and repair issues/errors in your skillsets
 
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
@@ -56,7 +56,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 

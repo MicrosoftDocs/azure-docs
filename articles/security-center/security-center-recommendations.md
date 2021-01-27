@@ -11,19 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
 # Security recommendations in Azure Security Center 
+
 This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
 
 
 ## What are security recommendations?
 
-Recommendations are actions for you to take in order to secure your resources.
-
 Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+
+Recommendations are actions for you to take in order to secure and harden your resources. 
 
 Each recommendation provides you with:
 
@@ -31,13 +32,25 @@ Each recommendation provides you with:
 - The remediation steps to carry out in order to implement the recommendation
 - The affected resources
 
+## How does Microsoft decide what needs securing and hardening?
+
+Security Center's recommendations are based on the Azure Security Benchmark. 
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+
+Learn more about [Azure Security Benchmark](../security/benchmarks/introduction.md).
+
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 
 Security Center analyzes the security state of your resources to identify potential vulnerabilities. 
 
 1. From Security Center's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 
-      ![Recommendations grouped by security control](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. To find recommendations specific to the resource type, severity, environment, or other criteria that are important to you, use the optional filters above the list of recommendations.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations":::
 
 1. Expand a control and select a specific recommendation to view the recommendation details page.
 
@@ -70,7 +83,10 @@ An example of a preview recommendation:
  
 ## Next steps
 
-In this document, you were introduced to security recommendations in Security Center. To learn how to remediate the recommendations:
+In this document, you were introduced to security recommendations in Security Center. For related information:
 
-- [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Remediate recommendations](security-center-remediate-recommendations.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
+- [Automate responses to Security Center triggers](workflow-automation.md)--Automate responses to recommendations
+- [Exempt a resource from a recommendation](exempt-resource.md)
+- [Security recommendations - a reference guide](recommendations-reference.md)

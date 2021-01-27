@@ -1,6 +1,6 @@
 ---
 title: Set Azure Resource Manager password on your Azure Stack Edge Pro GPU device
-description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge Pro GPU using Azure PowerShell.
+description: Describes set the Azure Resource Manager password on your Azure Stack Edge Pro GPU using Azure PowerShell.
 services: databox
 author: alkohli
 

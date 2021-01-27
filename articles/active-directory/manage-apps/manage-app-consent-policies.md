@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
+ms.custom: contperf-fy21q2
 ---
 
 # Manage app consent policies
 
 With Azure AD PowerShell, you can view and manage app consent policies.
 
-An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to considered in an app consent policy, it must match *at least* one "includes" condition set, and must not many *any* "excludes" condition set.
+An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "includes" condition set, and must not match *any* "excludes" condition set.
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 
@@ -25,7 +26,7 @@ App consent policies where the ID begins with "microsoft-" are built-in policies
 
 ## Pre-requisites
 
-1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
+1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -51,14 +52,14 @@ It's a good idea to start by getting familiar with the existing app consent poli
 1. View the "includes" condition sets of a policy:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. View the "excludes" condition sets:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
@@ -143,7 +144,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
 * [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

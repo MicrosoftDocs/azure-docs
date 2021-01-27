@@ -39,11 +39,14 @@ Yes. You can have multiple private endpoints in same VNet or subnet. They can co
 ### Do I require a dedicated subnet for private endpoints? 
 No. You don't require a dedicated subnet for private endpoints. You can choose a private endpoint IP from any subnet from the VNet where your service is deployed.  
  
-### Can Private Endpoint connect to Private Link service across Azure Active Directory Tenants? 
-Yes. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  
+### Can a private endpoint connect to Private Link services across Azure Active Directory tenants? 
+Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Azure Active Directory tenants. Private endpoints that connect across tenants require a manual request approval. 
  
 ### Can private endpoint connect to Azure PaaS resources across Azure regions?
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
+
+### Can I modify my Private Endpoint Network Interface (NIC) ?
+When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
 
 ## Private Link Service
  
@@ -62,8 +65,8 @@ Yes. One Private Link service can receive connections from multiple Private Endp
 ### How should I control the exposure of my Private Link service?
 You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
-- **None** - Only subscriptions with RBAC access can locate the service. 
-- **Restrictive** - Only subscriptions that are approved and with RBAC access can locate the service. 
+- **None** - Only subscriptions with Azure RBAC access can locate the service. 
+- **Restrictive** - Only subscriptions that are approved and with Azure RBAC access can locate the service. 
 - **All** - Everyone can locate the service. 
  
 ### Can I create a Private Link service with basic load balancer? 

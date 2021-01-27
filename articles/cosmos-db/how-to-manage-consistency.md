@@ -3,6 +3,7 @@ title: Manage consistency in Azure Cosmos DB
 description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
@@ -10,6 +11,7 @@ ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Manage consistency levels in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
@@ -283,8 +285,9 @@ How eventual is eventual consistency? For the average case, can we offer stalene
 Learn more about how to manage data conflicts, or move on to the next key concept in Azure Cosmos DB. See the following articles:
 
 * [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
+* [Partitioning and data distribution](./partitioning-overview.md)
 * [Manage conflicts between regions](how-to-manage-conflicts.md)
-* [Partitioning and data distribution](partition-data.md)
+* [Partitioning and data distribution](partitioning-overview.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [High availability](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

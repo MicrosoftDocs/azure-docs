@@ -77,7 +77,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### Using aeg-sas-token header
-Here's an example of passing the SAS token as a value for the `aeg-sas-toke` header. 
+Here's an example of passing the SAS token as a value for the `aeg-sas-token` header. 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

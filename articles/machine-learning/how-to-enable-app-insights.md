@@ -1,16 +1,15 @@
 ---
 title: Monitor and collect data from Machine Learning web service endpoints
 titleSuffix: Azure Machine Learning
-description: Monitor web services deployed with Azure Machine Learning using Azure Application Insights
+description: Learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -152,14 +151,24 @@ You can also enable Azure Application Insights from Azure Machine Learning studi
 
 ### Query logs for deployed models
 
-You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
+Logs of real-time endpoints are customer data. You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+If you have multiple Tenants, you may need to add the following authenticate code before `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### View logs in the studio
@@ -199,9 +208,9 @@ To log web service request information, add `print` statements to your score.py 
 ## Export data for retention and processing
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Use Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
+Use Application Insights' [continuous export](../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 
@@ -210,8 +219,8 @@ Use Application Insights' [continuous export](https://docs.microsoft.com/azure/a
 In this article, you learned how to enable logging and view logs for web service endpoints. Try these articles for next steps:
 
 
-* [How to deploy a model to an AKS cluster](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [How to deploy a model to an AKS cluster](./how-to-deploy-azure-kubernetes-service.md)
 
-* [How to deploy a model to Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [How to deploy a model to Azure Container Instances](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.
+* [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](./concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.

@@ -22,7 +22,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
    Here is the sample output:
 
-   ```json
+   ```console
     Name              : <Integration Runtime name>
     Type              : SelfHosted
     ResourceGroupName : <ResourceGroupName>
@@ -39,7 +39,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
    Here is the sample output:
 
-   ```json  
+   ```console  
    State                     : NeedRegistration
    Version                   : 
    CreateTime                : 9/24/2019 6:00:00 AM

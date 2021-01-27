@@ -2,13 +2,13 @@
 title: Query requirements
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/30/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 Within the query use the `@StartTime` parameter to get metric data for a single timestamp. Metrics Advisor will replace the parameter with a `yyyy-MM-ddTHH:mm:ss` format string when it runs the query.

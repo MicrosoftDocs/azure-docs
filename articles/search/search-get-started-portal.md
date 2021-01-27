@@ -3,20 +3,20 @@ title: Create a search index in the Azure portal
 titleSuffix: Azure Cognitive Search
 description: In this Azure portal quickstart, use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
 
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
+ms.date: 12/12/2020
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
-**Import data** wizard is an Azure portal tool that guides you through the creation of a search index so that you can write interesting queries within minutes. 
+Create your first index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-The wizard also has pages for AI enrichment so that you can extract text and structure from image files and unstructured text. Content processing with AI includes Optical Character Recognition (OCR), key phrase and entity extraction, and image analysis.
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a cognitive skillset](cognitive-search-quickstart-blob.md).
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Storage requirements do not vary as a result of your selection. For example, if 
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-1. Accept the defaults. 
+1. Accept the defaults.
 
    If you rerun the wizard a second time using an existing hotels data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports. 
 

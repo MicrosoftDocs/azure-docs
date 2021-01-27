@@ -121,9 +121,9 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-- Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps)
 
-- The Wingtip Tickets SaaS Multi-tenant Database app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- The Wingtip Tickets SaaS Multi-tenant Database app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](./saas-multitenantdb-get-started-deploy.md)
 
 - Get the Wingtip scripts and source code:
     - The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repo.
@@ -144,7 +144,7 @@ The following are key elements of the provisioning workflow you step through:
 - **Add the tenant's name to a catalog extension table**: The venue name is added to the Tenants table in the catalog.  This addition shows how the Catalog database can be extended to support additional application-specific data.
 - **Open Events page for the new tenant**: The *Bushwillow Blues* events page is opened in the browser.
 
-   ![events](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Screenshot that shows the Events page for a new tenant.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### Debugger steps
 
@@ -157,7 +157,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 2. Add a breakpoint by putting your cursor anywhere on line 38, the line that says: *New-Tenant `*, and then press **F9**.
 
-   ![break point](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Screenshot that highlights the line that includes New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Run the script by pressing **F5**.
 
@@ -167,7 +167,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 5. Trace the script's execution using the **Debug** menu options, **F10** and **F11**, to step over or into called functions.
 
-For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## Provision a tenant in its *own* database
 
@@ -257,9 +257,9 @@ This type of automated service could be simple or complex. For example, the auto
 
 ## Additional resources
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Elastic database client library](elastic-database-client-library.md)
-- [How to Debug Scripts in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [How to Debug Scripts in Windows PowerShell ISE](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## Next steps
@@ -271,5 +271,4 @@ In this tutorial you learned how to:
 > * Provision a batch of additional tenants
 > * Step through the details of provisioning tenants, and registering them into the catalog
 
-Try the [Performance monitoring tutorial](../../sql-database/saas-multitenantdb-performance-monitoring.md).
-
+Try the [Performance monitoring tutorial](./saas-multitenantdb-performance-monitoring.md).

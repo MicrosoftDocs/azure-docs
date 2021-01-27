@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure AD Domain Services from a Classic virtual network | Microsoft Docs
 description: Learn how to migrate an existing Azure AD Domain Services managed domain from the Classic virtual network model to a Resource Manager-based virtual network.
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 
@@ -152,8 +152,8 @@ The migration to the Resource Manager deployment model and virtual network is sp
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Step 1 - Update and locate the new virtual network](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutes | No downtime required | N/A |
 | [Step 2 - Prepare the managed domain for migration](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minutes on average | Downtime of Azure AD DS starts after this command is completed. | Roll back and restore available. |
-| [Step 3 - Move the managed domain to an existing virtual network](#migrate-the-managed-domain) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed, downtime ends. | On failure, both rollback (self-service) and restore are available. |
-| [Step 4 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally. | N/A. Once the first VM is successfully migrated, there's no option for rollback or restore. |
+| [Step 3 - Move the managed domain to an existing virtual network](#migrate-the-managed-domain) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed. | On failure, both rollback (self-service) and restore are available. |
+| [Step 4 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally, downtime ends. | N/A. Once the first VM is successfully migrated, there's no option for rollback or restore. |
 | [Step 5 - Optional configuration steps](#optional-post-migration-configuration-steps) | Azure portal and VMs | N/A | No downtime required | N/A |
 
 > [!IMPORTANT]
@@ -259,16 +259,14 @@ At this stage, you can optionally move other existing resources from the Classic
 
 ## Test and verify connectivity after the migration
 
-It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain.
+It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain. The second domain controller should be available 1-2 hours after the migration cmdlet finishes. With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
 
-With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To learn more about what these network resources are and do, see [Network resources used by Azure AD DS][network-resources].
-
-When at least one domain controller is available, complete the following configuration steps for network connectivity with VMs:
+After the second domain controller is available, complete the following configuration steps for network connectivity with VMs:
 
 * **Update DNS server settings** To let other resources on the Resource Manager virtual network resolve and use the managed domain, update the DNS settings with the IP addresses of the new domain controllers. The Azure portal can automatically configure these settings for you.
 
     To learn more about how to configure the Resource Manager virtual network, see [Update DNS settings for the Azure virtual network][update-dns].
-* **Restart domain-joined VMs** - As the DNS server IP addresses for the Azure AD DS domain controllers change, restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal.
+* **Restart domain-joined VMs (optional)** As the DNS server IP addresses for the Azure AD DS domain controllers change, you can restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal. Rebooting domain-joined VMs prevents connectivity issues caused by IP addresses that don’t refresh.
 
 Now test the virtual network connection and name resolution. On a VM that's connected to the Resource Manager virtual network, or peered to it, try the following network communication tests:
 
@@ -277,7 +275,7 @@ Now test the virtual network connection and name resolution. On a VM that's conn
 1. Verify name resolution of the managed domain, such as `nslookup aaddscontoso.com`
     * Specify the DNS name for your own managed domain to verify that the DNS settings are correct and resolves.
 
-The second domain controller should be available 1-2 hours after the migration cmdlet finishes. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
+To learn more about other network resources, see [Network resources used by Azure AD DS][network-resources].
 
 ## Optional post-migration configuration steps
 
@@ -357,7 +355,7 @@ With your managed domain migrated to the Resource Manager deployment model, [cre
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

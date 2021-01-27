@@ -28,7 +28,7 @@ landingContent:
       - text: Reservation exchanges and refunds
         url: exchange-and-refund-azure-reservations.md
       - text: Buy a reservation with monthly payments
-        url: monthly-payments-reservations.md
+        url: ./prepare-buy-reservation.md
     - linkListType: how-to-guide
       links:
       - text: Renew reservations
@@ -36,13 +36,13 @@ landingContent:
       - text: Azure Synapse Analytics
         url: prepay-sql-data-warehouse-charges.md
       - text: Virtual machine
-        url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
       - text: Azure Storage
         url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
       - text: Cosmos DB
         url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: SQL Database
-        url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
       - text: Azure Data Explorer
         url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks

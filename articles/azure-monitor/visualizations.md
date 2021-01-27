@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
+ms.date: 01/25/2021
 
 ---
 
@@ -42,10 +42,10 @@ Here is a video walkthrough on creating dashboards.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### Advantages
-- Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics Explorer, Log Analytics, and Application Insights.
+- Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including [Metrics Explorer](platform/metrics-charts.md), [Log Analytics](log-query/log-analytics-overview.md), and [Application Insights](app/app-insights-overview.md).
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [metrics explorer](platform/metrics-charts.md), [Log queries](log-query/log-query-overview.md), and [maps](app/app-map.md) and availability in Application Insights.
-- Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
+- Combine data from multiple sources including output from [Metrics Explorer](platform/metrics-charts.md), [Log queries](log-query/log-query-overview.md), and [maps](app/app-map.md) and availability in [Application Insights](app/app-insights-overview.md).
+- Option for personal or shared dashboards. Integrated with [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh every hour, with a manual refresh option on demand by clicking the "refresh" icon on a given visualization, or by refreshing the full dashboard.
 - Parametrized metrics dashboards with timestamp and custom parameters.
 - Flexible layout options.
@@ -53,7 +53,7 @@ Here is a video walkthrough on creating dashboards.
 
 
 ### Limitations
-- Limited control over log visualizations with no support for data tables. Total number of data series is limited to 10 with further data series grouped under an _other_ bucket.
+- Limited control over log visualizations with no support for data tables. Total number of data series is limited to 50 with further data series grouped under an _other_ bucket.
 - No custom parameters support for log charts.
 - Log charts are limited to last 30 days.
 - Log charts can only be pinned to shared dashboards.
@@ -136,8 +136,9 @@ You can access data in log and metric data in Azure Monitor through their API us
 ## Next steps
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
-- Learn about [Views in Azure Monitor](platform/view-designer.md).
+- Learn about [Metrics Explorer](platform/metrics-getting-started.md)
 - Learn about [Workbooks](./platform/workbooks-overview.md).
 - Learn about [import log data into Power BI](./platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).
+- Learn about [Views in Azure Monitor](platform/view-designer.md).
 

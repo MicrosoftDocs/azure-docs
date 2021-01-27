@@ -81,6 +81,18 @@ Visual Studio doesn't automatically upload the settings in local.settings.json w
 
 Your code can also read the function app settings values as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
+## Configure your build output settings
+
+When building an Azure Functions project, the build tools optimize the output so that only one copy of any assemblies that are shared with the functions runtime are preserved. The result is an optimized build that saves as much space as possible. However, when you move to a more recent version of any of your project assemblies, the build tools might not know that these assemblies must be preserved. To make sure that these assemblies are preserved during the optimization process, you can specify them using `FunctionsPreservedDependencies` elements in the project (.csproj) file:
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azure Storage Emulator](../storage/common/storage-use-emulator.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
@@ -224,11 +236,9 @@ You can also manage application settings in one of these other ways:
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. To learn how to connect Application Insights to your function app, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 

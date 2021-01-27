@@ -6,8 +6,8 @@ documentationcenter: ''
 author: axayjo 
 manager: gwallace
 editor: ''
-
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -94,7 +94,7 @@ When you are done, hit the **Esc** key and then type **:wq** to save and close t
 
 ## Create the policy
 
-A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
+A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment).
 
 In this example, the rules and parameters are the files you created and stored as .json files in your cloud shell.
 
@@ -113,7 +113,7 @@ az policy definition create \
 
 This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
 
-Use [az account list](/cli/azure/account?view=azure-cli-latest) to get your subscription ID to use in place of the one in the example.
+Use [az account list](/cli/azure/account) to get your subscription ID to use in place of the one in the example.
 
 
 ```azurecli-interactive

@@ -1,27 +1,26 @@
 ---
-title: Tutorial - Work with Azure Storage queues in .NET
-description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages using .NET code.
+title: "Tutorial: Work with Azure Queue Storage queues in .NET"
+description: A tutorial on using the Azure Queue Storage to create queues, and insert, get, and delete messages using .NET code.
 author: mhopkins-msft
-
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 06/09/2020
+ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
-ms.topic: tutorial
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 
-# Tutorial: Work with Azure storage queues in .NET
+# Tutorial: Work with Azure Queue Storage queues in .NET
 
-Azure Queue storage implements cloud-based queues to enable communication between components of a distributed application. Each queue maintains a list of messages that can be added by a sender component and processed by a receiver component. With a queue, your application can scale immediately to meet demand. This article shows the basic steps for working with an Azure storage queue.
+Azure Queue Storage implements cloud-based queues to enable communication between components of a distributed application. Each queue maintains a list of messages that can be added by a sender component and processed by a receiver component. With a queue, your application can scale immediately to meet demand. This article shows the basic steps for working with an Azure Queue Storage queue.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Create an Azure storage account
+> - Create an Azure Storage account
 > - Create the app
 > - Add the Azure client libraries
 > - Add support for asynchronous code
@@ -36,23 +35,23 @@ In this tutorial, you learn how to:
 
 - Get your free copy of the cross platform [Visual Studio Code](https://code.visualstudio.com/download) editor.
 - Download and install the [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1 or later.
-- If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create an Azure storage account
+## Create an Azure Storage account
 
-First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart. This is a separate step you perform after creating a free Azure account in the prerequisites.
+First, create an Azure Storage account. For a step-by-step guide to creating a storage account, see [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json). This is a separate step you perform after creating a free Azure account in the prerequisites.
 
 ## Create the app
 
-Create a .NET Core application named **QueueApp**. For simplicity, this app will both send and receive messages through the queue.
+Create a .NET Core application named `QueueApp`. For simplicity, this app will both send and receive messages through the queue.
 
-1. In a console window (such as CMD, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name **QueueApp**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+1. In a console window (such as cmd, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name `QueueApp`. This command creates a simple "hello world" C# project with a single source file named `Program.cs`.
 
    ```console
    dotnet new console -n QueueApp
    ```
 
-2. Switch to the newly created **QueueApp** folder and build the app to verify that all is well.
+2. Switch to the newly created `QueueApp` folder and build the app to verify that all is well.
 
    ```console
    cd QueueApp
@@ -92,21 +91,23 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
    C:\Tutorials\QueueApp>_
    ```
 
+<!-- markdownlint-disable MD023 -->
+
 ## Add the Azure client libraries
 
 1. Add the Azure Storage client libraries to the project by using the `dotnet add package` command.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
-   Execute the following command from the project folder in the console window.
+   Run the following command from the project folder in the console window.
 
    ```console
    dotnet add package Azure.Storage.Queues
    ```
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
-   Execute the following commands from the project folder in the console window.
+   Run the following commands from the project folder in the console window.
 
    ```console
    dotnet add package Microsoft.Azure.Storage.Common
@@ -119,31 +120,31 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
 
 ### Add using statements
 
-1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to execute later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
+1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to run later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
 
-1. Open the **Program.cs** source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
+1. Open the `Program.cs` source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Save the **Program.cs** file.
+1. Save the `Program.cs` file.
 
 ## Add support for asynchronous code
 
 Since the app uses cloud resources, the code runs asynchronously.
 
-1. Update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value.
+1. Update the `Main` method to run asynchronously. Replace `void` with an `async Task` return value.
 
    ```csharp
    static async Task Main(string[] args)
    ```
 
-1. Save the **Program.cs** file.
+1. Save the `Program.cs` file.
 
 ## Create a queue
 
@@ -157,23 +158,23 @@ Add the connection string into the app so it can access the storage account.
 
 1. Switch back to Visual Studio Code.
 
-1. In the **Main**  method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
+1. In the `Main` method, replace the `Console.WriteLine("Hello, World");` code with the following line that gets the connection string from the environment variable.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-1. Add the following code to **Main** to create a queue object, which is later passed into the send and receive methods.
+1. Add the following code to `Main` to create a queue object, which is later passed into the send and receive methods.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
@@ -183,31 +184,31 @@ Add the connection string into the app so it can access the storage account.
 
 Create a new method to send a message into the queue.
 
-1. Add the following **InsertMessageAsync** method to your **Program** class.
+1. Add the following `InsertMessageAsync` method to your `Program` class.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
-   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [CreateIfNotExistsAsync](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Then, it adds the *newMessage* to the queue by calling [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
+   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Then, it adds the `newMessage` to the queue by calling [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
-   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the *newMessage* to the queue by calling [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the `newMessage` to the queue by calling [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. The following code snippet adds a message that *never* expires.
+1. **Optional:** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. The following code snippet adds a message that **never** expires.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
-    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **SendMessageAsync**.
+    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to `SendMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
-    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to `AddMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
@@ -219,19 +220,19 @@ A queue message must be in a format compatible with an XML request using UTF-8 e
 
 Create a new method to retrieve a message from the queue. Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once.
 
-1. Add a new method called **RetrieveNextMessageAsync** to your **Program** class.
+1. Add a new method called `RetrieveNextMessageAsync` to your `Program` class.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
-   This method receives a message from the queue by calling [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing 1 in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+   This method receives a message from the queue by calling [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing `1` in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
-   When a message is sent to the queue with a version of the SDK prior to v12, it is automatically Base64-encoded. Starting with v12 that functionality was removed. When you retrieve a message by using the v12 SDK, it is not automatically Base64-decoded. You must explicitly [Base64-decode](/dotnet/api/system.convert.frombase64string) the contents yourself.
+   When a message is sent to the queue with a version of the SDK prior to v12, it is automatically Base64-encoded. Starting with v12, that functionality was removed. When you retrieve a message by using the v12 SDK, it is not automatically Base64-decoded. You must explicitly [Base64-decode](/dotnet/api/system.convert.frombase64string) the contents yourself.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
-   This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
+   This method receives a message from the queue by calling [`GetMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [`DeleteMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
@@ -241,13 +242,13 @@ Create a new method to retrieve a message from the queue. Once the message is su
 
 It's a best practice at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. If the queue exists but is empty, ask the user if they would like to delete it.
 
-1. Expand the **RetrieveNextMessageAsync** method to include a prompt to delete the empty queue.
+1. Expand the `RetrieveNextMessageAsync` method to include a prompt to delete the empty queue.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
@@ -255,19 +256,19 @@ It's a best practice at the end of a project to identify whether you still need 
 
 ## Check for command-line arguments
 
-If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the **InsertMessageAsync** method we added earlier.
+If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the `InsertMessageAsync` method we added earlier.
 
-If there are no command-line arguments, attempt a retrieve operation. Call the **RetrieveNextMessageAsync** method to retrieve the next message in the queue.
+If there are no command-line arguments, attempt a retrieve operation. Call the `RetrieveNextMessageAsync` method to retrieve the next message in the queue.
 
-Finally, wait for user input before exiting by calling **Console.ReadLine**.
+Finally, wait for user input before exiting by calling `Console.ReadLine`.
 
-1. Expand the **Main** method to check for command-line arguments and wait for user input.
+1. Expand the `Main` method to check for command-line arguments and wait for user input.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
 
@@ -277,11 +278,11 @@ Finally, wait for user input before exiting by calling **Console.ReadLine**.
 
 Here is the complete code listing for this project.
 
-   # [\.NET v12](#tab/dotnet)
+   # [.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
 
-   # [\.NET v11](#tab/dotnetv11)
+   # [.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---
@@ -357,9 +358,9 @@ In this tutorial, you learned how to:
 
 1. Create a queue
 1. Add and remove messages from a queue
-1. Delete an Azure storage queue
+1. Delete an Azure Queue Storage queue
 
-Check out the Azure queues quickstarts for more information.
+Check out the Azure Queue Storage quickstarts for more information.
 
 > [!div class="nextstepaction"]
 > [Queues quickstart for the portal](storage-quickstart-queues-portal.md)

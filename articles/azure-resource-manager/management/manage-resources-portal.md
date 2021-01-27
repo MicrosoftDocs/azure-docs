@@ -35,11 +35,11 @@ To open a resource by the service type:
 
 3. Select the resource you want to open.
 
-    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Screenshot that highlights the selected resource.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     A storage account looks like:
 
-    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Screenshot that shows what a storage account looks like.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 To open a resource by resource group:
 

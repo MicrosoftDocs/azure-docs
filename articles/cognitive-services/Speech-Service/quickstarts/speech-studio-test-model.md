@@ -18,7 +18,7 @@ In this how-to, you use Speech Studio to convert speech from an audio file to te
 
 ## Prerequisites
 
-Before you use Speech Portal, [follow these instructions to create an Azure account and subscribe to the Speech service](../how-to-custom-speech.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal.
+Before you use Speech Portal, [follow these instructions to create an Azure account and subscribe to the Speech service](../custom-speech-overview.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal.
 
 ## Download an audio file
 

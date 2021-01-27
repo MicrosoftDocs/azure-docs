@@ -33,11 +33,11 @@ Do not use credentials in the form of “User ID=username@servername”, instead
 
 ## Do I need to create a Shard Map Manager and populate shards every time I start my applications
 
-No—the creation of the Shard Map Manager (for example, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) is a one-time operation.  Your application should use the call [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) at application start-up time.  There should be only one such call per application domain.
+No—the creation of the Shard Map Manager (for example, [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) is a one-time operation.  Your application should use the call [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) at application start-up time.  There should be only one such call per application domain.
 
 ## I have questions about using elastic database tools, how do I get them answered
 
-Please reach out to us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+Please reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).
 
 ## When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design
 

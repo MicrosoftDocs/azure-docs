@@ -27,10 +27,10 @@ Access control in workbooks refers to two things:
 “Workbooks Contributor” adds “workbooks/write” privileges to an object to save shared workbooks.
 No special privileges are required for users to save private workbooks that only they can see.
 
-For custom Role-based access control:
+For custom roles:
 
 Add `microsoft.insights/workbooks/write` to save shared workbooks. For more details, see the [Workbook Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role.
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.

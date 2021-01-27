@@ -1,10 +1,11 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Virtual WAN?
     href: virtual-wan-about.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -66,6 +67,10 @@
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
@@ -104,6 +109,8 @@
       href: about-vpn-profile-download.md
     - name: Global and hub-based profile
       href: global-hub-profile.md
+    - name: Configure Azure VPN Client for Windows 10
+      href: openvpn-azure-ad-client.md
     - name: Configure OpenVPN clients
       href: howto-openvpn-clients.md?
     - name: Configure Always On VPN user tunnel
@@ -114,8 +121,6 @@
       href: openvpn-azure-ad-mfa.md   
     - name: Configure Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configure Azure VPN Client for Windows 10
-      href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
@@ -136,6 +141,8 @@
       href: howto-firewall.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
+    - name: Manage access to resources - Spoke VNet P2S
+      href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
     - name: Logs and metrics

@@ -71,6 +71,8 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
 Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
 
+> [!NOTE]
+> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:
@@ -103,6 +105,8 @@ Consider the following points when access to the Microsoft Azure Database for My
 
    * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for MySQL Server, and then add the IP address range as a firewall rule.
    * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
+  
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 
 ## Hostname

@@ -65,7 +65,7 @@ There are a few ways that you can initialize a [`SpeechTranslationConfig`][confi
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
+Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
@@ -216,7 +216,7 @@ void translateSpeech() {
 }
 ```
 
-For more information about speech-to-text, see [the basics of speech recognition](../../../speech-to-text-basics.md).
+For more information about speech-to-text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
 
 ## Synthesize translations
 
@@ -324,13 +324,13 @@ void translateSpeech() {
 }
 ```
 
-For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
+For more information about speech synthesis, see [the basics of speech synthesis](../../../get-started-text-to-speech.md).
 
-[config]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig
-[audioconfig]: https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig
-[recognizer]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-translationrecognizer
-[recognitionlang]: https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage
-[addlang]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig#addtargetlanguage
-[translations]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-translationrecognitionresult#translations
-[voicename]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig#setvoicename
-[speechsynthesisvoicename]: https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechsynthesisvoicename
+[config]: /cpp/cognitive-services/speech/translation-speechtranslationconfig
+[audioconfig]: /cpp/cognitive-services/speech/audio-audioconfig
+[recognizer]: /cpp/cognitive-services/speech/translation-translationrecognizer
+[recognitionlang]: /cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage
+[addlang]: /cpp/cognitive-services/speech/translation-speechtranslationconfig#addtargetlanguage
+[translations]: /cpp/cognitive-services/speech/translation-translationrecognitionresult#translations
+[voicename]: /cpp/cognitive-services/speech/translation-speechtranslationconfig#setvoicename
+[speechsynthesisvoicename]: /cpp/cognitive-services/speech/speechconfig#setspeechsynthesisvoicename

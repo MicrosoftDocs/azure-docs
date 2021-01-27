@@ -299,7 +299,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)

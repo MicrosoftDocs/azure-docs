@@ -16,13 +16,13 @@ Azure Event Grid enables you to react to events in IoT Hub by triggering actions
 
 This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. Event Grid can be used to get timely notification about critical devices disconnecting. Metrics and Diagnostics can take several (i.e. 20 or more -- though we don't want to put a number on it) minutes to show up in logs/alerts. That might be unacceptable for critical infrastructure.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-* An active Azure subscription. If you don't have a subscription, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
+* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
 
-* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
@@ -237,4 +237,7 @@ To delete all of the resources created in this tutorial, delete the resource gro
 * [Learn how to order device connected and disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Learn about what else you can do with [Event Grid](overview.md).
 
-For a complete list of supported Logic App connectors, see the [Connectors overview](/connectors/).
+For a complete list of supported Logic App connectors, see the 
+
+> [!div class="nextstepaction"]
+> [Connectors overview](/connectors/).

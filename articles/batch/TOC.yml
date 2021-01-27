@@ -1,4 +1,4 @@
-- name: Batch Documentation
+- name: Batch documentation
   href: index.yml
 - name: Overview
   items:
@@ -43,7 +43,19 @@
     - name: Batch samples repo
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Create a Batch account in Batch service mode
+      href: ./scripts/batch-cli-sample-create-account.md
+    - name: Create a Batch account in user subscription mode
+      href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+    - name: Add an application to an Azure Batch account
+      href: ./scripts/batch-cli-sample-add-application.md
+    - name: Create and manage a Linux pool
+      href: ./scripts/batch-cli-sample-manage-linux-pool.md
+    - name: Create and manage a Windows pool
+      href: ./scripts/batch-cli-sample-manage-windows-pool.md
+    - name: Run a job and tasks
+      href: ./scripts/batch-cli-sample-run-job.md
 - name: Concepts
   items:
   - name: Security
@@ -53,6 +65,8 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+    - name: Security best practices
+      href: security-best-practices.md
   - name: Batch service workflow and resources
     displayName: developer features
     href: batch-service-workflow-features.md
@@ -87,13 +101,11 @@
   items:
   - name: Manage Batch accounts
     items:
-    - name: Manage your account
-      href: batch-manage-account-basics.md
-    - name: Manage Batch accounts with the portal
+    - name: Manage Batch accounts in the Azure portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
-    - name: Cost analysis and budgets
+    - name: Get cost analysis and set budgets
       href: budget.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
@@ -123,6 +135,8 @@
       href: batch-automatic-scaling.md
     - name: Choose a VM size for compute nodes
       href: batch-pool-vm-sizes.md
+    - name: Move from Cloud Service to Virtual Machine pools
+      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
     - name: Create a pool with the Shared Image Gallery
@@ -156,6 +170,7 @@
     - name: Job preparation and completion tasks
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
+      displayName: concurrent
       href: batch-parallel-node-tasks.md
     - name: Task dependencies
       href: batch-task-dependencies.md
@@ -206,14 +221,12 @@
       items:
       - name: Rendering using Azure
         href: batch-rendering-service.md
-      - name: Rendering VM images
+      - name: Batch rendering VM images
         href: batch-rendering-applications.md
       - name: Batch rendering capabilities
         href: batch-rendering-functionality.md
       - name: Using Batch rendering
         href: batch-rendering-using.md
-      - name: Using render managers
-        href: batch-rendering-render-managers.md
       - name: Rendering application reference
         href: batch-rendering-application-reference.md
       - name: Storage and data movement

@@ -1,5 +1,6 @@
 ---
-title: Web API that calls web APIs - Microsoft identity platform | Azure
+title: Web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs.
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web API that calls web APIs: Call an API
@@ -161,5 +162,5 @@ A sample demonstrating this flow with MSAL Python isn't yet available.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web API that calls web APIs: Move to production](scenario-web-api-call-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-api-call-api-production.md).

@@ -4,7 +4,6 @@ description: Learn how to secure pods with Azure Policy on Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
 ---
 
 # Secure pods with Azure Policy
@@ -91,7 +90,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
@@ -225,7 +224,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -260,7 +259,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Create the pod using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
@@ -346,13 +345,13 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://azure.github.io/aad-pod-identity/docs/configure/application_exception
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
-[policy-samples]: policy-samples.md#microsoftcontainerservice
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

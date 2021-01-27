@@ -1,11 +1,8 @@
 ---
 title: Reentrancy in Azure Service Fabric actors 
 description: Introduction to reentrancy for Service Fabric Reliable Actors, a way to logically avoid blocking based on call context.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # Reliable Actors reentrancy
@@ -98,4 +95,4 @@ static class Program
 
 
 ## Next steps
-* Learn more about reentrancy in the [Actor API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
+* Learn more about reentrancy in the [Actor API reference documentation](/dotnet/api/microsoft.servicefabric.actors))

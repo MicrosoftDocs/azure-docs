@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How routing works with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Once your project is running in a dev space, Azure Dev Spaces provides additional networking and routing capabilities for your project.
 
 This article describes how routing works with Dev Spaces.

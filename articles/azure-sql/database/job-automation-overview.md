@@ -167,7 +167,7 @@ Some of the SQL Agent features that are available in SQL Server are not supporte
 - Proxies are not supported.
 - Eventlog is not supported.
 
-For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ## Elastic Database Jobs (preview)
 
@@ -204,7 +204,7 @@ For the current preview, an existing database in Azure SQL Database (S0 or highe
 
 The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service objective. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour targeting less than ten databases, but running a job every minute might not be fast enough with an S0 database, and a higher service tier might be better.
 
-If operations against the job database are slower than expected, [monitor](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) database performance and the resource utilization in the job database during periods of slowness using Azure portal or the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. If utilization of a resource, such as CPU, Data IO, or Log Write approaches 100% and correlates with periods of slowness, consider incrementally scaling the database to higher service objectives (either in the [DTU model](service-tiers-dtu.md) or in the [vCore model](service-tiers-vcore.md)) until job database performance is sufficiently improved.
+If operations against the job database are slower than expected, [monitor](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) database performance and the resource utilization in the job database during periods of slowness using Azure portal or the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. If utilization of a resource, such as CPU, Data IO, or Log Write approaches 100% and correlates with periods of slowness, consider incrementally scaling the database to higher service objectives (either in the [DTU model](service-tiers-dtu.md) or in the [vCore model](service-tiers-vcore.md)) until job database performance is sufficiently improved.
 
 ##### Job database permissions
 
@@ -282,7 +282,7 @@ To ensure resources aren't overburdened when running jobs against databases in a
 
 ## Next steps
 
-- [What is SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [What is SQL Server Agent](/sql/ssms/agent/sql-server-agent)
 - [How to create and manage elastic jobs](elastic-jobs-overview.md)
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
 - [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

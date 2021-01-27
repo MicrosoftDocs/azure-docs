@@ -200,5 +200,5 @@ While viewing any report, click **Actions** and then select **Export all report 
 
 ## Next steps
 
-- Learn about the reports that are included in Cloudyn at [Use Cloudyn reports](../../cost-management/use-reports.md).
-- Learn about how to use reports to create [dashboards](../../cost-management/dashboards.md).
+- Learn about the reports that are included in Cloudyn at [Use Cloudyn reports](./use-reports.md).
+- Learn about how to use reports to create [dashboards](./dashboards.md).
