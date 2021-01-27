@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 01/27/2020
 ms.author: aahi
 ---
 
@@ -171,8 +171,8 @@ In the same *templates* folder, copy and paste the following helper functions in
 {{- end -}}
 
 {{- define "redis.connStr" -}}
-{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
-{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $hostMain := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostReplica := printf "%s-redis-slave:6379" .Release.Name -}}
 {{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
 {{- $connTail := "ssl=False,abortConnect=False" -}}
 {{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
