@@ -22,6 +22,11 @@ The on-demand backup features are helpful for capturing the state of the service
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
+> [!NOTE]
+> If your PowerShellGet version is less than 1.6.0, you'll need to update to add support for the *-AllowPrerelease* flag:
+>
+> `Install-Module -Name PowerShellGet -Force`
+
 - Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
 ```powershell
