@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Create and submit a job | Microsoft Docs
+title: Azure CLI Script Example - Create and submit a job 
 description: The Azure CLI script in this topic shows how to submit a Job to a simple encoding Transform using HTTPs URL.
 services: media-services
 documentationcenter: ''
