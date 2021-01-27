@@ -15,8 +15,8 @@ This architecture reference is a foundation using a typical enterprise hub and s
 ## Reference Deployment
 For detailed information and deployment options of this architecture that include ARM, Terraform, and CLI, see the public repository.
 
-[!div class="nextstepaction"]
-[Azure Spring Cloud Reference Architecture Deployments][10]
+> [!div class="nextstepaction"]
+> [Azure Spring Cloud Reference Architecture Deployments][10]
 
 The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
 
