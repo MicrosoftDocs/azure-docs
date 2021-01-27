@@ -39,7 +39,9 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
     mvn --version
     ```
 
-* [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
+* Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository. 
+
+    This article uses the [simulated-device](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/simulated-device) and [read-d2c-messages](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) samples from the repository.
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -103,6 +105,16 @@ The simulated device application connects to a device-specific endpoint on your 
 
     Replace the value of the `connString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.java**.
 
+    ```java
+    public class SimulatedDevice {
+      // The device connection string to authenticate the device with your IoT hub.
+      // Using the Azure CLI:
+      // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+
+      //private static String connString = "{Your device connection string here}";    
+      private static String connString = "HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey={YourSharedAccessKey}";    
+     ```
+
 3. In the local terminal window, run the following commands to install the required libraries and build the simulated device application:
 
     ```cmd/sh
@@ -132,6 +144,23 @@ The back-end application connects to the service-side **Events** endpoint on you
     | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
     | `EVENT_HUBS_COMPATIBLE_PATH`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
     | `IOT_HUB_SAS_KEY`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+
+    ```java
+    public class ReadDeviceToCloudMessages {
+    
+      private static final String EH_COMPATIBLE_CONNECTION_STRING_FORMAT = "Endpoint=%s/;EntityPath=%s;"
+          + "SharedAccessKeyName=%s;SharedAccessKey=%s";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_ENDPOINT = "{your Event Hubs compatible endpoint}";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.path --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_PATH = "{your Event Hubs compatible name}";
+    
+      // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
+      private static final String IOT_HUB_SAS_KEY = "{your service primary key}";    
+    ```
+
 
 3. In the local terminal window, run the following commands to install the required libraries and build the back-end application:
 
