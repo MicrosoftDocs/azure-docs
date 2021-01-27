@@ -33,6 +33,7 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 InfiniBand: Supported<br>
 Nvidia NVLink Interconnect: Supported<br>
 <br>
