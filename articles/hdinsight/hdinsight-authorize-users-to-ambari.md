@@ -1,9 +1,6 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive

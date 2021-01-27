@@ -191,7 +191,7 @@ For a GUI management tool that you can use to explore the database, set up Oracl
 1. Connect to your database using sqlplus:
 
     ```bash
-    sqlplus / as sysdba
+    sqlplus sys as sysdba
     ```
 
 2. Once connected, set the port 5502 for EM Express
