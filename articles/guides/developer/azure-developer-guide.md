@@ -1,21 +1,11 @@
 ---
 title: Get started guide for developers on Azure | Microsoft Docs
 description: This article provides essential information for developers looking to get started using the Microsoft Azure platform for their development needs.
-services: ''
-cloud: ''
-documentationcenter: ''
 author: ggailey777
-manager: erikre
-
-ms.assetid:
 ms.service: azure
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-
 ---
 
 # Get started guide for Azure developers
@@ -45,7 +35,6 @@ Azure provides several cloud-based compute offerings to run your application so 
 Azure offers services that support your application development and hosting needs. Azure provides Infrastructure as a Service (IaaS) to give you full control over your application hosting. Azure's Platform as a Service (PaaS) offerings provide the fully managed services needed to power your apps. There's even true serverless hosting in Azure where all you need to do is write your code.
 
 ![Azure application hosting options](./media/azure-developer-guide/azure-developer-hosting-options.png)
-
 
 #### Azure App Service
 
@@ -107,11 +96,11 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 
 Azure Spring Cloud is a serverless microservices platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
 
-- Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
-- Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
-- Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
-- Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
-- Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
+* Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
+* Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
+* Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+* Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
+* Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
 > **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
 >
@@ -126,19 +115,19 @@ Along with application hosting, Azure provides service offerings that can enhanc
 
 Most applications must store data, so however you decide to host your application in Azure, consider one or more of the following storage and data services.
 
-- **Azure Cosmos DB**: A globally distributed, multi-model database service. This database enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA.
+* **Azure Cosmos DB**: A globally distributed, multi-model database service. This database enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA.
 
   > **When to use:** When your application needs document, table, or graph databases, including MongoDB databases, with multiple well-defined consistency models.
   >
   > **Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-sql-api-dotnet.md). If you're a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
-- **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
+* **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
 
   > **When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
   >
   > **Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
-- **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
+* **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
 
   > **When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
   >
@@ -154,17 +143,17 @@ Docker containers, a form of OS virtualization, let you deploy applications in a
 Azure provides several ways to use containers in your applications.
 
 
-- **Azure Kubernetes Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn more about Azure Kubernetes Service, see [Azure Kubernetes Service introduction](../../aks/intro-kubernetes.md).
+* **Azure Kubernetes Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn more about Azure Kubernetes Service, see [Azure Kubernetes Service introduction](../../aks/intro-kubernetes.md).
 
   > **When to use**: When you need to build production-ready, scalable environments that provide additional scheduling and management tools, or when you're deploying a Docker Swarm cluster.
   >
   > **Get started**: [Deploy a Kubernetes Service cluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
-- **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
+* **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
 
   >**When to use**: When you need to quickly prototype an app by creating a single Docker host.
 
-- **Custom Docker image for App Service**: Lets you use Docker containers from a container registry or a customer     container when you deploy a web app on Linux.
+* **Custom Docker image for App Service**: Lets you use Docker containers from a container registry or a customer container when you deploy a web app on Linux.
 
   > **When to use**: When deploying a web app on Linux to a Docker image.
   >
@@ -174,13 +163,13 @@ Azure provides several ways to use containers in your applications.
 
 It's crucial to not only know who is using your applications, but also to prevent unauthorized access to your resources. Azure provides several ways to authenticate your app clients.
 
-- **Azure Active Directory (Azure AD)**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Azure AD. You can access directory properties by using the Azure AD Graph API directly or the Microsoft Graph API. You can integrate with Azure AD support for the OAuth2.0 authorization framework and Open ID Connect by using native HTTP/REST endpoints and the multiplatform Azure AD authentication libraries.
+* **Azure Active Directory (Azure AD)**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Azure AD. You can access directory properties by using the Azure AD Graph API directly or the Microsoft Graph API. You can integrate with Azure AD support for the OAuth2.0 authorization framework and Open ID Connect by using native HTTP/REST endpoints and the multiplatform Azure AD authentication libraries.
 
   > **When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
   >
   > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
 
-- **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
+* **App Service Authentication**: When you choose App Service to host your app, you also get built-in authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
   > **When to use**: When you want to enable authentication in an App Service app by using Azure AD, social identity providers, or both.
   >
@@ -192,13 +181,13 @@ To learn more about security best practices in Azure, see [Azure security best p
 
 With your application up and running in Azure, you need to monitor performance, watch for issues, and see how customers are using your app. Azure provides several monitoring options.
 
--   **Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to improve the performance and usability of your apps continuously. This improvement occurs whether you host your applications on Azure or not.
+* **Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to improve the performance and usability of your apps continuously. This improvement occurs whether you host your applications on Azure or not.
 
-    >**Get started**: Follow the [Application Insights tutorial](../../azure-monitor/app/app-insights-overview.md).
+  > **Get started**: Follow the [Application Insights tutorial](../../azure-monitor/app/app-insights-overview.md).
 
--    **Azure Monitor**: A service that helps you to visualize, query, route, archive, and act on the metrics and logs that you generate with your Azure infrastructure and resources. Monitor is a single source for monitoring Azure resources and provides the data views that you see in the Azure portal.
+* **Azure Monitor**: A service that helps you to visualize, query, route, archive, and act on the metrics and logs that you generate with your Azure infrastructure and resources. Monitor is a single source for monitoring Azure resources and provides the data views that you see in the Azure portal.
 
-    >**Get started**: [Get started with Azure Monitor](../../azure-monitor/overview.md).
+  > **Get started**: [Get started with Azure Monitor](../../azure-monitor/overview.md).
 
 ### DevOps integration
 
@@ -215,7 +204,6 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 > **Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/deploy-continuous-deployment.md).
 >
 > **Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
-
 
 ## Azure regions
 
@@ -243,9 +231,9 @@ Azure provides a rich set of experiences for you to create and manage your Azure
 
 Azure provides two ways to manage your applications and services from the command line. You can use tools like Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can do the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
 
--   [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
+* [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
 
--   [Azure PowerShell](/powershell/azure/): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
+* [Azure PowerShell](/powershell/azure/): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
 
 ### Azure portal
 
@@ -263,13 +251,13 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 Along with REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
--   [.NET](/dotnet/api/)
--   [Node.js](/azure/developer/javascript/)
--   [Java](/java/azure)
--   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](/azure/python/)
--   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](/azure/go)
+* [.NET](/dotnet/api/)
+* [Node.js](/azure/developer/javascript/)
+* [Java](/java/azure)
+* [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
+* [Python](/azure/python/)
+* [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+* [Go](/azure/go)
 
 Services such as [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library)
 and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
@@ -312,7 +300,7 @@ The Azure Resource Explorer is a great tool for visualizing the resources that y
 
 When you allow access to Azure resources, it's always a best practice to provide users with the least privilege that's required to do a given task.
 
-- **Azure role-based access control (Azure RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. Azure RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+* **Azure role-based access control (Azure RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. Azure RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   >

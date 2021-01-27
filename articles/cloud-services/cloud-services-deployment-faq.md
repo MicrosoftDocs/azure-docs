@@ -47,7 +47,7 @@ Deployment of a cloud service may fail if the resources that are required to be 
 
 You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => "Usage + quota".
 
-Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).
+Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## How can I change the size of a deployed cloud service VM without redeploying it?
 You cannot change the VM size of a deployed cloud service without redeploying it. The VM size is built into the CSDEF, which can only be updated with a redeploy.
