@@ -22,7 +22,7 @@ An application that accesses a storage account when network rules are in effect 
 > [!IMPORTANT]
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
 >
-> You can grant access to Azure services that operate from within a VNet by allowing traffic from the subnet hosting the service instance. You can also enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described below. To access data from the storage account through the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
+> You can grant access to Azure services that operate from within a VNet by allowing traffic from the subnet hosting the service instance. You can also enable a limited number of scenarios through the exceptions mechanism described below. To access data from the storage account through the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Virtual machine disk traffic (including mount and unmount operations, and disk I
 
 Classic storage accounts do not support firewalls and virtual networks.
 
-You can use unmanaged disks in storage accounts with network rules applied to backup and restore VMs by creating an exception. This process is documented in the [Exceptions](#exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
+You can use unmanaged disks in storage accounts with network rules applied to backup and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
 ## Change the default network access rule
 
@@ -534,21 +534,24 @@ az storage account network-rule list \
 
 ---
 
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
 ## Grant access to Azure services 
 
-Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. Grant access by creating a network rule exception. For step-by-step guidance, see the [Manage exceptions](manage-exception) section of this article. 
+Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. 
 
-We've enabled two modes of trusted access for Microsoft services.
+Grant access by creating a network rule exception that grants access to trusted Microsoft services. 
+For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. When you create this network rule, you grant the following types of access:
 
-- Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.
-
-- Resources of some services can be granted explicit access to your storage account by **assigning an Azure role** to its system-assigned managed identity.
+- Trusted access to resources that are registered in your subscription for select operations.
+- Trusted access to resources based on system-assigned managed identity.
 
 <a id="trusted-access-resources-in-subscription"></a>
 
 ### Trusted access for resources registered in your subscription
 
-When you enable the **Allow trusted Microsoft services...** setting, resources of the following services that are registered in the same subscription as your storage account are granted access for a limited set of operations as described:
+Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.  The following table describes each service and the operations allowed. 
 
 | Service                  | Resource Provider Name     | Operations allowed                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -568,9 +571,7 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 
 ### Trusted access based on system-assigned managed identity
 
-Alternatively, you can also grant access to the resources of these services by enabling the Allow trusted Microsoft services... setting. In this case, you must also explicitly assign an Azure role to the system-assigned managed identity for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
-
-The **Allow trusted Microsoft services...** setting also grants access to the resources of services that are listed in the following table. To grant access, you must explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+The following table lists services that can have access to your storage account data if given the appropriate permission. To grant permission, you must explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity. 
 
 > [!TIP]
 > The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
@@ -596,7 +597,7 @@ The **Allow trusted Microsoft services...** setting also grants access to the re
 
 In some cases, access to read resource logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both by creating a network rule exception. For step-by-step guidance, see the **Manage exceptions** section below. To learn more about working with storage analytics, see [Use Azure Storage analytics to collect logs and metrics data](./storage-analytics.md). 
 
-<a id="manage-exception"></a>
+<a id="manage-exceptions"></a>
 
 ## Manage exceptions
 
