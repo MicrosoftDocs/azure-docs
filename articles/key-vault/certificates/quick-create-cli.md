@@ -62,5 +62,5 @@ Now, you have created a Key Vault, stored a certificate, and retrieved it.
 In this quickstart you created a Key Vault and stored a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault?view=azure-cli-latest)
+- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
 - Review the [Key Vault security overview](../general/security-overview.md)

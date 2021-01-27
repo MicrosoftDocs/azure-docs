@@ -29,61 +29,79 @@ Login-AzAccount
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *westus* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
-```
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 
-## Create a Key Vault
+## Get your principal ID
 
-Next you create a Key Vault. When doing this step, you need some information:
-
-Although we use "Contoso KeyVault2" as the name for our Key Vault throughout this quickstart, you must use a unique name.
-
-- **Vault name** Contoso-Vault2.
-- **Resource group name** ContosoResourceGroup.
-- **Location** East US.
+To create a managed HSM, you will need your Azure Active Directory principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+Get-AzADUser -UserPrincipalName "<your@email.address>"
 ```
 
-The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
+Your principal ID will be returned in the format, "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 
-* **Vault Name**: In the example that is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
-* **Vault URI**: In this example that is https://Contoso-Vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+## Create a managed HSM
 
-After vault creation your Azure account is the only account allowed to do anything on this new vault.
+Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) cmdlet to create a new Key Vault managed HSM. You will need to provide some information:
 
-## Add a managed key to Key Vault
+- Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
-To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application. 
+  > [!Important]
+  > Each managed HSM must have a unique name. Replace <your-unique-managed-hsm-name> with the name of your managed HSM in the following examples.
 
-Type the commands below to create a called **ExampleKey** :
+- Resource group name: **myResourceGroup**.
+- The location: **EastUS**.
+- Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
+New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "West US" -Administrator "<your-principal-ID>"
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey'** to get the current version. 
+The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:
 
-To view previously stored key:
+- **Managed HSM Name**: The name you provided to the --name parameter above.
+- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
-```azurepowershell-interactive
-Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
+At this point, your Azure account is the only one authorized to perform any operations on this new vault.
+
+### Activate your managed HSM
+
+All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM you must download the [Security Domain](security-domain.md).
+
+To activate your HSM you need:
+- Minimum 3 RSA key-pairs (maximum 10)
+- Specify minimum number of keys required to decrypt the security domain (quorum)
+
+To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
+
+The example below shows how to use  `openssl` to generate 3 self signed certificate.
+
+```azurecli-interactive
+openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
+openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
+openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
 
-Now, you have created a Key Vault, stored a key, and retrieved it.
+> [!IMPORTANT]
+> Create and store the RSA key pairs and security domain file generated in this step securely.
+
+Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
+
+```azurecli-interactive
+az keyvault security-domain download --hsm-name ContosoMHSM --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
+```
+
+Please store the security domain file and the RSA key pairs securely. You will need them for disaster recovery or for creating another managed HSM that shares same security domain, so they can share keys.
+
+After successfully downloading the security domain, your HSM will be in active state and ready for you to use.
 
 ## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, and all related resources. You can delete the resources as follows:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## Next steps
 
