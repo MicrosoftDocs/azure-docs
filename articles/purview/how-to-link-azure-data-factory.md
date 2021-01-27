@@ -63,12 +63,22 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 >[!Note]
 >We now support adding no more than 10 Data Factories at once. If you want to add more than 10 Data Factories at once, please file a support ticket.
 
+### How does the authentication work?
+
+When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
+
+1. The **Data Factory MSI** gets added to Purview RBAC role: **Purview Data Curator**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. The Data Factory pipeline needs to be executed again so that the lineage metadata can be pushed back into Purview.
+3. Post execution the Data Factory metadata is pushed into Purview.
 
 ### Remove data factory connections
 To remove a data factory connection, do the following:
 
 1. On the **Data Factory connection** page, select the **Remove** button next to one or more data factory connections.
-1. Select **Confirm** in the popup to delete the selected data factory connections.
+2. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
