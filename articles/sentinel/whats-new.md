@@ -190,7 +190,7 @@ The **Playbooks health monitoring** workbook provides the following insights:
 
     Ensure that you've selected the **Send to Log Analytics** option in the diagnostics settings to send your data to the configured Log Analytics workspace. Your data is stored in the AzureDiagnostics table, and your configured workspace does not need to be your Sentinel workspace.
 
-    For more information, see the [Logic Apps documentation](azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs).
+    For more information, see the [Logic Apps documentation](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs).
 
 - **Activity log configuration**: The **Activity** tab data is based on activity logs. Make sure that you have activity logs configured to send the data to your chosen Log Analytics workspace. 
 
