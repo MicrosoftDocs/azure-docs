@@ -20,8 +20,6 @@ These sample commands demonstrate the following operations:
 * Add and upgrade new or existing disks to a scale set or to an instance of the set.
 * Add scale set to Azure Active Directory (Azure AD) authentication.
 
-
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample commands
