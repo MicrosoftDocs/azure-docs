@@ -89,13 +89,13 @@ To run this sample you will need:
 > #### Step 3: Configure your Java project
 >
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Navigate to the sub folder **msal-client-credential-secret"**.
-> 1. Edit **parameters.json** and replace the values of the fields `authority`, `client_id`, and `secret` with the following snippet:
+> 1. Navigate to the sub folder **msal-client-credential-secret**.
+> 1. Edit **src\main\resources\application.properties** and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
 >
->    ```json
->    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
->    "client_id": "Enter_the_Application_Id_Here",
->    "secret": "Enter_the_Client_Secret_Here"
+>    ```
+     AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
+     CLIENT_ID=Enter_the_Application_Id_Here
+     SECRET=Enter_the_Client_Secret_Here
 >    ```
 >    Where:
 >    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
@@ -142,19 +142,22 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### Step 5: Run the application
 
-You'll need to install the dependencies of this sample once
+You can test the sample directly by running the main method of ClientCredentialGrant.java from your IDE.
 
-```console
-pip install -r requirements.txt
+From your shell or command line:
+
+```
+$ mvn clean compile assembly:single
 ```
 
-Then, run the application via command prompt or console:
+This will generate a msal-client-credential-secret-1.0.0.jar file in your /targets directory. Run this using your Java executable like below:
 
-```console
-python confidential_client_secret_sample.py parameters.json
+```
+$ java -jar msal-client-credential-secret-1.0.0.jar
 ```
 
-You should see on the console output some Json fragment representing a list of users in your Azure AD directory.
+After running, the application should display the list of users in the configured tenant.
+
 
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) in the same GitHub repository for this sample, but in the second folder **2-Call-MsGraph-WithCertificate**
@@ -165,54 +168,87 @@ You should see on the console output some Json fragment representing a list of u
 
 [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. As described, this quickstart requests tokens by using the application own identity instead of delegated permissions. The authentication flow used in this case is known as *[client credentials oauth flow](v2-oauth2-client-creds-grant-flow.md)*. For more information on how to use MSAL Java with daemon apps, see [this article](scenario-daemon-overview.md).
 
- You can install MSAL Java by running the following command.
+Add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the application's pom.xml (Maven) or build.gradle (Gradle) file.
 
-```powershell
-pip install msal
+In pom.xml:
+
+```XML
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>msal4j</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+In build.gradle:
+
+```$xslt
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
 ### MSAL initialization
 
-You can add the reference for MSAL by adding the following code:
+Add a reference to MSAL for Java by adding the following code to the top of the file where you will be using MSAL4J:
 
-```Python
-import msal
+```Java
+import com.microsoft.aad.msal4j.*;
 ```
 
 Then, initialize MSAL using the following code:
 
-```Python
-app = msal.ConfidentialClientApplication(
-    config["client_id"], authority=config["authority"],
-    client_credential=config["secret"])
+```Java
+IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+
+ConfidentialClientApplication cca =
+        ConfidentialClientApplication
+                .builder(CLIENT_ID, credential)
+                .authority(AUTHORITY)
+                .build();
 ```
 
 > | Where: |Description |
 > |---------|---------|
-> | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
-> | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
-
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
+> | `CLIENT_SECRET` | Is the client secret created for the application in Azure Portal. |
+> | `CLIENT_ID` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+> | `AUTHORITY`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
 ### Requesting tokens
 
-To request a token using app's identity, use `AcquireTokenForClient` method:
+To request a token using app's identity, use `acquireToken` method:
 
-```Python
-result = None
-result = app.acquire_token_silent(config["scope"], account=None)
+```Java
+IAuthenticationResult result;
+     try {
+         SilentParameters silentParameters =
+                 SilentParameters
+                         .builder(SCOPE)
+                         .build();
 
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
+         // try to acquire token silently. This call will fail since the token cache does not
+         // have a token for the application you are requesting an access token for
+         result = cca.acquireTokenSilently(silentParameters).join();
+     } catch (Exception ex) {
+         if (ex.getCause() instanceof MsalException) {
+
+             ClientCredentialParameters parameters =
+                     ClientCredentialParameters
+                             .builder(SCOPE)
+                             .build();
+
+             // Try to acquire a token. If successful, you should see
+             // the token information printed out to console
+             result = cca.acquireToken(parameters).join();
+         } else {
+             // Handle other exceptions accordingly
+             throw ex;
+         }
+     }
+     return result;
 ```
 
 > |Where:| Description |
 > |---------|---------|
-> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
-
-For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
+> | `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
