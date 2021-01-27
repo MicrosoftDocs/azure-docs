@@ -7,11 +7,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
-      "redirect_url": "/previous-versions/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
       "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
@@ -13001,6 +12996,11 @@
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-debug-java-web-app-in-intellij.md",
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
       "redirect_document_id": false
     },
     {
