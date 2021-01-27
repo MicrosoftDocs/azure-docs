@@ -53,7 +53,7 @@ For you to view the provisioning activity report, your tenant must have an Azure
 
 
 ## Ways of interacting with the provisioning logs 
-Customers have four ways to interact with the provisioning logs:
+Customers can interact with the provisioning logs in four ways:
 
 - Accessing the logs from the Azure portal, as described in the next section.
 - Streaming the provisioning logs into [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). This method allows for extended data retention and building custom dashboards, alerts, and queries.
@@ -110,7 +110,8 @@ The **Identity** filter enables you to specify the name or the identity that you
 You can search by the name or ID of the object. The ID varies by scenario. For example, when you're provisioning an object from Azure AD to Salesforce, the source ID is the object ID of the user in Azure AD. 
 The target ID is the ID of the user in Salesforce. When you're provisioning from Workday to Active Directory, the source ID is the Workday worker employee ID. 
 
-Note that the name of the user might not always be present in the **Identity** column. There will always be one ID. 
+> [!NOTE]
+> The name of the user might not always be present in the **Identity** column. There will always be one ID. 
 
 
 The **Date** filter enables to you to define a timeframe for the returned data. Possible values are:
@@ -241,11 +242,11 @@ Use the following table to better understand how to resolve errors that you find
 
 |Error code|Description|
 |---|---|
-|Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application. Or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
+|Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application. Or, review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it's overloaded and receiving too many requests. There's nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
 |InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing this from working. This attempt will automatically be retired in 40 minutes.|
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD authenticated with the target application but was not authorized to perform the update. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md).|
-|UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application might not be correct. Or a service issue with the target application might be preventing this from working.|
+|UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application might not be correct, or a service issue with the target application might be preventing this from working.|
 |WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There is nothing to do. This attempt will automatically be retired in 40 minutes.|
 |InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Ensure that the user exists. To force a new matching of all users, use the Microsoft Graph API to [restart the job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). <br><br>Restarting provisioning will trigger an initial cycle, which can take time to complete. Restarting provisioning also deletes the cache that the provisioning service uses to operate. That means all users and groups in the tenant will have to be evaluated again, and certain provisioning events might be dropped.|
 |NotImplemented | The target app returned an unexpected response. The configuration of the app might not be correct, or a service issue with the target app might be preventing this from working. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md). |
