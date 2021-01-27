@@ -130,7 +130,7 @@ or the REST API, see
 1. Ensure that the assignment parameters and assignment scope are set correctly and that
    **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
-   - The mode should be `all` for all` resource types.
+   - The mode should be `all` for all resource types.
    - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't
    [excluded](../concepts/assignment-structure.md#excluded-scopes) or
