@@ -204,11 +204,11 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 |Classification | Regression | Time Series Forecasting
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
 
 ### Primary metrics for classification scenarios 
 
@@ -216,11 +216,11 @@ Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `
 
 | Metric | Example use case(s) |
 | ------ | ------- |
-| accuracy | Image classification, Sentiment analysis, Churn prediction |
-| AUC_weighted | Fraud detection, Image classification, Anomaly detection/spam detection |
-| average_precision_score_weighted | Sentiment analysis |
-| norm_macro_recall | Churn prediction |
-| precision_score_weighted |  |
+| `accuracy` | Image classification, Sentiment analysis, Churn prediction |
+| `AUC_weighted` | Fraud detection, Image classification, Anomaly detection/spam detection |
+| `average_precision_score_weighted` | Sentiment analysis |
+| `norm_macro_recall` | Churn prediction |
+| `precision_score_weighted` |  |
 
 ### Primary metrics for regression scenarios
 
@@ -230,10 +230,10 @@ Metrics like `r2_score` and `spearman_correlation` can better represent the qual
 
 | Metric | Example use case(s) |
 | ------ | ------- |
-| spearman_correlation | |
-| normalized_root_mean_squared_error | Price prediction (house/product/tip), Review score prediction |
-| r2_score | Airline delay, Salary estimation, Bug resolution time |
-| normalized_mean_absolute_error |  |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Price prediction (house/product/tip), Review score prediction |
+| `r2_score` | Airline delay, Salary estimation, Bug resolution time |
+| `normalized_mean_absolute_error` |  |
 
 ### Primary metrics for time series forecasting scenarios
 
@@ -241,10 +241,10 @@ See regression notes, above.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
-| spearman_correlation | |
-| normalized_root_mean_squared_error | Price prediction (forecasting), Inventory optimization, Demand forecasting |
-| r2_score | Price prediction (forecasting), Inventory optimization, Demand forecasting |
-| normalized_mean_absolute_error | |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
+| `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
+| `normalized_mean_absolute_error` | |
 
 ### Data featurization
 
