@@ -72,7 +72,7 @@ Chrome will confirm your identity by prompting you to provide PIN, Fingerprint o
 
 #### Import into Authenticator
 
-Once Export is complete, Chrome prompts you to choose an app for starting the import. Select ^^Authenticator^^ to start the import.
+Once Export is complete, Chrome prompts you to choose an app for starting the import. Select **Authenticator** to start the import.
 
 &nbsp; | &nbsp;
 ---------- | --------
@@ -87,37 +87,37 @@ Prerequisites:
 
 You have installed Microsoft Autofill extension on your Chrome browser and signed-into it
 
-Step 1: Open Google Password Manager
+#### Step 1: Open Google Password Manager
 
 Please navigated to URL passwords.google.com to open Google Password Manager on any browser. Please sign-in to your Google account, if you haven’t already. 
 
-Step 2: Open Password Settings Page
+#### Step 2: Open Password Settings Page
 
 Click on the Gear Icon ![Desktop password manager gear icon](./media/user-help-auth-app-import-passwords/desktop-password-manager-gear.png) to navigate to Password Settings page.
 
-Step 3: Export your Passwords
+#### Step 3: Export your Passwords
 
 Click on Export button (highlighted in red below) that opens a confirmation dialog. Click on Export again to start exporting your passwords. Please provide your google password when prompted to confirm your identity. You’ll be notified about result of the export on the screen.
 
-![Desktop export passwords command location](./media/user-help-auth-app-import-passwords/desktop-chrome-export-passwords-location.png)
+![Desktop Chrome browser export passwords command location](./media/user-help-auth-app-import-passwords/desktop-chrome-export-passwords-location.png)
 
 Although optional but, you may want to consider switching-off the toggles (highlighted in orange above) to stop Google from offering you to save passwords and signing you in automatically to website using stored credentials.
 
-Step 4: Open Settings on Microsoft Autofill Chrome Extension
+#### Step 4: Open Settings on Microsoft Autofill Chrome Extension
 
 Open the Microsoft Autofill Chrome Extension and click on Settings.
 
-![Desktop Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
+![Desktop Chrome browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
 
-Step 5: Import your Passwords
+#### Step 5: Import your Passwords
 
 Click on “Import Data” to open a dialog. Then, click on “Choose File” to locate and open the exported CSV.
 
-![Desktop Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
+![Desktop Chrome browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
 
 That’s it! You’ll be notified about the result of import on the same screen.
 
-## Import passwords from Firefox
+### Import passwords from Firefox
 
 Firefox allows exporting of passwords from desktop only, so please ensure you have access to a desktop before starting the import from Firefox. To access this help-page on desktop, navigate to this short url: aka.ms/ImportFireFox
 
@@ -125,68 +125,48 @@ Prerequisites:
 
 You are signed-into latest version of Firefox on your desktop
 
-Step 1: Open “Logins and Passwords” from Firefox menu
+#### Step 1: Open “Logins and Passwords” from Firefox menu
 
 Open Firefox on your desktop and click on the menu from the top right of screen.
 
 Click on “Logins and Passwords” from the menu.
 
- 
+![Desktop Firefox browser Logins and passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-passwords-location.png)
 
-Step 2: Export Logins and Passwords
+#### Step 2: Export Logins and Passwords
 
 From the overflow menu (or 3-dots) menu on the top right corner, click on “Export Logins” to open a confirmation dialog and then, click on Export again. You will be prompted to identify yourself by entering your PIN, device password or by scanning your fingerprints. Once successfully identified, Firefox will export your passwords in csv format at the chosen location.
 
- 
+![Desktop Firefox browser export passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-export-passwords-location.png)
 
- 
-
-Step 3: Import to Authenticator
+#### Step 3: Import to Authenticator
 
 Importing your password to Authenticator is easy and can be done either from a desktop or from a smartphone. Please select a choice that’s applicable to you: 
 
-Step 3a: Import to Authenticator from Desktop (requires Chrome browser on desktop)
+#### Step 3a: Import to Authenticator from a Desktop
 
-Step 3b: Import to Authenticator from Smartphone (requires Authenticator app on phone)
+Open the Google Chrome desktop browser, open the Microsoft Autofill Chrome Extension and select **Settings**.
 
-Step 3a: Import to Authenticator from a Desktop
-
-Please install and sign into Microsoft Autofill extension on your Chrome browser. Once done, click on Settings.
-
- 
+![Desktop Chrome browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
 
 Click on “Import Data” to open a dialog. Then, click on “Choose File” to locate and open the exported CSV.
 
- 
+![Desktop Chrome browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
 
 That’s it! You’ll be notified about the result of import on the screen.
 
-Step 3b: Import to Authenticator from a Smartphone
+#### Step 3b: Import to Authenticator from Smartphone (requires Authenticator app on phone)
 
-Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it.
+Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Next, share the CSV file with Authenticator app to start the import.
 
-Next, share the CSV file with Authenticator app to start the import.
-
-Android
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) 
-
-iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) 
-
- 
-
- 
-
- 
+&nbsp; | &nbsp;
+---------- | --------
+Android | ![Android Chrome import passwords location](./media/user-help-auth-app-import-passwords/android-chrome-import.png)
+iOS | ![Apple Chrome import passwords location](./media/user-help-auth-app-import-passwords/apple-chrome-import.png)
 
 Alternatively, you could also import the CSV file by opening the Authenticator app, then going to Settings, and then “Import Passwords” and then “Import from CSV”.
 
-You’ll be notified about the result of import after its complete. After successfully importing your password to Authenticator, you may consider deleting the CSV file from your desktop and mobile.
-
- 
-
-Page Break
- 
+You’ll be notified about the result of import after its complete. After successfully importing your password to Authenticator, DELETE the CSV file from your desktop and mobile.
 
 ## Import passwords from LastPass
 
