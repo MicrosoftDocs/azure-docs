@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Cloud Service (extended support) - Templates
-description: Create an Azure Cloud Service (extended support) by using ARM templates
+title: Deploy a Azure Cloud Service (extended support) - Templates
+description: Deploy a Azure Cloud Service (extended support) by using ARM templates
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Create a Cloud Service (extended support) using ARM templates
+# Deploy a Cloud Service (extended support) using ARM templates
 
 This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
@@ -35,7 +35,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     - The associated Key Vault for must be enabled appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate from Key Vault. For more information, see [Certificates and Key Vault](certificates-and-key-vault.md)
     - Key vault needs to be referenced in the OsProfile section of the ARM template shown in the below steps.
 
-## Create a Cloud Service (extended support) 
+## Deploy a Cloud Service (extended support) 
 1. Create virtual network. The name of the virtual network must match the references in the Service Configuration (.cscfg) file. If using an existing virtual network, omit this section from the ARM template.
 
     ```json
@@ -450,3 +450,4 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 ## Next steps 
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)
