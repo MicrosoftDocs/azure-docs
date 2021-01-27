@@ -32,10 +32,10 @@ conceptualContent:
           text: CIS benchmark
         - url: /azure/compliance/offerings/offering-csa-star-attestation
           itemType: concept
-          text: CSA STAR attestation
+          text: CSA STAR Attestation
         - url: /azure/compliance/offerings/offering-csa-star-certification
           itemType: concept
-          text: CSA STAR certification
+          text: CSA STAR Certification
         - url: /azure/compliance/offerings/offering-csa-star-self-assessment
           itemType: concept
           text: CSA STAR self-assessment
@@ -107,13 +107,13 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-ear
           itemType: concept
           text: EAR
-        - url: /azure/compliance/offerings/offering-fedramp
-          itemType: concept
-          text: FedRAMP
 
     # Card
     - title: US government
       links:
+        - url: /azure/compliance/offerings/offering-fedramp
+          itemType: concept
+          text: FedRAMP
         - url: /azure/compliance/offerings/offering-ferpa
           itemType: concept
           text: FERPA
@@ -126,12 +126,12 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-itar
           itemType: concept
           text: ITAR
-        - url: /azure/compliance/offerings/offering-nist-800-53
-          itemType: concept
-          text: NIST 800-53
         - url: /azure/compliance/offerings/offering-nist-800-171
           itemType: concept
           text: NIST 800-171
+        - url: /azure/compliance/offerings/offering-nist-800-53
+          itemType: concept
+          text: NIST 800-53
         - url: /azure/compliance/offerings/offering-nist-csf
           itemType: concept
           text: NIST CSF
@@ -243,7 +243,7 @@ conceptualContent:
           text: NEN 7510 (Netherlands)
 
     # Card
-    - title: Automotive, energy, media, and telecom
+    - title: Automotive, energy, media, and telecommunications
       links:
         - url: /azure/compliance/offerings/offering-cdsa
           itemType: concept
@@ -268,7 +268,7 @@ conceptualContent:
           text: TISAX
 
     # Card
-    - title: Regional Americas
+    - title: Regional - Americas
       links:
         - url: /azure/compliance/offerings/offering-argentina-pdpa
           itemType: concept
@@ -281,7 +281,7 @@ conceptualContent:
           text: US CCPA
 
     # Card
-    - title: Regional Asia Pacific
+    - title: Regional - Asia Pacific
       links:
         - url: /azure/compliance/offerings/offering-australia-irap
           itemType: concept
@@ -315,7 +315,7 @@ conceptualContent:
           text: Singapore MTCS
 
     # Card
-    - title: Regional EMEA
+    - title: Regional - EMEA
       links:
         - url: /azure/compliance/offerings/offering-eu-en-301-549
           itemType: concept
