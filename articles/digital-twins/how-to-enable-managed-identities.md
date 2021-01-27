@@ -130,6 +130,12 @@ When you get to the step of completing the details required for your endpoint ty
 
 Finish setting up your endpoint and select **Save**.
 
+## Considerations for disabling system-managed identities
+
+Because an identity is managed separately from the endpoints that use it, it's important to consider the impact that any changes to the identity or its roles can have on the endpoints in your Azure Digital Twins instance. If the identity is disabled, or a necessary role for an endpoint is removed from it, the endpoint can become inaccessible and the flow of events will be disrupted.
+
+To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
+
 ## Next steps
 
 Learn more about managed identities in Azure AD: 
