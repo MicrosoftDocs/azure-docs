@@ -22,8 +22,8 @@ You can also manage API Management certificates using the [API Management REST A
 
 API Management provides two options to manage certificates:
 
-* Add a certificate directly in API Management
-* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md). 
+* Add a certificate file directly in API Management
+* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
 
 Using key vault certificates is recommended because it helps improve API Management security:
 
@@ -37,7 +37,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance][Create an API Management service instance].
 * You should have your backend service configured for client certificate authentication. To configure certificate authentication in the Azure App Service, refer to [this article][to configure certificate authentication in Azure WebSites refer to this article]. 
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **.pfx** format. Self-signed certificates are allowed.
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed.
 
 ### Prerequisites for key vault integration
 
@@ -45,13 +45,10 @@ Using key vault certificates is recommended because it helps improve API Managem
 1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
 1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
     1. In the portal, navigate to your key vault.
-    1. Select **Settings > Access policies > +Add Access Policy**.
+    1. Select **Settings > Access policies > + Add Access Policy**.
     1. Select **Certificate permissions**, then select **Get** and **List**.
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a certificate to the key vault. See [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
-
-> [!CAUTION]
-> When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -59,12 +56,25 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
 
+> [!CAUTION]
+> When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
+
 To add a key vault certificate to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **Security**, select **Certificates**.
 1. Select **Certificates** > **+ Add**.
-1. [NEED MORE UI STEPS]
+1. In **Certificate**, select **Key vault**.
+1. Enter the identifier of a key vault certificate, or choose **Select** to select a certificate from a key vault.
+    > [!IMPORTANT]
+    > If you enter a key vault certificate identifier yourself, ensure that it doesn't have version information. Otherwise, the cretficate won't rotate automatically in API Management after an update in the key vault.
+1. In **Client identity**, select a system-assigned or an existing user-assigned managed identity. Learn how to [add or modify managed identities in your API Management service](api-management-howto-use-managed-service-identity.md).
+    > [!NOTE]
+    > The identity needs permissions to get and list certificate from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
+1. Add one or more optional tags to help organize your named values, then **Save**.
+1. Select **Add**.
+
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
 
 ## Upload a certificate
 
@@ -73,7 +83,8 @@ To upload a client certificate to API Management:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **Security**, select **Certificates**.
 1. Select **Certificates** > **+ Add**.
-1. Browse to select the certificate .pfx file, and provide its ID and password.
+1. In **Certificate**, select **Custom**.
+1. Browse to select the certificate .pfx file, and provide its password.
 1. Select **Add**.
 
 :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::

@@ -54,9 +54,6 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-value), and specify a type of **Key vault**. Select the secret from the key vault.
 
-> [!CAUTION]
-> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
-
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add or edit a named value
@@ -64,6 +61,9 @@ To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-va
 ### Add a key vault secret
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
