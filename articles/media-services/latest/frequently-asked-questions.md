@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions| Microsoft Docs
+title: Azure Media Services v3 frequently asked questions
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
