@@ -120,17 +120,18 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
     > [!NOTE]
     > **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
 
-        New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
+    ```bash  
+    New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
 
-        Secret                : 
-        ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8, 
+    Secret                : 
+    ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8, 
                                 https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
-        ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-        ObjectType            : ServicePrincipal
-        DisplayName           : Microsoft.AzureFrontDoor-Cdn
-        Id                    : c87be08f-686a-4d9f-8ef8-64707dbd413e
-        Type                  : 
-
+    ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
+    ObjectType            : ServicePrincipal
+    DisplayName           : Microsoft.AzureFrontDoor-Cdn
+    Id                    : c87be08f-686a-4d9f-8ef8-64707dbd413e
+    Type                  :
+    ```
 ### Grant Azure CDN access to your key vault
  
 Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
@@ -149,7 +150,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 4. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select service principal of Azure CDN" border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
 
 5. Select **Add**. 
 
@@ -185,7 +186,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to  
 [Custom domain mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). 
 
-Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
+Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-isnt-mapped-to-your-cdn-endpoint).
 
 ### Custom domain is mapped to your CDN endpoint by a CNAME record
 
