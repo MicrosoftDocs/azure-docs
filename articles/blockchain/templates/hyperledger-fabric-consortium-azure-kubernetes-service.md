@@ -312,7 +312,7 @@ CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
