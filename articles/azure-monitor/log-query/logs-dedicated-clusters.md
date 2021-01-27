@@ -21,9 +21,6 @@ The capabilities that require dedicated clusters are:
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
 
-> [!IMPORTANT]
-> Dedicated clusters are approved and fully supported for production deployments. However, due to temporary capacity constraints, we require your pre-register to use the feature. Use your contacts into Microsoft to provide your Subscriptions IDs.
-
 ## Management 
 
 Dedicated clusters are managed via an Azure resource that represents Azure Monitor Log clusters. All operations are done on this resource using PowerShell or the REST API.
