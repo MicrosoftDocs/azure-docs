@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 01/27/2021
 ms.author: yelevin
 
 ---
@@ -86,22 +86,20 @@ We love hearing from our users!
 
 - **Post your questions** on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel. 
 
-- **Send suggestions for improvements** via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program or directly to our team at [AzureSentinel@microsoft.com](mailto:AzureSentinel@microsoft.com)
+- **Send suggestions for improvements** via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
 
 - **View and comment** on our Azure Sentinel blog posts:
 
     - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
     - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
 
-For more information about Azure security and compliance, see the [Microsoft Azure Security and Compliance blog](/archive/blogs/azuresecurity/).
+For more information about Azure security and compliance, see the [Microsoft Azure Security and Compliance blog](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
+
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Get certified!](/learn/paths/security-ops-sentinel/)
-
-> [!div class="nextstepaction"]
-> [Join our private previews](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u)
 
 > [!div class="nextstepaction"]
 > [Read customer use case stories](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)

@@ -248,7 +248,7 @@
   - name: Network normalization schema
     href: normalization-schema.md
   - name: Data source schema reference
-    href: data-source-schema-ref.md
+    href: data-source-schema-reference.md
   - name: Kusto Query Language
     items:
     - name: Kusto query overview
