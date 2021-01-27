@@ -1,9 +1,9 @@
 ---
 title: What is Document Translation Services?
-description:
+description: An overview of the batch docuement translation service and process.
 ms.topic: overview
 manager: nitinme
-ms.author: laujanuar
+ms.author: lajanuar
 author: laujan
 ms.date: 01/25/2021
 ---
@@ -26,11 +26,11 @@ Document translation is a batch process that is accomplished with the following 
 
 * A single-service Translator or multi-service Cognitive Services resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md).
 * An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
-* Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You'll need one to upload your document files, folders, or  [translation memory file](dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
+* Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You'll need one to upload your document files, folders, or  [translation memory file](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
 
 ## Custom document translation overview
 
-Custom translation uses models via the [Custom Translation](../custom-translator/overview.md) interface. Once your custom translation model is built and deployed, you'll get a unique identifier. This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../how-to-create-project.md#view-project-details).
+Custom translation uses models via the [Custom Translation](../custom-translator/overview.md) interface. Once your custom translation model is built and deployed, you'll get a unique identifier. This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../custom-translator/how-to-create-project.md#view-project-details).
 
 ## Available file formats
 
