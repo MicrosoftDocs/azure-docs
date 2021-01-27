@@ -77,9 +77,9 @@ Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as
 
 ### Why does Azure VMware Solution use public 4-byte Autonomous System Number (ASN) instead of private 2-byte ASN?
  
- With private 2-byte ASN, Azure VMware Solution uses it to peer with the northbound Microsoft Enterprise Edge (MSEE) preventing Azure VMware Solution from removing the fabric private ASNs when advertising tenant prefixes. It results in dropped routes if using the same ASN on any devices in your on-premises network. Similarly, when an on-premise network advertises a prefix through ExpressRoute Global Reach, there are situations where the MSEE doesn't remove any private ASNs. It results in on-premise routes getting dropped by the Azure VMware Solution fabric.
+With private 2-byte ASN, Azure VMware Solution uses it to peer with the northbound MSEE preventing Azure VMware Solution from removing the fabric private ASNs when advertising tenant prefixes. It results in dropped routes if using the same ASN on any devices in your on-premises network. Similarly, when an on-premise network advertises a prefix through ExpressRoute Global Reach, there are situations where the MSEE doesn't remove any private ASNs. It results in on-premise routes getting dropped by the Azure VMware Solution fabric.
  
- Azure VMware Solution should advertise and receive routes without dropping those prefixes either in the fabric or your on-premise environment. To achieve this, configure the Executable and Linking Format (ELF) with a public ASN, ensuring advertised routes don't get dropped from Azure VMware Solution to your on-premises network and vice versa.
+Azure VMware Solution should advertise and receive routes without dropping those prefixes either in the fabric or your on-premise environment. To prevent dropping prefixes, a public 4-byte ASN is used to ensure that advertised routes don't get dropped from Azure VMware Solution fabric to your on-premises network and vice versa.
 
 ## Compute, network, storage, and backup
 
