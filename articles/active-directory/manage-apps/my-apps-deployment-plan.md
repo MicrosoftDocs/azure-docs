@@ -6,7 +6,7 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: concept
+ms.topic: Conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
@@ -56,11 +56,11 @@ Users access the My Apps portal to:
 
 Administrators can configure:
 
-* [Consent experiences](../configure-user-consent.md)  including terms of service.
+* [Consent experiences](../manage-apps/configure-user-consent.md)  including terms of service.
 
-* [Self-service application discovery and access requests](../access-panel-manage-self-service-access.md).
+* [Self-service application discovery and access requests](../manage-apps/access-panel-manage-self-service-access.md).
 
-* [Collections of applications](../access-panel-collections.md).
+* [Collections of applications](../manage-apps/access-panel-collections.md).
 
 * Assignment of icons to applications
 
@@ -88,13 +88,13 @@ To use administrator consent, you must be a global administrator of the organiza
 
 If you want to allow users to consent, you must decide if you want them to consent to any app, or only under specific circumstances.
 
-For more information, see [Configure the way end users consent to an application in Azure Active Directory.](../configure-user-consent.md)
+For more information, see [Configure the way end users consent to an application in Azure Active Directory.](../manage-apps/configure-user-consent.md)
 
 ### Group owner consent for apps accessing data
 
 Determine if owners of the Azure AD security groups or M365 groups are able to consent to applications to access data for the groups they own. You can disallow, allow all group owners, or allow only a subset of group owners.
 
-For more information, see [Configure group consent permissions](../configure-user-consent-groups.md).
+For more information, see [Configure group consent permissions](../manage-apps/configure-user-consent-groups.md).
 
 Then, configure your [User and group owner consent settings](https://portal.azure.com/) in the Azure portal.
 
@@ -118,7 +118,7 @@ Azure AD supports multiple SSO options.
 
 * To learn more, see [Single sign-on options in Azure AD]../Desktop/sso-options.md).
 
-* To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](../Desktop/view-applications-portal.md).
+* To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](../manage-apps//view-applications-portal.md).
 
 ### Use federated SSO if possible
 
@@ -149,7 +149,7 @@ The extension allows users to launch any app from its search bar, finding access
 
 #### Plan for mobile access
 
-For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
+For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../manage-apps/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
 
 ### Linked SSO
 
@@ -174,7 +174,7 @@ access-panel-collections.md).
 
 ![Screenshot of self-service configuration](media\my-apps-dp\collections.png)
 
-There’s an option to hide apps from the My Apps portal, while still allowing access from other locations, such as the Microsoft 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](fhide-application-from-user-portal.md).
+There’s an option to hide apps from the My Apps portal, while still allowing access from other locations, such as the Microsoft 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 > [!IMPORTANT]
 > Only 950 apps to which a user has access can be accessed through My Apps. This includes apps hidden by either the user or the administrator. 
@@ -187,7 +187,7 @@ You can enable users to create and manage their own security groups or Microsoft
 
 To plan for self-service group membership, determine if you’ll allow all users in your organization to create and manage groups or only a subset of users. If you’re allowing a subset of users, you’ll need to set up a group to which those people are added. 
 
-See [Set up self-service group management in Azure Active Directory](groups-self-service-management.md) for details on enabling these scenarios.
+See [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) for details on enabling these scenarios.
 
 ### Plan self-service application access
 
@@ -251,7 +251,7 @@ Conduct the following tests with both corporate-owned devices and personal devic
 
 ### Rollback steps
 
-It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](../hybrid/tshoot-connect-sso.md) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../plan-sso-deployment.md).
+It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](../hybrid/tshoot-connect-sso.md) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](plan-sso-deployment.md).
 
 ## Manage your implementation
 
@@ -272,7 +272,7 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 
 [Plan a deployment of Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Plan an Application Proxy deployment](../application-proxy-deployment-plan.md)
+[Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
 
  
 
