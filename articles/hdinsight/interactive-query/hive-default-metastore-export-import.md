@@ -67,15 +67,9 @@ An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import fo
 
 ## Migrate using Hive script
 
-Clusters created before 2020-10-15 do not support export/import of the default metastore DB. For such clusters, this guide supports copying metadata objects related to Hive databases, tables and partitions.
+Clusters created before 2020-10-15 do not support export/import of the default metastore DB.
 
-> [!NOTE] Other metadata objects must be re-created manually.
->
-> * For `Views`, Hive supports `SHOW VIEWS` command as of Hive 2.2.0 on HDInsight 4.0. Use `SHOW CREATE TABLE` for view definition. For earlier versions of Hive, query the metastore SQL DB to show views.
-> * For `Materialized Views`, use commands `SHOW MATERIALIZED VIEWS`, `DESCRIBE FORMATTED`, and `CREATE MATERIALIZED VIEW`. See [Materialized views](https://cwiki.apache.org/confluence/display/Hive/Materialized+views) for details.
-> * For `Constraints`, supported as of Hive 2.1.0 on HDInsight 4.0, use `DESCRIBE EXTENDED` to list constraints for a table, and use `ALTER TABLE` to add constraints. See [Alter Table Constraints](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTableConstraints) for details.
-
-Follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md). The second cluster can use a different storage account but must use a new default filesystem.
+For such clusters, follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md). The second cluster can use the same storage account but must use a new default filesystem.
 
 ### Option to "shallow" copy
 Storage consumption would double when tables are "deep" copied using the above guide.
