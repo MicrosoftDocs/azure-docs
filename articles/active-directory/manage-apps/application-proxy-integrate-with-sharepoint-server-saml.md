@@ -20,19 +20,19 @@ ms.collection: M365-identity-device-management
 
 # Integrate with SharePoint (SAML)
 
-This step-by-step guide explains how to integrate a SharePoint on-premises farm with Azure Active Directory (Azure AD) Application Proxy for SAML. This process enables you to allow your Azure Active Directory (AD) users to access your SharePoint on-premises instance from an external network. 
+This step-by-step guide explains how to integrate a SharePoint on-premises farm with Azure Active Directory (Azure AD) Application Proxy for SAML. You can allow your Azure Active Directory (AD) users to access your SharePoint on-premises instance from an external network. 
 
-This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you will use to publish the first Enterprise Gallery Application (SharePoint on-premises from the gallery application).
+This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you'll use to publish the first Enterprise Gallery Application.
 
 There are three primary advantages for this process. They are: 
 
- - If the on-premises SharePoint instance is utilizing Azure AD as single-sign on (SSO) (On-Prem SharePoint Federated with AAD), you can extend the access and allow remote users to access SharePoint securely without VPN.
- - You can apply and leverage Azure AD security features like Conditional Access and multi-factor authorization (MFA) for external access.
+ - If the on-premises SharePoint instance is using Azure AD as single-sign on (SSO), you can extend the access and allow remote users to access SharePoint securely without VPN.
+ - You can apply Azure AD security features like Conditional Access and multi-factor authorization (MFA) for external access.
  - You can grant B2B users in Azure AD access to your on-premises SharePoint instance. 
 
 ## Prerequisites
 
-To perform the configuration, you need the following resources:
+To complete this configuration, you need the following resources:
  - A SharePoint 2013 farm or newer. The Sharepoint farm must be [integrated with Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
  - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
  - A [custom, verified domain](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain) in the Azure AD tenant.
@@ -69,7 +69,7 @@ Find the following values that you configured when you [integrated with Azure AD
     ![Need to verify this screenshot 2.](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
 
-2. Assign the [same groups](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that were assigned to the On-prem SharePoint Gallery Application.
+2. Assign the [same groups](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that were assigned to the On-premises SharePoint Gallery Application.
 
 3. Optionally, you can prevent the visibility of two applications for the SharePoint on-premises. For **myapplications.microsoft.com**, go to the Properties section and set **Visible to users?** to **No** for one of your applications. 
 
@@ -77,5 +77,5 @@ Find the following values that you configured when you [integrated with Azure AD
 
   
 ## Step 3: Test your application
-1. Using a browswer from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account you set up.
+1. Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account you set up.
 
