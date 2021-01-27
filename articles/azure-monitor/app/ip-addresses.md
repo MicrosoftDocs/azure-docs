@@ -6,7 +6,7 @@ ms.date: 01/27/2020
 
 ---
 
-# IP addresses used by Application Insights and Log Analytics
+# IP addresses used by Azure Monitor
 The [Azure Application Insights](./app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
