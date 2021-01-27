@@ -1,7 +1,7 @@
 ---
-title: Train with azureml-datasets
+title: Train with machine learning datasets
 titleSuffix: Azure Machine Learning
-description:  Learn how to make your data available to your local or remote compute for ML model training with Azure Machine Learning datasets.
+description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,12 +17,11 @@ ms.custom: how-to, devx-track-python, data4ml
 
 ---
 
-# Train with datasets in Azure Machine Learning
-
+# Train models with Azure Machine Learning datasets 
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
 
@@ -39,7 +38,7 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Use datasets directly in training scripts
+## Consume datasets in machine learning training scripts
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
@@ -88,6 +87,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### Configure the training run
+
 A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) object is used to configure and submit the training run.
 
 This code creates a ScriptRunConfig object, `src`, that specifies
@@ -139,6 +139,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### Configure the training run
+
 We recommend passing the dataset as an argument when mounting via the `arguments` parameter of the `ScriptRunConfig` constructor. By doing so, you will get the data path (mounting point) in your training script via arguments. This way, you will be able use the same training script for local debugging and remote training on any cloud platform.
 
 The following example creates a ScriptRunConfig that passes in the FileDataset via `arguments`. After you submit the run, data files referred by the dataset `mnist_ds` will be mounted to the compute target.
@@ -158,7 +159,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### Retrieve the data in your training script
+### Retrieve data in your training script
 
 The following code shows how to retrieve the data in your script.
 
@@ -220,10 +221,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## Get datasets in machine learning scripts
 
-## Directly access datasets in your script
-
-Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and registered dataset by name. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
+Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and get the dataset that was used in your previously submitted run. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -242,7 +242,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## Accessing source code during training
+## Access source code during training
 
 Azure Blob storage has higher throughput speeds than an Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use Blob storage for transferring source code files.
 
@@ -261,7 +261,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## Troubleshooting
 
 * **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
-  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
+  * If you don't have any outbound [network security group](../virtual-network/network-security-groups-overview.md) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
@@ -291,4 +291,4 @@ If you are using file share for other workloads, such as data transfer, the re
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 
-* [Train with datasets using pipelines](how-to-create-your-first-pipeline.md).
+* [Train with datasets using pipelines](./how-to-create-machine-learning-pipelines.md).

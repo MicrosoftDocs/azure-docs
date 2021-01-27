@@ -22,7 +22,7 @@ Learn how to configure adaptive network hardening in Security Center.
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

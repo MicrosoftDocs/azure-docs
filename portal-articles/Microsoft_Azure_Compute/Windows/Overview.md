@@ -35,7 +35,7 @@ Learn how to deploy, manage, and monitor Windows VMs on Azure.
 - [Create a VM scale set](/azure/virtual-machines/windows/tutorial-create-vmss)
 - [Load balance VMs](/azure/virtual-machines/windows/tutorial-load-balancer)
 - [Manage VMs with virtual networks](/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Backup VMs](/azure/virtual-machines/windows/tutorial-backup-vms)
+- [Backup VMs](/azure/backup/quick-backup-vm-portal)
 - [Monitor VMs](/azure/virtual-machines/windows/tutorial-monitoring)
 - [Manage security on VMs](/azure/virtual-machines/windows/tutorial-azure-security)
 

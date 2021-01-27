@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 01/20/2021
 ms.author: yelevin
 
 ---
 # Connect data from Azure Active Directory (Azure AD)
 
-
-
 You can use Azure Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Azure Sentinel. The connector allows you to stream [sign-in logs](../active-directory/reports-monitoring/concept-sign-ins.md) and [audit logs](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 ## Prerequisites
 
-
-- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
+- You must have an [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) subscription to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
@@ -35,18 +32,25 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 - Your user must have read and write permissions to the Azure AD diagnostic settings in order to be able to see the connection status. 
 
-
 ## Connect to Azure Active Directory
 
 1. In Azure Sentinel, select **Data connectors** from the navigation menu.
 
 1. From the data connectors gallery, select **Azure Active Directory** and then select **Open connector page**.
 
-1. Mark the check boxes next to the logs you want to stream into Azure Sentinel, and click **Connect**.
+1. Mark the check boxes next to the log types you want to stream into Azure Sentinel, and click **Connect**. These are the log types you can choose from:
 
-1. You can select whether you want the alerts from Azure AD to automatically generate incidents in Azure Sentinel. Under **Create incidents** select **Enable** to enable the default analytics rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
+    - **Sign-in logs**: Information about the usage of managed applications and user sign-in activities.
+    - **Audit logs**: System activity information about user and group management, managed applications, and directory activities.
 
-1. To use the relevant schema in Log Analytics for querying Azure AD alerts, type `SigninLogs` or `AuditLogs` in the query window.
+## Find your data
+
+After a successful connection is established, the data appears in **Logs**, under the **LogManagement** section, in the following tables:
+
+- `SigninLogs`
+- `AuditLogs`
+
+To query the Azure AD logs, enter the relevant table name at the top of the query window.
 
 ## Next steps
 In this document, you learned how to connect Azure Active Directory to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

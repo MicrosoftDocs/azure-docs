@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/26/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -628,7 +628,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have any special characters, such as `@`. |
 > | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |

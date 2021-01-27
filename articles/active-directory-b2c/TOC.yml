@@ -140,10 +140,14 @@
       href: phone-authentication-user-flows.md
   - name: Identity providers
     items:
+    - name: Local account identity provider
+      href: identity-provider-local.md
+      displayName: Username, Email, Phone authorization, Phone sing-in
     - name: Add an identity provider
       href: add-identity-provider.md
     - name: AD FS
       href: identity-provider-adfs.md
+      displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
     - name: Azure AD (Single-tenant)
@@ -234,8 +238,10 @@
       items:
       - name: Mailjet
         href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
       - name: SendGrid
         href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
       displayName: verification
     - name: Add your own business logic
       items:
@@ -377,6 +383,8 @@
       href: partner-itsme.md
     - name: Jumio
       href: partner-jumio.md
+    - name: Keyless
+      href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
     - name: N8 Identity
@@ -385,6 +393,8 @@
       href: partner-nevis.md
     - name: Onfido
       href: partner-onfido.md
+    - name: Ping Identity
+      href: partner-ping-identity.md
     - name: Saviynt
       href: partner-saviynt.md
     - name: Strata
@@ -411,9 +421,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events
-    - name: Manage users - Microsoft Graph
-      href: manage-user-accounts-graph-api.md
-      displayName: account, accounts
+    - name: Microsoft Graph API
+      href: microsoft-graph-operations.md
+      displayName: account, accounts, msgraph, ms graph, graph
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
@@ -457,8 +467,6 @@
     href: extensions-app.md
   - name: Custom policy (IEF) release notes
     href: custom-policy-developer-notes.md
-  - name: Microsoft Graph API operations
-    href: microsoft-graph-operations.md
   - name: Page layout versions
     href: page-layout.md
   - name: Region availability & data residency
