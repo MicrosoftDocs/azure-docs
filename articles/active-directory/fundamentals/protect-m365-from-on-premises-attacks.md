@@ -119,23 +119,23 @@ the principles illustrated in the following diagram:
 
 
 The following sections provide specific guidance on how to implement the
-principles described above.
+principles described earlier.
 
 ### Isolate privileged identities
 
 
-In Azure AD, users with privileged roles such as administrators are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effect of a compromise.
+In Azure AD, users who have privileged roles, such as administrators, are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effects of a compromise.
 
 * Use cloud-only accounts for Azure AD and Microsoft 365 privileged
-    roles.d
+    roles.
 
 * Deploy [privileged access devices](/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
 
-*  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just in time (JIT) access to all human accounts that have privileged roles, and require strong authentication to activate roles.
+*  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just-in-time (JIT) access to all human accounts that have privileged roles. Require strong authentication to activate roles.
 
-* Provide administrative roles the [least privilege possible to perform their tasks](../roles/delegate-by-task.md).
+* Provide administrative roles at the [least privilege necessary to perform required tasks](../roles/delegate-by-task.md).
 
-* To enable a richer role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups (collectively "cloud groups") and [enable role-based access control](../roles/groups-assign-role.md). You can also use [Administrative Units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
+* To enable a richer role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups (collectively called *cloud groups*). Also [enable role-based access control](../roles/groups-assign-role.md). You can also use [administrative units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
 
 * Deploy [Emergency Access Accounts](../roles/security-emergency-access.md) and do NOT use on-premises password vaults to store credentials.
 
