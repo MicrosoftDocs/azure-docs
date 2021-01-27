@@ -1,8 +1,8 @@
 ---
-title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
+title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/27/2020
 
 ---
 
