@@ -14,7 +14,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device (Preview)
 
-Try out Azure IoT Edge in this quickstart. Deploy containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
+Try out Azure IoT Edge in this quickstart. Deploy containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to Edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
 
 In this quickstart, you'll learn how to:
 
@@ -74,7 +74,7 @@ Register an IoT Edge device with your newly created IoT hub.
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity.
 
-Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag.
+IoT Edge devices behave and can be managed differently than typical IoT devices. Use the `--edge-enabled` flag to declare that this identity is for an IoT Edge device.
 
 1. In the Azure Cloud Shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
@@ -112,7 +112,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 1. Enter `https://aka.ms/wac-insiders-feed` into the text box, and then select **Add**.
 
-1. After the feed has been added, go to the **Available extensions** tab. The extensions list might take a moment to update.
+1. After the feed has been added, go to the **Available extensions** tab and wait for the extensions list to update.
 
 1. From the list of **Available extensions**, select **Azure IoT Edge**.
 
@@ -158,7 +158,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
      :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Screenshot showing all connections in Windows Admin Center.":::
 
-1. Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed. The **IoT Edge Module List** should show one module running **edgeAgent**, and the **IoT Edge Status** should show **active (running)**.
+1. Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed. The **IoT Edge Module List** should show one module running **edgeAgent**, and the **IoT Edge Status** should be **active (running)**.
 ​
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -174,7 +174,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that sends t
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then you used the Azure portal to deploy an IoT Edge module to run on the device without having to make changes to the device itself.
 
-The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The message includes ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials can use the data created by this module as test data for analytics.
+The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The messages it sends include ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials can use the data created by this module as test data for analytics.
 
 From the Command Shell in Windows Admin Center, confirm that the module you deployed from the cloud is running on your IoT Edge device.
 
@@ -202,7 +202,7 @@ From the Command Shell in Windows Admin Center, confirm that the module you depl
      iotedge logs SimulatedTemperatureSensor -f
      ```
 
-    >[!TIP]
+    >[!Important]
     >IoT Edge commands are case-sensitive when referring to module names.
 
     :::image type="content" source="media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot showing the list of messages sent from the module to the cloud.":::
@@ -245,7 +245,7 @@ You can uninstall Azure IoT Edge for Linux on Windows from your IoT Edge device 
 
 In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now you have a test device generating raw data about its environment.
 
-The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic.
+Next, set up your local development environment so that you can start creating IoT Edge modules that run your business logic.
 
 > [!div class="nextstepaction"]
 > [Start developing IoT Edge modules](tutorial-develop-for-linux.md)
