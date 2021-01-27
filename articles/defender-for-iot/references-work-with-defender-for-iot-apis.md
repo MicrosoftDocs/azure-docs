@@ -73,6 +73,8 @@ This section describes the following sensor APIs:
 
 - /external/authentication/set_password_by_admin
 
+For curl command examples for the sensor, see [Sensor API curl commands](references-horizon-sdk.md#sensor-api-curl-commands).
+
 ### Retrieve device information
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
@@ -1705,6 +1707,8 @@ This section describes the following on-premises management console APIs:
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices.
 
 The APIs that you define here appear in the on-premises management console's **Alert Exclusions** window as a read-only exclusion rule.
+
+For curl command examples for the on-premises management console, see [On-premises management console API curl commands](references-horizon-sdk.md#on-premises-management-console-api-curl-commands).
 
 #### /external/v1/maintenanceWindow
 
