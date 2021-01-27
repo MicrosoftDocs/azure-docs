@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Store business-critical blob data with immutable storage
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, BlobStorage, and BlockBlobStorage accounts in all Azure regions.
+Immutable storage for Azure Blob Storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, BlobStorage, and BlockBlobStorage accounts in all Azure regions.
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -26,11 +26,11 @@ Immutable storage helps healthcare organization, financial institutions, and rel
 
 Typical applications include:
 
-- **Regulatory compliance**: Immutable storage for Azure Blob storage helps organizations address SEC 17a-4(f), CFTC 1.31(d), FINRA, and other regulations. A technical whitepaper by Cohasset Associates details how Immutable storage addresses these regulatory requirements is downloadable via the [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). The [Azure Trust Center](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contains detailed information about our compliance certifications.
+- **Regulatory compliance**: Immutable storage for Azure Blob Storage helps organizations address SEC 17a-4(f), CFTC 1.31(d), FINRA, and other regulations. A technical whitepaper by Cohasset Associates details how Immutable storage addresses these regulatory requirements is downloadable via the [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). The [Azure Trust Center](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contains detailed information about our compliance certifications.
 
-- **Secure document retention**: Immutable storage for Azure Blob storage ensures that data can't be modified or deleted by any user, including users with account administrative privileges.
+- **Secure document retention**: Immutable storage for Azure Blob Storage ensures that data can't be modified or deleted by any user, including users with account administrative privileges.
 
-- **Legal hold**: Immutable storage for Azure Blob storage enables users to store sensitive information that is critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
+- **Legal hold**: Immutable storage for Azure Blob Storage enables users to store sensitive information that is critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
 
 Immutable storage supports the following features:
 
@@ -38,7 +38,7 @@ Immutable storage supports the following features:
 
 - **[Legal hold policy support](#legal-holds)**: If the retention interval is not known, users can set legal holds to store immutable data until the legal hold is cleared.  When a legal hold policy is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag (such as a case ID, event name, etc.) that is used as an identifier string. 
 
-- **Support for all blob tiers**: WORM policies are independent of the Azure Blob storage tier and apply to all the tiers: hot, cool, and archive. Users can transition data to the most cost-optimized tier for their workloads while maintaining data immutability.
+- **Support for all blob tiers**: WORM policies are independent of the Azure Blob Storage tier and apply to all the tiers: hot, cool, and archive. Users can transition data to the most cost-optimized tier for their workloads while maintaining data immutability.
 
 - **Container-level configuration**: Users can configure time-based retention policies and legal hold tags at the container level. By using simple container-level settings, users can create and lock time-based retention policies, extend retention intervals, set and clear legal holds, and more. These policies apply to all the blobs in the container, both existing and new.
 
@@ -46,7 +46,7 @@ Immutable storage supports the following features:
 
 ## How it works
 
-Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy protected container will also move into an immutable state. Once all blobs are in an immutable state, the immutable policy is confirmed and any overwrite or delete operations in the immutable container are not allowed.
+Immutable storage for Azure Blob Storage supports two types of WORM or immutable policies: time-based retention and legal holds. When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy protected container will also move into an immutable state. Once all blobs are in an immutable state, the immutable policy is confirmed and any overwrite or delete operations in the immutable container are not allowed.
 
 Container and storage account deletion are also not permitted if there are any blobs in a container that are protected by a legal hold or a locked time-based policy. A legal hold policy will protect against blob, container, and storage account deletion. Both unlocked and locked time-based policies will protect against blob deletion for the specified time. Both unlocked and locked time-based policies will protect against container deletion only if at least one blob exists within the container. Only a container with *locked* time-based policy will protect against storage account deletions; containers with unlocked time-based policies do not offer storage account deletion protection nor compliance.
 
@@ -117,7 +117,7 @@ The following table shows the types of Blob storage operations that are disabled
 
 ## Pricing
 
-There is no additional charge for using this feature. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+There is no additional charge for using this feature. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## FAQ
 
@@ -167,7 +167,7 @@ Yes. When a time-based retention policy is first created, it is in an *unlocked*
 
 **Can I use soft delete alongside Immutable blob policies?**
 
-Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
+Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob Storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
 
 ## Next steps
 
