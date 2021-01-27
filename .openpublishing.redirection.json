@@ -22799,6 +22799,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/how-to-manage-dps-with-cli.md",
+      "redirect_url": "/azure/iot-dps/quick-setup-auto-provision-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
       "redirect_url": "/azure/iot-edge/about-iot-edge",
       "redirect_document_id": false
@@ -47659,6 +47664,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/hdinsight/kafka/schema-registry.md",
+      "redirect_url": "/azure/hdinsight/kafka/apache-kafka-producer-consumer-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/response-center.md",
       "redirect_url": "https://www.microsoft.com/msrc",
       "redirect_document_id": false
@@ -61533,6 +61543,11 @@
     {
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/view-master-logs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
       "redirect_document_id": false
     }
   ]
