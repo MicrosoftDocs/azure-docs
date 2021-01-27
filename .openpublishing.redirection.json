@@ -47659,6 +47659,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/hdinsight/kafka/schema-registry.md",
+      "redirect_url": "/azure/hdinsight/kafka/apache-kafka-producer-consumer-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/response-center.md",
       "redirect_url": "https://www.microsoft.com/msrc",
       "redirect_document_id": false
