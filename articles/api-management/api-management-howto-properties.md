@@ -57,16 +57,7 @@ To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-va
 > [!CAUTION]
 > When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
 
-If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements for using key vault secrets:
-
-* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
-* In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
-
-If the API Management instance is deployed in a virtual network, also configure the following network settings:
-* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
-* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../virtual-network/service-tags-overview.md). 
-
-For details, see network configuration details in [Connect to a virtual network](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add or edit a named value
 
