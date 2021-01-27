@@ -13,7 +13,7 @@ description: This architecture reference is a foundation using a typical enterpr
 This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected Framework.
 
 ## Reference Deployment
-For detailed information and deployment options of this architecture which include ARM, Terraform, and CLI, see the public repository.
+For detailed information and deployment options of this architecture that include ARM, Terraform, and CLI, see the public repository.
 
 [!div class="nextstepaction"]
 [Azure Spring Cloud Reference Architecture Deployments][10]
@@ -21,7 +21,7 @@ For detailed information and deployment options of this architecture which inclu
 The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
 
 ## Use Cases
-Typical use for this architecture include:
+Typical uses for this architecture include:
 * For internal applications deployed in hybrid cloud environments
 * Externally facing applications
 
