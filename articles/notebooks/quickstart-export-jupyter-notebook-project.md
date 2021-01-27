@@ -1,33 +1,17 @@
 ---
-title: Export a Jupyter Notebook project from the Azure Notebooks Preview
+title: Use Jupyter Notebook with Microsoft offerings
 description: Quickly export a Jupyter Notebook project.
 ms.topic: quickstart
 ms.date: 06/29/2020
 ---
 
-# Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
+# Use Jupyter Notebook with Microsoft offerings
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you will download an Azure Notebooks project for use in other Jupyter Notebook solutions. 
+In this quickstart, you will import Jupyter notebooks projects for use in other Jupyter Notebook solutions. 
 
-## Prerequisites
-
-An existing Azure Notebooks project.
-
-## Export an Azure Notebooks project
-
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
-
-1. From your public profile page, select **My Projects** at the top of the page:
-
-    ![My Projects link on the top of the browser window](media/quickstarts/my-projects-link.png)
-
-1. Select a project.
-1. Click the download "Download" button to trigger a zip file download that contains all of your project files.
-1. Alternatively, from a specific project page, click the "Download Project" button to download all the files of a given project.
-
-After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
+If you have existing Jupyter notebooks or want to start a new project, you can use them with many of Microsoft's offerings. Some options described in the sections below include: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
 - [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
@@ -36,7 +20,7 @@ After downloading your project files, you can use them with other Jupyter Notebo
 
 ## Create an environment for notebooks
 
-If you'd like to create an environment that matches that of the Azure Notebooks Preview, you can use the script file provided in GitHub.
+If you'd like to create an environment that matches that of the retired Azure Notebooks Preview, you can use the script file provided in GitHub.
 
 1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or [directly access the environment folder](https://aka.ms/aznbrequirementstxt).
 1. From a command prompt, navigate to the directory you want to use for your projects.
