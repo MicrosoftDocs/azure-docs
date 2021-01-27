@@ -173,7 +173,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Quantum limits
 
-[!INCUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
 ## Azure role-based access control limits
 
