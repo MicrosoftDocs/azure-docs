@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q2
 # Problems signing in to SAML-based single sign-on configured apps
 To troubleshoot the sign-in issues below, we recommend the following to better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](./access-panel-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Install the [My Apps Secure Browser Extension](my-apps-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
 - Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](./debug-saml-sso-issues.md)
 
 If you use the [testing experience](./debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.

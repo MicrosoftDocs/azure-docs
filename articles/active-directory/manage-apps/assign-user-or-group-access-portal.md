@@ -143,7 +143,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 ## Related articles
 
 - [Learn more about end-user access to applications](end-user-experiences.md)
-- [Plan an Azure AD My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure AD My Apps deployment](my-apps-deployment-plan.md)
 - [Managing access to apps](what-is-access-management.md)
  
 ## Next steps

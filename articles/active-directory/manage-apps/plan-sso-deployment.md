@@ -58,7 +58,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
 
-- [Group Policy for Internet Explorer](./access-panel-deployment-plan.md)
+- [Group Policy for Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager for Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 

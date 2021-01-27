@@ -85,7 +85,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [How to use self-service application access](access-panel-manage-self-service-access.md)
 - [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Troubleshoot password-based single sign-on in Azure AD](troubleshoot-password-based-sso.md)
-- [Plan an Azure Active Directory My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md)
 - [What is single sign-on (SSO)?](what-is-single-sign-on.md)
 - [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
