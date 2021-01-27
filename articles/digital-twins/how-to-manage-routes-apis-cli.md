@@ -49,7 +49,7 @@ This section explains how to create one of these endpoints using the Azure CLI.
 
 ### Create the endpoint
 
-Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md).
+Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md). Replace the placeholders in the commands with the details of your own resources.
 
 To create an Event Grid endpoint:
 
@@ -67,7 +67,7 @@ To create a Service Bus topic endpoint:
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Now the event grid, event hub, or Service Bus topic  is available as an endpoint inside of Azure Digital Twins, under the name you supplied with the `--endpoint-name` argument. You'll typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
+After successfully running these commands, the event grid, event hub, or Service Bus topic will be available as an endpoint inside of Azure Digital Twins, under the name you supplied with the `--endpoint-name` argument. You'll typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an endpoint with dead-lettering
 
@@ -106,11 +106,11 @@ To create an endpoint that has dead-lettering enabled, you'll need to create the
 
 1. First, use the [Azure Resource Manager APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to set up a request to create an endpoint, and fill in the required request parameters. 
 
-1. Next, add a `deadLetterSecret` field to the properties object in the **body** of the request. Set this value according to the template below, which crafts a URL from the storage account name, container name, and SAS token value that you gathered in the [previous section](#set-up-storage-resources).
+2. Next, add a `deadLetterSecret` field to the properties object in the **body** of the request. Set this value according to the template below, which crafts a URL from the storage account name, container name, and SAS token value that you gathered in the [previous section](#set-up-storage-resources).
       
   :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
 
-1. Send the request to create the endpoint.
+3. Send the request to create the endpoint.
 
 For more information on structuring this request, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
