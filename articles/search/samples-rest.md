@@ -15,9 +15,12 @@ ms.date: 01/27/2021
 
 Learn about the REST API samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
 
-REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain a feature or workflow.
+REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain important concepts.
 
-REST samples are usually developed and tested on Postman. Instructions for formulating HTTP calls using Postman can be found in [Quickstart: Create an Azure Cognitive Search index using REST APIs](search-get-started-rest). You can also use the [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview.
+REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls:
+
++ Start with [Quickstart: Create an Azure Cognitive Search index using REST APIs](search-get-started-rest.md) for help in formulating HTTP calls.
++ Try [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview, if you work in Visual Studio Code.
 
 ## Doc samples
 
