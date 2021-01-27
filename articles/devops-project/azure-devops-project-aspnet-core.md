@@ -61,9 +61,9 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 
 DevOps Starter created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
-1. On the left of the DevOps Starter dashboard, select the link for your **master** branch. This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Starter dashboard, select the link for your **main** branch. This link opens a view to the newly created Git repository.
 
-2. In the next few steps, you can use the web browser to make and commit code changes directly to the **master** branch. You can also clone your Git repository in your favorite IDE by selecting **Clone** from the top right of the repository page. 
+2. In the next few steps, you can use the web browser to make and commit code changes directly to the **main** branch. You can also clone your Git repository in your favorite IDE by selecting **Clone** from the top right of the repository page. 
 
 3. On the left, navigate the application file structure to **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 

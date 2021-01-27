@@ -3,6 +3,7 @@ title: GetCurrentDateTime in Azure Cosmos DB query language
 description: Learn about SQL system function GetCurrentDateTime in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins

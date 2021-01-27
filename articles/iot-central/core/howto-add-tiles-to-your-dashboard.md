@@ -1,12 +1,11 @@
 ---
-title: Add tiles to your Azure IoT Central dashboard | Microsoft Docs
+title: Configure to your Azure IoT Central dashboard | Microsoft Docs
 description: As a builder, learn how to configure the default Azure IoT Central application dashboard with tiles.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
 ---
 
 # Configure the application dashboard
@@ -24,23 +23,26 @@ The following screenshot shows the dashboard in an application created from the 
 
 After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Telemetry** tile to show current temperature reported by one or more devices:
 
-1. In the **Edit dashboard** panel, select a **Device group**.
-1. Select one or more devices in the **Devices** dropdown to show on the tile. You now see the available telemetry, properties, and commands from the devices.
-1. Select **Temperature** in the telemetry section, and then select **Add tile**. The tile now shows on the dashboard where you can change the visualization, resize the tile, and configure it:
+1. Select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile. You now see the available telemetry, properties, and commands from the devices.
+
+1. If needed, you use the dropdown to select a telemetry value to show on the tile. You can add more items to the tile another by selecting **+ Telemetry**, **+ Property**, or **+ Cloud Property**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
-When you've finished adding and customizing tiles on the dashboard, select **Save**.
+When you've selected all the values to show on the tile, click **Add tile.** The tile now appears on the dashboard where you can change the visualization, resize it, move it, and configure it.
+
+When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard, which takes you out of edit mode.
 
 ## Customize tiles
 
-To customize a tile on the dashboard, the dashboard must be in edit mode. The available customization options depend on the [tile type](#tile-types):
+To edit a tile, you must be in edit mode.  The available customization options depend on the [tile type](#tile-types):
 
-* The ruler icon on a tile lets you change the visualization. Visualizations include line charts, last known values, and heat maps.
+* The ruler icon on a tile lets you change the visualization. Visualizations include line charts, bar charts, pie charts, last known values, key performance indicators (or KPIs), heatmaps, and maps.
 
 * The square icon lets you resize the tile.
 
 * The gear icon lets you configure the visualization. For example, for a line chart visualization you can choose to show the legend and axes, and choose the time range to plot.
+
 
 ## Tile types
 
@@ -66,6 +68,10 @@ Currently, you can add up to 10 devices to tiles that support multiple devices.
 
 ### Customizing visualizations
 
+By default, line charts show data over a range of time. The selected time range is split into 50 equal-sized buckets and the device data is then aggregated per bucket to give 50 data points over the selected time range. If you wish to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the Display Range dropdown in the **Configure chart** panel.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Change the display range of a line chart":::
+
 For tiles that display aggregate values, select the gear icon next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose from average, sum, maximum, minimum, and count.
 
 For line charts, bar charts, and pie charts, you can customize the color of the different telemetry values. Select the palette icon next to the telemetry you want to customize:
@@ -82,11 +88,16 @@ For numeric **KPI**, **Last Known Value**, and **Property** tiles you can use co
 
 Add your conditional formatting rules:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less tha 20 is green, less than 50 is yellow, and anything over 50 is red":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less than 20 is green, less than 50 is yellow, and anything over 50 is red":::
+   
 The following screenshot shows the effect of the conditional formatting rule:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the yellow background color on the Average water flow tile. The number on the tile is 40.84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the red background color on the Average water flow tile. The number on the tile is 50.54":::
+
+### "tile" formatting
+This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Tile Format":::
 
 ## Next steps
 

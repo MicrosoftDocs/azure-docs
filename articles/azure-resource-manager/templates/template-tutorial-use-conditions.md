@@ -9,9 +9,9 @@ ms.author: jgao
 
 # Tutorial: Use condition in ARM templates
 
-Learn how to deploy Azure resources based on conditions in an Azure Resource Manager (ARM) template.
+Learn how to deploy Azure resources based on conditions in an Azure Resource Manager template (ARM template).
 
-In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created. Otherwise, an existing storage account with the name provided is used.
+In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is **new**, a new storage account is created. Otherwise, an existing storage account with the name provided is used.
 
 ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -26,9 +26,11 @@ This tutorial covers the following tasks:
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
 * [Template file structure: Condition](conditional-resource-deployment.md).
-* [Conditionally deploy a resource in an ARM template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Conditionally deploy a resource in an ARM template](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [Template function: If](./template-functions-logical.md#if).
 * [Comparison functions for ARM templates](./template-functions-comparison.md)
+
+For a Microsoft Learn module that covers conditions, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -36,7 +38,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
@@ -49,7 +51,7 @@ To complete this article, you need:
 
 Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. From Visual Studio Code, select **File**>**Open File**.
+1. From Visual Studio Code, select **File** > **Open File**.
 1. In **File name**, paste the following URL:
 
     ```url
@@ -68,19 +70,19 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 
     It is helpful to review the template reference before customizing a template.
 
-1. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+1. Select **File** > **Save As** to save a copy of the file to your local computer with the name _azuredeploy.json_.
 
 ## Modify the template
 
 Make two changes to the existing template:
 
 * Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
-* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine whether to create a new storage account or use an existing storage account.
+* Add a new parameter called `newOrExisting`. The deployment uses this parameter to determine whether to create a new storage account or use an existing storage account.
 
 Here is the procedure to make the changes:
 
-1. Open **azuredeploy.json** in Visual Studio Code.
-1. Replace the three **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.
+1. Open _azuredeploy.json_ in Visual Studio Code.
+1. Replace the three `variables('storageAccountName')` with `parameters('storageAccountName')` in the whole template.
 1. Remove the following variable definition:
 
     ![Screenshot that highlights the variable definitions that you need to remove.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
@@ -100,7 +102,7 @@ Here is the procedure to make the changes:
     },
     ```
 
-    Press **[ALT]+[SHIFT]+F** to format the template in Visual Studio Code.
+    Press Alt+Shift+F to format the template in Visual Studio Code.
 
     The updated parameters definition looks like:
 
@@ -112,12 +114,12 @@ Here is the procedure to make the changes:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    The condition checks the value of a parameter called **newOrExisting**. If the parameter value is **new**, the deployment creates the storage account.
+    The condition checks the value of the parameter `newOrExisting`. If the parameter value is **new**, the deployment creates the storage account.
 
     The updated storage account definition looks like:
 
     ![Screenshot that shows the updated storage account definition.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-1. Update the **storageUri** property of the virtual machine resource definition with the following value:
+1. Update the `storageUri` property of the virtual machine resource definition with the following value:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -131,16 +133,16 @@ Here is the procedure to make the changes:
 
 1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
 
-1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner. Restarting the shell is required when you switch.
 
     ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved in the previous section. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved in the previous section. After uploading the file, you can use the `ls` command and the `cat` command to verify the file was uploaded successfully.
 
 1. Run the following PowerShell script to deploy the template.
 
     > [!IMPORTANT]
-    > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. The storage account name is the project name with "store" appended. Make sure the project name and the generated storage account name meet the storage account name requirements.
+    > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. The storage account name is the project name with **store** appended. Make sure the project name and the generated storage account name meet the storage account name requirements.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
@@ -167,9 +169,9 @@ Here is the procedure to make the changes:
     ```
 
     > [!NOTE]
-    > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
+    > The deployment fails if `newOrExisting` is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../../storage/common/storage-account-create.md).
+Try making another deployment with `newOrExisting` set to **existing** and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../../storage/common/storage-account-create.md).
 
 ## Clean up resources
 

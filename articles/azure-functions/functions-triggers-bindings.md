@@ -85,6 +85,10 @@ Use the following table to find examples of specific binding types that show you
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
+## Custom bindings
+
+You can create custom input and output bindings. Bindings must be authored in .NET, but can be consumed from any supported language. For more information about creating custom bindings, see [Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+
 ## Resources
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
 - [Using the Azure Function return value](./functions-bindings-return-value.md)

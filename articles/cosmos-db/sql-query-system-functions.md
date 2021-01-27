@@ -3,6 +3,7 @@ title: System functions in Azure Cosmos DB query language
 description: Learn about built-in and user defined SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
@@ -40,4 +41,4 @@ The main difference between Cosmos DB functions and ANSI SQL functions is that C
 - [String functions](sql-query-string-functions.md)
 - [Type checking functions](sql-query-type-checking-functions.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

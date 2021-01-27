@@ -2,7 +2,7 @@
 title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 ---
@@ -129,6 +129,9 @@ You can get the value of these service-defined variables to make adjustments tha
 
 > [!TIP]
 > These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+
+> [!NOTE]
+> Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
 
 ## Types
 
@@ -376,7 +379,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> If you choose to, you can include both comments and line breaks in formula strings.
+> If you choose to, you can include both comments and line breaks in formula strings. Also be aware that missing semicolons may result in evaluation errors.
 
 ## Automatic scaling interval
 

@@ -2,11 +2,11 @@
 title: Push settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: lcozzens
+ms.author: alkemper
 ---
 
 # Push settings to App Configuration with Azure Pipelines
@@ -18,11 +18,11 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).
+- Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
 
 ## Create a service connection
 
-A service connection allows you to access resources in your Azure subscription from your Azure DevOps project.
+A [service connection](/azure/devops/pipelines/library/service-endpoints) allows you to access resources in your Azure subscription from your Azure DevOps project.
 
 1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
 1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.

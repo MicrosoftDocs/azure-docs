@@ -36,10 +36,16 @@
     href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
     href: front-door-caching.md
+  - name: DDoS protection
+    href: front-door-ddos.md
   - name: Front Door FAQ
     href: front-door-faq.md
   - name: Geo-filtering

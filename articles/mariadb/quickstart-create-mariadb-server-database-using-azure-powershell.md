@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MariaDB'
 description: This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an Azure resource group.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020

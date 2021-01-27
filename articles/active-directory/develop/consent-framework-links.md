@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How application consent works

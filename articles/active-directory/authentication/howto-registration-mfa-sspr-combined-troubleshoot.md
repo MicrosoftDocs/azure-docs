@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 04/15/2020
+ms.date: 01/19/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -21,7 +21,7 @@ The information in this article is meant to guide admins who are troubleshooting
 
 ## Audit logs
 
-The events logged for combined registration are in the Authentication Methods category in the Azure AD audit logs.
+The events logged for combined registration are in the Authentication Methods service in the Azure AD audit logs.
 
 ![Azure AD Audit logs interface showing registration events](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
@@ -154,4 +154,4 @@ Users will no longer be prompted to register by using the updated experience.
 
 ## Next steps
 
-* [Learn more about combined registration for self-service password reset and Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Learn more about combined registration for self-service password reset and Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

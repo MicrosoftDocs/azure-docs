@@ -4,6 +4,7 @@ description: Learn how to import or ingest data to Azure Cosmos DB by building a
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
@@ -169,7 +170,7 @@ In order to run the sample, you can do it simply by the `dotnet` command:
 
 If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-After cloning the project, make sure to update the desired credentials inside [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+After cloning the project, make sure to update the desired credentials inside [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 The sample can be run by changing to the repository directory and using `dotnet`:
 

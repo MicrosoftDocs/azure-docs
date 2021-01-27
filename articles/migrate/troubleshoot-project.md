@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Migrate projects
 description: Helps you to troubleshoot issues with creating and managing Azure Migrate projects.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
 ---
 
@@ -14,7 +14,7 @@ This article helps you troubleshoot issues when creating and managing [Azure Mig
 
 ## How to add new project?
 
-You can have multiple Azure Migrate projects in a subscription. [Learn how](how-to-add-tool-first-time.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
+You can have multiple Azure Migrate projects in a subscription. [Learn how](./create-manage-projects.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
 
 ## What Azure permissions are needed?
 
@@ -35,7 +35,7 @@ You can assess up to 35,000 VMware VMs or up to 35,000 Hyper-V VMs in a single p
 
 ## Can I upgrade old project?
 
-Projects from the previous version of Azure Migrate can't be updated. You need to [create a new project](how-to-add-tool-first-time.md), and add tools to it.
+Projects from the previous version of Azure Migrate can't be updated. You need to [create a new project](./create-manage-projects.md), and add tools to it.
 
 ## Can't create a project
 

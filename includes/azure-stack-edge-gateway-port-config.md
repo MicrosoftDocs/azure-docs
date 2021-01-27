@@ -6,8 +6,8 @@ ms.date: 12/16/2019
 ms.author: alkohli
 ---
 
-| Port no.|	In or out |	Port scope|	Required|	Notes |   |
-|--------|-----|-----|-----------|----------|-----------|
+| Port no.|	In or out |	Port scope|	Required | Notes |
+|---------|-----------|-----------|----------|-------|
 | TCP 80 (HTTP)|Out|WAN	|No|Outbound port is used for internet access to retrieve updates. <br>The outbound web proxy is user configurable. |
 | TCP 443 (HTTPS)|Out|WAN|Yes|Outbound port is used for accessing data in the cloud.<br>The outbound web proxy is user configurable.|
 | UDP 123 (NTP)|Out|WAN|In some cases<br>See notes|This port is required only if you're using an internet-based NTP server.  |   

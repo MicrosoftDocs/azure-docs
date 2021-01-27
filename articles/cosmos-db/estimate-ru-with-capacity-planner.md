@@ -3,6 +3,7 @@ title: Estimate costs using the Azure Cosmos DB capacity planner
 description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the new version of the capacity planner to estimate the throughput and cost required. 
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech

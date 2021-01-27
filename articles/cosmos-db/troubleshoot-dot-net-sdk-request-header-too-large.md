@@ -3,6 +3,7 @@ title: Troubleshoot a "Request header too large" message or 400 bad request in A
 description: Learn how to diagnose and fix the request header too large exception.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting

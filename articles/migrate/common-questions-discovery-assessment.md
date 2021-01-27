@@ -1,6 +1,9 @@
 ---
 title: Questions about discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 
@@ -39,8 +42,9 @@ You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 100
 For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. Please check:
 
 - If the VMs are powered on for the duration for which you are creating the assessment
-- If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for such VMs.
-- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) is allowed.
+- If only memory counters are missing and you are trying to assess Hyper-V VMs. In this scenario, please enable dynamic memory on the VMs and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for Hyper-V VMs only when the VM has dynamic memory enabled.
+
+- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 Note- If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
@@ -50,7 +54,12 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
  
-- Server Assessment is not be able to collect the performance data for some or all the VMs in the assessment period. Please check if the VMs were powered on for the duration of the assessment, outbound connections on ports 443 are allowed. For Hyper-V VMs, if dynamic memory is enabled, memory counters will be missing leading to a low confidence rating. Please 'Recalculate' the assessment to reflect the latest changes in confidence rating. 
+- Server Assessment is not able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, please ensure that: 
+    - VMs are powered on for the duration of the assessment
+    - Outbound connections on ports 443 are allowed
+    - For Hyper-V VMs dynamic memory is enabled 
+
+    Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
 
 - Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 

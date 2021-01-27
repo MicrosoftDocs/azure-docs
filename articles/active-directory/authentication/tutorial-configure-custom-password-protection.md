@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -71,7 +71,7 @@ To enable the custom banned password list and add entries to it, complete the fo
 
     * The custom banned password list can contain up to 1000 terms.
     * The custom banned password list is case-insensitive.
-    * The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "@".
+    * The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "\@".
     * The minimum string length is four characters, and the maximum is 16 characters.
 
     Specify your own custom passwords to ban, as shown in the following example
@@ -123,4 +123,4 @@ In this tutorial, you enabled and configured custom password protection lists fo
 > * Test password changes with a banned password
 
 > [!div class="nextstepaction"]
-> [Enable risk-based Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Enable risk-based Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

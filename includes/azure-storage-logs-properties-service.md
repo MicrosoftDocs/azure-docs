@@ -28,8 +28,8 @@
 |**contentLengthHeader** | The value of the Content-Length header for the request sent to the storage service. If the request was successful, this value is equal to requestBodySize. If a request is unsuccessful, this value may not be equal to requestBodySize, or it might be empty. |
 |**tlsVersion** | The TLS version used in the connection of request. For example: `TLS 1.2`. |
 |**smbTreeConnectID** | The Server Message Block (SMB) **treeConnectId** established at tree connect time. For example: `0x3` |
-|**smbPersistentHandleID** | Persistent handle ID from an SMB2 CREATE request that survives network reconnects.  Referenced in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 as **SMB2_FILEID.Persistent**. For example: `0x6003f` |
-|**smbVolatileHandleID** | Volatile handle ID from an SMB2 CREATE request that is recycled on network reconnects.  Referenced in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 as **SMB2_FILEID.Volatile**. For example: `0xFFFFFFFF00000065` |
+|**smbPersistentHandleID** | Persistent handle ID from an SMB2 CREATE request that survives network reconnects.  Referenced in [MS-SMB2](/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 as **SMB2_FILEID.Persistent**. For example: `0x6003f` |
+|**smbVolatileHandleID** | Volatile handle ID from an SMB2 CREATE request that is recycled on network reconnects.  Referenced in [MS-SMB2](/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 as **SMB2_FILEID.Volatile**. For example: `0xFFFFFFFF00000065` |
 |**smbMessageID** | The connection relative **MessageId**. For example: `0x3b165` |
 |**smbCreditsConsumed** | The ingress or egress consumed by the request, in units of 64k. For example: `0x3` |
 |**smbCommandDetail** | More information about this specific request rather than the general type of request. For example: `0x2000 bytes at offset 0xf2000` |

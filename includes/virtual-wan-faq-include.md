@@ -195,6 +195,9 @@ When VPN Sites connect into a hub, they do so with connections. Virtual WAN supp
 
 The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale unit of the VPN gateway. Throughput is shared by all existing connections. Each tunnel in a connection can support up to 1 Gbps.
 
+### Can I use NAT-T on my VPN connections?
+Yes, NAT traversal (NAT-T) is supported. Virtual WAN VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+
 ### I don't see the 20 Gbps setting for the virtual hub in portal. How do I configure that?
 
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
@@ -217,7 +220,7 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network)?
 
-A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route does not propagate between hubs (inter-hub).
 
 ### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
 
@@ -250,11 +253,13 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
 ### Can hubs be created in different resource group in Virtual WAN?
-Yes. This option is currently available via powershell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
+Yes. This option is currently available via PowerShell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
 
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
+
+For the point to site (user) VPN scenario with internet breakout via Azure Firewall, you will likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices by default use IPv6 addresses by default.
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 
@@ -267,3 +272,11 @@ See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+
+### Does Virtual WAN store customer data? 
+
+No. Virtual WAN does not store any customer data.
+
+### Are there any Managed Service Providers that can manage Virtual WAN for users as a service? 
+
+Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).

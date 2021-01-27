@@ -1,12 +1,12 @@
 ---
 title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
 description: Learn how to model a graph database by using Azure Cosmos DB Gremlin API. This article describes when to use a graph database and best practices to model entities and relationships. 
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
+ms.author: chrande
 ---
 
 # Graph data modeling for Azure Cosmos DB Gremlin API

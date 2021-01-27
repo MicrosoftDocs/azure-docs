@@ -14,6 +14,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
+  ms.custom: contperf-fy21q2
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -32,7 +33,7 @@ landingContent:
           - text: Compliance
             url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
           - text: Create a subscription
-            url: translator-text-how-to-signup.md
+            url: ./translator-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
   - title: Get started

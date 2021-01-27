@@ -47,10 +47,6 @@ Examples of these file formats are available in the
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
-Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
-definitions and assignments into the source code management environment
-[GitHub](https://www.github.com).
-
 ## Workflow overview
 
 The recommended general workflow of Azure Policy as Code looks like this diagram:
@@ -87,6 +83,10 @@ in source control.
 
 When a new policy is added or an existing one updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
+
+Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
+definitions and assignments into the source code management environment
+[GitHub](https://www.github.com).
 
 ### Create and update initiative definitions
 

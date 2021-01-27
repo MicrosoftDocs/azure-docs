@@ -3,6 +3,7 @@ title: Scale Azure Cosmos DB on a schedule by using Azure Functions timer
 description: Learn how to scale changes in throughput in Azure Cosmos DB using PowerShell and Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown

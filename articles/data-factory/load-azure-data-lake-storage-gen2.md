@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 

@@ -1,9 +1,9 @@
 ---
 title: Advanced Threat Protection - Azure Database for MariaDB
 description: Advanced Threat Protection detects anomalous database activities indicating potential security threats to the database. 
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

@@ -78,6 +78,10 @@ It is important to frequently roll over the Kerberos decryption key of the `AZUR
 
 Follow these steps on the on-premises server where you are running Azure AD Connect:
 
+   > [!NOTE]
+   >You will need both domain administrator and global administrator credentials for the steps below.
+   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+
    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
 
    1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
@@ -98,10 +102,10 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
    
-   >[!NOTE]
-   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
-   
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
+   
+  >[!NOTE]
+   >If you are updating a forest, other than the Azure AD Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
 
    >[!IMPORTANT]
    >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.

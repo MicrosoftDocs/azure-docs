@@ -45,6 +45,8 @@ landingContent:
             url: client-libraries.md?pivots=programming-language-python
           - text: Using the Java SDK
             url: client-libraries.md?pivots=programming-language-java
+          - text: Using the REST API
+            url: client-libraries.md?pivots=programming-language-rest-api
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -79,6 +81,8 @@ landingContent:
             url: ./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
           - text: Using the Python SDK
             url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
+          - text: Using the REST API
+            url: ./client-libraries.md?pivots=programming-language-rest-api
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -99,14 +103,14 @@ landingContent:
 
   - title: Analyze video content
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Video and transcript moderation
+            url: video-moderation-human-review.md
       - linkListType: how-to-guide
         links:
           - text: Using the .NET SDK
             url: video-moderation-api.md
-      - linkListType: tutorial
-        links:
-          - text: Video and transcript moderation
-            url: video-transcript-moderation-review-tutorial-dotnet.md
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator

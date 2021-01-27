@@ -1,33 +1,34 @@
 ---
 title: Use stored procedures
-description: Tips for implementing stored procedures in Synapse SQL for developing solutions.
+description: Tips for implementing stored procedures using Synapse SQL in Azure Synapse Analytics for solution development.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Use stored procedures in Synapse SQL
+# Stored procedures using Synapse SQL in Azure Synapse Analytics
 
-Tips for implementing stored procedures in Synapse SQL pool for developing solutions.
+Synapse SQL provisioned and serverless pools enable you to place complex data processing logic into SQL stored procedures. Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, and facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
+In this article you will find some tips for implementing stored procedures in Synapse SQL pool for developing solutions.
 
 ## What to expect
 
-Synapse SQL supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
+Synapse SQL supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution. In this article, you will learn about the features that you can place in stored procedures.
 
 > [!NOTE]
-> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. In the examples in these articles are used generic features that are available both in serverless and provisioned surface area.
+> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. The examples in these articles use generic features that are available both in serverless and dedicated surface area. See additional [limitations in provisioned and serverless Synapse SQL pools](#limitations) at the end of this article.
 
 To maintain the scale and performance of SQL pool, there are also some features and functionality that have behavioral differences and others that aren't supported.
 
 ## Stored procedures in Synapse SQL
 
-Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see the procedures that drop external objects if they exist in the database:
+In the following example, you can see the procedures that drop external objects if they exist in the database:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -179,23 +180,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## INSERT..EXECUTE
 
-Synapse SQL doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md) for provisioned Synapse SQL pool.
+Provisioned Synapse SQL pool doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md) for provisioned Synapse SQL pool.
 
 ## Limitations
 
 There are some aspects of Transact-SQL stored procedures that aren't implemented in Synapse SQL, such as:
 
-* temporary stored procedures
-* numbered stored procedures
-* extended stored procedures
-* CLR stored procedures
-* encryption option
-* replication option
-* table-valued parameters
-* read-only parameters
-* default parameters  (in provisioned pool)
-* execution contexts
-* return statement
+| Feature/option | Provisioned | Serverless |
+| --- | --- |
+| Temporary stored procedures | No | Yes |
+| Numbered stored procedures | No | No |
+| Extended stored procedures | No | No |
+| CLR stored procedures | No | No |
+| Encryption option | No | Yes |
+| Replication option | No | No |
+| Table-valued parameters | No | No |
+| Read-only parameters | No | No |
+| Default parameters | No | Yes |
+| Execution contexts | No | No |
+| Return statement | No | Yes |
+| INSERT INTO .. EXEC | No | Yes |
 
 ## Next steps
 

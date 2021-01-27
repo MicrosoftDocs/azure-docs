@@ -206,11 +206,11 @@ The ODBC driver package for SQL Server also comes with two command-line tools:
 
 - **bcp**: The bcp tool bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. You can use the bcp tool to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must use a format file created for that table. Or, you must understand the structure of the table and the types of data that are valid for its columns.
 
-  For more information, see [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  For more information, see [Connecting with bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
 - **sqlcmd**: You can enter Transact-SQL statements by using the sqlcmd tool. You can also enter system procedures and script files at the command prompt. This tool uses ODBC to run Transact-SQL batches.
 
-  For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+  For more information, see [Connecting with sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > There are some differences in this tool between Linux and Windows platforms. See the documentation for details.
@@ -226,7 +226,7 @@ Libraries are available in R and Python for database access:
 
 The following Azure tools are installed on the VM:
 
-* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](/cli/azure/get-started-with-az-cli2).
 * **Azure Storage Explorer**: Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can also open it from a shell prompt by entering **StorageExplorer**. You must be signed in from an X2Go client, or have X11 forwarding set up.
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
@@ -308,7 +308,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 

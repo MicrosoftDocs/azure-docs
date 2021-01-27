@@ -29,6 +29,10 @@
       href: cache-nodejs-get-started.md
     - name: Python app
       href: cache-python-get-started.md
+    - name: Go app
+      href: cache-go-get-started.md
+    - name: Rust app
+      href: cache-rust-get-started.md
 - name: Tutorials
   items:
   - name: ASP.NET
@@ -67,7 +71,7 @@
       - name: Security baseline
         href: security-baseline.md
     - name: Caching architecture
-      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides
   items:
   - name: Plan

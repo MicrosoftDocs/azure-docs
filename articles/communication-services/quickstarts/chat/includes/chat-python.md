@@ -81,7 +81,7 @@ Use the `create_chat_thread` method to create a chat thread.
 
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
 - Use `members` to list the `ChatThreadMember` to be added to the chat thread, the `ChatThreadMember` takes `CommunicationUser` type as `user`, which is what you got after you
-created by [Create a user](../../access-tokens.md#create-a-user)
+created by [Create a user](../../access-tokens.md#create-an-identity)
 
 The response `chat_thread_client` is used to perform operations on the newly created chat thread like adding members to the chat thread, send message, delete message, etc. It contains a `thread_id` property which is the unique ID of the chat thread.
 
@@ -154,7 +154,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Use `add_members` method to add thread members to the thread identified by threadId.
 
 - Use `members` to list the members to be added to the chat thread;
-- `user`, required, is the `CommunicationUser` you created by `CommunicationIdentityClient` at [create a user](../../access-tokens.md#create-a-user)
+- `user`, required, is the `CommunicationUser` you created by `CommunicationIdentityClient` at [create a user](../../access-tokens.md#create-an-identity)
 - `display_name`, optional, is the display name for the thread member.
 - `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to an intermediary date.
 

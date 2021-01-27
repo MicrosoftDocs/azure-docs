@@ -4,6 +4,7 @@ description: Learn how to set time to live value for documents using Azure Cosmo
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
