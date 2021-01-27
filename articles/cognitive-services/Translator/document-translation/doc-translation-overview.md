@@ -1,6 +1,6 @@
 ---
 title: What is Document Translation Services?
-description: An overview of the batch docuement translation service and process.
+description: An overview of the batch document translation service and process.
 ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
