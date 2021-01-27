@@ -27,7 +27,7 @@ The Azure Identity SDK now supports Service Fabric. Using Azure.Identity makes w
 Service Fabric support is available in the following versions for these languages: 
 - [C# in version 1.3.0](https://www.nuget.org/packages/Azure.Identity). See a [C# sample](https://github.com/Azure-Samples/service-fabric-managed-identity).
 - [Python in version 1.5.0](https://pypi.org/project/azure-identity/). See a [Python sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md).
-- [Java in version 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+- [Java in version 1.2.0](/java/api/overview/azure/identity-readme).
 
 C# sample of initializing credentials and using the credentials to fetch a secret from Azure Key Vault:
 

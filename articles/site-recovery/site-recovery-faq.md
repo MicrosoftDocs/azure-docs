@@ -340,6 +340,14 @@ Yes, you can use the alternate location recovery to failback to a different host
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
+### What is the difference between Complete Migration, Commit and Disable Replication?
+
+Once a machine from source location has been failed over to the target location then there are three options available for you to choose from. All three serve different purposes -
+
+1.	**Complete Migration** means that you will not go back to the source location anymore. You migrated over to the target region and now you're done. Clicking on Complete Migration triggers Commit and then Disable Replication, internally. 
+2.	**Commit** means that this is not the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region. 
+3.	**Disable Replication** will disable the replication and remove all the related configuration. It won’t affect the already existing machine in the target region.
+
 ## Automation
 
 ### Can I automate Site Recovery scenarios with an SDK?

@@ -76,7 +76,7 @@ A `*` symbol will appear next to the application name if you have a prediction r
    > ![Export your applications.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions [and portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions). The window will show the regions where your owned applications were authored. The displayed migration regions may be different depending on the regional portal you use, and apps you've authored. 
+4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions [and portals](./luis-reference-regions.md#luis-authoring-regions). The window will show the regions where your owned applications were authored. The displayed migration regions may be different depending on the regional portal you use, and apps you've authored. 
 
    > [!div class="mx-imgBorder"]
    > ![Multi region migration.](./media/migrate-authoring-key/migration-regional-flow.png)

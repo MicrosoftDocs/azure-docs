@@ -339,4 +339,4 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Next steps
 
-Learn more about [shared image galleries](./linux/shared-image-galleries.md).
+Learn more about [shared image galleries](./shared-image-galleries.md).
