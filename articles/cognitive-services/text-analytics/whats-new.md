@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -21,9 +21,12 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 * The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
   * Expanded language support for [several general entity categories](named-entity-types.md). 
-  * Improved AI quality for general entity categories in 10 new languages.
+  * Improved AI quality of general entity categories for all supported v3 languages. 
 
 * The `2021-01-05` model-version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+
+> [!div class="nextstepaction"]
+> [Learn more about this NER update](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## December 2020
 
