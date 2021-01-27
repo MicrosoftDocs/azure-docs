@@ -100,7 +100,7 @@ To find example commands, see any of these articles.
 
 | Service | Article |
 |--------|-----------|
-|Azure Blob storage |[Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob storage](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage |[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)|
 |Amazon S3|[Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

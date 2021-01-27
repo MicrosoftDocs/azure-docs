@@ -62,7 +62,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) that is constructed from the request and then computed by using the [SHA256 algorithm](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256) that is constructed from the request and then computed by using the [SHA256 algorithm](/dotnet/api/system.security.cryptography.sha256). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
