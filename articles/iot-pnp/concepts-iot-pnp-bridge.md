@@ -3,7 +3,7 @@ title: IoT Plug and Play bridge | Microsoft Docs
 description: Understand the IoT Plug and Play bridge and how to use it to connect existing devices attached to a Windows or Linux gateway as IoT Plug and Play devices.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -33,7 +33,7 @@ IoT Plug and Play bridge supports the following types of peripherals by default,
 |[SerialPnP adapter](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) connects devices that communicate over a serial connection.               |Yes|Yes|
 |[Windows USB peripherals](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) uses a list of adapter-supported device interface classes to connect devices that have a specific hardware ID.  |Yes|Not Applicable|
 
-To learn how to extend the IoT Plug and Play bridge to support additional device protocols, see [Build, deploy, and extend the IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md).
+To learn how to extend the IoT Plug and Play bridge to support additional device protocols, see [Extend the IoT Plug and Play bridge](howto-author-pnp-bridge-adapter.md). To learn how to build and deploy the IoT Plug and Play bridge, see [Build and deploy the IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md).
 
 ## IoT Plug and Play bridge architecture
 
@@ -145,6 +145,7 @@ You can also download and view the source code of [IoT Plug and Play bridge on G
 
 Now that you have an overview of the architecture of IoT Plug and Play bridge, the next steps are to learn more about:
 
-- [How to use IoT Plug and Play bridge](./howto-use-iot-pnp-bridge.md)
-- [Build, deploy, and extend IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [How to connect an IoT Plug and Play bridge sample running on Linux or Windows to IoT Hub](./howto-use-iot-pnp-bridge.md)
+- [Build and deploy IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Extend IoT Plug and Play bridge](howto-author-pnp-bridge-adapter.md)
 - [IoT Plug and Play bridge on GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

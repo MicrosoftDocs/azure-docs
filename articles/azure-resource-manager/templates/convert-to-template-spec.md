@@ -2,7 +2,7 @@
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/22/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -24,7 +24,7 @@ Before June 22, you should migrate any templates that you want to continue using
 
 ## Convert with PowerShell script
 
-To simplify converting templates in the template gallery, use a PowerShell script from the Azure Quickstart Templates repo. When you run the script, you can either create a new template spec for each template or download each template. The script doesn't delete the template from the template gallery.
+To simplify converting templates in the template gallery, use a PowerShell script from the Azure Quickstart Templates repo. When you run the script, you can either create a new template spec for each template or download a template that creates the template spec. The script doesn't delete the template from the template gallery.
 
 1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
 1. To create new template specs, provide values for the `-ResourceGroupName` and `-Location` parameters. 
@@ -37,13 +37,15 @@ To simplify converting templates in the template gallery, use a PowerShell scrip
    .\Migrate-GalleryItems.ps1 -ResourceGroupName migratedRG -Location westus2 -ItemsToExport MyGalleryItems
    ```
 
-1. To download the templates without creating the template specs, don't provide values for the resource group or location. Instead, specify `-ExportToFile`.
+1. To download templates that you can use to create the template specs, don't provide values for the resource group or location. Instead, specify `-ExportToFile`. The template isn't the same as your template in the gallery. Instead, it contains a template spec resource that creates the template spec for your template.
 
    The following example downloads the templates without creating template specs.
 
    ```azurepowershell
    .\Migrate-GalleryItems.ps1 -ItemsToExport MyGalleryItems -ExportToFile
    ```
+
+   To learn how to deploy the template that creates the template spec, see [Quickstart: Create and deploy template spec (Preview)](quickstart-create-template-specs.md).
 
 For more information about the script and its parameters, see [Create TemplateSpecs from Template Gallery Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/201-templatespec-migrate-create).
 
