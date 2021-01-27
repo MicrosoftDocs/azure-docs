@@ -12,7 +12,7 @@ ms.date: 04/12/2020
 
 This article discusses common problems in ITSM Connector and how to troubleshoot them.
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see Overview of alerts in Microsoft Azure.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them.
 The customer can select how they want to be notified on the alert whether it is by mail, SMS, Webhook or even to automate a solution. Another option to be notified is using ITSM.
 ITSM gives you the option to send the alerts to external ticketing system such as ServiceNow.
 
@@ -38,21 +38,45 @@ If you're using Service Map, you can view the service desk items created in ITSM
 
 ![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## Troubleshoot ITSM connections
+## Common Symptoms - how should it be resolved?
 
-- If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message, take the following steps:
-   - For ServiceNow, Cherwell, and Provance connections:  
-     - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
-     - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
-   - For Service Manager connections:  
-     - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
+The list below contain common symptoms and how should it be resolved:
 
-- If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
-   -  ITSMC: The solution shows a summary of connections, work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
-   - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
+* **Symptom**: If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message.
 
-### Troubleshoot Service Manager web app deployment
+    **Cause**: the cause can be one of the options:
+    * Incorrect credentials
+     * Insufficient privileges
+     * Web app should be deployed correctly
 
--	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
--	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
--	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
+    **Resolution**:
+    * For ServiceNow, Cherwell, and Provance connections:
+        * Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
+        * For ServiceNow: Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection as [specified](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * For Service Manager connections:  
+      * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
+* **Symptom**: Duplicate work items are created
+
+    **Cause**: the cause can be one of the two options:
+    * More than one ITSM action are defined for the alert.
+    * Alert is resolved.
+
+    **Resolution**: There can be two solutions:
+    * Make sure that you have a single ITSM action group per alert.
+    * ITSM Connector does not support matching work items status update when an alert is resolved. A new resolved work item is created.
+* **Symptom**: Work items are not created
+
+    **Cause**: There can be couple of reasons for this symptom:
+    * Code modification in ServiceNow side
+    * Permissions misconfiguration
+    * ServiceNow rate limits are too high/low
+    * Refresh token is expired
+    * ITSM Connector was deleted
+
+    **Resolution**: You can check the [dashboard](itsmc-dashboard.md) and review the errors in the connector status section. Review the [common errors](itsmc-dashboard-errors.md) and find out how to resolve the error.
+
+* **Symptom**: Unable to create ITSM Action for Action Group
+
+    **Cause**:Newly created ITSM Connector has yet to finish the initial Sync.
+
+    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors.md#ui-common-errors) and find out how to resolve the error.

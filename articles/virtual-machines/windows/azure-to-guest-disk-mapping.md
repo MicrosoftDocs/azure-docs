@@ -25,11 +25,11 @@ For our exercise, you only need to use the LUN.
 
 ## Finding the LUN
 
-There are two methods to finding the LUN, which one you choose will depend on if you are using [Storage Spaces](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview) or not.
+There are two methods to finding the LUN, which one you choose will depend on if you are using [Storage Spaces](/windows-server/storage/storage-spaces/overview) or not.
 
 ### Disk Management
 
-If you are not using Storage Pools, you can use [Disk Management](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) to find the LUN.
+If you are not using Storage Pools, you can use [Disk Management](/windows-server/storage/disk-management/overview-of-disk-management) to find the LUN.
 
 1. Connect to the VM and open Disk Management
     a. Right-click on the Start button and choose "Disk Management"

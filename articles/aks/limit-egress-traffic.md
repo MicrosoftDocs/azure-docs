@@ -743,7 +743,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Get the service IP by running:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:

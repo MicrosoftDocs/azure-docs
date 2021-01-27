@@ -37,6 +37,9 @@ This error message means the OS boot process couldn't locate an active system pa
 
 ### Process Overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM.
 2. Set Partition Status to Active.
 3. Fix the Disk Partition.

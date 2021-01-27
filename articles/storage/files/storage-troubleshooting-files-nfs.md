@@ -20,7 +20,7 @@ This article lists some common problems related to Azure NFS file shares. It pro
 Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled. 
 
 ### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
-Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Colon is one of the unsupported characters. 
+Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters. 
 
 ### Workaround
 Check that idmapping is disabled and nothing is re-enabling it, then perform the following:
@@ -63,7 +63,7 @@ NFS is only available on storage accounts with the following configuration:
 - Tier - Premium
 - Account Kind - FileStorage
 - Redundancy - LRS
-- Regions - [List of supported regions](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
+- Regions - [List of supported regions](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### Solution
 

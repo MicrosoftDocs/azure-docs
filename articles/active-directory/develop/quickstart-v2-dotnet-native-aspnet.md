@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Call an ASP.NET web API that is protected by Microsoft identity platform | Azure"
+title: "Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, learn how to call an ASP.NET web API that's protected by Microsoft identity platform from a Windows Desktop (WPF) application.
+description: In this quickstart, learn how to call an ASP.NET web API that's protected by the Microsoft identity platform from a Windows Desktop (WPF) application.
 services: active-directory
 author: jmprieur
 manager: CelesteDG

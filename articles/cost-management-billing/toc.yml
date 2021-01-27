@@ -99,7 +99,7 @@
       href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
     - name: Usage data for individual subscriptions
       href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Usage data for Enterprise customers
+    - name: Enterprise and Microsoft Customer Agreement usage data
       href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
   - name: Billing
     items:
@@ -394,7 +394,7 @@
   - name: Billing Automation Scenarios
     href: manage/cost-management-automation-scenarios.md
   - name: Azure Billing API overview
-    href: manage/usage-rate-card-overview.md
+    href: /rest/api/cost-management/retail-prices/azure-retail-prices
   - name: Azure Billing REST API
     href: /rest/api/billing
   - name: Azure Consumption API overview

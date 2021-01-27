@@ -111,8 +111,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: A problem with the CosmosDbSqlApi operation.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
-
+- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](../cosmos-db/troubleshoot-dot-net-sdk.md). For further help, contact the Azure Cosmos DB team.
 
 ## Azure Data Lake Storage Gen1
 
@@ -184,7 +183,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     - Check whether there's a special network setting, such as ExpressRoute, and ensure that the network has enough bandwidth. We suggest that you lower the Self-hosted IR concurrent jobs setting when the overall bandwidth is low. Doing so can help avoid network resource competition across multiple concurrent jobs.
 
-    - If the file size is moderate or small, use a smaller block size for nonbinary copy to mitigate such a timeout error. For more information, see [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - If the file size is moderate or small, use a smaller block size for nonbinary copy to mitigate such a timeout error. For more information, see [Blob Storage Put Block](/rest/api/storageservices/put-block).
 
        To specify the custom block size, edit the property in your JSON file editor as shown here:
     
@@ -465,7 +464,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Resolution**: To resolve the issue, try the following:
 
-    1. To troubleshoot which rows have the issue, apply SQL sink [fault tolerance](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), especially "redirectIncompatibleRowSettings."
+    1. To troubleshoot which rows have the issue, apply SQL sink [fault tolerance](./copy-activity-fault-tolerance.md), especially "redirectIncompatibleRowSettings."
 
     	> [!NOTE]
     	> Fault tolerance might require additional execution time, which could lead to higher costs.

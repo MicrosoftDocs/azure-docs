@@ -69,7 +69,7 @@ This section details how you can create and configure the following components o
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
   - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a global Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command changes the idle timeout to **10** minutes.
+Create a global Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command changes the idle timeout to **10** minutes.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -129,7 +129,7 @@ We create a public IP to be used to access the VM.  Use [az network public-ip cr
 
 ### Create an NSG for VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create an NSG resource named **myNSG** in **myResourceGroupNAT**.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create an NSG resource named **myNSG** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -139,7 +139,7 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
 
 ### Expose SSH endpoint on source VM
 
-We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create an NSG rule named **ssh** in the NSG named **myNSG** in **myResourceGroupNAT**.
+We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create an NSG rule named **ssh** in the NSG named **myNSG** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
