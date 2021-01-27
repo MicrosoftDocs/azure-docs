@@ -1,9 +1,6 @@
 ---
 title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020

@@ -1,9 +1,6 @@
 ---
 title: Secure and isolate Azure HDInsight clusters with Private Link (preview)
 description: Learn how to isolate Azure HDInsight clusters in a virtual network using Azure Private Link.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
