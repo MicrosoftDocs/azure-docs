@@ -1,11 +1,11 @@
 ---
 title: Server parameters - Azure Database for MySQL
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
+ms.date: 1/26/2021
 ---
 # Server parameters in Azure Database for MySQL
 
@@ -256,6 +256,16 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|8|16777216|1024|536870912|
 |Memory Optimized|16|16777216|1024|1073741824|
 |Memory Optimized|32|16777216|1024|1073741824|
+
+### InnoDB Buffer Pool Warmup
+After restarting Azure Database for MySQL server it will go in a memory warmup phase to load memory with disk pages which were in buffer pool before the restart. Utilizing InnoDB buffer pool warmup shortens the warmup period by reloading disk pages that were in the buffer pool before the restart rather than waiting for DML operations to access corresponding rows.
+
+You can reduce the warmup period after restarting your Azure Database for MySQL server which represents a performance advantage by configuring [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB saves a percentage of the most recently used pages for each buffer pool at server shutdown and restores these pages at server startup.
+
+To save the state of the buffer pool at server shutdown set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. The percentage of recently used pages that is stored can be configured by setting server parameter `innodb_buffer_pool_dump_pct`.
+
+> [!Note]
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### time_zone
 
