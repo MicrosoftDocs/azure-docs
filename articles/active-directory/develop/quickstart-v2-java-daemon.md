@@ -93,9 +93,9 @@ To run this sample you will need:
 > 1. Edit **src\main\resources\application.properties** and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
 >
 >    ```
-     AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
-     CLIENT_ID=Enter_the_Application_Id_Here
-     SECRET=Enter_the_Client_Secret_Here
+>    AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
+>    CLIENT_ID=Enter_the_Application_Id_Here
+>    SECRET=Enter_the_Client_Secret_Here
 >    ```
 >    Where:
 >    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
@@ -160,7 +160,7 @@ After running, the application should display the list of users in the configure
 
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) in the same GitHub repository for this sample, but in the second folder **2-Call-MsGraph-WithCertificate**
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **msal-client-credential-certificate**
 
 ## More information
 
