@@ -23,23 +23,25 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **Single View App** template. You're not going to create tests during this quick start. Feel free to uncheck **Include Tests**.
+In Xcode, create a new iOS project and select the **App** template. We will be using UIKit storyboards. You're not going to create tests during this quick start. Feel free to uncheck **Include Tests**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-project-template-select.png" alt-text="Screenshot showing the New Project template selection within Xcode.":::
+
+:::image type="content" source="../media/ios/xcode-new-project-details.png" alt-text="Screenshot showing the New Project details within Xcode.":::
 
 ### Install the package and dependencies with CocoaPods
 
 1. Create a Podfile for your application, like this:
 
-   ```
-   platform :ios, '13.0'
-   use_frameworks!
+```
+platform :ios, '13.0'
+use_frameworks!
 
-   target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunication', '~> 1.0.0-beta.7'
-     pod 'AzureCore', '~> 1.0.0-beta.7'
-   end
-   ```
+target 'AzureCommunicationCallingSample' do
+    pod 'AzureCommunication', '~> 1.0.0-beta.7'
+    pod 'AzureCore', '~> 1.0.0-beta.7'
+end
+```
 
 2. Run `pod install`.
 3. Open the `.xcworkspace` with Xcode.
@@ -98,7 +100,7 @@ class ViewController: UIViewController {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Meeting Composite library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
