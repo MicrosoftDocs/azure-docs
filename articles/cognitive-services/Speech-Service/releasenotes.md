@@ -8,7 +8,7 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
 ---
