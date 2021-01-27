@@ -1,6 +1,6 @@
 ---
-title: Data Conversion for Azure API for FHIR
-description: Use $convert-data endpoint and customize converter templates to convert data in Azure API for FHIR
+title: Data conversion for Azure API for FHIR
+description: Use the $convert-data endpoint and customize-converter templates to convert data in Azure API for FHIR.
 services: healthcare-apis
 author: ranvijaykumar
 ms.service: healthcare-apis
@@ -21,7 +21,7 @@ ms.author: ranku
 
 The $convert-data custom endpoint in the Azure API for FHIR is meant for data conversion from different formats to FHIR. It uses the Liquid template engine and the templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default templates. You can customize these conversion templates as needed. Currently it supports HL7v2 to FHIR conversion.
 
-## Using $convert-data endpoint
+## Use the $convert-data endpoint
 
 `https://<<FHIR service base URL>>/$convert-data`
 
@@ -88,18 +88,18 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 }
 ```
 
-## Customizing the templates
+## Customize templates
 
 You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize the templates as per your needs. The extension provides an interactive editing experience, and makes it easy to download Microsoft-published templates and sample data. See the documentation in the extension for details.
 
-## Hosting and using templates
+## Host and use templates
 
 It is strongly recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
 
-1. Pushing the templates to your Azure Container Registry
-1. Enabling Managed Identity on your Azure API for FHIR instance.
-1. Providing access of the ACR to the Azure API for FHIR Managed Identity.
-1. Registering the ACR servers in the Azure API for FHIR.
+1. Push the templates to your Azure Container Registry.
+1. Enable Managed Identity on your Azure API for FHIR instance.
+1. Provide access of the ACR to the Azure API for FHIR Managed Identity.
+1. Register the ACR servers in the Azure API for FHIR.
 
 ### Push templates to Azure Container Registry
 
@@ -107,7 +107,8 @@ After creating an ACR instance, you can use the _FHIR Converter: Push Templates_
 
 ### Enable Managed Identity on Azure API for FHIR
 
-Navigate to your instance of Azure API for FHIR service in Azure Portal and select Identity blade. Changing the status to _On_ will enable managed identity in Azure API for FHIR.
+Browse to your instance of Azure API for FHIR service in the Azure portal and select the **Identity** blade.
+Change the status to **On** to enable managed identity in Azure API for FHIR.
 
 ![Enable Managed Identity](media/convert-data/fhir-mi-enabled.png)
 
@@ -125,7 +126,7 @@ Grant AcrPull role to your Azure API for FHIR service instance.
 
 You can register up to twenty ACR servers in the Azure API for FHIR.
 
-Install the healthcareapis CLI from powershell if needed:
+Install the healthcareapis CLI from Azure PowerShell if needed:
 
 ```powershell
 az extension add -n healthcareapis
@@ -133,13 +134,13 @@ az extension add -n healthcareapis
 
 Register the acr servers to Azure API for FHIR following the examples below:
 
-#### Registering single ACR server
+#### Register a single ACR server
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
-#### Registering multiple ACR servers
+#### Register multiple ACR servers
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
@@ -153,4 +154,5 @@ Make a call to the $convert-data API specifying your template reference in the t
 
 ## Known issues and workarounds
 
-1. Some default template files contain UTF-8 BOM. As a result, the generated ID values will contain a BOM character. This may create an issue with FHIR server. The workaround is to pull Microsoft templates using VS Code Extension, and push those to your own ACR after removing the BOM characters from _ID/_Procedure.liquid_, _ID/_Provenance.liquid_, and _ID/_Immunization.liquid_.
+- Some default template files contain UTF-8 BOM. As a result, the generated ID values will contain a BOM character. This may create an issue with FHIR server. The workaround is to pull Microsoft templates using VS Code Extension, and push those to your own ACR after removing the BOM characters from _ID/_Procedure.liquid_, _ID/_Provenance.liquid_, and _ID/_Immunization.liquid_.
+
