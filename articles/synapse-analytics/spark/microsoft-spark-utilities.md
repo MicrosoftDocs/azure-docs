@@ -117,13 +117,45 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-<!-- :::zone pivot = "programming-language-csharp"
+:::zone pivot = "programming-language-csharp"
+
+
+### Configure access to Azure Blob Storage  
+
+Synapse leverage **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+
+Follow these steps to add a new linked service for an Azure Blob Storage account:
+
+1. Open the [Azure Synapse Studio](https://web.azuresynapse.net/).
+2. Select **Manage** from the left panel and select **Linked services** under the **External connections**.
+3. Search **Azure Blob Storage** in the **New linked Service** panel on the right.
+4. Select **Continue**.
+5. Select the Azure Blob Storage Account to access and configure the linked service name. Suggest using **Account key** for the **Authentication method**.
+6. Select **Test connection** to validate the settings are correct.
+7. Select **Create** first and click **Publish all** to save your changes. 
+
+You can access data on Azure Blob Storage with Synapse Spark via following URL:
+
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+
+Here is a code example:
 
 ```csharp
+var blob_account_name = "";  // replace with your blob name
+var blob_container_name = "";     // replace with your container name
+var blob_relative_path = "";  // replace with your relative folder path
+var linked_service_name = "";    // replace with your linked service name
+var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
+
+spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+
+var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
+
+Console.WriteLine(wasbs_path);
 
 ```
 
-::: zone-end -->
+::: zone-end 
  
 ###  Configure access to Azure Key Vault
 

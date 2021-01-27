@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure role-based access control for Media Services accounts - Azure | Microsoft Docs
+title: Azure role-based access control for Media Services accounts - Azure 
 description: This article discusses Azure role-based access control (Azure RBAC) for Azure Media Services accounts.
 services: media-services
 documentationcenter: ''
