@@ -269,7 +269,9 @@ private void joinMeeting() {
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). 
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::
+:::image type="content" source="../media/android/quickstart-android-join-meeting.png" alt-text="Screenshot showing the completed application.":::
+
+:::image type="content" source="../media/android/quickstart-android-joined-meeting.png" alt-text="Screenshot showing the completed application.":::
 
 ## Sample Code
 
