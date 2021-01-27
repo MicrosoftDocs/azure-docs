@@ -5,7 +5,7 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
@@ -541,10 +541,12 @@ az storage account network-rule list \
 
 Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. 
 
-Grant access by creating a network rule exception that grants access to trusted Microsoft services. 
-For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. When you create this network rule, you grant the following types of access:
+You can grant access by creating a network rule exception that gives access to trusted Microsoft services. 
+For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. 
 
-- Trusted access to resources that are registered in your subscription for select operations.
+When you create this network rule, you grant the following types of access:
+
+- Trusted access for select operations to resources that are registered in your subscription.
 - Trusted access to resources based on system-assigned managed identity.
 
 <a id="trusted-access-resources-in-subscription"></a>
