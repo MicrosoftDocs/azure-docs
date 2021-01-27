@@ -1,5 +1,5 @@
 - name: Azure Stack Edge Pro Documentation 
-  href: /azure/databox-online/
+  href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
   items:
@@ -295,8 +295,8 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2012 - Current 
-      href: azure-stack-edge-gpu-2012-release-notes.md
+    - name: 2101 - Current 
+      href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 
