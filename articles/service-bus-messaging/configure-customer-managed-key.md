@@ -65,7 +65,7 @@ After you enable customer-managed keys, you need to associate the customer manag
     > [!IMPORTANT]
     > If you are looking to use Customer managed key along with Geo disaster recovery, please review this section. 
     >
-    > To enable encryption or Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+    > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
     >
     > Due to this:
     > 
