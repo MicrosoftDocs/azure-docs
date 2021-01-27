@@ -99,7 +99,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
-    #### [.NET 5.x](#tab/core5x)
+    ### [.NET 5.x](#tab/core5x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -116,7 +116,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                 }).UseStartup<Startup>());
     ```
 
-    #### [.NET 3.x](#tab/core3x)
+    ### [.NET 3.x](#tab/core3x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -133,7 +133,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
             }).UseStartup<Startup>());
     ```
         
-    #### [.NET 2.x](#tab/core2x)
+    ### [.NET 2.x](#tab/core2x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -219,7 +219,7 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor:
 
 
-#### [.NET 5.x](#tab/core5x)
+### [.NET 5.x](#tab/core5x)
     
 ```csharp
 using Microsoft.FeatureManagement;
@@ -235,7 +235,7 @@ public class HomeController : Controller
 }
 ```
     
-#### [.NET 3.x](#tab/core3x)
+### [.NET 3.x](#tab/core3x)
     
 ```csharp
 using Microsoft.FeatureManagement;
@@ -251,7 +251,7 @@ public class HomeController : Controller
 }
 ```
     
-#### [.NET 2.x](#tab/core2x)
+### [.NET 2.x](#tab/core2x)
     
 ```csharp
 using Microsoft.FeatureManagement;
