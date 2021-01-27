@@ -13,56 +13,33 @@ ms.date: 01/27/2021
 
 # REST code samples for Azure Cognitive Search
 
-/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+Learn about the REST API samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
 
+REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain a feature or workflow.
 
+REST samples are usually developed and tested on Postman. Instructions for formulating HTTP calls using Postman can be found in [Quickstart: Create an Azure Cognitive Search index using REST APIs](search-get-started-rest). You can also use the [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview.
 
-<!-- Learn about the C# code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
+## Doc samples
 
-| Repository | Description |
-|------------|-------------|
-| [azure-sdk-for-net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Samples produced by the Azure SDK team that ship with the Azure.Search.Documents client library in the SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) for the client library to see how various APIs are called. |
-| [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Samples that accompany how-to articles in the documentation, including [How to use the .NET client library](search-howto-dotnet-sdk.md).|
-| [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) | Samples that accompany quickstarts and tutorials in the documentation.|
+Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-postman-samples**](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub.
+
+| Samples | Article |
+|---------|---------|
+| [Quickstart](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index using REST APIs](search-get-started-rest.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial) | Source code for [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md). This article shows you how to create a skillset that iterates over Azure blobs to extract information and infer structure.|
+| [Debug-sessions](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) | Source code for [Tutorial: Diagnose, repair, and commit changes to your skillset](cognitive-search-tutorial-debug-sessions.md). This article shows you how to use a skillset debug session in the Azure portal. REST is used to create the objects used during debug.|
+| [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | Source code for [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md). This article explains how to use analyzers to preserve patterns and special characters in searchable content.|
+| [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | Source code for [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md). This article explains the necessary steps for populating a knowledge store used for knowledge mining workflows. |
+| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Source code for [How to shape and export enrichments](knowledge-store-projections-examples.md). This article explains how to specify the physical data structures in a knowledge store.|
+| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob storage that have been previously encrypted using Azure Key Vault. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
 
-## .NET SDK samples
+## Other samples
 
-The Azure SDK for .NET includes numerous samples and a [samples readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/README.md) that describes each one. That list is provided below for your convenience.
-
-| Samples | Description |
-|---------|-------------|
-| ["Hello world", synchronously](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01a_HelloWorld.md) | Demonstrates how to create a client, authenticate, and handle errors using synchronous methods.|
-| ["Hello world", asynchronously](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01b_HelloWorldAsync.md) | Demonstrates how to create a client, authenticate, and handle errors using asynchronous methods.  |
-| [Service-level operations](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample02_Service.md) | Demonstrates how to create indexes, indexers, data sources, skillsets, and synonym maps. This sample also shows you how to get service statistics and how to query an index.  |
-| [Index operations](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample03_Index.md) | Demonstrates how to perform an action on existing index, in this case getting a count of documents stored in the index.  |
-| [FieldBuilderIgnore](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample04_FieldBuilderIgnore.md) | Demonstrates a technique for working with unsupported data types.  |
-| [Indexing documents (push model)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md) | "Push" model indexing, where you send a JSON payload to an index on a service.   |
-| [Encryption key sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample06_EncryptedIndex.md) | Demonstrates using a customer-managed encryption key to add an extra layer of protection over sensitive content.  |
-
-## Documentation samples
-
-The following samples have an associated article in [Azure Cognitive Search documentation](./index.yml).
+The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Description |
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index ](search-get-started-dotnet.md).  |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search-howto-dotnet-sdk.md) |
-| [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Synonym lists are used for query expansion, providing matchable  terms that are external to an index. This sample is included in [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md). |
-| [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Source code behind indexer-related snippets in various articles. This example shows how to configure an indexer that has a schedule, field mappings, and parameters.  |
-| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | Source code for [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md) |
-| [Create your first app in C#](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) |  Source code for [Tutorial: Create your first search app](tutorial-csharp-create-first-app.md). While most samples are console applications, this MVC sample uses a web page to front the sample Hotels index, demonstrating basic search, pagination, autocomplete and suggested queries, facets, and filters. |
-| [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | Source code for [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
-|  [optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | Source code for [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md).  |
-| [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Source code for [Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK](cognitive-search-tutorial-blob-dotnet.md).  |
-
-## Standalone samples and solutions
-
-| Samples | Description |
-|---------|-------------|
-| [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
-| [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
-| [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
-| [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). | -->
+| [Query-examples](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Query-examples) | Postman collections demonstrating the various query techniques, including fuzzy search, RegEx and wildcard search, autocomplete, and so on. |

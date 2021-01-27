@@ -57,6 +57,8 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 ## Other samples
 
+The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+
 | Samples | Description |
 |---------|-------------|
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
