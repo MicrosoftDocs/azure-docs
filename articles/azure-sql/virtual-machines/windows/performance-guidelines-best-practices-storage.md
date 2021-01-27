@@ -28,7 +28,7 @@ To learn more, see the other performance best practices articles:
 
 - For detailed testing of SQL Server performance on Azure VMs with TPC-E and TPC_C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794).
 - Monitor the application and determine storage latency requirements for SQL Server data, log, and tempdb files before choosing the disk type. Choose UltraDisks for latencies less than 1 ms, otherwise use Premium SSD. Provision different types of drives for the data and log files if the latency requirements vary. 
-- Buffer your IOPS/throughput capacity by at least 20% more than your workload requires. 
+- Buffer your throughput capacity by at least 20% more than your workload requires. 
 - Provision the storage account in the same region as the SQL Server VM. 
 - Disable Azure geo-redundant storage (geo-replication) on the storage account.
 - Configure read-only cache for data files and disable cache for the log file. Stop the SQL Server service when changing the cache settings your disk.
@@ -70,7 +70,7 @@ Virtual machines combine premium disks to increase IOPS and throughput up to the
 
 Find a virtual machine that can handle your application workload via the virtual machine's maximum uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
 
-Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive. . 
+Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive. 
 
 Reads and writes to the Azure BlobCache (cached IOPS and throughput) do not count against the uncached IOPS and throughput limits of the virtual machine.
 
@@ -110,31 +110,37 @@ You can manually enable host caching on an existing VM though you should stop al
 
 Your storage caching policy varies depending on the type of SQL Server data file is hosted on the drive. 
 
+here's a table to present the same information as the text below, which looks better? 
+
+|SQL Server disk |Recommendation |
+|---------|---------|
+| Data disk |  Enable read-only caching for the disks hosting SQL Server data files. ReadOnly caching has improved read latency and higher IOPS and throughput since the reads will be coming directly from the optimized cache which is local in the virtual machines RAM and local SSD.  <br/><br/>Reads from cache will be much faster than the uncached reads from the data disk. Additionally, reads provided by the Azure BlobCache do not count against the virtual machine's uncached IOPS and throughput limits providing the ability to scale beyond these limitations.       |
+|Transaction log disk|Set the caching policy to `None` for disks hosting the transaction log.  Not only is there no performance benefit to enabling caching, but there is a potential for corruption if the `Read/Write` caching policy is enabled. |
+|Operating OS disk | The default caching policy is Read/write for the premium disk Virtual Machine OS drive. It is not recommended to change the caching level of the OS drive.  <br/><br/>If the OS drive is Standard HDD then the default will be set to 'Read-only'. The Read/write caching level is meant for workloads that achieve a balance of read and write operations. |
+| tempdb| The local and temp disks will leverage the virtual machine cache. If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons,  either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with Read-only caching configured.| 
+
 
 ### Data files 
 
-For disks hosting SQL Server data files, enable read-only caching for the disk. ReadOnly caching has improved read latency and higher IOPS and throughput since the reads will be coming directly from the optimized cache which is local in the virtual machines RAM and local SSD. 
+Enable read-only caching for the disks hosting SQL Server data files. ReadOnly caching has improved read latency and higher IOPS and throughput since the reads will be coming directly from the optimized cache which is local in the virtual machines RAM and local SSD. 
 
-Reads from cache will be much faster than the uncached reads that would otherwise come from the data disk.
-
-
-
-Additionally, reads provided by the Azure Blob Cache do not count against the virtual machine's uncached IOPS and throughput limits providing the ability to scale beyond these limitations. 
+Reads from cache will be much faster than the uncached reads from the data disk. Additionally, reads provided by the Azure BlobCache do not count against the virtual machine's uncached IOPS and throughput limits providing the ability to scale beyond these limitations. 
 
 ### Transaction log files
 
-For disks hosting 
+Set the caching policy to `None` for disks hosting the transaction log.  Not only is there no performance benefit to enabling caching, but there is a potential for corruption if the `Read/Write` caching policy is enabled. 
 
-For SQL Server workloads, we do not recommend enabling caching for the transaction log drive as there is no performance benefit and there is also a potential for corruption if 'Read/Write' is used. 
-It is recommended to set the caching policy to 'None' for transaction log disks.
 
 ### Operating System (OS) disk
 
-The operating system disk will have a caching level set to Read-only or Read/write. The Read/write caching level is meant for workloads that achieve a balance of read and write operations. 
-The default caching policy is Read/write for the premium disk Virtual Machine OS drive. If the OS drive is Standard HDD then the default will be set to 'Read-only'. It is not recommended to change the caching level of the OS drive.
+The default caching policy is Read/write for the premium disk Virtual Machine OS drive. It is not recommended to change the caching level of the OS drive.
+
+If the OS drive is Standard HDD then the default will be set to 'Read-only'. The Read/write caching level is meant for workloads that achieve a balance of read and write operations. 
+
 
 ### tempdb
-The local and temp disks will leverage the virtual machine cache. If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons it is recommended to either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with Read-only caching configured.
+
+The local and temp disks will leverage the virtual machine cache. If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons,  either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with Read-only caching configured.
 
 **Reference**
 Cached Iops – What is it
