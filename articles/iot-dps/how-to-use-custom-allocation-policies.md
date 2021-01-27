@@ -347,56 +347,59 @@ For the example in this article, use the following two device registration IDs a
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-### Linux workstations
 
-If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
-
-1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
-
-    ```bash
-    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-    REG_ID1=breakroom499-contoso-tstrsd-007
-    REG_ID2=mainbuilding167-contoso-hpsd-088
-
-    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-    ```
-
-    ```bash
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
-
-### Windows-based workstations
+# [Windows](#tab/windows)
 
 If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
-1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
+Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
-    ```powershell
-    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+```powershell
+$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-    $REG_ID1='breakroom499-contoso-tstrsd-007'
-    $REG_ID2='mainbuilding167-contoso-hpsd-088'
+$REG_ID1='breakroom499-contoso-tstrsd-007'
+$REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($KEY)
-    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-    $derivedkey1 = [Convert]::ToBase64String($sig1)
-    $derivedkey2 = [Convert]::ToBase64String($sig2)
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+$derivedkey1 = [Convert]::ToBase64String($sig1)
+$derivedkey2 = [Convert]::ToBase64String($sig2)
 
-    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-    ```
+echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+```
 
-    ```powershell
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
+```powershell
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+# [Linux](#tab/linux)
+
+If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
+
+Replace the value of **KEY** with the **Primary Key** you noted earlier.
+
+```bash
+KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+
+REG_ID1=breakroom499-contoso-tstrsd-007
+REG_ID2=mainbuilding167-contoso-hpsd-088
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+
+echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+```
+
+```bash
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+---
 
 The simulated devices will use the derived device keys with each registration ID to perform symmetric key attestation.
 
