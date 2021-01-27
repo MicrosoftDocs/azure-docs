@@ -16,7 +16,7 @@ Once Teams interoperability is enabled, a Communication Services user can join t
 First, instantiate a `ChatThreadClient` for the meeting chat thread. Parse the meeting link or use the Graph APIs with the meeting ID to get the thread ID. 
 
 - A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The thread ID will be where `meeting_chat_thread_id` is in that link. 
-- If you have the meeting ID, you can use [Graph API](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) to get the thread ID. The [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) response will have a `chatInfo` object that contains the `threadID`. 
+- If you have the meeting ID, you can use [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) to get the thread ID. The [GET API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) response will have a `chatInfo` object that contains the `threadID`. 
 
 Once you have the chat thread ID, you can get chat thread client using JavaScript chat client library: 
 
@@ -39,4 +39,3 @@ For more info on message types, see [here](../../../concepts/chat/concepts.md).
 
 **Note** - Currently only sending and receiving messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
 
- 
