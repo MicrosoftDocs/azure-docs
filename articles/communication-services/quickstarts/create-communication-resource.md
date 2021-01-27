@@ -100,10 +100,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 
-::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/delete-resource-azcli.md)]
-::: zone-end
-
 ## Next steps
 
 In this quickstart you learned how to:
