@@ -172,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: Responsible ML
       items: 
         - name: Responsible ML overview
