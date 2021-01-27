@@ -374,7 +374,9 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 
 **Updated**
 
+```html
 <a href="https://portal.contoso.com/product#product=$ProdId">Learn about the API</a>
+```
 
 **Original content**
 
@@ -398,10 +400,7 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 **Updated**
 
 ```html
-<!--Remove the content above: 
-    Feature your app ...,
-    You can publish ...,
-    Stay in touch, and so on.-->
+<!--Remove the entire block of HTML code above.-->
 ```
 
 ### Password change confirmation
