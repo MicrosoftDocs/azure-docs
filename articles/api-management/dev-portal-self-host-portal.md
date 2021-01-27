@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Self-host the portal
 
-In this tutorial, we describe how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
+This tutorial describes how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 
 If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](dev-portal-move-managed-self-hosted.md) guide instead.
 
@@ -19,10 +19,10 @@ If you have already uploaded or modified media files in the managed portal, you 
 
 To set up a local development environment, you need to have:
 
-- An API Management service instance. If you don't have one, [follow this tutorial](get-started-create-service-instance.md).
-- A Storage Account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. Learn [how to create a new Storage Account in Azure](../storage/common/storage-account-create.md).
+- An API Management service instance. If you don't have one, see [Quickstart - Create an Azure API Management instance](get-started-create-service-instance.md).
+- An Azure Storage Account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-- Node.js (LTS version, `v10.15.0` or later) and npm on your machine. Follow [this tutorial](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install them.
+- Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli-windows).
 
 ## Step 1: Setup local environment
@@ -40,9 +40,9 @@ To set up your local environment, you'll have to clone the repository, switch to
     cd api-management-developer-portal
     ```
 
-1. Check out the latest release of the portal:
+1. Check out the latest release of the portal.
 
-    Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace `<current-release-tag>` value below with the latest release tag.
+    Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace `<current-release-tag>` value with the latest release tag.
     
     ```console
     git checkout <current-release-tag>
@@ -55,7 +55,7 @@ To set up your local environment, you'll have to clone the repository, switch to
     ```
 
 > [!NOTE]
-> If you wish to have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The Software Engineers use the `master` branch of this repository for daily development purposes. It contains unstable version of the software.
+> To make sure you have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The Software Engineers use the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
 
 ## Step 2: Configure JSON files, Static website, and CORS settings
 
@@ -63,7 +63,7 @@ The developer portal requires API Management's REST API to manage the content.
 
 ### config.design.json file
 
-Go to the `/scr/` folder and open the `config.design.json` file.
+Go to the `/src/` folder and open the `config.design.json` file.
 
 ```json
 {
@@ -101,11 +101,11 @@ Configure the file:
     {
     ```
 
-1. If you'd like to enable CAPTCHA in your developer portal, follow the [Enable CAPTCHA](dev-portal-enable-captcha.md) tutorial.
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](dev-portal-enable-captcha.md).
 
 ### config.publish.json file
 
-Go to the `/scr/` folder and open the `config.publish.json` file.
+Go to the `/src/` folder and open the `config.publish.json` file.
 
 ```json
 {
@@ -120,15 +120,15 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl`, and `managementApiAccessToken` values from the previous configuration file.
 
-1. Provide the connection string to your Storage Account in the `"blobStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=..."` parameter.
+1. Provide the connection string to your storage account in the `"blobStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=..."` parameter.
 
-    You can find it the *Access keys* section of your Storage Account in the Azure portal. This storage account will host your portal.
+    You can find it the **Access keys** section of your storage account in the Azure portal. This storage account will host your portal.
 
-1. If you'd like to enable CAPTCHA in your developer portal, follow the [Enable CAPTCHA](dev-portal-enable-captcha.md) tutorial.
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](dev-portal-enable-captcha.md).
 
 ### config.runtime.json file
 
-Go to the `/scr/` folder and open the `config.runtime.json` file.
+Go to the `/src/` folder and open the `config.runtime.json` file.
 
 ```json
 {
@@ -153,15 +153,15 @@ Configure the file:
     ```
 ### Configure the Static website
 
-Configure the *Static website* feature in your Storage Account by providing routes to the index and error pages:
+Configure the **Static website** feature in your storage account by providing routes to the index and error pages:
 
-1. Go to your Storage Account in the Azure portal and select **Static website** from the menu on the left.
+1. Go to your storage account in the Azure portal and select **Static website** from the menu on the left.
 
 1. On the **Static website** page, select **Enabled**.
 
-1. In the **Index document name** field, type *index.html*.
+1. In the **Index document name** field, enter *index.html*.
 
-1. In the **Error document path** field, type *404/index.html*.
+1. In the **Error document path** field, enter *404/index.html*.
 
 1. Select **Save**.
 
@@ -169,9 +169,9 @@ Configure the *Static website* feature in your Storage Account by providing rout
 
 Configure the Cross-Origin Resource Sharing (CORS) settings:
 
-1. Navigate to your Storage Account in the Azure portal and select **CORS** from the menu on the left.
+1. Go to your storage account in the Azure portal and select **CORS** from the menu on the left.
 
-1. Configure the rules as follows:
+1. Configure the rules like this:
 
     | Rule | Value |
     | ---- | ----- |
@@ -183,12 +183,12 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
 
 1. Select **Save**.
 
-## Step 3: Provision the default template
+## Step 3: Set up the default template
 
-> [!CAUTION]
+> [!IMPORTANT]
 > Skip this step if you already have the portal content in your API Management service. For example, if you're migrating from the managed version, you don't have to do this step.
 
-API Management service doesn't contain any portal content by default. Provision it manually. 
+The API Management Service doesn't contain any portal content by default. Set up it manually. 
 
 ```sh
 set management_endpoint="<service-name>.management.azure-api.net"
@@ -200,19 +200,17 @@ Configure the file:
 
 1. Go to the `/scripts.v2/` folder and open the `generate.bat` file.
 
-1. Configure the parameters as follows:
+1. Configure the parameters like this:
 
-| Parameter | Parameter description | Notes |
-| --------- | --------------------- | ----- |
-| `management_endpoint` | API Management direct API endpoint | |
-| `access_token` | API Management REST API access token | It's the same access token you used for the `./src/config.design.json` and `./src/config.publish.json` files. |
-| `source_folder` | Location of the folder with the data and media content.| You don't need to change this value. |
+    | Parameter | Parameter description | Notes |
+    | --------- | --------------------- | ----- |
+    | `management_endpoint` | API Management direct API endpoint | |
+    | `access_token` | API Management REST API access token | It's the same access token you used for the `./src/config.design.json` and `./src/config.publish.json` files. |
+    | `source_folder` | Location of the folder with the data and media content.| You don't need to change this value. |
 
 1. Save and close the file.
 
-Execute the data generation script, which will upload content through the REST API:
-
-1. Run the batch file:
+1. Run the data generation script, which will upload content through the REST API:
 
     ```sh
     cd scripts.v2
@@ -222,9 +220,9 @@ Execute the data generation script, which will upload content through the REST A
 
 ## Step 4: Run the portal
 
-Now you can build and run a local portal instance in the development mode (with all the optimizations turned off and source maps turned on).
+Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
 
-Execute the command:
+Run the command:
 
 ```sh
 npm start
@@ -257,7 +255,7 @@ npm run publish
 
 ## Step 7: Upload static files to a blob
 
-Use Azure CLI to upload the locally generated static files to a blob, and make them accessible to your visitors:
+Use Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
 
 1. Open Windows Command Prompt or PowerShell.
 
@@ -267,11 +265,11 @@ Use Azure CLI to upload the locally generated static files to a blob, and make t
     az storage blob upload-batch --source dist/website --destination $web --connection-string <account-connection-string>
     ```
 
-1. Replace `<account-connection-string>` with the connection string of your Storage Account. You can get it from the *Access keys* section of your Storage Account.
+1. Replace `<account-connection-string>` with the connection string of your storage account. You can get it from the **Access keys** section of your storage account.
 
 ![API Management developer portal development - publish portal](media/dev-portal/readme-dev-upload.png)
 
-## Step 8: Visit your website
+## Step 8: Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (*Primary endpoint* in *Static websites*).
 
@@ -279,12 +277,12 @@ Your website is now live under the hostname specified in your Azure Storage prop
 
 ## Step 9: Change API Management notification templates
 
-Replace the developer portal URL in the API Management notification templates to point to the self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
+Replace the developer portal URL in the API Management notification templates to point to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
 In particular, carry out the following changes to the default templates:
 
 > [!NOTE]
-> The values in the **Updated** sections assume that the you're hosting the portal at **https:\//portal.contoso.com/**.
+> The values in the **Updated** sections assume that you're hosting the portal at **https:\//portal.contoso.com/**.
 
 ### Email Change Confirmation
 
