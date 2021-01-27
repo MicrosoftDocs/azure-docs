@@ -12,7 +12,7 @@ ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 # Deploy to App Service using GitHub Actions
 
-Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
 
 ## Prerequisites 
 
@@ -742,7 +742,7 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Events that trigger workflows](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 

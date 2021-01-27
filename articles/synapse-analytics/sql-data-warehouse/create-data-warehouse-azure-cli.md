@@ -128,4 +128,4 @@ az group delete --ResourceGroupName MyResourceGroup
 
 ## Next steps
 
-You've now created a SQL pool, created a firewall rule, and connected to your SQL pool. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.
+You've now created a SQL pool, created a firewall rule, and connected to your SQL pool. To learn more, continue to the [Load data into SQL pool](./load-data-from-azure-blob-storage-using-copy.md) article.

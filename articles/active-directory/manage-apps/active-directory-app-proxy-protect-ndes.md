@@ -76,7 +76,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. Select **+Add** to save your application.
 
-1. Test whether you can access your NDES server via the Azure AD Application proxy by pasting the link you copied in step 10 into a browser. You should see a default IIS welcome page.
+1. Test whether you can access your NDES server via the Azure AD Application proxy by pasting the link you copied in step 15 into a browser. You should see a default IIS welcome page.
 
 1. As a final test, add the *mscep.dll* path to the existing URL you pasted in the previous step:
 

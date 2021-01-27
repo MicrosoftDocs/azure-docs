@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/21/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -133,6 +133,16 @@ Yes, you can. However, the file path must be used in either a different subscrip
 
 For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
 
+### When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
+
+Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed up the look-up of folders and subfolders:
+
+1. Use the following PowerShell command to enable CaseSensitiveLookup:   
+	`Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Mount the volume on the Windows server.   
+	Example:   
+	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
 ## SMB FAQs
 
 ### Which SMB versions are supported by Azure NetApp Files?
@@ -243,6 +253,16 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 ### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+## Product FAQs
+
+### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more details, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
 
 ## Next steps  
 

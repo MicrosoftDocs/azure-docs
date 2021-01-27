@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
+ms.collection: M365-identity-device-management
 ---
-
-# Tutorial - Build a SCIM endpoint and configure user provisioning with Azure AD
+# Tutorial: Develop and plan provisioning for a SCIM endpoint
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
-SCIM is a standardized definition of two endpoints: a /Users endpoint and a /Groups endpoint. It uses common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email. Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the /Users endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
+SCIM is a standardized definition of two endpoints: a `/Users` endpoint and a `/Groups` endpoint. It uses common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email. Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the `/Users` endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
 
 ![Provisioning from Azure AD to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -51,7 +51,7 @@ Every application requires different attributes to create a user or group. Start
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.lastName|lastName|
-|workMail|Emails[type eq “work”].value|Mail|
+|workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
@@ -221,26 +221,26 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *POST /Users*
 ```json
 {
-	"schemas": [
-	    "urn:ietf:params:scim:schemas:core:2.0:User",
-	    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-	"externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
-	"userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
-	"active": true,
-	"emails": [{
-		"primary": true,
-		"type": "work",
-		"value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com"
-	}],
-	"meta": {
-		"resourceType": "User"
-	},
-	"name": {
-		"formatted": "givenName familyName",
-		"familyName": "familyName",
-		"givenName": "givenName"
-	},
-	"roles": []
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
+    "active": true,
+    "emails": [{
+        "primary": true,
+        "type": "work",
+        "value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com"
+    }],
+    "meta": {
+        "resourceType": "User"
+    },
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName"
+    },
+    "roles": []
 }
 ```
 
@@ -249,26 +249,26 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 201 Created*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-	"id": "48af03ac28ad4fb88478",
-	"externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
-	"meta": {
-		"resourceType": "User",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-	},
-	"userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
-	"name": {
-		"formatted": "givenName familyName",
-		"familyName": "familyName",
-		"givenName": "givenName",
-	},
-	"active": true,
-	"emails": [{
-		"value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com",
-		"type": "work",
-		"primary": true
-	}]
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "48af03ac28ad4fb88478",
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
 }
 ```
 
@@ -281,26 +281,26 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-	"id": "5d48a0a8e9f04aa38008",
-	"externalId": "58342554-38d6-4ec8-948c-50044d0a33fd",
-	"meta": {
-		"resourceType": "User",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-	},
-	"userName": "Test_User_feed3ace-693c-4e5a-82e2-694be1b39934",
-	"name": {
-		"formatted": "givenName familyName",
-		"familyName": "familyName",
-		"givenName": "givenName",
-	},
-	"active": true,
-	"emails": [{
-		"value": "Test_User_22370c1a-9012-42b2-bf64-86099c2a1c22@testuser.com",
-		"type": "work",
-		"primary": true
-	}]
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "5d48a0a8e9f04aa38008",
+    "externalId": "58342554-38d6-4ec8-948c-50044d0a33fd",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_feed3ace-693c-4e5a-82e2-694be1b39934",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_22370c1a-9012-42b2-bf64-86099c2a1c22@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
 }
 ```
 
@@ -330,32 +330,32 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-	"totalResults": 1,
-	"Resources": [{
-		"schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-		"id": "2441309d85324e7793ae",
-		"externalId": "7fce0092-d52e-4f76-b727-3955bd72c939",
-		"meta": {
-			"resourceType": "User",
-			"created": "2018-03-27T19:59:26.000Z",
-			"lastModified": "2018-03-27T19:59:26.000Z"
-			
-		},
-		"userName": "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081",
-		"name": {
-			"familyName": "familyName",
-			"givenName": "givenName"
-		},
-		"active": true,
-		"emails": [{
-			"value": "Test_User_91b67701-697b-46de-b864-bd0bbe4f99c1@testuser.com",
-			"type": "work",
-			"primary": true
-		}]
-	}],
-	"startIndex": 1,
-	"itemsPerPage": 20
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 1,
+    "Resources": [{
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        "id": "2441309d85324e7793ae",
+        "externalId": "7fce0092-d52e-4f76-b727-3955bd72c939",
+        "meta": {
+            "resourceType": "User",
+            "created": "2018-03-27T19:59:26.000Z",
+            "lastModified": "2018-03-27T19:59:26.000Z"
+            
+        },
+        "userName": "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081",
+        "name": {
+            "familyName": "familyName",
+            "givenName": "givenName"
+        },
+        "active": true,
+        "emails": [{
+            "value": "Test_User_91b67701-697b-46de-b864-bd0bbe4f99c1@testuser.com",
+            "type": "work",
+            "primary": true
+        }]
+    }],
+    "startIndex": 1,
+    "itemsPerPage": 20
 }
 
 ```
@@ -371,11 +371,11 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-	"totalResults": 0,
-	"Resources": [],
-	"startIndex": 1,
-	"itemsPerPage": 20
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 0,
+    "Resources": [],
+    "startIndex": 1,
+    "itemsPerPage": 20
 }
 
 ```
@@ -387,19 +387,19 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-	"Operations": [
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
             {
-    		"op": "Replace",
-    		"path": "emails[type eq \"work\"].value",
-    		"value": "updatedEmail@microsoft.com"
-    	    },
-    	    {
-    		"op": "Replace",
-    		"path": "name.familyName",
-    		"value": "updatedFamilyName"
-    	    }
-	]
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "updatedEmail@microsoft.com"
+            },
+            {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "updatedFamilyName"
+            }
+    ]
 }
 ```
 
@@ -408,26 +408,26 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-	"id": "6764549bef60420686bc",
-	"externalId": "6c75de36-30fa-4d2d-a196-6bdcdb6b6539",
-	"meta": {
-		"resourceType": "User",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-	},
-	"userName": "Test_User_fbb9dda4-fcde-4f98-a68b-6c5599e17c27",
-	"name": {
-		"formatted": "givenName updatedFamilyName",
-		"familyName": "updatedFamilyName",
-		"givenName": "givenName"
-	},
-	"active": true,
-	"emails": [{
-		"value": "updatedEmail@microsoft.com",
-		"type": "work",
-		"primary": true
-	}]
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "6764549bef60420686bc",
+    "externalId": "6c75de36-30fa-4d2d-a196-6bdcdb6b6539",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_fbb9dda4-fcde-4f98-a68b-6c5599e17c27",
+    "name": {
+        "formatted": "givenName updatedFamilyName",
+        "familyName": "updatedFamilyName",
+        "givenName": "givenName"
+    },
+    "active": true,
+    "emails": [{
+        "value": "updatedEmail@microsoft.com",
+        "type": "work",
+        "primary": true
+    }]
 }
 ```
 
@@ -438,12 +438,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-	"Operations": [{
-		"op": "Replace",
-		"path": "userName",
-		"value": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com"
-	}]
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Replace",
+        "path": "userName",
+        "value": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com"
+    }]
 }
 ```
 
@@ -452,27 +452,27 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-	"id": "5171a35d82074e068ce2",
-	"externalId": "aa1eca08-7179-4eeb-a0be-a519f7e5cd1a",
-	"meta": {
-		"resourceType": "User",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-		
-	},
-	"userName": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com",
-	"name": {
-		"formatted": "givenName familyName",
-		"familyName": "familyName",
-		"givenName": "givenName",
-	},
-	"active": true,
-	"emails": [{
-		"value": "Test_User_49dc1090-aada-4657-8434-4995c25a00f7@testuser.com",
-		"type": "work",
-		"primary": true
-	}]
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "5171a35d82074e068ce2",
+    "externalId": "aa1eca08-7179-4eeb-a0be-a519f7e5cd1a",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+        
+    },
+    "userName": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_49dc1090-aada-4657-8434-4995c25a00f7@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
 }
 ```
 
@@ -554,12 +554,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *POST /Groups HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
-	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-	"displayName": "displayName",
-	"meta": {
-		"resourceType": "Group"
-	}
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
+    "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
+    "displayName": "displayName",
+    "meta": {
+        "resourceType": "Group"
+    }
 }
 ```
 
@@ -568,17 +568,17 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 201 Created*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-	"id": "927fa2c08dcb4a7fae9e",
-	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-	"meta": {
-		"resourceType": "Group",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-		
-	},
-	"displayName": "displayName",
-	"members": []
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "id": "927fa2c08dcb4a7fae9e",
+    "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
+    "meta": {
+        "resourceType": "Group",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+        
+    },
+    "displayName": "displayName",
+    "members": []
 }
 ```
 
@@ -592,15 +592,15 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-	"id": "40734ae655284ad3abcc",
-	"externalId": "60f1bb27-2e1e-402d-bcc4-ec999564a194",
-	"meta": {
-		"resourceType": "Group",
-		"created": "2018-03-27T19:59:26.000Z",
-		"lastModified": "2018-03-27T19:59:26.000Z"
-	},
-	"displayName": "displayName",
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "id": "40734ae655284ad3abcc",
+    "externalId": "60f1bb27-2e1e-402d-bcc4-ec999564a194",
+    "meta": {
+        "resourceType": "Group",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "displayName": "displayName",
 }
 ```
 
@@ -614,22 +614,22 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 200 OK*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-	"totalResults": 1,
-	"Resources": [{
-		"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-		"id": "8c601452cc934a9ebef9",
-		"externalId": "0db508eb-91e2-46e4-809c-30dcbda0c685",
-		"meta": {
-			"resourceType": "Group",
-			"created": "2018-03-27T22:02:32.000Z",
-			"lastModified": "2018-03-27T22:02:32.000Z",
-			
-		},
-		"displayName": "displayName",
-	}],
-	"startIndex": 1,
-	"itemsPerPage": 20
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 1,
+    "Resources": [{
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+        "id": "8c601452cc934a9ebef9",
+        "externalId": "0db508eb-91e2-46e4-809c-30dcbda0c685",
+        "meta": {
+            "resourceType": "Group",
+            "created": "2018-03-27T22:02:32.000Z",
+            "lastModified": "2018-03-27T22:02:32.000Z",
+            
+        },
+        "displayName": "displayName",
+    }],
+    "startIndex": 1,
+    "itemsPerPage": 20
 }
 ```
 
@@ -640,12 +640,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-	"Operations": [{
-		"op": "Replace",
-		"path": "displayName",
-		"value": "1879db59-3bdf-4490-ad68-ab880a269474updatedDisplayName"
-	}]
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Replace",
+        "path": "displayName",
+        "value": "1879db59-3bdf-4490-ad68-ab880a269474updatedDisplayName"
+    }]
 }
 ```
 
@@ -660,15 +660,15 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-	"Operations": [{
-		"op": "Add",
-		"path": "members",
-		"value": [{
-			"$ref": null,
-			"value": "f648f8d5ea4e4cd38e9c"
-		}]
-	}]
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Add",
+        "path": "members",
+        "value": [{
+            "$ref": null,
+            "value": "f648f8d5ea4e4cd38e9c"
+        }]
+    }]
 }
 ```
 
@@ -683,15 +683,15 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
-	"schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-	"Operations": [{
-		"op": "Remove",
-		"path": "members",
-		"value": [{
-			"$ref": null,
-			"value": "f648f8d5ea4e4cd38e9c"
-		}]
-	}]
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Remove",
+        "path": "members",
+        "value": [{
+            "$ref": null,
+            "value": "f648f8d5ea4e4cd38e9c"
+        }]
+    }]
 }
 ```
 
@@ -743,7 +743,9 @@ The Azure AD provisioning service currently operates under the IP Ranges for Azu
 
 Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM community.
 
-The open source .NET Core [reference code](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you have built your SCIM endpoint, you will want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](#user-operations).  
+For guidance on how to build a SCIM endpoint including examples, see [Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md).
+
+The open source .NET Core [reference code example](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you have built your SCIM endpoint, you will want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](#user-operations).  
 
    > [!Note]
    > The reference code is intended to help you get started building your SCIM endpoint and is provided "AS IS." Contributions from the community are welcome to help build and maintain the code.
@@ -785,6 +787,7 @@ The SCIM service must have an HTTP address and server authentication certificate
 * Go Daddy
 * VeriSign
 * WoSign
+* DST Root CA X3
 
 The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
 
@@ -872,7 +875,7 @@ The following code enforces that requests to any of the service’s endpoints ar
                             };
                     });
             }
-	    ...
+        ...
 ```
 
 Send a GET request to the Token controller to get a valid bearer token, the method _GenerateJSONWebToken_ is responsible to create a token matching the parameters configured for development:
@@ -1124,11 +1127,17 @@ Applications that support the SCIM profile described in this article can be conn
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
 2. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
-3. Select **+ New application** > **All** > **Non-gallery application**.
-4. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
+3. Select **+ New application** > **+ Create your own application**.
+4. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
 
-   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
    *Azure AD application gallery*
+
+   > [!NOTE]
+   > If you are using the old app gallery experience, follow the screen guide below.
+   
+   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+   *Azure AD old app gallery experience*
 
 5. In the app management screen, select **Provisioning** in the left panel.
 6. In the **Provisioning Mode** menu, select **Automatic**.
@@ -1168,7 +1177,7 @@ If you're building an application that will be used by more than one tenant, you
 ### Gallery onboarding checklist
 Follow the checklist below to ensure that your application is onboarded quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
-> * Support a [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
+> * Support a [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
@@ -1215,7 +1224,7 @@ Steps in the OAuth code grant flow:
 > [!NOTE]
 > While it is not possible to setup OAuth on the non-gallery application today, you can manually generate an access token from your authorization server and input that in the secret token field of the non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
 
-**Long-lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires. This token must be below 1KB in size.  
+**Long-lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires.
 
 For additional authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
@@ -1232,6 +1241,7 @@ To help drive awareness and demand of our joint integration, we recommend you up
 
 ## Related articles
 
+* [Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md)
 * [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)
 * [Customize attribute mappings for user provisioning](customize-application-attributes.md)
 * [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)

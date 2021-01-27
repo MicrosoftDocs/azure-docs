@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
@@ -28,7 +28,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -39,18 +39,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 The following example shows how to read the message as a POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -70,7 +75,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
@@ -78,7 +83,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -101,7 +106,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
@@ -129,14 +134,12 @@ A RabbitMQ binding is defined in *function.json* where *type* is set to `RabbitM
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
 ```
-
-The code in *_\_init_\_.py* declares a parameter as `func.RabbitMQMessage`, which allows you to read the message in your function.
 
 ```python
 import logging
@@ -153,7 +156,7 @@ The following Java function uses the `@RabbitMQTrigger` annotation from the [Jav
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -178,7 +181,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-For a complete example, see C# example.
+For a complete example, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -210,11 +213,11 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "in".|
 |**name** | n/a | The name of the variable that represents the queue in function code. |
 |**queueName**|**QueueName**| Name of the queue to receive messages from. |
-|**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
-|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|**hostName**|**HostName**|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "%< UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. PasswordSetting: "%< PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -222,31 +225,29 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-The following parameter types are available for the message:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
-* `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
+* `string`
+* `byte[]`
 * `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
-The following parameter types are available for the message:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
-* `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `POCO` - The message is formatted as a C# object.
+* `string`
+* `byte[]`
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [example](#example).
 
 # [JavaScript](#tab/javascript)
 
-The RabbitMQ message is passed into the function as either a string or JSON object.
+The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 
-The RabbitMQ message is passed into the function as either a string or JSON object.
+Refer to the Python [example](#example).
 
 # [Java](#tab/java)
 
@@ -278,16 +279,16 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|queueName|n/a| Name of the queue to receive messages from. |
-|connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
-|port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|queueName|n/a| Name of the queue to receive messages from.|
+|connectionString|n/a|The RabbitMQ message queue connection string. Please note that the connection string is directly specified here and not through an app setting.|
+|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 ## Local testing
 
 > [!NOTE]
 > The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
 
-If you are testing locally without a connection string, you should set the "hostName" setting and "username" and "password" if applicable in the "rabbitMQ" section of *host.json*:
+If you are testing locally without a connection string, you should set the "hostName" setting and "userName" and "password" if applicable in the "rabbitMQ" section of *host.json*:
 
 ```json
 {
@@ -296,8 +297,8 @@ If you are testing locally without a connection string, you should set the "host
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -305,9 +306,24 @@ If you are testing locally without a connection string, you should set the "host
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|hostName|n/a|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
-|password|n/a|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|hostName|n/a|(ignored if using connectionString) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|userName|n/a|(ignored if using connectionString) <br>Name to access the queue |
+|password|n/a|(ignored if using connectionString) <br>Password to access the queue|
+
+
+## Enable Runtime Scaling
+
+In order for the RabbitMQ trigger to scale out to multiple instances, the **Runtime Scale Monitoring** setting must be enabled. 
+
+In the portal, this setting can be found under **Configuration** > **Function runtime settings** for your function app.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+In the CLI, you can enable **Runtime Scale Monitoring** by using the following command:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## Monitoring RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:

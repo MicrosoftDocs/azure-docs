@@ -154,8 +154,6 @@ Refer to the following list to configure managed identity for Azure Data Factory
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### Azure Event Grid
 
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -163,13 +161,12 @@ Managed identity type |All Generally Available<br>Global Azure Regions | Azure G
 | System assigned | Preview | Preview | Not available | Preview |
 | User assigned | Not available | Not available  | Not available  | Not available |
 
+### Azure Firewall Policy
 
-
-
-
-
-
-
+Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Not available | Not available | Not available | Not available |
+| User assigned | Preview | Not available  | Not available  | Not available |
 
 ### Azure Functions
 
@@ -321,9 +318,9 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Not Available | Not Available | Not Available | Not Available |
-| User assigned | [Available in supported regions](../../virtual-machines/windows/image-builder-overview.md#regions) | Not Available | Not Available | Not Available |
+| User assigned | [Available in supported regions](../../virtual-machines/image-builder-overview.md#regions) | Not Available | Not Available | Not Available |
 
-To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](../../virtual-machines/windows/image-builder-overview.md#permissions).
+To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](../../virtual-machines/image-builder-overview.md#permissions).
 ### Azure SignalR Service
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |

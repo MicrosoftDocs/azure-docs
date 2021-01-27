@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -35,7 +35,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 | Scenario | Azure AD B2C role | How-to |
 | -------- | ----------------- | ------- |
 | My application expects a SAML assertion to complete an authentication. | **Azure AD B2C acts as the identity provider (IdP)**<br />Azure AD B2C acts as a SAML IdP to the applications. | This article. |
-| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](identity-provider-adfs.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](identity-provider-salesforce.md)</li></ul> |
+| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](identity-provider-adfs.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](identity-provider-salesforce-saml.md)</li></ul> |
 
 ## Prerequisites
 
@@ -67,28 +67,9 @@ To build a trust relationship between your service provider and Azure AD B2C, yo
 
 You can use a certificate issued by a public certificate authority or, for this tutorial, a self-signed certificate.
 
-### 1.1 Prepare a self-signed certificate
+### 1.1 Create a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this tutorial. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
-
-1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
-
-    ```PowerShell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```
-
-1. Open **Manage user certificates** > **Current User** > **Personal** > **Certificates** > *yourappname.yourtenant.onmicrosoft.com*
-1. Select the certificate > **Action** > **All Tasks** > **Export**
-1. Select **Yes** > **Next** > **Yes, export the private key** > **Next**
-1. Accept the defaults for **Export File Format**
-1. Provide a password for the certificate
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ### 1.2 Upload the certificate
 
@@ -389,7 +370,7 @@ To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAss
 
 ## Enable identity provider initiated flow (Optional)
 
-In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). We don't currently support scenarios where the initiating identity provider is an external identity provider, for example [AD-FS](identity-provider-adfs.md), or [Salesforce](identity-provider-salesforce.md).
+In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). We don't currently support scenarios where the initiating identity provider is an external identity provider, for example [AD-FS](identity-provider-adfs.md), or [Salesforce](identity-provider-salesforce-saml.md).
 
 To enable identity provider (Azure AD B2C) initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
 

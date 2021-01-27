@@ -370,7 +370,6 @@ In this step, you create a pipeline with a **copy activity** that uses **InputDa
 
 Currently, output dataset is what drives the schedule. In this tutorial, output dataset is configured to produce a slice once an hour. The pipeline has a start time and end time that are one day apart, which is 24 hours. Therefore, 24 slices of output dataset are produced by the pipeline. 
 
-
 1. Create a JSON file named **ADFTutorialPipeline.json** in the **C:\ADFGetStartedPSH** folder, with the following content:
 
     ```json   

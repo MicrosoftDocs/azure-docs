@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/03/2020
+ms.date: 1/12/2020
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
@@ -19,16 +19,14 @@ When you create a virtual machine (VM) in the [Azure portal](https://portal.azur
 This article assumes that you have already created a VM. If needed, you can create a [Linux](./linux/quick-create-portal.md) or [Windows](./windows/quick-create-portal.md) VM in the portal. Follow these steps once your VM is up and running:
 
 
-1. Select your VM in the portal. Under **DNS name**, select **Configure**.
-2. Enter the DNS name and then select **Save** at the top of the page.
-3. To return to the VM overview blade, close the **Configuration** blade by selecting the **X** in the upper right corner. 
-4. Verify that the *DNS name* is now shown correctly.
-   
-
-
+1. Select your VM in the portal. 
+1. In the left menu, select **Configuration**
+1. Under **DNS name label**, enter the prefix you want to use.
+1. Select **Save** at the top of the page.
+1. Return to the VM overview blade by selecting **Overview** in the left menu. 
+1. Verify that the *DNS name* appears correctly. 
 
 ## Next steps
-Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, and Docker.
 
-You can also read more about [using Resource Manager](../azure-resource-manager/management/overview.md) for tips on building your Azure deployments.
+You can also manage DNS using [Azure DNS zones](../dns/dns-getstarted-portal.md).
 

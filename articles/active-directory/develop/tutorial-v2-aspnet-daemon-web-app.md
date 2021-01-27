@@ -46,7 +46,7 @@ Because the app is a multi-tenant app for Microsoft business customers, it must 
 
 ![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform endpoint](v2-oauth2-client-creds-grant-flow.md).
+For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform](v2-oauth2-client-creds-grant-flow.md).
 
 ## Clone or download this repository
 
@@ -90,7 +90,7 @@ If you don't want to use the automation, use the steps in the following sections
 
 ### Choose the Azure AD tenant
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 
 
@@ -106,7 +106,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later use. You'll need it to configure the Visual Studio configuration file for this project.
 1. Under **Manage**, select **Authentication**.
-1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
+1. Set **Front-channel logout URL** to `https://localhost:44316/Account/EndSession`.
 1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
 1. Select **Save**.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -200,7 +200,7 @@ This project has web app and web API projects. To deploy them to Azure websites,
 
 ### Create and publish dotnet-web-daemon-v2 to an Azure website
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. In the upper-left corner, select **Create a resource**.
 1. Select **Web** > **Web App**, and then give your website a name. For example, name it **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Select the information for **Subscription**, **Resource group**, and **App service plan and location**. **OS** is **Windows**, and **Publish** is **Code**.
@@ -221,10 +221,10 @@ Visual Studio will publish the project and automatically open a browser to the p
 
 ### Update the Azure AD tenant application registration for dotnet-web-daemon-v2
 
-1. Go back to the [Azure portal](https://portal.azure.com).
+1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
-1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. On the **Authentication** page for your application, update the **Front-channel logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.

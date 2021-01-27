@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
 ---
@@ -58,9 +58,6 @@ See the table below to see which features can be used asynchronously. Note that 
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 

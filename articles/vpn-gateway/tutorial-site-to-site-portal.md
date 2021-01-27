@@ -149,7 +149,7 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-### <a name="connectVM"></a>Additional configuration considerations
+### <a name="additional"></a>Additional configuration considerations
 
 S2S configurations can be customized in a variety of ways. For more information, see the following articles:
 

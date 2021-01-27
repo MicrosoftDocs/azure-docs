@@ -20,6 +20,11 @@ In this article you learn:
 > - How to [manage assets and resources](#manage-assets-and-resources) in the studio.
 > - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
 
 ## Author machine learning projects
 
@@ -28,6 +33,8 @@ The studio offers multiple authoring experiences depending on the type project a
 + **Notebooks**
 
   Write and run your own code in managed [Jupyter Notebook servers](how-to-run-jupyter-notebooks.md) that are directly integrated in the studio. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: write and run code in a notebook":::
 
 + **Azure Machine Learning designer**
 
@@ -78,7 +85,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Feature | ML Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
 | Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
-| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
+| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](/python/api/overview/azure/ml/) and [R](https://github.com/Azure/azureml-sdk-for-r) SDKs |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
 | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
@@ -89,6 +96,9 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
 | Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
 
+## Troubleshooting
+
+* **Missing user interface items in studio** Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from appearing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio. For more information, see [Manage users and roles](how-to-assign-roles.md).
 
 ## Next steps
 

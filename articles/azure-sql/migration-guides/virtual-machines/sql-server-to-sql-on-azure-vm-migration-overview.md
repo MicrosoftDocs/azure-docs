@@ -3,7 +3,7 @@ title: SQL Server to SQL Server on Azure VM (Migration overview)
 description: Learn about the different migration strategies when you want to migrate your SQL Server to SQL Server on Azure VMs. 
 ms.custom: ""
 ms.service: virtual-machines-sql
-ms.subservice: 
+ms.subservice: migration-guide
 ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
@@ -33,7 +33,7 @@ Migrate to [SQL Server on Azure Virtual Machines (VMs)](../../virtual-machines/w
 Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 
-## Choosing appropriate target
+## Choose appropriate target
 
 Azure Virtual Machines run in many different regions of Azure and also offer a variety of [machine sizes](../../../virtual-machines/sizes.md) and [Storage options](../../../virtual-machines/disks-types.md). 
 When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through a Performance-Based [Azure Migrate Assessment](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/services/virtual-machines/sql-server/).
@@ -128,6 +128,20 @@ These services include:
 
 As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
+## Migration assets 
+
+For additional assistance, see the following resources that were developed for real world migration projects.
+
+|Asset  |Description  |
+|---------|---------|
+|[Data workload assessment model and tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
+|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
+|[SQL Server Deployment in Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|This guidance whitepaper assists in reviewing various options to move your SQL Server workloads to Azure including feature comparison, high availability and backup / storage considerations. |
+|[On-Premise SQL Server to Azure virtual machine](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|This whitepaper outlines the steps to backup and restore databases from on-premises SQL Server to SQL Server on Azure virtual machine using sample scripts.|
+|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|This whitepaper outlines the steps to setup multiple Azure virtual machines in a SQL Server Always On Availability Group configuration.|
+|[Azure virtual machines supporting Ultra SSD per Region](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|These PowerShell scripts provide a programmatic option to retrieve the list of regions that support Azure virtual machines supporting Ultra SSDs.|
+
+These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
 
 ## Next steps
 

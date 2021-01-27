@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with Learning Seat LMS, perform the followi
     `https://<subdomain>.learningseatlms.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Learning Seat LMS Client support team](http://help.learningseatlms.com/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Learning Seat LMS Client support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with Learning Seat LMS, perform the followi
 
 ### Configure Learning Seat LMS Single Sign-On
 
-To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Learning Seat LMS support team](http://help.learningseatlms.com/help). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Learning Seat LMS support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -182,7 +182,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Learning Seat LMS test user
 
-In this section, you create a user called Britta Simon in Learning Seat LMS. Work with [Learning Seat LMS support team](http://help.learningseatlms.com/help) to add the users in the Learning Seat LMS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Learning Seat LMS. Work with [Learning Seat LMS support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) to add the users in the Learning Seat LMS platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

@@ -253,9 +253,7 @@ In this section, you'll run a query to answer the question of how many twins in 
 
 To see the answer, run the following query in the **QUERY EXPLORER** box.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Recall from viewing the twin properties earlier that Room0 has a temperature of 70, and Room1 has a temperature of 80. For this reason, only Room1 shows up in the results here.
     
@@ -286,9 +284,7 @@ Now, you'll see a **Patch Information** window where the patch code appears that
 
 To verify that the graph successfully registered your update to the temperature for Room0, rerun the query from earlier to get all the twins in the environment with a temperature above 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Now that the temperature of Room0 has been changed from 70 to 76, both twins should show up in the result.
 

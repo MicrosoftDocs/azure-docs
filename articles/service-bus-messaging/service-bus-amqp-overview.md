@@ -37,7 +37,7 @@ In October 2011, the development work transitioned to a technical committee with
 * **Technology vendors**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **User firms**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
-The current chairs of the [OASIS AMQP Technical Committee]((https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) represent Red Hat and Microsoft.
+The current chairs of the [OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) represent Red Hat and Microsoft.
 
 Some of the commonly cited benefits of open standards include:
 
@@ -59,11 +59,11 @@ The following figure illustrates an example deployment in which Java clients run
 
 All supported Service Bus client libraries available via the Azure SDK use AMQP 1.0.
 
-- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 

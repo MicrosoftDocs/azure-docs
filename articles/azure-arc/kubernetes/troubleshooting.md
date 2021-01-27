@@ -20,7 +20,7 @@ This document provides some common troubleshooting scenarios with connectivity, 
 ### Azure CLI set up
 Before using az connectedk8s or az k8sconfiguration CLI commands, assure that az is set to work against the correct Azure subscription.
 
-```console
+```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
@@ -46,17 +46,17 @@ If the Helm release is present and `STATUS: deployed` determine the status of th
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME										READY	UP-TO-DATE AVAILABLE AGE
-deployment.apps/cluster-metadata-operator	1/1		1			1		 16h
-deployment.apps/clusteridentityoperator		1/1		1			1	     16h
-deployment.apps/config-agent				1/1		1			1		 16h
-deployment.apps/controller-manager			1/1		1			1		 16h
-deployment.apps/flux-logs-agent				1/1		1			1		 16h
-deployment.apps/metrics-agent			    1/1     1           1        16h
-deployment.apps/resource-sync-agent			1/1		1			1		 16h
+NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
+deployment.apps/clusteridentityoperator     1/1       1          1       16h
+deployment.apps/config-agent                1/1       1          1       16h
+deployment.apps/cluster-metadata-operator   1/1       1          1       16h
+deployment.apps/controller-manager          1/1       1          1       16h
+deployment.apps/flux-logs-agent             1/1       1          1       16h
+deployment.apps/metrics-agent               1/1       1          1       16h
+deployment.apps/resource-sync-agent         1/1       1          1       16h
 
-NAME											READY	STATUS	 RESTART AGE
-pod/cluster-metadata-operator-7fb54d9986-g785b  2/2		Running  0		 16h
+NAME                                            READY   STATUS  RESTART  AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
 pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
 pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
 pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
@@ -75,7 +75,7 @@ Connecting clusters to Azure requires access to both an Azure subscription and `
 
 If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error attempting to call the Kubernetes API.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
@@ -90,7 +90,7 @@ Cluster owner should use a Kubernetes user with cluster administrator permission
 
 Azure Arc agent installation requires running a set of containers on the target cluster. If the cluster is running over a slow internet connection the container image pull may take longer than the Azure CLI timeouts.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.

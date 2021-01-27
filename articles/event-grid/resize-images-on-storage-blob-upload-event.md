@@ -278,7 +278,7 @@ An event subscription indicates which provider-generated events you want sent to
 
 1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
-    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
+    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

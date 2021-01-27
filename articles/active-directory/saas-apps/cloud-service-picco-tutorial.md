@@ -46,19 +46,19 @@ To configure the integration of Cloud Service PICCO into Azure AD, you need to a
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Cloud Service PICCO**, select **Cloud Service PICCO** from result panel then click **Add** button to add the application.
 
-	 ![Cloud Service PICCO in the results list](common/search-new-app.png)
+    ![Cloud Service PICCO in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Cloud Service PICCO, perform the follo
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -105,12 +105,12 @@ To configure Azure AD single sign-on with Cloud Service PICCO, perform the follo
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUB DOMAIN>.cloudservicepicco.com/app`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Service PICCO Client support team](mailto:picco.support@est.fujitsu.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Service PICCO Client support team](mailto:picco.support@est.fujitsu.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure Cloud Service PICCO Single Sign-On
 
@@ -133,7 +133,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -147,11 +147,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Cloud Service PICCO**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Cloud Service PICCO**.
 
-	![The Cloud Service PICCO link in the Applications list](common/all-applications.png)
+    ![The Cloud Service PICCO link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

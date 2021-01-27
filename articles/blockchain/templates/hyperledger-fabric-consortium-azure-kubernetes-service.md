@@ -1,7 +1,7 @@
 ---
 title: Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 description: How to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -101,7 +101,7 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **DNS prefix**: Enter a Domain Name System (DNS) name prefix for the AKS cluster. You'll use DNS to connect to the Kubernetes API when managing containers after you create the cluster.
     - **Node size**: For the size of the Kubernetes node, you can choose from the list of VM stock-keeping units (SKUs) available on Azure. For optimal performance, we recommend Standard DS3 v2.
     - **Node count**: Enter the number of Kubernetes nodes to be deployed in the cluster. We recommend keeping this node count equal to or more than the number of Hyperledger Fabric nodes specified on the **Fabric settings** tab.
-    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Service principal client secret**: Enter the client secret of the service principal provided in the client ID for the service principal.
     - **Confirm client secret**: Confirm the client secret for the service principal.
     - **Enable container monitoring**: Choose to enable AKS monitoring, which enables the AKS logs to push to the specified Log Analytics workspace.
@@ -312,7 +312,7 @@ CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
@@ -389,23 +389,35 @@ Pass the query function name and space-separated list of arguments in `<queryF
 
 ## Troubleshoot
 
-Run the following commands to find the version of your template deployment.
+### Find deployed version
 
-Set environment variables according to the resource group where the template has been deployed.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Run the following command to print the template version.
+Run the following commands to find the version of your template deployment. Set environment variables according to the resource group where the template has been deployed.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### Patch previous version
+
+If you are facing issues with running chaincode on any deployments of template version below v3.0.0, then follow the below steps to patch your peer nodes with a fix.
+
+Download the peer deployment script.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Run the script using the following command replacing the parameters for your peer.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Wait for all your peer nodes to get patched. You can always check the status of your peer nodes, in different instance of the shell using the following command.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## Support and feedback

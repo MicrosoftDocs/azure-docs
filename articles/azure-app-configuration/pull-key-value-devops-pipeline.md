@@ -42,7 +42,7 @@ Now that your service connection is created, find the name of the service princi
 
 Assign the proper App Configuration role to the service connection being used within the task so that the task can access the App Configuration store.
 
-1. Navigate to your target App Configuration store. For a walkthrough of setting up an App Configuration store, see [Create an App Configuration store](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) in one of the Azure App Configuration quickstarts.
+1. Navigate to your target App Configuration store. For a walkthrough of setting up an App Configuration store, see [Create an App Configuration store](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) in one of the Azure App Configuration quickstarts.
 1. On the left, select **Access control (IAM)**.
 1. At the top, select **+ Add** and pick **Add role assignment**.
 1. Under **Role**, select **App Configuration Data Reader**. This role allows the task to read from the App Configuration store. 
@@ -98,6 +98,9 @@ For example, if a subsequent task runs a PowerShell script, it could consume a k
 echo "$env:myBuildSetting"
 ```
 And the value will be printed to the console.
+
+> [!NOTE]
+> Azure Key Vault references within App Configuration will be resolved and set as [secret variables](/azure/devops/pipelines/process/variables#secret-variables). In Azure pipelines, secret variables are masked out from log. They are not passed into tasks as environment variables and must instead be passed as inputs. 
 
 ## Troubleshooting
 
