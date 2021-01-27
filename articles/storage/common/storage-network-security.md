@@ -534,13 +534,11 @@ az storage account network-rule list \
 
 ---
 
-## Exceptions
+## Grant access to Azure services 
 
-Network rules help to create a secure environment for connections between your applications and your data for most scenarios. However, some applications depend on Azure services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to storage to enable full application functionality. In such situations, you can use the ***Allow trusted Microsoft services...*** setting to enable such services to access your data, logs, or analytics.
+Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. Grant access by creating a network rule exception. For step-by-step guidance, see the [Manage exceptions](manage-exception) section of this article. 
 
-### Trusted Microsoft services
-
-Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. We've enabled two modes of trusted access for Microsoft services.
+We've enabled two modes of trusted access for Microsoft services.
 
 - Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.
 
@@ -548,7 +546,7 @@ Some Microsoft services operate from networks that can't be included in your net
 
 <a id="trusted-access-resources-in-subscription"></a>
 
-#### Trusted access for resources registered in your subscription
+### Trusted access for resources registered in your subscription
 
 When you enable the **Allow trusted Microsoft services...** setting, resources of the following services that are registered in the same subscription as your storage account are granted access for a limited set of operations as described:
 
@@ -568,7 +566,7 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 
 <a id="trusted-access-system-assigned-managed-identity"></a>
 
-#### Trusted access based on system-assigned managed identity
+### Trusted access based on system-assigned managed identity
 
 Alternatively, you can also grant access to the resources of these services by enabling the Allow trusted Microsoft services... setting. In this case, you must also explicitly assign an Azure role to the system-assigned managed identity for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
@@ -594,7 +592,13 @@ The **Allow trusted Microsoft services...** setting also grants access to the re
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 
-### Managing exceptions
+## Grant access to storage analytics
+
+In some cases, access to read resource logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both by creating a network rule exception. For step-by-step guidance, see the **Manage exceptions** section below. To learn more about working with storage analytics, see [Use Azure Storage analytics to collect logs and metrics data](./storage-analytics.md). 
+
+<a id="manage-exception"></a>
+
+## Manage exceptions
 
 You can manage network rule exceptions through the Azure portal, PowerShell, or Azure CLI v2.
 
