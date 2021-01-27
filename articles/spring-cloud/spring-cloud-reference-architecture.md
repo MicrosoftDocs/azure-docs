@@ -12,8 +12,23 @@ description: This architecture reference is a foundation using a typical enterpr
 
 This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected Framework.
 
-## Private applications
-The architecture for private applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private application are in the following list:
+## Reference Deployment
+For detailed information and deployment options of this architecture which include ARM, Terraform, and CLI, see the public repository.
+
+[!div class="nextstepaction"]
+[Azure Spring Cloud Reference Architecture Deployments][10]
+
+The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
+
+## Use Cases
+Typical use for this architecture include:
+* For internal applications deployed in hybrid cloud environments
+* Externally facing applications
+
+These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+
+### Private applications
+The infrastructure requirements for a private application are in the following list:
 
 * No direct egress to the public Internet except for control plane traffic
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
@@ -58,8 +73,8 @@ The Azure services that are used in this reference architecture are in the follo
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
 
-## Public applications
-The architecture for public applications builds on the traditional hub and spoke design. This architecture ensures the application components are segregated from the shared services hub. The infrastructure requirements for a public application are in the following list:
+### Public applications
+The infrastructure requirements for a public application are in the following list:
 
 * Ingress traffic must be managed by at least Application Gateway or Azure Front Door
 * Azure DDoS Protection standard must be enabled
@@ -172,6 +187,9 @@ From the CCM, EKM-02, and EKM-03 specifically address the need for policies and 
 
 The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials to ensure rotation is enforced. CIS control 8.4 ensures the contents of the key vault can be restored to maintain business continuity.
 
+## Next Steps
+Explore this reference architecture through ARM, Terraform, and CLI deployments that are available as defined in the [Reference Deployment](#reference-deployment) section.
+
 ## Appendix
 
 ### Azure Spring Cloud Infrastructure Rules
@@ -213,3 +231,4 @@ The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials 
 [7]: /azure/web-application-firewall/
 [8]: /azure/azure/spring-cloud/spring-cloud-tutorial-config-server/
 [9]: https://steeltoe.io/
+[10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
