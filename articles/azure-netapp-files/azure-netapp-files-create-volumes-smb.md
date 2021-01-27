@@ -314,9 +314,9 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]
-        > You should enable Continuous Availability only for SQL workloads. Using SMB Continuous Availability shares for workloads other than SQL server is not supported. 
-
-        The SMB **Enable Continuous Availability** feature is currently in preview. If this is your first time using this feature, register the feature before using it.  
+        > You should enable Continuous Availability only for SQL workloads. Using SMB Continuous Availability shares for workloads other than SQL server is not supported.  
+        >
+        > The SMB **Continuous Availability** feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page]**(https://aka.ms/anfsmbcasharespreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
