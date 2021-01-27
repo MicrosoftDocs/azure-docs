@@ -68,7 +68,7 @@ This walk through is intended to be a copy and paste exercise.
 
 ## Prerequisites
 
-You must have the latest Azure PowerShell CmdLets installed, see [here](https://docs.microsoft.com/powershell/azure/overview?view=azps-2.6.0) for install details.
+You must have the latest Azure PowerShell CmdLets installed, see [here](https://docs.microsoft.com/powershell/azure/overview) for install details.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -162,7 +162,8 @@ New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
-> [!NOTE] If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
+> [!NOTE] 
+> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
 
 
 
@@ -272,7 +273,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.5.0#examples).
+Now the build is finished you can build a VM from the image, use the examples from [here](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up
 
@@ -304,4 +305,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next Steps
 
-You can try more examples [here](../quickquickstarts/nextSteps.md)]
+You can try more examples [on GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
