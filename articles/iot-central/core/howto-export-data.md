@@ -4,7 +4,7 @@ description: How to use the new data export to export your IoT data to Azure and
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/05/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
@@ -161,6 +161,17 @@ Now that you have a destination to export your data to, set up data export in yo
 
 1. When you've finished setting up your export, select **Save**. After a few minutes, your data appears in your destinations.
 
+## Monitor your export
+
+In addition to seeing the status of your exports in IoT Central, you can monitor how much data is flowing through your exports and observe export errors in the Azure Monitor data platform. You can access metrics about your exports and device health in charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI. Currently, you can monitor these data export metrics in Azure Monitor:
+
+1. Number of messages incoming to export before filters are applied
+2. Number of messages that pass through filters
+3. Number of messages successfully exported to destinations
+4. Number of errors encountered
+ 
+[Learn more about how to access IoT Central metrics.](howto-monitor-application-health.md)
+
 ## Export contents and format
 
 ### Azure Blob Storage destination
@@ -229,7 +240,7 @@ The following example shows an exported telemetry message:
 }
 ```
 
-## Property changes format
+### Property changes format
 
 Each message or record represents one change to a device or cloud property. For device properties, only changes in the reported value are exported as a separate message. Information in the exported message includes:
 
