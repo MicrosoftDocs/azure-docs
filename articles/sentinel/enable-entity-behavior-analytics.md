@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
 
 ---
@@ -21,12 +21,7 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies and regions:
->    - United States geography
->    - Europe West region
->    - Australia geography
->
-> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions.
 
 ## Prerequisites
 

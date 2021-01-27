@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues that aris
 services: automation
 ms.subservice:
 ms.date: 11/25/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Hybrid Runbook Worker issues

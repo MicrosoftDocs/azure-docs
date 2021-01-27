@@ -34,11 +34,11 @@ Alternatively, you can also manage endpoints and routes with the [Event Routes A
 
 You can find these details in the [Azure portal](https://portal.azure.com) after setting up your instance. Log into the portal and search for the name of your instance in the portal search bar.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot of Azure portal search bar.":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot of Azure portal search bar." lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-Select your instance from the results to see the details page for your instance:
+Select your instance from the results to see these details in the Overview for your instance:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of ADT instance details." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance. The name and resource group are highlighted.":::
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -49,75 +49,39 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [*Choose between Azure messaging services*](../event-grid/compare-messaging-services.md).
 
-To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or Service Bus that you're using for the endpoint needs to exist already. 
+This section explains how to create one of these endpoints in the [Azure portal](https://portal.azure.com).
 
-### Create an Event Grid endpoint
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Prerequisite**: Create an event grid topic by following the steps in [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
+### Create the endpoint 
 
-Once you have created the topic, you can link it to Azure Digital Twins from your Azure Digital Twins instance's page in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
+Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. To create a new endpoint, go to your instance's page in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
-From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
+1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
 
-On the *Create an Endpoint* page that opens up, you can create an endpoint of type _Event Grid_ by selecting the corresponding radio button. Complete the other details: enter a name for your endpoint in the _Name_ field, choose your _Subscription_ from the dropdown, and choose your pre-created  _Event Grid Topic_ from the third dropdown.
+1. On the *Create an Endpoint* page that opens up, enter a **Name** for your endpoint and choose the **Endpoint type**.
 
-Then, create your endpoint by hitting _Save_.
+1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid.":::
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub.png":::
+
+1. Finish creating your endpoint by selecting the _Save_ button.
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot of notification to verify the creation of endpoint." border="false":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot of notification to verify the creation of endpoint. The bell-shaped icon from the portal's top bar is selected, and there is a notification saying 'Endpoint ADT-eh-endpoint successfully created'.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+If the endpoint creation fails, observe the error message and retry after a few minutes.
 
 You can also view the endpoint that was created back on the *Endpoints* page for your Azure Digital Twins instance.
 
-If the endpoint creation fails, observe the error message and retry after a few minutes.
-
-Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
-
-### Create an Event Hubs endpoint
-
-**Prerequisites**: 
-* You'll need an _Event Hubs namespace_ and an _event hub_. Create both of these by following the steps in the Event Hubs [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart.
-* You'll need an _authorization rule_. To create this, refer to the Event Hubs [*Authorizing access to Event Hubs resources using Shared Access Signatures*](../event-hubs/authorize-access-shared-access-signature.md) article.
-
-Go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find it by entering its name into the portal search bar).
-
-From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
-
-On the *Create an Endpoint* page that opens up, you can create an endpoint of type _Event Hub_ by selecting the corresponding radio button. Enter a name for your endpoint in the _Name_ field. Then select your _Subscription_, and your pre-created _Event hub namespace_, _Event Hub_, and _Authorization rule_ from the respective dropdowns.
-
-Then, create your endpoint by hitting _Save_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot of creating an endpoint of type Event Hubs.":::
-
-You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
-
-If the endpoint creation fails, observe the error message and retry after a few minutes.
-
-Now, the Event hub is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
-
-### Create a Service Bus endpoint
-
-**Prerequisites**: 
-* You'll need a _Service Bus namespace_ and a _Service Bus topic_. Create both of these by following the steps in the Service Bus [*Create topics and subscriptions*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) quickstart. You do not need to complete the [*Create subscriptions to the topic*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) section.
-* You'll need an _Authorization rule_. To create this, refer to the Service Bus [*Authentication and authorization*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) article.
-
-Go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find it by entering its name into the portal search bar).
-
-From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
-
-On the *Create an Endpoint* page that opens up, you can create an endpoint of type _Service Bus_ by selecting the corresponding radio button. Enter a name for your endpoint in the _Name_ field. Then select your _Subscription_, and your pre-created _Service Bus namespace_, _Service Bus topic_, and _Authorization rule_ from the respective dropdowns.
-
-Then, create your endpoint by hitting _Save_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot of creating an endpoint of type Service Bus.":::
-
-You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
-
-If the endpoint creation fails, observe the error message and retry after a few minutes.
-
-Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
+Now the Event Grid, Event Hub, or Service Bus is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an endpoint with dead-lettering
 

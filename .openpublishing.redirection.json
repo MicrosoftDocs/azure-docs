@@ -8,7 +8,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -12999,6 +12999,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/backup-avs-vms-with-mabs.md",
       "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
       "redirect_document_id": false
@@ -13366,11 +13371,6 @@
     {
       "source_path_from_root": "/articles/billing-upgrade-azure-subscription.md",
       "redirect_url": "/azure/billing/billing-upgrade-azure-subscription",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/billing/billing-usage-rate-card-overview",
       "redirect_document_id": false
     },
     {
@@ -16060,8 +16060,18 @@
     },
     {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/cost-management-billing/manage/usage-rate-card-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/manage/usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/billing/billing-view-all-accounts.md",
@@ -22771,6 +22781,21 @@
     {
       "source_path_from_root": "/articles/iot-dps/concepts-security.md",
       "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/use-hsm-with-sdk.md",
+      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/how-to-use-sdk-tools.md",
+      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/how-to-manage-enrollments-sdks.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509-java",
       "redirect_document_id": false
     },
     {
@@ -32225,7 +32250,7 @@
     },
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
-      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
+      "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
       "redirect_document_id": false
     },
     {
@@ -50540,6 +50565,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging.md",
+      "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
       "redirect_document_id": true
@@ -53442,8 +53472,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
-      "redirect_url": "/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/developer-guidance-for-integrating-applications.md",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
@@ -61441,18 +61476,18 @@
       "redirect_document_id": true
     },
     {
-    "source_path_from_root":"/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
-    "redirect_url":"azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+    "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+    "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
     "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
-      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
-      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
         {
@@ -61483,6 +61518,16 @@
     {
       "source_path": "articles/media-services/latest/migrate-from-v2-to-v3.md",
       "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-manage-account-basics.md",
+      "redirect_url": "/azure/batch/accounts",
       "redirect_document_id": false
     },
     {
