@@ -45,7 +45,7 @@ Follow these steps to deploy your first module from the Azure Marketplace.
 
    ![Screenshot showing removing the default route then moving to the next step.](./media/iot-edge-deploy-module/delete-route-next-review-create.png)
 
-1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploye to your IoT Edge device. You'll see the **SimulatedTemperatureSensor** module and the two runtime modules, **edgeAgent** and **edgeHub**.
+1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploy to your IoT Edge device. You'll see the **SimulatedTemperatureSensor** module and the two runtime modules, **edgeAgent** and **edgeHub**.
 
    >[!Note]
    >When you submit a new deployment to an IoT Edge device, nothing is pushed to your device. Instead, the device queries IoT Hub regularly for any new instructions. If the device finds an updated deployment manifest, it uses the information about the new deployment to pull the module images from the cloud then starts running the modules locally. This process can take a few minutes.
