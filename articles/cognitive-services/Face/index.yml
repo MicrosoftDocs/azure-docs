@@ -93,7 +93,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Use container instances
-            url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+            url: ../containers/azure-container-instance-recipe.md
   
   - title: Reference
     linkLists:

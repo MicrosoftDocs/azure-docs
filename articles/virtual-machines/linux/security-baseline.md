@@ -850,7 +850,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Information on how to download the VM template](../windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -894,7 +894,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](../windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](../windows/ps-template.md)
 

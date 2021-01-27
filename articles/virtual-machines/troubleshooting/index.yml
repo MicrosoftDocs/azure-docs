@@ -53,7 +53,7 @@ landingContent:
           - text: Troubleshoot Azure VM RDP connection issues by Event ID
             url: ./event-id-troubleshoot-vm-rdp-connecton.md
           - text: Troubleshoot authentication errors when you use RDP to connect to Azure VM
-            url: ./troubleshoot-authentication-error-rdp-vm.md
+            url: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
           - text: VM guest network card is disabled
             url: ./troubleshoot-rdp-nic-disabled.md
           

@@ -13,13 +13,13 @@ ms.author: cynthn
 | VM per series, such as Dv2 and F, cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
 | [Availability sets](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,500 per region. |
 | Virtual machines per availability set | 200 |
-| [Proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
+| [Proximity placement groups](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
 | Certificates per availability set | 199<sup>2</sup> |
 | Certificates per subscription |Unlimited<sup>3</sup> |
 
 <sup>1</sup> Default limits vary by offer category type, such as Free Trial and Pay-As-You-Go, and by series, such as Dv2, F, and G. For example, the default for Enterprise Agreement subscriptions is 350.
 
-<sup>2</sup> Properties such as SSH public keys are also pushed as certificates and count towards this limit. To bypass this limit, use the [Azure Key Vault extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) or the [Azure Key Vault extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) to install certificates.
+<sup>2</sup> Properties such as SSH public keys are also pushed as certificates and count towards this limit. To bypass this limit, use the [Azure Key Vault extension for Windows](../articles/virtual-machines/extensions/key-vault-windows.md) or the [Azure Key Vault extension for Linux](../articles/virtual-machines/extensions/key-vault-linux.md) to install certificates.
 
 <sup>3</sup> With Azure Resource Manager, certificates are stored in the Azure Key Vault. The number of certificates is unlimited for a subscription. There's a 1-MB limit of certificates per deployment, which consists of either a single VM or an availability set.
 
