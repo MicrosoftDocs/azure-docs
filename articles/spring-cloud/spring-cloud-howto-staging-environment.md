@@ -110,7 +110,7 @@ To verify that the green staging development is working:
 
 1. Return to the **Deployment management** page.  Your `green` deployment deployment status should show *Up*. This is now the running production build.
 
-   [ ![Deployments set staging deployment](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
+   [ ![Deployments set staging deployment result](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
 1. Copy and paste the URL into a new browser window, and the new application page should be displayed with your changes.
 
