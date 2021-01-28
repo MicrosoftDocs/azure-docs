@@ -51,26 +51,26 @@ If you require a different configuration for production scenarios, contact the D
 
 1. Pull the submodules using the following code:
 
-    ```azurecli
+    ```bash
     git submodule update --init
     ```
-
+    
 1. Next, pull the submodules for the Azure IoT SDK with the following code: 
 
-    ```azurecli
+    ```bash
     git -C deps/azure-iot-sdk-c/ submodule update –init
     ```
  
 
 1. Add an execution permission, and run the developer environment setup script:
 
-    ```azurecli
+    ```bash
     chmod +x scripts/install_development_environment.sh && ./scripts/install_development_environment.sh 
     ```
 
 1. Create a directory for the build outputs: 
 
-    ```azurecli
+    ```bash
     mkdir cmake 
     ```
 
@@ -86,14 +86,18 @@ If you require a different configuration for production scenarios, contact the D
 
 1. Run the following command: 
 
-    ```azurecli
-    cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=<the appropriate distro configuration file name> .. 
+    ```bash
+    cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET<the appropriate distro configuration file name> .. 
+    
+    cmake --build . -- -j${env:NPROC}
     ```
 
     For example: 
 
-    ```azurecli
-    cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=UBUNTU1804 ..
+    ```bash
+    cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGETUBUNTU1804 ..
+    
+    cmake --build . -- -j${env:NPROC}
     ```
 
 ## Next Steps
