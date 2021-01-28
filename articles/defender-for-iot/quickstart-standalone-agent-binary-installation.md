@@ -28,7 +28,7 @@ curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 
 sudo apt-get install software-properties-common
 
-sudo apt-add-repository https://packages.microsoft.com/debian/9/prod 
+sudo apt-add-repository https://packages.microsoft.com/debian/9/multiarch/prod
 
 sudo apt-get update
 ```
