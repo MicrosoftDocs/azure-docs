@@ -1,19 +1,17 @@
 ---
-title: Encode custom transform using Media Services v3 .NET - Azure | Microsoft Docs
+title: Encode custom transform  .NET
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using .NET.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-
 ---
 
 # How to encode with a custom transform - .NET

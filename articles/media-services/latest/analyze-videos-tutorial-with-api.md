@@ -1,6 +1,5 @@
 ---
 title: Analyze videos with Media Services v3
-titleSuffix: Azure Media Services
 description: Learn how to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
