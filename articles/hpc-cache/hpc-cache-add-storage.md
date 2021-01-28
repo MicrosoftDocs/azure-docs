@@ -188,7 +188,7 @@ This table summarizes the usage model differences:
 | Clients bypass the cache      | Read         | 30 seconds            | None                     |
 
 > [!NOTE]
-> The **Back-end verification** value shows when the cache automatically compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request. Readdirplus is a standard NFS API (also called extended read) that returns directory metadata.
+> The **Back-end verification** value shows when the cache automatically compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request. Readdirplus is a standard NFS API (also called extended read) that returns directory metadata, which causes the cache to compare and update files.
 
 ### Create an NFS storage target
 
