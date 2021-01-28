@@ -28,7 +28,7 @@ Private endpoints are provided by [Azure Private Link](https://docs.microsoft.co
 3. Click on *Add role assignments*, add the identity and click on *Save*.
 ![Managed role assignment](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-role-assignment.png)
 
-4. Now, go to *Networking* tab in the Azure Search Service instance and switch Endpoint connectivity data from *Public* to *Private*. This operation is a lng running process and can take up to 30 mins to complete. 
+4. Now, go to *Networking* tab in the Azure Search Service instance and switch Endpoint connectivity data from *Public* to *Private*. This operation is a long running process and can take up to 30 mins to complete. 
 
 ![Managed Azure search networking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking.png)
 
