@@ -43,6 +43,8 @@ To complete this configuration, you need the following resources:
 
 ## Step 1: Integrate SharePoint on-premises with Azure AD 
 
+In this step, you configure the on-premises SharePoint app and validate that configuration.
+
 1. Configure the SharePoint on-premises app. For more information, see [Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
 2. Validate the configuration before moving to the next step. To validate, try to access the SharePoint on-premises from the internal network and confirm it's accessible internally. 
 
@@ -58,6 +60,8 @@ Find the following values that you configured when you [integrated with Azure AD
 > The values match the Sign on URL under the SAML Based Application configuration in Step 1.
 
    ![Screenshot that shows the Sign on URL value.](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
+
+In this step, you create an application in your Azure Active Directory tenant that uses Application Proxy. You set the external URL and specify the internal URL, both of which are used later in SharePoint.
 
  1. Create the app as described and use following settings. For step-by-step instructions, see [Add an on-premises app to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad).
 
@@ -76,5 +80,6 @@ Find the following values that you configured when you [integrated with Azure AD
    ![Screenshot that shows where to set the Visible to users? option.](./media/application-proxy-integrate-with-sharepoint-server/configure-properties.png)
  
 ## Step 3: Test your application
-1. Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account you set up.
+
+Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account you set up.
 
