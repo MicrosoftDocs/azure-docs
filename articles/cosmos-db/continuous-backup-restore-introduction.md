@@ -68,13 +68,21 @@ e. **Restore an account to a previous point in time before the accidental delete
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 
-Azure Cosmos DB accounts that have continuous backup enabled will have extra charge to "store the backup" and to "restore your data". The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
+Azure Cosmos DB accounts that have continuous backup enabled will incur an additional monthly charge to "store the backup" and to "restore your data". The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
+
+
+
+The Restore pricing is 15 Cents/GB * Data size in GB.
 
 The following example is based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation can vary depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
-* The price to store the backup is calculated as: 20 cents * Data size in GB in account * Number of regions
+* All accounts enabled with continuous backup policy incur an additional monthly charge for backup storage that is calculated as follows:
 
-* The price to restore is: 15 Cents * Data size in GB.
+  20 cents/GB * Data size in GB in account * Number of regions
+
+* Every restore API invocation incurs a one time charge. The charge is a function of the amount of data restore and it is calculated as follows:
+
+  15 Cents * Data size in GB.
 
 For example, if you have 1-TB of data in two regions then:
 
