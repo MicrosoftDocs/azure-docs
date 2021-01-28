@@ -1,5 +1,5 @@
 ---
-title: Storage configuration for SQL Server VMs | Microsoft Docs
+title: Configure storage for SQL Server VMs | Microsoft Docs
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Azure Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 12/26/2019
 ms.author: mathoma
 
 ---
-# Storage configuration for SQL Server VMs
+# Configure storage for SQL Server VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article teaches you how to configure your storage for your SQL Server on Azure Virtual Machines (VMs).
@@ -109,7 +109,7 @@ You can modify the disk settings for the drives that were configured during the 
 ![Configure Storage for Existing SQL Server VM](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-## Automated configuration summary
+## Automated changes
 
 This section provides a reference for the storage configuration changes that Azure automatically performs during SQL Server VM provisioning or configuration in the Azure portal.
 
@@ -152,13 +152,13 @@ The following table describes the three workload type options available and thei
 
 Change the caching policy at the disk level. You can do so using the Azure portal, [PowerShell](/powershell/module/az.compute/set-azvmdatadisk), or the [Azure CLI](/cli/azure/vm/disk). 
 
-To do so in the Azure portal, follow the steps:
+To change your caching policy in the Azure portal, follow these steps:
 
 1. Stop your SQL Server service. 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your virtual machine, select **Disks** under **Settings**. 
    
-   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png.png)
+   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png)
 
 1. Choose the appropriate caching policy for your disk from the drop-down. 
 
@@ -167,7 +167,7 @@ To do so in the Azure portal, follow the steps:
 1. After the change takes effect, reboot the SQL Server VM and start the SQL Server service. 
 
 
-## Enable Write Acceleration
+## Enable Write Accelerator
 
 Write Acceleration is a disk feature that is only available for the M-Series Virtual Machines (VMs). The purpose of write acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
 
@@ -183,9 +183,9 @@ To enable Write Acceleration using the Azure portal, follow these steps:
    
    ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png)
 
-1. Choose the cache option with **Write Acceleration** for your disk from the drop-down. 
+1. Choose the cache option with **Write Accelerator** for your disk from the drop-down. 
 
-   ![Choose caching policy](./media/storage-configuration/write_accelerator.png)
+   ![Enable write accelerator cache policy](./media/storage-configuration/write-accelerator.png)
 
 1. After the change takes effect, start the virtual machine and SQL Server service. 
 

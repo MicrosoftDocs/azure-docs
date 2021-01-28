@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: dplessMSFT
 ms.reviewer: jroth
 ---
