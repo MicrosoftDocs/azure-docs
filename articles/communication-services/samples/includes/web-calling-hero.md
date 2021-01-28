@@ -4,9 +4,9 @@ The Azure Communication Services **Group Calling Hero Sample** demonstrates how 
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
-## Download Code
+## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 ## Overview
 
@@ -20,13 +20,13 @@ When you press the "Start a call" button, the web application fetches a user acc
 
 :::image type="content" source="../media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
+Once you configure your display name and devices, you can join the call session. You'll then see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main calling screen:
 
-1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
+1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one).
 2. **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
 3. **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
@@ -34,11 +34,11 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploy the service & client applications
 
@@ -52,19 +52,13 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md).
 4. Once you get the `Connection String`, add the connection string to the **Calling/appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
 
-### Local Run
+### Local run
 
-1. Go to Calling folder and open `Calling.csproj` solution in Visual Studio
-2. Run `Calling` project. The browser will open at localhost:5001
-
-#### Troubleshooting
-
-- The solution doesn't build; it throws errors during NPM installation/build.
-
-   Try to clean/rebuild the projects.
+1. Go to Calling folder and open `Calling.csproj` solution in Visual Studio.
+2. Run `Calling` project. The browser will open at `localhost:5001`.
 
 ## Publish the sample to Azure
 
