@@ -41,7 +41,7 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 1. Under **Authentication settings**, select **Edit**
     1. Select **Enable 3-legged OAuth** checkbox.
     1. Select **Request email address from users** checkbox.
-    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1A_signup_signin_twitter`. Use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
+    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1a_signup_signin_twitter`. Use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
     1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`.
     1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
