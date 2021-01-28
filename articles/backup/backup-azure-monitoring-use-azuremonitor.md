@@ -51,7 +51,7 @@ Use an action group to specify a notification channel. To see the available noti
 
 You can satisfy all alerting and monitoring requirements from Log Analytics alone, or you can use Log Analytics to supplement built-in notifications.
 
-For more information, see [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/platform/alerts-log.md) and [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
+For more information, see [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-log.md) and [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
 
 ### Sample Kusto queries
 

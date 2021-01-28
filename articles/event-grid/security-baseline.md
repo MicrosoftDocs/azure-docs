@@ -265,7 +265,7 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 - [Details of Event Grid diagnostic log schema](diagnostic-logs.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

@@ -129,7 +129,7 @@ In the Log Analytics workspace, you can explore the log and metric data further.
 
 Monitoring and alerting in Azure Monitor logs are based on queries over the data in the workspace, unlike the alerting defined on each resource in the Azure portal. By basing alerts on queries, you can define a single alert that looks over all databases, rather than defining one per database. Queries are limited only by the data available in the workspace.
 
-For more information on how to use Azure Monitor logs to query and set alerts, see [Work with alert rules in Azure Monitor logs](../../azure-monitor/platform/alerts-metric.md).
+For more information on how to use Azure Monitor logs to query and set alerts, see [Work with alert rules in Azure Monitor logs](../../azure-monitor/alerts/alerts-metric.md).
 
 Azure Monitor logs for SQL Database charges based on the data volume in the workspace. In this tutorial, you created a free workspace, which is limited to 500 MB per day. After that limit is reached, data is no longer added to the workspace.
 

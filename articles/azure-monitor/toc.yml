@@ -470,7 +470,7 @@
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
-        href: platform/alerts-metric.md
+        href: alerts/alerts-metric.md
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
@@ -486,15 +486,15 @@
     - name: Log alert rules
       items:  
       - name: Manage log alerts
-        href: platform/alerts-log.md
+        href: alerts/alerts-log.md
       - name: Optimizing alert queries
-        href: platform/alerts-log-query.md
+        href: alerts/alerts-log-query.md
       - name: Using Resource Manager template
         href: alerts/alerts-log-create-templates.md
       - name: Troubleshoot log alerts
         href: platform/alerts-troubleshoot-log.md
       - name: Webhook actions
-        href: platform/alerts-log-webhook.md
+        href: alerts/alerts-log-webhook.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -535,7 +535,7 @@
       - name: About smart groups
         href: platform/alerts-smartgroups-overview.md 
       - name: Manage alert instances
-        href: platform/alerts-managing-alert-instances.md
+        href: alerts/alerts-managing-alert-instances.md
       - name: Manage smart groups
         href: alerts/alerts-managing-smart-groups.md   
       - name: Manage alert and smart group states
@@ -605,7 +605,7 @@
       - name: Manage classic metric alerts
         href: alerts/alerts-classic-portal.md
       - name: Classic metric alert using a Resource Manager template
-        href: platform/alerts-enable-template.md    
+        href: alerts/alerts-enable-template.md    
       - name: Classic metric alert calling a webhook
         href: platform/alerts-webhooks.md
   - name: Application Insights
@@ -1434,6 +1434,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

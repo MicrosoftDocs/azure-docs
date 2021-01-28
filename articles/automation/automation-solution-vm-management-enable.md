@@ -87,7 +87,7 @@ After you click **OK**, the configuration options are validated and the Automati
 
 ## Create alerts
 
-Start/Stop VMs during off-hours doesn't include a predefined set of alerts. Review [Create log alerts with Azure Monitor](../azure-monitor/platform/alerts-log.md) to learn how to create job failed alerts to support your DevOps or operational processes and procedures.
+Start/Stop VMs during off-hours doesn't include a predefined set of alerts. Review [Create log alerts with Azure Monitor](../azure-monitor/alerts/alerts-log.md) to learn how to create job failed alerts to support your DevOps or operational processes and procedures.
 
 ## Deploy the feature
 

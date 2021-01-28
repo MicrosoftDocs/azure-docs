@@ -71,11 +71,11 @@ Ingestion operations are issues that occurred during data ingestion including no
    
 
 ## Alert rules
-Use [log query alerts](../platform/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. You should use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription is charged for each alert rule with a cost depending on the frequency that it's evaluated.
+Use [log query alerts](../alerts/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. You should use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription is charged for each alert rule with a cost depending on the frequency that it's evaluated.
 
 A recommended strategy is to start with two alert rules based on the level of the issue. Use a short frequency such as every 5 minutes for Errors and a longer frequency such as 24 hours for Warnings. Since Errors indicate potential data loss, you want to respond to them quickly to minimize any loss. Warnings typically indicate an issue that does not require immediate attention, so you can review them daily.
 
-Use the process in [Create, view, and manage log alerts using Azure Monitor](../platform/alerts-log.md) to create the log alert rules. The following sections describe the details for each rule.
+Use the process in [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md) to create the log alert rules. The following sections describe the details for each rule.
 
 
 | Query | Threshold value | Period | Frequency |
@@ -120,5 +120,5 @@ The following example creates a warning alert when the data collection has reach
 
 ## Next steps
 
-- Learn more about [log alerts](alerts-log.md).
+- Learn more about [log alerts](../alerts/alerts-log.md).
 - [Collect query audit data](../log-query/query-audit.md) for your workspace.

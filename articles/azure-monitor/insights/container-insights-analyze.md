@@ -106,7 +106,7 @@ The performance charts display four performance metrics:
 
 Use the Left and Right arrow keys to cycle through each data point on the chart. Use the Up and Down arrow keys to cycle through the percentile lines. Select the pin icon in the upper-right corner of any one of the charts to pin the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for containers and loads the correct scope and view.
 
-Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../platform/alerts-metric.md).
+Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../alerts/alerts-metric.md).
 
 ## View container metrics in metrics explorer
 

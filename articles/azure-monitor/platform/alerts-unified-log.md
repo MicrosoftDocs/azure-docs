@@ -203,6 +203,6 @@ Pricing information is located in the [Azure Monitor pricing page](https://azure
 ## Next steps
 
 * Learn about [creating in log alerts in Azure](./alerts-log.md).
-* Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
+* Understand [webhooks in log alerts in Azure](../alerts/alerts-log-webhook.md).
 * Learn about [Azure Alerts](./alerts-overview.md).
 * Learn more about [Log Analytics](../log-query/log-query-overview.md).

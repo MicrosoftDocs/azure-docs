@@ -120,7 +120,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 
     ![HDInsight Azure Monitor logs alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 ## See also
 

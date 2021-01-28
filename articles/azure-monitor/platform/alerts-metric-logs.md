@@ -682,6 +682,6 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 
 ## Next steps
 
-- Learn more about the [metric alerts](alerts-metric.md).
+- Learn more about the [metric alerts](../alerts/alerts-metric.md).
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
 - Learn about [alerts in Azure](alerts-overview.md).

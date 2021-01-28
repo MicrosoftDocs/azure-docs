@@ -8,7 +8,7 @@ ms.date: 02/19/2019
 ms.subservice: alerts
 ---
 # Optimizing log alert queries
-This article describes how to write and convert [Log Alert](alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
+This article describes how to write and convert [Log Alert](../platform/alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## How to start writing an alert log query
 
@@ -61,7 +61,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
+> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](../platform/api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.

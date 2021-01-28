@@ -33,7 +33,7 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
 
-Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](./metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts-metric.md).
+Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](./metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](../alerts/alerts-metric.md).
 
 Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
 
@@ -46,7 +46,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 > It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 
- You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](../alerts/alerts-log.md) which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor Logs including their sources of data in [Logs in Azure Monitor](data-platform-logs.md).
 

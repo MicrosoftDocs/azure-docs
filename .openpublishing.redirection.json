@@ -61719,6 +61719,36 @@
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-smart-groups.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-managing-smart-groups",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-enable-template.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-enable-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-log.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-log-query.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log-query",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-log-webhook.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log-webhook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-alert-instances.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-managing-alert-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+      "redirect_document_id": false
     }
   ]
 }

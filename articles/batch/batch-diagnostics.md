@@ -63,7 +63,7 @@ To configure a metric alert in the Azure portal:
 5. In the **Alert rule details** section, enter an **Alert rule name** and **Description** and select the **Severity**
 6. Select **Create alert rule**.
 
-For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 You can also configure a near real-time alert using the Azure Monitor [REST API](/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
 

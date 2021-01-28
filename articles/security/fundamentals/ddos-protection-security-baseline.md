@@ -78,7 +78,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

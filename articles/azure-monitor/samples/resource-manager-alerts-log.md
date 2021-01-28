@@ -19,7 +19,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 
 ### Notes
 
-- This sample includes a [webhook payload](../platform/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
+- This sample includes a [webhook payload](../alerts/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
 
 ### Template file
 
