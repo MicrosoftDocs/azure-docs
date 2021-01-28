@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Meeting Composite library for Android.
+In this quickstart, you'll learn how to join a meeting using the Azure Communication Services Meeting Composite library for Android.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ dependencies {
 
 ### Add permissions to application manifest
 
-In order to request permissions required to make a call, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
+In order to request permissions required to join a meeting, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -135,7 +135,7 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
 
 ### Create the main activity scaffolding and bindings
 
-With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the call button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the meeting client, and joining a meeting when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the join meeting button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -220,7 +220,7 @@ private void getAllPermissions() {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Meeting Composite library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -230,7 +230,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a MeetingClient from the user access token
 
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With the user token an authenticated meeting client can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 /**
@@ -248,7 +248,7 @@ private void createAgent() {
 }
 ```
 
-## Start a call using the call agent
+## Start a meeting using the meeting client
 
 Joining a meeting can be done via the MeetingClient, and just requires a meetingURL and the JoinOptions.
 
@@ -265,7 +265,7 @@ private void joinMeeting() {
 }
 ```
 
-## Launch the app and call the echo bot
+## Launch the app and join a meeting
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). 
 

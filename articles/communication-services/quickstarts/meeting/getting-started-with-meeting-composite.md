@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app. 
+Get started with Azure Communication Services by using the Communication Services Meeting Composite client library to add meetings to your app. 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 

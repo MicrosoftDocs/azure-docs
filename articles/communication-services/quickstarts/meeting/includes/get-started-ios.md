@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Meeting Client library for iOS.
+In this quickstart, you'll learn how to join a meeting using the Azure Communication Services Meeting Client library for iOS.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
 platform :ios, '13.0'
 use_frameworks!
 
-target 'AzureCommunicationCallingSample' do
+target 'MeetingCompositeGettingStarted' do
     pod 'AzureCommunication', '~> 1.0.0-beta.7'
     pod 'AzureCore', '~> 1.0.0-beta.7'
 end
@@ -105,13 +105,13 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingClient | The MeetingClient is the main entry point to the Meeting library.|
-| MeetingClientDelegate | The CallAgent is used to start and manage calls. |
+| MeetingClientDelegate | The meeting client delegate is used to receive events, such as changes in call state.  |
 | JoinOptions | JoinOptions are used for configurable options such as display name, and is the microphone muted, etc. | 
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
 ## Authenticate the client
 
-Initialize a `MeetingClient` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
+Initialize a `MeetingClient` instance with a User Access Token which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
 
 ```swift
 do {
@@ -124,9 +124,9 @@ catch {
 
 You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
 
-## Start a call
+## Join a meeting
 
-The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to start a call with the `MeetingClient`:
+The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingClient`:
 
 ```swift
 private func joinMeeting() {
@@ -149,7 +149,7 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 :::image type="content" source="../media/ios/quick-start-meeting-joined.png" alt-text="Final look and feel once the meeting has been joined":::
 
 > [!NOTE]
-> The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
+> The first time you join a meeting, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
 
 ## Sample Code
 
