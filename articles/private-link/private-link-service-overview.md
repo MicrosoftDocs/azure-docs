@@ -121,7 +121,7 @@ Custom TLV details:
 The following are the known limitations when using the Private Link service:
 - Supported only on Standard Load Balancer 
 - Supports IPv4 traffic only
-- Supports TCP traffic only
+- Supports TCP and UDP traffic only
 
 ## Next steps
 - [Create a private link service using Azure PowerShell](create-private-link-service-powershell.md)

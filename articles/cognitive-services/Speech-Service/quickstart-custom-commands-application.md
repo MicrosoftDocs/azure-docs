@@ -134,4 +134,4 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 ## Next steps
 
-In this article, you used an existing application. Next, in the [how-to sections](how-to-custom-commands-create-application-with-simple-commands.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

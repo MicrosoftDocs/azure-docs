@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
 ---
 
@@ -21,7 +21,6 @@ Azure Standard Load Balancer exposes the following diagnostic capabilities:
 * **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](../azure-monitor/overview.md) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
 
 * **Resource health**: The Resource Health status of your Load Balancer is available in the Resource Health page under Monitor. This automatic check informs you of the current availability of your Load Balancer resource.
-
 This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer. 
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
@@ -68,7 +67,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
 
 ### Configure alerts for multi-dimensional metrics ###
 
@@ -80,9 +79,6 @@ To configure alerts:
     1.  Configure alert condition
     1.  (Optional) Add action group for automated repair
     1.  Assign alert severity, name and description that enables intuitive reaction
-
-  >[!NOTE]
-  >Alert condition configuration window will show time series for signal history. There is an option to filter this time series by dimensions such as Backend IP. This will filter the time series graph but **not** the alert itself. You cannot configure alerts for specific Backend IP addresses.
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
@@ -142,7 +138,7 @@ A failed connections volume of greater than zero indicates SNAT port exhaustion.
 
 To get SNAT connection statistics:
 1. Select **SNAT Connections** metric type and **Sum** as aggregation. 
-2. Group by **Connection State** for successful and failed SNAT connection counts that are represented by different lines. 
+2. Group by **Connection State** for successful and failed SNAT connection counts to be represented by different lines. 
 
 ![SNAT connection](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -181,7 +177,7 @@ To view SNAT port usage and allocation:
   <summary>Expand</summary>
 A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](./load-balancer-outbound-connections.md)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
 
-Use **Total** as the aggregation for most scenarios.
+Use **Sum** as the aggregation for most scenarios.
 
 ![SYN connection](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -194,10 +190,10 @@ Use **Total** as the aggregation for most scenarios.
   <summary>Expand</summary>
 The bytes and packet counters metric describes the volume of bytes and packets that are sent or received by your service on a per-front-end basis.
 
-Use **Total** as the aggregation for most scenarios.
+Use **Sum** as the aggregation for most scenarios.
 
 To get byte or packet count statistics:
-1. Select the **Bytes Count** and/or **Packet Count** metric type, with **Avg** as the aggregation. 
+1. Select the **Bytes Count** and/or **Packet Count** metric type, with **Sum** as the aggregation. 
 2. Do either of the following:
    * Apply a filter on a specific front-end IP, front-end port, back-end IP, or back-end port.
    * Get overall statistics for your load balancer resource without any filtering.
@@ -262,6 +258,7 @@ Generic resource health status description are available in the [RHC documentati
 
 ## Next steps
 
+- Learn about using [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) to view these metrics preconfigured for your Load Balancer
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md).
 - Learn more about your [Load balancer outbound connectivity](./load-balancer-outbound-connections.md).
 - Learn about [Azure Monitor](../azure-monitor/overview.md).

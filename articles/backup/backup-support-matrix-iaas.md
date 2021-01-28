@@ -76,6 +76,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 - Azure Backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
 - Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 installed.
+- Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks which are locally attached to the VM.
 
 ## Backup frequency and retention
 
@@ -139,10 +140,11 @@ Back up VMs that are deployed from a custom image (third-party) |Supported.<br/>
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
 Backup with [Diagnostic Settings](../azure-monitor/platform/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
-Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable, restore fails.
+Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable due to an outage, the restore will fail.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
+[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supported
 
 ## VM storage support
 
@@ -160,6 +162,7 @@ Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
 Ultra SSD disks | Not supported. For more details, see these [limitations](selective-disk-backup-restore.md#limitations).
+[Temporary disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
 
 ## VM network support
 

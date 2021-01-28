@@ -20,7 +20,7 @@ Use the Custom Vision client library for Java to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | 
+[Reference documentation](/java/api/overview/azure/cognitiveservices/client/customvision) | 
 Library source code [(training)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(prediction)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| 
 Artifact (Maven) [(training)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) [(prediction)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar) | 
 [Samples](/samples/browse/?products=azure&terms=custom%20vision)
@@ -111,9 +111,9 @@ The following classes and interfaces handle some of the major features of the Cu
 
 |Name|Description|
 |---|---|
-|[CustomVisionTrainingClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | This class handles the creation, training, and publishing of your models. |
-|[CustomVisionPredictionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| This class handles the querying of your models for object detection predictions.|
-|[ImagePrediction](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
+|[CustomVisionTrainingClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) | This class handles the creation, training, and publishing of your models. |
+|[CustomVisionPredictionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient)| This class handles the querying of your models for object detection predictions.|
+|[ImagePrediction](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
 
 ## Code examples
 
@@ -135,7 +135,7 @@ In your **main** method, instantiate training and prediction clients using your 
 
 ## Create a new Custom Vision project
 
-This next method creates an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
+This next method creates an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create_od)]
 
