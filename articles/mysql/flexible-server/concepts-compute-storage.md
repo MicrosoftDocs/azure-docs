@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 01/27/2021
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
@@ -65,6 +65,9 @@ The detailed specifications of the available server types are as follows:
 | Standard_E64ds_v4    | 64     | 504               |
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+
+>[!NOTE]
+>For [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md) compute tier when the server gets restarted for any reason like user initiated, planned or unplanned maintenance, the accumulated credit might be lost. The reason is that whenever the Azure Database for MySQL restart it it remained on the same node the accumulated credit will be retained. Contrarily, whenever the Azure Database for MySQL server starts fresh on a new node, it gets an initial credit. For more information read [Burstable (B-Series) FAQ](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## Storage
 
