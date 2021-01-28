@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Integrate with SharePoint (SAML)
 
-This step-by-step guide explains how to integrate a SharePoint on-premises farm with Azure Active Directory (Azure AD) Application Proxy for SAML. You can allow your Azure Active Directory (AD) users to access your SharePoint on-premises instance from an external network. 
+This step-by-step guide explains how to integrate a SharePoint on-premises farm with Azure Active Directory (Azure AD) Application Proxy for SAML. You can allow your Azure AD users to access your SharePoint on-premises instance from an external network. 
 
 This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you'll use to publish the first Enterprise Gallery Application.
 
@@ -49,7 +49,7 @@ To complete this configuration, you need the following resources:
 
 ## Step 2: Publish the Sharepoint on-premises application with Application Proxy
 
-Find the following values that you configured when you [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial),
+Find the following values that you configured when you [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
 
  - Internal URL: https://\<YourSharePointSiteURL>/ 
  - External URL: https://\<YourSharePointSiteURL>/
@@ -72,7 +72,7 @@ In this step, you create an application in your Azure Active Directory tenant th
     ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
 
-2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that were assigned to the On-premises SharePoint Gallery Application.
+2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that you assigned to the On-premises SharePoint Gallery Application.
 
 3. Optionally, you can prevent the visibility of two applications for the SharePoint on-premises. For **myapplications.microsoft.com**, go to the **Properties** section and set **Visible to users?** to **No** for one of your applications. 
 
