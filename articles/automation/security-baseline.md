@@ -340,7 +340,7 @@ However, when using the Hybrid Runbook Worker feature, Azure Security Center pro
 
 * [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
+* [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -364,7 +364,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
+* [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -454,7 +454,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
+* [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -724,7 +724,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
+* [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
 **Azure Security Center monitoring**: Not applicable
 
