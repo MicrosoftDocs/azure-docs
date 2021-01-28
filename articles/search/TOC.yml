@@ -166,12 +166,14 @@
     items:
     - name: Work with indexers
       items:
-      - name: Monitor indexers
-        href: search-howto-monitor-indexers.md
+      - name: Configure indexers
+        href: search-howto-configure-indexers.md
       - name: Schedule indexers
         href: search-howto-schedule-indexers.md
       - name: Map fields
         href: search-indexer-field-mappings.md
+      - name: Monitor indexers
+        href: search-howto-monitor-indexers.md
     - name: Connect with managed identities
       items:
       - name: Managed identities overview
