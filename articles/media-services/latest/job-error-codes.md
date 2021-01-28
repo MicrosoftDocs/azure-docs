@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services job (encoding and analyzing) error codes | Microsoft Docs
+title: Azure Media Services job (encoding and analyzing) error codes 
 description: This article links to job error codes reference topic and gives useful links to related topics.
 author: IngridAtMicrosoft
 manager: femila

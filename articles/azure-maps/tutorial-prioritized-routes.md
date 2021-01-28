@@ -280,7 +280,9 @@ You can obtain the full source code for the sample [here](https://github.com/Azu
 
 You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
+## Clean up resources
 
+There are no resources that require cleanup.
 
 ## Next steps
 

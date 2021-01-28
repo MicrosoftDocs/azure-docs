@@ -737,7 +737,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - databases
-      url: cosmos-db/table-storage-overview.md
+      url: ./storage/tables/table-storage-overview.md
     # Card
     - title: App Configuration
       summary: Fast, scalable parameter storage for app configuration

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Media Services job input from a local file | Microsoft Docs
+title: Create an Azure Media Services job input from a local file 
 description: This article demonstrates how to create an Azure Media Services job input from a local file.
 services: media-services
 documentationcenter: ''

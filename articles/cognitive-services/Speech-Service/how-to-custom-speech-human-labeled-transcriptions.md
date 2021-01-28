@@ -43,6 +43,8 @@ Text normalization is the transformation of words into a consistent format used 
 - Non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 - Abbreviations that are pronounced as words shouldn't be edited (such as "radar", "laser", "RAM", or "NATO").
 - Write out abbreviations that are pronounced as separate letters with each letter separated by a space.
+- If you use audio, transcribe numbers as words that match the audio (for example, "101" could be pronounced as "one oh one" or "one hundred and one").
+- Avoid repeating characters, words, or groups of words more than three times, such as "yeah yeah yeah yeah". Lines with such repetitions might be dropped by the Speech service.
 
 Here are a few examples of normalization that you should perform on the transcription:
 

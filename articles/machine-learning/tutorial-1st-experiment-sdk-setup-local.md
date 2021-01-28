@@ -32,13 +32,14 @@ In part 1 of this tutorial series, you will:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
-- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.  
+- If you're not familiar with using conda, see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 
 ## Install the Azure Machine Learning SDK
 
-Throughout this tutorial, you will use the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you'll create an isolated environment. This tutorial series uses Conda to create that environment. If you prefer to use other solutions, such as `venv`, `virtualenv`, or docker, make sure you use a Python version >=3.5 and < 3.9.
+Throughout this tutorial, you will use the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you'll create an isolated environment. This tutorial series uses conda to create that environment. If you prefer to use other solutions, such as `venv`, `virtualenv`, or docker, make sure you use a Python version >=3.5 and < 3.9.
 
-Check if you have Conda installed on your system:
+Check if you have conda installed on your system:
     
 ```bash
 conda --version
@@ -49,18 +50,20 @@ If this command returns a `conda not found` error, [download and install Minicon
 Once you have installed Conda, use a terminal or Anaconda Prompt window to create a new environment:
 
 ```bash
-conda create -n tutorial python=3.7
+conda create -n tutorial python=3.8
 ```
 
 Next, install the Azure Machine Learning SDK into the conda environment you created:
 
 ```bash
 conda activate tutorial
-pip install azureml-sdk
+pip install azureml-core
 ```
     
 > [!NOTE]
-> It takes approximately 5 minutes for the Azure Machine Learning SDK install to complete.
+> It takes approximately 2 minutes for the Azure Machine Learning SDK install to complete.
+>
+> If you get a timeout error, try `pip install --default-timeout=100 azureml-core` intstead.
 
 
 > [!div class="nextstepaction"]

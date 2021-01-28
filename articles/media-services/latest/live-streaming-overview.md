@@ -1,5 +1,5 @@
 ---
-title: Overview of Live streaming with Azure Media Services v3 | Microsoft Docs
+title: Overview of Live streaming with Azure Media Services v3 
 description: This article gives an overview of live streaming using Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -131,4 +131,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 * [Live streaming quickstart](live-events-wirecast-quickstart.md)
 * [Live streaming tutorial](stream-live-tutorial-with-api.md)
-* [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md)
+* [Migration guidance for moving from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md)
