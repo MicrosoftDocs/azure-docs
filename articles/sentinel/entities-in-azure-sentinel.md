@@ -101,15 +101,16 @@ The following types of items are included in the timeline:
 
 ### Entity Insights
 
-Entity insights are queries defined by Microsoft security researchers to help your analysts investigate more efficiently and effectively. The insights are presented as part of the entity page, and provide valuable security information on hosts and users, in the form of tabular data and charts. Having the information here means you don't have to detour to Log Analytics. The insights include data regarding Sign-Ins, Group Additions, Anomalous Events and more, and include advanced ML algorithms to detect anomalous behavior.
-The insights are based on the following data types:
+Entity insights are queries defined by Microsoft security researchers to help your analysts investigate more efficiently and effectively. The insights are presented as part of the entity page, and provide valuable security information on hosts and users, in the form of tabular data and charts. Having the information here means you don't have to detour to Log Analytics. The insights include data regarding sign-ins, group additions, anomalous events and more, and include advanced ML algorithms to detect anomalous behavior.
 
-- Syslog
-- SecurityEvent
-- Audit Logs
-- Sign-in Logs
-- Office Activity
-- BehaviorAnalytics (UEBA)
+The insights are based on the following data sources:
+
+- Syslog (Linux)
+- SecurityEvent (Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- OfficeActivity (Office 365)
+- BehaviorAnalytics (Azure Sentinel UEBA)
 
 ### How to use entity pages
 
