@@ -110,8 +110,18 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness - Compliance
-      href: compliance.md
+    - name: Enterprise readiness 
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup - Introduction
+          href: continuous-backup-restore-introduction.md
+        - name: Continuous backup - resource model
+          href: continuous-backup-restore-resource-model.md
+        - name: Continuous backup - FAQ
+          href: continuous-backup-restore-frequently-asked-questions.md
+        - name: Compliance
+          href: compliance.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -1367,8 +1377,16 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Online backup and on-demand restore
-          href: online-backup-and-restore.md
+        - name: Configure periodic backup
+          href: configure-periodic-backup-restore.md
+        - name: Configure continuous backup - Portal
+          href: configure-continuous-backup-restore-portal.md
+        - name: Configure continuous backup - PowerShell
+          href: configure-continuous-backup-restore-powershell.md
+        - name: Configure continuous backup - CLI
+          href: configure-continuous-backup-restore-cli.md
+        - name: Configure continuous backup - ARM
+          href: configure-continuous-backup-resource-manager.md
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor

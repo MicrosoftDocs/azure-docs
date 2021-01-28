@@ -13,7 +13,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope or more granularly at the source account scope as shown in the following image:
 
-:::image type="content" source="./media//restore-roles-permissions.png" alt-text="List of roles required to perform restore operation" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="List of roles required to perform restore operation" border="false":::
 
 Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](..role-based-access-control/scope-overview) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
@@ -27,7 +27,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. In the **Add role assignment** pane, for **Role** field, select **CosmosRestoreOperator** role. Choose **User, group, or a service principal** for the **Assign access to** field and search for a user's name or email ID as shown in the following image:
 
-   :::image type="content" source="./media//assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles" border="false":::
+   :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles" border="false":::
 
 1. Select **Save** to grant the "restore/action permission".
 
@@ -41,7 +41,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB restorable account resource | /subscriptions/259fbb24-9bcd-4cfc-865c-fc33b22fe38a/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the "instanceID" of the restorable account. To learn more, see the []() article.
+The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the "instanceID" of the restorable account. To learn more, see the [PowerShell](configure-continuous-backup-restore-powershell.md) or [CLI](configure-continuous-backup-restore-powershell.md) article.
 
 ## Permissions
 

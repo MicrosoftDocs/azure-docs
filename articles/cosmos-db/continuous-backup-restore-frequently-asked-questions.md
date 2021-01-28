@@ -3,7 +3,7 @@ title: Frequently asked questions about Azure Cosmos DB point-in-time restore fe
 description: This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore feature that is achieved by using the continuous backup mode.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
@@ -24,7 +24,7 @@ The restore may not happen depending on whether the key resources like databases
 Target account name should always be in lowercase.
 
 ### How can I track if an account is being restored?
-When using Azure portal, after you submit the restore request, you can [track the status of account being restored]() from the notifications bar.
+When using Azure portal, after you submit the restore request, you can [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status) from the notifications bar.
 
 Similarly for PowerShell and CLI, you can track the progress of restore operation by executing `az cosmosdb show` command as follows:
 
@@ -49,7 +49,7 @@ The provisioningState shows "Succeeded" when the account is online.
 ```
 
 ### How can I know if the restore operation is completed?
-After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [check it's status](#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
+After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [check it's status](configure-continuous-backup-restore-portal.md#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
 
 ### How can I find out whether an account was restored from another account?
 Run the `az cosmosdb show` command, in the output, you can see that the value of `createMode` property. If the value is set to **Restore**. it indicates that the account was restored from another account. The `restoreParameters` property has further details such as `restoreSource`, which has the source account ID. The last GUID in the `restoreSource` parameter is the instanceId of the source account.
