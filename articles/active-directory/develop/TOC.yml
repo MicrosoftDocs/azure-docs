@@ -86,6 +86,8 @@
       href: tutorial-v2-asp-webapp.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
+    - name: Node.js web app tutorial
+      href: tutorial-v2-nodejs-webapp-msal
   - name: Mobile and desktop
     items:
     - name: Android
