@@ -6,7 +6,7 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
 
 ---
@@ -249,7 +249,7 @@ In scenarios with pre-populated backend pools, use IP and virtual network.
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
   >[!IMPORTANT] 
-  >This feature is currently in preview. Please see the [limitations section](#limitations) for current limits of this feature.
+  >Please see the [limitations section](#limitations) for current limits of this feature.
 
 ### PowerShell
 Create new backend pool:
