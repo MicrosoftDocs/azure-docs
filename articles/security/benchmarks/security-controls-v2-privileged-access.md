@@ -157,7 +157,7 @@ Secured, isolated workstations are critically important for the security of sens
 
 - [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Responsibility**: Customer
 
@@ -215,4 +215,3 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

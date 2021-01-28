@@ -1,9 +1,6 @@
 ---
 title: 'Azure HDInsight: Azure CLI samples'
 description: Azure CLI examples for common tasks in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019 
