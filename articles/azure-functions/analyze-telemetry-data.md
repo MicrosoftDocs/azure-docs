@@ -115,8 +115,8 @@ In addition to telemetry data collected by Application Insights, you can also ge
 
 | Metric | Description |
 | ---- | ---- |
-| FunctionExecutionCount | Function execution count indicates the number of times your function app has executed. This correlates to the number of times a function runs in your app. This metric is only supported for Consumption plans. Data shown for Premium and Dedicated (App Service) plans isn't guaranteed to be correct. |
-| FunctionExecutionUnits | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.|
+| **`FunctionExecutionCount`** | Function execution count indicates the number of times your function app has executed. This correlates to the number of times a function runs in your app. This metric is only supported for Consumption plans. Data shown for Premium and Dedicated (App Service) plans isn't guaranteed to be correct. |
+| **`FunctionExecutionUnits`** | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.|
 
 To learn more about calculating costs for a Consumption plan using Application Insights data, see [Estimating Consumption plan costs](functions-consumption-costs.md).
 
