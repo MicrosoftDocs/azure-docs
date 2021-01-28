@@ -1379,6 +1379,8 @@
       items:
         - name: Configure periodic backup
           href: configure-periodic-backup-restore.md
+        - name: Configure permissions for restore
+          href: continuous-backup-restore-permissions.md
         - name: Configure continuous backup - Portal
           href: configure-continuous-backup-restore-portal.md
         - name: Configure continuous backup - PowerShell
