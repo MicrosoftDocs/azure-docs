@@ -14,7 +14,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="An Azure Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
 
- If your environment meets the prerequisites and you're familiar with using [ARM templates](../articles/azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
+ If your environment meets the prerequisites and you're familiar with using [ARM templates](../azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 ::: zone pivot="platform-windows"
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
@@ -35,9 +35,16 @@ Get started with [Azure App Service](overview.md) by deploying a app to the clou
 ## 2. Review the template
 
 ::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. 
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows.
 
-This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
+
+This template includes two Azure resources and several parameters that are predefined for your convenience.
+
+<details>
+<summary>What parameters are predefined in the template?</summary>
+
+The following table details defaults parameters and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -49,14 +56,11 @@ This template contains several parameters that are predefined for your convenien
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
-
-<details>
-<summary>View the template</summary>
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 </details>
 
 <details>
 <summary>What resources are defined in the template?</summary>
+
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
@@ -66,7 +70,14 @@ Two Azure resources are defined in the template:
 ::: zone pivot="platform-linux"
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
 
-This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+
+This template includes two Azure resources and several parameters that are predefined for your convenience.
+
+<details>
+<summary>What parameters are predefined in the template?</summary>
+
+ The following table details defaults parameters and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -78,13 +89,11 @@ This template contains several parameters that are predefined for your convenien
 
 ---
 
-<details>
-<summary>View the template</summary>
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
 </details>
 
 <details>
 <summary>What resources are defined in the template?</summary>
+
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
@@ -96,7 +105,7 @@ Two Azure resources are defined in the template:
 
 ## 3. Deploy the template
 
-Azure CLI is used here to deploy the template. To learn other <abbr title="deployment methods">You can also use the Azure portal, Azure PowerShell, and REST API.</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+Azure CLI is used here to deploy the template. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
@@ -128,17 +137,22 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 </ul>
 </details>
 
+::: zone pivot="platform-windows"
 <details>
 <summary>How do I deploy a different language stack?</summary>
-::: zone pivot="platform-windows"
 To deploy a different language stack, update `language` parameter with appropriate values. This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
 | language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
 
+---
+
+</details>
 ::: zone-end
 ::: zone pivot="platform-linux"
+<details>
+<summary>How do I deploy a different language stack?</summary>
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |
@@ -151,8 +165,10 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 | **Ruby**    | linuxFxVersion="RUBY&#124;2.6"                       |
 
 ---
-::: zone-end
+
 </details>
+::: zone-end
+
 
 > [!NOTE]
 > You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
