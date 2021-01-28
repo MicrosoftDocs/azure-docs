@@ -387,7 +387,7 @@ You can add or remove resource network rules in the Azure portal.
 
 6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
 
-To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete_icon.png":::) next to the resource instance.
+To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the resource instance.
 
 ### [PowerShell](#tab/azure-powershell)
 
