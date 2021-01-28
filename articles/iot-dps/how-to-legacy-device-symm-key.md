@@ -16,7 +16,7 @@ This article demonstrates how to securely provision multiple symmetric key devic
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
 
 This article also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
@@ -275,7 +275,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 ## Security concerns
 
-Be aware that this leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. This example is provided for learning. You should fully review the security of your devices based on your own requirements.
+Be aware that this leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 
 ## Next steps
