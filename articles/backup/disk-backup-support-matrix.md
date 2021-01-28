@@ -61,6 +61,8 @@ More regions will be announced when they become available.
 
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
 
+- During the preview, you can't disable the backup, so the option **stop backup and retain backup data** is not supported. You can delete a backup instance, which will not only stop the backup but also delete all the backup data.
+
 ## Next steps
 
 - [Back up Azure Managed Disks](backup-managed-disks.md)
