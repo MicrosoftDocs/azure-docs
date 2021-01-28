@@ -1,11 +1,12 @@
 ---
 title: Azure Services that support Availability Zones
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: cynthn
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
 
