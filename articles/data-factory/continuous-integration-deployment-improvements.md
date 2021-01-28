@@ -85,15 +85,15 @@ There are two commands currently available in the package:
  
     Run npm run start validate <rootFolder> <factoryId> to validate all the resources of a given folder. Below is an example:
     
-        ```
-        npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
-        ```
+    ```
+    npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
+    ```
 - RootFolder is a mandatory field that represents where the Data Factory resources are located.
 - FactoryId is a mandatory field that represents the Data factory resource ID in the format: "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>".
 
 ## Creating an Azure Pipeline
 
-While npm packages can be consumed in various ways, one of the primary benefits is being consumed via an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20is%20a%20cloud,it%20available%20to%20other%20users.&text=Azure%20Pipelines%20combines%20continuous%20integration,ship%20it%20to%20any%20target.). On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a [build artifact](https://docs.microsoft.com/azure/devops/pipelines/artifacts/build-artifacts?view=azure-devops&tabs=yaml#how-do-i-consume-artifacts) that can be consumed by a release pipeline. **How it differs from the current CI/CD process is that you will point your release pipeline at this artifact instead of the existing `adf_publish` branch.**
+While npm packages can be consumed in various ways, one of the primary benefits is being consumed via an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?#:~:text=Azure%20Pipelines%20is%20a%20cloud,it%20available%20to%20other%20users.&text=Azure%20Pipelines%20combines%20continuous%20integration,ship%20it%20to%20any%20target.). On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a [build artifact](https://docs.microsoft.com/azure/devops/pipelines/artifacts/build-artifacts?&tabs=yaml#how-do-i-consume-artifacts) that can be consumed by a release pipeline. **How it differs from the current CI/CD process is that you will point your release pipeline at this artifact instead of the existing `adf_publish` branch.**
 
 Follow the below steps to get started:
 
