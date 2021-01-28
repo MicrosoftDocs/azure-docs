@@ -116,6 +116,23 @@ Add this parameter to the end of the endpoint creation commands from the [*Creat
 
 Alternatively, you can create dead letter endpoints using the [Azure Digital Twins control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do this, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
 
+#### Configure an endpoint with identity-based authentication
+
+You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
+
+The CLI command to create this is below. You'll need to replace the following placeholders with your own values:
+* `<Azure-Digital-Twins-instance-Azure-resource-ID>`
+* `<endpoint-name>`
+* `<endpoint-type>`
+* `<endpoint-namespace>`
+* `<event-hub-or-service-bus-topic-name>`
+* **dead letter SAS URI** details: `<storageAccountname>`, `<containerName>`
+* `<instance-location>`
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<event-hub-or-service-bus-topic-name>\", \"deadLetterUri\": \"https://<storageAccountname>.blob.core.windows.net/<containerName>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 #### Message storage schema
 
 Once the endpoint with dead-lettering is set up, dead-lettered messages will be stored in the following format in your storage account:
