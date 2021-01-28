@@ -102,7 +102,7 @@ Follow the steps below to set up these storage resources in your Azure account, 
     
 #### Configure the endpoint
 
-To create an endpoint that has dead-lettering enabled, you'll need to create the endpoint using the Azure Resource Manager APIs. 
+To create an endpoint that has dead-lettering enabled, you can create the endpoint using the Azure Resource Manager APIs. 
 
 1. First, use the [Azure Resource Manager APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to set up a request to create an endpoint, and fill in the required request parameters. 
 
