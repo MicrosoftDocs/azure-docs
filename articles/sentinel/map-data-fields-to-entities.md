@@ -43,7 +43,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Select an **identifier** for the entity. Identifiers are attributes of an entity that can sufficiently identify it. Choose one from the **Identifier** drop-down list, and then choose a data field from the **Value** drop-down list that will correspond to the identifier. With some exceptions, the **Value** list is populated by the data fields in the table defined as the subject of the rule query.
 
-    You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. See the full list of available [entities and identifiers](entities-reference).
+    You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. See the full list of available [entities and identifiers](entities-reference.md).
 
     > [!NOTE]
     >
