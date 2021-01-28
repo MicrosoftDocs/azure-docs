@@ -16,10 +16,10 @@ ms.subservice: imaging
 This article shows you how to create a Windows Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
-* Running a [WVD Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the WVD Community repo.
-* Installing a LOB App - [Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
+* Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
+* Install [Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
 * [Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Run [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
 
 We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
 
@@ -122,7 +122,7 @@ $runOutputName="sigOutput"
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## Permissions, create user identity and role for AIB
+## Permissions, user identity and role 
 
 
  Create a user identity.
