@@ -108,7 +108,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Why do I only get notifications when the app is open? When the app is closed, I don't get notifications.
 
-**A**: If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following conditions:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings. You might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to app’s top menu, and then select **Send feedback**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and tell us the problem you're seeing and the steps you tried.
+**A**: If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following conditions:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings. You might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to app’s top-level menu, and then select **Send feedback**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and tell Microsoft the problem you're seeing and the steps you tried.
 
 ### Switch to push notifications
 
@@ -216,7 +216,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What is Autofill in Authenticator?
 
-**A**: The Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on your iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your personal Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your personal Microsoft account.
+**A**: The Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on your iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or in an app sign-in page. The passwords are saved as part of [your personal Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your personal Microsoft account.
 
 **Q**: What information can Authenticator autofill for me?
 
@@ -253,7 +253,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 **A**: Authenticator app already provides a high level of security for multi-factor authentication and account management, and the same high security bar is also extended to managing your passwords.
 
 - **Strong authentication is needed by Authenticator app**: Signing into Authenticator requires a second factor. This means that your passwords inside Authenticator app are protected even if someone has your Microsoft account password.
-- **Autofill data is protected with biometrics and passcode**: Before you can autofill password on an app or site, Authenticator requires biometric or device passcode. This helps add extra security so that even if someone else has access to your device, they can't fill or see your password, because they’re unable to provide the biometric or device PIN. Also, a user cannot open the Passwords page unless they provide biometric or PIN, even if they turn off App Lock in app settings.
+- **Autofill data is protected with biometrics and passcode**: Before you can autofill password on an app or site, Authenticator requires biometric or device passcode. This helps add extra security so that even if someone else has access to your device, they can't fill or see your password, because they’re unable to provide the biometric or device PIN input. Also, a user cannot open the Passwords page unless they provide biometric or PIN, even if they turn off App Lock in app settings.
 - **Encrypted Passwords on the device**: Passwords on device are encrypted, and encryption/decryption keys are never stored and always generated when needed. Passwords are only decrypted when user wants to, that is, during autofill or when user wants to see the password, both of which require biometric or PIN.
 - **Cloud and network security**: Your passwords on the cloud are encrypted and decrypted only when they reach your device. Passwords are synced over an SSL-protected HTTPS connection, which helps prevent an attacker from eavesdropping on sensitive data when it is being synced. We also ensure we check the sanity of data being synced over network using cryptographic hashed functions (specifically, hash-based message authentication code).
 
@@ -261,15 +261,15 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Will my employees or students get to use password autofill in Authenticator app?
 
-**A**: Yes, Autofill now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to configure (allow or deny) Autofill for your organization and [send it to our team](https://aka.ms/ConfigureAutofillInAuthenticator).
+**A**: Yes, Autofill now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to configure (allow or deny) Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **Q**: Will my users’ work or school account password get automatically synced?
 
 **A**: No. Password autofill won't sync work or school account password for your users. When users visit a site or an app, Authenticator will offer to save the password for that site or app, and password is saved only when user chooses to.
   
-**Q**: Can I allow-list only certain users of my organization for Autofill?
+**Q**: Can I allowlist only certain users of my organization for Autofill?
 
-**A**: No. Enterprises can only enable passwords autofill for all or none of their employees at this time. We will gradually expand these controls.
+**A**: No. Enterprises can only enable passwords autofill for all or none of their employees at this time.
 
 **Q**: What if my employee or student has multiple work or school accounts? For example, my employee has accounts from multiple enterprises or schools in their Microsoft Authenticator.
 
