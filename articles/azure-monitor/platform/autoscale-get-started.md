@@ -1,6 +1,6 @@
 ---
 title: Get started with autoscale in Azure
-description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine Scale set in Azure."
+description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine scale set in Azure."
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
@@ -8,7 +8,7 @@ ms.subservice: autoscale
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
+Azure Monitor autoscale applies only to [Virtual Machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
 
 ## Discover the Autoscale settings in your subscription
 
