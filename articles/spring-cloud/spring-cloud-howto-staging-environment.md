@@ -108,10 +108,11 @@ To verify that the green staging development is working:
 
    [ ![Deployments set staging deployment](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Return to the **Deployment management** page, and select your `green` deployment. The deployment status should show *Running app instance*. This is a staging environment.
+1. Return to the **Deployment management** page.  Your `green` deployment deployment status should show *Up*. This is now the running production build.
 
-1. On the **Deployments** page, the `green` staging version will show as **Production deployment**. Copy and paste it into a new browser window, and the new application page should be displayed with your changes.
-1. Go to Apps/hellospring/Overview, and click the URL to see the new deployment of the staging version, now in production.
+   [ ![Deployments set staging deployment](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
+
+1. Copy and paste the URL into a new browser window, and the new application page should be displayed with your changes.
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
