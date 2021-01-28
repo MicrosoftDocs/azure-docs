@@ -52,6 +52,9 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | <i>login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Microsoft packages repository. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
+  | *mscrl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
+  | *crl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
+  | *crl3.digicert.com* | HTTPS:80 | 3rd Party SSL Certificate Chain Paths. |
 
 ## See also
 * [Access your application in a private network](spring-cloud-access-app-virtual-network.md)
