@@ -167,6 +167,7 @@ Performance impact of krb5p:
 
 ## Next steps  
 
+* [Troubleshoot NFSv4.1 Kerberos volume issues](troubleshoot-nfsv41-kerberos-volumes.md)
 * [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)

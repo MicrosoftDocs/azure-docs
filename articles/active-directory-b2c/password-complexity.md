@@ -72,7 +72,7 @@ Allows you to accept digits only (pins) or the full character set.
 Allows you to control the length requirements of the password.
 
 - **Minimum Length** must be at least 4.
-- **Maximum Length** must be greater or equal to minimum length and at most can be 64 characters.
+- **Maximum Length** must be greater or equal to minimum length and at most can be 256 characters.
 
 ### Character classes
 

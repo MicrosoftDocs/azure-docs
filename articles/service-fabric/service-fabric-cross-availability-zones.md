@@ -30,7 +30,7 @@ The recommended topology for the primary node type requires the resources outlin
 >[!NOTE]
 > The virtual machine scale set single placement group property must be set to true, since Service Fabric does not support a single virtual machine scale set which spans zones.
 
- ![Azure Service Fabric Availability Zone Architecture][sf-architecture]
+ ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
 
 ## Networking requirements
 ### Public IP and Load Balancer Resource
@@ -339,8 +339,8 @@ Full sample template is present [here](https://github.com/Azure-Samples/service-
 To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 
 * The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
-* The second value is the "singlePlacementGroup" property, which must be set to true.
-* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* The second value is the "singlePlacementGroup" property, which must be set to true. **The scale set spanned across 3 AZ's can scale upto 300 VMs even with "singlePlacementGroup = true".**
+* The third value is "zoneBalance", which ensures strict zone balancing if set to true. We recommend setting this to true, to avoid unbalanced distribution of VMs across zones. Read about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * The FaultDomain and UpgradeDomain overrides are not required to be configured.
 
 ```json
@@ -352,7 +352,7 @@ To enable zones on a virtual machine scale set you must include the following th
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```
@@ -388,6 +388,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
+        "reliabilityLevel": "Platinum",
         "SFZonalUpgradeMode": "Hierarchical",
         "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [
@@ -411,11 +412,11 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 
 ### Migration to the node type with multiple Availability Zones
 For all migration scenarios, a new nodeType needs to added which will have multiple availability zones supported. An existing nodeType can’t be migrated to support multiple zones.
-The article [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) captures the detailed steps of adding a new nodeType and also adding the other resources required for the new nodeType like the IP and LB resources. 
+The article [here](./service-fabric-scale-up-primary-node-type.md) captures the detailed steps of adding a new nodeType and also adding the other resources required for the new nodeType like the IP and LB resources. 
 The same article also describes now to retire the existing nodeType after the nodeType with multiple Availability zones is added to the cluster.
 
 * Migration from a nodeType which is using basic LB and IP resources:
-    This is already described [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
+    This is already described [here](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
     For the new node type, the only difference is that there is only 1 virtual machine scale set and 1 nodetype for all AZ’s instead of 1 each per AZ.
 * Migration from a nodeType which is using the Standard SKU LB and IP resources with NSG:
     Follow the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.

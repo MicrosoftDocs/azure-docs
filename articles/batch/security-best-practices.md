@@ -132,8 +132,8 @@ Batch compute nodes have two disks by default: an OS disk and the local temporar
 
 For extra security, encrypt these disks using one of these Azure disk encryption capabilities:
 
-- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Encryption at host using a platform-managed key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Encryption at host using a platform-managed key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](disk-encryption.md)
 
 ## Securely access services from compute nodes
@@ -144,7 +144,7 @@ Batch nodes can [securely access credentials and secrets](credential-access-key-
 
 ### Compliance
 
-To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](/overview/trusted-cloud/compliance/). 
+To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
 
 These  offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. Review the [comprehensive overview of compliance offerings](https://aka.ms/AzureCompliance) to determine which ones may be relevant to your Batch solutions.
 

@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 01/13/2021
 ---
 
 # Tenant deployments with ARM templates
@@ -140,7 +140,8 @@ When deploying to a tenant, you can deploy resources to:
 * management groups within the tenant
 * subscriptions
 * resource groups
-* [extension resources](scope-extension-resources.md) can be applied to resources
+
+An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -179,6 +180,8 @@ To target a resource group within the tenant, use a nested deployment. Set the `
 The following template creates a management group.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+If your account doesn't have permission to deploy to the tenant, you can still create management groups by deploying to another scope. For more information, see [Management group](deploy-to-management-group.md#management-group).
 
 ## Assign role
 

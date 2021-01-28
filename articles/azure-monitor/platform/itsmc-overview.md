@@ -28,24 +28,22 @@ ITSMC supports connections with the following ITSM tools:
 -	Cherwell
 
    >[!NOTE]
-> We propose our Cherwell and Provance customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
+> We propose our Cherwell and Provance customers to use [Webhook action](./action-groups.md#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 With ITSMC, you can:
 
--  Create work items in your ITSM tool, based on your Azure alerts (metric alerts, activity log alerts, and Log Analytics alerts).
+-  Create work items in your ITSM tool, based on your Azure alerts (Metric Alerts, Activity Log Alerts, and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
 For information about legal terms and the privacy policy, see [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 You can start using ITSMC by completing the following steps:
 
-1. [Connect ITSM products/services with IT Service Management Connector.](./itsmc-connections.md)
-1. [Add ITSMC.](./itsmc-definition.md#add-it-service-management-connector)
-1. [Create an ITSM connection.](./itsmc-definition.md#create-an-itsm-connection)
-1. [Use the connection.](./itsmc-definition.md#use-itsmc)
+1. [Setup your ITSM Environment to accept alerts from Azure.](./itsmc-connections.md)
+1. [Configure Azure ITSM Solution](./itsmc-definition.md#add-it-service-management-connector)
+1. [Configure Azure ITSM connector for your ITSM environment.](./itsmc-definition.md#create-an-itsm-connection)
+1. [Configure Action Group to leverage ITSM connector.](./itsmc-definition.md#use-itsmc)
 
 ## Next steps
 
-* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
-* [Add ITSM Connector](./itsmc-definition.md)
 * [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)

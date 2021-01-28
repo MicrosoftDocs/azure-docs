@@ -39,7 +39,7 @@
   - name: Create a custom .NET deserializer
     href: custom-deserializer.md
   - name: Create an IoT Edge job
-    href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+    href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
     maintainContext: true
 - name: Samples
   items:
@@ -57,6 +57,8 @@
     href: develop-locally.md
   - name: Security
     items:
+    - name: Connect jobs to Azure Virtual Network (VNet)
+      href: connect-job-to-vnet.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -286,6 +288,8 @@
       href: debug-locally-using-job-diagram-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: Create and debug .NET custom deserializer
+      href: visual-studio-code-custom-deserializer.md
     - name: JobConfig.json fields
       href: job-config-json.md
   - name: Troubleshoot
