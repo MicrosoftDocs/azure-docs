@@ -2,6 +2,11 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/cloudinit-prepare-custom-image",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
       "redirect_document_id": false
