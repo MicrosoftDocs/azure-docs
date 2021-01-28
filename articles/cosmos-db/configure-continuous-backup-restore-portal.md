@@ -31,7 +31,7 @@ You can use Azure portal to restore a live account or selected databases and con
 1. Navigate to your Azure Cosmos DB account and open the **Point In Time Restore** pane.
 
    > [!NOTE]
-   > The restore pane in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission.
+   > The restore pane in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about how to set this permission, see the [Backup and restore permissions](continuous-backup-restore-permissions.md) article.
 
 1. Fill the following details to restore:
 
@@ -72,7 +72,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
    :::image type="content" source="./media/configure-continuous-backup-restore-portal/restore-deleted-account-portal.png" alt-text="Restore a deleted account from Azure portal" border="false":::
 
    > [!NOTE]
-   > Note: The restore pane in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission.
+   > Note: The restore pane in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about how to set this permission, see the [Backup and restore permissions](continuous-backup-restore-permissions.md) article.
 
 1. Select an account to restore and input the following details to restore a deleted account:
 

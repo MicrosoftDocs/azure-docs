@@ -114,12 +114,14 @@
       items:
         - name: Backup and restore introduction
           href: online-backup-and-restore.md
-        - name: Continuous backup - Introduction
-          href: continuous-backup-restore-introduction.md
-        - name: Continuous backup - resource model
-          href: continuous-backup-restore-resource-model.md
-        - name: Continuous backup - FAQ
-          href: continuous-backup-restore-frequently-asked-questions.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - resource model
+            href: continuous-backup-restore-resource-model.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
         - name: Compliance
           href: compliance.md
     - name: Automatic recommendations
@@ -1377,18 +1379,20 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Configure periodic backup
-          href: configure-periodic-backup-restore.md
-        - name: Configure permissions for restore
-          href: continuous-backup-restore-permissions.md
-        - name: Configure continuous backup - Portal
-          href: configure-continuous-backup-restore-portal.md
-        - name: Configure continuous backup - PowerShell
-          href: configure-continuous-backup-restore-powershell.md
-        - name: Configure continuous backup - CLI
-          href: configure-continuous-backup-restore-cli.md
-        - name: Configure continuous backup - ARM
-          href: configure-continuous-backup-resource-manager.md
+        - name: Manage continuous backup
+          items:
+            - name: Permissions and roles for restore
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: configure-continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: configure-continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: configure-continuous-backup-restore-cli.md
+            - name: Continuous backup - ARM
+              href: configure-continuous-backup-resource-manager.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor

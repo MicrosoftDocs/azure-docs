@@ -18,7 +18,7 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](../role-based-access-control/scope-overview.md) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
-## Assign a role using Azure portal
+## Assign roles for restore using Azure Portal
 
 To perform a restore, a user or a principal need the permission to restore (that is "restore/action" permission), and permission to provision a new account (that is "write" permission).  To grant these permissions, the owner can assign the "CosmosRestoreOperator" and "Cosmos DB Operator" built in roles to a principal.
 
@@ -50,7 +50,7 @@ Following permissions are required to perform the different activities pertainin
 
 |Permission  |Impact  |Minimum scope  |Maximum scope  |
 |---------|---------|---------|---------|
-|Microsoft.Resources/deployments/validate/action, Microsoft.Resources/deployments/write | These permissions are required for the ARM template deployment to create the restored account. See the sample permission [RestorableAction]() below for how to set this role. |   |   |
+|Microsoft.Resources/deployments/validate/action, Microsoft.Resources/deployments/write | These permissions are required for the ARM template deployment to create the restored account. See the sample permission [RestorableAction]() below for how to set this role. | Not applicable | Not applicable  |
 |Microsoft.DocumentDB/databaseAccounts/write | This permission is required to restore an account into a resource group | Resource group under which the restored account is created. | Subscription under which the restored account is created |
 |Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action |This permission is required on the source restorable database account scope to allow restore actions to be performed on it.  | The "RestorableDatabaseAccount" resource belonging to the source account being restored. This value is also given by the "ID" property of the restorable database account resource. An example of restorable account is `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>` | The subscription containing the restorable database account. The resource group cannot be chosen as scope.  |
 |Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read |This permission is required on the source restorable database account scope to list the database accounts that can be restored.  | The "RestorableDatabaseAccount" resource belonging to the source account being restored. This value is also given by the "ID" property of the restorable database account resource. An example of restorable account is `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>`| The subscription containing the restorable database account. The resource group cannot be chosen as scope.  |
@@ -81,7 +81,7 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 ### Assign capability to restore from any source account in a resource group.
 This operation is currently not supported.
 
-## Custom role creation with CLI
+## Custom role creation for restore action with CLI
 
 The subscription owner can provide the permission to restore to any other Azure AD identity. The restore permission is based on the action: "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action", and it should be included in their restore permission. There is a built-in role called "CosmosRestoreOperator" that has this role included. You can either assign the permission using this built-in role or create a custom role.
 

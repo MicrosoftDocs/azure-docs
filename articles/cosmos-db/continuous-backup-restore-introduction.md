@@ -34,7 +34,7 @@ In a steady state, all mutations performed on the source account (which includes
 You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The restore time will depend on the amount of data that needs to be restored.
 
 > [!NOTE]
-> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has availability zone feature enabled for that region. The restore action always restores data into a new account.
+> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](high-availability.md#availability-zone-support) feature enabled for that region. The restore action always restores data into a new account.
 
 ## What is not restored?
 
@@ -67,15 +67,19 @@ e. **Restore an account to a previous point in time before the accidental delete
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 
-* The Backup Storage is calculated as 20 cents * Data size in GB in account * Number of regions
+Azure Cosmos DB accounts that have continuous backup enabled will have extra charge to "store the backup" and to "restore your data". The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
 
-* The Restore pricing is 15 Cents * Data size in GB.
+The following example is based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation can vary depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
-**Example:** Assume you have 1-TB data in two regions then:
+* The price to store the backup is calculated as: 20 cents * Data size in GB in account * Number of regions
 
-* Backup Storage will cost 1000 * 0.20 * 2 = 400 $ for given month
+* The price to restore is: 15 Cents * Data size in GB.
 
-* Restore cost 1000 * 0.15 = 150 $
+For example, if you have 1-TB of data in two regions then:
+
+* Backup storage cost is calculated as (1000 * 0.20 * 2) = 400$ per month
+
+* Restore cost is calculated as (1000 * 0.15) = 150$
 
 ## Current limitations (public preview)
 
