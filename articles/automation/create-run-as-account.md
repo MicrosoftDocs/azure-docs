@@ -23,11 +23,11 @@ Perform the following steps to update your Azure Automation account in the Azure
 
 4. In the left pane, select **Run As Accounts** in the **Account Settings** section.
 
-    :::image type="content" source="media/create-runas-account/automation-account-properties-pane.png" alt-text="Select the Run As Account option.":::
+    :::image type="content" source="media/create-run-as-account/automation-account-properties-pane.png" alt-text="Select the Run As Account option.":::
 
 5. Depending on the account you require, use the **+ Azure Run As Account** or **+ Azure Classic Run As Account** pane. After reviewing the overview information, click **Create**.
 
-    :::image type="content" source="media/create-runas-account/automation-account-create-runas.png" alt-text="Select the option to create a Run As Account":::
+    :::image type="content" source="media/create-run-as-account/automation-account-create-run-as.png" alt-text="Select the option to create a Run As Account":::
 
 6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating that the account is being created. The process can take a few minutes to complete.
 
@@ -52,7 +52,7 @@ To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGr
 
 1. Note the values for **Name**, **Subscription ID**, and **Resource Group** on the **Properties** page.
 
-   ![Automation account properties page](media/create-runas-account/automation-account-properties.png)
+   ![Automation account properties page](media/create-run-as-account/automation-account-properties.png)
 
 ### PowerShell script to create a Run As account
 

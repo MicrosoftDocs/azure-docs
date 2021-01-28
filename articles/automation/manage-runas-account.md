@@ -120,11 +120,11 @@ When you select the Run As account, the account properties pane displays the fol
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-You can quickly resolve these Run As account issues by [deleting](delete-runas-account.md) and [re-creating](create-runas-account.md) the Run As account.
+You can quickly resolve these Run As account issues by [deleting](delete-runas-account.md) and [re-creating](create-run-as-account.md) the Run As account.
 
 ## Next steps
 
 * [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-* To create or re-create a Run As account, see [Create a Run As account](create-runas-account.md).
-* If you no longer need to use a Run As account, see [Delete a Run As account](delete-runas-account.md).
+* To create or re-create a Run As account, see [Create a Run As account](create-run-as-account.md).
+* If you no longer need to use a Run As account, see [Delete a Run As account](delete-run-as-account.md).

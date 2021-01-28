@@ -21,10 +21,10 @@ Run As accounts in Azure Automation provide authentication for managing resource
 
 4. On the Properties pane for the selected account, click **Delete**.
 
-   ![Delete Run As account](media/delete-runas-account/automation-account-delete-runas.png)
+   ![Delete Run As account](media/delete-run-as-account/automation-account-delete-run-as.png)
 
 5. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 ## Next steps
 
-To recreate your Run As or Classic Run As account, see [Create Run As accounts](create-runas-account.md).
+To recreate your Run As or Classic Run As account, see [Create Run As accounts](create-run-as-account.md).

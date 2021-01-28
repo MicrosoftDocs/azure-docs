@@ -35,7 +35,7 @@ This sample template performs the following:
 * Adds sample Automation runbooks to the account.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
 
 After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 

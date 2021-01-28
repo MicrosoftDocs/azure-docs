@@ -338,9 +338,9 @@ However, when using the Hybrid Runbook Worker feature, Azure Security Center pro
 
 * [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Delete a Run As or Classic Run As account](./delete-runas-account.md)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-runas-account.md)
+* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -362,9 +362,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Delete a Run As or Classic Run As account](./delete-runas-account.md)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-runas-account.md)
+* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -452,9 +452,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)
 
-* [Delete a Run As or Classic Run As account](./delete-runas-account.md)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-runas-account.md)
+* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -722,9 +722,9 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
-* [Delete a Run As or Classic Run As account](./delete-runas-account.md)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
-* [Manage an Azure Automation Run As account](./manage-runas-account.md)
+* [Manage an Azure Automation Run As account](./manage-run-as-account.md)
 
 **Azure Security Center monitoring**: Not applicable
 
