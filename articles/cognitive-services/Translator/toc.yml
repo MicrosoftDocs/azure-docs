@@ -86,12 +86,14 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-- name:   Document Translation
+- name: Document Translation
   items:
   - name: Overview
     items:
     - name: What is Document Translation?
-      href: document-translation/doc-translation-overview.md  
+      href: document-translation/overview.md 
+    - name: Get started with Document Translation
+      href: document-translation/get-started-with-document-translation.md
 - name: Custom Translator
   items:
   - name: Overview

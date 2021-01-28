@@ -1,11 +1,11 @@
 ---
-title: What is Document Translation Services?
-description: An overview of the batch document translation service and process.
+title: What is Document Translation?
+description: An overview of the cloud-based batch document translation service and process.
 ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 01/25/2021
+ms.date: 02/04/2021
 ---
 
 # What is Document Translation?
@@ -20,7 +20,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 1. **Apply custom translation**. You can translate documents using [custom translation models](../customization.md#custom-translator)
 1. **Use custom dictionaries**. You can apply custom dictionaries without creating [custom translation models](../custom-translator/what-is-dictionary.md).
 
-## Document translation overview
+## Document translation
 
 Document translation is a batch process that is accomplished with the following Azure portal resources:
 
@@ -28,11 +28,11 @@ Document translation is a batch process that is accomplished with the following 
 * An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
 * Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You'll need one to upload your document files, folders, or  [translation memory file](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
 
-## Custom document translation overview
+## Custom Document Translation
 
-Custom translation uses models via the [Custom Translation](../custom-translator/overview.md) interface. Once your custom translation model is built and deployed, you'll get a unique identifier. This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../custom-translator/how-to-create-project.md#view-project-details).
+Custom Document Translation uses models via the [Custom Translation](../custom-translator/overview.md) interface. Once your custom translation model is built and deployed, you'll get a unique identifier. This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../custom-translator/how-to-create-project.md#view-project-details).
 
-## Available file formats
+## Supported file formats
 
 The following file types can be translated using the Document Translation API.
 
