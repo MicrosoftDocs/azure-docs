@@ -170,7 +170,7 @@ If there is a route name and a different filter is added, messages will be filte
 
 One route should allow multiple notifications and event types to be selected. 
 
-Event routes can be created with the Azure Digital Twins [**EventRoutes data plane APIs**](/rest/api/digital-twins/dataplane/eventroutes) or [az dt route CLI commands](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). The rest of this section walks through the creation process.
+Event routes can be created with the Azure Digital Twins [**EventRoutes** data plane APIs](/rest/api/digital-twins/dataplane/eventroutes) or [**az dt route** CLI commands](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). The rest of this section walks through the creation process.
 
 ### Create routes with the APIs and C# SDK
 
@@ -185,7 +185,7 @@ One way to define event routes is with the [data plane APIs](how-to-use-apis-sdk
 
 #### Event route sample SDK code
 
-The following sample method shows how to create, list, and delete an event route:
+The following sample method shows how to create, list, and delete an event route with the C# SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
 
@@ -193,7 +193,7 @@ The following sample method shows how to create, list, and delete an event route
 
 Routes can also be managed using the [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) commands for the Azure Digital Twins CLI. 
 
-For more information about using the CLI and the commands that are available, see [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+For more information about using the CLI and what commands are available, see [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Filter events
 
