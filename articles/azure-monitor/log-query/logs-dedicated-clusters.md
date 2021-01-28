@@ -76,10 +76,12 @@ The following properties must be specified:
 
 After you create your *Cluster* resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
+You can have up to 2 active clusters per subscription per region. If cluster is deleted, it is still reserved for 14 days. You can have up to 4 reserved clusters per subscription per region (active or recently deleted).
+
 > [!WARNING]
 > Cluster creation triggers resource allocation and provisioning. This operation can take up to an hour to complete. It is recommended to run it asynchronously.
 
-The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `(Microsoft.OperationalInsights/clusters/write)`.
+The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
 ### Create 
 
@@ -499,7 +501,9 @@ Use the following REST call to delete a cluster:
 
 ## Limits and constraints
 
-- The max number of cluster per region and subscription is 2
+- The max number of active clusters per region and subscription is 2
+
+- The max number of reserved clusters (active or recently deleted) per region and subscription is 4 
 
 - The maximum of linked workspaces to cluster is 1000
 

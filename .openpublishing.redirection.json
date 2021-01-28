@@ -22994,6 +22994,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-edge/deploy-trusted-applications.md",
+      "redirect_url": "/azure/iot-edge/deploy-confidential-applications",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
       "redirect_document_id": false
