@@ -105,10 +105,8 @@ Two Azure resources are defined in the template:
 
 ## 3. Deploy the template
 
-Azure CLI is used here to deploy the template. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
-
 ::: zone pivot="platform-windows"
-Run the code below to deploy a .NET framework app on Windows. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Run the code below to deploy a .NET framework app on Windows using Azure CLI. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -168,10 +166,6 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 
 </details>
 ::: zone-end
-
-
-> [!NOTE]
-> You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 <hr/>
 
