@@ -23,7 +23,7 @@ This article describes how to set your Azure Resource Manager password. You need
 
 ## Reset password via the Azure portal
 
-1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Cloud storage gateway**.
+1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Edge services > Cloud storage gateway**.
 
     ![Reset EdgeARM user password 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
