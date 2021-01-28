@@ -68,4 +68,4 @@ In this section you can find the common errors that presented in the connector s
 
     **Resolution**: 
     * When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
-    * Review your connection details in the ITSM connector as explained [here](./platform/itsmc-connections-servicenow.md#create-a-connection) and check that your ITSM connector can successfully [sync](./platform/itsmc-resync-servicenow.md).
+    * Review your connection details in the ITSM connector as explained [here](./itsmc-connections-servicenow.md#create-a-connection) and check that your ITSM connector can successfully [sync](./itsmc-resync-servicenow.md).
