@@ -234,6 +234,22 @@ If a workload can process ~50,000 IOPS and there is a need for millisecond respo
 > or Azure Site Recovery. Finally, there is no caching support for reads
 > or writes.
 
+
+When you are on a virtual machine series that does not support write acceleration, the key points below should be considered to address low latency storage needs.
+
+* Azure Ultra Disks are supported on the following VM series: ESv3, Easv4, Edsv4, Esv4, DSv3, Dasv4, Ddsv4, Dsv4, FSv2, LSv2, M, and Mv2 series.
+* Ultra disks are designed to provide sub-millisecond latencies and target IOPS and throughput described in the preceding table 99.99% of the time.
+* *Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput.
+* Ultra disks are a strong option for database intensive workloads such as SQL Server, especially when there are transaction-heavy workloads. 
+* Ultra disks can only be used for data and log data disks, though it is important to note that Azure Ultra Disks do not support read or write caching.
+* Use the minimum number of disks possible to meet the required space and IOPS to enable a wider range of machines to scale to.
+
+For a list of the potential restrictions for using Azure Ultra Disks, see the following reference:
+
+**Using Azure Ultra Disks**
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal 
+
 ### Best Practices: Data Files
 For the best OLTP and data warehouse performance choose a combination of premium disks with either P30s, P40s, or P50s for SQL Server data files that matches the uncached and cached performance of the source workload. The reason is that when premium storage is provisioned, unlike standard storage, the capacity, IOPS, and throughput of that disk is guaranteed. 
 These premium Azure Managed Disks (P30s, P40s, and P50s) also supports read and write caching.
