@@ -143,9 +143,9 @@ Application Insights and Azure Monitor can also be used to lower operational cos
 
 ### Operational Excellence
 Azure Spring Cloud reference architecture addresses multiple aspects of operational excellence.  These different aspects combine to ensure Azure Spring Cloud runs efficiently in production environments.
-* Azure DevOps pipelines are leveraged to ensure deployments are reliable and consistent while helping to avoid human error.
-* Azure Monitor and Application Insights are leveraged to store log and telemetry data.  Log and telemetry data collected can be assessed to ensure application performance levels are maintained, availability of the application, health of the application, and can drive operational improvements.  
-* Azure Security Center is leveraged to ensure applications maintain security by providing a platform to analyze and assess the data provided.
+* Azure Pipelines are used to ensure deployments are reliable and consistent while helping to avoid human error.
+* Azure Monitor and Application Insights are used to store log and telemetry data.  Log and telemetry data collected can be assessed to ensure application performance levels are maintained, availability of the application, health of the application, and can drive operational improvements.
+* Azure Security Center is used to ensure applications maintain security by providing a platform to analyze and assess the data provided.
 
 ### Performance Efficiency
 ### Reliability
@@ -181,7 +181,7 @@ The network implementation is further secured by defining controls from the MAFB
 | 6.6 | Ensure that ingress using UDP is restricted from the Internet |
 
 #### Application Security
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. In an independent security review, Azure Spring Cloud was observed to be configured ensuring least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. An independent security review observed that Azure Spring Cloud was configured ensuring least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
@@ -209,7 +209,7 @@ Explore this reference architecture through ARM, Terraform, and CLI deployments 
 
 ## Appendix
 
-When deploying Azure Spring Cloud in a secured environment, management traffic must be able to egress for the service to deploy and remain in a healthy state. Below are the Network and Application rules that must be allowed on Azure Firewall, or Network Virtual Appliance (NVA).
+When deploying Azure Spring Cloud in a secured environment, management traffic must successfully egress for the service to deploy and remain in a healthy state. Below are the Network and Application rules that must be allowed on Azure Firewall, or Network Virtual Appliance (NVA).
 
 ### Azure Spring Cloud Network Rules
 
