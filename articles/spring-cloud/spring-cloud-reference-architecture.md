@@ -206,11 +206,11 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 
 ### Azure Spring Cloud Network Rules
 
-[Azure Spring Cloud required Network Security Rules] [12]
+[Azure Spring Cloud required Network Security Rules][12]
 
 ### Azure Spring Cloud Application Rules
 
-[Azure Spring Cloud required Application Security Rules] [13]
+[Azure Spring Cloud required Application Security Rules][13]
 
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
