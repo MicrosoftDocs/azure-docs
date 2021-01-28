@@ -9,15 +9,9 @@ ms.author: brendanm
 ms.custom: devx-track-java
 ---
 
-# Structured Application Log for Azure Spring Cloud
+# Structured application log for Azure Spring Cloud
 
 This article explains how to generate and collect structured application log data in Azure Spring Cloud. With proper configuration, Azure Spring Cloud provides useful application log query and analysis through Log Analytics.
-
-Contents include:
-
-* Structured log format requirements
-* How to generate schema-compliant JSON log 
-* Query & analyze application log with structured log
 
 ## Log schema requirements
 To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics. 
@@ -38,9 +32,9 @@ To improve log query experience, an application log is required to be in JSON fo
 | mdc.spanId    | string      |     No    | SpanId          |span Id for distributed tracing |
 |               |             |           |                 |                          |
 
-1. The "timestamp" field is required, and should be in UTC format, all other fields are optional.
-2. "traceId" and "spanId" in "mdc" field are used for tracing purpose.
-3. Log each JSON record in one line. 
+* The "timestamp" field is required, and should be in UTC format, all other fields are optional.
+* "traceId" and "spanId" in "mdc" field are used for tracing purpose.
+* Log each JSON record in one line. 
 
 **Log record sample** 
  ```
