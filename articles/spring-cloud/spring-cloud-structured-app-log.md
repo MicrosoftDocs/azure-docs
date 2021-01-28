@@ -107,86 +107,86 @@ The procedure:
 
 1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your pom.xml file.
 
-```xml
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <exclusions>
-            <exclusion>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-logging</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-log4j2</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-layout-template-json</artifactId>
-        <version>2.14.0</version>
-    </dependency>
-```
+    ```xml
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                    <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-layout-template-json</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+    ```
 
 2. Prepare a JSON layout template file jsonTemplate.json in your class path.
 
-```json
-    {
-        "mdc": {
-            "$resolver": "mdc"
-        },
-        "exceptionClass": {
-            "$resolver": "exception",
-            "field": "className"
-        },
-        "stackTrace": {
-            "$resolver": "exception",
-            "field": "stackTrace",
-            "stringified": true
-        },
-        "message": {
-            "$resolver": "message",
-            "stringified": true
-        },
-        "thread": {
-            "$resolver": "thread",
-            "field": "name"
-        },
-        "timestamp": {
-            "$resolver": "timestamp",
-            "pattern": {
-                "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                "timeZone": "UTC"
+    ```json
+        {
+            "mdc": {
+                "$resolver": "mdc"
+            },
+            "exceptionClass": {
+                "$resolver": "exception",
+                "field": "className"
+            },
+            "stackTrace": {
+                "$resolver": "exception",
+                "field": "stackTrace",
+                "stringified": true
+            },
+            "message": {
+                "$resolver": "message",
+                "stringified": true
+            },
+            "thread": {
+                "$resolver": "thread",
+                "field": "name"
+            },
+            "timestamp": {
+                "$resolver": "timestamp",
+                "pattern": {
+                    "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                    "timeZone": "UTC"
+                }
+            },
+            "level": {
+                "$resolver": "level",
+                "field": "name"
+            },
+            "logger": {
+                "$resolver": "logger",
+                "field": "name"
             }
-        },
-        "level": {
-            "$resolver": "level",
-            "field": "name"
-        },
-        "logger": {
-            "$resolver": "logger",
-            "field": "name"
         }
-    }
-```
+    ```
 
 3. Use this JSON layout template in your log4j2.xml config file. 
 
-```json
-    <configuration>
-        <appenders>
-            <console name="Console" target="SYSTEM_OUT">
-            <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json"/>
-            </console>
-        </appenders>
-        <loggers>
-            <root level="info">
-            <appender-ref ref="Console"/>
-            </root>
-        </loggers>
-    </configuration>
-```
+    ```json
+        <configuration>
+            <appenders>
+                <console name="Console" target="SYSTEM_OUT">
+                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json"/>
+                </console>
+            </appenders>
+            <loggers>
+                <root level="info">
+                <appender-ref ref="Console"/>
+                </root>
+            </loggers>
+        </configuration>
+    ```
 
 ## Analyze the logs in Log Analytics
 
