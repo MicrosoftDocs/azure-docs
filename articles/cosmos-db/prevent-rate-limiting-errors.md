@@ -36,18 +36,18 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 ```bash
 az cosmosdb show --name accountname --resource-group resourcegroupname
 ```
-2. **Enable** SSR for all collections in your database account. Note that it may take up to 15min for this change to take effect.
+2. **Enable** SSR for all collections in your database account. It may take up to 15min for this change to take effect.
 ```bash
 az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
 ```
-The following command will **Disable** SSR for all collections in your database account. Note that it may take up to 15min for this change to take effect.
+The following command will **Disable** SSR for all collections in your database account. It may take up to 15min for this change to take effect.
 ```bash
 az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
 ```
 
 ## Frequently Asked Questions
 1. How are requests retried?
-    1. Requests are retried continuously (over and over again) until a 60 second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](mongodb-troubleshoot.md).
+    1. Requests are retried continuously (over and over again) until a 60-second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](mongodb-troubleshoot.md).
 1. How can I monitor the effects of SSR?
     1. You can view the rate limiting errors (429s) that are retried server-side in the Cosmos DB Metrics pane. Keep in mind that these errors don't go to the client when SSR is enabled, since they are handled and retried server-side. 
     1. You can search for log entries containing "estimatedDelayFromRateLimitingInMilliseconds" in your [Cosmos DB resource logs](cosmosdb-monitor-resource-logs.md).
