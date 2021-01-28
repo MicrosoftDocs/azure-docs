@@ -105,7 +105,7 @@ In addition to the arguments discussed previously, you may set the `status` argu
 
 In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
 
-![Pipelines page of AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Pipelines page of AML":::
 
 In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth. Drill in by clicking in your pipeline. On the resulting page, there are more details about your pipeline and you may drill down into individual runs.
 
@@ -162,11 +162,11 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 
 1. Navigate to the Logic App Designer view and select the Blank Logic App template. 
     > [!div class="mx-imgBorder"]
-    > ![Blank template](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Blank template":::
 
 1. In the Designer, search for **blob**. Select the **When a blob is added or modified (properties only)** trigger and add this trigger to your Logic App.
     > [!div class="mx-imgBorder"]
-    > ![Add trigger](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Add trigger":::
 
 1. Fill in the connection info for the Blob storage account you wish to monitor for blob additions or modifications. Select the Container to monitor. 
  
@@ -178,7 +178,7 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action.
 
   > [!div class="mx-imgBorder"]
-  > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Search for HTTP action":::
 
   Use the following settings to configure your action:
 
@@ -209,7 +209,7 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
     Use the `DataStoreName` you added to your workspace as a [Prerequisite](#prerequisites).
      
     > [!div class="mx-imgBorder"]
-    > ![HTTP settings](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="HTTP settings":::
 
 1. Select **Save** and your schedule is now ready.
 
