@@ -796,6 +796,10 @@
     href: /python/api/overview/azure/datafactory
 - name: Resources
   items:
+  - name: Data flow reserved capacity overview
+    href: data-flow-reserved-capacity-overview.md
+  - name: Data flow understand reservation charges
+    href: data-flow-understand-reservation-charges.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

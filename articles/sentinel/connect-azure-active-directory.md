@@ -24,7 +24,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 ## Prerequisites
 
-- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
+- You must have an [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) subscription to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
@@ -40,12 +40,8 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. Mark the check boxes next to the log types you want to stream into Azure Sentinel, and click **Connect**. These are the log types you can choose from:
 
-    - Sign-in logs
-    - Audit logs
-    - Non-interactive user sign-in logs
-    - Service principal sign-in logs
-    - Managed Identity sign-in logs
-    - Provisioning logs
+    - **Sign-in logs**: Information about the usage of managed applications and user sign-in activities.
+    - **Audit logs**: System activity information about user and group management, managed applications, and directory activities.
 
 ## Find your data
 
@@ -53,10 +49,6 @@ After a successful connection is established, the data appears in **Logs**, unde
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 To query the Azure AD logs, enter the relevant table name at the top of the query window.
 

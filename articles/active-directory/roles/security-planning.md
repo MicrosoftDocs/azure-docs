@@ -4,9 +4,9 @@ title: Secure access practices for administrators in Azure AD | Microsoft Docs
 description: Ensure that your organization's administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
-author: curtand
+author: rolyon
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -143,9 +143,10 @@ If your initial global administrators reuse their existing Microsoft account cre
 
 Personal email accounts are regularly phished by cyber attackers, a risk that makes personal email addresses unacceptable for global administrator accounts. To help separate internet risks from administrative privileges, create dedicated accounts for each user with administrative privileges.
 
-* Be sure to create separate accounts for users to do global admin tasks
-* Make sure that your global admins don't accidentally open emails or run programs with their admin accounts
-* Be sure those accounts have their email forwarded to a working mailbox
+* Be sure to create separate accounts for users to do global admin tasks.
+* Make sure that your global admins don't accidentally open emails or run programs with their admin accounts.
+* Be sure those accounts have their email forwarded to a working mailbox.
+* Global Administrator (and other privileged groups) accounts should be cloud-only accounts with no ties to on-premises Active Directory.
 
 #### Ensure the passwords of administrative accounts have recently changed
 

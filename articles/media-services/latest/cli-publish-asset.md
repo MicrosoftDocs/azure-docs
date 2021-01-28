@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Publish an asset | Microsoft Docs
+title: Azure CLI Script Example - Publish an asset 
 description: This article demonstrates how to use the Azure CLI script to publish an asset.
 services: media-services
 documentationcenter: ''
