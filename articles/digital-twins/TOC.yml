@@ -4,7 +4,7 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from previous release
+  - name: Differences from original release
     href: overview-differences.md
 - name: Quickstarts
   expanded: true
