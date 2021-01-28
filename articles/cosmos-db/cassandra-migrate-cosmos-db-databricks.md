@@ -120,17 +120,17 @@ You may see an error code of 429 or `request rate is large` error text, despite 
 - **Excessive data skew with large data volume**. If you have a large amount of data (table rows) to migrate into a given table, but have significant skew in the data (i.e. a large number of records being written for the same partition key value), then you may still experience rate limiting even if you have a large amount of [request units](./request-units.md) provisioned in your table. This is because [request units](./request-units.md) in Azure Cosmos DB are divided equally among physical partitions, and heavy data skew can result in a bottleneck of requests to a single partition, causing rate limiting. In this scenario, it is advisable to reduce to minimal throughput settings in Spark to avoid rate limiting and force the migration to run slowly. This scenario can be more common when migrating reference or control tables, where access is less frequent but skew can be high. However, if significant skew is present in any other type of table, it may also be advisable to review your data model to avoid hot partition issues for your workload during steady state operations. 
 - **Unable to get count on large table**. Running `select count(*) from table` is not currently supported for large tables. You can get the count from metrics in Azure Portal (see our [troubleshooting article](cassandra-troubleshoot.md)), but if you need to determine the count of a large table from within the context of a Spark job, you should dump the data to a temporary table and then use Spark SQL to get the count, e.g. below (replace `<primary key>` with some field from the resulting temporary table).
 
-```scala
-val ReadFromCosmosCassandra = sqlContext
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(cosmosCassandra)
-  .load
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
 
-ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
-%sql
-select count(<primary key>) from CosmosCassandraResult
-```
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## Next steps
 
