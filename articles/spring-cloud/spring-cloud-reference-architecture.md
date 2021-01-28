@@ -125,6 +125,16 @@ The Azure services that are used in this reference architecture are in the follo
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
 
+## Planning the addresses
+
+Azure Spring Cloud requires two dedicated subnets
+* Service runtime
+* Spring Boot microservice applications
+
+Each of these subnets requires a dedicate cluster. Multiple clusters cannot share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11]: section. 
+
+**Note**, the selected CIDR range cannot overlap with VNET address space. It should also not overlap with any connected or on-premises CIDR address ranges. 
+
 ## Well-Architected Framework Considerations
 ### Cost Optimization
 By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that cannot be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
@@ -232,3 +242,4 @@ Explore this reference architecture through ARM, Terraform, and CLI deployments 
 [8]: /azure/azure/spring-cloud/spring-cloud-tutorial-config-server/
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
+[11]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
