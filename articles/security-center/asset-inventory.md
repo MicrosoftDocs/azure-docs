@@ -35,7 +35,7 @@ The asset management possibilities for this tool are substantial and continue to
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

@@ -393,6 +393,8 @@
       href: partner-nevis.md
     - name: Onfido
       href: partner-onfido.md
+    - name: Ping Identity
+      href: partner-ping-identity.md
     - name: Saviynt
       href: partner-saviynt.md
     - name: Strata
@@ -450,6 +452,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: Service limits and restrictions
+    href: service-limits.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model
