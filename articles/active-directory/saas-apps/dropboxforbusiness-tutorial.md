@@ -36,6 +36,9 @@ To get started, you need the following items:
 
 * Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md)
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Add Dropbox Business from the gallery
 
 To configure the integration of Dropbox Business into Azure AD, you need to add Dropbox Business from the gallery to your list of managed SaaS apps.
@@ -152,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. Click on **Add sign-in URL** and in the **Identity provider sign-in URL** textbox, paste the **Login URL** value which you have copied from the Azure portal and then select **Done**.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure6.png "Configure single sign-on")
+	![Configure single sign-on](./media/dropboxforbusiness-tutorial/sso.png "Configure single sign-on")
 
 	c. Click **Upload certificate**, and then browse to your **Base64 encoded certificate file** which you have downloaded from the Azure portal.
 
