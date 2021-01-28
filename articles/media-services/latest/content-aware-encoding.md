@@ -1,20 +1,17 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: A preset for content-aware encoding - Azure Media Services 
+title: A preset for content-aware encoding
 description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Use the content-aware encoding preset to find the optimal bitrate value for a given resolution

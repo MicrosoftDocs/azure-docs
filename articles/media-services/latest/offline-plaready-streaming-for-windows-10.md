@@ -1,5 +1,5 @@
 ---
-title: Configure offline PlayReady streaming with Azure Media Services v3
+title: Configure offline PlayReady streaming
 description: This article shows how to configure your Azure Media Services v3 account for streaming PlayReady for Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
@@ -7,7 +7,6 @@ documentationcenter: ''
 author: willzhan
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-
 ---
 
 # Offline PlayReady Streaming for Windows 10 with Media Services v3

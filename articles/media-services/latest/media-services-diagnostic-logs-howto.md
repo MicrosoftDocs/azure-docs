@@ -1,5 +1,5 @@
 ---
-title: Monitor Media Services diagnostic logs via Azure Monitor 
+title: Monitor diagnostic logs via Azure Monitor
 description: This article demonstrates how to route and view diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.author: inhenkel 
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 

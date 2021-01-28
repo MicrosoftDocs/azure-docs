@@ -1,13 +1,12 @@
 ---
-title: Upload content to an Azure Media Services asset using Azure CLI
+title: Upload content to an asset CLI
 description: The Azure CLI script in this topic shows how to create a Media Services Asset to upload content to.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: 
-
-ms.assetid:
+ms.assetid: 
 ms.service: media-services
 ms.devlang: azurecli
 ms.topic: how-to

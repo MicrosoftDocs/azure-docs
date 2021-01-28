@@ -1,13 +1,11 @@
 ---
-title: Media Services metrics and diagnostic logs with Azure Monitor
-: Azure Media Services
+title: Metrics and diagnostic logs with Azure Monitor
 description: Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +13,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-
 ---
 
 # Monitor Media Services metrics and diagnostic logs with Azure Monitor
