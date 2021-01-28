@@ -55,7 +55,7 @@ Read through the following articles before you begin:
 ::: zone-end
 
 > [!IMPORTANT]
-> This Custom Vision module only supports **Intel x86 and amd64** architectures only. Please check the architecture of your edge device before continuing.
+> This Custom Vision module only supports **Intel x86 and amd64** architectures. Please check the architecture of your edge device before continuing.
 
 ## Review the sample video
 
