@@ -77,7 +77,7 @@ Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as
 
 ### Why does Azure VMware Solution use public 4-byte Autonomous System Number (ASN) instead of private 2-byte ASN?
  
-Azure VMware Solution uses Public 4-byte ASNs to ensure there is never a conflict with customer on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution. Public 4-byte ASNs have been an industry standard for over 11 years and should be supported by all modern routing equipment and carriers.
+Azure VMware Solution utilizes officially registered Public 4-byte Autonomous System Numbers (ASNs) to ensure there is never a conflict with customer on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.  
 
 ## Compute, network, storage, and backup
 
