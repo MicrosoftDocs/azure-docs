@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -12,18 +12,17 @@ ms.subservice: files
 # Understanding Azure Files billing
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work in order to help you understand your monthly Azure Files bill.
 
-The current pricing for Azure Files can be found on the [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Storage units	
-Azure Files uses the base-2 units to represent storage capacity: KiB, MiB, GiB, and TiB. Depending on your operating system, it may or may not use the same system.
+Azure Files uses base-2 unit prefixes to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same prefix or counting system.
 
 ### Windows
 
-Windows measures storage using the base-2 counting system but displays them as base-10 units (KB, MB, GB, TB, etc.) without converting them.
+Windows measures storage using the base-2 counting system but displays them with base-10 prefixes (KB, MB, GB, TB, etc.) without converting them.
 
 > [!IMPORTANT]
 > To calculate Azure Files costs, you do not need to convert units if you are using Windows. Both Azure Files and Windows measure storage in base-2.
-> All core, first party Azure storage services including Azure Files use base-2 units to measure storage. Although we are endeavoring to label storage quantities correctly, you may see incorrectly labeled base-10 units in our documentation.
 
 | Acronym | Definition | Unit | Windows displays as |	
 |---------|------------|------|----------------------|	
@@ -34,11 +33,11 @@ Windows measures storage using the base-2 counting system but displays them as b
 
 ### MacOS
 
-See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) to determine which numbering system is used.
+See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) on Apple's website to determine which counting system is used.
 
 ### Linux
 
-The counting system used is not uniform, a different could be used by each OS or each individual piece of software. Consult their documentation to determine how they report storage capacity.
+There is no uniform counting system used by Linux operating systems, a different counting system could be used by each OS or each individual piece of software. See their documentation to determine how they report storage capacity.
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
