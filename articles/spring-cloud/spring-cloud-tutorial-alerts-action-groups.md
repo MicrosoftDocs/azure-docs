@@ -111,4 +111,4 @@ In this tutorial you learned how to set up alerts and action groups for an Azure
 > [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [SMS Alert Behavior in Action Groups](../azure-monitor/platform/alerts-sms-behavior.md)
+> [SMS Alert Behavior in Action Groups](../azure-monitor/alerts/alerts-sms-behavior.md)

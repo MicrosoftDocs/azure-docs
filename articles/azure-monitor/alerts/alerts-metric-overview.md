@@ -9,7 +9,7 @@ ms.subservice: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](./metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../platform/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work?
 
@@ -22,7 +22,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Static
-- Aggregation type (a statistic that is run over raw metric values. [Supported aggregation types](./metrics-aggregation-explained.md#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
+- Aggregation type (a statistic that is run over raw metric values. [Supported aggregation types](../platform/metrics-aggregation-explained.md#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
 - Period (the look back window over which metric values are checked): Over the last 5 mins
 - Frequency (the frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -39,7 +39,7 @@ Let's say you have created a simple Dynamic Thresholds metric alert rule as foll
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Dynamic
-- Aggregation Type (a statistic that is run over raw metric values. [Supported aggregation types](./metrics-aggregation-explained.md#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
+- Aggregation Type (a statistic that is run over raw metric values. [Supported aggregation types](../platform/metrics-aggregation-explained.md#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
 - Period (the look back window over which metric values are checked): Over the last 5 mins
 - Frequency (the frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -176,9 +176,9 @@ You can find the full list of supported resource types in this [article](./alert
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](../alerts/alerts-metric.md)
-- [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#alert-rules)
+- [Learn how to create alerts within Azure Montior Metrics Explorer](../platform/metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
-- [Learn more about action groups](action-groups.md)
+- [Learn more about action groups](../platform/action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](../alerts/alerts-dynamic-thresholds.md)
 - [Learn more about troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)
 

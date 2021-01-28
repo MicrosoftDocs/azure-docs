@@ -134,9 +134,9 @@
     - name: Overview 
       href: platform/alerts-overview.md
     - name: Metric alerts
-      href: platform/alerts-metric-overview.md
+      href: alerts/alerts-metric-overview.md
     - name: Log alerts
-      href: platform/alerts-unified-log.md
+      href: alerts/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
   - name: Visualize data
@@ -476,13 +476,13 @@
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
-        href: platform/alerts-metric-multiple-time-series-single-rule.md
+        href: alerts/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
-        href: platform/alerts-metric-logs.md
+        href: alerts/alerts-metric-logs.md
       - name: Using Resource Manager template
-        href: platform/alerts-metric-create-templates.md
+        href: alerts/alerts-metric-create-templates.md
       - name: Troubleshoot metric alerts
-        href: platform/alerts-troubleshoot-metric.md
+        href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:  
       - name: Manage log alerts
@@ -492,7 +492,7 @@
       - name: Using Resource Manager template
         href: alerts/alerts-log-create-templates.md
       - name: Troubleshoot log alerts
-        href: platform/alerts-troubleshoot-log.md
+        href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
     - name:  Activity log alert rules
@@ -523,9 +523,9 @@
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md   
       - name: SMS alert behavior
-        href: platform/alerts-sms-behavior.md
+        href: alerts/alerts-sms-behavior.md
       - name: Notification rate limiting
-        href: platform/alerts-rate-limiting.md
+        href: alerts/alerts-rate-limiting.md
       - name: Create action groups with Resource Manager
         href: alerts/action-groups-create-resource-manager-template.md
       - name: Implement a Logic App action
@@ -533,7 +533,7 @@
     - name: Alert user interface
       items:
       - name: About smart groups
-        href: platform/alerts-smartgroups-overview.md 
+        href: alerts/alerts-smartgroups-overview.md 
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
       - name: Manage smart groups
@@ -543,9 +543,9 @@
     - name: Alert API
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
-      href: platform/alerts-troubleshoot.md
+      href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
-      href: platform/alerts-resource-move.md
+      href: alerts/alerts-resource-move.md
     - name: IT Service Management
       items:
       - name: ITSM Connector Overview
@@ -595,11 +595,11 @@
       - name: About classic alerts 
         href: alerts/alerts-classic.overview.md  
       - name: Prepare for migration
-        href: platform/alerts-prepare-migration.md
+        href: alerts/alerts-prepare-migration.md
       - name: Understand the migration tool
-        href: platform/alerts-understand-migration.md
+        href: alerts/alerts-understand-migration.md
       - name: Use the migration tool
-        href: platform/alerts-using-migration-tool.md
+        href: alerts/alerts-using-migration-tool.md
       - name: Automatic migration process
         href: alerts/alerts-automatic-migration.md
       - name: Manage classic metric alerts
@@ -1292,7 +1292,7 @@
     - name: Metrics in diagnostic settings
       href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
-      href: platform/alerts-metric-near-real-time.md
+      href: alerts/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
     - name: Activity log schema
@@ -1434,6 +1434,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

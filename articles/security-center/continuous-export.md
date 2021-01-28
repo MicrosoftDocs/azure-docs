@@ -190,7 +190,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 

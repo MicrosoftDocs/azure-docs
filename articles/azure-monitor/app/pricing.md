@@ -102,7 +102,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Note that this query can be used in an [Azure Log Alert](../platform/alerts-unified-log.md) to set up alerting on data volumes.  
+Note that this query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
 
 To learn more about your telemetry data changes, we can get the count of events by type using the query:
 

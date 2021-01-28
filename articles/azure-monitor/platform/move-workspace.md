@@ -46,7 +46,7 @@ The workspace source and destination subscriptions must exist within the same Az
 > - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
 > 
 >   *Examples:*
->   - [Azure Monitor alert rules](alerts-resource-move.md)
+>   - [Azure Monitor alert rules](../alerts/alerts-resource-move.md)
 >   - Third-party applications
 >   - Custom scripting
 >

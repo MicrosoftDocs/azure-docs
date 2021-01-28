@@ -9,7 +9,7 @@ ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
+As [previously announced](../platform/monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
 
 ## Benefits of new alerts
 
@@ -18,9 +18,9 @@ Classic alerts are being replaced by new, unified alerting in Azure Monitor. The
 - You can alert on a variety of multidimensional metrics for [many more Azure services](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 - The new metric alerts support [multi-resource alert rules](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) that greatly reduce the overhead of managing many rules.
 - The unified notification mechanism, which supports:
-  - [Action groups](action-groups.md), a modular notification mechanism that works with all new alert types (metric, log, and activity log).
+  - [Action groups](../platform/action-groups.md), a modular notification mechanism that works with all new alert types (metric, log, and activity log).
   - New notification mechanisms like SMS, voice, and ITSM Connector.
-- The [unified alert experience](alerts-overview.md) brings all the alerts on different signals (metric, log, and activity log) into one place.
+- The [unified alert experience](../platform/alerts-overview.md) brings all the alerts on different signals (metric, log, and activity log) into one place.
 
 ## Before you migrate
 
@@ -43,7 +43,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
 
 1. Select **Migrate to new rules** to go to the migration landing page. This page shows a list of all your subscriptions and their migration status:
 
-    ![Screenshot shows Migrate alert rules page.](media/alerts-migration/migration-landing.png "Migrate rules")
+    ![Screenshot shows Migrate alert rules page.](media/alerts-using-migration-tool/migration-landing.png "Migrate rules")
 
     All subscriptions that can be migrated by using the tool are marked as **Ready to migrate**.
 
@@ -54,7 +54,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
 
     The resulting page shows the details of classic alert rules that will be migrated for one subscription at a time. You can also select **Download the migration details for this subscription** to get the details in a CSV format.
 
-    ![Screenshot shows the Migrate alert rules page with a link to Download migration details for this subscription and you can specify email for migration notification.](media/alerts-migration/migration-preview.png "Preview migration")
+    ![Screenshot shows the Migrate alert rules page with a link to Download migration details for this subscription and you can specify email for migration notification.](media/alerts-using-migration-tool/migration-preview.png "Preview migration")
 
 1. Specify one or more email addresses to be notified of migration status. You'll receive email when the migration is complete or if any action is needed from you.
 
@@ -63,7 +63,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
     > [!IMPORTANT]
     > After you initiate migration for a subscription, you won't be able to edit or create classic alert rules for that subscription. This restriction ensures that no changes to your classic alert rules are lost during migration to the new rules. Although you won't be able to change your classic alert rules, they'll still continue to run and to provide alerts until they've been migrated. After the migration is complete for your subscription, you can't use classic alert rules anymore.
 
-    ![Screenshot shows a confirmation prompt for your migration, including important information with links to learn more before proceeding.](media/alerts-migration/migration-confirm.png "Confirm start migration")
+    ![Screenshot shows a confirmation prompt for your migration, including important information with links to learn more before proceeding.](media/alerts-using-migration-tool/migration-confirm.png "Confirm start migration")
 
 1. When migration is complete, or if action is required from you, you'll receive an email at the addresses that you provided earlier. You can also periodically check the status at the migration landing page in the portal.
 

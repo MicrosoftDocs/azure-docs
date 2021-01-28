@@ -177,7 +177,7 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Log alerts in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)
+- [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

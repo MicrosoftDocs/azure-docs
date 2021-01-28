@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](../platform/action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details on troubleshooting [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -21,7 +21,7 @@ Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutor
 
 ### Data ingestion time for logs
 
-Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](./data-ingestion-time.md).
+Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../platform/data-ingestion-time.md).
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing more than 4-minutes delay in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
@@ -33,7 +33,7 @@ Query time range is set in the rule condition definition. This field is called *
 
 For example, a query scans 60 minutes, when time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, would work as expected.
 
-![Time period](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
+![Time period](media/alerts-troubleshoot-log/LogAlertTimePeriod.png)
 
 ### Actions are muted in the alert rule
 
@@ -41,7 +41,7 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 
 A common issue is that you think that the alert didn't fire the actions because of a service issue. Even tough it was muted by the rule configuration.
 
-![Suppress alerts](media/alert-log-troubleshoot/LogAlertSuppress.png)
+![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
@@ -55,7 +55,7 @@ A configured [log alert rule in Azure Monitor](./alerts-log.md) might be trigger
 
 ### Alert triggered by partial data
 
-Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](./data-ingestion-time.md).
+Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../platform/data-ingestion-time.md).
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing many misfires in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
@@ -86,7 +86,7 @@ The optimized query is what the log alert service runs. You can run the modified
 
 For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
 
-![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
+![Query to be executed](media/alerts-troubleshoot-log/LogAlertPreview.png)
 
 ## Log alert was disabled
 

@@ -473,7 +473,7 @@ Additionally, Application Insights can monitor Azure Cloud Services apps for ava
 
 - [Create, view, and manage classic metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [Metric Alerts Overview](../azure-monitor/platform/alerts-metric-overview.md) 
+- [Metric Alerts Overview](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 

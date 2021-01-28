@@ -22,7 +22,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added Oracle 8 support.
 
 ### Alerts
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added troubleshooting for dynamic thresholds.
+- [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added troubleshooting for dynamic thresholds.
 - [IT Service Management Connector in Log Analytics](platform/itsmc-definition.md) - New article.
 - [IT Service Management Connector overview](platform/itsmc-overview.md) - Restructured troubleshooting information.
 - [Connect Cherwell with IT Service Management Connector](platform/itsmc-connections-cherwell.md) - New article.
@@ -144,7 +144,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 ### Alerts
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added section on service tag.
 - [Resource Manager template samples for metric alerts](samples/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
+- [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
 
 ### Application Insights
 - [Angular plugin for Application Insights JavaScript SDK](app/javascript-angular-plugin.md) - New article.
@@ -199,7 +199,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Alerts
 - [Create a log alert with Azure Resource Manager template](alerts/alerts-log-create-templates.md) - New article.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on exporting ARM template for a metric alert rule.
+- [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added section on exporting ARM template for a metric alert rule.
 
 ### Application Insights
 - [Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md) - Removed preview designation.
@@ -329,9 +329,9 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Action rules for Azure Monitor alerts](alerts/alerts-action-rules.md) - Added CLI processes.
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
 - [Example queries in Azure Monitor Log Analytics](log-query/example-queries.md) - New article.
-- [Troubleshoot log alerts in Azure Monitor](platform/alerts-troubleshoot-log.md) - Added section on alert rule quota.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
-- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added recommendation for selecting aggregation granularity.
+- [Troubleshoot log alerts in Azure Monitor](alerts/alerts-troubleshoot-log.md) - Added section on alert rule quota.
+- [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
+- [Understand how metric alerts work in Azure Monitor.](alerts/alerts-metric-overview.md) - Added recommendation for selecting aggregation granularity.
 
 ### Application Insights
 - [Release Notes for Azure web app extension - Application Insights](app/web-app-extension-release-notes.md) - New article.
@@ -387,9 +387,9 @@ New and updated articles from restructure of Azure Monitor for VMs content
 - [Log Analytics agent overview](agents/log-analytics-agent.md) - Added Python 2 requirement.
 
 ### Alerts
-- [How to update alert rules or action rules when their target resource moves to a different Azure region](platform/alerts-resource-move.md) - New article.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - New article.
-- [Troubleshooting log alerts in Azure Monitor](platform/alerts-troubleshoot-metric.md) - New article.
+- [How to update alert rules or action rules when their target resource moves to a different Azure region](alerts/alerts-resource-move.md) - New article.
+- [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - New article.
+- [Troubleshooting log alerts in Azure Monitor](alerts/alerts-troubleshoot-metric.md) - New article.
   
 ### Application Insights
 - [Azure Application Insights for JavaScript web apps](app/javascript.md) - Update to JavaScript SDK section. Updated snippet to report load failures.
@@ -607,8 +607,8 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Alerts
 
 - [Create, view, and manage activity log alerts in Azure Monitor](platform/alerts-activity-log.md) - Additional explanation of Resource Manager template.
-- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Updated for government support.
-- [Troubleshooting Azure Monitor alerts and notifications](platform/alerts-troubleshoot.md) - New article.
+- [Understand how metric alerts work in Azure Monitor.](alerts/alerts-metric-overview.md) - Updated for government support.
+- [Troubleshooting Azure Monitor alerts and notifications](alerts/alerts-troubleshoot.md) - New article.
 
 ### Application Insights
 
@@ -731,7 +731,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 ### Alerts
 
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Setting removed for v2 functions that is no longer required.
-- [Create a metric alert with a Resource Manager template](platform/alerts-metric-create-templates.md) - Added example for the *ignoreDataBefore* parameter.  Added constraints about multi-criteria rules.
+- [Create a metric alert with a Resource Manager template](alerts/alerts-metric-create-templates.md) - Added example for the *ignoreDataBefore* parameter.  Added constraints about multi-criteria rules.
 - [Using Log Analytics Alert REST API](platform/api-alerts.md) - JSON example corrected.
 
 ### Application Insights
@@ -784,12 +784,12 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Alerts
 
-- [Create a metric alert with a Resource Manager template](platform/alerts-metric-create-templates.md) - Added example for custom metric.
+- [Create a metric alert with a Resource Manager template](alerts/alerts-metric-create-templates.md) - Added example for custom metric.
 - [Creating Alerts with Dynamic Thresholds in Azure Monitor](alerts/alerts-dynamic-thresholds.md) - Added section on interpreting dynamic threshold charts.
 - [Overview of alerting and notification monitoring in Azure](platform/alerts-overview.md) - Updated Resource Graph query.
-- [Supported resources for metric alerts in Azure Monitor](platform/alerts-metric-near-real-time.md) - Update to metrics and dimensions supported.
+- [Supported resources for metric alerts in Azure Monitor](alerts/alerts-metric-near-real-time.md) - Update to metrics and dimensions supported.
 - [Switch from legacy Log Analytics alerts API into new Azure Alerts API](alerts/alerts-log-api-switch.md) - Added note on modified alert name.
-- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added supported resource types for monitoring at scale.
+- [Understand how metric alerts work in Azure Monitor.](alerts/alerts-metric-overview.md) - Added supported resource types for monitoring at scale.
 
 ### Application Insights
 

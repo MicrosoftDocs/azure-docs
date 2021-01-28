@@ -67,7 +67,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 | Recommendation | Comments | Security Center |
 |-|----|--|
 | Track how requests are authorized | Enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). For more information, see [Monitoring Azure Blob storage with Azure Monitor](monitor-blob-storage.md) or [Azure Storage analytics logging with Classic Monitoring](../common/storage-analytics-logging.md). | - |
-| Set up alerts in Azure Monitor | Configure log alerts to evaluate resources logs at a set frequency and fire an alert based on the results. For more information, see [Log alerts in Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Set up alerts in Azure Monitor | Configure log alerts to evaluate resources logs at a set frequency and fire an alert based on the results. For more information, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## Next steps
 
