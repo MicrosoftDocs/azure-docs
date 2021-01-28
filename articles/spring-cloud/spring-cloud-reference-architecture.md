@@ -22,7 +22,7 @@ The artifacts in the repository are designed to provide a foundation for your us
 
 ## Use Cases
 Typical uses for this architecture include:
-* For internal applications deployed in hybrid cloud environments
+* Internal applications deployed in hybrid cloud environments
 * Externally facing applications
 
 These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
