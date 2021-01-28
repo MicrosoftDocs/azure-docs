@@ -147,7 +147,7 @@ Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id
 To get the policy, use the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
 To remove the policy, use the [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
