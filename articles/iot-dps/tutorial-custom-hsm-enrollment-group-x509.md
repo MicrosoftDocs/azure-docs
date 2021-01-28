@@ -118,50 +118,50 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 To create the root and intermediate portions of the certificate chain:
 
-Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
+1. Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
-This step creates a working directory for the certificate scripts, and generates the example root and intermediate certificate for the certificate chain using openssl. 
+    This creates a working directory for the certificate scripts, and generates the example root and intermediate certificate for the certificate chain using openssl. 
+    
+2. Notice in the output showing the location of the self-signed root certificate. This certificate will go through [proof of possession](how-to-verify-certificates.md) to verify ownership later.
 
-Notice in the output showing the location of the self-signed root certificate. This certificate will go through [proof of possession](how-to-verify-certificates.md) to verify ownership later.
+    ```output
+    Creating the Root CA Certificate
+    CA Root Certificate Generated At:
+    ---------------------------------
+        ./certs/azure-iot-test-only.root.ca.cert.pem
+    
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number:
+                fc:cc:6b:ab:3b:9a:3e:fe
+        Signature Algorithm: sha256WithRSAEncryption
+            Issuer: CN=Azure IoT Hub CA Cert Test Only
+            Validity
+                Not Before: Oct 23 21:30:30 2020 GMT
+                Not After : Nov 22 21:30:30 2020 GMT
+            Subject: CN=Azure IoT Hub CA Cert Test Only
+    ```        
+    
+3. Notice in the output showing the location of the intermediate certificate that is signed/issued by the root certificate. This certificate will be used with the enrollment group you will create later.
 
-```output
-Creating the Root CA Certificate
-CA Root Certificate Generated At:
----------------------------------
-    ./certs/azure-iot-test-only.root.ca.cert.pem
-
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number:
-            fc:cc:6b:ab:3b:9a:3e:fe
-    Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN=Azure IoT Hub CA Cert Test Only
-        Validity
-            Not Before: Oct 23 21:30:30 2020 GMT
-            Not After : Nov 22 21:30:30 2020 GMT
-        Subject: CN=Azure IoT Hub CA Cert Test Only
-```        
-
-Notice in the output showing the location of the intermediate certificate that is signed/issued by the root certificate. This certificate will be used with the enrollment group you will create later.
-
-```output
-Intermediate CA Certificate Generated At:
------------------------------------------
-    ./certs/azure-iot-test-only.intermediate.cert.pem
-
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number: 1 (0x1)
-    Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN=Azure IoT Hub CA Cert Test Only
-        Validity
-            Not Before: Oct 23 21:30:33 2020 GMT
-            Not After : Nov 22 21:30:33 2020 GMT
-        Subject: CN=Azure IoT Hub Intermediate Cert Test Only
-```    
-
+    ```output
+    Intermediate CA Certificate Generated At:
+    -----------------------------------------
+        ./certs/azure-iot-test-only.intermediate.cert.pem
+    
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number: 1 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+            Issuer: CN=Azure IoT Hub CA Cert Test Only
+            Validity
+                Not Before: Oct 23 21:30:33 2020 GMT
+                Not After : Nov 22 21:30:33 2020 GMT
+            Subject: CN=Azure IoT Hub Intermediate Cert Test Only
+    ```    
+    
 #### Create device certificates
 
 To create the device certificates signed by the intermediate certificate in the chain:
