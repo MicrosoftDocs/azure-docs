@@ -143,7 +143,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 Once the private endpoint is created and approved, no additional changes are required from the client side to use the private endpoint. All communication and data transfer from your secured network to the vault will be performed through the private endpoint.
 However, if you remove private endpoints for the vault after a server (SQL/SAP HANA) has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
-### Backup and restore through MARS Agent
+### Backup and restore through MARS agent
 
 When using the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. You must, however, ensure all communication for backup happens through the peered network only.
 

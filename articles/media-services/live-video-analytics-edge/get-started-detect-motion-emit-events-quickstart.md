@@ -26,7 +26,7 @@ You can view the following video with detailed steps on how to get started with 
   > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.  
 
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
+* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671 for outbound traffic. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
@@ -62,7 +62,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
     1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
     1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
     1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
     1. **Media service account** - This helps with managing and streaming media content in Azure.
     1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
@@ -160,7 +160,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
 ### Invoke GraphTopologySet
 
-By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
+Like we did before, you can now invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
 
 ```
 {
