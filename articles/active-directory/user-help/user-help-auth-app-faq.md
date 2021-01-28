@@ -242,7 +242,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What if **Autofill** switch is not available for me in Settings?
 
-**A**: If the **Autofill** switch in **Settings** is unavailable for you, it can be because you are using Authenticator app with your work account. You can use this feature only on a device where your work account isn’t added. If your organization works with Microsoft, the **Autofill** switch can be enabled even when a work account is added to Authenticator.
+**A**: If Autofill is not available for you in Authenticator, it might be because autofill has not yet been allowed for your organization or account type. You can use this feature on a device where your work or school account isn’t added. To learn more on how to allow Autofill for your organization, see [Autofill for IT admins](#autofill-for-it-admins).
 
 **Q**: How do I stop syncing passwords?
 
