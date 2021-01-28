@@ -135,7 +135,7 @@ The procedure:
     </dependency>
 ```
 
-1. Prepare a JSON layout template file jsonTemplate.json in your class path.
+2. Prepare a JSON layout template file jsonTemplate.json in your class path.
 
 ```json
     {
@@ -177,7 +177,7 @@ The procedure:
     }
 ```
 
-1. Use this JSON layout template in your log4j2.xml config file. 
+3. Use this JSON layout template in your log4j2.xml config file. 
 
 ```json
     <configuration>
