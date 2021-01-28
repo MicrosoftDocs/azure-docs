@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private createMeetingClient() {
-        // See section no creating meeting client
+        // See section on creating meeting client
     }
 
     private void joinMeeting() {
@@ -225,7 +225,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingClient| The MeetingClient is the main entry point to the Meeting library.|
-| JoinOptions | JoinOptions are used for configurable options such as display name, and is the microphone muted, etc.|
+| JoinOptions | JoinOptions are used for configurable options such as display name, and microphone muted state, etc.|
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended.|
 
 ## Create a MeetingClient from the user access token
