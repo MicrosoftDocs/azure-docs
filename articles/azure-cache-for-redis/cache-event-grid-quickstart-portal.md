@@ -46,7 +46,7 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
 1. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
-    :::image type="content" source="media/cache-event-grid-portal/deployment-notification.png" alt-text="Azure Portal deployment notification.":::
+    :::image type="content" source="media/cache-event-grid-portal/deployment-notification.png" alt-text="Azure portal deployment notification.":::
 
 4. On the **Resource group** page, in the list of resources, select the web app that you created. You'll also see the App Service plan and the cache instance in this list. 
 
@@ -66,7 +66,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
 2. On the **Azure Cache for Redis** page, select **Events** on the left menu. 
 3. Select **Web Hook**. You are sending events to your viewer app using a web hook for the endpoint. 
 
-     :::image type="content" source="media/cache-event-grid-portal/event-grid-web-hook.png" alt-text="Azure Portal Events page.":::
+     :::image type="content" source="media/cache-event-grid-portal/event-grid-web-hook.png" alt-text="Azure portal Events page.":::
 
 4. On the **Create Event Subscription** page, enter the following: 
 
