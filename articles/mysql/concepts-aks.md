@@ -17,9 +17,7 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use
 ## Create Database before creating the AKS cluster
 Azure Database for MySQL has two deployment options:
 - Single Sever
-- Flexible Server
-
->[!Note] that Flexible server is in Preview.
+- Flexible Server (Preview)
 
 Single Server supports  Single availability zone and Flexible Server supports multiple availability zones. AKS on the other hand also supports enabling single or multiple availability zones.
 
