@@ -64,11 +64,11 @@ New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupNa
 The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:
 
 - **Managed HSM Name**: The name you provided to the --name parameter above.
-- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault URI**: In the example, this is https://&lt;your-unique-managed-hsm-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-### Activate your managed HSM
+## Activate your managed HSM
 
 All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM you must download the [Security Domain](security-domain.md).
 
@@ -80,7 +80,7 @@ To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM.
 
 The example below shows how to use  `openssl` to generate 3 self signed certificate.
 
-```azurecli-interactive
+```azurepowershell-interactive
 openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
@@ -89,10 +89,10 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert
 > [!IMPORTANT]
 > Create and store the RSA key pairs and security domain file generated in this step securely.
 
-Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
+Use the Azure PowerShell [Export-AzKeyVaultSecurityDomain](/powershell/module/az.keyvault/export-azkeyvaultsecuritydomain) cmdlet to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
 
 ```azurecli-interactive
-az keyvault security-domain download --hsm-name ContosoMHSM --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
+az keyvault security-domain download --hsm-name "<your-unique-managed-hsm-name>" --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
 ```
 
 Please store the security domain file and the RSA key pairs securely. You will need them for disaster recovery or for creating another managed HSM that shares same security domain, so they can share keys.

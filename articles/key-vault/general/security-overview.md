@@ -13,11 +13,14 @@ ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 
-# Azure Key Vault security overview
+# Azure Key Vault security
 
 You use Azure Key Vault to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud. When storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them.
 
-This article provides an overview of security features and best practices for Azure Key Vault. For a comprehensive list of recommendations, based on the [Azure Security Benchmark](../../security/benchmarks/introduction.md), see the [Security baseline for Azure Key Vault](security-baseline.md).
+This article provides an overview of security features and best practices for Azure Key Vault. 
+
+> [!NOTE]
+> For a comprehensive list of Azure Key Vault security recommendations see the [Security baseline for Azure Key Vault](security-baseline.md).
 
 ## General guidance
 
