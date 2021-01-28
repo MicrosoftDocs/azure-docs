@@ -31,7 +31,7 @@ In public preview, you can restore the Azure Cosmos DB account for SQL API or Mo
 
 In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within 100 seconds. If the backup media (that is Azure storage) is down or unavailable, the mutations are persisted locally until the media is available back and then they are flushed out to prevent any loss in fidelity of operations that can be restored.
 
-You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The restore time will depend on the amount of data that needs to be restored.
+You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored.
 
 > [!NOTE]
 > With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has availability zone feature enabled for that region. The restore action always restores data into a new account.
@@ -49,7 +49,8 @@ You can add these configurations to the restored account after the restore is co
 
 ## Restore scenarios
 
-The following are some of the key scenarios that are addressed by the point in time restore feature. Scenarios [a] through [c] demonstrate how to trigger a restore if you know the restore time ahead. However, there could be scenarios where you don't know the exact time of accidental deletion or corruption. Scenarios [d] and [e] demonstrate how to discover the restore point time using the new event feed APIs on the restorable database or containers.
+The following are some of the key scenarios that are addressed by the point-in-time-restore feature. Scenarios [a] through [c] demonstrate how to trigger a restore if the restore timestamp is known beforehand. 
+However, there could be scenarios where you don't know the exact time of accidental deletion or corruption. Scenarios [d] and [e] demonstrate how to _discover_ the restore timestamp using the new event feed APIs on the restorable database or containers.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Life-cycle events with timestamps for a restorable account" border="false":::
 
@@ -59,7 +60,7 @@ a. **Restore deleted account** - All the deleted accounts that you can restore a
 
 b. **Restore data of an account in a particular region** - For example, if "Account A" exists in two regions "East US" and "West US" at timestamp T3. If you need a copy of account A in "West US", you can do a point in time restore from [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [CLI](configure-continuous-backup-restore-cli.md) with West US as the target location.
 
-c. **Recover from an accidental write or delete operation within a container with a known restore timestamp** - For example, the contents of "Container 1" within "Database 1" were modified accidentally at timestamp T3. You can do a point in time restore from [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [CLI](configure-continuous-backup-restore-cli.md) into another account at timestamp T3 to recover the desired state of container.
+c. **Recover from an accidental write or delete operation within a container with a known restore timestamp** - For example, if you **know** that the contents of "Container 1" within "Database 1" were modified accidentally at timestamp T3. You can do a point in time restore from [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [CLI](configure-continuous-backup-restore-cli.md) into another account at timestamp T3 to recover the desired state of container.
 
 d. **Restore an account to a previous point in time before the accidental delete of the database** - In the [Azure portal](configure-continuous-backup-restore-portal.md), you can use the event feed pane to determine when a database was deleted and find the restore time. Similarly, with [Azure CLI](configure-continuous-backup-restore-cli.md) and [PowerShell](configure-continuous-backup-restore-powershell.md), you can discover the database deletion event by enumerating the database events feed and then trigger the restore command with the required parameters.
 
@@ -81,7 +82,7 @@ e. **Restore an account to a previous point in time before the accidental delete
 
 Currently the point in time restore functionality is in public preview and it has the following limitations:
 
-* Currently only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
+* Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
 
 * An existing account with default periodic backup policy cannot be converted to use continuous backup mode.
 
@@ -93,7 +94,7 @@ Currently the point in time restore functionality is in public preview and it ha
 
 * Accounts with Synapse Link enabled are not supported.
 
-* Currently, the restored account is created in the same region where your source account exists. You can't restore data to a cross region.
+* The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account did not exist.
 
 * The restore window is only 30 days and it cannot be changed.
 
