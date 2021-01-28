@@ -15,6 +15,35 @@ ms.date: 09/10/2020
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
+ ## 2021-01-25
+
+### Azure Machine Learning SDK for Python v1.21.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Fixed CLI help text when using AmlCompute with UserAssigned Identity
+  + **azureml-contrib-automl-dnn-vision**
+    + Deploy and download buttons will become visible for AutoML vision runs, and models can be deployed or downloaded similar to other AutoML runs. There are two new files (scoring_file_v_1_0_0.py and conda_env_v_1_0_0.yml) which contain a script to run inferencing and a yml file to recreate the conda environment. The 'model.pth' file has also been renamed to use the '.pt' extension.
+  + **azureml-core**
+    + MSI support for azure-cli-ml
+    + User Assigned Managed Identity Support.
+    + With this change, the customers should be able to provide a user assigned identity that can be used to fetch the key from the customer key vault for encryption at rest.
+    +  fix row_count=0 for the profile of very large files - fix error in double conversion for delimited values with white space padding
+    + Remove experimental flag for Output dataset GA
+    + Update documentation on how to fetch specific version of a Model
+    + Allow updating workspace for mixed mode access in case of private link
+    + Fix to remove additional registration on datastore for resume run feature
+    + Added CLI/SDK support for updating primary user assigned identity of workspace
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.16.0
+    + memory optimizations for explanation client in azureml-interpret
+  + **azureml-train-automl-runtime**
+    + Enabled streaming for ADB runs
+  + **azureml-train-core**
+    + Fix to remove additional registration on datastore for resume run feature
+  + **azureml-widgets**
+    + Customers should not see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
+    + The user run widget now includes a detailed explanation for why a run is in the queued state.
+
 
  ## 2021-01-11
 
@@ -113,7 +142,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 ## 2020-11-30
 ### Azure Machine Learning Studio Notebooks Experience (November Update)
 + **New features**
-   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](./how-to-run-jupyter-notebooks.md#terminal)
   + Duplicate Folder 
   + Costing for Compute Drop Down 
   + Offline Compute Pylance 

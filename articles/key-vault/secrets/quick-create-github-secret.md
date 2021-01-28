@@ -20,7 +20,7 @@ With Key Vault and GitHub Actions, you have the benefits of a centralized secret
 ## Prerequisites 
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure App connected to a GitHub repository. This example uses [Deploy containers to Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01). 
+- An Azure App connected to a GitHub repository. This example uses [Deploy containers to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01). 
 - An Azure key vault.  You can create an Azure Key Vault using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Workflow file overview
