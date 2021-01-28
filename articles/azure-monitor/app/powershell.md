@@ -400,12 +400,12 @@ This will set the daily cap to 200 GB/day, configure the daily cap reset time to
 
 ## Add a metric alert
 
-To automate the creation of metric alerts, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
+To automate the creation of metric alerts, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
 
-To automate availability tests, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+To automate availability tests, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 

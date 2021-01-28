@@ -9,12 +9,12 @@ ms.subservice: alerts
 ---
 # Understand migration options to newer alerts
 
-Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
+Classic alerts are [retired](../platform/monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
 
 This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes remedies for some common problems.
 
 > [!IMPORTANT]
-> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](../platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 > [!NOTE]
 > If your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
@@ -27,8 +27,8 @@ Customers that are interested in manually migrating their remaining alerts can a
 
 Before you can create new metric alerts on guest metrics, the guest metrics must be sent to the Azure Monitor custom metrics store. Follow these instructions to enable the Azure Monitor sink in diagnostic settings:
 
-- [Enabling guest metrics for Windows VMs](collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Enabling guest metrics for Linux VMs](collect-custom-metrics-linux-telegraf.md)
+- [Enabling guest metrics for Windows VMs](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Enabling guest metrics for Linux VMs](../platform/collect-custom-metrics-linux-telegraf.md)
 
 After these steps are done, you can create new metric alerts on guest metrics. And after you have created new metric alerts, you can delete classic alerts.
 
@@ -79,7 +79,7 @@ All classic alerts on Cosmos DB metrics can be migrated except alerts on these m
 - Throttled Requests
 - Total Requests
 
-Average Requests per Second, Consistency Level, Max RUPM Consumed Per Minute, Max RUs Per Second, Observed Read Latency, Observed Write Latency, Storage Capacity are not currently available in the [new system](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
+Average Requests per Second, Consistency Level, Max RUPM Consumed Per Minute, Max RUs Per Second, Observed Read Latency, Observed Write Latency, Storage Capacity are not currently available in the [new system](../platform/metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
 Alerts on request metrics like Http 2xx, Http 3xx, Http 400, Http 401, Internal Server Error, Service Availability, Throttled Requests and Total Requests are not migrated because the way requests are counted is different between classic metrics and new metrics. Alerts on these will need to be manually recreated with thresholds adjusted.
 
@@ -111,7 +111,7 @@ The migration tool converts your classic alert rules to equivalent new alert rul
 - **Units**: Property of the metric on which alert is created. Some equivalent metrics have different units. The threshold is adjusted appropriately as needed. For example, if the original metric has seconds as units but equivalent new metric has milliSeconds as units, the original threshold is multiplied by 1000 to ensure same behavior.
 - **Window Size**: Defines the window over which metric data is aggregated to compare against the threshold. For standard `windowSize` values like 5mins, 15mins, 30mins, 1hour, 3hours, 6 hours, 12 hours, 1 day, there is no change made for equivalent new alert rule. For other values, the closest `windowSize` is chosen to be used. For most customers, there is no impact with this change. For a small percentage of customers, there might be a need to tweak the threshold to get exact same behavior.
 
-In the following sections, we detail the metrics that have a different, equivalent metric in the new system. Any metric that remains the same for classic and new alert rules is not listed. You can find a list of metrics supported in the new system [here](metrics-supported.md).
+In the following sections, we detail the metrics that have a different, equivalent metric in the new system. Any metric that remains the same for classic and new alert rules is not listed. You can find a list of metrics supported in the new system [here](../platform/metrics-supported.md).
 
 ### Microsoft.StorageAccounts/services
 

@@ -76,7 +76,7 @@ Since this query only returns unavailable nodes as results, if the number of res
 
 In the **Evaluated based on** section, set the **period** and **frequency** based on how often you want to check for unavailable nodes.
 
-For the purpose of this alert, you want to make sure **Period=Frequency.** More information about period, frequency, and other alert parameters can be found [here](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
+For the purpose of this alert, you want to make sure **Period=Frequency.** More information about period, frequency, and other alert parameters can be found [here](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition).
 
 Select **Done** when you're finished configuring the signal logic.
 

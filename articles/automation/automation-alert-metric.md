@@ -7,7 +7,7 @@ ms.topic: article
 ---
 # Monitor runbooks with metric alerts
 
-In this article, you learn how to create a [metric alert](../azure-monitor/platform/alerts-metric-overview.md) based on runbook completion status.
+In this article, you learn how to create a [metric alert](../azure-monitor/alerts/alerts-metric-overview.md) based on runbook completion status.
 
 ## Sign in to Azure
 

@@ -57,7 +57,7 @@ To access metrics:
 
 ## Set up an alert rule 
 
-You can receive [alerts](../azure-monitor/platform/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/alerts/alerts-metric.md) to do the following when it triggers:
+You can receive [alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/alerts/alerts-metric.md) to do the following when it triggers:
 
 * Send an email notification
 * Call a webhook

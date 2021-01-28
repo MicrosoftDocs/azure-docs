@@ -61774,6 +61774,86 @@
       "source_path": "articles/aks/view-master-logs.md",
       "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-logs.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-multiple-time-series-single-rule.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-multiple-time-series-single-rule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-near-real-time.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-near-real-time",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-prepare-migration.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-prepare-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-rate-limiting.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-rate-limiting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-resource-move.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-resource-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-smartgroups-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-smartgroups-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-sms-behavior.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-sms-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-troubleshoot-log.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-troubleshoot-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-troubleshoot-metric.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-troubleshoot-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-understand-migration.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-understand-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-unified-log.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-unified-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-using-migration-tool.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-using-migration-tool",
+      "redirect_document_id": false
     }
   ]
 }

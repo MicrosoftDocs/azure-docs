@@ -26,7 +26,7 @@ At the same time, collecting a complete set of events may be impractical (or eve
 
 ## Pre-aggregated metrics
 
-In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that is optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they are stored as pre-aggregated time series, and only with key dimensions. This makes the new metrics superior at query time: retrieving data happens much faster and requires less compute power. This consequently enables new scenarios such as [near real-time alerting on dimensions of metrics](../platform/alerts-metric-near-real-time.md), more responsive [dashboards](./overview-dashboard.md), and more.
+In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that is optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they are stored as pre-aggregated time series, and only with key dimensions. This makes the new metrics superior at query time: retrieving data happens much faster and requires less compute power. This consequently enables new scenarios such as [near real-time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md), more responsive [dashboards](./overview-dashboard.md), and more.
 
 > [!IMPORTANT]
 > Both, log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights UX the pre-aggregated metrics are now called "Standard metrics (preview)", while the traditional metrics from the events were renamed to "Log-based metrics".
@@ -89,5 +89,5 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Near real-time alerting](../platform/alerts-metric-near-real-time.md)
+* [Near real-time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

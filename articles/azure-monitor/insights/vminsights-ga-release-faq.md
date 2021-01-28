@@ -50,7 +50,7 @@ If you decide to keep the performance counters enabled, you will be billed for t
 
 ## How will this change affect my alert rules?
 
-If you have created [Log alerts](../platform/alerts-unified-log.md) that query the `Perf` table targeting performance counters that were enabled in the workspace, you should update these rules to refer to the `InsightsMetrics` table instead. This guidance also applies to any log search rules using `ServiceMapComputer_CL` and `ServiceMapProcess_CL`, because those data sets are moving to `VMComputer` and `VMProcess` tables.
+If you have created [Log alerts](../alerts/alerts-unified-log.md) that query the `Perf` table targeting performance counters that were enabled in the workspace, you should update these rules to refer to the `InsightsMetrics` table instead. This guidance also applies to any log search rules using `ServiceMapComputer_CL` and `ServiceMapProcess_CL`, because those data sets are moving to `VMComputer` and `VMProcess` tables.
 
 We will update this FAQ and our documentation to include example log search alert rules for the data sets we collect.
 

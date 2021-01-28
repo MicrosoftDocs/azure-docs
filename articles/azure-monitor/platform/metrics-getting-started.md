@@ -19,7 +19,7 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
 
 1. Try [applying dimension filters and splitting](#apply-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
-1. Use [advanced settings](#advanced-chart-settings) to customize the chart before pinning to dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
+1. Use [advanced settings](#advanced-chart-settings) to customize the chart before pinning to dashboards. [Configure alerts](../alerts/alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
 ## Create your first metric chart
 

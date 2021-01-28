@@ -10,7 +10,7 @@ ms.subservice: alerts
 ---
 # How to update alert rules or action rules when their target resource moves to a different Azure region
 
-This article describes why existing [alert rules](./alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-region.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
+This article describes why existing [alert rules](../platform/alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-region.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
 
 ## Why the problem exists
 

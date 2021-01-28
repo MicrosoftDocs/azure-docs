@@ -194,7 +194,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Learn how to [setup mobile push notifications for Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](service-notifications.md).
-- Learn about [notification rate limiting](../azure-monitor/platform/alerts-rate-limiting.md).
+- Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 - Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).
