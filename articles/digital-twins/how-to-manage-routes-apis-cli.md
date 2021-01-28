@@ -120,14 +120,14 @@ Alternatively, you can create dead letter endpoints using the [Azure Digital Twi
 
 You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 
-The CLI command to create this is below. You'll need to replace the following placeholders with your own values:
-* `<Azure-Digital-Twins-instance-Azure-resource-ID>`
-* `<endpoint-name>`
-* `<endpoint-type>`
-* `<endpoint-namespace>`
-* `<event-hub-or-Service-Bus-topic-name>`
-* **dead letter SAS URI** details: `<storage-account-name>`, `<container-name>`
-* `<instance-location>`
+The CLI command to create this is below. You'll need the following values to replace all the placeholders:
+* the Azure resource ID of your Azure Digital Twins instance
+* an endpoint name
+* an endpoint type
+* the endpoint resource's namespace
+* the event hub or Service Bus topic name
+* **dead letter SAS URI** details: storage account name, container name
+* the location of your Azure Digital Twins instance
 
 ```azurecli-interactive
 az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<event-hub-or-Service-Bus-topic-name>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
