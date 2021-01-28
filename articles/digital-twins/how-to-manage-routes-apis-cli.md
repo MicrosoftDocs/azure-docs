@@ -43,7 +43,7 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [*Choose between Azure messaging services*](../event-grid/compare-messaging-services.md).
 
-This section explains how to create one of these endpoints using the Azure CLI.
+This section explains how to create these endpoints using the Azure CLI. You can also manage endpoints with the [DigitalTwinsEndpoint control plane APIs](/rest/api/digital-twins/controlplane/endpoints).
 
 [!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
