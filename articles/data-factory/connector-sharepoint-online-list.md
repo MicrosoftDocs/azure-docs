@@ -179,6 +179,9 @@ To copy data from SharePoint Online List, the following properties are supported
 ]
 ```
 
+> [!NOTE]
+> Azure Data Factory does not support Multi select choice fields of SharePoint List.
+
 ## Data type mapping for SharePoint Online List
 
 When you copy data from SharePoint Online List, the following mappings are used between SharePoint Online List data types and Azure Data Factory interim data types. 
