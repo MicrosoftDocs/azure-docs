@@ -19,14 +19,14 @@ You can use automation runbooks with three alert types:
 * Near-real-time metric alerts
 
 > [!NOTE]
-> The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](../azure-monitor/platform/alerts-common-schema.md)
+> The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](../azure-monitor/alerts/alerts-common-schema.md)
 
 When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|
-|[Common alert](../azure-monitor/platform/alerts-common-schema.md)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|Common alert payload schema|
-|[Activity log alert](../azure-monitor/platform/activity-log-alerts.md)    |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an Active status appears.| [Activity log alert payload schema](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Common alert](../azure-monitor/alerts/alerts-common-schema.md)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|Common alert payload schema|
+|[Activity log alert](../azure-monitor/platform/activity-log-alerts.md)    |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an Active status appears.| [Activity log alert payload schema](../azure-monitor/alerts/activity-log-alerts-webhook.md)        |
 |[Near real-time metric alert](../azure-monitor/platform/alerts-metric-near-real-time.md)    |Sends a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than 90, and the value for **Network In** is greater than 500 MB for the past 5 minutes.| [Near real-time metric alert payload schema](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Because the data that's provided by each type of alert is different, each alert type is handled differently. In the next section, you learn how to create a runbook to handle different types of alerts.

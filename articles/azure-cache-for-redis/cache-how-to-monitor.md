@@ -124,7 +124,7 @@ To configure Alert rules for your cache, click **Alert rules** from the **Resour
 
 ![Monitoring](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/platform/alerts-classic-portal.md).
+For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
 
 ## Activity Logs
 Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances. 

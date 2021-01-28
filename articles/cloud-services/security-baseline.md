@@ -471,7 +471,7 @@ The application data stored in temporary disks is not encrypted. The customer is
 
 Additionally, Application Insights can monitor Azure Cloud Services apps for availability, performance, failures, and usage. This uses combined data from Application Insights SDKs with Azure Diagnostics data from your Azure Cloud Services.
 
-- [Create, view, and manage classic metric alerts using Azure Monitor](../azure-monitor/platform/alerts-classic-portal.md)
+- [Create, view, and manage classic metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-classic-portal.md)
 
 - [Metric Alerts Overview](../azure-monitor/platform/alerts-metric-overview.md) 
 

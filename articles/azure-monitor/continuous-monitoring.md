@@ -60,9 +60,9 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 ## Create actionable alerts with actions
 A critical aspect of monitoring is proactively notifying administrators of any current and predicted issues. 
 
-- Create [alerts in Azure Monitor](./platform/alerts-overview.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [Dynamic Thresholds](platform/alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
+- Create [alerts in Azure Monitor](./platform/alerts-overview.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [Dynamic Thresholds](alerts/alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
 - Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
-- Use more advanced actions to [connect to your ITSM tool](platform/itsmc-overview.md) or other alert management systems through [webhooks](platform/activity-log-alerts-webhook.md).
+- Use more advanced actions to [connect to your ITSM tool](platform/itsmc-overview.md) or other alert management systems through [webhooks](alerts/activity-log-alerts-webhook.md).
 - Remediate situations identified in alerts as well with [Azure Automation runbooks](../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 
 - Use [autoscaling](./learn/tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
 

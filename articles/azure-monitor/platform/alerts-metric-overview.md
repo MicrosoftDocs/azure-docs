@@ -13,7 +13,7 @@ Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These m
 
 ## How do metric alerts work?
 
-You can define a metric alert rule by specifying a target resource to be monitored, metric name, condition type (static or dynamic), and the condition (an operator and a threshold/sensitivity) and an action group to be triggered when the alert rule fires. Condition types affect the way thresholds are determined. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
+You can define a metric alert rule by specifying a target resource to be monitored, metric name, condition type (static or dynamic), and the condition (an operator and a threshold/sensitivity) and an action group to be triggered when the alert rule fires. Condition types affect the way thresholds are determined. [Learn more about Dynamic Thresholds condition type and sensitivity options](../alerts/alerts-dynamic-thresholds.md).
 
 ### Alert rule with static condition type
 
@@ -118,7 +118,7 @@ Say you have a web app with many instances and you don't know what the most suit
 
 This rule monitors if the average CPU usage for the last 5 minutes exceeds the expected behavior for each instance. The same rule you can monitor instances as they come up without needing to modify your metric alert rule again. Each instance will get a threshold that fits the metric series behavior pattern and will continuously change based on new data to make the threshold more accurate. Like before, each instance will be monitored individually and you will get notifications individually.
 
-Increasing look-back periods and number of violations can also allow filtering alerts to only alert on your definition of a significant deviation. [Learn more about Dynamic Thresholds advanced options](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+Increasing look-back periods and number of violations can also allow filtering alerts to only alert on your definition of a significant deviation. [Learn more about Dynamic Thresholds advanced options](../alerts/alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
 > [!NOTE]
 >
@@ -179,6 +179,6 @@ You can find the full list of supported resource types in this [article](./alert
 - [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
-- [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)
+- [Learn more about Dynamic Thresholds condition type](../alerts/alerts-dynamic-thresholds.md)
 - [Learn more about troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)
 

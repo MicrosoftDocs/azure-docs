@@ -17,7 +17,7 @@ ms.subservice: alerts
 > Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
 
 > [!NOTE]
-> It is recommended you use [common alert schema](alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
+> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Webhook payload properties
 
@@ -79,7 +79,7 @@ This section shows sample payloads for webhooks for log alerts. The sample paylo
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](api-alerts.md).
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](api-alerts.md).
 
 ```json
 {

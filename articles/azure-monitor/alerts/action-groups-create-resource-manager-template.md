@@ -159,7 +159,7 @@ First template, describes how to create a Resource Manager template for an actio
 
 
 ## Next steps
-* Learn more about [action groups](./action-groups.md).
-* Learn more about [alerts](alerts-overview.md).
-* Learn how to add [alerts by using a Resource Manager template](./alerts-activity-log.md).
+* Learn more about [action groups](../platform/action-groups.md).
+* Learn more about [alerts](../platform/alerts-overview.md).
+* Learn how to add [alerts by using a Resource Manager template](../platform/alerts-activity-log.md).
 

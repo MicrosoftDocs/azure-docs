@@ -155,7 +155,7 @@ The following example shows budget thresholds set to 50%, 75%, and 100%. Each is
 
 ![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
-Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
 ## Create and edit budgets with PowerShell
 

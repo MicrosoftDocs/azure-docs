@@ -81,7 +81,7 @@ Notification received at time t2
 - To know more about this state transition: Navigation link to the state transition happened at time t2.
 
 ## Configure notifications
-To be proactively notified of an alert triggered by guest health, create an [action group](../platform/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../platform/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
+To be proactively notified of an alert triggered by guest health, create an [action group](../platform/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../alerts/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
 
 In the **Monitor** menu in the Azure portal, select **Alerts**.  Select **Manage actions** and then **Action rules (preview)**. 
 

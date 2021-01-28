@@ -74,7 +74,7 @@ The time granularity allows you to adjust the "signal-to-noise" ratio on a chart
 
 This smoothing behavior is important when you send this data to other systems--for example, alerts. Typically, you usually don't want to be alerted by very short spikes in CPU time over 90%. But if the CPU stays at 90% for 5 minutes, that's likely important. If you set up an alert rule on CPU (or any metric), making the time granularity larger can reduce the number of false alerts you receive. 
 
-It is important to establish what's "normal" for your workload to know what time interval is best. This is one of the benefits of [dynamic alerts](alerts-dynamic-thresholds.md), which is a different topic not covered here.  
+It is important to establish what's "normal" for your workload to know what time interval is best. This is one of the benefits of [dynamic alerts](../alerts/alerts-dynamic-thresholds.md), which is a different topic not covered here.  
 
 ## How the system collects metrics
 

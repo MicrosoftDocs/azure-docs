@@ -57,5 +57,5 @@ To learn more about action groups, see [Create and manage action groups in the A
 
 - Get an [overview of alerts](alerts-overview.md).
 - Learn about [create and modify activity log alerts](alerts-activity-log.md).
-- Review the [activity log alert webhook schema](activity-log-alerts-webhook.md).
+- Review the [activity log alert webhook schema](../alerts/activity-log-alerts-webhook.md).
 - Learn about [service health notifications](../../service-health/service-notifications.md).
