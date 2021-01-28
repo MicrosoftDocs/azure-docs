@@ -2,7 +2,7 @@
 title: Quickstart - Add joining a meeting to your app 
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add join meeting capabilities to your app using Azure Communication Services.
-author: patricklatter
+author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart

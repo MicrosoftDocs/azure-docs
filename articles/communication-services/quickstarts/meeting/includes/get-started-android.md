@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add joining a meeting to an Android app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Meeting Composite library for Android.
-author: patricklatter
+author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
