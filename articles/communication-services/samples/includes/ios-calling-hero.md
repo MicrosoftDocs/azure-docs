@@ -29,10 +29,10 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
-- Azure Function running [Trusted Service logic](../../tutorials/trusted-service-tutorial.md) to fetch access tokens
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
+- An Azure Function running [Trusted Service logic](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
 
@@ -40,17 +40,17 @@ The group calling sample can be run locally using XCode. Developers can either u
 
 ### Before running the sample for the first time
 
-1. Install dependencies by running `pod install`
-2. Open `CallingSampleApp.xcworkspace` in XCode
+1. Install dependencies by running `pod install`.
+2. Open `CallingSampleApp.xcworkspace` in XCode.
 3. Update `AppSettings.plist`. Set the value for the `acsTokenFetchUrl` key to be the URL for your Authentication Endpoint.
 
 ### Run sample
 
-Build and Run the sample in XCode.
+Build and run the sample in XCode.
 
 ## (Optional) Securing an authentication endpoint
 
-For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.  
+For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
 
 With additional configuration, this sample supports connecting to an **Azure Active Directory** (AAD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
