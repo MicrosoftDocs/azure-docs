@@ -56,7 +56,7 @@ Learn how to build a data ingestion pipeline for Machine Learning with [Azure Da
 
 ## Azure Machine Learning Python SDK 
 
-With the [Python SDK](/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](./how-to-create-machine-learning-pipelines.md) step.
 
 The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 

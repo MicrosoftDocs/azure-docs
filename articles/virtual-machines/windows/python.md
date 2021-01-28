@@ -562,4 +562,4 @@ Because you are charged for resources used in Azure, it's always a good practice
 ## Next steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../azure-resource-manager/templates/deployment-history.md)
-- Learn more about the [Azure Python Library](/python/api/overview/azure/?view=azure-python)
+- Learn more about the [Azure Python Library](/python/api/overview/azure/)

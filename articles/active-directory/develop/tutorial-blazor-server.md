@@ -68,7 +68,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## Test the app

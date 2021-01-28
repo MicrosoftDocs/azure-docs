@@ -27,7 +27,7 @@ Some common messaging scenarios are:
     2. Post results of processing to one or more different queues.
     3. Move the input message from the original queue. 
     
-    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
+    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
 
 If you're familiar with other message brokers like Apache ActiveMQ, Service Bus concepts are similar to what you know. As Service Bus is a platform-as-a-service (PaaS) offering, a key difference is that you don't need to worry about the following actions. Azure takes care of those chores for you. 
@@ -133,11 +133,11 @@ For protection against unwanted traffic, Service Bus provides [security features
 
 Fully supported Service Bus client libraries are available via the Azure SDK.
 
-- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md) and it can be used from any AMQP 1.0 compliant protocol client. Several open-source AMQP clients have samples that explicitly demonstrate Service Bus interoperability. Review the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus'
 features with AMQP 1.0 clients directly.

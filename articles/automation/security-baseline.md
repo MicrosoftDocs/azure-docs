@@ -554,7 +554,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 * [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 enforcement](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+* [Azure Automation TLS 1.2 enforcement](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -936,7 +936,7 @@ When using the Hybrid Runbook Worker feature, there are several options for main
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](../virtual-machines/windows/ps-template.md)
 

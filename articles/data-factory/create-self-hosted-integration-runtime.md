@@ -152,21 +152,21 @@ Here are details of the application's actions and arguments:
 
 |ACTION|args|Description|
 |------|----|-----------|
-|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Register a self-hosted integration runtime node with the specified authentication key and node name.|
-|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Enable remote access to the current node when the node runs in a container.|
-|-dra,<br/>-DisableRemoteAccess||Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node.|
-|-k,<br/>-Key|"`<AuthenticationKey>`"|Overwrite or update the previous authentication key. Be careful with this action. Your previous self-hosted IR node can go offline if the key is of a new integration runtime.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Generate a backup file for the current node. The backup file includes the node key and data-store credentials.|
-|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restore the node from a backup file.|
-|-r,<br/>-Restart||Restart the self-hosted integration runtime host service.|
-|-s,<br/>-Start||Start the self-hosted integration runtime host service.|
-|-t,<br/>-Stop||Stop the self-hosted integration runtime host service.|
-|-sus,<br/>-StartUpgradeService||Start the self-hosted integration runtime upgrade service.|
-|-tus,<br/>-StopUpgradeService||Stop the self-hosted integration runtime upgrade service.|
-|-tonau,<br/>-TurnOnAutoUpdate||Turn on the self-hosted integration runtime auto-update.|
-|-toffau,<br/>-TurnOffAutoUpdate||Turn off the self-hosted integration runtime auto-update.|
-|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Register a self-hosted integration runtime node with the specified authentication key and node name.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Enable remote access to the current node when the node runs in a container.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Overwrite or update the previous authentication key. Be careful with this action. Your previous self-hosted IR node can go offline if the key is of a new integration runtime.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Generate a backup file for the current node. The backup file includes the node key and data-store credentials.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Restore the node from a backup file.|
+|`-r`,<br/>`-Restart`||Restart the self-hosted integration runtime host service.|
+|`-s`,<br/>`-Start`||Start the self-hosted integration runtime host service.|
+|`-t`,<br/>`-Stop`||Stop the self-hosted integration runtime host service.|
+|`-sus`,<br/>`-StartUpgradeService`||Start the self-hosted integration runtime upgrade service.|
+|`-tus`,<br/>`-StopUpgradeService`||Stop the self-hosted integration runtime upgrade service.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 
 
 ## Install and register a self-hosted IR from Microsoft Download Center
@@ -200,9 +200,9 @@ The default log on service account of Self-hosted integration runtime is **NT SE
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Screenshot of Local Security Policy - User Rights Assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Screenshot of Log on as a service user rights assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## Notification area icons and notifications

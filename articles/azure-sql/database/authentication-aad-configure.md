@@ -252,7 +252,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
     ![Select Azure Active Directory admin](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
-6. At the top of the **Active Directory admin** page, select **SAVE**.
+6. At the top of the **Active Directory admin** page, select **Save**.
 
     ![save admin](./media/authentication-aad-configure/save-admin.png)
 

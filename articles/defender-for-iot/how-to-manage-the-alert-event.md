@@ -103,6 +103,4 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 
 ## See also
 
-[Generate reports](how-to-generate-reports.md)
-
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

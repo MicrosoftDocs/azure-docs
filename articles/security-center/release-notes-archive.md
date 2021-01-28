@@ -7,7 +7,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020

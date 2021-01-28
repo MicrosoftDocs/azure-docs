@@ -134,7 +134,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 ### Windows
 
-| Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
+| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
@@ -148,7 +148,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 ### Linux
 
-| Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
+| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 8                                           |   | X | X |   |
@@ -156,7 +156,7 @@ The following tables list the operating systems that are supported by the Azure 
 | CentOS Linux 6                                           |   | X |   |   |
 | CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X | X |
+| Debian 8                                                 |   | X | X |   |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oracle Linux 8                                           |   | X |   |   |

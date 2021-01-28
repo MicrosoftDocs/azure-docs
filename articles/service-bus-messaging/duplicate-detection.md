@@ -13,6 +13,9 @@ It's also possible for an error at the client or network level to occur a moment
 
 Duplicate detection takes the doubt out of these situations by enabling the sender resend the same message, and the queue or topic discards any duplicate copies.
 
+> [!NOTE]
+> The basic tier of Service Bus doesn't support duplicate detection. The standard and premium tiers support duplicate detection. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+
 ## How it works? 
 Enabling duplicate detection helps keep track of the application-controlled *MessageId* of all messages sent into a queue or topic during a specified time window. If any new message is sent with *MessageId* that was logged during the time window, the message is reported as accepted (the send operation succeeds), but the newly sent message is instantly ignored and dropped. No other parts of the message other than the *MessageId* are considered.
 

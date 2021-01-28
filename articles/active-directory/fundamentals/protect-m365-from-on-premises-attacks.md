@@ -86,7 +86,7 @@ the principles illustrated below:
 
      *  Accessed only by using Azure Managed Workstations.
 
-These are restricted use accounts. **There should be no on-premises accounts with administrative privileges in Microsoft 365.** For more information, see this [overview of Microsoft 365 administrator roles](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+These are restricted use accounts. **There should be no on-premises accounts with administrative privileges in Microsoft 365.** For more information, see this [overview of Microsoft 365 administrator roles](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
 Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workload-docs.md).
 
 *  **Manage devices from Microsoft 365.** Use Azure AD Join and
@@ -123,7 +123,7 @@ In Azure AD, users with privileged roles such as administrators are the root of 
 * Use cloud-only accounts for Azure AD and Microsoft 365 privileged
     roles.d
 
-* Deploy [privileged access devices](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
+* Deploy [privileged access devices](/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
 
 *  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just in time (JIT) access to all human accounts that have privileged roles, and require strong authentication to activate roles.
 
@@ -133,7 +133,7 @@ In Azure AD, users with privileged roles such as administrators are the root of 
 
 * Deploy [Emergency Access Accounts](../roles/security-emergency-access.md) and do NOT use on-premises password vaults to store credentials.
 
-For more information, see [Securing privileged access](https://aka.ms/SPA), which has detailed guidance on this topic. Also, see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
+For more information, see [Securing privileged access](/security/compass/overview), which has detailed guidance on this topic. Also, see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
 
 ### Use cloud authentication 
 
@@ -143,16 +143,16 @@ practices to make credentials more secure.
 * [Deploy passwordless authentication](../authentication/howto-authentication-passwordless-deployment.md): Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and
     validated natively in the cloud. Choose from:
 
-   * [Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/passwordless-strategy)
+   * [Windows Hello for business](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
    * [Authenticator App](../authentication/howto-authentication-passwordless-phone.md)
 
    * [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-* [Deploy Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa): Provision
+* [Deploy Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md): Provision
     [multiple strong credentials using Azure AD MFA](../fundamentals/resilience-in-credentials.md). That way, access to cloud resources will require a credential that is managed in Azure AD in addition to an on-premises password that can be manipulated.
 
-   * For more information, see [Create a resilient access control management strategy with Azure active Directory](https://aka.ms/resilientaad).
+   * For more information, see [Create a resilient access control management strategy with Azure active Directory](./resilience-overview.md).
 
 **Limitations and tradeoffs**
 
@@ -189,7 +189,7 @@ Provisioning refers to the creation of user accounts and groups in applications 
     *   Block access to the Azure portal. You can make rare necessary
         exceptions.  Create a Conditional Access policy that includes all guests
             and external users and then [implement a policy to block
-            access](/azure/role-based-access-control/conditional-access-azure-management). 
+            access](../../role-based-access-control/conditional-access-azure-management.md). 
 
 * **Disconnected Forests:** Use [Azure AD Cloud
     Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
@@ -207,7 +207,7 @@ your on-premises infrastructure.
 * **Collaboration:** Use Microsoft 365 Groups and Microsoft Teams for
     modern collaboration. Decommission on-premises distribution lists,
     and [Upgrade distribution lists to Microsoft 365 Groups in
-    Outlook](https://docs.microsoft.com/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+    Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
 
 * **Access:** Use Azure AD security groups or Microsoft 365 Groups to
     authorize access to applications in Azure AD.
@@ -229,7 +229,7 @@ Use Azure AD capabilities to securely manage devices.
 -   **Use Windows 10 Workstations:** [Deploy Azure AD
     Joined](../devices/azureadjoin-plan.md)
     devices with MDM policies. Enable [Windows
-    Autopilot](https://docs.microsoft.com/mem/autopilot/windows-autopilot)
+    Autopilot](/mem/autopilot/windows-autopilot)
     for a fully automated provisioning experience.
 
     -   Deprecate Windows 8.1 and earlier machines.
@@ -239,7 +239,7 @@ Use Azure AD capabilities to securely manage devices.
     -   Use [Microsoft Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune)
         as the source of authority of all device management workloads.
 
--   [**Deploy privileged access devices**](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles)
+-   [**Deploy privileged access devices**](/security/compass/privileged-access-devices#device-roles-and-profiles)
     for privileged access to manage Microsoft 365 and Azure AD.
 
  ## Workloads, applications, and resources 
@@ -263,21 +263,21 @@ Use Azure AD capabilities to securely manage devices.
 
 *  **Application and workload servers**
 
-   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
+   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
 
-   * Follow the guidance of the [credential tiering](https://aka.ms/TierModel). Application Servers are typically considered Tier 1 assets.
+   * Follow the guidance of the [credential tiering](/security/compass/privileged-access-access-model#ADATM_BM). Application Servers are typically considered Tier 1 assets.
 
  ## Conditional Access Policies
 
 Use Azure AD Conditional Access to interpret signals and make
 authentication decisions based on them. For more information, see the
-[Conditional Access deployment plan.](https://aka.ms/deploymentplans/ca)
+[Conditional Access deployment plan.](../conditional-access/plan-conditional-access.md)
 
 * [Legacy Authentication Protocols](../fundamentals/auth-sync-overview.md): Use Conditional Access to [block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md) protocols whenever possible. Additionally, disable legacy authentication protocols at the application level using application-specific configuration.
 
-   * See specific details for [Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   * See specific details for [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
 
-* Implement the recommended [Identity and device access configurations.](https://docs.microsoft.com/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
+* Implement the recommended [Identity and device access configurations.](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
 
 * If you are using a version of Azure AD that does not include Conditional Access, ensure that you are using the [Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
 
@@ -294,14 +294,14 @@ Monitor the following key scenarios, in addition to any scenarios
 specific to your organization. For example, you should proactively
 monitor access to your business-critical applications and resources.
 
-* **Suspicious activity**: All [Azure AD risk events](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) should be monitored for suspicious activity. [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) is natively integrated with Azure Security Center.
+* **Suspicious activity**: All [Azure AD risk events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) should be monitored for suspicious activity. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center.
 
    * Define the network [named locations](../reports-monitoring/quickstart-configure-named-locations.md) to avoid noisy detections on location-based signals. 
 *  **User Entity Behavioral Analytics (UEBA) alerts** Use UEBA
     to get insights on anomaly detection.
-   * Microsoft Cloud App Discovery (MCAS) provides [UEBA in the cloud](https://docs.microsoft.com/cloud-app-security/tutorial-ueba).
+   * Microsoft Cloud App Discovery (MCAS) provides [UEBA in the cloud](/cloud-app-security/tutorial-ueba).
 
-   * You can [integrate on-premises UEBA from Azure ATP](https://docs.microsoft.com/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
+   * You can [integrate on-premises UEBA from Azure ATP](/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
 
 * **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and alerts created for investigations. This monitoring must include: 
 
@@ -313,7 +313,7 @@ monitor access to your business-critical applications and resources.
 
    *    Application Assignments. 
 * **Privileged role activity**: Configure and review
-    security [alerts generated by Azure AD PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new#security-alerts).
+    security [alerts generated by Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
     Monitor direct assignment of privileged roles outside PIM by
     generating alerts whenever a user is assigned directly.
 * **Azure AD tenant-wide configurations**: Any change to tenant-wide configurations should generate alerts in the system. These include but are not limited to
@@ -345,11 +345,11 @@ Define a log storage and retention strategy, design, and implementation to facil
 
    * Risk events 
 
-Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](https://aka.ms/AzureADSecuredAzure/32b). You can [stream Azure AD logs to Azure monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](/graph/api/resources/identityriskevent). You can [stream Azure AD logs to Azure monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Hybrid Infrastructure OS Security Logs.** All hybrid identity infrastructure OS logs should be archived and carefully monitored as a <br>Tier 0 system, given the surface area implications. This includes: 
 
-   *  Azure AD Connect. [Azure AD Connect Health](https://aka.ms/AzureADSecuredAzure/32e) must be deployed to monitor identity synchronization.
+   *  Azure AD Connect. [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md) must be deployed to monitor identity synchronization.
 
    *  Application Proxy Agents 
 

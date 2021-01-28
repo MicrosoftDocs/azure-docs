@@ -34,7 +34,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 - [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
 - [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
-- [Upload files to Azure File share](../storage/files/storage-files-deployment-guide.md)
+- [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
 

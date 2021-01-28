@@ -50,6 +50,7 @@ To find more tutorials, use the table of contents on the left.
 | :--- | :--- |
 | ![logo-8x8](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
 | ![logo-AcquireIO](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
+| ![logo-Adobe Identity Management](./media/tutorial-list/active-directory-saas-adobe-identity-management-tutorial.png)| [Adobe Identity Management](adobe-identity-management-tutorial.md)|
 | ![logo-Aha!](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
 | ![logo-AlertOps](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
 | ![logo-Amplitude](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|
@@ -91,6 +92,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo-Knowledge Anywhere LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-Litmus](./media/tutorial-list/active-directory-saas-litmus-tutorial.png)| [Litmus](litmus-tutorial.md)|
+| ![logo-Marketo](./media/tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](marketo-tutorial.md)|
 | ![logo-Meraki Dashboard](./media/tutorial-list/active-directory-saas-meraki-dashboard-tutorial.png)| [Meraki Dashboard](meraki-dashboard-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
 | ![logo-MyWorkDrive](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|
