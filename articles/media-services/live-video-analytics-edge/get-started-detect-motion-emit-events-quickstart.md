@@ -160,7 +160,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
 ### Invoke GraphTopologySet
 
-By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
+Like we did before, you can now invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
 
 ```
 {
