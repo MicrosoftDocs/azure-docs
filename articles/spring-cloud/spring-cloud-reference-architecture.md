@@ -193,7 +193,7 @@ The network implementation is further secured by defining controls from the MAFB
 
 #### Application Security
 
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. An independent security review observed that Azure Spring Cloud was configured ensuring least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. By default, an application deployed in Azure Spring Cloud is configured to use least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
