@@ -73,7 +73,7 @@ To add a key vault certificate to API Management:
     > The identity needs permissions to get and list certificate from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
 1. Select **Add**.
 
-:::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
 
 ## Upload a certificate
 
@@ -86,10 +86,10 @@ To upload a client certificate to API Management:
 1. Browse to select the certificate .pfx file, and enter its password.
 1. Select **Add**.
 
-:::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
 
 After the certificate is uploaded, it shows in the **Certificates** window.  
-If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication][Configure an API to use a client certificate for gateway authentication].
+If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-API-to-use-client-certificate-for-gateway authentication).
 
 > [!NOTE]
 > To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in [Self-signed certificates](#self-signed-certificates), later in this article.
@@ -129,6 +129,10 @@ To delete a certificate, select it and then select **Delete** from the context m
 > [!IMPORTANT]
 > If the certificate is referenced by any policies, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any policies that are configured to use it.
 
+## Next steps
+
+* [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
+* Learn about [policies in API Management](api-management-howto-policies.md)
 
 
 [How to add operations to an API]: ./mock-api-responses.md
@@ -145,9 +149,3 @@ To delete a certificate, select it and then select **Delete** from the context m
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
-[Prerequisites]: #prerequisites
-[Upload a client certificate]: #step1
-[Delete a client certificate]: #step1a
-[Configure an API to use a client certificate for gateway authentication]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
-[Next steps]: #next-steps
