@@ -166,7 +166,7 @@
     items:
     - name: Work with indexers
       items:
-      - name: Create indexers
+      - name: Create an indexer
         href: search-howto-create-indexers.md
       - name: Schedule indexers
         href: search-howto-schedule-indexers.md
