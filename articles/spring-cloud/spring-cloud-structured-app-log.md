@@ -131,10 +131,9 @@ The procedure:
         <artifactId>log4j-layout-template-json</artifactId>
         <version>2.14.0</version>
     </dependency>
-
-    ```
+```
 2. Prepare a JSON layout template file jsonTemplate.json in your class path.
-    ```json
+```json
     {
         "mdc": {
             "$resolver": "mdc"
@@ -172,10 +171,10 @@ The procedure:
             "field": "name"
         }
     }
-    ```
+```
 3. Use this JSON layout template in your log4j2.xml config file. 
 
-    ```json
+```json
     <configuration>
         <appenders>
             <console name="Console" target="SYSTEM_OUT">
@@ -188,7 +187,7 @@ The procedure:
             </root>
         </loggers>
     </configuration>
-    ```
+```
 
 ## Analyze the logs in Log Analytics
 
@@ -200,11 +199,11 @@ Use the following procedure:
 2. Click `Logs` entry under `Monitoring` section.
 3. Run this query.
 
-    ```
-    AppPlatformLogsforSpring
-    | where TimeGenerated > ago(1h)
-    | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
-    ```
+```
+AppPlatformLogsforSpring
+| where TimeGenerated > ago(1h)
+| project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
+```
 4. Application logs return as shown in the following image:
 
 ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
