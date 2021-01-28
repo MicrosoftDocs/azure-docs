@@ -13,6 +13,7 @@ description: This architecture reference is a foundation using a typical enterpr
 This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the Well-Architected Framework.
 
 ## Quickstart Reference Deployments
+
 For detailed information and deployment options of this architecture that include ARM, Terraform, and CLI, see the public repository.
 
 > [!div class="nextstepaction"]
@@ -21,6 +22,7 @@ For detailed information and deployment options of this architecture that includ
 The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
 
 ## Use Cases
+
 Typical uses for this architecture include:
 * Internal applications deployed in hybrid cloud environments
 * Externally facing applications
@@ -28,6 +30,7 @@ Typical uses for this architecture include:
 These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
 ## Private applications
+
 The infrastructure requirements for a private application are in the following list:
 
 * No direct egress to the public Internet except for control plane traffic
@@ -138,6 +141,7 @@ Each of these subnets requires a dedicated cluster. Multiple clusters can't shar
 > It should also not overlap with any peered or on-premises CIDR address ranges.
 
 ## Well-Architected Framework Considerations
+
 ### Cost Optimization
 By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
@@ -150,15 +154,19 @@ Azure Spring Cloud reference architecture addresses multiple aspects of operatio
 * Azure Security Center is used to ensure applications maintain security by providing a platform to analyze and assess the data provided.
 
 ### Performance Efficiency
+
 ### Reliability
+
 Azure Spring Cloud is designed with Azure Kubernetes as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application because of a component failure.
 
 By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures it can be deployed to multiple regions. For the private application use case, Azure Private DNS is used to ensure continued availability during a geographic failure. For the public application use case, Azure Front Door and Azure Application Gateway ensure availability.
 
 ### Security
+
 Security of this architecture was addressed by adhering to industry defined controls and benchmarks. The controls used in this architecture are from the Cloud Control Matrix (CCM) by the Cloud Security Alliance and the Microsoft Azure Foundations Benchmark (MAFB) by the Center for Internet Security. The primary security design principles of governance, networking, and application security were the focus of the applied controls. The design principles of Identity and Access Management and Storage are the responsibility of the reader as it relates to their target infrastructure.
 
 #### Governance
+
 The primary aspect of governance that this architecture addresses is segregation through isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. Traffic between central services in the hub and resources in the spoke are also filtered. Also, north-south traffic, particularly the flow between the Internet and the resources within the architecture, is managed through an instance of Azure Firewall.
 
 | CSA CCM Control ID | CSA CCM Control Domain |
@@ -166,6 +174,7 @@ The primary aspect of governance that this architecture addresses is segregation
 | DCS-08 | Datacenter Security Unauthorized Persons Entry |
 
 #### Network
+
 The network design supporting this architecture is derived from the traditional hub and spoke model. This decision ensures network isolation is a foundational construct. CCM control IVS-06 recommends that traffic between networks and virtual machines are restricted and monitored between trusted and untrusted environments. This architecture adopts the control by implementation of the NSGs for east-west traffic, and the Azure Firewall for north-south traffic. CCM control IPY-04 recommends that the infrastructure should use secure network protocols for the exchange of data between services. The Azure services supporting this architecture all use standard secure protocols such as TLS for HTTP and SQL.
 
 | CSA CCM Control ID | CSA CCM Control Domain |
@@ -183,6 +192,7 @@ The network implementation is further secured by defining controls from the MAFB
 | 6.6 | Ensure that ingress using UDP is restricted from the Internet |
 
 #### Application Security
+
 This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. An independent security review observed that Azure Spring Cloud was configured ensuring least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
