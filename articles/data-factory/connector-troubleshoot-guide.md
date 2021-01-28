@@ -81,9 +81,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Columns missing in column mapping
 
-- **Symptoms**: When you import schema for Azure Cosmos DB for column mapping, some columns are missing. 
+- **Symptoms**: When you import a schema for Azure Cosmos DB for column mapping, some columns are missing. 
 
-- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema aren't detected by Data Factory and consequently aren't displayed.
+- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected by Data Factory and consequently aren't displayed.
 
 - **Resolution**: You can tune the query as shown in the following code to force the column values to be displayed in the result set with empty values. Assume that the *impossible* column is missing in the first 10 documents). Alternatively, you can manually add the column for mapping.
 
@@ -521,9 +521,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the format settings to make sure they match your source files.
 
-- **Cause**: If your source is a folder, the files under the specified folder might have different schema.
+- **Cause**: If your source is a folder, the files under the specified folder might have a different schema.
 
-- **Recommendation**:  Make sure that the files in the specified folder have identical schema.
+- **Recommendation**:  Make sure that the files in the specified folder have an identical schema.
 
 
 ## Dynamics 365, Common Data Service, and Dynamics CRM
@@ -537,9 +537,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Rerun the pipeline. If it fails again, try to reduce the parallelism. If the problem persists, contact Dynamics support.
 
 
-### Missing columns when you import schema or preview data
+### Missing columns when you import a schema or preview data
 
-- **Symptoms**: Some columns are missing when you import schema or preview data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
+- **Symptoms**: Some columns are missing when you import a schema or preview data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
 
 - **Cause**: This issue is by design, because Data Factory is unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
