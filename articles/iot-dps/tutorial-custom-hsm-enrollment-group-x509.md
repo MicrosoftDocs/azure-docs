@@ -104,7 +104,7 @@ In this section, you will prepare a development environment used to build the [A
 
 ## Create an X.509 certificate chain
 
-In this section you, will generate an X.509 certificate chain of three certificates for testing with this tutorial. The certificates will have the following hierarchy.
+In this section you, will generate an X.509 certificate chain of three certificates for testing each device with this tutorial. The certificates will have the following hierarchy.
 
 ![Tutorial device certificate chain](./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png#lightbox)
 
@@ -112,7 +112,7 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 [Intermediate Certificate](concepts-x509-attestation.md#intermediate-certificate): It's common for intermediate certificates to be used to group devices logically by product lines, company divisions, or other criteria. This tutorial will use a certificate chain composed of one intermediate certificate. The intermediate certificate will be signed by the root certificate. This certificate will also be used on the enrollment group created in DPS to logically group a set of devices. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate. You can create enrollment groups for enabling or disabling a group of devices. For more information on disabling a group of devices, see [Disallow an X.509 intermediate or root CA certificate by using an enrollment group](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group)
 
-[Device certificate](concepts-x509-attestation.md#end-entity-leaf-certificate): The device (leaf) certificate will be signed by the intermediate certificate and stored on the device along with its private key. The device will present this certificate and private key, along with the certificate chain when attempting provisioning. 
+[Device certificates](concepts-x509-attestation.md#end-entity-leaf-certificate): The device (leaf) certificates will be signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. Each device will present its certificate and private key, along with the certificate chain when attempting provisioning. 
 
 #### Create root and intermediate certificates
 
