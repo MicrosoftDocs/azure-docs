@@ -27,15 +27,13 @@ To learn more, see the other articles in this series:
 
 ## Check list
 
-- Use a minimum of 2 premium SSD disks (1 for log file and 1 for data files).
-- Place data, log, and tempdb fileson separate drives.
-- Leverage the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-) experience in the Azure portal to assist with the storage configuration for your environment.
-- Local ephemeral storage (D:\) should only be used for tempdb and other processing where the source data can be recreated in the event of a recycle of the virtual machine.
-- Use premium SSDs for the best price/performance advantages.
-- Use only premium P30, P40, P50 disks for the Data drive, and optimize focused on capacity for the Log drive (P30 - P80).
-- Optimize for highest uncached IOPs for best performance and leverage caching as a performance feature for data reads.
+- Monitor the application and determine storage latency requirements for SQL Server data, log, and tempdb files before choosing the disk type. Choose UltraDisks for latencies less than 1 ms, otherwise use Premium SSD. Provision different types of drives for the data and log files if the latency requirements vary. 
+- Place data, log, and tempdb files on separate drives.
+- Only use the ephemeral storage (D:\) for tempdb and other processing that can be recreated when the virtual machine reboots. 
+- Only use premium P30, P40, P50 disks for the data drive, and optimize for capacity on the log drive (P30 - P80).
+- Optimize for highest uncached IOPS for best performance and leverage caching as a performance feature for data reads.
 - Standard storage is only recommended for development and test purposes or for backup files and should not be used for production workloads.
-- Bursting should be only considered for smaller departmental systems and dev/test workloads
+- Bursting should be only considered for smaller departmental systems and dev/test workloads.
 - Use Ultra Disks if less than 1-ms storage latencies are required for the transaction log and write acceleration is not an option. 
 
 ## Disk Overview
