@@ -30,7 +30,7 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region.
+- For preview features, ensure that your subscription is allowlisted for the target region.
 
 <a id="prepare"></a>
 
