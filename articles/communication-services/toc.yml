@@ -18,6 +18,10 @@
         href: quickstarts/chat/get-started.md
       - name: Join your chat app to a Teams meeting
         href: quickstarts/chat/meeting-interop.md
+  - name: Meeting Composite
+    items:
+      - name: Add meeting composite to your app
+        href: quickstarts/meeting/getting-started-with-meeting-composite.md
   - name: Telephony and SMS
     items:
       - name: Get a telephone number
