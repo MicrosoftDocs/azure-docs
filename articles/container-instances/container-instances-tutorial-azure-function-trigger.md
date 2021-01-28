@@ -22,13 +22,13 @@ You learn how to:
 
 ## Prerequisites
 
-See [Create your first function in Azure using Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) for prerequisites to install and use Visual Studio Code with the Azure Functions extension on your OS.
+See [Create your first function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) for prerequisites to install and use Visual Studio Code with the Azure Functions extension on your OS.
 
 Additional steps in this article use Azure PowerShell. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install] and [Sign into Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## Create a basic PowerShell function
 
-Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
+Follow steps in [Create your first PowerShell function in Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
 
 This article assumes you publish the project using the name *myfunctionapp*, in an Azure resource group automatically named according to the function app name (also *myfunctionapp*). Substitute your unique function app name and resource group name in later steps.
 
@@ -100,7 +100,7 @@ A notification is displayed after your function app is created and the deploymen
 
 ## Run the function in Azure
 
-After the deployment completes successfully, get the function URL. For example, use the **Azure: Functions** area in Visual Studio Code to copy the **HttpTrigger** function URL, or get the function URL in the [Azure portal](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+After the deployment completes successfully, get the function URL. For example, use the **Azure: Functions** area in Visual Studio Code to copy the **HttpTrigger** function URL, or get the function URL in the [Azure portal](../azure-functions/functions-get-started.md).
 
 The function URL is of the form:
 

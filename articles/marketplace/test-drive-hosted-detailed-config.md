@@ -24,7 +24,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
     - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
-5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
+5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](./test-drive-azure-subscription-setup.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive technical configuration** page.
 
     [![The test drive technical configuration page.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -76,7 +76,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 	- **Azure Active Directory tenant name** – The name of the Azure Tenant for your Dynamics 365 Instance. Use the format `<tenantname>.onmicrosoft.com`. Example Value: `testdrive.onmicrosoft.com`.
 	- **Azure Active Directory application ID** – The ID of the Azure Active Directory (AD) app you created in Step 5. Example value: `53852862-a2ae-4e43-9461-faa49650a096`.
 	- **Azure Active Directory application client secret** – Secret for the Azure AD app created in Step 5. Example value: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
-    - **Trial Legal Entity** – Provide a Legal Entity to assign a trial user. You can create a new one at [Create or modify a legal entity](https://technet.microsoft.com/library/hh242184.aspx).
+    - **Trial Legal Entity** – Provide a Legal Entity to assign a trial user. You can create a new one at [Create or modify a legal entity](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity).
     - **Role name** – The AOT name (Application Object Tree) of the custom Dynamics 365 security role you created for test drive. This is the role that will be assigned to users during their test drive.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="The security configuration page.":::

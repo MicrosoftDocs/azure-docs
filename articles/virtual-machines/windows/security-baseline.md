@@ -74,7 +74,7 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -272,7 +272,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -390,7 +390,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -450,7 +450,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -578,7 +578,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Virtual disks on Windows Virtual Machines (VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure-managed disks](./disk-encryption.md)
+* [Server side encryption of Azure-managed disks](../disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](./disk-encryption-overview.md)
 
@@ -618,9 +618,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -630,9 +630,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -843,7 +843,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Information on how to download the VM template](./download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -887,11 +887,11 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](./download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](./ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 

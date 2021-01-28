@@ -21,54 +21,7 @@ Verify that the connection string you are using is correct. See [Get connection 
 
 For Kafka clients, verify that producer.config or consumer.config files are configured properly. For more information, see [Send and receive messages with Kafka in Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-### Check if the ports required to communicate with Event Hubs are blocked by organization's firewall
-Verify that ports used in communicating with Azure Event Hubs aren't blocked on your organization's firewall. See the following table for the outbound ports you need to open to communicate with Azure Event Hubs. 
-
-| Protocol | Ports | Details | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
-
-Here is a sample command that checks whether the 5671 port is blocked.
-
-```powershell
-tnc <yournamespacename>.servicebus.windows.net -port 5671
-```
-
-On Linux:
-
-```shell
-telnet <yournamespacename>.servicebus.windows.net 5671
-```
-
-### Verify that IP addresses are allowed in your corporate firewall
-When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
-
-Also, verify that the IP address for your namespace is allowed. To find the right IP addresses to allow for your connections, follow these steps:
-
-1. Run the following command from a command prompt: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Note down the IP address returned in `Non-authoritative answer`. The only time it would change is if you restore the namespace on to a different cluster.
-
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
-
-1. First, you run nslookup on the namespace.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ### Verify that AzureEventGrid service tag is allowed in your network security groups
 If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or AzureEventGrid service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
@@ -86,22 +39,6 @@ By default, Event Hubs namespaces are accessible from internet as long as the re
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 For more information, see [Configure IP firewall rules for an Azure Event Hubs namespace](event-hubs-ip-filtering.md). To check whether you have IP filtering, virtual network, or certificate chain issues, see [Troubleshoot network related issues](#troubleshoot-network-related-issues).
-
-#### Find the IP addresses blocked by IP Firewall
-Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for the connection that's denied.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
 
 ### Check if the namespace can be accessed using only a private endpoint
 If the Event Hubs namespace is configured to be accessible only via private endpoint, confirm that the client application is accessing the namespace over the private endpoint. 

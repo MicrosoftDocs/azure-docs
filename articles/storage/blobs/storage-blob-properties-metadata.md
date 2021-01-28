@@ -122,7 +122,7 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) or [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
+Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](/dotnet/api/system.convert.tobase64string) or [URL-encode](/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
 
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 

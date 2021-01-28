@@ -125,9 +125,9 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 3306. If you try to connect from
-> within a corporate network, outbound traffic over port 3306 might not be allowed. In this
-> scenario, you can only connect to the server if your IT department opens port 3306.
+> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from
+> within a corporate network, outbound traffic over port 5432 might not be allowed. In this
+> scenario, you can only connect to the server if your IT department opens port 5432.
 
 ## Get the connection information
 

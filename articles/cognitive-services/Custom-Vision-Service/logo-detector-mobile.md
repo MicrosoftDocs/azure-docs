@@ -9,10 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
+
 # Tutorial: Recognize Azure service logos in camera pictures
 
 In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
@@ -31,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - The Xamarin workload for Visual Studio (see [Installing Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- The [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- The [Azure CLI](/cli/azure/install-azure-cli-windows) (optional)
 
 ## Get the source code
 

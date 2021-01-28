@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to recognize differences between delegated and application permissions

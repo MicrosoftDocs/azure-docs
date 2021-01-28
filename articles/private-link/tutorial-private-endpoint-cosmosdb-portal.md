@@ -203,13 +203,9 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
 5. Select **OK**.
 
-10. In the **Settings** section of the CosmosDB account, select **Keys**.
+6. In the **Settings** section of the CosmosDB account, select **Keys**.
 
-11. Select **myResourceGroup**.
-
-12. Select the storage account you created in the previous steps.
-
-14. Select copy on the **PRIMARY CONNECTION STRING**.
+7. Select copy on the **PRIMARY CONNECTION STRING**.
 
 ## Test connectivity to private endpoint
 
@@ -229,7 +225,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <storage-account-name>.documents.azure.com`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps. 
+8. Enter `nslookup <cosmosdb-account-name>.documents.azure.com`. Replace **\<cosmosdb-account-name>** with the name of the Cosmos DB account you created in the previous steps. 
 
     ```powershell
     Server:  UnKnown
@@ -243,7 +239,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
     A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in the subnet of the virtual network you created previously.
 
-9. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) on the virtual machine.
+9. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
 10. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
 

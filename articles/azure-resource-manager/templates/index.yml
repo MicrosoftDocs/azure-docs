@@ -58,14 +58,6 @@ landingContent:
         links:
           - text: Beginner tutorials
             url: template-tutorial-create-first-template.md
-          - text: Deployment
-            url: deployment-tutorial-local-template.md
-          - text: Template specs
-            url: template-specs-create-linked.md
-          - text: Advanced templates
-            url: template-tutorial-use-template-reference.md
-          - text: Deployment Manager
-            url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
           - text: Deploy with ARM templates
@@ -73,6 +65,12 @@ landingContent:
   # Card
   - title: Develop templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Template specs
+            url: template-specs-create-linked.md
       - linkListType: how-to-guide
         links:
           - text: Use functions
@@ -95,6 +93,10 @@ landingContent:
   # Card
   - title: Deploy templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deployment
+            url: deployment-tutorial-local-template.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell

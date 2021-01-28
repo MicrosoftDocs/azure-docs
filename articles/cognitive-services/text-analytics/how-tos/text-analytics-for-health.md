@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -24,6 +24,8 @@ Text Analytics for health is a feature of the Text Analytics API service that ex
 
 * The web-based API (asynchronous) 
 * A Docker container (synchronous)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Features
 
@@ -62,7 +64,7 @@ The meaning of medical content is highly affected by modifiers such as negation,
 
 ---
 
-See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities.
+See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### Supported languages and regions
 
@@ -87,7 +89,11 @@ To run the Text Analytics for health container in your own environment, follow t
 
 ## Using the client library
 
-The latest prerelease of the Text Analytics client library enables you to call Text Analytics for health using a client object. Refer to the reference documentation, and see the [C# example on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_RecognizeHealthcareEntities.md).
+The latest prerelease of the Text Analytics client library enables you to call Text Analytics for health using a client object. Refer to the reference documentation, and see the examples on GitHub:
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
 
 
 ## Sending a REST API request 

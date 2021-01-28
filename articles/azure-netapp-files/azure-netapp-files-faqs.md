@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/21/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -55,7 +55,7 @@ No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNe
 
 Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
 
-Data traffic between NFSv3 or SMBv3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -132,6 +132,16 @@ You can specify whether the root account can access the volume or not by using t
 Yes, you can. However, the file path must be used in either a different subscription or a different region.   
 
 For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
+
+### When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
+
+Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed up the look-up of folders and subfolders:
+
+1. Use the following PowerShell command to enable CaseSensitiveLookup:   
+	`Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Mount the volume on the Windows server.   
+	Example:   
+	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## SMB FAQs
 
@@ -243,6 +253,16 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 ### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+## Product FAQs
+
+### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more details, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
 
 ## Next steps  
 

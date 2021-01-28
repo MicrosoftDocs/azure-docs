@@ -7,8 +7,8 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 
 ---
 # Iterative development and debugging with Azure Data Factory

@@ -19,6 +19,14 @@ We monitor the operation of the IoT Edge device while the simulated device is se
 
 This step is typically performed by a cloud or device developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Build and run a leaf device.
+> * Verify that generated data is being stored in your Azure Blob storage.
+> * Validate that the machine learning model classified the device data.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
@@ -232,10 +240,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
 
-More information can be found at the following pages:
+To continue learning about IoT Edge capabilities, try this tutorial next:
 
 > [!div class="nextstepaction"]
-> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [Create a hierarchy of IoT Edge devices (Preview)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

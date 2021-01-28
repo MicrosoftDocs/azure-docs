@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 01/15/2021
 ms.author: alkohli
 ---
 
@@ -29,13 +29,7 @@ Make sure that the following steps can be used to access the device from your cl
 
     Enable compute on the network interface. Azure Stack Edge will create and manage a virtual switch corresponding to that network interface. Do not enter specific IPs for Kubernetes at this time. It can take several minutes to enable compute.
 
-    <!--If you decide to use another network interface for compute, make sure that you:
-    
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-    
-    - Delete all virtual network interfaces and the virtual network associated with this network interface. 
-    
-    - You can now enable another network interface for compute.-->
+    > [!NOTE]
+    > If creating GPU VMs, select a network interface connected to the Internet. This allows you to install GPU extension on your device.
 
-<!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 

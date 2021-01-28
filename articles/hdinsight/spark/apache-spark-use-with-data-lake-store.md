@@ -2,9 +2,6 @@
 title: Analyze Azure Data Lake Storage Gen1 with HDInsight Apache Spark
 description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
@@ -68,7 +65,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 3. Create a new notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a new Jupyter notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Create a new Jupyter notebook")
+    ![Create a new Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Create a new Jupyter Notebook")
 
 4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
@@ -78,7 +75,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
     Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
-     ![Status of a Jupyter notebook job](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status of a Jupyter notebook job")
+     ![Status of a Jupyter Notebook job](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status of a Jupyter Notebook job")
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Storage Gen1 account. You can access the data in the Data Lake Storage account using the following URL pattern.
 
@@ -119,7 +116,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
       hvacdf.registerTempTable("hvac")
       ```
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter Notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
 	```sql
     %%sql

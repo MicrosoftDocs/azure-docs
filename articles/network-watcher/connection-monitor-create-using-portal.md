@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
 # Create a monitor in Connection Monitor by using the Azure portal
 
 Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+
 
 ## Before you begin 
 

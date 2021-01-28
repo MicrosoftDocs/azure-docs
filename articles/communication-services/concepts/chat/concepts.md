@@ -41,8 +41,9 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the user-generated text messages as well as the system messages in chronological order. This helps you identify when a member was added or removed or when the chat thread topic was updated. Supported message types are:  
 
- - `Text`: Actual message composed and sent by user as part of chat conversation. 
- - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
+ - `Text`: A plain text message composed and sent by a user as part of a chat conversation. 
+ - `RichText/HTML`: A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
+ - `ThreadActivity/AddMember`: A system message that indicates one or more members have been added to the chat thread. For example:
 
 ```xml
 
@@ -87,6 +88,30 @@ Communication Services Chat shares user-generated messages as well as system-gen
 
 ```
 
+- `ThreadActivity/MemberJoined`: A system message generated when a guest user joins the Teams meeting chat. Communication Services users can join as a guest of Teams meeting chats. For example:  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft`: A system message generated when a guest user leaves the meeting chat. Communication Services users can join as a guest of Teams meeting chats. For example: 
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
 
 ```xml

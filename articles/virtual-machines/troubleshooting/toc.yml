@@ -152,7 +152,7 @@
     - name: Troubleshoot a general error
       href: troubleshoot-rdp-general-error.md
     - name: Troubleshoot authentication errors
-      href: troubleshoot-authentication-error-rdp-vm.md
+      href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - name: Troubleshoot Azure VM RDP connection issues by Event ID
       href: event-id-troubleshoot-vm-rdp-connecton.md
     - name: Troubleshoot RDP error in VM because of static IP
@@ -261,6 +261,8 @@
     href: install-vm-agent-offline.md
   - name: Troubleshoot Windows VM agent
     href: windows-azure-guest-agent.md
+  - name: Troubleshoot Linux VM agent
+    href: linux-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
@@ -341,7 +343,7 @@
 - name: Migration and Move issues
   items:
   - name: Azure Resource Manager migration (ASM to ARM) FAQ
-    href: ../windows/migration-classic-resource-manager-overview.md
+    href: ../migration-classic-resource-manager-overview.md
 - name: Planned Maintenance
   items:
   - name: Overview

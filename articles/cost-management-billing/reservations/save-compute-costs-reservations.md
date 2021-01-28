@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
 ---
 
@@ -51,15 +51,16 @@ For more information, see [Buy a reservation](prepare-buy-reservation.md).
 
 ## How is a reservation billed? 
 
-The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your monetary commitment balance, if available. When your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
+The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
 
-## Permissions to view and manage reservations 
+## Who can manage a reservation by default
 
-The user who purchases a reservation and the account administrator of the subscription used for billing the reservation get the Owner role on the reservation order and the reservation.
+By default, the following users can view and manage reservations:
 
-You can delegate reservation management by adding people to roles on the reservation order or the reservation. You assign the roles in the Azure portal or by using APIs and PowerShell. 
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+To allow other people to manage reservations, see [Manage Reservations for Azure resources](manage-reserved-vm-instance.md).
 
 ## Get reservation details and utilization after purchase
 
@@ -120,7 +121,7 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
 
 - Learn more about reservations for service plans:
-    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)

@@ -21,7 +21,7 @@ In Azure Media Services, you configure your own storage account and all media as
 
 For more information:
 
-- Refresh your knowledge by completing the [Media Services tutorials](https://docs.microsoft.com/azure/media-services/previous/).
+- Refresh your knowledge by completing the [Media Services tutorials](../media-services/previous/index.yml).
 - Review the [Media Services overview](../media-services/previous/media-services-overview.md).
 - Learn how to [create a Media Services account](../media-services/previous/media-services-portal-create-account.md).
 

@@ -1,7 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance for Hyper-V
 description: Learn how to set up an Azure Migrate appliance to assess and migrate Hyper-V VMs.
-ms.topic: article
+author: vikram1988 
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 03/23/2020
 ---
 
@@ -109,11 +112,16 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, sign in by using your Azure username and password.
+1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+
+    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+
+1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, paste the device code and sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
-3. After you successfully logged in, go back to the web app. 
+3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 

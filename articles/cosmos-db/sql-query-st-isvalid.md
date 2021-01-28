@@ -5,14 +5,14 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_ISVALID (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.  
+ Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, MultiPolygon, or LineString expression is valid.  
   
 ## Syntax
   

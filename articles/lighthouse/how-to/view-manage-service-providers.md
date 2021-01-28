@@ -1,12 +1,12 @@
 ---
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
-ms.date: 10/12/2020
+ms.date: 12/16/2020
 ms.topic: how-to
 ---
 # View and manage service providers
 
-Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view details about service providers and service provider offers, delegate specific resources to [Azure Lighthouse](../overview.md), and shop for new service provider offers.
+The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can view details about service providers, delegate specific resources, shop for new service provider offers, remove service provider access, and more.
 
 > [!TIP]
 > While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
@@ -35,7 +35,7 @@ In the **Delegations** column, the customer sees how many subscriptions and/or r
 
 A customer can add a new service provider offer from the **Service provider offers** page by selecting **Add offer**. The service provider must have published an offer for this customer. The customer can then select that offer from the **Private offers** screen and then select **Create**.
 
-If the customer wants to remove a service provider offer, they can select the trash can icon in the row for that offer. After confirming the deletion, that service provider will no longer have access to the customer resources that were formerly delegated for that offer.
+If the customer wants to remove a service provider offer, they can do so at any time by selecting the trash can icon in the row for that offer. After confirming the deletion, that service provider will no longer have access to the customer resources that were formerly delegated for that offer.
 
 ## Delegate resources
 
@@ -79,4 +79,5 @@ For more information about how to assign a policy and view compliance state resu
 ## Next steps
 
 - Learn more about [Azure Lighthouse](../overview.md).
+- Learn how to [audit service provider activity](view-service-provider-activity.md).
 - Learn how service providers can [view and manage customers](view-manage-customers.md) on the **My customers** page in the Azure portal.

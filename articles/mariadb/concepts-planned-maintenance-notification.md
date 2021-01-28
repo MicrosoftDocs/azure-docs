@@ -3,7 +3,7 @@ title: Planned maintenance notification - Azure Database for MariaDB
 description: This article describes the Planned maintenance notification feature in Azure Database for MariaDB
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/21/2020
 ---
@@ -55,7 +55,7 @@ You can either check the planned maintenance notification on Azure portal or con
 7. Ensure Enable rule upon creation is set to Yes.
 8. Select **Create alert rule** to complete your alert
 
-For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## Can I cancel or postpone planned maintenance?
 

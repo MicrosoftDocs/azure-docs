@@ -73,20 +73,24 @@ landingContent:
           - text: Write app authentication code
             url: how-to-authenticate-client.md
             
-  - title: View API reference
+  - title: Discover the APIs
     linkLists:
+      - linkListType: reference
+        links:
+          - text: REST APIs
+            url:  /rest/api/azure-digitaltwins/
       - linkListType: how-to-guide
         links:
           - text: Use the Azure Digital Twins APIs and SDKs 
             url: how-to-use-apis-sdks.md
       - linkListType: how-to-guide
         links:
+          - text: Make requests with Postman 
+            url: how-to-use-postman.md
+      - linkListType: how-to-guide
+        links:
           - text: Create custom SDKs with AutoRest
             url: how-to-create-custom-sdks.md
-      - linkListType: reference
-        links:
-          - text: REST APIs
-            url:  /rest/api/azure-digitaltwins/
 
   - title: Explore code samples
     linkLists:

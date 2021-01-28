@@ -1,17 +1,18 @@
 ---
-title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
-description: This article provides details about SQLFilter grammar. A SqlFilter supports a subset of the SQL-92 standard.  
+title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
+description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ---
 
-# SQLFilter syntax
+# Subscription Rule SQL Filter Syntax
 
-A *SqlFilter* object is an instance of the [SqlFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression, which is evaluated against a [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+
+Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
+
   
- This topic lists details about SqlFilter grammar.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -264,59 +265,13 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 -   Arithmetic operators such as `+`, `-`, `*`, `/`, and `%` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.
 
 
-## Examples
-
-### Set rule action for a SQL filter
-
-```csharp
-// instantiate the ManagementClient
-this.mgmtClient = new ManagementClient(connectionString);
-
-// create the SQL filter
-var sqlFilter = new SqlFilter("source = @stringParam");
-
-// assign value for the parameter
-sqlFilter.Parameters.Add("@stringParam", "orders");
-
-// instantiate the Rule = Filter + Action
-var filterActionRule = new RuleDescription
-{
-    Name = "filterActionRule",
-    Filter = sqlFilter,
-    Action = new SqlRuleAction("SET source='routedOrders'")
-};
-
-// create the rule on Service Bus
-await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
-```
-
-### SQL filter on a system property
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### Using OR 
-
-```csharp
- sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### Using IN and NOT IN
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
 
 ## Next steps
 
 - [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SqlFilter class (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

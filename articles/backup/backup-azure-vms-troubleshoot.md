@@ -70,6 +70,16 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
+If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the ```MountsToSkip``` property as follows.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
 Error code: ExtensionSnapshotFailedCOM <br/>
@@ -245,7 +255,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3**: Try [increasing the size of the VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) and retry the operation
+**Step 3**: Try [increasing the size of the VM](../virtual-machines/windows/resize-vm.md) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 

@@ -1,13 +1,16 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 11/18/2020
+ms.date: 12/18/2020
 ms.topic: conceptual
 ---
 
 # Azure Batch best practices
 
 This article discusses a collection of best practices and useful tips for using the Azure Batch service effectively, based on real-life experiences with Batch. These tips can help you enhance performance and avoid design pitfalls in your Azure Batch solutions.
+
+> [!TIP]
+> For guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
 
 ## Pools
 
@@ -17,6 +20,9 @@ This article discusses a collection of best practices and useful tips for using 
 
 - **Pool allocation mode**
     When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable an important, but small subset of scenarios. You can read more about user subscription mode at [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **'cloudServiceConfiguration' or 'virtualMachineConfiguration'.**
+    'virtualMachineConfiguration' should be used. All Batch features are supported by 'virtualMachineConfiguration' pools. Not all features are supported for 'cloudServiceConfiguration' pools and no new capabilities are being planned.
 
 - **Consider job and task run time when determining job to pool mapping.**
     If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job is not long, do not allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
@@ -35,7 +41,7 @@ This article discusses a collection of best practices and useful tips for using 
 
 ### Pool lifetime and billing
 
-Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service (autoscale or autopool).
+Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service ([autoscale](nodes-and-pools.md#automatic-scaling-policy) or [autopool](nodes-and-pools.md#autopools)).
 
 - **Keep pools fresh.**
     Resize your pools to zero every few months to ensure you get the [latest node agent updates and bug fixes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
@@ -92,7 +98,7 @@ There is a default [active job and job schedule quota](batch-quota-limit.md#reso
 
 ### Save task data
 
-Compute nodes are by their nature ephemeral. There are many features in Batch such as autopool and autoscale that make it easy for nodes disappear. When nodes leave pool (due to a resize, or a pool delete) all the files on those nodes are also deleted. Because of this, a task should move its output off of the node it is running on and to a durable store before it completes. Similarly, if a task fails, it should move logs required to diagnose the failure to a durable store.
+Compute nodes are by their nature ephemeral. There are many features in Batch such as [autopool](nodes-and-pools.md#autopools) and [autoscale](nodes-and-pools.md#automatic-scaling-policy) that can make it easy for nodes to disappear. When nodes leave a pool (due to a resize or a pool delete) all the files on those nodes are also deleted. Because of this, a task should move its output off of the node it is running on and to a durable store before it completes. Similarly, if a task fails, it should move logs required to diagnose the failure to a durable store.
 
 Batch has integrated support Azure Storage to upload data via [OutputFiles](batch-task-output-files.md), as well as a variety of shared file systems, or you can perform the upload yourself in your tasks.
 
@@ -139,6 +145,10 @@ A [compute node](nodes-and-pools.md#nodes) is an Azure virtual machine (VM) or c
 ### Idempotent start tasks
 
 Just as with other tasks, the node [start task](jobs-and-tasks.md#start-task) should be idempotent, as it will be rerun every time the node boots. An idempotent task is simply one that produces a consistent result when run multiple times.
+
+### Isolated nodes
+
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
 
 ### Manage long-running services via the operating system services interface
 

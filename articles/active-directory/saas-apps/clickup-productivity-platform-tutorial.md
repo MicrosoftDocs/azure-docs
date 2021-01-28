@@ -45,19 +45,19 @@ To configure the integration of ClickUp Productivity Platform into Azure AD, you
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **ClickUp Productivity Platform**, select **ClickUp Productivity Platform** from result panel then click **Add** button to add the application.
 
-	 ![ClickUp Productivity Platform in the results list](common/search-new-app.png)
+    ![ClickUp Productivity Platform in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,24 +89,24 @@ To configure Azure AD single sign-on with ClickUp Productivity Platform, perform
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![ClickUp Productivity Platform Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL:
+    a. In the **Sign on URL** text box, type a URL:
     `https://app.clickup.com/login/sso`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
-	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier, which is explained later in this tutorial.
+    > [!NOTE]
+    > The Identifier value is not real. Update this value with the actual Identifier, which is explained later in this tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure ClickUp Productivity Platform Single Sign-On
 
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with ClickUp Productivity Platform, perform
     ![Screenshot shows the Configure Microsoft Single Sign On page where you can copy the Entity I D and save the Azure Federation Metadata U R L.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Click **Copy** to copy the Entity ID value and paste it into the **Identifier (Entity ID)** textbox in the **Basic SAML Configuration** section in the Azure portal.
-    
+
     b. In the **Azure Federation Metadata URL** textbox, paste the App Federation Metadata Url value, which you have copied from the Azure portal and then click **Save**.
 
 5. To complete the setup, click **Authenticate With Microsoft to complete setup** and authenticate with microsoft account.
@@ -151,7 +151,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -165,11 +165,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ClickUp Productivity Platform**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **ClickUp Productivity Platform**.
 
-	![The ClickUp Productivity Platform link in the Applications list](common/all-applications.png)
+    ![The ClickUp Productivity Platform link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 1. In a different web browser window, sign-on to your ClickUp Productivity Platform tenant as an administrator.
 
 2. Click on the **User profile**, and then select **People**.
-   
+
     ![Screenshot shows the ClickUp Productivity tenant.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Screenshot shows the People link selected.](./media/clickup-productivity-platform-tutorial/user1.png)

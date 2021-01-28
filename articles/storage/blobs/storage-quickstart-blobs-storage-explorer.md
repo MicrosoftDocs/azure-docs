@@ -74,7 +74,7 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 
 ## Manage snapshots
 
-Azure Storage Explorer provides the capability to take and manage [snapshots](storage-blob-snapshots.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
+Azure Storage Explorer provides the capability to take and manage [snapshots](./snapshots-overview.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
 
 ![Screenshot that shows a list of blobs in Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -95,4 +95,4 @@ Shared Access Signatures (SAS) can be retrieved through Storage Explorer. Right-
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-how-to-use-blobs-powershell.md)
+> [Blob Storage Operations How-To](./storage-quickstart-blobs-powershell.md)

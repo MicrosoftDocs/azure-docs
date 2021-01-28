@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Manage app consent policies

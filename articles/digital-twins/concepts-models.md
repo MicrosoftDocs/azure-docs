@@ -89,53 +89,7 @@ This section contains an example of a typical model, written as a DTDL interface
  
 Consider that planets may also interact with **moons** that are their satellites, and may contain **craters**. In the example below, the `Planet` model expresses connections to these other entities by referencing two external models—`Moon` and `Crater`. These models are also defined in the example code below, but are kept very simple so as not to detract from the primary `Planet` example.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "Temperature",
-        "schema": "double"
-      },
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
 The fields of the model are:
 
@@ -167,57 +121,7 @@ Sometimes, you may want to specialize a model further. For example, it might be 
 
 The following example re-imagines the *Planet* model from the earlier DTDL example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:CelestialBody;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Celestial body",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "temperature",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "extends": "dtmi:com:contoso:CelestialBody;1",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
 In this example, *CelestialBody* contributes a name, a mass, and a temperature to *Planet*. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
 
@@ -237,7 +141,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
 
-To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, to use an industry-standard model, you must first convert it to DTDL so that Azure Digital Twins can use it. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
 
 There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
 * If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.

@@ -50,7 +50,7 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 ### DASH Players
 
-[dash player](https://dashplayer.azurewebsites.net)
+[dash player](http://players.akamai.com/players/dashjs)
 
 [https://dashif.org](https://dashif.org)
 

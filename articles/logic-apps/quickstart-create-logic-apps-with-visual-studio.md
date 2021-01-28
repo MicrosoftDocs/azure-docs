@@ -34,7 +34,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
 
-  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?tabs=vs).
+  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 

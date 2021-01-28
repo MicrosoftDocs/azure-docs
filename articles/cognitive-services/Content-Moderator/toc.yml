@@ -12,7 +12,7 @@
   items:
   - name: Try Content Moderator on web
     href: quick-start.md
-  - name: Using the client library
+  - name: Using the client library or REST API
     href: client-libraries.md
 - name: Tutorials
   items:
@@ -20,8 +20,6 @@
     href: ecommerce-retail-catalog-moderation.md
   - name: Moderate Facebook content
     href: facebook-post-moderation.md
-  - name: Video and transcript moderation
-    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -38,7 +36,7 @@
   items:
   - name: Moderate content
     items:
-    - name: REST API
+    - name: API console
       items:
       - name: Images - API console
         href: try-image-api.md
@@ -60,7 +58,7 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: REST API
+    - name: API console
       href: try-review-api-review.md
     - name: Video reviews (.NET)
       href: video-reviews-quickstart-dotnet.md
@@ -70,11 +68,11 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: REST API
+    - name: API console
       href: try-review-api-workflow.md
   - name: Define and use jobs
     items:
-    - name: REST API
+    - name: API console
       href: try-review-api-job.md
     - name: .NET SDK
       href: moderation-jobs-quickstart-dotnet.md

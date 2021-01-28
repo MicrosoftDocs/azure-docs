@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
 ---

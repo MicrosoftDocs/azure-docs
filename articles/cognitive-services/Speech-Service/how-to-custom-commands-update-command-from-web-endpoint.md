@@ -3,13 +3,13 @@ title: 'Update a command from a web endpoint'
 titleSuffix: Azure Cognitive Services
 description: Learn how to update the state of a command by using a call to a web endpoint.
 services: cognitive-services
-author: encorona-ms
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: encorona
+ms.author: nitinme
 ---
 
 # Update a command from a web endpoint
@@ -24,7 +24,7 @@ In this article, you'll learn how to update an ongoing command from a web endpoi
 
 ## Create an Azure function 
 
-For this example, you'll need an HTTP-triggered [Azure function](https://docs.microsoft.com/azure/azure-functions/) that supports the following input (or a subset of this input):
+For this example, you'll need an HTTP-triggered [Azure function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
 
 ```JSON
 {
