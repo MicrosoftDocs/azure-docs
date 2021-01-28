@@ -1070,6 +1070,10 @@
         href: ./windows/image-builder.md
     - name: PowerShell
       href: ./windows/image-builder-powershell.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-image-builder.md
     - name: Use a VNET
       items:
       - name: CLI
