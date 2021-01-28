@@ -48,6 +48,8 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
     - name: Overview

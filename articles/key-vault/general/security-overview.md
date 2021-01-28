@@ -22,10 +22,6 @@ This article provides an overview of security features and best practices for Az
 > [!NOTE]
 > For a comprehensive list of Azure Key Vault security recommendations see the [Security baseline for Azure Key Vault](security-baseline.md).
 
-## General guidance
-
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
-
 ## Network security
 
 You can reduce the exposure of your vaults by specifying which IP addresses have access to them. The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.  For full details, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
@@ -109,20 +105,9 @@ Azure Key Vault soft-delete and purge protection allows you to recover deleted v
 
 You should also take regular back ups of your vault on update/delete/create of objects within a Vault.  
 
-Azure PowerShell backup commands:
-
-* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Azure CLI backup commands
-
-* [Backup Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Backup Key](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## Next Steps
 
+- [Azure Key Vault security baseline](security-baseline.md)
+- [Azure Key Vault best practices](security-baseline.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
