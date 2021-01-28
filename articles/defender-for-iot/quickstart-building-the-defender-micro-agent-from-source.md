@@ -29,7 +29,7 @@ To override the values:
 
 1. Give the `.dist` file a reference when building. For example, 
 
-    `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=UBUNTU1804 ..` 
+    `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET=UBUNTU1804 ..` 
 
 ## Baseline Configuration signing 
 
