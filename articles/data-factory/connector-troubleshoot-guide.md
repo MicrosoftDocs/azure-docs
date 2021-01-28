@@ -83,7 +83,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you import a schema for Azure Cosmos DB for column mapping, some columns are missing. 
 
-- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected by Data Factory and consequently aren't displayed.
+- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected by Data Factory and consequently isn't displayed.
 
 - **Resolution**: You can tune the query as shown in the following code to force the column values to be displayed in the result set with empty values. Assume that the *impossible* column is missing in the first 10 documents). Alternatively, you can manually add the column for mapping.
 
@@ -119,7 +119,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Copy activity fails with the following error: 
 
-    `Message: ErrorCode = \`UserErrorFailedFileOperation\`, Error Message = \`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`.`
+    `Message: ErrorCode = UserErrorFailedFileOperation, Error Message = The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
 - **Cause**: The certificate validation failed during the TLS handshake.
 
@@ -206,7 +206,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: A problem with the Azure Files storage operation.
 
-- **Recommendation**:  To check the error details, see [Azure File help](https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes). For further help, contact the Azure Files storage team.
+- **Recommendation**:  To check the error details, see [Azure Files help](https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes). For further help, contact the Azure Files team.
 
 
 ## Azure Synapse Analytics, Azure SQL Database, and SQL Server
@@ -312,7 +312,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
-- **Cause**: The specified SQL query is invalid. The cause might be that the query doesn't return any data
+- **Cause**: The specified SQL query is invalid. The cause might be that the query doesn't return any data.
 
 - **Recommendation**:  Validate the SQL query by using SQL Tools. Make sure that the query can return data.
 
@@ -616,7 +616,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: 
 
-    To see whether the value in Oracle is in Data Factory's range, run `select dump(<column name>)`. 
+    To see whether the value in Oracle is in the range of Data Factory, run `select dump(<column name>)`. 
 
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
