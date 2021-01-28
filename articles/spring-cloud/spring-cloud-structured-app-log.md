@@ -42,7 +42,7 @@ To improve log query experience, an application log is required to be in JSON fo
 2. "traceId" and "spanId" in "mdc" field are used for tracing purpose.
 3. You should log each JSON record in one line. 
 
-**Log record sample: 
+**Log record sample** 
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
@@ -56,7 +56,7 @@ When using Spring Boot starters, logback is used by default. For logback apps, u
 The procedure:
 
 1. Add logstash dependency in your pom.xml file.
-    ```
+    ```json
     <dependency>
 		<groupId>net.logstash.logback</groupId>
 		<artifactId>logstash-logback-encoder</artifactId>
@@ -64,7 +64,7 @@ The procedure:
 	</dependency>
     ```
 2. Update your logback.xml config file to set the JSON format.
-    ```
+    ```json
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
@@ -110,30 +110,30 @@ For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x
 The procedure:
 
 1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your pom.xml file.
-    ```
-     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-logging</artifactId>
-        </exclusion>
-      </exclusions>
+```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-log4j2</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-layout-template-json</artifactId>
-      <version>2.14.0</version>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-layout-template-json</artifactId>
+        <version>2.14.0</version>
     </dependency>
 
     ```
 2. Prepare a JSON layout template file jsonTemplate.json in your class path.
-    ```
+    ```json
     {
         "mdc": {
             "$resolver": "mdc"
@@ -174,7 +174,7 @@ The procedure:
     ```
 3. Use this JSON layout template in your log4j2.xml config file. 
 
-    ```
+    ```json
     <configuration>
         <appenders>
             <console name="Console" target="SYSTEM_OUT">
