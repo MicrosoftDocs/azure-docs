@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
@@ -19,7 +19,7 @@ Coarse relocalization works by tagging anchors with various on-device sensor rea
 
 ## When to use coarse relocalization
 
-If you are planning to handle more than 50 spatial anchors in a space larger than a tennis court, you will likely benefit from coarse relocalization spatial indexing.
+If you are planning to handle more than 35 spatial anchors in a space larger than a tennis court, you will likely benefit from coarse relocalization spatial indexing.
 
 The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
 
@@ -69,7 +69,7 @@ The table below summarizes the availability of the sensor data on supported plat
 The choice of sensor is specific to the application you are developing and the platform.
 The following diagram provides a starting point on which combination of sensors can be enabled depending on the localization scenario:
 
-![Diagram of enabled sensors selection](media/coarse-reloc-enabling-sensors.png)
+![Diagram of enabled sensors selection](media/coarse-relocalization-enabling-sensors.png)
 
 The following sections give more insights on the advantages and limitations for each sensor type.
 
@@ -115,8 +115,7 @@ Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map 
 ### Bluetooth beacons
 <a name="beaconsDetails"></a>
 
-Carefully deploying bluetooth beacons is the only solution for cross-platform, large scale, indoor coarse relocalization.
-The downside of a beacon-based system is the initial deployment cost of beacons.
+Carefully deploying bluetooth beacons is a good solution for large scale indoor coarse relocalization scenarios, where GPS is absent or inaccurate. It is also the only indoor method that is supported on all three platforms.
 
 Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause incorrect results. For best results you should:
 
@@ -131,7 +130,7 @@ This means that for a space that has no big obstacles, one could deploy beacons 
 
 A beacon running out of battery will affect the results negatively, so make sure you monitor your deployment periodically for low or dead batteries.
 
-Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
+Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can negatively impact the quality of the service though. For that reason, you will obtain best results in curated spaces where you can control their deployment.
 
 ### Sensors accuracy
 

@@ -84,7 +84,7 @@
     - name: In C++/WinRT
       href: how-tos/set-up-coarse-reloc-cpp-winrt.md
   - name: Use coarse relocalization without an anchor session
-    href: how-tos/use-coarse-relocalization-without-an-anchor-session.md
+    href: how-tos/use-coarse-relocalization-without-anchor-session.md
   - name: Project setup
     items:
     - name: C++/WinRT
