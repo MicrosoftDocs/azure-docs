@@ -114,7 +114,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Timeclock 365 SAML manually, in a different web browser window, sign in to your Timeclock 365 SAML company site as an administrator.
+3. If you want to set up Timeclock 365 SAML manually, in a different web browser window, sign in to your Timeclock 365 SAML company site as an administrator.
 
 1. Perform the below mentioned steps.
 
