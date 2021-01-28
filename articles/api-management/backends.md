@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/21/2021
+ms.date: 01/28/2021
 ms.author: apimpm
 ---
 
@@ -59,17 +59,14 @@ If you need a local copy of the Service Fabric cluster certificate with private 
 1. Select the version of the certificate you want, and then select **Download in PFX/PEM format**.
 1. Save the certificate to secure location on your local system.
 
-### Add certificate to API Management
+### Add Service Fabric cluster certificate to API Management
 
-Add the certificate to your API Management instance as a client certificate. For details, see [How to secure back-end services using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
+Add the Service Fabric cluster certificate to your API Management instance as a client certificate. This certificate is stored and managed in an Azure key vault associated with the cluster. 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Under **Security**, select **Certificates**.
-1. In the **Certificates** tab, select **+Add**.
-1. Enter an **Id** of your choice.
-1. In **Certificate** and **password**, provide the filename and password of the private key file (.pfx) of the cluster certificate on your local system. Then select **Add**. 
+For steps to add a certificate to your API Management instance, see [How to secure back-end services using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md). 
 
-:::image type="content" source="media/backends/add-cluster-certificate.png" alt-text="Add cluster certificate to API Management":::
+> [!NOTE]	
+> We recommend adding the certificate to API Management by referencing the key vault certificate. 
 
 ### Add Service Fabric backend
 
