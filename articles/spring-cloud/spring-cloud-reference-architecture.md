@@ -37,7 +37,7 @@ The infrastructure requirements for a private application are in the following l
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Azure DevOps self-hosted build agents must be used
+* Self-hosted build agents must be used (for example, Azure DevOps)
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
@@ -85,7 +85,7 @@ The infrastructure requirements for a public application are in the following li
 * Egress traffic must traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Azure DevOps self-hosted build agents must be used
+* Self-hosted build agents must be used (for example, Azure DevOps)
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host DNS records must be stored in Azure Private DNS
 * Internet routable addresses must be stored in Azure Public DNS
@@ -145,13 +145,16 @@ Each of these subnets requires a dedicated cluster. Multiple clusters can't shar
 ### Cost Optimization
 By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
+Multiple different applications (and application types such as Web, API, Console apps) can be deployed on to a single instance of Azure Spring Cloud. The service also supports AutoScaling of applications based on metrics or schedules resulting in better resource utilization and cost efficiency.
+
 Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
 ### Operational Excellence
-Azure Spring Cloud reference architecture addresses multiple aspects of operational excellence.  These different aspects combine to ensure Azure Spring Cloud runs efficiently in production environments.
+Azure Spring Cloud addresses multiple aspects of operational excellence.  These different aspects combine to ensure Azure Spring Cloud runs efficiently in production environments.
 * Azure Pipelines are used to ensure deployments are reliable and consistent while helping to avoid human error.
-* Azure Monitor and Application Insights are used to store log and telemetry data.  Log and telemetry data collected can be assessed to ensure application performance levels are maintained, availability of the application, health of the application, and can drive operational improvements.
+* Azure Monitor and Application Insights are used to store log and telemetry data.  Log and telemetry data collected can be assessed to ensure application performance levels are maintained, availability of the application, health of the application, and can drive operational improvements. Application Performance Monitoring (APM) is fully integrated into the service by means of a Java in-process monitoring agent. This gives visibility into all of your applications as well as dependencies without requiring ANY code changes. Please refer to [this][15] blog post for more details.
 * Azure Security Center is used to ensure applications maintain security by providing a platform to analyze and assess the data provided.
+* The service supports the blue-green deployment pattern through the concept of [deployments][14] and CI/CD pipelines resulting in lower downtimes and overall operational efficiency
 
 ### Performance Efficiency
 
@@ -231,6 +234,11 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 
 [Azure Spring Cloud required Application Security Rules][13]
 
+### Azure Spring Cloud On-Prem Connectivity
+
+Applications running in Azure Spring Cloud can communicate externally (third party, B2B scenarios) as well as with on-premise databases, messaging systems, file servers, directory services, mail servers and other enterprise systems. By using the hub and spoke design, traffic can be routed externally, or to the on-premise network using Express Route or Site-Site VPN.
+
+
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
 [2]: /azure/key-vault/
@@ -245,3 +253,8 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 [11]: /azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
 [12]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-network-requirements
 [13]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
+[14]: /azure/spring-cloud/spring-cloud-howto-staging-environment
+[15]: https://devblogs.microsoft.com/java/monitor-applications-and-dependencies-in-azure-spring-cloud/
+
+
+
