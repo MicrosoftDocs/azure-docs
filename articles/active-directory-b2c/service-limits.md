@@ -18,13 +18,13 @@ ms.subservice: B2C
 
 This article contains the usage constraints and other service limits for the Azure Active Directory B2C (Azure AD B2C) service.
 
-## End user/consumer related limits
+## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication and authorization protocols supported by Azure AD B2C, including SAML, Open ID Connect, OAuth2, and Resource owner password credential flow.
+The following end-user related service limits apply to all authentication and authorization protocols supported by Azure AD B2C, including SAML, Open ID Connect, OAuth2, and ROPC.
 
 |Category |Limit    |
 |---------|---------|
-|Number of requests per IP address per Azure AD B2C tenant       |6000/5min          |
+|Number of requests per IP address per Azure AD B2C tenant       |6,000/5min          |
 |Total number of requests per Azure AD B2C tenant     |12,000/min          |
 
 The number of requests can vary depending on the number of directory reads and writes that occur during the Azure AD B2C user journey. For example, a simple sign-in journey that reads from the directory consists of 1 request. If the sign-in journey must also update the directory, this operation is counted as an additional request.
