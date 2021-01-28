@@ -198,11 +198,11 @@ Use the following procedure:
 2. Click `Logs` entry under `Monitoring` section.
 3. Run this query.
 
-```
-AppPlatformLogsforSpring
-| where TimeGenerated > ago(1h)
-| project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
-```
+   ```
+   AppPlatformLogsforSpring
+   | where TimeGenerated > ago(1h)
+   | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
+   ```
 
 4. Application logs return as shown in the following image:
 
