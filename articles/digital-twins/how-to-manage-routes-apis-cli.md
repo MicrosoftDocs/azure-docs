@@ -49,7 +49,7 @@ This section explains how to create one of these endpoints using the Azure CLI.
 
 ### Create the endpoint
 
-Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md). Replace the placeholders in the commands with the details of your own resources.
+Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) command for the [Azure Digital Twins CLI](how-to-use-cli.md). Replace the placeholders in the commands with the details of your own resources.
 
 To create an Event Grid endpoint:
 
@@ -104,13 +104,13 @@ Follow the steps below to set up these storage resources in your Azure account, 
     
 #### Configure the endpoint
 
-To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md):
+To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) command for the [Azure Digital Twins CLI](how-to-use-cli.md).
+
+The value for the parameter is the **dead letter SAS URI** made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources).
 
 ```azurecli
-... --deadletter-sas-uri --dsu https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
 ```
-
-The value provided to this parameter is the **dead letter SAS URI** made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources).
 
 Add this parameter to the end of the endpoint creation commands from the [*Create the endpoint*](#create-the-endpoint) section to create an endpoint of your desired type that has dead-lettering enabled.
 
