@@ -1,9 +1,6 @@
 ---
 title: Using Apache Hive as an ETL Tool - Azure HDInsight 
 description: Use Apache Hive to extract, transform, and load (ETL) data in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
