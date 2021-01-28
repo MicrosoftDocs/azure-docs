@@ -203,12 +203,6 @@ When you need to do more data analysis on costs, you can [export cost data](http
 
 ## Other ways to manage and reduce costs
 
-To help you contain costs on your Logic Apps and related resources, try these tips:
-
-* Disable logic apps that you don't need to run.
-
-https://docs.microsoft.com/en-us/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-logic-apps
-
 <!-- Note to Azure service writer: This section is optional. Other than using the Cost Management methods above, your service probably has other specific ways to minimize costs. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here.
 
 Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
@@ -216,10 +210,28 @@ Add a statement that discusses any recommended settings for your service that mi
 Otherwise, if no other cost-saving recommendations or best practices exist to reduce costs, cut this section.
 -->
 
+To help you reduce costs on your logic aps and related resources, try these options:
+
+* If possible, use [built-in triggers and actions](../connectors/apis-list.md#built-in), which cost less to run per execution than [managed connector triggers and actions](../connectors/apis-list.md#managed-connectors).
+
+  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](../logic-apps/logic-apps-azure-functions.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
+
+* [Specify precise trigger conditions](logic-apps-workflow-actions-triggers.md#trigger-conditions) for running a workflow.
+
+  For example, you can specify that a trigger fires only when the target website returns an internal server error. In the trigger's JSON definition, use the `conditions` property to specify a condition that references the trigger's status code.
+
+* If a trigger has a polling version and a webhook version, try the webhook version, which waits for the specified event to happen before firing, rather than regularly checking for the event.
+
+* Call your logic app through another service so that the trigger fires only when the workflow should run.
+
+  For example, you can call your logic app from a function that you create and run using the Azure Functions service. For example, see [Call or trigger logic apps by using Azure Functions and Azure Service Bus](logic-apps-scenario-function-sb-trigger.md).
+
+* [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-or-enable-logic-apps) that you don't need to run, or delete logic apps that you no longer need.
+
 ## Next steps
 
 * [Optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Manage costs by using Cost Analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Manage costs using cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course
 
