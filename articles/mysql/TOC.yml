@@ -209,6 +209,8 @@
          href: concepts-database-application-development.md
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
+       - name: Developing with AKS services
+         href: concepts-aks.md
          displayName: drivers, tools
        - name: Application best practices
          href: app-development-best-practices.md
