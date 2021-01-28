@@ -400,11 +400,13 @@ Before you set up your firewall with IP addresses, review these considerations:
 
 * If your logic apps run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), make sure that you [open these ports too](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
-* To help you simplify any security rules that you want to create, you can optionally use [service tags](../virtual-network/service-tags-overview.md) instead, rather than specify IP addresses for each region. These tags work across the regions where the Logic Apps service is available:
+* To help you simplify any security rules that you want to create, you can optionally use [service tags](../virtual-network/service-tags-overview.md) instead, rather than specify IP address prefixes for each region. These tags work across the regions where the Logic Apps service is available:
 
   * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
 
   * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+
+  * **AzureConnectors**: Represents the IP address prefixes for managed connectors that make inbound webhook callbacks to the Logic Apps service and outbound calls to their respective services, such as Azure Storage or Azure Event Hubs.
 
 * If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various other options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -419,10 +421,11 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
-> rather than specify inbound Logic Apps IP address prefixes for each region.
-> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
-> rather than specify inbound managed connector IP address prefixes for each region.
-> These tags work across the regions where the Logic Apps service is available.
+> rather than specify inbound Logic Apps IP address prefixes for each region. Optionally, 
+> you can also use the **AzureConnectors** service tag for managed connectors that make 
+> inbound webhook callbacks to the Logic Apps service, rather than specify inbound managed 
+> connector IP address prefixes for each region. These tags work across the regions where 
+> the Logic Apps service is available.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -489,9 +492,12 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
-> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
-> rather than specify outbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available. 
+> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**, rather than 
+> specify outbound Logic Apps IP address prefixes for each region. Optionally, you can 
+> also use the **AzureConnectors** service tag for managed connectors that make outbound 
+> calls to their respective services, such as Azure Storage or Azure Event Hubs, rather than 
+> specify outbound managed connector IP address prefixes for each region. These tags work 
+> across the regions where the Logic Apps service is available.
 
 <a name="multi-tenant-outbound"></a>
 
