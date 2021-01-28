@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
 
-## January 2021
+## February 2021
 
 * [Manual volume and capacity pool management](volume-quota-introduction.md) (hard quota) 
 
