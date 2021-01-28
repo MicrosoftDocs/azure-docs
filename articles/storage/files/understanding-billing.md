@@ -19,7 +19,7 @@ Azure Files uses base-2 unit prefixes to represent storage capacity: KiB, MiB, G
 
 ### Windows
 
-Windows measures storage using the base-2 counting system but displays them with base-10 prefixes (KB, MB, GB, TB, etc.) without converting them.
+Windows measures storage using the base-2 counting system but displays storage capacity with base-10 prefixes (KB, MB, GB, TB, etc.) without converting to base-10. Azure Files measures storage using the base-2 counting system and displays storage capacity with base-2 prefixes.
 
 > [!IMPORTANT]
 > To calculate Azure Files costs, you don't need to convert units if you use Windows. Both Azure Files and Windows measure storage in base-2.
