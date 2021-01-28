@@ -16,7 +16,7 @@ ms.reviewer: olhaun
 
 # Import passwords into the Microsoft Authenticator app
 
-You can now import your existing passwords to the Authenticator app to manage. Just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS). Microsoft Authenticator currently supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](#troubleshooting-steps).
+You can now import your existing passwords to the Authenticator app to manage. Just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS). Microsoft Authenticator currently supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](https://go.microsoft.com/fwlink/?linkid=2134938).
 
 ## Import passwords from Google Chrome or Android Smart Lock
 
