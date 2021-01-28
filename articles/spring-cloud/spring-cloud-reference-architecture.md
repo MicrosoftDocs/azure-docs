@@ -127,11 +127,11 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Planning the addresses
 
-Azure Spring Cloud requires two dedicated subnets
+Azure Spring Cloud requires two dedicated subnets.   
 * Service runtime
 * Spring Boot microservice applications
 
-Each of these subnets requires a dedicate cluster. Multiple clusters can't share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11] section.
+Each of these subnets requires a dedicated cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Cloud supports changes based on CIDR size of Spring Boot microservice applications subnet. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11] section.
 
 > [!WARNING]
 > The selected CIDR range can't overlap with VNET address space.
