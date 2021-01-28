@@ -103,7 +103,8 @@ You might also encounter issues when running the **[Live Video Analytics resourc
 * The setup script cannot create a service principal and/or Azure resources.
     * To get past this issue, please check that your subscription and the Azure tenant have not reached their maximum service limits. Learn more about [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) and [Azure subscription and service limits, quotas, and constraints.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
-
+> [!TIP]
+> If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
 ### Live Video Analytics working with external modules
 
 Live Video Analytics via the media graph extension processors can extend the media graph to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), this media graph can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
