@@ -91,7 +91,7 @@
   - name: Python samples
     href: samples-python.md
   - name: REST samples
-    href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+    href: samples-rest.md
 - name: Concepts
   items:
   - name: Full-text search
