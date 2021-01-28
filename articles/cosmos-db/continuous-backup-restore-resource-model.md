@@ -131,12 +131,11 @@ Each resource contains information of a mutation event such as creation and dele
 |---------|---------|
 | eventTimestamp | The time in UTC when your database is created or deleted. |
 | ownerId | The name of the SQL database. |
-| ownerResourceId	| The resource ID of the SQL database| 
-| operationType | The operation type of this database event. Here are the possible values: <br/><ul><li> Create: database creation event </li><li> Delete: database deletion event </li><li> Replace: database modification event </li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| ownerResourceId | The resource ID of the SQL database|
+| operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| database |The properties of the SQL database at the time of the event|
 
-database	The properties of the SQL database at the time of the event
-
-To get a list of all database mutations, see [Restorable Sql Databases - List]() article. 
+To get a list of all database mutations, see [Restorable Sql Databases - List]() article.
 
 ### Restorable SQL container
 
@@ -147,8 +146,8 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp	| The time in UTC when this container event happened.|
 | ownerId| The name of the SQL container.|
 | ownerResourceId	| The resource ID of the SQL container.|
-| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li> Create: container creation event </li><li> Delete: container deletion event </li><li> Replace: container modification event </li><li> SystemOperation: container modification event triggered by the system. This event is not initiated by the user </li></ul> |
-| container	| The properties of the SQL container at the time of the event.|
+| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| container | The properties of the SQL container at the time of the event.|
 
 To get a list of all container mutations under the same database, see [Restorable Sql Containers - List]() article.
 
@@ -172,7 +171,7 @@ Each resource contains information of a mutation event such as creation and dele
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the MongoDB database. |
 | ownerResourceId	| The resource ID of the MongoDB database. |
-| operationType |	The operation type of this database event. Here are the possible values: <br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
 To get a list of all database mutation, see [Restorable Mongodb Databases - List]() article.
 
@@ -185,11 +184,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp |The time in UTC when this collection event happened. |
 | ownerId| The name of the MongoDB collection. |
 | ownerResourceId	| The resource ID of the MongoDB collection. |
-| operationType |The operation type of this collection event. Here are the possible values: <br/><ul>
-* Create: collection creation event
-* Delete: collection deletion event
-* Replace: collection modification event
-* SystemOperation: collection modification event triggered by the system. This event is not initiated by the user </ul> |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
 
 To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List]() article.
 
