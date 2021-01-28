@@ -29,6 +29,9 @@
     {
       "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
@@ -1191,6 +1194,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/view-usage-reports.md",
       "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/company-branding.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui",
       "redirect_document_id": false
     },
     {
@@ -16069,7 +16077,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/manage/usage-rate-card-overview.md",
+      "source_path_from_root": "/articles/cost-management-billing/manage/usage-rate-card-overview.md",
       "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
       "redirect_document_id": false
     },
@@ -32959,6 +32967,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/redhat-create-upload-vhd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-container-linux.md",
       "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
       "redirect_document_id": false
@@ -48613,6 +48626,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-users-create-external-azure-portal.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/access-panel-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/my-apps-deployment-plan",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-conditional-access-content-map.md",
