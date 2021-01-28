@@ -268,6 +268,30 @@ If an Application Insights resources wasn't created with your function app, use 
 > [!NOTE]
 > Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
 
+## Querying Scale Controller logs
+
+After enabling Application Insights integration, you can use the Application Insights log search to query for scale controller logs. Scale controller logs are saved in the `traces` collection under the **ScaleControllerLogs** category.
+
+The following query can be used to search for all scale controller logs for the current function app:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+The following query shows how to get only logs indicating a change in scale:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
+
 ## Disable built-in logging
 
 When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
