@@ -452,6 +452,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: Service limits and restrictions
+    href: service-limits.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model
