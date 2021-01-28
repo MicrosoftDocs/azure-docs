@@ -106,11 +106,13 @@ The procedure:
     ```
 
 ### Log with log4j2 
+
 For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) to generate JSON formatted log. This is supported in Spring Boot version 2.1+.
 
 The procedure:
 
 1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your pom.xml file.
+
 ```xml
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -132,7 +134,9 @@ The procedure:
         <version>2.14.0</version>
     </dependency>
 ```
-2. Prepare a JSON layout template file jsonTemplate.json in your class path.
+
+1. Prepare a JSON layout template file jsonTemplate.json in your class path.
+
 ```json
     {
         "mdc": {
@@ -172,7 +176,8 @@ The procedure:
         }
     }
 ```
-3. Use this JSON layout template in your log4j2.xml config file. 
+
+1. Use this JSON layout template in your log4j2.xml config file. 
 
 ```json
     <configuration>
@@ -204,18 +209,22 @@ AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h)
 | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
 ```
+
 4. Application logs return as shown in the following image:
 
 ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
 
 ### Show log entries containing errors
+
 To review log entries that have an error, run the following query:
+
 ```
 AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
 | project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
 | sort by AppTimestamp
 ```
+
 Use this query to find errors, or modify the query terms to find specific exception class or error code. 
 
 ### Show log entries for a specific traceId
@@ -227,7 +236,6 @@ AppPlatformLogsforSpring
 | where TraceId == "trace_id" 
 | project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
 | sort by AppTimestamp
-
 ```
 
 ## Next Steps
