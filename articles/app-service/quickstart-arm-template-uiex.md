@@ -42,6 +42,15 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 This template includes two Azure resources and several parameters that are predefined for your convenience.
 
 <details>
+<summary>What resources are defined in the template?</summary>
+
+Two Azure resources are defined in the template:
+
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
+</details>
+
+<details>
 <summary>What parameters are predefined in the template?</summary>
 
 The following table details defaults parameters and their descriptions:
@@ -57,6 +66,13 @@ The following table details defaults parameters and their descriptions:
 
 ---
 </details>
+::: zone-end
+::: zone pivot="platform-linux"
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It's compatible with all supported App Service on Linux programming languages.
+
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+
+This template includes Azure resources and parameters that are defined for your convenience.
 
 <details>
 <summary>What resources are defined in the template?</summary>
@@ -66,16 +82,9 @@ Two Azure resources are defined in the template:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 </details>
-::: zone-end
-::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
-
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
-
-This template includes two Azure resources and several parameters that are predefined for your convenience.
 
 <details>
-<summary>What parameters are predefined in the template?</summary>
+<summary>What parameters are defined in the template?</summary>
 
  The following table details defaults parameters and their descriptions:
 
@@ -91,14 +100,6 @@ This template includes two Azure resources and several parameters that are prede
 
 </details>
 
-<details>
-<summary>What resources are defined in the template?</summary>
-
-Two Azure resources are defined in the template:
-
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-</details>
 ::: zone-end
 
 <hr/>
