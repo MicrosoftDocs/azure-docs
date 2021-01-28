@@ -133,7 +133,7 @@ Azure Spring Cloud requires two dedicated subnets
 
 Each of these subnets requires a dedicate cluster. Multiple clusters cannot share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11]: section. 
 
-**Note**, the selected CIDR range cannot overlap with VNET address space. It should also not overlap with any connected or on-premises CIDR address ranges. 
+**Note**, the selected CIDR range cannot overlap with VNET address space. It should also not overlap with any peered or on-premises CIDR address ranges. 
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
@@ -202,34 +202,15 @@ Explore this reference architecture through ARM, Terraform, and CLI deployments 
 
 ## Appendix
 
-### Azure Spring Cloud Infrastructure Rules
+When deploying Azure Spring Cloud in a secured environment, management traffic must be able to egress for the service to deploy and remain in a healthy state. Below are the Network and Application rules that must be allowed on Azure Firewall, or Network Virtual Appliance (NVA).
 
-| Service Tag/FQDN | Port | Use |
-| :--------------- | :--- | :-- |
-| AzureCloud | UDP: 1194 | Azure Kubernetes Cluster Management |
-| AzureCloud | TCP: 443 | Azure Spring Cloud Service Management |
-| AzureCloud | TCP: 9000 | Azure Kubernetes Cluster Management |
-| ntp.ubuntu.com | UDP: 123 | NTP synchronization for Linux nodes |
-| Azure Container Registry (*.azure.io) | TCP: 443 | Azure Container Registry |
-| Azure Storage (*.core.windows.net) | TCP: 443 | Azure File Storage |
-| Azure Storage (*.core.windows.net) | TCP: 445 | Azure File Storage |
-| Azure Event Hub (*.servicebus.windows.net) | TCP: 443 | Azure Event Hub |
+### Azure Spring Cloud Network Rules
+
+[Azure Spring Cloud required Network Security Rules] [12]
 
 ### Azure Spring Cloud Application Rules
 
-| Service Tag/FQDN | Port | Use |
-| :--------------- | :--- | :-- |
-| *.azmk8s.io | TCP: 443 | Azure Kubernetes Cluster Management |
-| mcr.microsoft.com | TCP: 443 | Microsoft Container Registry (MCR) |
-| *.cdn.mscr.io | TCP: 443 | MCR storage backed by Azure Content Delivery Network (CDN) |
-| *.data.mcr.microsoft.com | TCP: 443 | MCR storage backed by Azure CDN |
-| management.azure.com | TCP: 443 | Azure Kubernetes Cluster Management |
-| login.microsoftonline.com | TCP: 443 | Azure Active Directory authentication |
-| packages.microsoft.com | TCP: 443 | Microsoft Packages Repository |
-| acs-mirror.azureedge.net | TCP: 443 | Repository containing binaries for Kubenet and Azure Container Networking Interface (CNI) |
-| mscrl.microsoft.com | TCP: 443 | Microsoft Certificate Revocation List |
-| crl.microsoft.com | TCP: 443 | Microsoft Certificate Revocation List |
-| crl3.digicert.com | TCP: 443 | Microsoft Certificate Revocation List |
+[Azure Spring Cloud required Application Security Rules] [13]
 
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
@@ -243,3 +224,5 @@ Explore this reference architecture through ARM, Terraform, and CLI deployments 
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
 [11]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
+[12]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-network-requirements
+[13]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
