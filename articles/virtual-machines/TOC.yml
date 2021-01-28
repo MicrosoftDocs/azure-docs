@@ -101,37 +101,8 @@
     href: ./workloads/sap/get-started.md
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
-  - name: Elasticsearch
-    href: ./linux/tutorial-elasticsearch.md
-  - name: FreeBSD Packet Filter
-    href: ./linux/freebsd-pf-nat.md
-  - name: MySQL on SUSE
-    href: ./linux/mysql-on-opensuse.md
-  - name: MongoDB
-    items:
-    - name: Linux
-      href: ./linux/install-mongodb.md
-    - name: Windows
-      href: ./windows/install-mongodb.md
-  - name: PostgreSQL
-    href: ./linux/postgresql-install.md
-  - name: MS SQL on Linux
-    href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
-  - name: IBM Db2 pureScale
-    items:
-    - name: Architecture
-      href: ./linux/ibm-db2-purescale-azure.md
-    - name: Deployment
-      href: ./linux/deploy-ibm-db2-purescale-azure.md
-  - name: Containers
-    items:
-      href: ./linux/docker-machine.md
-    - name: Use Docker Compose
-      href: ./linux/docker-compose-quickstart.md
-  - name: Visual Studio
-    href: ./windows/using-visual-studio-vm.md
 - name: Instances
   items:
   - name: Sizes
