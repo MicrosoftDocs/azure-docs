@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand what has changed in the new version of Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
