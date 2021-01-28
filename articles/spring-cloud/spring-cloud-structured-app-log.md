@@ -55,7 +55,8 @@ When using Spring Boot starters, logback is used by default. For logback apps, u
 
 The procedure:
 
-1. Add logstash dependency in your pom.xml file.
+1. Add logstash dependency in your pom.xml file. 
+
     ```json
     <dependency>
 		<groupId>net.logstash.logback</groupId>
@@ -63,7 +64,7 @@ The procedure:
 		<version>6.5</version>
 	</dependency>
     ```
-2. Update your logback.xml config file to set the JSON format.
+1. Update your logback.xml config file to set the JSON format.
     ```json
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
