@@ -43,6 +43,8 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Automation network configuration details
+      href: automation-network-configuration.md
     - name: Security
       items:
       - name: Security controls by Azure Policy

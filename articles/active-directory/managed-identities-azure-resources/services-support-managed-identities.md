@@ -108,6 +108,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Not available | Not available | Not available | Not available |
 
 
+### Azure Communication Services
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | Not available | Not available | Not available |
+
+
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -154,8 +162,6 @@ Refer to the following list to configure managed identity for Azure Data Factory
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### Azure Event Grid
 
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -163,13 +169,12 @@ Managed identity type |All Generally Available<br>Global Azure Regions | Azure G
 | System assigned | Preview | Preview | Not available | Preview |
 | User assigned | Not available | Not available  | Not available  | Not available |
 
+### Azure Firewall Policy
 
-
-
-
-
-
-
+Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Not available | Not available | Not available | Not available |
+| User assigned | Preview | Not available  | Not available  | Not available |
 
 ### Azure Functions
 

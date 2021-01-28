@@ -20,7 +20,7 @@ Managed Services are Azure Marketplace offers that enable cross-tenant and multi
 
 To publish a Managed Service, you must have earned a Gold or Silver Microsoft Competency in Cloud Platform. This competency demonstrates your expertise to customers. For more information, see [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies).
 
-Offers must meet all applicable [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies) to be published on Azure Marketplace.
+Offers must meet all applicable [commercial marketplace certification policies](/legal/marketplace/certification-policies) to be published on Azure Marketplace.
 
 ## Customer leads
 
