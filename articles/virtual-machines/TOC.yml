@@ -1062,10 +1062,6 @@
     items:
     - name: Overview
       href: image-builder-overview.md
-    - name: Security
-      items:
-      - name: Security controls by Azure Policy
-        href: ./security-controls-policy-vmimages.md
     - name: CLI
       items:
       - name: Linux
@@ -1074,6 +1070,10 @@
         href: ./windows/image-builder.md
     - name: PowerShell
       href: ./windows/image-builder-powershell.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-vmimages.md
     - name: Use a VNET
       items:
       - name: CLI
