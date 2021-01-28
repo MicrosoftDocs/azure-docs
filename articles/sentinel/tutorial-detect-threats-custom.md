@@ -58,16 +58,16 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - The example shown in this screenshot queries the *SecurityEvent* table to display a type of [failed Windows logon events](/windows/security/threat-protection/auditing/event-4625).
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
 - Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/platform/activity-log.md).
 
-      ```kusto
-      AzureActivity
-      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-      | where ActivityStatus == "Succeeded"
-      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-      ```
+    ```kusto
+    AzureActivity
+    | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+    | where ActivityStatus == "Succeeded"
+    | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+    ```
 
     > [!NOTE]
     > - The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
@@ -93,7 +93,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - In the **Query scheduling** section, set the following parameters:
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2.png":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
     - Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once every 14 days.
 
@@ -142,7 +142,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
     >
     > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
        >
-    > - By the way, what are **incidents**? Azure Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of analysts' work - triage, investigation and remediation.
+    > - By the way, what are **incidents**? Azure Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of SOC analysts' work - triage, investigation and remediation.
     > 
     > Azure Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
 
