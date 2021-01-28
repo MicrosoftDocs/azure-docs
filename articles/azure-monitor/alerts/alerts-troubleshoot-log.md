@@ -33,7 +33,7 @@ Query time range is set in the rule condition definition. This field is called *
 
 For example, a query scans 60 minutes, when time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, would work as expected.
 
-![Time period](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
+![Time period](media/alerts-troubleshoot-log/LogAlertTimePeriod.png)
 
 ### Actions are muted in the alert rule
 
@@ -41,7 +41,7 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 
 A common issue is that you think that the alert didn't fire the actions because of a service issue. Even tough it was muted by the rule configuration.
 
-![Suppress alerts](media/alert-log-troubleshoot/LogAlertSuppress.png)
+![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
@@ -86,7 +86,7 @@ The optimized query is what the log alert service runs. You can run the modified
 
 For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
 
-![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
+![Query to be executed](media/alerts-troubleshoot-log/LogAlertPreview.png)
 
 ## Log alert was disabled
 
