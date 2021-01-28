@@ -16,7 +16,7 @@ This article explains how to generate and collect structured application log dat
 Contents include:
 
 * Structured log format requirements
-* How to generate schema compliant JSON log 
+* How to generate schema-compliant JSON log 
 * Query & analyze application log with structured log
 
 ## Log schema requirements
@@ -40,18 +40,18 @@ To improve log query experience, an application log is required to be in JSON fo
 
 1. The "timestamp" field is required, and should be in UTC format, all other fields are optional.
 2. "traceId" and "spanId" in "mdc" field are used for tracing purpose.
-3. You should log each JSON record in one line. 
+3. Log each JSON record in one line. 
 
 **Log record sample** 
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
-## Generate schema compliant JSON log  
+## Generate schema-compliant JSON log  
 For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/). 
 
 ### Log with logback 
-When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generated JSON formatted log. This is supported in Spring Boot version 2.1+. 
+When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+. 
 
 The procedure:
 
@@ -107,7 +107,7 @@ The procedure:
 
 ### Log with log4j2 
 
-For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) to generate JSON formatted log. This is supported in Spring Boot version 2.1+.
+For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
 
 The procedure:
 
@@ -228,7 +228,7 @@ AppPlatformLogsforSpring
 Use this query to find errors, or modify the query terms to find specific exception class or error code. 
 
 ### Show log entries for a specific traceId
-To review log entries for a specific tracing id "trace_id", run the following query:
+To review log entries for a specific tracing ID "trace_id", run the following query:
 
 ```
 AppPlatformLogsforSpring
@@ -239,4 +239,4 @@ AppPlatformLogsforSpring
 ```
 
 ## Next Steps
-* To learn more about the Log Query see [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* To learn more about the Log Query, see [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
