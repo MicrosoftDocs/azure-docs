@@ -193,7 +193,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ---
 
-Each device uses it's derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
+Each device uses its derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
 
 
 
