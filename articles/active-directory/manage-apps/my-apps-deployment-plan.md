@@ -1,8 +1,8 @@
 ---
-title: Plan Azure Active Directory My Apps Configuration
+title: Plan Azure Active Directory My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
 services: active-directory
-author: kenwith
+author: barbaraselden
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,15 +16,13 @@ ms.reviewer: baselden
 # Plan Azure Active Directory My Apps configuration
 
 > [!NOTE]
-> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. For information for the end user about how to use My Apps and collections, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).<br>
-**For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
+> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. For information for the end user about how to use My Apps and collections, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+>
+> **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
 
 Azure Active Directory (Azure AD) My Apps is a web-based portal for launching and managing apps. The My Apps page gives users a single place to start their work and find all the applications to which they have access. Users access My Apps at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
-<br>
-
-[!VIDEO https://www.youtube.com/embed/uB-JjuaV_qM]
-
+> [!VIDEO https://www.youtube.com/embed/atj6Ivn5m0k]
 
 ## Why Configure My apps
 
@@ -39,7 +37,6 @@ Any application in the Azure Active Directory enterprise applications list appea
 Configuring the portal ensures that the right people can easily find the right apps.
 
  
-
 ### How is the My Apps portal used?
 
 Users access the My Apps portal to:
@@ -74,7 +71,7 @@ Administrators can configure:
 
 There are two types of consent: user consent and consent for apps accessing data.
 
-![Screen shot of consent configuration](media\my-apps-dp\my-apps-consent.png)
+![Screen shot of consent configuration](./media/my-apps-deployment-plan/my-apps-consent.png)
 
 ### User consent for applications 
 
@@ -82,9 +79,9 @@ Users or administrators must consent to any application’s terms of use and pri
 
 To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
 
-1. Registered in your organization.
+* Registered in your organization.
 
-2. Registered in another Azure AD organization and previously consented to by at least one user.
+* Registered in another Azure AD organization and previously consented to by at least one user.
 
 If you want to allow users to consent, you must decide if you want them to consent to any app, or only under specific circumstances.
 
@@ -116,9 +113,9 @@ It's best if SSO is enabled for all apps in the My Apps portal so that users hav
 
 Azure AD supports multiple SSO options. 
 
-* To learn more, see [Single sign-on options in Azure AD]../Desktop/sso-options.md).
+* To learn more, see [Single sign-on options in Azure AD](sso-options.md).
 
-* To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](../manage-apps//view-applications-portal.md).
+* To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](../manage-apps/view-applications-portal.md).
 
 ### Use federated SSO if possible
 
@@ -129,11 +126,11 @@ For more information on how to configure your software as a service (SaaS) appli
 ### Considerations for special SSO circumstances
 
 > [!TIP]
->For a better user experience, use Federated SSO with Azure AD (OpenID Connect/SAML) when an application supports it, instead of password-based SSO and ADFS.
+> For a better user experience, use Federated SSO with Azure AD (OpenID Connect/SAML) when an application supports it, instead of password-based SSO and ADFS.
 
 To sign in to password-based SSO applications, or to applications that are accessed by Azure AD Application Proxy, users need to install and use the My Apps secure sign-in extension. Users are prompted to install the extension when they first launch the password-based SSO or Application Proxy application. 
 
-![Screenshot of](media\my-apps-dp\ap-dp-install-myapps.png)
+![Screenshot of](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
 For detailed information on the extension, see [Installing My Apps browser extension](../user-help/my-apps-portal-end-user-access.md).
 
@@ -145,7 +142,7 @@ If you must integrate these applications, you should define a mechanism to deplo
 
 The extension allows users to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
-![Screenshot of my apps extension search](media\my-apps-dp\my-app-extsension.png)
+![Screenshot of my apps extension search](./media/my-apps-deployment-plan/my-app-extsension.png)
 
 #### Plan for mobile access
 
@@ -154,8 +151,6 @@ For applications that use password-based SSO or accessed by using [Microsoft Azu
 ### Linked SSO
 
 Applications can be added by using the Linked SSO option. You can configure an application tile that links to the URL of your existing web application. Linked SSO allows you to start directing users to the My Apps portal without migrating all the applications to Azure AD SSO. You can gradually move to Azure AD SSO-configured applications without disrupting the users’ experience.
-
-####  
 
 ## Plan the user experience
 
@@ -171,14 +166,12 @@ End users can also customize their experience by
 
 * [Hiding and reordering app collections](access-panel-collections.md).
 
-![Screenshot of self-service configuration](media\my-apps-dp\collections.png)
+![Screenshot of self-service configuration](./media/my-apps-deployment-plan/collections.png)
 
 There’s an option to hide apps from the My Apps portal, while still allowing access from other locations, such as the Microsoft 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 > [!IMPORTANT]
 > Only 950 apps to which a user has access can be accessed through My Apps. This includes apps hidden by either the user or the administrator. 
-
- 
 
 ### Plan self-service group management membership
 
@@ -198,7 +191,7 @@ You can enable users to discover and request access to applications via the My A
 
 * create a group for application access
 
-![Screen shot of My Apps self service configuration](media\my-apps-dp\my-apps-self-service.png)
+![Screen shot of My Apps self service configuration](./media/my-apps-deployment-plan/my-apps-self-service.png)
 
 When users request access, they're requesting access to the underlying group, and group owners can be delegate permission to manage the group membership and thus application access. Approval workflows are available for explicit approval to access applications. Users who are approvers will receive notifications within the My Apps portal when there are pending request for access to the application.
 

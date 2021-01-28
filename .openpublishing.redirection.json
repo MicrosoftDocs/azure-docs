@@ -29,6 +29,9 @@
     {
       "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
@@ -48598,6 +48601,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-users-create-external-azure-portal.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/access-panel-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/my-apps-deployment-plan",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-conditional-access-content-map.md",
