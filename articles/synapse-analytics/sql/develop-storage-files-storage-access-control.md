@@ -155,7 +155,7 @@ Follow these steps to configure your storage account firewall and add an excepti
             Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
             $rule.ResourceAccessRules
         } else {
-            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Green
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
             $rule.ResourceAccessRules
         }
     ```
