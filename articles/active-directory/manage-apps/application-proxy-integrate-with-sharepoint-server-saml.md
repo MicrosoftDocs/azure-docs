@@ -53,8 +53,8 @@ In this step, you configure the on-premises SharePoint app and validate that con
 
 Find the following values that you configured when you [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial),
 
- - Internal URL: https://<YourSharePointSiteURL>/ 
- - External URL: https://<YourSharePointSiteURL>/
+ - Internal URL: https://\<YourSharePointSiteURL>/ 
+ - External URL: https://\<YourSharePointSiteURL>/
 
 > [!NOTE]
 > The values match the Sign on URL under the SAML Based Application configuration in Step 1.
