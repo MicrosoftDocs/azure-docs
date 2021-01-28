@@ -474,7 +474,7 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
-      - name: DCv2-series
+      - name: DCsv2-series
         href: dcv2-series.md
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
@@ -1070,6 +1070,10 @@
         href: ./windows/image-builder.md
     - name: PowerShell
       href: ./windows/image-builder-powershell.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-image-builder.md
     - name: Use a VNET
       items:
       - name: CLI
@@ -1742,7 +1746,7 @@
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
     - name: Restore options       
-      href: /backup/backup-azure-arm-restore-vms.md
+      href: ../backup/backup-azure-arm-restore-vms.md
     - name: Support matrix 
       href: ../backup/backup-support-matrix-iaas.md
     - name: Pricing
