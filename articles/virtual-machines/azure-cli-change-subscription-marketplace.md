@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 To move a Marketplace virtual machine to a different subscription, you must move the OS disk to that subscription and then recreate the virtual machine.
 
+You don't need this procedure to move a data disk to a new subscription. Instead, create a new virtual machine in the new subscription from the Marketplace, then move and attach the data disk.
+
 This script demonstrates three operations:
 
 - Create a snapshot of an OS disk.
@@ -25,10 +27,10 @@ This script demonstrates three operations:
 
 ## Sample script
 
-You don't need this procedure to move a data disk to a new subscription. Instead, create a new virtual machine in the new subscription from the Marketplace, then move and attach the data disk.
+To move a Marketplace virtual machine to a different subscription, you must create a new virtual machine for the same Marketplace offer from the moved OS disk.
 
 > [!NOTE]
-> To move a Marketplace virtual machine to a different subscription, you must create a new virtual machine out of the moved OS disk. If the virtual machine plan is no longer available in the Marketplace, you can't use this procedure.
+> If the virtual machine plan is no longer available in the Marketplace, you can't use this procedure.
 
 ```azurecli
 #!/bin/bash
