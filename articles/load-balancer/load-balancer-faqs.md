@@ -44,7 +44,7 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
 No, this is not possible.
 
 ## What is the maximum data throughput that can be achieved via an Azure Load Balancer?
-Since Azure LB is a pass-through network load balancer, throughput limitations are dictated by the type of virtual machine used in the backend pool. To learn about other network throughput related information refer to [Virtual Machine network throughput] (../virtual-network/virtual-machine-network-throughput.md).
+Since Azure LB is a pass-through network load balancer, throughput limitations are dictated by the type of virtual machine used in the backend pool. To learn about other network throughput related information refer to [Virtual Machine network throughput](../virtual-network/virtual-machine-network-throughput.md).
 
 
 ## How do connections to Azure Storage in the same region work?
