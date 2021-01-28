@@ -20,7 +20,7 @@ You can also manage API Management certificates using the [API Management REST A
 
 ## Certificate options
 
-API Management provides two options to manage certificates:
+API Management provides two options to manage certificates used to secure access to backend services:
 
 * Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
 * Add a certificate file directly in API Management
@@ -43,7 +43,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal. md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
+1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
     1. In the portal, navigate to your key vault.
     1. Select **Settings > Access policies > + Add Access Policy**.
     1. Select **Certificate permissions**, then select **Get** and **List**.
@@ -64,6 +64,7 @@ To add a key vault certificate to API Management:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **Security**, select **Certificates**.
 1. Select **Certificates** > **+ Add**.
+1. In **Id**, enter a name of your choice.
 1. In **Certificate**, select **Key vault**.
 1. Enter the identifier of a key vault certificate, or choose **Select** to select a certificate from a key vault.
     > [!IMPORTANT]
@@ -82,14 +83,14 @@ To upload a client certificate to API Management:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **Security**, select **Certificates**.
 1. Select **Certificates** > **+ Add**.
+1. In **Id**, enter a name of your choice.
 1. In **Certificate**, select **Custom**.
 1. Browse to select the certificate .pfx file, and enter its password.
 1. Select **Add**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
 
-After the certificate is uploaded, it shows in the **Certificates** window.  
-If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-API-to-use-client-certificate-for-gateway authentication).
+After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-API-to-use-client-certificate-for-gateway-authentication).
 
 > [!NOTE]
 > To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in [Self-signed certificates](#self-signed-certificates), later in this article.

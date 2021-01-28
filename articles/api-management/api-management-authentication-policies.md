@@ -62,10 +62,10 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes
 
 ##  <a name="ClientCertificate"></a> Authenticate with client certificate
- Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint or certificate Id (resource name). 
+ Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint or certificate ID (resource name). 
 
 > [!CAUTION]
-> If the certificate references a certificate stored in Azure Key Vault, identify it using the certificate Id. When a key vault certificate is rotated, its thumbprint in API Management will change, and the policy will not resolve the new certificate if it is identified by thumbprint.
+> If the certificate references a certificate stored in Azure Key Vault, identify it using the certificate ID. When a key vault certificate is rotated, its thumbprint in API Management will change, and the policy will not resolve the new certificate if it is identified by thumbprint.
 
 ### Policy statement
 
