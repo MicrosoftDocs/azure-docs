@@ -153,7 +153,7 @@ Visualize and query log results, and configure alerts to take actions based on m
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

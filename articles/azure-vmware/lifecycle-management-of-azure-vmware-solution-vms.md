@@ -101,7 +101,7 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
 - To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/insights/vminsights-configure-workspace.md).
 
 - You can create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can also set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email. To create such rules, see:
-    - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
-    - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md).
+    - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+    - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
     - [Action rules](../azure-monitor/alerts/alerts-action-rules.md) to set automated actions and notifications.
     - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).

@@ -13,7 +13,7 @@ Alerts in Azure proactively notify you of results from runbook jobs, service hea
 
 ## Available metrics
 
-Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and for alerting using a [metrics alert rule](../../azure-monitor/platform/alerts-metric.md).
+Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and for alerting using a [metrics alert rule](../../azure-monitor/alerts/alerts-metric.md).
 
 The two metrics emitted are:
 

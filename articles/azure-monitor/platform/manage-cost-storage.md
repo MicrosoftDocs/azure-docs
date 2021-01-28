@@ -246,7 +246,7 @@ Usage
 
 ### Alert when Daily Cap reached
 
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](alerts-metric.md).
+While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](../alerts/alerts-metric.md).
 
 To get you started, here are the recommended settings for the alert querying the `Operation` table using the `_LogOperation` function. 
 
@@ -658,7 +658,7 @@ There are some additional Log Analytics limits, some of which depend on the Log 
 ## Next steps
 
 - See [Log searches in Azure Monitor Logs](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-- Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
+- Use the steps described in [create a new log alert](../alerts/alerts-metric.md) to be notified when a search criteria is met.
 - Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
 - To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
 - Change [performance counter configuration](../agents/data-sources-performance-counters.md).

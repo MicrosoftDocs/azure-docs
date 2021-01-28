@@ -156,7 +156,7 @@ Following are queries that you can use to help you monitor your Azure Machine Le
 
 ## Alerts
 
-You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md) for details on creating alerts.
+You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
 The following table lists common and recommended metric alert rules for Azure Machine Learning:
 

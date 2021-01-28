@@ -17,7 +17,7 @@ ms.date: 11/10/2020
 
 
 ## Alert rule types
-Azure Monitor has [different types of alert rules](../platform/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by Azure Monitor for VMs is stored in Azure Monitor Logs which supports [log alerts](../platform/alerts-log.md). You cannot currently use [metric alerts](../platform/alerts-log.md) with performance data collected from Azure Monitor for VMs because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../platform/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
+Azure Monitor has [different types of alert rules](../platform/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by Azure Monitor for VMs is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from Azure Monitor for VMs because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../platform/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
 
 There are two types of log alerts in Azure Monitor:
 
@@ -28,7 +28,7 @@ There are two types of log alerts in Azure Monitor:
 ## Alert rule walkthrough
 This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for VMs. You can use this basic process with a variety of log queries to alert on different performance counters.
 
-Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../platform/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
+Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
 
 For the **Condition** of the alert rule, use one of the queries in the [section below](#sample-alert-queries) as the **Search query**. The query must return a numeric property called *AggregatedValue*. It should summarize the data by computer so that you can create a separate alert for each virtual machine that exceeds the threshold.
 

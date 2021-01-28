@@ -224,7 +224,7 @@ The alert rule creation pane opens. In the pane, you see the chart's metric dime
 
 ![Screenshot showing the rule creation pane.](./media/metrics-charts/041.png)
 
-For more information, see [Create, view, and manage metric alerts](alerts-metric.md).
+For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
 
 ## Troubleshooting
 

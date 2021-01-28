@@ -522,7 +522,7 @@ Be aware of roles used for support or troubleshooting purposes. For example, any
 **Guidance**: Integrate user authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD). Create Diagnostic Settings for Azure AD, sending the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired Alerts (such as when a deactivated account attempts to log in) within an Azure Log Analytics workspace.
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [How to create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

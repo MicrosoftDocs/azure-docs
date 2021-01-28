@@ -23,8 +23,8 @@ You can configure an alert to do the following actions when it triggers:
 * Call a webhook
 
 You can configure and get information about alert rules using:
-* [Azure portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
@@ -67,6 +67,6 @@ Once you have created an alert, you can select it and do the following actions:
 
 
 ## Next steps
-- Learn more about [setting alert on metrics](../../azure-monitor/platform/alerts-metric.md).
+- Learn more about [setting alert on metrics](../../azure-monitor/alerts/alerts-metric.md).
 - Learn more about available [metrics in Azure Database for MySQL Flexible Server](./concepts-monitoring.md).
 - [Understand how metric alerts work in Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)

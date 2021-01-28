@@ -167,7 +167,7 @@ Bandwidth is a function on the amount of data sent. Data is compressed as it is 
 
 ### How can I be notified when data collection from the Log Analytics agent stops?
 
-Use the steps described in [create a new log alert](platform/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+Use the steps described in [create a new log alert](alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
 
 - **Define alert condition**: Specify your Log Analytics workspace as the resource target.
 - **Alert criteria** 

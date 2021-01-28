@@ -255,7 +255,7 @@ Configure diagnostic settings for your Cognitive Services container and send log
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+* [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Yes
 

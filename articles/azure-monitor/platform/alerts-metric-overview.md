@@ -158,7 +158,7 @@ You can specify the scope of monitoring by a single metric alert rule in one of 
 >
 > The scope of a multi-resource metric alert rule must contain at least one resource of the selected resource type.
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](../alerts/alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
 
 > [!NOTE]
 >
@@ -175,7 +175,7 @@ You can find the full list of supported resource types in this [article](./alert
 
 ## Next steps
 
-- [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
+- [Learn how to create, view, and manage metric alerts in Azure](../alerts/alerts-metric.md)
 - [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)

@@ -92,7 +92,7 @@ Select **Advanced Settings** from the workspace menu and then **Data** to config
 
 
 ### Enable diagnostics extension and Telegraf agent
-Azure Monitor for VMs is based on the Log Analytics agent that sends data to a Log Analytics workspace. This supports multiple features of Azure Monitor such as [log queries](../log-query/log-query-overview.md), [log alerts](../platform/alerts-log.md), and [workbooks](../platform/workbooks-overview.md). The [diagnostics extension](../platform/diagnostics-extension-overview.md) collects performance data from the guest operating system of Windows virtual machines to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). For Linux virtual machines, the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) is required to send data to Azure Metrics.  This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../platform/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
+Azure Monitor for VMs is based on the Log Analytics agent that sends data to a Log Analytics workspace. This supports multiple features of Azure Monitor such as [log queries](../log-query/log-query-overview.md), [log alerts](../alerts/alerts-log.md), and [workbooks](../platform/workbooks-overview.md). The [diagnostics extension](../platform/diagnostics-extension-overview.md) collects performance data from the guest operating system of Windows virtual machines to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). For Linux virtual machines, the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) is required to send data to Azure Metrics.  This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
 
 Install the diagnostics extension for a single Windows virtual machine in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple virtual machines, see [Installation and configuration](../platform/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each virtual machine.
 
@@ -186,7 +186,7 @@ For example, create an alert if a critical virtual machine is stopped by selecti
 
 
 ### Metric alert rules
-[Metric alert rules](../platform/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
+[Metric alert rules](../alerts/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
 
 The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
 
@@ -195,7 +195,7 @@ For example, to create an alert when the processor of a virtual machine exceeds 
 ![Metric alert](media/monitor-vm-azure/metric-alert.png)
 
 ### Log alerts
-[Log alert rules](../platform/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
+[Log alert rules](../alerts/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
 
 The target resource for a log query is a Log Analytics workspace. Filter for specific computers in the query.
 

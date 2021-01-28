@@ -58,7 +58,7 @@ Check the classic alerts configuration to confirm your email is directly listed,
 
 ### I did not receive the webhook notification?
 
-Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](../platform/alerts-log-webhook.md) for more information.
+Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](../alerts/alerts-log-webhook.md) for more information.
 
 ### I am getting  403 Forbidden errors, what does this mean?
 
