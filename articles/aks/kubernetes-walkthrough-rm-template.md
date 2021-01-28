@@ -76,6 +76,11 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
+> [!NOTE]
+> Resources within an ARM template do not need every property available specified. If not provided a default value will be assumed. Some things to consider:
+> * The Kubernetes default version may change over time. If this template is redeployed, this may result in an unexpected cluster update.
+> * Review the [ARM Template Reference][aks-template-reference] to understand additional properties which may vary in default behavior. These properties can be added explicitly to the template resource and managed through additional parameters.
+
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template.
@@ -303,6 +308,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: ../dev-spaces/index.yml
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
+[aks-template-reference]: https://docs.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters#property-values
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
