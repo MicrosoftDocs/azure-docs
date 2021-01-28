@@ -108,7 +108,7 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 
 ## Runbook permissions
 
-A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md).
+A runbook needs permissions for authentication to Azure, through credentials. See [Azure Automation authentication overview](automation-security-overview.md).
 
 ## Modules
 
@@ -135,6 +135,7 @@ The following table describes the statuses that are possible for a job. You can 
 
 | Status | Description |
 |:--- |:--- |
+| Activating |The job is being activated. |
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
 | Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
