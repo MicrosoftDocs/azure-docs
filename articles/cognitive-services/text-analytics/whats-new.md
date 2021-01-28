@@ -156,8 +156,6 @@ The names of the following properties in the JSON response have been changed, wh
 * `type` has been renamed to `category`
 * `subtype` has been renamed to `subcategory`
 
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 

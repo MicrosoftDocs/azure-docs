@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ---
 
@@ -31,8 +31,6 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 
 ## Named Entity Recognition features and versions
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 | Feature                                                         | NER v3.0 | NER v3.1-preview.3 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
@@ -50,7 +48,7 @@ Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v
 * An optional `domain=phi` parameter to detect confidential health information (`PHI`).
 * [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
-For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. 
+For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. For more information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Sending a REST API request
 

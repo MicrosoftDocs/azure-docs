@@ -9,6 +9,7 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: contperf-fy21q2
 ---
 
 # Create and provision an IoT Edge device using X.509 certificates

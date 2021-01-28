@@ -12,6 +12,12 @@ ms.custom: mvc
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (January 2021)
+-  Migration of VMware VMs to Azure virtual machines with disks encrypted using double encryption with platform-managed and customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication) is now available through Azure portal.
+- Migration of VMware VMs to Azure virtual machines with disks encrypted using server-side encryption (SSE) with customer-managed keys (CMK) and double encryption with platform-managed and customer-managed keys, using Azure Migrate Server Migration (agent-based replication) is now available through Azure portal.
+- Migration of physical servers and VMs from other clouds such as AWS and GCP to Azure virtual machines with disks encrypted using server-side encryption (SSE) with customer-managed keys (CMK) and double encryption with platform-managed and customer-managed keys, using Azure Migrate Server Migration (agent-based replication) is now available through Azure portal.
+
 ## Update (December 2020)
 - Azure Migrate now automatically installs the Azure VM agent on the VMware VMs while migrating them to Azure using the agentless method of VMware migration.
 - Migration of VMware VMs to Azure virtual machines with disks encrypted using server-side encryption (SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication) is now available through Azure portal.

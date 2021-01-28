@@ -102,6 +102,8 @@
   items:
   - name: App Service plans
     href: overview-hosting-plans.md
+  - name: Cost management
+    href: overview-manage-costs.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Deployment best practices
@@ -257,6 +259,8 @@
       href: troubleshoot-diagnostic-logs.md
     - name: Get resource events
       href: get-resource-events.md
+    - name: Health check
+      href: monitor-instances-health-check.md      
     - name: Open SSH session to Linux container
       href: configure-linux-open-ssh-session.md
   - name: Manage app

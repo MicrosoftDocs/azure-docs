@@ -116,6 +116,8 @@ In workspaces and Application Insights, it's supported only in **Metric measurem
 
 Split alerts by number or string columns into separate alerts by grouping into unique combinations. When creating resource-centric alerts at scale (subscription or resource group scope), you can split by Azure resource ID column. Splitting on Azure resource ID column will change the target of the alert to the specified resource.
 
+Splitting by Azure resource ID column is recommended when you want to monitor the same condition on multiple Azure resources. For example, monitoring all virtual machines for CPU usage over 80%. You may also decide not to split when you want a condition on multiple resources in the scope, such as monitoring that at least five machines in the resource group scope have CPU usage over 80%.
+
 In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The field is called **Aggregate On**. It's limited to three columns. Having more than three groups by columns in the query could lead to unexpected results. In all other resource types, it's configured in **Split by dimensions** section of the condition (limited to six splits).
 
 #### Example of splitting by alert dimensions

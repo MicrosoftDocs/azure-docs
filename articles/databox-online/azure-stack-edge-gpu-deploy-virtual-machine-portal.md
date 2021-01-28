@@ -18,6 +18,9 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge device u
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. 
 
+> [!IMPORTANT] 
+> We recommend that you enable multifactor authentication for the user who manages VMs that are deployed on your device from the cloud.
+        
 ## VM deployment workflow
 
 The high-level summary of the deployment workflow is as follows:
@@ -119,7 +122,7 @@ Follow these steps to create a VM after you have created a VM image.
     |---------|---------|
     |Virtual machine name     |         |
     |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username *azureuser*.        |
     |Authentication type    | Choose from SSH public key or a user-defined password.       |
     |Password     | Enter a password to sign into the virtual machine. The password must be at least 12 characters long and meet the defined [Complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |

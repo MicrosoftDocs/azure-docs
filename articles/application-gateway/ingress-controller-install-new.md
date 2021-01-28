@@ -89,7 +89,7 @@ This step will add the following components to your subscription:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -98,7 +98,7 @@ This step will add the following components to your subscription:
 
 1. Once the deployment finished, download the deployment output into a file named `deployment-outputs.json`.
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## Set up Application Gateway Ingress Controller

@@ -16,10 +16,14 @@ ms.custom: codepen, devx-track-js
 There are two types of traffic data available in Azure Maps:
 
 - Incident data - consists of point and line-based data for things such as construction, road closures, and accidents.
-- Flow data - provides metrics on the flow of traffic on the roads. Often, traffic flow data is used to color the roads. The colors are based on how much traffic is slowing down the flow, relative to the speed limit, or another metric. The traffic flow data in Azure Maps has three different metrics of measurement:
-    - `relative` - is relative to the free-flow speed of the road.
-    - `absolute` - is the absolute speed of all vehicles on the road.
-    - `relative-delay` - displays areas that are slower than the average expected delay.
+- Flow data - provides metrics on the flow of traffic on the roads. Often, traffic flow data is used to color the roads. The colors are based on how much traffic is slowing down the flow, relative to the speed limit, or another metric. There are four values that can be passed into the traffic `flow` option of the map.
+
+    |Flow Value | Description|
+    | :-- | :-- |
+    | `none` | Doesn't display traffic data on the map |
+    | `relative` | Shows traffic data that's relative to the free-flow speed of the road |
+    | `relative-delay` | Displays areas that are slower than the average expected delay |
+    | `absolute` | Shows the absolute speed of all vehicles on the road |
 
 The following code shows how to display traffic data on the map.
 

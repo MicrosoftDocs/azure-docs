@@ -23,8 +23,8 @@ Once you have started to use key vault to store your production secrets, it is i
 This document will cover the following topics:
 
 + Basic Key Vault metrics to monitor
-+ How to configure metrics and create a dashboard 
-+ How to create alerts at specified thresholds 
++ How to configure metrics and create a dashboard
++ How to create alerts at specified thresholds
 
 ## Basic Key Vault metrics to monitor
 
@@ -38,7 +38,7 @@ This document will cover the following topics:
 
 **Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](service-limits.md)
 
-**Service API Latency** - This metric shows the average latency of a call to key vault. Although your key vault may be within service limits, a high utilization of key vault could introduce latency that causes applications downstream to fail. 
+**Service API Latency** - This metric shows the average latency of calls to key vault, measured at the service. It does not include time consumed by client or by the network between client and service.
 
 **Total API Hits** - This metric shows all of the calls made to your key vault. This will help you identify which applications are calling your key vault. 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to configure a new multi-tenant application

@@ -27,7 +27,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 
 Here the steps to get started writing queries for alerts:
 
-1. Go to the resource you would like to alert on.
+1. Go to the resource you would like to alert on. Consider setting up alert rules on multiple resources by selecting a subscription or resource group scope whenever possible. Alerting on multiple resources reduces costs and the need to manage multiple alert rules.
 1. Under **Monitor**, select **Logs**.
 1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../log-query/example-queries.md) to understand what you can discover or [get started on writing your own query](../log-query/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
@@ -149,7 +149,7 @@ Here the steps to get started writing queries for alerts:
     1. Choose [alert splitting by dimensions](alerts-unified-log.md#split-by-alert-dimensions), if needed: 
        - **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
        - **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
-       - Up to six additional splittings can be also selected for any number or text columns types using the dimensions table.
+       - Up to six more splittings can be also selected for any number or text columns types using the dimensions table.
        - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
     
         ![Select aggregation parameters and splitting](media/alerts-log/select-aggregation-parameters-and-splitting.png)
@@ -306,7 +306,7 @@ You can also use Azure Resource Manager CLI with [templates](./alerts-log-create
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

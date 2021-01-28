@@ -50,7 +50,6 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.
 
-
 ## Create a Service Fabric application in Eclipse
 
 1.  In Eclipse, go to **File** > **New** > **Other**. Select  **Service Fabric Project**, and then click **Next**.
@@ -152,7 +151,6 @@ To publish your application to the cloud, follow these steps:
 
 4. You can follow the progress of the publish operation in the Console window.
 5. To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
-
 
 On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 

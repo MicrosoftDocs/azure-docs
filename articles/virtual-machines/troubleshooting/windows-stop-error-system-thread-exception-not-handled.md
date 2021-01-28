@@ -31,6 +31,10 @@ The cause can't be determined until a memory dump file is analyzed. Continue to 
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
+
 To resolve this problem, you first need to gather the memory dump file for the crash and then send the file to Microsoft support. To collect the dump file, follow the instructions in the next two sections.
 
 ### Attach the OS disk to a new repair VM

@@ -96,7 +96,7 @@ This enables the following scenarios:
 
 ## Azure Monitor logging
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](log-analytics-samples.md).
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](./firewall-workbook.md).
 
 For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md). 
 

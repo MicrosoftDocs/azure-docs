@@ -23,7 +23,7 @@ Security Center offers more container security features if you enable Azure Defe
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 
 
@@ -247,6 +247,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for containers](recommendations-reference.md#recs-containers)
+- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
 - [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
 - [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
 
 ---
@@ -113,15 +113,18 @@ Learn more:
 
 ## Security Center
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
+
+Security Center performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
 
 Security Center helps you optimize and monitor the security of your Azure resources by:
 
-* Enabling you to define policies for your Azure subscription resources according to:
-  * Your company’s security needs.
-  * The type of applications or sensitivity of the data in each subscription.
-* Monitoring the state of your Azure virtual machines, networking, and applications.
-* Providing a list of prioritized security alerts, including alerts from integrated partner solutions. It also provides the information that you need to quickly investigate an attack and recommendations on how to remediate it.
+- Enabling you to define policies for your Azure subscription resources according to:
+    - Your organization’s security needs.
+    - The type of applications or sensitivity of the data in each subscription.
+    - Any industry or regulatory standards or benchmarks you apply to your subscriptions. 
+- Monitoring the state of your Azure virtual machines, networking, and applications.
+- Providing a list of prioritized security alerts, including alerts from integrated partner solutions. It also provides the information that you need to quickly investigate an attack and recommendations on how to remediate it.
 
 Learn more:
 

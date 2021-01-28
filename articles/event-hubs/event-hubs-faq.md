@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 01/20/2021
 ---
 
 # Event Hubs frequently asked questions
@@ -50,8 +50,8 @@ You can configure the retention period for the captured data on your storage acc
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
-Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store data?
+Azure Event Hubs standard and dedicated tiers store metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
@@ -148,7 +148,7 @@ For step-by-step instructions and more information on setting up an Event Hubs d
 ## Partitions
 
 ### How many partitions do I need?
-The number of partitions is specified at creation and must be between 1 and 32. The partition count isn't changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
+The number of partitions is specified at creation and must be between 1 and 32. The partition count isn't changeable in all tiers except the [dedicated tier](event-hubs-dedicated-overview.md), so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
 
 You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you'll have to read events across all 32 partitions. In the latter case, there's no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
 

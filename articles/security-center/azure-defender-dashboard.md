@@ -45,4 +45,4 @@ In this article, you learned about the Azure Defender dashboard.
 For more on Azure Defender, see [Introduction to Azure Defender](azure-defender.md)
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
