@@ -31,6 +31,20 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 :::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-server-side-retry.png" alt-text="Screenshot of the server side retry feature for Azure Cosmos DB API for MongoDB":::
 
+## Use the Azure CLI
+
+1. Check if SSR is already enabled for your for your account:
+```bash
+az cosmosdb show --name accountname --resource-group resourcegroupname
+```
+2. **Enable** SSR for all collections in your database account. Please note that it may take up to 15min for this change to take effect.
+```bash
+az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
+```
+3. **Disable** SSR for all collections in your database account. Please note that it may take up to 15min for this change to take effect.
+```bash
+az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
+```
 
 ## Next steps
 
