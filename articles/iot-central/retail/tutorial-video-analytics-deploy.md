@@ -39,4 +39,10 @@ Complete the following steps to deploy an IoT Central application using the vide
 
 ## Next steps
 
-Now you have an overview of the steps to deploy and use the video analytics application template, see [Create a video analytics application in Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) or [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) to get started.
+Now you have an overview of the steps to deploy and use the video analytics application template, see
+
+> [!div class="nextstepaction"]
+> [Create a video analytics application in Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) or
+
+> [!div class="nextstepaction"]
+> [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) to get started.
