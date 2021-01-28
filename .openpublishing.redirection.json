@@ -16077,7 +16077,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/manage/usage-rate-card-overview.md",
+      "source_path_from_root": "/articles/cost-management-billing/manage/usage-rate-card-overview.md",
       "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
       "redirect_document_id": false
     },
@@ -32964,6 +32964,11 @@
     {
       "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-container.md",
       "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/redhat-create-upload-vhd",
       "redirect_document_id": false
     },
     {
