@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -108,6 +108,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Not available | Not available | Not available | Not available |
 
 
+### Azure Communication Services
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | Not available | Not available | Not available |
+
+
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -153,6 +161,17 @@ Refer to the following list to configure managed identity for Azure Data Factory
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### Azure Digital Twins
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following list to configure managed identity for Azure Digital Twins (in regions where available):
+
+- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### Azure Event Grid
 

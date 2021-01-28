@@ -350,6 +350,9 @@ On non-Windows devices, you can pass the certificate chain from the code as the 
 
 On Windows-based devices, you must add the signing certificates (root and intermediate) to a Windows [certificate store](/windows/win32/secauthn/certificate-stores). Otherwise, the signing certificates won't be transported to DPS by a secure channel with Transport Layer Security (TLS).
 
+> [!TIP]
+> It is also possible to use OpenSSL instead of secure channel (Schannel) with the C SDK. For more information on using OpenSSL, see [Using OpenSSL in the SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
+
 To add the signing certificates to the certificate store in Windows-based devices:
 
 1. In a Git bash prompt, navigate to the `certs` subdirectory that contains your signing certificates and convert them to `.pfx` as follows.
