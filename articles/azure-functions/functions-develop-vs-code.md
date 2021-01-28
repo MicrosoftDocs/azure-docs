@@ -319,9 +319,21 @@ For more information, see [Local settings file](#local-settings-file).
 
 To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This is the same as running the `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
 
-When the project is running, you can trigger your functions as you would when the project is deployed to Azure. When the project is running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
+When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. When the project is running in debug mode, breakpoints are hit in Visual Studio Code, as expected. 
 
-The request URL for HTTP triggers is displayed in the output in the Terminal. Function keys for HTTP triggers aren't used when a project is running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
+1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the function you want to run and choose **Execute Function Now...**.
+
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+
+    This feature uses the administrator APIs to start the function. The request sent to the function depends on the type of function. 
+
+1. For an HTTP-triggered function, you would need to submit a request message body with any required values. Press Enter to send this request message to your function.  
+
+1. When the function runs locally and after the response is received, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
+
+Function keys for HTTP triggers aren't used when a project is running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
+
+You can also use **Execute Function Now...** to trigger functions deployed to your function apps in Azure. The extension automatically obtains an admin key, which it uses to call the remote admin APIs that can be used to start your functions in Azure.
 
 To learn more, see [Work with Azure Functions Core Tools][Azure Functions Core Tools].
 
@@ -420,7 +432,7 @@ The Azure Functions extension provides a useful graphical interface in the area 
 | **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
 | **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
 | **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
-| **Execute Function Now** | Manually starts a [timer-triggered function](functions-bindings-timer.md) in Azure. This command is used for testing. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
+| **Execute Function Now** | Manually starts a function using admin APIs. This command is used for testing, both locally during debugging and against functions running in Azure. When triggering a function in Azure, the extension first automatically obtains an admin key, which it uses to call the remote admin APIs that start functions in Azure. The body of the message sent to the API depends on the type of trigger. Timer triggers don't require you to pass any data. |
 | **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
 | **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |
 | **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, [republish your project](#republish-project-files). |

@@ -150,40 +150,19 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone-end  
 
-<!--- Local testing section --->
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
+## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 
-1. With Core Tools running, navigate to the following URL to execute a GET request, which includes `?name=Functions` query string.
+1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
 
-    `http://localhost:7071/api/HttpExample?name=Functions`
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
 
+1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
+ 
 1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
-
-1. With Core Tools running, use the `Invoke-RestMethod` cmdlet in a second PowerShell command prompt to execute the request, as follows:
-
-    ```powershell
-    PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
-    Hello PowerShell
-    ```
-
-    You can also execute the GET request from a browser from the following URL:
-
-    `http://localhost:7071/api/HttpExample?name=PowerShell`
-
-1. After a response is returned, press **Ctrl + C** to stop Core Tools.
-
-::: zone-end
-
-A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
+Because you are using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
 ### Connect Storage Explorer to your account
 
@@ -219,11 +198,7 @@ Now, it's time to republish the updated function app to Azure.
 
 1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After deployment completes, you can again use cURL or a browser to test the redeployed function. As before, append the query string `&name=<yourname>` to the URL, as in the following example:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
 
 1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding again generates a new message in the queue.
 
