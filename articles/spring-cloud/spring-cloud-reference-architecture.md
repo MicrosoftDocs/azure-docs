@@ -133,7 +133,9 @@ Azure Spring Cloud requires two dedicated subnets
 
 Each of these subnets requires a dedicate cluster. Multiple clusters can't share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11] section.
 
-**Note**, the selected CIDR range cannot overlap with VNET address space. It should also not overlap with any peered or on-premises CIDR address ranges. 
+> [!WARNING]
+> The selected CIDR range can't overlap with VNET address space.
+> It should also not overlap with any peered or on-premises CIDR address ranges.
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
