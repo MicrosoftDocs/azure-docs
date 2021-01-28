@@ -77,6 +77,12 @@ landingContent:
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Plan your telephony and SMS solution
             url: concepts/telephony-sms/plan-solution.md
+  - title: Meeting Composite
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Add meeting composite to your app
+            url: quickstarts/meeting/get-started-with-meeting-composite.md        
   - title: Chat
     linkLists:
       - linkListType: quickstart

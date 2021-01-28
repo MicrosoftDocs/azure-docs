@@ -46,6 +46,7 @@ The following resources are a great place to start if you're new to Azure Commun
 |**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS client library allows you to send and receive SMS messages from your .NET and JavaScript applications.|
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your apps using the Calling client library. This library is powered by WebRTC and allows you to establish peer-to-peer, multimedia, real-time communications within your applications.|
 |**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat client library can be used to integrate real-time chat into your applications.|
+|**[Get started with meeting composite](./quickstarts/meeting/getting-started-with-meeting-composite.md)**|The Azure Communication Services Meeting Composite library can be used to integrate a complete meeting experience into your applications.|
 
 
 ## Samples
