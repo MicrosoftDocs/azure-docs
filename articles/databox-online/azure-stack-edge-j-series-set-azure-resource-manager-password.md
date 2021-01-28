@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -23,15 +23,17 @@ The procedure to set the password can be different depending upon whether you us
 
 ## Reset password via the Azure portal
 
-1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Edge compute > Get started**.
-
-2. In the right pane, from the command bar, select **Reset Edge ARM password**. 
+1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Cloud storage gateway**.
 
     ![Reset EdgeARM user password 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
-3. In the **Reset EdgeArm user password** blade, provide a password to connect to your device local APIs via the Azure Resource Manager. Confirm the password and select **Reset**.
+2. In the right pane, from the command bar, select **Reset Edge ARM password**. 
 
     ![Reset EdgeARM user password 2](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-2.png)
+
+3. In the **Reset EdgeArm user password** blade, provide a password to connect to your device local APIs via the Azure Resource Manager. Confirm the password and select **Reset**.
+
+    ![Reset EdgeARM user password 3](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-3.png)
 
 
 
