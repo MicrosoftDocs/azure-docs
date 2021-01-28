@@ -19,17 +19,17 @@ Azure Files uses base-2 units of measurement to represent storage capacity: KiB,
 
 ### Windows
 
-Windows measures storage using the base-2 counting system but displays storage capacity with base-10 units of measurement (KB, MB, GB, TB, etc.) without converting to the base-10 counting system. Azure Files measures storage using the base-2 counting system and displays storage capacity with base-2 units of measurement.
+Both the Windows operating system and Azure Files measure storage capacity using the base-2 counting system, but there is a difference when labeling units. Azure Files labels its storage capacity with base-2 units of measurement while Windows labels its storage capacity in base-10 units of measurement. When reporting storage capacity, Windows does not convert its storage capacity from base-2 to base-10.
 
 > [!IMPORTANT]
 > To calculate Azure Files costs, you don't need to convert units if you use Windows. Both Azure Files and Windows measure storage capacity with the base-2 counting system.
 
-| Acronym | Definition | Unit | Windows displays as |	
-|---------|------------|------|----------------------|	
-| KiB | 1,024 bytes | kibibyte | KB (kilobyte) |	
-| MiB | 1,024 KiB (1,048,576 bytes) | mebibyte | MB (megabyte) |	
-| GiB | 1024 MiB (1,073,741,824 bytes) | gibibyte | GB (gigabyte) |	
-| TiB | 1024 GiB (1,099,511,627,776 bytes) | tebibyte | TB (terabyte) |	
+|Acronym  |Definition  |Unit  |Windows displays as  |
+|---------|---------|---------|---------|
+|KiB     |1,024 bytes         |kibibyte         |KB (kilobyte)         |
+|MiB     |1,024 KiB (1,048,576 bytes)         |mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1,073,741,824 bytes)         |gibibyte         |GB (gigabyte)         |
+|TiB     |1024 GiB (1,099,511,627,776 bytes)         |tebibyte         |TB (terabyte)         |
 
 ### macOS
 
