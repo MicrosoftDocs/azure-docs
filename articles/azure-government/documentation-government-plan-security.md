@@ -90,10 +90,10 @@ Customer/tenants can manage their isolation posture to meet individual requireme
 
 All Azure and Azure Government employees in the United States are subject to Microsoft background checks, as outlined in the table below.  Personnel with the ability to access customer data for troubleshooting purposes in Azure Government are additionally subject to the verification of U.S. citizenship, as well as additional screening requirements where appropriate.
 
-We are now screening all our operators at National Agency Check with Law and Credit (NACLC) as defined in DoD SRG [Section 5.6.2.2](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.6PhysicalFacilitiesandPersonnelRequirements):
+We are now screening all our operators at a Tier 3 Investigation (formerly National Agency Check with Law and Credit, NACLC) as defined in DoD SRG [Section 5.6.2.2](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.6PhysicalFacilitiesandPersonnelRequirements):
 
 > [!NOTE]
-> The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
+> The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a Tier 3 Investigation (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
 > 
 
 |Applicable screening and background check|Environment|Frequency|Description|
@@ -102,7 +102,7 @@ We are now screening all our operators at National Agency Check with Law and Cre
 |||Every 2 years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
 |U.S. citizenship|Azure Gov|Upon employment|- Verification of U.S. citizenship|
 |Criminal Justice Information Services (CJIS)|Azure Gov|Upon signed CJIS agreement with State|- Adds fingerprint background check against FBI database </br>- Criminal records check and credit check|
-|National Agency Check with Law and Credit (NACLC)|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (Form SF 86 required)|
+|Tier 3 Investigation|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (Form SF 86 required)|
 
 For Azure operations personnel, the following access principles apply:
 
