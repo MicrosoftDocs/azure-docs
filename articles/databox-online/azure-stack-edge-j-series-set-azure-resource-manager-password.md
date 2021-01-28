@@ -18,7 +18,7 @@ ms.author: alkohli
 
 This article describes how to set your Azure Resource Manager password. You need to set this password when you are connecting to the device local APIs via the Azure Resource Manager.
 
-The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.
+<!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## Reset password via the Azure portal
@@ -37,7 +37,7 @@ The procedure to set the password can be different depending upon whether you us
 
 
 
-## Reset password via PowerShell
+<!--## Reset password via PowerShell
 
 1. In the Azure Portal, go to the Azure Stack Edge resource you created to manage your device. Make a note of the following parameters in the **Overview** page.
 
@@ -143,7 +143,7 @@ The procedure to set the password can be different depending upon whether you us
     
         PS /home/aseuser/clouddrive>
     ```
-Use the new password to connect to Azure Resource Manager.
+Use the new password to connect to Azure Resource Manager.-->
 
 ## Next steps
 
