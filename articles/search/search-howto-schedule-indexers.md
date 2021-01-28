@@ -13,13 +13,13 @@ ms.date: 01/28/2021
 
 # How to schedule indexers in Azure Cognitive Search
 
-An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, the [Run Indexer (REST API](/rest/api/searchservice/run-indexer), or the .NET SDK. You can also configure an indexer to run periodically on a schedule. Some situations where indexer scheduling is useful:
+An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, [Run Indexer (REST API](/rest/api/searchservice/run-indexer), or .NET SDK. You can also configure an indexer to run on a schedule. Some situations where indexer scheduling is useful:
 
-* Source data will change over time, and you want the Azure Cognitive Search indexers to automatically process the changed data.
-* The index will be populated from multiple data sources and you want to make sure the indexers run at different times to reduce conflicts.
+* The source data will change over time, and you want the search indexer to automatically process the delta.
 * The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+* A search index will be populated from multiple data sources, and you want the indexers to run at different times to reduce conflicts.
 
-The scheduler is a built-in feature of Azure Cognitive Search. You can't use an external scheduler to control search indexers.
+The scheduler is a built-in feature of Azure Cognitive Search. There is not support for using external schedulers on search indexers.
 
 ## Schedule properties
 

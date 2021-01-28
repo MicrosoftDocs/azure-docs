@@ -29,22 +29,6 @@ You can use an indexer as the sole means for data ingestion, or use a combinatio
 | Multiple sources| An index can accept content from multiple sources, where each run brings new content from a different source. </br></br>One outcome might be an index that gains documents after each indexer run, with entire documents created in full from each source. For example, documents 1-100 are from Blob storage, documents 101-200 are from Azure SQL, and so forth. The challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key structure that is uniform in the search index. Natively, the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table. You can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.</br></br>An alternative outcome might be search documents that are partially populated on the first run, and then further populated by subsequent runs to bring in values from other sources. For example, fields 1-10 are from Blob storage, 11-20 from Azure SQL, and so forth. The challenge of this pattern is making sure that each indexing run is targeting the same document. Merging fields into an existing document requires a match on the document key. For a demonstration of this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
 | Content transformation | Cognitive Search supports optional [AI enrichment](cognitive-search-concept-intro.md) behaviors that add image analysis and natural language processing to create new searchable content and structure. AI enrichment is indexer-driven, through an attached [skillset](cognitive-search-working-with-skillsets.md). To perform AI enrichment, the indexer still needs an index and data source, but in this scenario, adds skillset processing to indexer execution. |
 
-## Approaches for creating and managing indexers
-
-You can create and manage indexers using these approaches:
-
-+ [Portal > Import Data Wizard](search-import-data-portal.md)
-+ [Service REST API](/rest/api/searchservice/Indexer-operations)
-+ [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
-
-If you're using an SDK, create a [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) to work with indexers, data sources, and skillsets. The above link is for the .NET SDK, but all SDKs provide a SearchIndexerClient and similar APIs.
-
-Initially, new data sources are announced as preview features and are REST-only. After graduating to general availability, full support is built into the portal and into the various SDKs, each of which are on their own release schedules.
-
-## Permissions
-
-All operations related to indexers, including GET requests for status or definitions, require an [admin api-key](search-security-api-keys.md) on the request.
-
 <a name="supported-data-sources"></a>
 
 ## Supported data sources
@@ -126,7 +110,7 @@ You can monitor the indexer status in the portal or through [Get Indexer Status 
 
 Now that you've been introduced, a next step is to review indexer properties and parameters, scheduling, and indexer monitoring. Alternatively, you could return to the list of [supported data sources](#supported-data-sources) for more information about a specific source.
 
-+ [Configure indexers](search-howto-configure-indexers.md)
++ [Create indexers](search-howto-create-indexers.md)
 + [Schedule indexers](search-howto-schedule-indexers.md)
 + [Define field mappings](search-indexer-field-mappings.md)
 + [Monitor indexer status](search-howto-monitor-indexers.md)

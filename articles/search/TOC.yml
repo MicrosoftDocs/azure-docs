@@ -166,8 +166,8 @@
     items:
     - name: Work with indexers
       items:
-      - name: Configure indexers
-        href: search-howto-configure-indexers.md
+      - name: Create indexers
+        href: search-howto-create-indexers.md
       - name: Schedule indexers
         href: search-howto-schedule-indexers.md
       - name: Map fields

@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
 manager: nitinme
-# author: mattmsft 
-# ms.author: magottei
+author: HeidiSteen
+ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
