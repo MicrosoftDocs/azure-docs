@@ -1,13 +1,13 @@
 ---
-title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
+title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/27/2020
 
 ---
 
-# IP addresses used by Application Insights and Log Analytics
-The [Azure Application Insights](./app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+# IP addresses used by Azure Monitor
+[Azure Monitor](../overview.md) uses a number of IP addresses. Azure Monitor is made up of core platform metrics and log in addition to Log Analytics and Application Insights. You might need to know these addresses if the app or infrastructure that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
