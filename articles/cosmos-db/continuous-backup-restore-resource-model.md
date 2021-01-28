@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Resource model for the Azure Cosmos DB point-in-time restore feature
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 
@@ -132,10 +133,10 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerId | The name of the SQL database. |
 | ownerResourceId	| The resource ID of the SQL database| 
 | operationType | The operation type of this database event. Here are the possible values: <br/><ul>
-* Create: database creation event
-* Delete: database deletion event
-* Replace: database modification event
-* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </ul> |
+<li>* Create: database creation event </li>
+<li>* Delete: database deletion event </li>
+<li>* Replace: database modification event </li>
+<li>* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
 database	The properties of the SQL database at the time of the event
 
@@ -151,10 +152,10 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerId| The name of the SQL container.|
 | ownerResourceId	| The resource ID of the SQL container.|
 | operationType	| The operation type of this container event. Here are the possible values: <br/><ul>
-* Create: container creation event
-* Delete: container deletion event
-* Replace: container modification event
-* SystemOperation: container modification event triggered by the system. This event is not initiated by the user </ul> |
+<li>* Create: container creation event </li>
+<li>* Delete: container deletion event </li>
+<li>* Replace: container modification event </li>
+<li>* SystemOperation: container modification event triggered by the system. This event is not initiated by the user </li></ul> |
 | container	| The properties of the SQL container at the time of the event.|
 
 To get a list of all container mutations under the same database, see [Restorable Sql Containers - List]() article.
@@ -180,10 +181,10 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerId| The name of the MongoDB database. |
 | ownerResourceId	| The resource ID of the MongoDB database. |
 | operationType |	The operation type of this database event. Here are the possible values: <br/><ul>
-* Create: database creation event
-* Delete: database deletion event
-* Replace: database modification event
-* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </ul> |
+<li>* Create: database creation event</li>
+<li>* Delete: database deletion event</li>
+<li>* Replace: database modification event</li>
+<li>* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
 To get a list of all database mutation, see [Restorable Mongodb Databases - List]() article.
 

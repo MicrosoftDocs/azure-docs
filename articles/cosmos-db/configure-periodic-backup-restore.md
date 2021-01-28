@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Configure Azure Cosmos DB account with periodic backup
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The following steps show how Azure Cosmos DB performs data backup:
 

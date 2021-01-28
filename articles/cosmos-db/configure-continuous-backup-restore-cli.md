@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Configure continuous backup and point in time restore - using Azure CLI
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
 
@@ -261,23 +262,29 @@ The enumeration commands described below help you discover the resources that ar
 
 **List all the versions of mongodb databases in a live database account**
 
+```azurecli-interactive
 az cosmosdb mongodb restorable-database list \
     --instance-id "<Your_InstanceID>" \
     --location "West US"
+```
 
 **List all the versions of mongodb collections of a database in a live database account**
 
+```azurecli-interactive
 az cosmosdb mongodb restorable-collection list \
     --instance-id "<Your_InstanceID>" \
     --database-rid "AoQ13r=="
     --location "West US"
+```
 
 **List all the resources of a mongodb database account that are available to restore at a given timestamp and region**
 
+```azurecli-interactive
 az cosmosdb mongodb restorable-resource list \
     --instance-id "<Your_InstanceID>" \
     --location "West US" \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
+```
 
 ## Next steps

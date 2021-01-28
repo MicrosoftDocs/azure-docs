@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Frequently asked questions on the Azure Cosmos DB point-in-time restore feature
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality that is achieved by using the continuous backup mode.
 
@@ -56,13 +57,15 @@ Run the `az cosmosdb show` command, in the output, you can see that the value of
 
 For example, in the following output, the source account's instance ID is "7b4bb-f6a0-430e-ade1-638d781830cc"
 
+```json
 "restoreParameters": {
    "databasesToRestore" : [],
    "restoreMode": "PointInTime",
    "restoreSource": "/subscriptions/2a5b-f6a0-430e-ade1-638d781830dd/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/7b4bb-f6a0-430e-ade1-638d781830cc",
    "restoreTimestampInUtc": "2020-06-11T22:05:09Z"
 }
- 
+```
+
 ### What happens when I restore a shared throughput database or a container within a shared throughput database?
 The entire shared throughput database is restored. You cannot choose a subset of containers in a shared throughput database for restore.
 

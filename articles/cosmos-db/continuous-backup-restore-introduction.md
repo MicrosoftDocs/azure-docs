@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Continuous backup with point-in-time restore feature in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
