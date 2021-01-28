@@ -75,7 +75,7 @@ In this step, you create an application in your Azure Active Directory tenant th
 
 2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that were assigned to the On-premises SharePoint Gallery Application.
 
-3. Optionally, you can prevent the visibility of two applications for the SharePoint on-premises. For **myapplications.microsoft.com**, go to the Properties section and set **Visible to users?** to **No** for one of your applications. 
+3. Optionally, you can prevent the visibility of two applications for the SharePoint on-premises. For **myapplications.microsoft.com**, go to the **Properties** section and set **Visible to users?** to **No** for one of your applications. 
 
    ![Screenshot that shows where to set the Visible to users? option.](./media/application-proxy-integrate-with-sharepoint-server/configure-properties.png)
  
