@@ -137,7 +137,7 @@ Complete the Agreement.
 ### Can't activate Azure benefit plan like Visual Studio, BizSpark, BizSparkPlus, or MPN
 
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
-- MSDN
+- Visual Studio
   - Verify your eligibility status on your [Visual Studio account page](https://my.visualstudio.com/Benefits).
   - If you can't verify your status, contact [Visual Studio Subscription Support](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
