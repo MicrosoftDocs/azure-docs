@@ -1,6 +1,6 @@
 ---
-title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service cluster
-description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service cluster.
+title: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+description: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster.
 author: jiangma
 ms.author: jiangma
 ms.service: container-service
@@ -9,9 +9,9 @@ ms.date: 01/04/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ---
 
-# Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service cluster
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
 
-This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty or WebSphere Liberty runtime and then deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,7 +26,7 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) and the AKS cluster later. 
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) and the AKS cluster later. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
@@ -170,9 +170,9 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 
 ## Deploy application on the AKS cluster
 
-Now you can deploy the sample Liberty application to the AKS cluster.
+Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Make sure you changed directory to `javaee-app-simple-cluster` of your local clone.
+1. Verify the current working directory is `javaee-app-simple-cluster` of your local clone.
 1. Run the following commands to deploy your Liberty application with 3 replicas to the AKS cluster. Command output is also shown inline.
 
    ```azurecli-interactive
@@ -217,7 +217,6 @@ Open a web browser to the external IP address and port of your service (`52.152.
 
 >[!NOTE]
 > - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
-> - You can enable [HTTP routing](http-application-routing.md) for your cluster.
 
 ## Clean up the resources
 
