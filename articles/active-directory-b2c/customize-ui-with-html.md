@@ -1,7 +1,7 @@
 ---
-title: Customize the user interface
+title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
-description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
+description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
