@@ -83,7 +83,7 @@ $roleDefinition | Set-AzRoleDefinition
 
 You can determine if the service principal used by your Run As account assigned the **Contributor** role or a custom one.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account and select **Run As Accounts** in the account settings section.
 1. Select **Azure Run As Account**.
 1. Select **Role** to locate the role definition that is being used.

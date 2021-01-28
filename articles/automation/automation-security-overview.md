@@ -30,8 +30,8 @@ All tasks that you create against resources using Azure Resource Manager and the
 
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
 
-* Azure Run As account - Allows you to manages Azure resources based on the Azure Resource Manager deployment and management service for Azure.
-* Azure Classic Run As account - Allows you to manage Azure classic resources based on the Classic deployment model.
+* Azure Run As account: Allows you to manages Azure resources based on the Azure Resource Manager deployment and management service for Azure.
+* Azure Classic Run As account: Allows you to manage Azure classic resources based on the Classic deployment model.
 
 To learn more about the Azure Resource Manager and Classic deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
