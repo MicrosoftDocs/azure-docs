@@ -32,15 +32,15 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 ## Use the Azure CLI
 
-1. Check if SSR is already enabled for your for your account:
+1. Check if SSR is already enabled for your account:
 ```bash
 az cosmosdb show --name accountname --resource-group resourcegroupname
 ```
-2. **Enable** SSR for all collections in your database account. Please note that it may take up to 15min for this change to take effect.
+2. **Enable** SSR for all collections in your database account. Note that it may take up to 15min for this change to take effect.
 ```bash
 az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
 ```
-The following command will **Disable** SSR for all collections in your database account. Please note that it may take up to 15min for this change to take effect.
+The following command will **Disable** SSR for all collections in your database account. Note that it may take up to 15min for this change to take effect.
 ```bash
 az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
 ```
@@ -54,7 +54,7 @@ az cosmosdb update --name accountname --resource-group resourcegroupname --capab
 1. Will SSR affect my consistency level?
     1. SSR does not affect a request's consistency. Requests are retried server-side if they are rate limited (with a 429 error). 
 1. Does SSR affect any type of error that my client might receive?
-    1. No, SSR only affects rate limiting errors (429s) by retrying them server-side. This prevents you from having to handle rate-limiting errors in the client application. All [other errors](mongodb-troubleshoot.md) will go to the client. 
+    1. No, SSR only affects rate limiting errors (429s) by retrying them server-side. This feature prevents you from having to handle rate-limiting errors in the client application. All [other errors](mongodb-troubleshoot.md) will go to the client. 
 
 ## Next steps
 
