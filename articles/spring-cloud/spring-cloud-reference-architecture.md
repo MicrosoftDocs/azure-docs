@@ -131,13 +131,13 @@ Azure Spring Cloud requires two dedicated subnets
 * Service runtime
 * Spring Boot microservice applications
 
-Each of these subnets requires a dedicate cluster. Multiple clusters cannot share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11]: section. 
+Each of these subnets requires a dedicate cluster. Multiple clusters can't share the same subnets. The detailed Virtual network requirements can be found in the [Spring Cloud VNET Requirements][11] section.
 
 **Note**, the selected CIDR range cannot overlap with VNET address space. It should also not overlap with any peered or on-premises CIDR address ranges. 
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
-By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that cannot be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
+By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
 Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
