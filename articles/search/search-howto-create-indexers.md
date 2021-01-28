@@ -17,9 +17,9 @@ A search indexer provides an automated workflow for transferring documents and c
 
 Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the mechanics and structure of indexers so that you have a foundation in place before exploring source-specific indexers and [skillsets](cognitive-search-working-with-skillsets.md).
 
-## Inside an indexer definition
+## What is an indexer definition
 
-Indexers can perform text-based indexing that pulls text from source fields to index fields, or perform AI-based processing that analyzes undifferentiated text for structure, or analyzes images for text and information. The following index definitions are typical of what you might expect for either scenario.
+Indexers can perform text-based indexing that pulls text from source fields to index fields, or perform AI-based processing that analyzes undifferentiated text for structure, or analyzes images for text and information. The following index definitions are typical of what you might create for either scenario.
 
 ### Indexers for text content
 
@@ -72,7 +72,7 @@ All of the above properties and parameters apply to indexers that perform AI enr
 
 AI enrichment is beyond the scope of this article. For more information, start with [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md) or [Create Skillset (REST)](/rest/api/searchservice/create-skillset).
 
-## Set up an indexer client
+## Choose an indexer client
 
 When you are ready to create an indexer on a remote search service, you will need a search client in the form of a tool, like Azure portal or Postman, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
@@ -94,7 +94,12 @@ The portal provides two options for creating an indexer: [**Import Data Wizard**
 
 Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send requests that create indexers and other objects. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
 
-Start with [Create a search index using REST](search-get-started-rest.md) or [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md) for an introduction to each client, and then refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with indexer requests.
+Start with either of these articles to learn about each client:
+
++ [Create a search index using REST and Postman](search-get-started-rest.md)
++ [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
+
+Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with formulating indexer requests.
 
 ### Use an SDK
 
@@ -109,16 +114,34 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 
 ## Run the indexer
 
-An indexer runs automatically when you create the indexer on the service. An interactive HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) will run an indexer. Running a program that calls SearchIndexerClient methods will also run an indexer.
+An indexer runs automatically when you create the indexer on the service. This is the moment of truth where you will find out if there are data source connection errors, field mapping issues, or skillset problems. An interactive HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) will run an indexer. Running a program that calls SearchIndexerClient methods will also run an indexer.
 
 To avoid immediately running an indexer upon creation, include **`disabled=true`** in the indexer definition.
 
-Once an indexer exists, you can run it on demand using [Run Indexer (REST)](/rest/api/searchservice/run-indexer) or an equivalent SDK method. Or, specify a schedule that specifies intervals for running the job. Scheduled processing usually coincides with a need for incremental indexing of changed content. Change detection logic is a capability that's built into source platforms. Changes in a blob container are detected by the indexer automatically. For guidance on leveraging change detection in other data sources, refer to the indexer docs for specific data sources:
+Once an indexer exists, you can run it on demand using [Run Indexer (REST)](/rest/api/searchservice/run-indexer) or an equivalent SDK method. Or, put the indexer [on a schedule](search-howto-schedule-indexers.md) to invoke processing at regular intervals. 
+
+Scheduled processing usually coincides with a need for incremental indexing of changed content. Change detection logic is a capability that's built into source platforms. Changes in a blob container are detected by the indexer automatically. For guidance on leveraging change detection in other data sources, refer to the indexer docs for specific data sources:
 
 + [Azure SQL database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## Know your data
+
+Indexers expect a tabular row set, where each row will be used to create a full or partial search document in the index. Often, there is a one-to-one relationship between a row and the resulting search document, but the row set could generated a partial document if you're using multiple indexers or approaches to build out the fields. 
+
+To flatten relational data into a row set, you might need to create a SQL view, or build a query that incorporates substructures but still returns single rows. For example, the hotels sample dataset is a SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is a summary of one approach, but you can find other approaches that will produce the same effect.
+
+In addition to flattened data, you also only need to pull in searchable data. Searchable data is alphanumeric. Cognitive Search cannot search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, using AI enrichment, it can add analyze large text to find structure or relevant information, generating new content that you can add to a search document. If you have binary data that you want to represent in 
+
+Other forms of data cleansing or manipulation might be needed. For more information, you should refer to the product documentation of your [Azure database product](/azure/?product=databases).
+
+## Know your index
+
+Indexers only check field names and types, or reference embedded field mappings. There is no validation step that ensures incoming content is correct for the search field.
+
+<!-- MORE TBD -->
 
 ## Next steps
 

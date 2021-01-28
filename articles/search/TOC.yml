@@ -126,6 +126,52 @@
       href: security-baseline.md
 - name: How-to guides
   items:
+  - name: Planning
+    items:
+    - name: Choose a tier
+      href: search-sku-tier.md
+    - name: Estimate and manage capacity
+      href: search-capacity-planning.md
+    - name: Estimate costs
+      href: search-sku-manage-costs.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
+    - name: Scale for performance
+      href: search-performance-optimization.md
+    - name: Multitenant architecture
+      href: search-modeling-multitenant-saas-applications.md
+  - name: Development
+    items:
+    - name: API versions
+      href: search-api-versions.md
+    - name: Preview features
+      href: search-api-preview.md
+    - name: Develop in .NET
+      items:
+      - name: Use Azure.Search.Documents
+        href: search-howto-dotnet-sdk.md
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
+        href: search-get-started-dotnet-v10.md
+    - name: Upgrade the SDK
+      items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
+      - name: .NET SDK 9.0
+        href: search-dotnet-sdk-migration-version-9.md
+      - name: .NET SDK 5.0
+        href: search-dotnet-sdk-migration-version-5.md
+      - name: .NET SDK 3.0
+        href: search-dotnet-sdk-migration.md
+      - name: .NET SDK 1.1
+        href: search-dotnet-sdk-migration-version-1.md
+      - name: .NET Management SDK
+        href: search-dotnet-mgmt-sdk-migration.md
+    - name: Upgrade the REST API
+      href: search-api-migration.md
   - name: Indexes
     items:
     - name: Create an index
@@ -164,16 +210,14 @@
       href: search-howto-concurrency.md
   - name: Indexers
     items:
-    - name: Work with indexers
-      items:
-      - name: Create an indexer
-        href: search-howto-create-indexers.md
-      - name: Schedule indexers
-        href: search-howto-schedule-indexers.md
-      - name: Map fields
-        href: search-indexer-field-mappings.md
-      - name: Monitor indexers
-        href: search-howto-monitor-indexers.md
+    - name: Create an indexer
+      href: search-howto-create-indexers.md
+    - name: Schedule indexers
+      href: search-howto-schedule-indexers.md
+    - name: Map fields
+      href: search-indexer-field-mappings.md
+    - name: Monitor indexers
+      href: search-howto-monitor-indexers.md
     - name: Connect with managed identities
       items:
       - name: Managed identities overview
@@ -306,52 +350,6 @@
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
       href: index-ranking-similarity.md
-  - name: Planning
-    items:
-    - name: Choose a tier
-      href: search-sku-tier.md
-    - name: Estimate and manage capacity
-      href: search-capacity-planning.md
-    - name: Estimate costs
-      href: search-sku-manage-costs.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
-    - name: Scale for performance
-      href: search-performance-optimization.md
-    - name: Multitenant architecture
-      href: search-modeling-multitenant-saas-applications.md
-  - name: Development
-    items:
-    - name: API versions
-      href: search-api-versions.md
-    - name: Preview feature list
-      href: search-api-preview.md
-    - name: Develop in .NET
-      items:
-      - name: Use Azure.Search.Documents
-        href: search-howto-dotnet-sdk.md
-      - name: Use Microsoft.Azure.Search
-        href: search-howto-dotnet-sdk-v10.md
-      - name: Legacy quickstart (Microsoft.Azure.Search)
-        href: search-get-started-dotnet-v10.md
-    - name: Upgrade the SDK
-      items:
-      - name: .NET SDK 11.0
-        href: search-dotnet-sdk-migration-version-11.md
-      - name: .NET SDK 10.0
-        href: search-dotnet-sdk-migration-version-10.md
-      - name: .NET SDK 9.0
-        href: search-dotnet-sdk-migration-version-9.md
-      - name: .NET SDK 5.0
-        href: search-dotnet-sdk-migration-version-5.md
-      - name: .NET SDK 3.0
-        href: search-dotnet-sdk-migration.md
-      - name: .NET SDK 1.1
-        href: search-dotnet-sdk-migration-version-1.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
-    - name: Upgrade the REST API
-      href: search-api-migration.md
   - name: Security
     items:
     - name: Data encryption
