@@ -73,7 +73,7 @@ This section describes the following sensor APIs:
 
 - /external/authentication/set_password_by_admin
 
-For curl command examples for the sensor, see [Sensor API curl commands](references-horizon-sdk.md#sensor-api-curl-commands).
+For curl command examples for the sensor, see [Sensor API curl commands](references-horizon-api.md#sensor-api-curl-commands).
 
 ### Retrieve device information
 
@@ -1708,7 +1708,7 @@ Define conditions under which alerts won't be sent. For example, define and upda
 
 The APIs that you define here appear in the on-premises management console's **Alert Exclusions** window as a read-only exclusion rule.
 
-For curl command examples for the on-premises management console, see [On-premises management console API curl commands](references-horizon-sdk.md#on-premises-management-console-api-curl-commands).
+For curl command examples for the on-premises management console, see [On-premises management console API curl commands](references-horizon-api.md#on-premises-management-console-api-curl-commands).
 
 #### /external/v1/maintenanceWindow
 
