@@ -99,6 +99,6 @@ For a list of Azure Digital Twins limits, see [*Reference: Service limits*](refe
 
 ## Next steps
 
-If you have worked with the first preview release of Azure Digital Twins (October 2018), learn what has changed: [*Overview: Differences from first release*](overview-differences.md).
+Dive into working with Azure Digital Twins with the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
 
-Or, go ahead and dive into working with Azure Digital Twins with the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
+Or, start reading about Azure Digital Twins concepts with [*Concepts: Custom models*](concepts-models.md).
