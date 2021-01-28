@@ -126,20 +126,12 @@
       href: security-baseline.md
 - name: How-to guides
   items:
-  - name: Create indexes and constructs
+  - name: Indexes
     items:
     - name: Create an index
       href: search-what-is-an-index.md
     - name: Create a multi-language index
       href: search-language-support.md
-    - name: Analyzers
-      items:
-      - name: Adding analyzers
-        href: search-analyzers.md
-      - name: Add a language analyzer
-        href: index-add-language-analyzers.md
-      - name: Add a custom analyzer
-        href: index-add-custom-analyzers.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -150,7 +142,15 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Import any data
+  - name: Analyzers
+    items:
+    - name: Adding analyzers
+      href: search-analyzers.md
+    - name: Add a language analyzer
+      href: index-add-language-analyzers.md
+    - name: Add a custom analyzer
+      href: index-add-custom-analyzers.md
+  - name: Data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -162,7 +162,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Import Azure data (indexers)
+  - name: Indexers
     items:
     - name: Work with indexers
       items:
@@ -216,7 +216,7 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-  - name: Use skills (AI)
+  - name: Skillsets
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -256,7 +256,7 @@
         href: knowledge-store-connect-power-bi.md  
       - name: Projection examples
         href: knowledge-store-projections-examples.md  
-  - name: Query
+  - name: Queries
     items:
     - name: Query types and composition
       href: search-query-overview.md
@@ -284,7 +284,7 @@
         href: query-lucene-syntax.md
       - name: moreLikeThis (preview)
         href: search-more-like-this.md
-  - name: Filter
+  - name: Filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -306,7 +306,7 @@
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
       href: index-ranking-similarity.md
-  - name: Plan
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -320,7 +320,7 @@
       href: search-performance-optimization.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
-  - name: Develop
+  - name: Development
     items:
     - name: API versions
       href: search-api-versions.md
