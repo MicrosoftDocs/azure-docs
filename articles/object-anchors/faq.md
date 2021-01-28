@@ -17,9 +17,10 @@ Azure Object Anchors enables an application to detect an object in the physical 
 
 For more information, see [Azure Object Anchors overview](overview.md).
 
+## Product FAQ
 **Q: What are the typical objects that Object Anchors can handle?**
 
-**A:** Objects should have the following qualities:
+**A:** We recommend the following properties for objects:
 
 * 1-6 meters for each dimension;
 * Non-symmetric, with sufficient variations in geometry;
@@ -28,23 +29,28 @@ For more information, see [Azure Object Anchors overview](overview.md).
 * Clear backgrounds with no or minimal clutter;
 * Object layout close to the layout of its model;
 
-**Q: What are the maximum object dimension and CAD size that can be processed for model ingestion?**
+**Q: What are the maximum object dimensions that can be processed for model ingestion?**
 
-**A:** Each dimension of a CAD model should be less than 10 meters. CAD model file size should be less than 150 MB.
+**A:** Each dimension of a CAD model should be less than 10 meters.
+
+**Q: What is the maximum CAD model size that can be processed for ingestion?**
+
+**A:** The model file size should be less than 150 MB.
 
 **Q: What are the supported CAD formats?**
 
 **A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types.
 
-**Q: What is the gravity direction and unit required by the model ingestion service? How to figure them out?**
+**Q: What is the gravity direction and unit required by the model ingestion service? How can we figure them out?**
 
-**A:** Gravity direction is the down vector pointing to the earth. For CAD models, gravity direction is typically the opposite of an up direction. For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0.0, -1.0)` would represent the gravity direction. When determining gravity, you should not only consider the model, but also the orientation in which the model will be seen during runtime. If you are trying to detect a chair in the real world on a flat surface, gravity might be `Vector3(0.0, 0.0, -1.0)`. However, if the chair is on a 45-degree slope, gravity might be `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
+**A:** Gravity direction is the down vector pointing to the earth. For CAD models, gravity direction is typically the opposite of an up direction. 
+For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0.0, -1.0)` would represent the gravity direction. When determining gravity, you should not only consider the model, but also the orientation in which the model will be seen during runtime. If you are trying to detect a chair in the real world on a flat surface, gravity might be `Vector3(0.0, 0.0, -1.0)`. However, if the chair is on a 45-degree slope, gravity might be `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
 
 The gravity direction can be reasoned with a 3D rendering tool, like [MeshLab](http://www.meshlab.net/).
 
 The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit** enumeration.
 
-**Q: How long will it take to ingest a CAD model?**
+**Q: How long does it take to ingest a CAD model?**
 
 **A:** For a `ply` model, typically 3-15 minutes. If submitting models in other formats, expect to wait 15-60 minutes depending on file size.
 
@@ -60,7 +66,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: How accurate is an estimated pose?**
 
-**A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 1-cm error. For large objects, like a car, the error can be up to 2-8 cm.
+**A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 1 cm error. For large objects, like a car, the error can be up to 2-8 cm.
 
 **Q: What is the best practice of using Object Anchors in a HoloLens application?**
 
@@ -78,7 +84,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** No. We don't handle **continuously moving** objects, but can handle **occasionally moving** ones. When an object is **occasionally moving**, it changes location once in a while, but is mostly stationary (for several minutes or longer).
+**A:** We don't handle **continuously moving** or **dynamic** objects, but can handle **occasionally moving** ones. When an object is **occasionally moving**, it changes location once in a while, but is mostly stationary (for several minutes or longer).
 
 **Q: Can Object Anchors handle deformation or articulations?**
 
@@ -92,7 +98,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **A:** Yes, the application can call `ObjectObserver.DetectAsync` multiple times with different queries to detect multiple instances of the same model.
 
-**Q: What to do if the Object Anchors runtime couldn't detect my object?**
+**Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
 **A:**
 
@@ -118,3 +124,8 @@ The unit represents the unit of measurement of the model. Supported units can be
 **Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
 
 **A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when converting from a right-handed to left-handed coordinate system, but Unity may apply an additional rotation about either the X or Y axis. A developer can determine this additional rotation by visualizing and comparing the coordinate systems.
+
+## Privacy FAQ
+**Q: How does Azure Object Anchors store data?**
+
+**A:** We only store System Metadata, which is encrypted at rest with a Microsoft managed data encryption key.
