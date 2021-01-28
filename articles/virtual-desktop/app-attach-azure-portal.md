@@ -48,19 +48,10 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the `Mount-VHD` command to stage and and Dismount-VHD to destage.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 >[!NOTE]
->This change will require that you restart the virtual machine.
+>We recommend that you restart the virtual machine after enabling Hyper-V.
 
 ## Configure the MSIX app attach management interface
 

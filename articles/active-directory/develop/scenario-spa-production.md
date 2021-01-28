@@ -1,5 +1,6 @@
 ---
-title: Move single-page app to production - Microsoft identity platform | Azure
+title: Move single-page app to production 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
 author: navyasric
@@ -12,20 +13,14 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Move to production
 
-Now that you know how to acquire a token to call web APIs, learn how to move to production.
+Now that you know how to acquire a token to call web APIs, here are some things to consider when moving your application to production.
 
-## Improve your app
-
-[Enable logging](msal-logging.md) to make your app production ready.
-
-## Test your integration
-
-Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Deploy your app
 

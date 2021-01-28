@@ -1,6 +1,6 @@
 ---
 title: Onboard to Azure Security Center with PowerShell
-description: This document walks you through the process of onboarding Azure Security Center using PowerShell cmdlets.
+description: This document walks you through the process of enabling Azure Security Center with PowerShell cmdlets.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/02/2018
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
@@ -84,7 +84,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
 You've successfully onboarded Azure Security Center with PowerShell.
 

@@ -141,4 +141,5 @@ Select **Errors** to see detailed information about any errors from the deployme
 
 ## Next steps
 
-To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).

@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Quickstart: Bulk load data using the COPY statement
 
-In this quickstart, you'll bulk load data into your dedicated SQL pool using the simple and flexible [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) for high-throughput data ingestion. The COPY statement is the recommended loading utility as it enables you to seamlessly and flexibly load data by providing functionality to:
+In this quickstart, you'll bulk load data into your dedicated SQL pool using the simple and flexible [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) for high-throughput data ingestion. The COPY statement is the recommended loading utility as it enables you to seamlessly and flexibly load data by providing functionality to:
 
 - Allow lower privileged users to load without needing strict CONTROL permissions on the data warehouse
 - Leverage only a single T-SQL statement without having to create any additional database objects

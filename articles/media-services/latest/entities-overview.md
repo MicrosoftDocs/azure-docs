@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Filtering, ordering, and paging of Media Services entities
-titleSuffix: Azure Media Services
 description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''

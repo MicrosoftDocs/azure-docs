@@ -35,6 +35,12 @@ Client applications can be designed to take advantage of SGX enclaves by delegat
 
 OE standardizes specific requirements for verification of an enclave evidence. This qualifies OE as a highly fitting attestation consumer of Azure Attestation.
 
+### TPM attestation 
+
+Trusted Platform Module (TPM) based attestation is critical to provide proof of a platforms’ state. TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements(evidence). Devices with a TPM, can rely on attestation to prove that boot integrity is not compromised along with using the claims to detect feature states enablement’s during boot. 
+
+Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
+
 ## Azure Attestation can run in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:

@@ -14,7 +14,7 @@ ms.date: 12/14/2020
 
 # Introduction to Computer Vision spatial analysis
 
-Computer Vision spatial analysis is a new feature of Azure Cognitive Services Computer Vision that helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI skills to extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream, an AI skill can do things like count the number of people entering a space or measure compliance with social distancing guidelines.
+Computer Vision spatial analysis is a new feature of Azure Cognitive Services Computer Vision that helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream, an AI operation can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines.
 
 ## The basics of spatial analysis
 
@@ -25,9 +25,10 @@ Today the core operations of spatial analysis are all built on a pipeline that i
 | Term | Definition |
 |------|------------|
 | People Detection | This component answers the question "where are the people in this image"? It finds humans in an image and passes a bounding box indicating the location of each person to the people tracking component. |
-| People Tracking | This component connects the people detections over time as the people move around in front of a camera. It uses temporal logic about how people typically move and basic information about the overall appearance of the people to do this. It cannot track people across multiple cameras or reidentify someone who has disappeared for more than approximately one minute. People Tracking does not use any biometric markers like face recognition or gait tracking. |
-| Region of Interest | This is a zone or line defined in the input video as part of configuration. When a person interacts with the region of the video the system generates an event. For example, for the PersonCrossingLine skill, a line is defined in the video. When a person crosses that line an event is generated. |
-| Event | An event is the primary output of spatial analysis. Each skill emits a specific event either periodically (ex. once per minute) or when a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount skill can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
+| People Tracking | This component connects the people detections over time as the people move around in front of a camera. It uses temporal logic about how people typically move and basic information about the overall appearance of the people to do this. It does not track people across multiple cameras. If a person exists the field of view from a camera for longer than approximately a minute and then re-enters the camera view,  the system will perceive this as a new person. People Tracking does not uniquely identify individuals across cameras. It does not use facial recognition or gait tracking. |
+| Face Mask Detection | This component detects the location of a person’s face in the camera’s field of view and identifies the presence of a face mask. To do so, the AI operation scans images from video; where a face is detected the service provides a bounding box around the face. Using object detection capabilities, it identifies the presence of face masks within the bounding box. Face Mask detection does not involve distinguishing one face from another face, predicting or classifying facial attributes or performing facial recognition. |
+| Region of Interest | This is a zone or line defined in the input video as part of configuration. When a person interacts with the region of the video the system generates an event. For example, for the PersonCrossingLine operation, a line is defined in the video. When a person crosses that line an event is generated. |
+| Event | An event is the primary output of spatial analysis. Each operation emits a specific event either periodically (ex. once per minute) or when a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount operation can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
 
 ## Example use cases for spatial analysis
 
@@ -38,6 +39,8 @@ The following are example use cases that we had in mind as we designed and teste
 **Shopper Analysis** - A grocery store uses cameras pointed at product displays to measure the impact of merchandising changes on store traffic. The system allows the store manager to identify which new products drive the most change to engagement.
 
 **Queue Management** - Cameras pointed at checkout queues provide alerts to managers when wait time gets too long, allowing them to open more lines. Historical data on queue abandonment gives insights into consumer behavior.
+
+**Face Mask Compliance** – Retail stores can use cameras pointing at the store fronts to check if customers walking into the store are wearing face masks to maintain safety compliance and analyze aggregate statistics to gain insights on mask usage trends. 
 
 **Building Occupancy & Analysis** - An office building uses cameras focused on entrances to key spaces to measure footfall and how people use the workplace. Insights allow the building manager to adjust service and layout to better serve occupants.
 
@@ -70,4 +73,4 @@ Access to the spatial analysis public preview is subject to Microsoft's sole dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Characteristics and limitations for spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Characteristics and limitations for spatial analysis](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)

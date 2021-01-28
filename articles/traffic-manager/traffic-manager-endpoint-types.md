@@ -88,15 +88,15 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 ## FAQs
 
-* [Can I use Traffic Manager with endpoints from multiple subscriptions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [Can I use Traffic Manager with endpoints from multiple subscriptions?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [Can I use Traffic Manager with Cloud Service 'Staging' slots?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [Can I use Traffic Manager with Cloud Service 'Staging' slots?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
-* [Does Traffic Manager support IPv6 endpoints?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+* [Does Traffic Manager support IPv6 endpoints?](./traffic-manager-faqs.md#does-traffic-manager-support-ipv6-endpoints)
 
-* [Can I use Traffic Manager with more than one Web App in the same region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+* [Can I use Traffic Manager with more than one Web App in the same region?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](./traffic-manager-faqs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## Next steps
 

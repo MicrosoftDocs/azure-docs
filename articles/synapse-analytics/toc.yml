@@ -102,6 +102,8 @@
       items:
       # - name: Security baseline
       #   href: security-baseline.md
+      - name: Security Controls by Azure Policy
+        href: ./security-controls-policy.md
       - name: Encryption
         href: ./security/workspaces-encryption.md
       - name: Network Security
@@ -1122,25 +1124,26 @@
   - name: Tutorials
     items:
     - name: Visualize data with Apache Spark
+      displayname: machine learning
       href: ./spark/apache-spark-data-visualization-tutorial.md
-      displayname: machine learning
     - name: Use the scoring wizard for dedicated SQL pools
-      href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
+      href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
     - name: Train a model code-free with automated ML
+      displayname: machine learning
       href: ./machine-learning/tutorial-automl.md
     - name: Train a model in Python with automated ML
+      displayname: machine learning
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-      displayname: machine learning
     - name: Create a model with Apache Spark MLlib
-      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
+      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+    - name: Configure Cognitive Services for Azure Synapse
+      href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
     - name: Sentiment analysis with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-    - name: Configure Cognitive Services for Azure Synapse
-      href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
