@@ -754,7 +754,7 @@
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
       },
       "recommendations": {
-        "articles/machine-learning/*.md": true
+        "articles/machine-learning/**/*.md": true
         },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
