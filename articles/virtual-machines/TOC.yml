@@ -75,8 +75,6 @@
     href: ./workloads/redhat/overview.md
   - name: Cloud Foundry
     href: ../cloudfoundry/index.yml
-  - name: Cassandra
-    href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
   - name: OpenShift
     items:
     - name: OpenShift overview
