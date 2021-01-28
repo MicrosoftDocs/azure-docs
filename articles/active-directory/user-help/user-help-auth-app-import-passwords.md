@@ -16,7 +16,7 @@ ms.reviewer: olhaun
 
 # Import passwords into the Microsoft Authenticator app
 
-Microsoft Authenticator supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](https://go.microsoft.com/fwlink/?linkid=2134938). You can now import your existing passwords and manage them in the Authenticator app. Just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS).
+Microsoft Authenticator supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](https://go.microsoft.com/fwlink/?linkid=2134938). To import your existing passwords and manage them in the Authenticator app, just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS).
 
 ## Import from Google Chrome or Android Smart Lock
 
@@ -97,21 +97,7 @@ Firefox allows exporting of passwords from the desktop browser only, so ensure t
 
    ![Desktop Firefox browser export passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-export-passwords-location.png)
 
-1. You can import your passwords into Authenticator from a desktop browser or on iOS or Android phones. Do one of the following:
-
-   - Import to Authenticator from a desktop browser.
-
-      1. Install and sign in to the [Microsoft Autofill extension](https://chrome.google.com/webstore/detail/microsoft-autofill/fiedbfgcleddlbcmgdigjgdfcggjcion) on your Chrome browser.
-
-      1. Open the Google Chrome desktop browser, open the Autofill extension and select **Settings**.
-
-         ![Desktop Chrome browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
-
-      1. Select **Import data** to locate and import the CSV file.
-
-         ![Desktop Chrome browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
-
-   - Import to the Authenticator app on your phone
+1. You can import your passwords into Authenticator from a desktop browser or on iOS or Android phones. To import to the Authenticator app on your phone:
 
       1. Transfer the exported CSV file on your Android or iOS phone using a preferred and safe way, and then download it. Next, share the CSV file with Authenticator app to start the import.
 
@@ -140,21 +126,7 @@ LastPass supports export passwords from a desktop browser only, so ensure you ha
 
    ![Desktop LastPass save CSV file](./media/user-help-auth-app-import-passwords/desktop-lastpass-save-import-file.png)
 
-1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. Do one of the following:
-
-   - Import to Authenticator from a desktop browser
-
-      1. Open the Google Chrome desktop browser, open the Microsoft Autofill Chrome Extension and select **Settings**.
-
-         ![Desktop LastPass browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
-
-      1. Select **Import data** to locate and import the CSV file.
-
-         ![Desktop LastPass browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
-
-      1. After successfully importing your password to Authenticator, delete the CSV file from your desktop or mobile phone.
-
-   - Import to Authenticator from your phone
+1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. To import to the Authenticator app on your phone:
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
@@ -173,21 +145,7 @@ Bitwarden supports export passwords from a desktop browser only, so ensure you h
 
    ![Bitwarden Export vault location](./media/user-help-auth-app-import-passwords/desktop-bitwarden-export-command-location.png)
 
-1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. Do one of the following:
-
-   - Import to Authenticator from a desktop browser
-
-      1. Open the Google Chrome desktop browser, open the Microsoft Autofill Chrome Extension and select **Settings**.
-
-         ![Desktop Bitwarden browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
-
-      1. Select **Import data** to locate and import the CSV file.
-
-         ![Desktop LastPass browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
-
-      1. After successfully importing your password to Authenticator, delete the CSV file from your desktop or mobile phone.
-
-   - Import to Authenticator from your phone
+1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. To import to the Authenticator app on your phone:
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
@@ -220,21 +178,7 @@ Roboform allows exporting of passwords from its desktop app only, so ensure you 
 
    ![Desktop Roboform export confirmation dialog box](./media/user-help-auth-app-import-passwords/desktop-roboform-confirmation.png)
 
-1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. Do one of the following:
-
-   - Import to Authenticator from a desktop browser
-
-      1. Open the Google Chrome desktop browser, open the Microsoft Autofill Chrome Extension and select **Settings**.
-
-         ![Desktop Roboform browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
-
-      1. Select **Import data** to locate and import the CSV file.
-
-         ![Desktop Roboform browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
-
-      1. After successfully importing your password to Authenticator, delete the CSV file from your desktop or mobile phone.
-
-   - Import to Authenticator from your phone
+1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. To import to the Authenticator app on your phone:
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
@@ -257,21 +201,7 @@ If steps to import passwords from your password manager aren't listed in this ar
 
 1. If you don’t have an exported CSV, you can copy each login from your existing password manager to the template CSV. Don’t remove or change the header row. When you finish, verify the integrity of your data before you begin the next step.
 
-1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. Do one of the following:
-
-   - Import to Authenticator from a desktop browser
-
-      1. Open the Google Chrome desktop browser, open the Microsoft Autofill Chrome Extension and select **Settings**.
-
-         ![Desktop CSV browser Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
-
-         1. Select **Import data** to locate and import the CSV file.
-
-            ![Desktop CSV browser Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
-
-      1. After successfully importing your password to Authenticator, delete the CSV file from your desktop or mobile phone.
-
-   - Import to Authenticator from your phone
+1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. To import to the Authenticator app on your phone:
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
@@ -296,6 +226,6 @@ The most common cause of failed imports is incorrect formatting in the CSV file.
 
   - Each row must contain a value under **url** and **passwords** columns.
 
-- You can recreate the CSV by pasting your content in the [CSV template file](https://go.microsoft.com/fwlink/?linkid=2134938)).
+- You can recreate the CSV by pasting your content in the [CSV template file](https://go.microsoft.com/fwlink/?linkid=2134938).
 
 - If nothing else works, please report your issue using the **Send Feedback** link from Authenticator app settings.
