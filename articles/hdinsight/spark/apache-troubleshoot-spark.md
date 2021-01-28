@@ -2,8 +2,6 @@
 title: Troubleshoot Apache Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.topic: troubleshooting
 ms.date: 08/22/2019
@@ -70,9 +68,9 @@ Spark configuration values can be tuned help avoid an Apache Spark application `
 
 These changes are cluster-wide but can be overridden when you submit the Spark job.
 
-## How do I configure an Apache Spark application by using a Jupyter notebook on clusters?
+## How do I configure an Apache Spark application by using a Jupyter Notebook on clusters?
 
-In the first cell of the Jupyter notebook, after the **%%configure** directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
+In the first cell of the Jupyter Notebook, after the **%%configure** directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
 
 ![Add a configuration](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 

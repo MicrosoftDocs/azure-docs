@@ -7,8 +7,6 @@ ms.date: 09/22/2020
 
 # Azure VMware Solution private cloud updates and upgrades
 
-## Overview
-
 One of the key benefits of Azure VMware Solution private clouds is that the platform is maintained for you. Platform maintenance includes automated updates to a VMware validated software bundle, helping to ensure you're using the latest version of the validated Azure VMware Solution private cloud software.
 
 Specifically, an Azure VMware Solution private cloud includes:

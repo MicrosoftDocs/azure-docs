@@ -267,14 +267,12 @@ The following sample creates a rule that can target any resource.
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

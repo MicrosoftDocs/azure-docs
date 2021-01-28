@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
 
-Cost and usage data is typically available within 8-24 hours and budgets are evaluated against these costs every 12-14 hours. Be sure to get familiar with [Cost and usage data updates](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention) specifics. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
+Cost and usage data is typically available within 8-24 hours and budgets are evaluated against these costs every 24 hours. Be sure to get familiar with [Cost and usage data updates](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention) specifics. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
 
-Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
+Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods. When a budget expires, it is automatically deleted.
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 

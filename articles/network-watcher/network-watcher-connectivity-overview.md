@@ -51,14 +51,14 @@ The following is an example of an issue found on a hop.
 ```json
 "Issues": [
     {
-    	"Origin": "Outbound",
-    	"Severity": "Error",
-    	"Type": "NetworkSecurityRule",
-    	"Context": [
+        "Origin": "Outbound",
+        "Severity": "Error",
+        "Type": "NetworkSecurityRule",
+        "Context": [
             {
-        		"key": "RuleName",
-        		"value": "UserRule_Port80"
-    	    }
+                "key": "RuleName",
+                "value": "UserRule_Port80"
+            }
         ]
     }
 ]

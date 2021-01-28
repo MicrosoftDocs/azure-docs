@@ -98,7 +98,7 @@ Before you start, make sure that you have these items:
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
-1. In Visual Studio code, under **Logic Apps**, open your subscription's shortcut menu, and select **Create Logic App**.
+1. In Visual Studio Code, under **Logic Apps**, open your subscription's shortcut menu, and select **Create Logic App**.
 
    ![From subscription menu, select "Create Logic App"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 

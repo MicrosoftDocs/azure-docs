@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
 ---
 
@@ -62,7 +62,7 @@ For example, if you wanted to move data at your location in Canada to an Azure W
 
 ### Option 1: 
 
-Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
+Ship a [supported disk](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../import-export/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
 
 ### Option 2:
 
@@ -96,13 +96,11 @@ These lead times are *estimates*. The time for each stage of order processing is
 **Estimated lead times for a Data Box Disk order:**
 
 1. Order Data Box Disk: A few minutes, from the portal
-2. Disk allocation and preparation: 1-2 business days
+2. Disk allocation and preparation: Up to 5 business days, depending on inventory availability and number of pending orders to be processed
 3. Shipping: 2-3 business days
-4. Data copy at customer site: Depends on nature of data, size, and number of files
+4. Data copy at customer site: Depends on nature of data, size, and number of files.
 5. Return shipping: 2-3 business days
-6. Processing disk at datacenter: 1-2 business days
-7. Upload data to Azure: Begins as soon as processing is complete and the disk is connected. Upload time depends on nature of data, size, and number of files.
-
+6. Processing at the datacenter and upload to Azure: Data upload begins at the datacenter as soon as operational processing is complete and the disk is connected. Upload time depends on nature of data, size, and number of files.
 
 ## Configure and connect
  

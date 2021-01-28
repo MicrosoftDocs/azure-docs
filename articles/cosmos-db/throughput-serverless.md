@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ---
 
 # How to choose between provisioned throughput and serverless
@@ -20,11 +20,11 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Criteria | Provisioned throughput | Serverless |
 | --- | --- | --- |
 | Status | Generally available | In preview |
-| Best suited for | Mission-critical workloads requiring predictable performance | Small-to-medium non-critical workloads with light and intermittent traffic |
+| Best suited for | Workloads with sustained traffic requiring predictable performance | Workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio |
 | How it works | For each of your containers, you provision some amount of throughput expressed in [Request Units](request-units.md) per second. Every second, this amount of Request Units is available for your database operations. Provisioned throughput can be updated manually or adjusted automatically with [autoscale](provision-throughput-autoscale.md). | You run your database operations against your containers without having to provision any capacity. |
 | Geo-distribution | Available (unlimited number of Azure regions) | Unavailable (serverless accounts can only run in 1 Azure region) |
 | Maximum storage per container | Unlimited | 50 GB |
-| Performance | 99.99% to 99.999% availability covered by SLA<br>< 10 ms latency for point-reads and writes covered by SLA<br>99.99% guaranteed throughput covered by SLA | 99.9% to 99.99% availability covered by SLA<br>< 10 ms latency for point-reads and < 30 ms for writes covered by SLO<br>95% burstability covered by SLO |
+| Performance | < 10 ms latency for point-reads and writes covered by SLA | < 10 ms latency for point-reads and < 30 ms for writes covered by SLO |
 | Billing model | Billing is done on a per-hour basis for the RU/s provisioned, regardless of how many RUs were consumed. | Billing is done on a per-hour basis for the amount of RUs consumed by your database operations. |
 
 > [!IMPORTANT]

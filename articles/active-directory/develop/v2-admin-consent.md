@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform admin consent protocols
-description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+description: A description of authorization in the Microsoft identity platform, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2019
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -23,7 +23,7 @@ Some permissions require consent from an administrator before they can be grante
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
 
 ## Request the permissions from a directory admin
 
@@ -46,10 +46,9 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope` | Required | Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes. This can include the OIDC scopes (`openid`, `profile`, `email`). |
+|`scope` | Required | Defines the set of permissions being requested by the application. This can be either static (using `/.default`) or dynamic scopes. This can include the OIDC scopes (`openid`, `profile`, `email`). |
 
-
-At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.
+At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions (both user and app). In order to request app permissions, you must use the `/.default` value. If you don't want admins to see a given permission in the admin consent screen all the time when you use `/.default`, the best practice is to not put the permission in the required permissions section. Instead you can use dynamic consent to add the permissions you want to be in the consent screen at run time, rather than using `/.default`.
 
 ### Successful response
 

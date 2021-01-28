@@ -1,14 +1,11 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight with .NET SDK - Azure 
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using HDInsight .NET SDK.
-ms.reviewer: jasonh
-author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: "hdinsightactive, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: hrasheed
 
 
 ---

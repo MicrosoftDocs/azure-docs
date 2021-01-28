@@ -25,9 +25,7 @@ Branding and customizing the user interface that Azure Active Directory B2C (Azu
 > [!TIP]
 > If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
 
-
 ## Custom HTML and CSS overview
-
 
 Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At runtime, content is loaded from a URL you specify in your user flow or custom policy. Each page in the user experience loads its content from the URL you specify for that page. After content is loaded from your URL, it's merged with an HTML fragment inserted by Azure AD B2C, and then the page is displayed to your customer.
 
@@ -72,7 +70,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Guidelines for using custom page content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
-- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -117,7 +115,6 @@ Here's an overview of the process:
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### 1. Create your HTML content
 
@@ -231,7 +228,6 @@ Validate that you're ready by performing the following steps:
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -387,10 +383,7 @@ To use the sample:
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
 1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
 
-
 ## Next steps
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).
-
-
 

@@ -93,5 +93,4 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now paused and resumed compute for your dedicated SQL pool. Continue to the next article to learn more about how to [Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-polybase.md). For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article. 
-
+You have now paused and resumed compute for your dedicated SQL pool. Continue to the next article to learn more about how to [Load data into a dedicated SQL pool](./load-data-from-azure-blob-storage-using-copy.md). For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.

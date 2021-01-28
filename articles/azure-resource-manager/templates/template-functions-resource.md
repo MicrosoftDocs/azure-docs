@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ---
 # Resource functions for ARM templates
 
@@ -169,7 +169,7 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys`, `listKeyValue`, and `listSecrets`.
+The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list` and may have a suffix. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`.
 
 ### Parameters
 

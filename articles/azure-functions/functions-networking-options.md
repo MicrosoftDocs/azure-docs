@@ -1,10 +1,10 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
+ms.date: 1/21/2021
+ms.author: cachai
 
 ---
 # Azure Functions networking options
@@ -16,9 +16,9 @@ The hosting models have different levels of network isolation available. Choosin
 You can host function apps in a couple of ways:
 
 * You can choose from plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
-    * The [Consumption plan](functions-scale.md#consumption-plan) scales dynamically in response to load and offers minimal network isolation options.
-    * The [Premium plan](functions-scale.md#premium-plan) also scales dynamically and offers more comprehensive network isolation.
-    * The Azure [App Service plan](functions-scale.md#app-service-plan) operates at a fixed scale and offers  network isolation similar to the Premium plan.
+    * The [Consumption plan](consumption-plan.md) scales dynamically in response to load and offers minimal network isolation options.
+    * The [Premium plan](functions-premium-plan.md) also scales dynamically and offers more comprehensive network isolation.
+    * The Azure [App Service plan](dedicated-plan.md) operates at a fixed scale and offers  network isolation similar to the Premium plan.
 * You can run functions in an [App Service Environment](../app-service/environment/intro.md). This method deploys your function into your virtual network and offers full network control and isolation.
 
 ## Matrix of networking features
@@ -29,7 +29,7 @@ You can host function apps in a couple of ways:
 
 You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
-Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan).
+Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](consumption-plan.md), and [App Service](dedicated-plan.md).
 
 > [!NOTE]
 > With network restrictions in place, you can deploy only from within your virtual network, or when you've put the IP address of the machine you're using to access the Azure portal on the Safe Recipients list. However, you can still manage the function using the portal.
@@ -80,12 +80,9 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## Restrict your storage account to a virtual network (preview)
+## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To set up a function with a storage account restricted to a private network:
-
-> [!NOTE]
-> Restricting the storage account only currently works for Premium functions using Windows in West Europe
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This feature currently only works with Windows Premium plans.  To set up a function with a storage account restricted to a private network:
 
 1. Create a function with a storage account that does not have service endpoints enabled.
 1. Configure the function to connect to your virtual network.
