@@ -22,7 +22,7 @@ This glossary provides a brief description of important terms and concepts for t
 | **Acknowledge alert event** | Instruct Defender for IoT to hide the alert once for the detected event. The alert will be triggered again if the event is detected again. | **[Alert](#a)<br /><br />[Learn alert event](#l)<br /><br />[Mute alert event](#m)** |
 | **Alert** | A message that a Defender for IoT engine triggers regarding deviations from authorized network behavior, network anomalies, or suspicious network activity and traffic. | **[Forwarding rule](#f)<br /><br />[Exclusion rule](#e)<br /><br />[System notifications](#s)** |
 | **Alert comment** | Comments that security analysts and administrators make in alert messages. For example, an alert comment might give instructions about mitigation actions to take, or names of individuals to contact regarding the event.<br /><br />Users who are reviewing alerts can choose the comment or comments that best reflect the event status, or steps taken to investigate the alert. | **[Alert](#a)** |
-| **Anomaly engine** | A Defender for IoT engine that detects unusual machine-to-machine (M2M) communication and behavior. For example, the engine might detect excessive SMB sign-in attempts. Anomaly alerts are triggered when these events are detected. | **[Defender for IoT engines](#d)** |
+| **Anomaly engine** | A Defender for IoT engine that detects unusual machine-to-machine (M2M) communication and behavior. For example, the engine might detect excessive SMB sign in attempts. Anomaly alerts are triggered when these events are detected. | **[Defender for IoT engines](#d)** |
 | **API** | Allows external systems to access data discovered by Defender for IoT and perform actions by using the external REST API over SSL connections. | **[Access tokens](#a)** |
 | **Attack vector report** | A real-time graphical representation of vulnerability chains of exploitable endpoints.<br /><br />Reports let you evaluate the effect of mitigation activities in the attack sequence to determine. For example, you can evaluate whether a system upgrade disrupts the attacker's path by breaking the attack chain, or whether an alternate attack path remains. This prioritizes remediation and mitigation activities. | **[Risk assessment report](#r)** |
 
@@ -56,8 +56,8 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Enterprise view** | A global map that presents business units, sites, and zones where Defender for IoT sensors are installed. View geographical locations of malicious alerts, operational alerts, and more. | **[Business unit](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
-| **Event timeline** | A timeline of activity detected on your network, including:<br /><br />- Alerts triggered.<br /><br />- Network events (informational).<br /><br />- User operations such as sign-in, user deletion, and user creation, and alert management operations such as mute, learn, and acknowledge. Available in the sensor consoles. | - |
+| **Enterprise view** | A global map that presents business units, sites, and zones where Defenders for IoT sensors are installed. View geographical locations of malicious alerts, operational alerts, and more. | **[Business unit](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
+| **Event timeline** | A timeline of activity detected on your network, including:<br /><br />- Alerts triggered.<br /><br />- Network events (informational).<br /><br />- User operations such as sign in, user deletion, and user creation, and alert management operations such as mute, learn, and acknowledge. Available in the sensor consoles. | - |
 | **Exclusion rule** | Instruct Defender for IoT to ignore alert triggers based on time period, device address, and alert name, or by a specific sensor.<br /><br />For example, if you know that all the OT devices monitored by a specific sensor will go through a maintenance procedure between 6:30 and 10:15 in the morning, you can set an exclusion rule that states that this sensor should send no alerts in the predefined period. | **[Alert](#a)<br /><br />[Mute alert event](#m)** |
 
 ## F
@@ -76,7 +76,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Horizon open development environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defender for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters.<br /><br />Contact your customer success representative for details. | **[Protocol support](#p)<br /><br />[Localization](#l)** |
+| **Horizon open development environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defenders for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters.<br /><br />Contact your customer success representative for details. | **[Protocol support](#p)<br /><br />[Localization](#l)** |
 | **Horizon custom alert** | Enhance alert management in your enterprise by triggering custom alerts for any protocol (based on Horizon Framework traffic dissectors).<br /><br />These alerts can be used to communicate information:<br /><br />- About traffic detections based on protocols and underlying protocols in a proprietary Horizon plug-in.<br /><br />- About a combination of protocol fields from all protocol layers. | **[Protocol support](#p)** |
 
 ## I
@@ -110,7 +110,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **On-premises management console** | The on-premises management console provides a centralized view and management of devices and threats that Defender for IoT sensor deployments detect in your organization. | **[Defender for IoT platform](#d)<br /><br />[Sensor](#s)** |
+| **On-premises management console** | The on-premises management console provides a centralized view and management of devices and threats that Defenders for IoT sensor deployments detect in your organization. | **[Defender for IoT platform](#d)<br /><br />[Sensor](#s)** |
 | **Operational alert** | Alerts that deal with operational network issues, such as a device that's suspected to be disconnected from the network. | **[Alert](#a)<br /><br />[Security alert](#s)** |
 
 ## P
@@ -132,7 +132,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Security alert** | Alerts that deal with security issues, such as excessive SMB sign-in attempts or malware detections. | **[Alert](#a)<br /><br />[Operational alert](#o)** |
+| **Security alert** | Alerts that deal with security issues, such as excessive SMB sign in attempts or malware detections. | **[Alert](#a)<br /><br />[Operational alert](#o)** |
 | **Selective probing** | Defender for IoT passively inspects IT and OT traffic and detects relevant information on devices, their attributes, their behavior, and more. In certain cases, some information might not be visible in passive network analyses.<br /><br />When this happens, you can use the safe, granular probing tools in Defender for IoT to discover important information on previously unreachable devices. | - |
 | **Sensor** | The physical or virtual machine on which the Defender for IoT platform is installed. | **[On-premises management console](#o)** |
 | **Site** | A location that a factory or other entity. The site should contain a zone or several zones in which a sensor is installed. | **[Zone](#z)** |
@@ -145,4 +145,4 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Zone** | An area within a site in which a sensor or sensors are installed. | **[Site](#s)<br /><br />[Business unit](#b)<br /><br />[Region](#r)** |
+| **Zone** | An area within a site in which a sensor, or sensors are installed. | **[Site](#s)<br /><br />[Business unit](#b)<br /><br />[Region](#r)** |
