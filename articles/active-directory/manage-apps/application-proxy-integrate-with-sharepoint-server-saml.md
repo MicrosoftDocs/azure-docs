@@ -37,13 +37,11 @@ To complete this configuration, you need the following resources:
  - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
  - A [custom, verified domain](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) in the Azure AD tenant.
  - On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin). 
- - For B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal)
+ - For B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
  - An Application Proxy connector installed and running on a machine within the corporate domain.
 
 
 ## Step 1: Integrate SharePoint on-premises with Azure AD 
-
-In this step, you configure the on-premises SharePoint app and validate that configuration.
 
 1. Configure the SharePoint on-premises app. For more information, see [Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
 2. Validate the configuration before moving to the next step. To validate, try to access the SharePoint on-premises from the internal network and confirm it's accessible internally. 
@@ -65,7 +63,8 @@ In this step, you create an application in your Azure Active Directory tenant th
 
  1. Create the app as described and use following settings. For step-by-step instructions, see [Add an on-premises app to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad).
 
-    - Internal URL= External URL = Sign On URL= https://portal.contoso.com/
+    - Internal URL: https://portal.contoso.com/
+    - External URL: https://portal.contoso.com/
     - Pre-Authentication: Azure Active Directory
     - Translate URLs in Headers: No
     - Translate URLs in Application Body: No
