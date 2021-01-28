@@ -20,21 +20,13 @@ Get started with Azure Communication Services by using the Communication Service
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/get-started-android.md)]
+[!INCLUDE [Meeting Composite with Android](./includes/get-started-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/get-started-ios.md)]
+[!INCLUDE [Meeting Composite with iOS](./includes/get-started-ios.md)]
 ::: zone-end
 
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
-
-## Next steps
-
-For more information, see the following articles:
-
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Learn about [calling client library capabilities](./calling-client-samples.md)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
