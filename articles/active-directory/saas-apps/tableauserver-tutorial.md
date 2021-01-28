@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
 ---
 
@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Tableau Server supports **SP** initiated SSO
 
-## Adding Tableau Server from the gallery
+## Add Tableau Server from the gallery
 
 To configure the integration of Tableau Server into Azure AD, you need to add Tableau Server from the gallery to your list of managed SaaS apps.
 
@@ -163,9 +163,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Tableau Server Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Tableau Server tile in the My Apps, this will redirect to Tableau Server Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Tableau Server tile in the My Apps, this will redirect to Tableau Server Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
-Once you configure the Tableau Server you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Tableau Server you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
