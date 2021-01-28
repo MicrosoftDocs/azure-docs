@@ -158,30 +158,38 @@ To do so in the Azure portal, follow the steps:
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your virtual machine, select **Disks** under **Settings**. 
    
-   ![VM Disk Configuration](./media/performance-guidelines-best-practices/disk-in-portal.png.png)
+   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png.png)
 
 1. Choose the appropriate caching policy for your disk from the drop-down. 
 
-   ![Choose caching policy](./media/performance-guidelines-best-practices/azure_disk_config.png)
+   ![Choose caching policy](./media/storage-configuration/azure_disk_config.png)
 
 1. After the change takes effect, reboot the SQL Server VM and start the SQL Server service. 
 
 
-## Enable write acceleration
+## Enable Write Acceleration
 
 Write Acceleration is a disk feature that is only available for the M-Series Virtual Machines (VMs). The purpose of write acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
 
-Stop all SQL Server activity and shut down teh SQL Server service before making changes to your write acceleration policy. 
+Stop all SQL Server activity and shut down the SQL Server service before making changes to your write acceleration policy. 
 
-If you have leveraged multiple disks in a disk striping configuration, all disks in the volume must be enabled or disabled for Write Acceleration in separate steps. Before enabling or disabling Write Acceleration on individual disks in a disk stripe, you should first shut down the Azure VM before making the changes.
+If your disks are striped, enable Write Acceleration for each disk individually, and your Azure VM should be shut down before making any changes. 
 
-To enable Write Acceleration on a specific disk you can use the Azure Portal, PowerShell, Azure CLI, or Rest APIs.
+To enable Write Acceleration using the Azure portal, follow these steps:
 
-*Azure Portal*
+1. Stop your SQL Server service. If your disks are striped, shut down the virtual machine. 
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Navigate to your virtual machine, select **Disks** under **Settings**. 
+   
+   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png)
 
-To enable Write Acceleration in the Azure Portal you would first select Disks in the Virtual Machine settings and then change the Host Caching policy for the transaction log disks to 'Note + Write Accelerator' as shown below.
+1. Choose the cache option with **Write Acceleration** for your disk from the drop-down. 
 
-![Write Acceleration](../../../virtual-machines/media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+   ![Choose caching policy](./media/storage-configuration/write_accelerator.png)
+
+1. After the change takes effect, start the virtual machine and SQL Server service. 
+
+
 
 ## Disk striping
 
