@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 01/28/2021
 ms.author: v-erkel
 ---
 
@@ -169,7 +169,7 @@ There are three options:
 
   This option caches files that clients read, but passes writes through to the back-end storage immediately. Files stored in the cache are not automatically compared to the files on the NFS storage volume. (Read the note below about back-end verification to learn more.)
 
-  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file might never be updated with changes from the back end, and the data set can become inconsistent.
+  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will be out of sync with the back-end file.
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
@@ -188,9 +188,7 @@ This table summarizes the usage model differences:
 | Clients bypass the cache      | Read         | 30 seconds            | None                     |
 
 > [!NOTE]
-> The **Back-end verification** value shows when the cache automatically compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request.
->
-> Readdirplus, which is also called an extended read request, is a standard NFS Version 3 API that returns directory metadata. When a client issues an extended read command through the cache to the back-end storage, the cache service compares the metadata mtime values from the back-end storage with the values for its cached files and updates the cached files if needed.
+> The **Back-end verification** value shows when the cache automatically compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request. Readdirplus is a standard NFS API (also called extended read) that returns directory metadata.
 
 ### Create an NFS storage target
 
