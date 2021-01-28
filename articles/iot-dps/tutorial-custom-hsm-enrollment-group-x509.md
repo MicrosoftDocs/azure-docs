@@ -15,7 +15,9 @@ ms.custom: mvc
 
 In this tutorial, you will learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
-The Azure IoT Device Provisioning Service supports two types of enrollments:
+Make sure you've at least completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. Also, if you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments for provisioning devices:
 
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
@@ -23,8 +25,6 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 This tutorial is similar to the previous tutorials demonstrating how to use enrollment groups to provision sets of devices. However, X.509 certificates will be used in this tutorial instead of symmetric keys. Review the previous tutorials in this section for a simple approach using [symmetric keys](./concepts-symmetric-key-attestation.md).
 
 This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
-
-If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. 
 
 
 In this tutorial you will complete the following objectives:
