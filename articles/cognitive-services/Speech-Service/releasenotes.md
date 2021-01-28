@@ -25,7 +25,6 @@ ms.custom: seodec18
   - 32-bit Windows libraries are not yet seeing a size improvements.
   - Linux libraries are 20-25% smaller;
   - Android libraries are 3-5% smaller;
-- We will make further improvements in this area in future releases.
 
 **New features**
 - **All**: Added 48kHz format for custom TTS voices, improving the audio quality of custom voices whose native output sample rates are higher than 24kHz.
