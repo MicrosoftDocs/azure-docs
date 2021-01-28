@@ -1,11 +1,12 @@
 ---
 title: Azure Services that support Availability Zones
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
 
@@ -53,7 +54,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | West   US 2        |                |                      |                     |                |
 
 
-To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## Azure Services supporting Availability Zones

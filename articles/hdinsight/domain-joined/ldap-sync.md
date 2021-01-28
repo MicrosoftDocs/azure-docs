@@ -1,9 +1,6 @@
 ---
 title: LDAP sync in Ranger and Apache Ambari in Azure HDInsight
 description: Address the LDAP sync in Ranger and Ambari and provide general guidelines.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020

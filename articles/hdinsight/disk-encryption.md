@@ -2,9 +2,6 @@
 title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020

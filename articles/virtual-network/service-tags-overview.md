@@ -124,8 +124,8 @@ You can obtain the current service tag and range information to include as part 
 You can programmatically retrieve the current list of service tags together with IP address range details:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
