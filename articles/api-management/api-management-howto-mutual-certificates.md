@@ -90,7 +90,7 @@ To upload a client certificate to API Management:
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
 
-After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-API-to-use-client-certificate-for-gateway-authentication).
+After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#onfigure-an-api-to-use-client-certificate-for-gateway-authentication).
 
 > [!NOTE]
 > To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in [Self-signed certificates](#self-signed-certificates), later in this article.
