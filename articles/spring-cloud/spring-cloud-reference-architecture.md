@@ -142,6 +142,11 @@ By the nature of distributed system design, infrastructure sprawl is a reality. 
 Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
 ### Operational Excellence
+Azure Spring Cloud reference architecture addresses multiple aspects of operational excellence.  These different aspects combine to ensure Azure Spring Cloud runs efficiently in production environments.
+* Azure DevOps pipelines are leveraged to ensure deployments are reliable and consistent while helping to avoid human error.
+* Azure Monitor and Application Insights are leveraged to store log and telemetry data.  Log and telemetry data collected can be assessed to ensure application performance levels are maintained, availability of the application, health of the application, and can drive operational improvements.  
+* Azure Security Center is leveraged to ensure applications maintain security by providing a platform to analyze and assess the data provided.
+
 ### Performance Efficiency
 ### Reliability
 Azure Spring Cloud is designed with Azure Kubernetes as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application because of a component failure.
