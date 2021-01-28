@@ -2,21 +2,6 @@
   "redirections": [
     
     {
-      "source_path": "articles/virtual-machines/extensions/log-collector.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/extensions/custom-script-linuxOstc.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/custom-script-linuxOstc",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/extensions/trend.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/trend",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
       "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
       "redirect_document_id": false
@@ -864,11 +849,6 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/idp-pass-through-custom.md",
       "redirect_url": "/azure/active-directory-b2c/idp-pass-through-user-flow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/manage-user-accounts-graph-api.md",
-      "redirect_url": "/azure/active-directory-b2c/microsoft-graph-operations",
       "redirect_document_id": false
     },
     {
@@ -17517,11 +17497,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
-      "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
@@ -22708,7 +22683,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-iot-core.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
@@ -22723,28 +22698,33 @@
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-server-vm.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-edge/how-to-install-production-certificates.md",
       "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-edge/how-to-register-device.md",
+      "redirect_url": "/azure/iot-edge/how-to-manual-provision-symmetric-key",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
@@ -22839,16 +22819,6 @@
     {
       "source_path_from_root": "/articles/iot-edge/sql-storage.md",
       "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-symmetric-key.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-x509.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
       "redirect_document_id": false
     },
     {
@@ -61351,6 +61321,16 @@
     {
       "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md",
       "redirect_url": "/azure/data-factory/wrangling-tutorial",
+      "redirect_document_id": false
+    }
+    {
+      "source_path": "articles/data-factory/data-flow-reserved-capacity-overview.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/data-flow-understand-reservation-charges.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
       "redirect_document_id": false
     }
   ]
