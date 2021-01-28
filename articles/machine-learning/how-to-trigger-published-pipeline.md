@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
 
-# Trigger machine learning pipelines with Azure Machine Learning SDK for Python
+# Trigger machine learning pipelines 
 
-In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can choose to create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use an Azure Logic App to allow more complex triggering logic or behavior.
+{>> rewrite In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can choose to create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use an Azure Logic App to allow more complex triggering logic or behavior. <<}
 
 ## Prerequisites
 
@@ -25,6 +25,10 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 * A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
 
 * A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
+
+## Trigger pipelines with Azure Machine Learning SDK for Python
+
+tk
 
 ## Initialize the workspace & get data
 
@@ -211,6 +215,12 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 
 > [!IMPORTANT]
 > If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
+
+## Call machine learning pipelines from Azure Data Factory pipelines
+
+In an Azure Data Factory pipeline, the *Machine Learning Execute Pipeline* activity runs an Azure Machine Learning pipeline. You can find this activity in the Data Factory's authoring page under the *Machine Learning* category:
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/adf-ml-pipeline-activity.png" alt-text="Screenshot showing the ML pipeline activity in the Azure Data Factory authoring environment":::
 
 ## Next steps
 
