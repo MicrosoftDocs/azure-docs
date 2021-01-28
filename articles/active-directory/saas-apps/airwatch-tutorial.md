@@ -166,7 +166,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Request** section, perform the following steps:
 
-    ![Request](./media/airwatch-tutorial/request.png "Request")  
+    ![Request section](./media/airwatch-tutorial/request.png "Request")  
 
     a. As **Request Binding Type**, select **POST**.
 
