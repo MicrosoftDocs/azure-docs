@@ -106,7 +106,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later use. You'll need it to configure the Visual Studio configuration file for this project.
 1. Under **Manage**, select **Authentication**.
-1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
+1. Set **Front-channel logout URL** to `https://localhost:44316/Account/EndSession`.
 1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
 1. Select **Save**.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -224,7 +224,7 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
-1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. On the **Authentication** page for your application, update the **Front-channel logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
