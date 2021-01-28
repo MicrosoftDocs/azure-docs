@@ -80,7 +80,7 @@ In this example, you create a policy that requires users to authenticate more fr
 
 ## Create token lifetime policies for refresh and session tokens
 > [!IMPORTANT]
-> As of May 2020, new tenants can not configure refresh and session token lifetimes.  Tenants with existing configuration can modify refresh and session token policies until January 30, 2021.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
+> As of May 2020, new tenants cannot configure refresh and session token lifetimes.  Tenants with existing configuration can modify refresh and session token policies until January 30, 2021.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
 >
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 >

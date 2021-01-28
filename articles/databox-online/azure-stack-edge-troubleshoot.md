@@ -84,4 +84,4 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-* Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
+* Learn more about the [known issues in this release](../databox-gateway/data-box-gateway-release-notes.md).

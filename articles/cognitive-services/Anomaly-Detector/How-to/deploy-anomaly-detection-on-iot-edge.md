@@ -19,7 +19,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 ## Prerequisites
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-* Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 * An [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) and an [IoT Edge](../../../iot-edge/quickstart-linux.md) device.
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]

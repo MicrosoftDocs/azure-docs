@@ -84,9 +84,9 @@ Also, note that Azure Marketplace Virtual Machine Images published by Microsoft 
 
 - [Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Information on how to download the VM template](../../virtual-machines/windows/download-template.md)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Sample script to upload a VHD to Azure and create a new VM](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## 7.5: Securely store configuration of Azure resources
 
@@ -114,7 +114,7 @@ If using custom images, use Azure role-based access control (Azure RBAC) to ensu
 
 - [How to configure Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Shared Image Gallery overview](../../virtual-machines/windows/shared-image-galleries.md)
+- [Shared Image Gallery overview](../../virtual-machines/shared-image-galleries.md)
 
 ## 7.7: Deploy configuration management tools for Azure resources
 

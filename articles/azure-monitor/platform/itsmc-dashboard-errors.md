@@ -62,6 +62,10 @@ In this section you can find the common errors that presented in the connector s
 
 * **Error**:"Something went wrong. Could not get connection details." This error presented when the customer defines ITSM action group.
 
-    **Cause**: Newly created ITSM Connector has yet to finish the initial Sync.
+    **Cause**: Such error is displayed when:
+    * Newly created ITSM Connector has yet to finish the initial Sync.
+    * The connector was not defined correctly
 
-    **Resolution**: When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+    **Resolution**: 
+    * When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+    * Review your connection details in the ITSM connector as explained [here](./itsmc-connections-servicenow.md#create-a-connection) and check that your ITSM connector can successfully [sync](./itsmc-resync-servicenow.md).

@@ -3,13 +3,12 @@
 - name: Overview
   href: overview.md
   items:
-  - name: What's new?
-    href: release-notes.md
   - name: Solution architecture
     href: architecture.md
-- name: Quickstarts
-  expanded: true
-  items:
+  - name: What's new?
+    href: release-notes.md
+  - name: Quickstarts
+    expanded: true
   - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
@@ -154,6 +153,16 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Create reports
+      items:
+      - name: Create risk assessment reports
+        href: how-to-create-risk-assessment-reports.md
+      - name: Create attack vector reports
+        href: how-to-create-attack-vector-reports.md
+      - name: Create data mining reports
+        href: how-to-create-data-mining-queries.md
+      - name: Create trends and statistics reports
+        href: how-to-create-data-mining-queries.md      
     - name: Enrich device information
       items: 
       - name: Work with device notifications
@@ -168,8 +177,6 @@
     - name: Track sensor activity
       href: how-to-track-sensor-activity.md
       displayName: timeline, time line, time-line, event
-    - name: Generate reports
-      href: how-to-generate-reports.md
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
