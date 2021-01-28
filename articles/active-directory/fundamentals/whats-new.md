@@ -34,6 +34,201 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+## January 2021
+
+### Secret token will be a mandatory field when configuring provisioning
+
+**Type:** Plan for change  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+
+In the past, the secret token field could be kept empty when setting up provisioning on the custom / BYOA application. This function was intended to solely be used for testing. We'll update the UI to make the field required. 
+
+Customers can work around this requirement for testing purposes by using a feature flag in the browser URL. [Learn more](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery).
+ 
+---
+
+### My Apps redirect removed
+
+**Type:** Fixed  
+**Service category:** My Apps  
+**Product capability:** End User Experiences
+ 
+The redirect from myapps.microsoft.com to myapplications.microsoft.com has been removed. Both links will take you directly to the latest My Apps experience.
+ 
+---
+
+### Public Preview - Customize and configure Android shared devices for Firstline Workers at scale
+
+**Type:** New feature  
+**Service category:** Device Registration and Management  
+**Product capability:** Developer Experience
+ 
+Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your Firstline Worker devices.
+
+The following preview capabilities will allow you to:
+- Provision Android shared devices at scale with Microsoft Endpoint Manager
+- Secure your access for shift workers using device-based conditional access
+- Customize sign-in experiences for the shift workers with Managed Home Screen
+
+To learn more, refer to [Customize and configure shared devices for Firstline Workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+
+---
+
+### Public preview - Provisioning logs can now be downloaded as a CSV or JSON
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+
+Customers can download the provisioning logs as a CSV or JSON file through the UI and via graph API. To learn more, refer to [Provisioning reports in the Azure Active Directory portal](../reports-monitoring/concept-provisioning-logs.md).
+
+---
+
+### Public preview - Attack Simulation Administrator and Attack Payload Author built-in roles
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Two new roles in Role-Based Access Control are available to assign to users, Attack simulation Administrator and Attack Payload author. 
+
+Users in the [Attack Simulation Administrator](../roles/permissions-reference.md#attack-simulation-administrator) role have access for all simulations in the tenant and can:
+- create and manage all aspects of attack simulation creation
+- launch/scheduling of a simulation
+-  review simulation results. 
+
+Users in the [Attack Payload Author](../roles/permissions-reference.md#attack-payload-author) role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
+
+---
+
+### Public preview - Usage Summary Reports Reader built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with the Usage Summary Reports Reader role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score. However, they cannot access any user level details or insights. 
+
+In the Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role adds an extra layer of protection to individual user identifiable data. [Learn more](../roles/permissions-reference.md#usage-summary-reports-reader).
+
+---
+
+### Public preview - Assign cloud groups to Azure AD custom roles and admin unit scoped roles
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Customers can assign a cloud group to Azure AD custom roles or an admin unit scoped role. To learn how to use this feature, refer to [Use cloud groups to manage role assignments in Azure Active Directory](../roles/groups-concept.md).
+
+---
+
+### General Availability - Azure AD Connect cloud sync (previously known as cloud provisioning)
+
+**Type:** New feature  
+**Service category:** Azure AD Connect cloud sync  
+**Product capability:** Identity Lifecycle Management
+ 
+Azure AD Connect cloud sync is now generally available to all customers.
+
+Azure AD Connect cloud moves the heavy lifting of transform logic to the cloud, reducing your on-premises footprint. Additionally, multiple light-weight agent deployments are available for higher sync availability. [Learn more](https://aka.ms/cloudsyncGA).
+ 
+---
+
+### General availability - Require App protection policy grant in Azure AD Conditional Access
+
+**Type:** New Feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+Azure AD Conditional Access grant for "Require App Protection policy" is now GA. 
+
+The policy provides the following capabilities:
+- Allows access only when using a mobile application that supports Intune App protection
+- Allows access only when a user has an Intune app protection policy delivered to the mobile application
+
+Learn more on how to set up a conditional access policy for app protection [here](../conditional-access/app-protection-based-conditional-access.md).
+ 
+---
+
+### General availability - Email One-Time Passcode
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Email OTP enables organizations around the world to collaborate with anyone by sending a link or invitation via email. Invited users can verify their identity with the one-time passcode sent to their email to access their partner's resources. [Learn more](../external-identities/one-time-passcode.md). 
+ 
+---
+
+ ### New provisioning connectors in the Azure AD Application Gallery - January 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+- [Fortes Change Cloud](../saas-apps/fortes-change-cloud-provisioning-tutorial.md)
+- [Gtmhub](../saas-apps/gtmhub-provisioning-tutorial.md)
+- [monday.com](../saas-apps/mondaycom-provisioning-tutorial.md)
+- [Splashtop](../saas-apps/splashtop-provisioning-tutorial.md)
+- [Templafy OpenID Connect](../saas-apps/templafy-openid-connect-provisioning-tutorial.md)
+- [WEDO](../saas-apps/wedo-provisioning-tutorial.md)
+
+For more information, see [What is automated SaaS app user provisioning in Azure AD?](../app-provisioning/user-provisioning.md)
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - January 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In January 2021 we have added following 29 new applications in our App gallery with Federation support:
+
+[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](https://docs.microsoft.com/azure/active-directory/saas-apps/burp-suite-enterprise-edition-tutorial)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest 
+
+---
+
+### Public preview - Second level manager can be set as alternate approver
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+An extra option when you select approvers is now available in Entitlement Management. If you select "Manager as approver" for the First Approver, you will have another option, "Second level manager as alternate approver", available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager. [Learn more](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+ 
+---
+
+### General availability - Navigate to Teams directly from My Access portal
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+You can now launch Teams directly from the My Access portal. 
+
+To do so, sign-in to My Access (https://myaccess.microsoft.com/), navigate to "Access packages", then go to the "Active" tab to see all of the access packages you already have access to. When you expand the selected access package and hover on Teams, you can launch it by clicking on the "Open" button. [Learn more](../governance/entitlement-management-request-access.md).
+ 
+---
+
+### Improved Logging & End-User Prompts for Risky Guest Users
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+ 
+
+The Logging and End-User Prompts for Risky Guest Users have been updated. Learn more in [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md).
+ 
+---
+ 
 ## December 2020
 
 ### Public preview - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
@@ -42,7 +237,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and developers of organizations to allow their end-users to sign-in and sign-up using a phone number in user flows. Read [Set up phone sign-up and sign-in for user flows (preview)](../../active-directory-b2c/phone-authentication-user-flows.md) to learn more.
+B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and developers of organizations to allow their end-users to sign in and sign up using a phone number in user flows. Read [Set up phone sign-up and sign-in for user flows (preview)](../../active-directory-b2c/phone-authentication-user-flows.md) to learn more.
 
 ---
 
@@ -116,7 +311,7 @@ In December 2020 we have added following 18 new applications in our App gallery 
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
 
@@ -126,7 +321,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** User Access Management 
 **Product capability:** Entitlement Management
 
-You can now launch Teams directly from My Access portal. To do so, sign-in to [My Access](https://myaccess.microsoft.com/), navigate to **Access packages**, then go to the **Active** Tab to see all access packages you already have access to. When you expand the access package and hover on a Teams, you can launch it by clicking on the **Open** button. 
+You can now launch Teams directly from My Access portal. To do so, sign-in to [My Access](https://myaccess.microsoft.com/), navigate to **Access packages**, then go to the **Active** Tab to see all access packages you already have access to. When you expand the access package and hover on Teams, you can launch it by clicking on the **Open** button. 
 
 To learn more about using the My Access portal, go to [Request access to an access package in Azure AD entitlement management](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
 
@@ -138,7 +333,7 @@ To learn more about using the My Access portal, go to [Request access to an acce
 **Service category:** User Access Management  
 **Product capability:** Entitlement Management
 
-An additional option is now available in the approval process in Entitlement Management. If you select Manager as approver for the First Approver, you will have an additional option, Second level manager as alternate approver, available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
+An extra option is now available in the approval process in Entitlement Management. If you select Manager as approver for the First Approver, you'll have an another option, Second level manager as alternate approver, available to choose in the alternate approver field. When you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
 For more information, go to [Change approval settings for an access package in Azure AD entitlement management](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
@@ -146,7 +341,7 @@ For more information, go to [Change approval settings for an access package in A
 
 ## November 2020
 
-### Azure Active Directory TLS 1.0, TLS 1.1 and 3DES Deprecation
+### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES Deprecation
 
 **Type:** Plan for change  
 **Service category:** All Azure AD applications  
