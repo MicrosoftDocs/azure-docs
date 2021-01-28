@@ -176,7 +176,7 @@ The network implementation is further secured by defining controls from the MAFB
 | 6.6 | Ensure that ingress using UDP is restricted from the Internet |
 
 #### Application Security
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. Key management is the focus in this reference architecture. Identity, data protection, and application configuration are the responsibility of the reader.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. In an independent security review, Azure Spring Cloud was observed to be configured ensuring least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
@@ -196,6 +196,8 @@ From the CCM, EKM-02, and EKM-03 specifically address the need for policies and 
 | 8.4 | Ensure the key vault is recoverable |
 
 The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials to ensure rotation is enforced. CIS control 8.4 ensures the contents of the key vault can be restored to maintain business continuity.
+
+Each aspect of application security covered above sets a foundation for the use of this reference architecture to support a Spring workload in Azure.
 
 ## Next Steps
 Explore this reference architecture through ARM, Terraform, and CLI deployments that are available as defined in the [Reference Deployment](#reference-deployment) section.
