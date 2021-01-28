@@ -191,7 +191,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | correlationHeaderDomains |  | Enable correlation headers for specific domains |
 | disableFlushOnBeforeUnload | false | Default false. If true, flush method will not be called when onBeforeUnload event triggers |
 | enableSessionStorageBuffer | true | Default true. If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load |
-| isCookieUseDisabled | false | Default false. If true, the SDK will not store or read any data from cookies.|
+| isCookieUseDisabled | false | Default false. If true, the SDK will not store or read any data from cookies. Note that this disables the User and Session cookies and renders the usage blades and experiences useless. |
 | cookieDomain | null | Custom cookie domain. This is helpful if you want to share Application Insights cookies across subdomains. |
 | isRetryDisabled | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
 | isStorageUseDisabled | false | If true, the SDK will not store or read any data from local and session storage. Default is false. |
@@ -261,7 +261,8 @@ Currently, we offer a separate [React plugin](javascript-react-plugin.md), which
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
 
 ## Explore browser/client-side data
 

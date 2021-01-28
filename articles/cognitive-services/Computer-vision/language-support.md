@@ -65,5 +65,5 @@ Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.micros
 
 Get started using the Computer Vision features mentioned in this guide.
 
-* [Analyze a local image (REST)](./quickstarts/csharp-analyze.md)
-* [Extract printed text (REST)](./quickstarts/csharp-print-text.md)
+* [Analyze a local image (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
+* [Extract printed text (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

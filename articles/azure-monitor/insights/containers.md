@@ -3,8 +3,8 @@ title: Container Monitoring solution in Azure Monitor | Microsoft Docs
 description: The Container Monitoring solution in Azure Monitor helps you view and manage your Docker and Windows container hosts in a single location.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
 
 ---

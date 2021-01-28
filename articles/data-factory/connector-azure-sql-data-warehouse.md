@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 01/22/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -71,6 +71,9 @@ For different authentication types, refer to the following sections on prerequis
 - [SQL authentication](#sql-authentication)
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
 - Azure AD application token authentication: [Managed identities for Azure resources](#managed-identity)
+
+>[!TIP]
+>When creating linked service for Azure Synapse **serverless** SQL pool from UI, choose "enter manually" instead of browsing from subscription.
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
@@ -386,7 +389,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 #### Azure Synapse Analytics sink example
 
@@ -775,6 +778,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
 - If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- When you use Azure Synapse **serverless** SQL pool as source, enable staging is not supported.
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 

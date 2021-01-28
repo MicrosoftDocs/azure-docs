@@ -143,7 +143,12 @@
     {
       "path_to_root": "samples-durable-functions",
       "url": "https://github.com/Azure/azure-functions-durable-extension",
-      "branch": "master"
+      "branch": "main"
+    },
+    {
+      "path_to_root": "samples-durable-functions-python",
+      "url": "https://github.com/Azure/azure-functions-durable-python",
+      "branch": "main"
     },
     {
       "path_to_root": "functions-python-tensorflow-tutorial",
@@ -563,6 +568,11 @@
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples",
+      "url": "https://github.com/azure-samples/digital-twins-docs-code",
+      "branch": "main"
     }
   ],
   "branch_target_mapping": {

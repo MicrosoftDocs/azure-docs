@@ -2,8 +2,8 @@
 title: Real-time Twitter sentiment analysis with Azure Stream Analytics
 description: This article describes how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
@@ -35,6 +35,10 @@ In this how-to guide, you use a client application that connects to Twitter and 
 * The TwitterClientCore application, which reads the Twitter feed. To get this application, download [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
 * Install the [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) version 2.1.0.
+
+Below is the solution architecture you are going to implement.
+
+   ![A diagram showing different pieces of services and applications used to build the solution.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "Solution Diagram")
 
 ## Create an event hub for streaming input
 

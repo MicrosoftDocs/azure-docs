@@ -21,7 +21,7 @@ Security alerts are triggered when anomalies in activity occur. These  alerts ar
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Storage** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
@@ -50,7 +50,7 @@ Security alerts are triggered when there's:
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Azure Sentinel or any other third-party SIEM or any other external tool.
 
 > [!TIP]
-> It's a best practice to [configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
+> It's a best practice to [configure Azure Defender for Storage](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal).
 
 
 ## What is hash reputation analysis for malware?

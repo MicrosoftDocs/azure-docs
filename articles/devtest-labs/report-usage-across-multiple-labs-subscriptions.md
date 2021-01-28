@@ -77,5 +77,5 @@ Once the system is set up and data is moving to the long-term storage, the next 
     Are users selecting high performance (more expensive) VM sizes?
 -	Which Marketplace images are being used?
 
-    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) or [Image factory](image-factory-create.md).
+    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) or [Image factory](image-factory-create.md).
 -	Which custom images are being used, or not used?

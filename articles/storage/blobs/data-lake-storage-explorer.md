@@ -75,7 +75,7 @@ To download files by using **Azure Storage Explorer**, with a file selected, sel
 
 You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
-![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
@@ -100,6 +100,10 @@ Within both of these categories, there are three permissions you can then assign
 > Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
 
 You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
+
+## Private endpoints in Azure Data Lake Storage Gen2
+
+Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
 
 ## Next steps
 

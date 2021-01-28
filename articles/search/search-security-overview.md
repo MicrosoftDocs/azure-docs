@@ -8,19 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
 ---
 
 # Security in Azure Cognitive Search - overview
 
-This article describes the key security features in Azure Cognitive Search that can protect content and operations.
+This article describes the security features in Azure Cognitive Search that protect content and operations.
 
-+ At the storage layer, encryption-at-rest is built-in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Azure Cognitive Search also supports the addition of customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.
++ At the storage layer, data encryption is built-in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Optionally, you can add customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full "double encryption" of indexed content.
 
-+ Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
++ Inbound security refers to protections on the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
-+ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
++ Outbound security relates to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 

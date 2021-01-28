@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: prishet 
 ms.custom: devx-track-azurepowershell
@@ -46,35 +46,36 @@ This article shows you how to use PowerShell to create and manage directories, f
 
 ## Connect to the account
 
-Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-```powershell
-Connect-AzAccount
-```
-
-If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Next, choose how you want your commands to obtain authorization to the storage account. 
+Choose how you want your commands to obtain authorization to the storage account. 
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
-With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ``` 
+
+3. Get the storage account context.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check Azure RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ## Create a container
@@ -331,6 +332,10 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
 ```
+
+> [!NOTE]
+> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+
 This example sets the ACL on a **file** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```powershell
@@ -343,6 +348,8 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileP
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
 $file.ACL
 ```
+> [!NOTE]
+> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 The following image shows the output after setting the ACL of a file.
 
@@ -363,6 +370,9 @@ $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -InputObject $acl 
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 ```
+
+> [!NOTE]
+> If you want to update a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -DefaultScope`.
 
 ### Remove an ACL entry
 

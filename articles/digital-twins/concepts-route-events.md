@@ -76,11 +76,7 @@ To create an event route, you can use the Azure Digital Twins [**data plane APIs
 
 Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call: 
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 
 1. First, a `DigitalTwinsEventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 

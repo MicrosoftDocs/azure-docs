@@ -23,8 +23,8 @@ Once you have started to use key vault to store your production secrets, it is i
 This document will cover the following topics:
 
 + Basic Key Vault metrics to monitor
-+ How to configure metrics and create a dashboard 
-+ How to create alerts at specified thresholds 
++ How to configure metrics and create a dashboard
++ How to create alerts at specified thresholds
 
 ## Basic Key Vault metrics to monitor
 

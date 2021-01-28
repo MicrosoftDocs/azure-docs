@@ -272,7 +272,7 @@ Require Azure AD Multi-Factor Authentication at sign-in for all individual users
 **Detail**: Use an admin workstation. Choose a level of workstation security:
 
 - Highly secure productivity devices provide advanced security for browsing and other productivity tasks.
-- [Privileged Access Workstations (PAWs)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
+- [Privileged Access Workstations (PAWs)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
 
 **Best practice**: Deprovision admin accounts when employees leave your organization.
 **Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.

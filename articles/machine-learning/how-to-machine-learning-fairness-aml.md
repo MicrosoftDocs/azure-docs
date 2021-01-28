@@ -10,7 +10,7 @@ author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, responsible-ml
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)

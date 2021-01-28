@@ -8,7 +8,7 @@ ms.author: liydu
 
 To continue to get started with Azure IoT Hub and to explore other IoT scenarios using IoT DevKit, see the following:
 
-- [Connect IoT DevKit to Azure IoT Remote Monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
+- [Connect IoT DevKit to Azure IoT Remote Monitoring solution accelerator](/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2)
 - [Translate voice message with Azure Cognitive Services](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md)
 - [Retrieve a Twitter message with Azure Functions](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 - [Send messages to an MQTT server using Eclipse Paho APIs](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: jmartens
-author: nishankgu
-ms.author: nigup
+author: SimranArora904
+ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
@@ -24,7 +24,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Requesting quota increases.
 > + Private endpoint and DNS quotas.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## Special considerations
 
@@ -48,7 +48,9 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
+> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### Azure Machine Learning assets
 The following limits on assets apply on a per-workspace basis. 
@@ -75,7 +77,7 @@ Available resources:
 + **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance. (A compute instance is considered a single-node cluster for quota purposes.)
 
 > [!TIP]
-> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
+> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
 The following table shows additional limits in the platform. Please reach out to the AzureML product team through a **technical** support ticket to request an exception.
 
@@ -205,3 +207,4 @@ To request an allowance for these scenarios, use the following steps:
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
++ [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)

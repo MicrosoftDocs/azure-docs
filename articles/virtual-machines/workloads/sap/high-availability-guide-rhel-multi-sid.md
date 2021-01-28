@@ -13,7 +13,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 01/11/2021
 ms.author: radeltch
 
 ---
@@ -563,6 +563,8 @@ This documentation assumes that:
     # NW2 - ERS
     sudo firewall-cmd --zone=public --add-port=62112/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=62112/tcp
+    sudo firewall-cmd --zone=public --add-port=3212/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3212/tcp
     sudo firewall-cmd --zone=public --add-port=3312/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=3312/tcp
     sudo firewall-cmd --zone=public --add-port=51213/tcp --permanent
@@ -591,6 +593,8 @@ This documentation assumes that:
     # NW3 - ERS
     sudo firewall-cmd --zone=public --add-port=62122/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=62122/tcp
+    sudo firewall-cmd --zone=public --add-port=3222/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3222/tcp
     sudo firewall-cmd --zone=public --add-port=3322/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=3322/tcp
     sudo firewall-cmd --zone=public --add-port=52213/tcp --permanent
