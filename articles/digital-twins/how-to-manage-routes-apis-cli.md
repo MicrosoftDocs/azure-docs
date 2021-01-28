@@ -81,7 +81,7 @@ To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-rout
 
 Before setting the dead-letter location, you must have a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a [container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) set up in your Azure account. 
 
-You'll provide the URI for this container when creating the endpoint later. The dead-letter location will be provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed **dead letter SAS URI** will be in the format of: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
+You'll provide the URI for this container when creating the endpoint later. The dead-letter location will be provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed **dead letter SAS URI** will be in the format of: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`.
 
 Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
 
@@ -107,7 +107,7 @@ Follow the steps below to set up these storage resources in your Azure account, 
 To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md):
 
 ```azurecli
-... --deadletter-sas-uri --dsu https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>
+... --deadletter-sas-uri --dsu https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
 ```
 
 The value provided to this parameter is the **dead letter SAS URI** made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources).
@@ -125,12 +125,12 @@ The CLI command to create this is below. You'll need to replace the following pl
 * `<endpoint-name>`
 * `<endpoint-type>`
 * `<endpoint-namespace>`
-* `<event-hub-or-service-bus-topic-name>`
-* **dead letter SAS URI** details: `<storageAccountname>`, `<containerName>`
+* `<event-hub-or-Service-Bus-topic-name>`
+* **dead letter SAS URI** details: `<storage-account-name>`, `<container-name>`
 * `<instance-location>`
 
 ```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<event-hub-or-service-bus-topic-name>\", \"deadLetterUri\": \"https://<storageAccountname>.blob.core.windows.net/<containerName>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<event-hub-or-Service-Bus-topic-name>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
 ```
 
 #### Message storage schema
