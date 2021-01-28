@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/26/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
 
 # Import passwords into the Microsoft Authenticator app
 
-You can now import your existing passwords to the Authenticator app to Manage. Just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS). Microsoft Authenticator currently supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](#troubleshooting-steps).
+You can now import your existing passwords to the Authenticator app to manage. Just export your passwords from your existing password manager into our comma-separated values (CSV) format. Then, import the exported CSV to Authenticator in our Chrome browser extension or directly into the Authenticator app (Android and iOS). Microsoft Authenticator currently supports importing passwords from Google Chrome, Firefox, LastPass, Bitwarden, and Roboform. If Microsoft doesn’t currently support your existing password manager, you can [manually enter sign-in credentials into our template CSV](#troubleshooting-steps).
 
 ## Import passwords from Google Chrome or Android Smart Lock
 
@@ -93,9 +93,9 @@ Firefox allows exporting of passwords from the desktop browser only, so ensure t
 
    ![Desktop Firefox browser Logins and passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-passwords-location.png)
 
-1. From the Firefox Lockwise page, select the ![Firefox ellipsis menu](./media/user-help-auth-app-import-passwords/desktop-firefox-ellipsis-icon.png) menu, select **Export Logins** and then, to confirm your intent, select **Export** again. You are prompted to identify yourself by entering your PIN, device password or by scanning your fingerprints. Once successfully identified, Firefox exports your passwords in CSV format to the selected location.
+1. From the Firefox Lockwise page, select the ![Firefox ellipsis menu](./media/user-help-auth-app-import-passwords/desktop-firefox-ellipsis-icon.png) menu, select **Export Logins**, and then confirm your intent by selecting **Export**. You are prompted to identify yourself by entering your PIN, device password or by scanning your fingerprints. Once successfully identified, Firefox exports your passwords in CSV format to the selected location.
 
-![Desktop Firefox browser export passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-export-passwords-location.png)
+   ![Desktop Firefox browser export passwords location](./media/user-help-auth-app-import-passwords/desktop-firefox-export-passwords-location.png)
 
 1. You can import your passwords into Authenticator from a desktop browser or on iOS or Android phones. Do one of the following:
 
@@ -169,7 +169,7 @@ LastPass supports export passwords from a desktop browser only, so ensure you ha
 
 Bitwarden supports export passwords from a desktop browser only, so ensure you have access to a desktop browser before starting to import passwords.
 
-1. Sign in into https://vault.bitwarden.com/ and select Tools and then, select **Export vault**. Choose the file format as CSV, provide your master password and then select **Export vault** to start exporting.
+1. Sign in into https://vault.bitwarden.com/ and select **Tools** &gt; **Export vault**. Choose the file format as CSV, provide your master password, and then select **Export vault** to start exporting.
 
    ![Bitwarden Export vault location](./media/user-help-auth-app-import-passwords/desktop-bitwarden-export-command-location.png)
 
@@ -245,7 +245,7 @@ Roboform allows exporting of passwords from its desktop app only, so ensure you 
 
       1. After successfully importing your password to Authenticator, delete the CSV file from your desktop or mobile phone.
 
-## Import passwords by creating your CSV
+## Import passwords by creating a CSV
 
 If steps to import passwords from your password manager aren't listed in this article, you can create a CSV that you can use to import your passwords into Authenticator. Microsoft recommends that you follow these steps on a desktop for ease of formatting. Make sure that you export your passwords from your existing password manager in unencrypted CSV file format.
 
@@ -253,7 +253,7 @@ If steps to import passwords from your password manager aren't listed in this ar
 
 1. Copy the relevant columns from your exported CSV to the template CSV and then save.
 
-1. If you don’t have an exported CSV, you can copy each login from your existing password manager to the template CSV. Please don’t remove or change the header row. Once done, please verify the integrity of your data and move to next step.
+1. If you don’t have an exported CSV, you can copy each login from your existing password manager to the template CSV. Don’t remove or change the header row. When you finish, verify the integrity of your data before you move on to next step.
 
 1. You can import your passwords into Authenticator in a desktop browser or on iOS or Android phones. Do one of the following:
 
@@ -284,16 +284,16 @@ If steps to import passwords from your password manager aren't listed in this ar
 
 The most common cause of failed imports is incorrect formatting in the CSV file. You can try the following steps to troubleshoot the issue.
 
-- Please check this article to see if if we already support importing passwords from your current password manager. If we do, you may want to retry the import by following the steps mentioned for your respective provider.
+- Check this article to see if if we already support importing passwords from your current password manager. If we do, you may want to retry the import by following the steps mentioned for your respective provider.
 
 - If we don’t currently support importing the format of your password manager, you could retry by creating your CSV file manually.
 
 - You can verify the integrity of CSV data with following suggestions:
 
-   - First row must contain a header with three columns: url, username, and password
+  - First row must contain a header with three columns: **url**, **username**, and **password**.
 
-   - Each row much contain a value under URL and passwords columns.
+  - Each row much contain a value under **url** and **passwords** columns.
 
-- You can recreate the CSV on template file by pasting your content
+- You can recreate the CSV on template file by pasting your content.
 
-- If nothing works, please do report the issue by “Send Feedback” link from app settings.
+- If nothing works, please report your issue using the “Send Feedback” link from Authenticator app settings.
