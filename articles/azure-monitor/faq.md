@@ -122,7 +122,7 @@ An action group is a collection of notifications and actions that can be trigger
 
 
 ### What is an action rule?
-An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
+An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](alerts/alerts-action-rules.md).
 
 ## Agents
 

@@ -61644,6 +61644,81 @@
       "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-data-collection-rules.md",
       "redirect_url": "/azure/azure-monitor/agents/resource-manager-data-collection-rules",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/action-groups-create-resource-manager-template.md",
+      "redirect_url": "/azure/azure-monitor/alerts/action-groups-create-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/action-groups-logic-app.md",
+      "redirect_url": "/azure/azure-monitor/alerts/action-groups-logic-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/activity-log-alerts-webhook.md",
+      "redirect_url": "/azure/azure-monitor/alerts/activity-log-alerts-webhook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-action-rules.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-action-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-automatic-migration.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-automatic-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-classic.overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-classic.overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-classic-portal.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-classic-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema-definitions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-integrations.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-dynamic-thresholds.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-dynamic-thresholds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-log-api-switch.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log-api-switch",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-log-create-templates.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log-create-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-alert-states.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-managing-alert-states",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-smart-groups.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-managing-smart-groups",
+      "redirect_document_id": false
     }
   ]
 }

@@ -27,7 +27,7 @@ Log alerts run queries on Log Analytics data. First you should start [collecting
 [Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md).
 
 ## Query evaluation definition
 
@@ -173,7 +173,7 @@ For example, if your rule [**Aggregation granularity**](#aggregation-granularity
 
 ## State and resolving alerts
 
-Log alerts are stateless. Alerts fire each time the condition is met, even if fired previously. Fired alerts don't resolve. You can [mark the alert as closed](alerts-managing-alert-states.md). You can also mute actions to prevent them from triggering for a period after an alert rule fired.
+Log alerts are stateless. Alerts fire each time the condition is met, even if fired previously. Fired alerts don't resolve. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md). You can also mute actions to prevent them from triggering for a period after an alert rule fired.
 
 In workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
@@ -198,7 +198,7 @@ Pricing information is located in the [Azure Monitor pricing page](https://azure
 > Unsupported resource characters such as `<, >, %, &, \, ?, /` are replaced with `_` in the hidden resource names and this will also reflect in the billing information.
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](api-alerts.md) until you decide to switch and you can't use the hidden resources.
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](api-alerts.md) until you decide to switch and you can't use the hidden resources.
 
 ## Next steps
 

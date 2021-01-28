@@ -36,9 +36,9 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using
 
-* [The Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
-* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [A command-line interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [The Azure portal](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [PowerShell](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [A command-line interface (CLI)](../../azure-monitor/alerts/alerts-classic-portal.md)
 * [Azure Monitor REST API](/rest/api/monitor/alertrules)
 
 ## Create an alert rule on a metric with the Azure portal

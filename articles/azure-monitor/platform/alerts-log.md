@@ -18,7 +18,7 @@ This article shows you how to create and manage log alerts using Azure Monitor. 
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 
-You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](alerts-log-create-templates.md).
+You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](../alerts/alerts-log-create-templates.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
@@ -221,7 +221,7 @@ PowerShell cmdlets listed below are available to manage rules with the [Schedule
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule
 
 > [!NOTE]
-> ScheduledQueryRules PowerShell cmdlets can only manage rules created in the current [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/). Log alert rules created using legacy [Log Analytics Alert API](api-alerts.md) can only be managed using PowerShell only after [switching to Scheduled Query Rules API](alerts-log-api-switch.md).
+> ScheduledQueryRules PowerShell cmdlets can only manage rules created in the current [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/). Log alert rules created using legacy [Log Analytics Alert API](api-alerts.md) can only be managed using PowerShell only after [switching to Scheduled Query Rules API](../alerts/alerts-log-api-switch.md).
 
 Here are example steps for creating a log alert rule using the PowerShell:
 

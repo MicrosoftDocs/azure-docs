@@ -198,7 +198,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added support for Windows 10.
 
 ### Alerts
-- [Create a log alert with Azure Resource Manager template](platform/alerts-log-create-templates.md) - New article.
+- [Create a log alert with Azure Resource Manager template](alerts/alerts-log-create-templates.md) - New article.
 - [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on exporting ARM template for a metric alert rule.
 
 ### Application Insights
@@ -326,7 +326,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Use Azure Private Link to securely connect networks to Azure Monitor](platform/private-link-security.md) - Added section on limits.
 
 ### Alerts
-- [Action rules for Azure Monitor alerts](platform/alerts-action-rules.md) - Added CLI processes.
+- [Action rules for Azure Monitor alerts](alerts/alerts-action-rules.md) - Added CLI processes.
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
 - [Example queries in Azure Monitor Log Analytics](log-query/example-queries.md) - New article.
 - [Troubleshoot log alerts in Azure Monitor](platform/alerts-troubleshoot-log.md) - Added section on alert rule quota.
@@ -556,7 +556,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Alerts
 
-- [Action rules for Azure Monitor alerts](platform/alerts-action-rules.md) - Added video.
+- [Action rules for Azure Monitor alerts](alerts/alerts-action-rules.md) - Added video.
 - [Overview of alerting and notification monitoring in Azure](platform/alerts-overview.md) - Added video.
 
 ### Application Insights
@@ -785,10 +785,10 @@ Multiple New articles for view designer to workbooks conversion guide.
 ### Alerts
 
 - [Create a metric alert with a Resource Manager template](platform/alerts-metric-create-templates.md) - Added example for custom metric.
-- [Creating Alerts with Dynamic Thresholds in Azure Monitor](platform/alerts-dynamic-thresholds.md) - Added section on interpreting dynamic threshold charts.
+- [Creating Alerts with Dynamic Thresholds in Azure Monitor](alerts/alerts-dynamic-thresholds.md) - Added section on interpreting dynamic threshold charts.
 - [Overview of alerting and notification monitoring in Azure](platform/alerts-overview.md) - Updated Resource Graph query.
 - [Supported resources for metric alerts in Azure Monitor](platform/alerts-metric-near-real-time.md) - Update to metrics and dimensions supported.
-- [Switch from legacy Log Analytics alerts API into new Azure Alerts API](platform/alerts-log-api-switch.md) - Added note on modified alert name.
+- [Switch from legacy Log Analytics alerts API into new Azure Alerts API](alerts/alerts-log-api-switch.md) - Added note on modified alert name.
 - [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added supported resource types for monitoring at scale.
 
 ### Application Insights

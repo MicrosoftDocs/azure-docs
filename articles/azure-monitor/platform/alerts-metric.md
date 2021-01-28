@@ -43,7 +43,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 9. Select the **Threshold** type, **Operator**, and **Aggregation type**. This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
-    - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
+    - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](../alerts/alerts-dynamic-thresholds.md).
 
 10. Optionally, refine the condition by adjusting **Aggregation granularity** and **Frequency of evaluation**. 
 
@@ -150,6 +150,6 @@ Metric alert rules have dedicated PowerShell cmdlets available:
 
 - [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md)
 - [Understand how metric alerts work](alerts-metric-overview.md)
-- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md)
+- [Understand how metric alerts with Dynamic Thresholds condition work](../alerts/alerts-dynamic-thresholds.md)
 - [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
 - [Troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)

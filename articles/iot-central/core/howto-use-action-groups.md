@@ -23,7 +23,7 @@ In Azure IoT Central, you create rules to run actions when a condition is met. R
 
 ## Create action groups
 
-You can [create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) or with an [Azure Resource Manager template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+You can [create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) or with an [Azure Resource Manager template](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md).
 
 An action group can:
 

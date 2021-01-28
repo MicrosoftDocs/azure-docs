@@ -178,4 +178,4 @@ To prevent excess costs, each alert rule can monitor up to 5000 time-series by d
 
 ## Next steps
 
-Learn more about monitoring at scale using metric alerts and [dynamic thresholds](alerts-dynamic-thresholds.md).
+Learn more about monitoring at scale using metric alerts and [dynamic thresholds](../alerts/alerts-dynamic-thresholds.md).

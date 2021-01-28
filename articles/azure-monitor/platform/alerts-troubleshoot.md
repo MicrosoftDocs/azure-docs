@@ -28,7 +28,7 @@ If you can see a fired alert in the Azure portal, but have an issue with some of
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps:
 
-1. **Was the email suppressed by an [action rule](alerts-action-rules.md)**?
+1. **Was the email suppressed by an [action rule](../alerts/alerts-action-rules.md)**?
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md):
 
@@ -84,7 +84,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
-1. **Was the action suppressed by an [action rule](alerts-action-rules.md)?**
+1. **Was the action suppressed by an [action rule](../alerts/alerts-action-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md): 
 
@@ -136,7 +136,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
        Verify the webhook endpoint you have configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload).
 
     1. **Are you calling Slack or Microsoft Teams?**  
-    Each of these endpoints expects a specific JSON format. Follow [these instructions](action-groups-logic-app.md) to configure a logic app action instead.
+    Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
 
     1. **Did your webhook became unresponsive or returned errors?** 
 
@@ -166,7 +166,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
 1. **Did you pick the correct format for the action?** 
 
-    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
+    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](../alerts/alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
 
     For example, for webhook action: 
 
@@ -174,7 +174,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
@@ -231,7 +231,7 @@ To locate it, follow these steps:
 
 ## Problem creating, updating, or deleting action rules in the Azure portal
 
-If you received an error while trying to create, update or delete an [action rule](alerts-action-rules.md), follow these steps: 
+If you received an error while trying to create, update or delete an [action rule](../alerts/alerts-action-rules.md), follow these steps: 
 
 1. **Did you receive a permission error?**  
 
@@ -239,7 +239,7 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
 
 
 ## Next steps

@@ -194,9 +194,9 @@ The following sample request to the Resource Graph REST API returns the count of
 
 You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
 
-You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
+You can query the alerts for their [essential](../alerts/alerts-common-schema-definitions.md#essentials) fields.
 
-Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
+Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) to get more information about specific alerts, including their [alert context](../alerts/alerts-common-schema-definitions.md#alert-context) fields.
 
 ## Smart groups
 

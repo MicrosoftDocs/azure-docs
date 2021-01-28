@@ -271,10 +271,10 @@ InsightsMetrics
 
 ## Create an alert rule
 
-This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for containers. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../platform/alerts-log-create-templates.md).
+This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for containers. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
->The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).
+>The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../alerts/alerts-log-api-switch.md).
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

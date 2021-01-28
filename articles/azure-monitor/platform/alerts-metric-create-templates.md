@@ -3619,6 +3619,6 @@ az deployment group create \
 ## Next steps
 
 - Read more about [alerts in Azure](alerts-overview.md)
-- Learn how to [create an action group with Resource Manager templates](action-groups-create-resource-manager-template.md)
+- Learn how to [create an action group with Resource Manager templates](../alerts/action-groups-create-resource-manager-template.md)
 - For the JSON syntax and properties, see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.
 

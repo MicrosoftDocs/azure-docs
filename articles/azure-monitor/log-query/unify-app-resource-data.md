@@ -53,7 +53,7 @@ The query uses Application Insights schema, although the query is executed in th
 ![Cross-query results example](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->[Cross-resource queries](./cross-workspace-query.md) in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../platform/alerts-log-api-switch.md). [See example templates](../platform/alerts-log-create-templates.md).
+>[Cross-resource queries](./cross-workspace-query.md) in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md). [See example templates](../alerts/alerts-log-create-templates.md).
 
 ## Application Insights and Log Analytics workspace schema differences
 The following table shows the schema differences between Log Analytics and Application Insights.  

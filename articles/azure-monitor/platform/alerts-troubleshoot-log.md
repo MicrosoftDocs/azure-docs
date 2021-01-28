@@ -47,7 +47,7 @@ A common issue is that you think that the alert didn't fire the actions because 
 
 [Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) is a type of log alert that is based on summarized time series results. These rules allow grouping by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting won't work as expected. Choosing the grouping in the legacy API isn't supported.
 
-The current ScheduledQueryRules API allows you to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) rules, which will work as expected. [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
+The current ScheduledQueryRules API allows you to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) rules, which will work as expected. [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md).
 
 ## Log alert fired unnecessarily
 
