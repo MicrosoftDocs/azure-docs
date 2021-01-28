@@ -212,10 +212,10 @@ Use the following procedure:
 ### Show log entries containing errors
 To review log entries that have an error, run the following query:
 ```
-    AppPlatformLogsforSpring
-    | where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
-    | project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
-    | sort by AppTimestamp
+AppPlatformLogsforSpring
+| where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
+| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
+| sort by AppTimestamp
 ```
 Use this query to find errors, or modify the query terms to find specific exception class or error code. 
 
@@ -223,11 +223,11 @@ Use this query to find errors, or modify the query terms to find specific except
 To review log entries for a specific tracing id "trace_id", run the following query:
 
 ```
-    AppPlatformLogsforSpring
-    | where TimeGenerated > ago(1h)
-    | where TraceId == "trace_id" 
-    | project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
-    | sort by AppTimestamp
+AppPlatformLogsforSpring
+| where TimeGenerated > ago(1h)
+| where TraceId == "trace_id" 
+| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
+| sort by AppTimestamp
 ```
 
 ## Next Steps
