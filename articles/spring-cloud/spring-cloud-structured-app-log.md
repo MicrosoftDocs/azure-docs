@@ -228,6 +228,7 @@ AppPlatformLogsforSpring
 | where TraceId == "trace_id" 
 | project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
 | sort by AppTimestamp
+
 ```
 
 ## Next Steps
