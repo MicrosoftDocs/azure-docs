@@ -359,6 +359,8 @@
         href: newsignature-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
+      - name: CloudKnox Permissions Management Platform
+        href: cloudknox-permissions-management-platform-tutorial.md
       - name: Cloudmore
         href: cloudmore-tutorial.md
       - name: CloudPassage
