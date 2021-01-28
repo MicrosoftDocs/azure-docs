@@ -27,7 +27,7 @@ Typical uses for this architecture include:
 
 These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
-### Private applications
+## Private applications
 The infrastructure requirements for a private application are in the following list:
 
 * No direct egress to the public Internet except for control plane traffic
@@ -73,7 +73,7 @@ The Azure services that are used in this reference architecture are in the follo
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
 
-### Public applications
+## Public applications
 The infrastructure requirements for a public application are in the following list:
 
 * Ingress traffic must be managed by at least Application Gateway or Azure Front Door
