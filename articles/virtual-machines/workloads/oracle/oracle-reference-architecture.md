@@ -211,7 +211,7 @@ Patching your virtual machine operating system can be automated using [Azure Aut
 - Use availability zones to achieve high availability in-region.
 - Consider using ultra disks (when available) or premium disks for your Oracle database.
 - Consider setting up a standby Oracle database in another Azure region using Oracle Data Guard.
-- Consider using [proximity placement groups](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) to reduce the latency between your application and database tier.
+- Consider using [proximity placement groups](../../co-location.md#proximity-placement-groups) to reduce the latency between your application and database tier.
 - Set up [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) for management, monitoring, and logging.
 - Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
 - Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to manage patching and updates to your database without any downtime.

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/22/2019    
 ---
 # Cognitive Services and machine learning
 
