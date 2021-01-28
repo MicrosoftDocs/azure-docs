@@ -73,13 +73,15 @@ After successfully running these commands, the event grid, event hub, or Service
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
+Endpoints with dead-lettering enabled can be set up with the Azure Digital Twins [CLI](how-to-use-cli.md) or [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
+
 To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
 #### Set up storage resources
 
 Before setting the dead-letter location, you must have a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a [container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) set up in your Azure account. 
 
-You'll provide the URL for this container when creating the endpoint later. The dead-letter location will be provided to the endpoint as a container URL with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed URL will be in the format of: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
+You'll provide the URI for this container when creating the endpoint later. The dead-letter location will be provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed **dead letter SAS URI** will be in the format of: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
 
 Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
 
@@ -102,19 +104,19 @@ Follow the steps below to set up these storage resources in your Azure account, 
     
 #### Configure the endpoint
 
-To create an endpoint that has dead-lettering enabled, you can create the endpoint using the Azure Resource Manager APIs. 
+To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the `az dt endpoint create` command for the [Azure Digital Twins CLI](how-to-use-cli.md):
 
-1. First, use the [Azure Resource Manager APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to set up a request to create an endpoint, and fill in the required request parameters. 
+```azurecli
+... --deadletter-sas-uri --dsu https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>
+```
 
-2. Next, add a `deadLetterSecret` field to the properties object in the **body** of the request. Set this value according to the template below, which crafts a URL from the storage account name, container name, and SAS token value that you gathered in the [previous section](#set-up-storage-resources).
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+The value provided to this parameter is the **dead letter SAS URI** made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources).
 
-3. Send the request to create the endpoint.
+Add this parameter to the end of the endpoint creation commands from the [*Create the endpoint*](#create-the-endpoint) section to create an endpoint of your desired type that has dead-lettering enabled.
 
-For more information on structuring this request, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Alternatively, you can create dead letter endpoints using the [Azure Digital Twins control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do this, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
 
-### Message storage schema
+#### Message storage schema
 
 Once the endpoint with dead-lettering is set up, dead-lettered messages will be stored in the following format in your storage account:
 
