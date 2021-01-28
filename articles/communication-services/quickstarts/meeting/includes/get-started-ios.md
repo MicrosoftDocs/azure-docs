@@ -146,8 +146,6 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 :::image type="content" source="../media/ios/quick-start-join-meeting.png" alt-text="Final look and feel of the quick start app":::
 
-:::image type="content" source="../media/ios/quick-start-permission-ask.png" alt-text="Permission ask dialog":::
-
 :::image type="content" source="../media/ios/quick-start-meeting-joined.png" alt-text="Final look and feel once the meeting has been joined":::
 
 > [!NOTE]
