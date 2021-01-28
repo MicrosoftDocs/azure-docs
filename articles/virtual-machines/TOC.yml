@@ -1073,7 +1073,7 @@
     - name: Security
       items:
       - name: Security controls by Azure Policy
-        href: ./security-controls-policy-vmimages.md
+        href: ./security-controls-policy-image-builder.md
     - name: Use a VNET
       items:
       - name: CLI
