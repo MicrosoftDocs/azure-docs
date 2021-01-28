@@ -254,7 +254,7 @@ Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configurati
 
 ## Using ASP.NET Core user secrets
 
-When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.2881 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
 
 To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
 
