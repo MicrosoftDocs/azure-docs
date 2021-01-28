@@ -89,13 +89,17 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
 ## Connect using other accounts
 
-If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The Logic App Designer expects to use the account that's signed in to Azure. To resolve this problem, you have these options:
+If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The designer expects that you use the account that's signed in to Azure. To resolve this problem, you have these options:
 
-* Set up the other account as a **Contributor** to your logic app's resource group.
+* Set up the other account with the **Contributor** role in your logic app's resource group.
 
-  1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role. For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+  1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role.
+  
+     For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-  1. If you're signed in to the Azure portal with your work or school account, sign out and sign back in with your other account. You can now create a connection to Outlook by using the other account.
+  1. After you set up this role, sign in to Office 365 with the account that now has Contributor permissions by using SSO.
+
+  1. In the Azure portal, sign in with the account that now has Contributor permissions. You can now use this account to create a connection to Outlook.
 
 * Set up the other account so that your work or school account has "send as" permissions.
 
