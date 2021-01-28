@@ -188,14 +188,17 @@
     items:
     - name: Configure user input
       href: configure-user-input.md
-    - name: Customize the UI with company branding
-      href: company-branding.md
+    - name: Customize the UI 
+      displayName: company branding
+      href: customize-ui.md
     - name: Customize the UI with HTML template
+      displayName: content definitions
       href: customize-ui-with-html.md
     - name: JavaScript and page layouts
       href: javascript-and-page-layout.md
     - name: Customize language
       href: language-customization.md
+      displayName: localization
     - name: Password complexity
       href: password-complexity.md
     - name: Disable email verification
@@ -259,12 +262,13 @@
       items:
       - name: Collect logs using Application Insights
         href: troubleshoot-with-application-insights.md
-        displayName: troubleshooting
+        displayName: troubleshooting, app insights
       - name: Policy validation
         href: troubleshoot-custom-policies.md
         displayName: troubleshooting
     - name: Usage analytics
       href: analytics-with-application-insights.md
+      displayName: application insights, app insights
     - name: Reference
       items:
       - name: TrustFrameworkPolicy
