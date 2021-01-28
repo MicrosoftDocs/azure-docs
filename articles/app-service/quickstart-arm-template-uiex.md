@@ -68,7 +68,7 @@ The following table details defaults parameters and their descriptions:
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It's compatible with all supported App Service on Linux programming languages.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Windows.
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
 
