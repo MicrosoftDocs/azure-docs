@@ -162,7 +162,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 **Guidance**: Use a secure, Azure-managed workstation with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
-- [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a secure, Azure-managed workstation](/security/compass/privileged-access-deployment)
 
 - [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
 

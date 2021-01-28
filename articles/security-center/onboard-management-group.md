@@ -94,4 +94,4 @@ There are a variety of ways you might choose to modify the Azure Policy definiti
 Now that you've onboarded an entire management group, enable the advanced protections of Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)

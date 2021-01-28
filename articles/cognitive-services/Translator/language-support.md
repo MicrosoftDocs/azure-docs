@@ -3,13 +3,13 @@ title: Language support - Translator
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
@@ -62,6 +62,7 @@ Translator supports the following languages for text to text translation.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
@@ -85,7 +86,7 @@ Translator supports the following languages for text to text translation.
 | Pashto | `ps` |
 | Persian | `fa` |
 | Polish | `pl` |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Portuguese (Portugal) | `pt-pt` |
 | Punjabi | `pa` |
 | Queretaro Otomi | `otq` |
@@ -337,7 +338,7 @@ The following languages are available for customization to or from English using
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
