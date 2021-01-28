@@ -17,7 +17,10 @@ To manually copy an individual Hive table on HDInsight 4.0, see [Hive export/imp
 
 ## Prerequisites
 
-* A new HDInsight cluster with its default filesystem in the target storage account. See [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md). The new cluster must match versions with the original.
+* A new HDInsight cluster with following configurations:
+    * Its default filesystem is in the target storage account. See [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md).
+    * Its cluster version must match the source cluster's.
+    * It uses a new external Hive metastore DB. See [Use external metadata stores](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md).
 * A storage account that is accessible to both original and new clusters. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
 
 ## How it works
@@ -25,6 +28,12 @@ To manually copy an individual Hive table on HDInsight 4.0, see [Hive export/imp
 We'll run a script action to export Hive tables from the original cluster to a specified HDFS directory. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
 
 Then, we'll run another script action on the new cluster to import the Hive tables from the HDFS directory. The script will re-create the tables with location determined by the new cluster's default filesystem.
+
+> [!NOTE] This guide supports copying metadata objects related to Hive databases, tables and partitions. Other metadata objects must be re-created manually.
+>
+> * For `Views`, Hive supports `SHOW VIEWS` command as of Hive 2.2.0 on HDInsight 4.0. Use `SHOW CREATE TABLE` for view definition. For earlier versions of Hive, query the metastore SQL DB to show views.
+> * For `Materialized Views`, use commands `SHOW MATERIALIZED VIEWS`, `DESCRIBE FORMATTED`, and `CREATE MATERIALIZED VIEW`. See [Materialized views](https://cwiki.apache.org/confluence/display/Hive/Materialized+views) for details.
+> * For `Constraints`, supported as of Hive 2.1.0 on HDInsight 4.0, use `DESCRIBE EXTENDED` to list constraints for a table, and use `ALTER TABLE` to add constraints. See [Alter Table Constraints](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTableConstraints) for details.
 
 ## Copy Hive tables
 
@@ -79,6 +88,8 @@ Download and run the script as root user [`hive_contents.sh`](https://hdiconfiga
 ## Cleanup additional storage usage
 
 After storage migration is complete and verified, you can delete the data in the specified HDFS export path.
+
+Option is to use HDFS command `hdfs dfs -rm -R`.
 
 ## Option: reduce additional storage usage
 
