@@ -35,12 +35,14 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in-preview), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
-- [List](/graph/api/authentication-list-phonemethods). 
+- [List](/graph/api/authentication-list-phonemethods)
 - [Get](/graph/api/phoneauthenticationmethod-get)
 - [Update](/graph/api/phoneauthenticationmethod-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-Note, the list operation returns the only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
+Note, the [list](/graph/api/authentication-list-phonemethods) operation returns  only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
+
+![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
 ## Self-service password reset email address (beta)
 
