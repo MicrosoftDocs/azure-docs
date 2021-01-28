@@ -39,7 +39,7 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
-Once registered, in **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
+Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
 
 ## Create the app using the .NET Core CLI
 
