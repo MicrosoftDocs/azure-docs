@@ -200,7 +200,7 @@ The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials 
 Each aspect of application security covered above sets a foundation for the use of this reference architecture to support a Spring workload in Azure.
 
 ## Next Steps
-Explore this reference architecture through ARM, Terraform, and CLI deployments that are available as defined in the [Reference Deployment](#reference-deployment) section.
+Explore this reference architecture through ARM, Terraform, and CLI deployments that are available as defined in the [Reference Deployment](#quickstart-reference-deployments) section.
 
 ## Appendix
 
@@ -225,6 +225,6 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 [8]: /azure/azure/spring-cloud/spring-cloud-tutorial-config-server/
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
-[11]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
-[12]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-network-requirements
-[13]: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
+[11]: /azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
+[12]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-network-requirements
+[13]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
