@@ -39,7 +39,7 @@ In order for Azure AD B2C to accept the .pfx file password, the password must be
 
 On macOS, use [Certificate Assistant](https://support.apple.com/guide/keychain-access/aside/glosa3ed0609/11.0/mac/11.0) in Keychain Access to generate a certificate.
 
-1. Follow the instructions how to [Create self-signed certificates in Keychain Access on Mac](https://support.apple.com/guide/keychain-access/kyca8916/mac.)
+1. Follow the instructions how to [Create self-signed certificates in Keychain Access on Mac](https://support.apple.com/guide/keychain-access/kyca8916/mac).
 1. In the Keychain Access app on your Mac, select the certificate you created.
 1. Choose File > Export Items.
 1. Select a file name to save your certificate. For example, **self-signed-certificate.p12**. 
