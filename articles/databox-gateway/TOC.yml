@@ -1,5 +1,5 @@
 - name: Azure Data Box Gateway Documentation 
-  href: /azure/databox-gateway/
+  href: ./index.yml
 - name: Overview
   Expanded: True
   items:
@@ -67,4 +67,3 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/databox/gateway/
-
