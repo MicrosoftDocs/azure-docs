@@ -50,7 +50,7 @@ If you configure backup options during the account creation, you can configure t
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configure periodic or continuous backup policy for new  Azure Cosmos accounts" border="true":::
 
-## Request data restore from a backup
+## <a id="request-restore"></a>Request data restore from a backup
 
 If you accidentally delete your database or a container, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call the Azure support](https://azure.microsoft.com/support/options/) to restore the data from automatic online backups. Azure support is available for selected plans only such as **Standard**, **Developer**, and plans higher than those. Azure support is not available with **Basic** plan. To learn about different support plans, see the [Azure support plans](https://azure.microsoft.com/support/plans/) page.
 

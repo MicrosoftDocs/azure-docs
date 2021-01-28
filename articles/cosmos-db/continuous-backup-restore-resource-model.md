@@ -110,14 +110,14 @@ This resource contains a database account instance that can be restored. The dat
 
 |Property Name |Description  |
 |---------|---------|
-| ID	| The unique identifier of the resource. |
+| ID | The unique identifier of the resource. |
 | accountName | The SQL database account name. |
-| creationTime |	The time in UTC when the account was created.  |
+| creationTime | The time in UTC when the account was created.  |
 | deletionTime | The time when the account was deleted in UTC.  This value is empty if the account is live. |
 | apiType | The API type of the Azure Cosmos DB account. |
 | restorableLocations |	The list of locations where the account existed. |
-| restorableLocations: locationName |	The region name of the regional account. |
-| restorableLocations: regionalDatabaseAccountInstanceId	| The GUID of the regional account. |
+| restorableLocations: locationName | The region name of the regional account. |
+| restorableLocations: regionalDatabaseAccountInstanceI | The GUID of the regional account. |
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
 | restorableLocations: deletionTime	| The time when the regional account was deleted in UTC. |
 
@@ -132,11 +132,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp | The time in UTC when your database is created or deleted. |
 | ownerId | The name of the SQL database. |
 | ownerResourceId	| The resource ID of the SQL database| 
-| operationType | The operation type of this database event. Here are the possible values: <br/><ul>
-<li>* Create: database creation event </li>
-<li>* Delete: database deletion event </li>
-<li>* Replace: database modification event </li>
-<li>* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType | The operation type of this database event. Here are the possible values: <br/><ul><li> Create: database creation event </li><li> Delete: database deletion event </li><li> Replace: database modification event </li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
 database	The properties of the SQL database at the time of the event
 
@@ -151,11 +147,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp	| The time in UTC when this container event happened.|
 | ownerId| The name of the SQL container.|
 | ownerResourceId	| The resource ID of the SQL container.|
-| operationType	| The operation type of this container event. Here are the possible values: <br/><ul>
-<li>* Create: container creation event </li>
-<li>* Delete: container deletion event </li>
-<li>* Replace: container modification event </li>
-<li>* SystemOperation: container modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li> Create: container creation event </li><li> Delete: container deletion event </li><li> Replace: container modification event </li><li> SystemOperation: container modification event triggered by the system. This event is not initiated by the user </li></ul> |
 | container	| The properties of the SQL container at the time of the event.|
 
 To get a list of all container mutations under the same database, see [Restorable Sql Containers - List]() article.
@@ -180,11 +172,7 @@ Each resource contains information of a mutation event such as creation and dele
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the MongoDB database. |
 | ownerResourceId	| The resource ID of the MongoDB database. |
-| operationType |	The operation type of this database event. Here are the possible values: <br/><ul>
-<li>* Create: database creation event</li>
-<li>* Delete: database deletion event</li>
-<li>* Replace: database modification event</li>
-<li>* SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values: <br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
 To get a list of all database mutation, see [Restorable Mongodb Databases - List]() article.
 

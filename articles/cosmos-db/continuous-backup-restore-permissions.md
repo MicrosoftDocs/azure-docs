@@ -16,7 +16,7 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="List of roles required to perform restore operation" border="false":::
 
-Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](..role-based-access-control/scope-overview) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
+Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](../role-based-access-control/scope-overview.md) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
 ## Assign a role using Azure portal
 
