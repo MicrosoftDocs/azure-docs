@@ -39,10 +39,10 @@ The chart below provides a side-by-side view of concepts that have changed betwe
 
 ## Service limits
 
-For a list of Azure Digital Twins limits, see [*Reference: Service limits*](reference-service-limits.md).
+For a list of Azure Digital Twins limits, see [*Azure Digital Twins service limits*](reference-service-limits.md).
 
 ## Next steps
 
-Next, dive into working with Azure Digital Twins with the first tutorial:
+Dive into working with the current release in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
 
-[*Tutorial: Code a client app*](tutorial-code.md)
+Or, start reading about key concepts with [*Concepts: Custom models*](concepts-models.md).

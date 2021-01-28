@@ -95,10 +95,10 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits
 
-For a list of Azure Digital Twins limits, see [*Reference: Service limits*](reference-service-limits.md).
+For a list of Azure Digital Twins limits, see [*Azure Digital Twins service limits*](reference-service-limits.md).
 
 ## Next steps
 
-Dive into working with Azure Digital Twins with the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
+Dive into working with Azure Digital Twins in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
 
 Or, start reading about Azure Digital Twins concepts with [*Concepts: Custom models*](concepts-models.md).
