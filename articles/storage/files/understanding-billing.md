@@ -15,14 +15,14 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Storage units	
-Azure Files uses base-2 unit prefixes to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same prefix or counting system.
+Azure Files uses base-2 unit prefixes to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same prefixes or counting system.
 
 ### Windows
 
 Windows measures storage using the base-2 counting system but displays them with base-10 prefixes (KB, MB, GB, TB, etc.) without converting them.
 
 > [!IMPORTANT]
-> To calculate Azure Files costs, you do not need to convert units if you are using Windows. Both Azure Files and Windows measure storage in base-2.
+> To calculate Azure Files costs, you don't need to convert units if you use Windows. Both Azure Files and Windows measure storage in base-2.
 
 | Acronym | Definition | Unit | Windows displays as |	
 |---------|------------|------|----------------------|	
@@ -31,7 +31,7 @@ Windows measures storage using the base-2 counting system but displays them with
 | GiB | 1024 MiB (1,073,741,824 bytes) | gibibyte | GB (gigabyte) |	
 | TiB | 1024 GiB (1,099,511,627,776 bytes) | tebibyte | TB (terabyte) |	
 
-### MacOS
+### macOS
 
 See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) on Apple's website to determine which counting system is used.
 
@@ -99,7 +99,7 @@ If you put an infrequently accessed workload in the transaction optimized tier, 
 
 Similarly, if you put a highly accessed workload in the cool tier, you will pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. It is possible for some usage levels that while the hot tier will be the most cost efficient tier, the cool tier will be more expensive than transaction optimized.
 
-Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
+Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
