@@ -37,7 +37,7 @@ To perform the steps described in this article, you must have:
 Add a custom domain certificate (.PFX) file to your API Management instance, or reference a certificate stored in Azure Key Vault. Follow steps in [Secure backend services using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 
 > [!NOTE]
-> It's recommended to use a key vault certificate for the self-hosted gateway domain.
+> We recommend using a key vault certificate for the self-hosted gateway domain.
 
 ## Use the Azure portal to set a custom domain name for your self-hosted gateway
 

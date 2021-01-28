@@ -81,7 +81,7 @@ In this example, the client certificate is identified by the certificate ID:
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
-In this example, the client certificate is identified by its resource name:
+In this example, the client certificate is identified by its thumbprint:
 
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
