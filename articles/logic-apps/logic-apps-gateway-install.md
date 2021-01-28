@@ -153,11 +153,6 @@ For more information, see these topics:
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
-<a name="custom-connector-ip-addresses"></a>
-
-## Set up gateway for custom connector traffic through firewall
-
-
 <a name="high-availability"></a>
 
 ## High availability support
