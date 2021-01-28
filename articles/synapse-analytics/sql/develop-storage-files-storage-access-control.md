@@ -104,7 +104,7 @@ Follow these steps to configure your storage account firewall and add an excepti
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
     ```
     > [!IMPORTANT]
-    > Make sure that you use version 3.0.1 or newer. You can check your Az.Storage version by running this command:  
+    > Make sure that you use **version 3.0.1**. You can check your Az.Storage version by running this command:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
