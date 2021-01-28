@@ -140,6 +140,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
+* Azure kubernetes Service (AKS) currently cannot be integrated with Cross-region Load Balancer. Loss of connectivity should be expected when setting up a Cross-region Load Balancer in front of a Public Load Balancer deployed with AKS.
+
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.
 
