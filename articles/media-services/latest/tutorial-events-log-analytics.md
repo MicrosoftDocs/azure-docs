@@ -1,6 +1,5 @@
 ---
-title: Store Azure Media Services events in Azure Log Analytics
-: Azure Media Services
+title: Store Media Services events in Azure Log Analytics
 description: Learn how to store Azure Media Services events in Azure Log Analytics.
 services: media-services
 documentationcenter: ''
