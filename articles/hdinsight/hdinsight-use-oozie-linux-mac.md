@@ -3,7 +3,6 @@ title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -30,7 +29,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **An Azure SQL Database**.  See [Create a database in Azure SQL Database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
+* **An Azure SQL Database**.  See [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).  This article uses a database named **oozietest**.
 
 * The URI scheme for your clusters primary storage. `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 

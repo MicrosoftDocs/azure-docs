@@ -6,7 +6,7 @@ ms.date: 02/18/2020
 ---
 # Resolve errors for SKU not available
 
-This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
+This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](/troubleshoot/azure/general/region-access-request-process) to Azure Support.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -118,4 +118,3 @@ It returns available SKUs and regions in the following format:
   ]
 }
 ```
-

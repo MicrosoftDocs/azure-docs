@@ -20,7 +20,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 
 ## Azure Machine Learning SDK for Python
 
-See the full reference for the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+See the full reference for the [Azure Machine Learning SDK for Python](../overview-what-is-azure-ml.md).
 
 | Category | Value |
 | ------------- | ------------- |
@@ -109,5 +109,3 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Related tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

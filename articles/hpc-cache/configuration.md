@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
 ---
 
@@ -38,7 +38,7 @@ If you don't want to change the MTU settings on other system components, you sho
 Learn more about MTU settings in Azure virtual networks by reading [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
 ## Configure root squash
-<!-- linked from troubleshoot -->
+<!-- linked from troubleshoot and from access policies -->
 
 The **Enable root squash** setting controls how Azure HPC Cache treats requests from the root user on client machines.
 
@@ -49,6 +49,9 @@ If root squash is disabled, a request from the client root user (UID 0) is passe
 Setting root squash on the cache can help compensate for the required ``no_root_squash`` setting on NAS systems that are used as storage targets. (Read more about [NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-storage-requirements).) It also can improve security when used with Azure Blob storage targets.
 
 The default setting is **Yes**. (Caches created before April 2020 might have the default setting **No**.)
+
+> [!TIP]
+> You also can set root squash for specific storage exports by customizing [client access polices](access-policies.md#root-squash).
 
 ## View snapshots for blob storage targets
 

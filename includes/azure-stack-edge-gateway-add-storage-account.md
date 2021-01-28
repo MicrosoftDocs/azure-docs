@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/30/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Go to **Cloud storage gateway > Storage accounts**.
 
 2. Select **+ Add storage account** on the device command bar. 
 
@@ -29,6 +29,6 @@ ms.author: alkohli
     
 4. If you select this new storage account and go to **Access keys**, you can find the blob service endpoint and the corresponding storage account name. Copy this information as these values together with the access keys will help you connect to the Edge storage account.
 
-    ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
+    ![Add a storage account 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     You get the access keys by [Connecting to the device local APIs using Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 

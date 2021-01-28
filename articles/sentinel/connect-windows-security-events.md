@@ -50,7 +50,7 @@ To collect your Windows security events in Azure Sentinel:
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
-1. Verify that you have the appropriate permissions as described under **Prerequisites**.
+1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
 1. Download and install the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) (also known as the Microsoft Monitoring Agent or MMA) on the machines for which you want to stream security events into Azure Sentinel.
 

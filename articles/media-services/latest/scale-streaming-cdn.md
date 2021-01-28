@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Stream content with CDN integration
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn about streaming content with CDN integration, as well as prefetching and Origin-Assist CDN-Prefetch.
 services: media-services
 documentationcenter: ''
@@ -50,7 +50,7 @@ This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). 
 
 After a streaming endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the streaming endpoint to CDN endpoint.
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. Once the streaming endpoint is started it could take up to two hours for the Azure CDN integration to be enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint. Once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. Once the streaming endpoint is started it could take up to four hours for the Azure CDN integration to be enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint. Once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
 

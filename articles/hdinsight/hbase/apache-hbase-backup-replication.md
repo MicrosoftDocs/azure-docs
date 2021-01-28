@@ -1,9 +1,6 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -47,7 +44,7 @@ After you delete the cluster, you can either leave the data in place, or copy th
 
 * Create a new HDInsight instance pointing to the current storage location. The new instance is created with all the existing data.
 
-* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## Export then Import
 
@@ -214,6 +211,12 @@ If you don't have a secondary Azure Storage account attached to your source clus
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
+If your destination cluster is an ADLS Gen 2 cluster, change the preceding command to adjust for the configurations that are used by ADLS Gen 2:
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
+```
+
 After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `restore_snapshot` command as described earlier.
 
 Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
@@ -240,4 +243,4 @@ To enable replication on HDInsight, apply a Script Action to your running source
 ## Next steps
 
 * [Configure Apache HBase replication](apache-hbase-replication.md)
-* [Working with the HBase Import and Export Utility](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Working with the HBase Import and Export Utility](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

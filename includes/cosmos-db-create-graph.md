@@ -25,6 +25,6 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Database ID|sample-database|Enter *sample-database* as the name for the new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
     Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
     Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
-    Partition Key| /pk |All Cosmos DB accounts need a partition key to horizontally scale. Learn how to select an appropriate partition key in the [Graph Data Partitioning article](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+    Partition Key| /pk |All Cosmos DB accounts need a partition key to horizontally scale. Learn how to select an appropriate partition key in the [Graph Data Partitioning article](../articles/cosmos-db/graph-partitioning.md).
 
 3. Once the form is filled out, select **OK**.

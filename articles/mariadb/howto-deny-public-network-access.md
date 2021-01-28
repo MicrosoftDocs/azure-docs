@@ -1,9 +1,9 @@
 ---
 title: Deny Public Network Access - Azure portal - Azure Database for MariaDB
 description: Learn how to configure Deny Public Network Access using Azure portal for your Azure Database for MariaDB 
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: how-to
 ms.date: 03/10/2020
 ---

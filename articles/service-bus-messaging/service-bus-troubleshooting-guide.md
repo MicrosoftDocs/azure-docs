@@ -21,7 +21,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     
     An example of failure error message:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>
@@ -75,7 +75,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 The identity doesn't have permissions to access the Service Bus topic. 
 
 ### Resolution
-To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
+To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
 
 To learn how to assign permissions to roles, see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md).
 

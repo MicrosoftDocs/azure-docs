@@ -4,7 +4,7 @@ description: Create a single database in Azure SQL Database using the Azure port
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang:
 ms.topic: quickstart
 author: stevestein
@@ -135,7 +135,7 @@ az sql server firewall-rule create \
 ```
 
 
-## Create a single database
+## Create a single database with Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
@@ -224,7 +224,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
 ```
 
 
-## Create a single database
+## Create a single database with PowerShell
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
@@ -314,4 +314,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

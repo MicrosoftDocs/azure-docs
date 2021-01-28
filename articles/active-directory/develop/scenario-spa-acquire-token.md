@@ -1,5 +1,6 @@
 ---
-title: Acquire a token to call a web API (single-page apps) - Microsoft identity platform | Azure
+title: Acquire a token to call a web API (single-page apps) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
 author: negoe
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Acquire a token to call an API
@@ -195,5 +196,4 @@ This code is the same as described earlier.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Calling a web API](scenario-spa-call-api.md)
+Move on to the next article in this scenario, [Calling a web API](scenario-spa-call-api.md).

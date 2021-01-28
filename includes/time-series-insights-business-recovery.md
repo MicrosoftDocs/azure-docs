@@ -17,10 +17,10 @@ As an Azure service, Azure Time Series Insights provides certain *high availabil
 
 Additional high-availability features provided through Azure (and also available to any Azure Time Series Insights instance) include:
 
-- **Failover**: Azure provides [geo-replication and load balancing](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-- **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure provides site recovery features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) supports both on-premises and in-cloud backup of Azure VMs.
+- **Failover**: Azure provides [geo-replication and load balancing](/azure/architecture/resiliency/recovery-loss-azure-region).
+- **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](/azure/architecture/resiliency/recovery-data-corruption).
+- **Azure Site Recovery**: Azure provides site recovery features through [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) supports both on-premises and in-cloud backup of Azure VMs.
 
 Make sure you enable the relevant Azure features to provide global, cross-region high availability for your devices and users.
 
@@ -31,9 +31,9 @@ Make sure you enable the relevant Azure features to provide global, cross-region
 
 Some Azure IoT services also include built-in business disaster recovery features:
 
-- [Azure IoT Hub high-availability disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), which includes intra-region redundancy
-- [Azure Event Hubs policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Azure IoT Hub high-availability disaster recovery](../articles/iot-hub/iot-hub-ha-dr.md), which includes intra-region redundancy
+- [Azure Event Hubs policies](../articles/event-hubs/event-hubs-geo-dr.md)
+- [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md)
 
 Integrating Azure Time Series Insights with the other services provides additional disaster recovery opportunities. For example, telemetry sent to your event hub might be persisted to a backup Azure Blob storage database.
 
@@ -50,10 +50,10 @@ In general, the best way to duplicate a Azure Time Series Insights environment i
 
 To create a duplicate environment:
 
-1. Create an environment in a second region. For more information, read [Create a new Azure Time Series Insights environment in the Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Create an environment in a second region. For more information, read [Create a new Azure Time Series Insights environment in the Azure portal](../articles/time-series-insights/time-series-insights-get-started.md).
 1. Create a second dedicated consumer group for your event source.
 1. Connect that event source to the new environment. Make sure that you designate the second dedicated consumer group.
-1. Review the Azure Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) and [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentation.
+1. Review the Azure Time Series Insights [IoT Hub](../articles/time-series-insights/how-to-ingest-data-iot-hub.md) and [Event Hubs](../articles/time-series-insights/concepts-access-policies.md) documentation.
 
 If an event occurs:
 
@@ -66,5 +66,4 @@ If an event occurs:
 > * A delay might also occur.
 > * A momentary spike in message processing might occur, as operations are rerouted.
 > 
-> For more information, read [Mitigate latency in Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
-
+> For more information, read [Mitigate latency in Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

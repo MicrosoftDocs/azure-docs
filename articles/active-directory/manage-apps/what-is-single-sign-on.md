@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # What is single sign-on (SSO)?

@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How setting up a cluster for Azure Dev Spaces works
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. One way is to enable Azure Dev Spaces on your AKS cluster so you can [run services directly on your cluster][how-it-works-up] and use [additional networking and routing capabilities][how-it-works-routing]. This article describes what happens when you prepare your cluster and enable Azure Dev Spaces.
 
 ## Prepare your AKS cluster

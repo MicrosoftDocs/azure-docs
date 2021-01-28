@@ -1,8 +1,8 @@
 ---
 title: Rank transformation in mapping data flow 
 description: How to use Azure Data Factory's mapping data flow rank transformation generate a ranking column
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
@@ -15,6 +15,8 @@ ms.date: 10/05/2020
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
 
 ## Configuration
 

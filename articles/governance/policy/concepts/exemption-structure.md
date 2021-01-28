@@ -11,7 +11,7 @@ individual resource from evaluation of initiatives or definitions. Resources tha
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
 see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
 [Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
-**Resource Provider modes**.
+[Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > This feature is free during **preview**. For pricing details, see

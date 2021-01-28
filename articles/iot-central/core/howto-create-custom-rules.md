@@ -13,7 +13,7 @@ manager: philmea
 
 # Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid
 
-This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the built-in rules and actions.
 
@@ -244,7 +244,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
     | Event Hub namespace | Your Event Hub namespace |
     | Event Hub name | Use existing - **centralexport** |
 
-1. Under **Jobs topology**, select **Outputs**, choose **+ Add**, and then choose **Azure function**.
+1. Under **Jobs topology**, select **Outputs**, choose **+ Add**, and then choose **Azure Function**.
 1. Use the information in the following table to configure the output, then choose **Save**:
 
     | Setting | Value |

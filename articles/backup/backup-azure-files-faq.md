@@ -73,20 +73,20 @@ All snapshots taken by Azure Backup can be accessed by viewing snapshots in the 
 
 ### What happens after I move a backed up file share to a different subscription?
 
-Once a file share  is moved to a different subscription, it's considered as a new file share by Azure Backup. Below are the recommended steps :
+Once a file share is moved to a different subscription, it's considered as a new file share by Azure Backup. These are the recommended steps:
  
-Scenario: Let's say you have a file share FS1 in subscription S1 and it is protected using V1 vault. Now you want to move your file share to subscription S2.
+Scenario: Let's say you have a file share *FS1* in subscription *S1* and it's protected using the *V1* vault. Now you want to move your file share to subscription *S2*.
  
-1.	Move the desired storage account and file share (FS1) to different subscription (S2).
-2.	In V1 vault, trigger stop protection with delete data operation for FS1.
-3.	Unregister the storage account hosting FS1 from V1 vault.
-4.	Reconfigure backup for FS1 , now moved to S2, with a vault (V2) in S2 subscription. 
+1.	Move the desired storage account and file share (FS1) to the different subscription (S2).
+2.	In the V1 vault, trigger the stop protection with delete data operation for FS1.
+3.	Unregister the storage account hosting FS1 from the V1 vault.
+4.	Reconfigure backup for FS1, now moved to S2, with a vault (V2) in the S2 subscription. 
  
-Please note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup and hence you will have to delete those snapshots manually as per your requirement.
+Note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup. So you'll have to delete those snapshots manually according to your requirements.
 
 ### Can I move my backed up file share to a different resource group?
  
-Yes, you can move your backed up file share to a different resource group. However, you will need to reconfigure backup for the file share as it would be treated as a new  resource by Azure Backup. Also, the snapshots that were created before the resource group move, will no longer be managed by Azure backup .Hence, you will have to delete those snapshots manually as per your requirement.
+Yes, you can move your backed up file share to a different resource group. However, you'll need to reconfigure backup for the file share as it will be treated as a new resource by Azure Backup. Also, the snapshots that were created before the resource group move will no longer be managed by Azure backup. So you'll have to delete those snapshots manually according to your requirements.
 
 ### What is the maximum retention I can configure for backups?
 

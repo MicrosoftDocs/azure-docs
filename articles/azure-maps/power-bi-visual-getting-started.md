@@ -3,7 +3,7 @@ title: Getting started with the Azure Maps Power BI visual | Microsoft Azure Map
 description: In this article, you will learn how to use the Microsoft Azure Maps visual for Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -40,17 +40,17 @@ You, or your administrator, may need to update your firewall to allow access to 
 
 To learn more, about privacy and terms of use related to the Azure Maps visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Preview behavior and requirements
+## Azure Maps visual (Preview) behavior and requirements
 
-There are a few considerations and requirements for this Preview release of **Azure Maps**:
+There are a few considerations and requirements for **Azure Maps** visual. :
 
--   The **Azure Maps** visual is in Preview and must be enabled in Power BI Desktop. To enable **Azure Maps**, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
+-   The **Azure Maps** visual (Preview) must be enabled in Power BI Desktop. To enable **Azure Maps** visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
 -   The data set must have fields that contain **latitude** and **longitude** information. Geocoding of location fields will be added in a future update.
 -   The built-in legend control for Power BI does not currently appear in this preview. It will be added in a future update.
 
-## Use the Azure Maps visual
+## Use the Azure Maps visual (Preview)
 
-Once the **Azure Maps** visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
+Once the **Azure Maps** visual  is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
 
 ![Azure Maps visual button on the Visualizations pane](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
 
@@ -168,7 +168,7 @@ Learn more about the Azure Maps Power BI visual:
 Customize the visual:
 
 > [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

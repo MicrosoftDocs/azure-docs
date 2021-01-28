@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure SQL Database - Windows - Azure AD
+title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows - Azure AD'
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL Database.
 services: active-directory
 documentationcenter: ''

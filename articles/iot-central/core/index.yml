@@ -41,10 +41,8 @@ landingContent:
             url: overview-iot-central-developer.md
       - linkListType: tutorial
         links:
-          - text: Connect a device (Node.js)
-            url: tutorial-connect-device-nodejs.md
-          - text: Connect a device (Python)
-            url: tutorial-connect-device-python.md
+          - text: Create and connect a device
+            url: tutorial-connect-device.md
       - linkListType: concept
         links:
           - text: Device connectivity
@@ -84,7 +82,7 @@ landingContent:
           - text: Export data to cloud destinations
             url: howto-export-data.md
           - text: Explore the IoT Central APIs
-            url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/                    
+            url: /learn/modules/manage-iot-central-apps-with-rest-api/
       - linkListType: how-to-guide
         links:
           - text: Create custom rules

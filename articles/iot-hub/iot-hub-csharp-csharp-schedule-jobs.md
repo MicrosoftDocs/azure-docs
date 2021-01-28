@@ -256,7 +256,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     ```
 
     > [!NOTE]
-    > For more information about query syntax, see [IoT Hub query language](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > For more information about query syntax, see [IoT Hub query language](./iot-hub-devguide-query-language.md).
     >
 
 1. Finally, add the following lines to the **Main** method:
@@ -306,4 +306,4 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 * To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
 
-* To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/quickstart-linux.md).

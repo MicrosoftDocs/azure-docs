@@ -58,7 +58,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 ## Create new workbook
 
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
-  ![go to workbooks](./media/tutorial-monitor-data/create-workbook.png)
+  ![Screenshot that shows the New workbook screen.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -68,7 +68,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
 
-1. To switch between workbooks in your workspace, you can select **Open** ![Switch workbooks](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
+1. To switch between workbooks in your workspace, you can select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
 
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
 

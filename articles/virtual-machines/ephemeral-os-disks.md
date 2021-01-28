@@ -20,7 +20,7 @@ The key features of ephemeral disks are:
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disk.
 - They are available in all Azure regions. 
-- Ephemeral OS Disk is supported by [Shared Image Gallery](./linux/shared-image-galleries.md). 
+- Ephemeral OS Disk is supported by [Shared Image Gallery](./shared-image-galleries.md). 
  
 
  
@@ -36,7 +36,8 @@ Key differences between persistent and ephemeral OS disks:
 | **Stop-deallocated state**      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
 | **Specialized OS disk support** | Yes                                                                                          | No                                                                                 |
 | **OS disk resize**              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
-| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
+| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned       
+| **Page file placement**   | For Windows, page file is stored on the resource disk                                              | For Windows, page file is stored on the OS disk   |
 
 ## Size requirements
 
@@ -79,7 +80,7 @@ az vm create \
 
 For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
-## Portal	
+## Portal
 
 In the Azure portal, you can choose to use ephemeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
 
@@ -114,7 +115,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-	           	"option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 
@@ -149,7 +150,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
        "storageProfile": { 
             "osDisk": { 
               "diffDiskSettings": { 
-               	"option": "Local" 
+                "option": "Local" 
               }, 
               "caching": "ReadOnly", 
               "createOption": "FromImage" 

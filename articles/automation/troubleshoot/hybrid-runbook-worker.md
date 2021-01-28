@@ -2,14 +2,11 @@
 title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
 services: automation
-ms.service: automation
 ms.subservice:
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
+ms.topic: troubleshooting
 ---
+
 # Troubleshoot Hybrid Runbook Worker issues
 
 This article provides information on troubleshooting and resolving issues with Azure Automation Hybrid Runbook Workers. For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
@@ -40,7 +37,7 @@ The following are possible causes:
 
 #### Resolution
 
-Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be overused and cause runbook job delays or timeouts.
 
@@ -52,7 +49,7 @@ Check the **Microsoft-SMA** event log for a corresponding event with the descrip
 
 #### Issue
 
-The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -220,7 +217,7 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 
 #### Cause
 
-This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 #### Resolution
 
@@ -232,7 +229,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice) for connection. 
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
 
@@ -244,7 +241,7 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
+​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
@@ -287,7 +284,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You can't add a Hybrid Runbook Worker
+### <a name="already-registered"></a>Scenario: You can't add a Windows Hybrid Runbook Worker
 
 #### Issue
 
@@ -306,6 +303,46 @@ This issue can be caused if the machine is already registered with a different A
 To resolve this issue, remove the following registry key, restart `HealthService`, and try the `Add-HybridRunbookWorker` cmdlet again.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="already-registered"></a>Scenario: You can't add a Linux Hybrid Runbook Worker
+
+#### Issue
+
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### Cause
+
+This issue might occur if the machine is already registered with a different Automation account, if the Azure Hybrid Worker Group was deleted, or if you try to re-add the Hybrid Runbook Worker after you remove it from a machine.
+
+#### Resolution
+
+To resolve this issue:
+
+1. Remove the agent `sudo sh onboard_agent.sh --purge`.
+
+1. Run these commands:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Re-onboard the agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`.
+
+1. Wait for the folder `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` to populate.
+
+1. Try the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script again.
 
 ## Next steps
 

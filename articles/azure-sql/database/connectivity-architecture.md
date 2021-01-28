@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 06/26/2020
+ms.date: 01/25/2021
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ This article explains architecture of various components that direct network tra
 
 The following diagram provides a high-level overview of the connectivity architecture.
 
-![architecture overview](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram that shows a high-level overview of the connectivity architecture.](./media/connectivity-architecture/connectivity-overview.png)
 
 The following steps describe how a connection is established to Azure SQL Database:
 
@@ -45,7 +45,7 @@ Servers in SQL Database and Azure Synapse support the following three options fo
 
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and `Proxy`for all client connections originating outside (for example, connections from your local workstation).
 
-We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
+We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/network-security-groups-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## Connectivity from within Azure
 
@@ -57,10 +57,10 @@ If you are connecting from within Azure your connections have a connection polic
 
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
-![architecture overview](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram that shows how the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## Gateway IP addresses
 
@@ -70,31 +70,32 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 
 | Region name          | Gateway IP addresses |
 | --- | --- |
-| Australia Central    | 20.36.105.0 |
-| Australia Central2   | 20.36.113.0 |
+| Australia Central    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
+| Australia Central 2   | 20.36.113.0, 20.36.112.6 |
 | Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Canada East          | 40.86.226.166, 52.242.30.154 |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Canada East          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
 | China North          | 139.219.15.17      |
 | China North 2        | 40.73.50.0         |
-| East Asia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| East Asia            | 191.234.2.139, 52.175.33.150, 13.75.32.4, 13.75.32.14 |
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 |
-| France Central       | 40.79.137.0, 40.79.129.1 |
+| France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
+| France South         | 40.79.177.10 ,40.79.177.12 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
 | Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| India Central        | 104.211.96.159     |
+| India Central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | India South          | 104.211.224.146    |
-| India West           | 104.211.160.80     |
+| India West           | 104.211.160.80, 104.211.144.4 |
 | Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Japan West           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
-| Korea Central        | 52.231.32.42       |
+| Korea Central        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
 | Korea South          | 52.231.200.86      |
 | North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
@@ -118,6 +119,6 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 
 ## Next steps
 
-- For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - For general application development overview information, see [SQL Database Application Development Overview](develop-overview.md).

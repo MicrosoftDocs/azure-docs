@@ -1,5 +1,5 @@
 ---
-title: Create replication peering for Azure NetApp Files | Microsoft Docs
+title: Create volume replication for Azure NetApp Files | Microsoft Docs
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ---
-# Create replication peering for Azure NetApp Files
+# Create volume replication for Azure NetApp Files
 
 > [!IMPORTANT]
 > The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
@@ -108,5 +108,6 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 

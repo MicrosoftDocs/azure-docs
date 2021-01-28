@@ -1,21 +1,14 @@
 ---
 title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: 
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 10/05/2020
 ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -198,7 +191,7 @@ For a GUI management tool that you can use to explore the database, set up Oracl
 1. Connect to your database using sqlplus:
 
     ```bash
-    sqlplus / as sysdba
+    sqlplus sys as sysdba
     ```
 
 2. Once connected, set the port 5502 for EM Express

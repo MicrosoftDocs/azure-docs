@@ -118,7 +118,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## See also
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](Welcome.md)
+* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)

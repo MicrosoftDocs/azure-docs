@@ -27,7 +27,7 @@ To complete the steps in this how-to guide, you need an active Azure subscriptio
 Setting up the solution requires a version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 > [!NOTE]
-> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
+> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
 
 ## Trigger a workflow from a rule
 

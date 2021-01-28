@@ -57,7 +57,7 @@ The AdSync service encryption keys could not be found and have been recreated.  
 Troubleshooting this Issue
 The Microsoft Azure AD Sync encryption keys will become inaccessible if the AdSync service Log On credentials are changed.  If the credentials have been changed, use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+Please see the following [article](./whatis-hybrid-identity.md) for further information.
 
 ### Example 2
 
@@ -67,7 +67,7 @@ could not be established.
 Troubleshooting this Issue
 The Microsoft Azure AD Sync service will lose permission to access the local database provider if the AdSync service Log On credentials are changed.  If the credentials have been changed use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+Please see the following [article](./whatis-hybrid-identity.md) for further information.
 
 Additional Details
 The following error information was returned by the provider:

@@ -4,7 +4,7 @@ description: Learn about security alerts and recommended remediation using Defen
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/08/2020
+ms.author: v-ekrieg
 ---
 
 # Defender for IoT security alerts
@@ -22,9 +22,9 @@ Defender for IoT continuously analyzes your IoT solution using advanced analytic
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
-In this article, you will find a list of built-in alerts which can be triggered on your IoT Hub and/or IoT devices.
+In this article, you will find a list of built-in alerts, which can be triggered on your IoT Hub and/or IoT devices.
 In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
-For more details, see [customizable alerts](concept-customizable-security-alerts.md).
+For more information, see [customizable alerts](concept-customizable-security-alerts.md).
 
 ## Built-in alerts for IoT devices
 

@@ -25,7 +25,7 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Azure Database for MySQL supports:
   - MySQL community edition
   - InnoDB engine
-- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported.
+- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported. Migrations to or from MySQL 8.0 are not supported.
 - Enable binary logging in my.ini (Windows) or my.cnf (Unix)
   - Set Server_id to any number larger or equals to 1, for example, Server_id=1 (only for MySQL 5.6)
   - Set log-bin = \<path> (only for MySQL 5.6)
@@ -35,18 +35,18 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Collations defined for the source MySQL database are the same as the ones defined in target Azure Database for MySQL.
 - Schema must match between source MySQL database and target database in Azure Database for MySQL.
 - Schema in target Azure Database for MySQL must not have foreign keys. Use the following query to drop foreign keys:
-    ```
+    ```sql
     SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM
     (SELECT 
     KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME,
-    	CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+      CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
     	FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
     	WHERE
-    	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-    	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+        KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+        AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
       AND KCU.REFERENCED_TABLE_SCHEMA = ['schema_name']) Queries
       GROUP BY SchemaName;
     ```
@@ -75,12 +75,12 @@ Large Object (LOB) columns are columns that could grow large in size. For MySQL,
 
     **Workaround**: Replace primary key with other datatypes or columns that aren't LOB.
 
-- **Limitation**: If the length of Large Object (LOB) column is bigger than 32 KB, data might be truncated at the target. You can check the length of LOB column using this query:
+- **Limitation**: If the length of Large Object (LOB) column is bigger than the "Limit LOB size" parameter (should not be greater than 64 KB), data might be truncated at the target. You can check the length of LOB column using this query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Workaround**: If you have LOB object that is bigger than 64 KB, use the "Allow unlimited LOB size" parameter. Note that migrations using "Allow unlimited LOB size" parameter will be slower than migrations using "Limit LOB size" parameter.
 
 ## Limitations when migrating online from AWS RDS MySQL
 
@@ -111,7 +111,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
 
   **Limitation**: This error occurs when the target Azure Database for MySQL database doesn't have the required schema. Schema migration is required to enable migrating data to your target.
 
-  **Workaround**: [Migrate the schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) from your source database to the target database.
+  **Workaround**: [Migrate the schema](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) from your source database to the target database.
 
 ## Other limitations
 
@@ -129,7 +129,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
 
 - In Azure Database Migration Service, the limit of databases to migrate in one single migration activity is four.
 
-- Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) instead. 
+- Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](../mysql/concepts-migrate-dump-restore.md) instead. 
 
 - **Error:** Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
 

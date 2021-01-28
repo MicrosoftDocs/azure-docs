@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
+ms.date: 01/26/2021
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -32,9 +32,9 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-### RBAC permissions required
+### Azure RBAC permissions required
 
-User initiating a failover will need to have one of the following RBAC roles:
+User initiating a failover will need to have one of the following Azure roles:
 
 - Subscription Owner role, or
 - Managed Instance Contributor role, or
@@ -57,7 +57,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use PowerShell command [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
+Use PowerShell command [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -91,7 +91,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### Using Rest API
 
-For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
+For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
 
 To initiate failover using REST API call, first generate the Auth Token using API client of your choice. The generated authentication token is used as Authorization property in the header of API request and it is mandatory.
 
@@ -120,7 +120,7 @@ Operation status can be tracked through reviewing API responses in response head
 
 ## Monitor the failover
 
-To monitor the progress of user initiated manual failover, execute the following T-SQL query in your favorite client (such is SSMS) on SQL Managed Instance. It will read the system view sys.dm_hadr_fabric_replica_states and report replicas available on the instance. Refresh the same query after initiating the manual failover.
+To monitor the progress of user initiated failover for your BC instance, execute the following T-SQL query in your favorite client (such is SSMS) on SQL Managed Instance. It will read the system view sys.dm_hadr_fabric_replica_states and report replicas available on the instance. Refresh the same query after initiating the manual failover.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -128,16 +128,24 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Before initiating the failover, your output will indicate the current primary replica on BC service tier containing one primary and three secondaries in the AlwaysOn Availability Group. Upon execution of a failover, running this query again would need to indicate a change of the primary node.
 
-You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. T-SQL query output for GP service tier will show a single node only before and after the failover. The loss of connectivity from your client during the failover, typically lasting under a minute, will be the indication of the failover execution.
+You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. 
+You can use alternative T-SQL query showing the time SQL process started on the node for GP service tier instance:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+The short loss of connectivity from your client during the failover, typically lasting under a minute, will be the indication of the failover execution regardless of the service tier.
 
 > [!NOTE]
 > Completion of the failover process (not the actual short unavailability) might take several minutes at a time in case of **high-intensity** workloads. This is because the instance engine is taking care of all current transactions on the primary and catch up on the secondary node, prior to being able to failover.
 
 > [!IMPORTANT]
 > Functional limitations of user-initiated manual failover are:
-> - There could be one (1) failover initiated on the same Managed Instance every **30 minutes**.
+> - There could be one (1) failover initiated on the same Managed Instance every **15 minutes**.
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
+> - Failover will not be allowed until the first full backup for a new database is completed by automated backup systems.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 01/21/2021
 ---
 
 # JSON Flattening, Escaping, and Array Handling
@@ -17,18 +17,18 @@ Your Azure Time Series Insights Gen2 environment will dynamically create the col
 
 > [!IMPORTANT]
 >
-> * Review the rules below before selecting a [Time Series ID property](time-series-insights-update-how-to-id.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-json-flattening-escaping-rules.md#example-b) below.
+> * Review the rules below before selecting a [Time Series ID property](./how-to-select-tsid.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-json-flattening-escaping-rules.md#example-b) below.
 
-| Rule | Example JSON | [Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Property column name in Parquet
+| Rule | Example JSON | [Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Property column name in Parquet
 |---|---|---|---|
 | The Azure Time Series Insights Gen2 data type is appended to the end of your column name as "_\<dataType\>" | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | The event source [timestamp property](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) will be saved in Azure Time Series Insights Gen2 as “timestamp” in storage, and the value stored in UTC. You can customize your event source(s) timestamp property to meet the needs of your solution, but the column name in warm and cold storage is "timestamp". Other datetime JSON properties that are not the event source timestamp will be saved with "_datetime" in the column name, as mentioned in the rule above.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | JSON property names that include the special characters. [  \ and ' are escaped using [' and ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \’ and a backslash will be written as \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Nested JSON objects are flattened with a period as the separator. Nesting up to 10 levels is supported. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` or `$event.series['value'].Long` |  `series.value_long` |
-| Arrays of primitive types are stored as the Dynamic type |  ```"values": [154, 149, 147]``` | Dynamic types can only be retrieved via the [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API | `values_dynamic` |
+| Arrays of primitive types are stored as the Dynamic type |  ```"values": [154, 149, 147]``` | Dynamic types can only be retrieved via the [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API | `values_dynamic` |
 | Arrays containing objects have two behaviors depending on the object content: If either the TS ID(s) or timestamp property(ies) is within the objects in an array, the array will be unrolled such that the initial JSON payload produces multiple events. This enables you to batch multiple events into one JSON structure. Any top-level properties that are peers to the array will be saved with each unrolled object. If your TS ID(s) and timestamp are *not* within the array, it will be saved whole as the Dynamic type. | See examples [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b), and [C](concepts-json-flattening-escaping-rules.md#example-c) below
-| Arrays containing mixed elements aren't flattened. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Dynamic types can only be retrieved via the [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API | `values_dynamic` |
+| Arrays containing mixed elements aren't flattened. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Dynamic types can only be retrieved via the [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API | `values_dynamic` |
 | 512 characters is the JSON property name limit. If the name exceeds 512 characters, it will be truncated to 512 and '_<'hashCode'>' is appended. **Note** that this also applies to property names that have been concatenated from object flattened, denoting a nested object path. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## Understanding the dual behavior for arrays
@@ -39,7 +39,7 @@ However, in some cases, arrays containing objects are only meaningful in the con
 
 ### How to know if my array of objects will produce multiple events
 
-If one or more of your Time Series ID propert(ies) is nested within objects in an array, *or* if your event source timestamp property is nested, the ingestion engine will split it out to create multiple events. The property names that you provided for your TS ID(s) and/or timestamp should follow the flattening rules above, and will therefore indicate the shape of your JSON. See the examples below, and check out the guide on how to [select a Time Series ID property.](time-series-insights-update-how-to-id.md)
+If one or more of your Time Series ID propert(ies) is nested within objects in an array, *or* if your event source timestamp property is nested, the ingestion engine will split it out to create multiple events. The property names that you provided for your TS ID(s) and/or timestamp should follow the flattening rules above, and will therefore indicate the shape of your JSON. See the examples below, and check out the guide on how to [select a Time Series ID property.](./how-to-select-tsid.md)
 
 ### Example A
 

@@ -68,6 +68,9 @@ In this case
 4. Autoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So autoscale does not scale-in because it would have to scale-out again immediately. Instead, it skips scaling down.
 5. The next time autoscale checks, the CPU continues to fall to 50. It estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances.
 
+> [!NOTE]
+> If the autoscale engine detects flapping could occur as a result of scaling to the target number of instances, it will also try to scale to a different number of instances between the current count and the target count. If flapping does not occur within this range, autoscale will continue the scale operation with the new target.
+
 ### Considerations for scaling threshold values for special metrics
  For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the threshold value for this metric.
 
@@ -137,6 +140,8 @@ Autoscale will post to the Activity Log if any of the following conditions occur
 * Autoscale service fails to take a scale action.
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.
+* Autoscale detects flapping and aborts the scale attempt. You will see a log type of `Flapping` in this situation. If you see this, consider whether your thresholds are too narrow.
+* Autoscale detects flapping but is still able to successfully scale. You will see a log type of `FlappingOccurred` in this situation. If you see this, the autoscale engine has attempted to scale (e.g. from 4 instances to 2), but has determined that this would cause flapping. Instead, the autoscale engine has scaled to a different number of instances (e.g. using 3 instances instead of 2), which no longer causes flapping, so it has scaled to this number of instances.
 
 You can also use an Activity Log alert to monitor the health of the autoscale engine. Here are examples to [create an Activity Log Alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) or to [create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

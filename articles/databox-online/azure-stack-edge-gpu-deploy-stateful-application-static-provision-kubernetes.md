@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
 ---
 
@@ -22,7 +22,7 @@ Azure Stack Edge Pro also supports running Azure SQL Edge containers and these c
 
 ## Prerequisites
 
-Before you can deploy the stateful application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
+Before you can deploy the stateful application, complete the following prerequisites on your device and the client that you will use to access the device:
 
 ### For device
 
@@ -33,7 +33,7 @@ Before you can deploy the stateful application, make sure that you have complete
 ### For client accessing the device
 
 - You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
@@ -46,7 +46,7 @@ Before you can deploy the stateful application, make sure that you have complete
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
         - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
-        - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!-- insert link-->. 
+        - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version.<!-- insert link--> 
 
 
 You are ready to deploy a stateful application on your Azure Stack Edge Pro device. 
@@ -86,7 +86,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
    kubectl get pods -n <your-namespace>
    ```
     
-   Here is an example of command usage:
+   Here's an example of command usage:
     
    ```powershell
     C:\Users\user>kubectl get pods -n "userns1"
@@ -172,7 +172,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl apply -f <URI path to the mysql-pv.yml file> -n <your-user-namespace>`
     
-    Here is a sample output of the deployment.
+    Here's a sample output of the deployment.
 
     
     ```powershell
@@ -187,7 +187,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl apply -f <URI path to mysql-deployment.yml file> -n <your-user-namespace>`
 
-    Here is a sample output of the deployment.
+    Here's a sample output of the deployment.
     
     ```powershell
     C:\Users\user>kubectl apply -f "C:\stateful-application\mysql-deployment.yml" -n userns1
@@ -248,7 +248,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl get pods -l <app=label> -n <your-user-namespace>`
 
-    Here is a sample output.
+    Here's a sample output.
 
     
     ```powershell
@@ -263,7 +263,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl describe pvc <your-pvc-name>`
 
-    Here is a sample output.
+    Here's a sample output.
 
     
     ```powershell
@@ -295,7 +295,7 @@ To run a command against a container in a pod that is running MySQL, type:
 
 `kubectl exec <your-pod-with-the-app> -i -t -n <your-namespace> -- mysql`
 
-Here is a sample output.
+Here's a sample output.
 
 ```powershell
 C:\Users\user>kubectl exec mysql-c85f7f79c-vzz7j -i -t -n userns1 -- mysql
@@ -323,7 +323,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Here is sample output of when you delete the deployment and the service.
+Here's sample output of when you delete the deployment and the service.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -331,13 +331,13 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Here is sample output of when you delete the PVC.
+Here's sample output of when you delete the PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
 The PV is no longer bound to the PVC as the PVC was deleted. As the PV was provisioned when the share was created, you will need to delete the share. Follow these steps:
 

@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 
@@ -19,9 +19,9 @@ Data-driven styles reduce the amount of code needed to implement business logic 
 
 This video provides an overview of data-driven styling in the Azure Maps Web SDK.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure of an expression. 
 
@@ -53,7 +53,7 @@ The Azure Maps Web SDK supports many types of expressions. Expressions can be us
 
 All examples in this document use the following feature to demonstrate different ways in which the different types of expressions can be used. 
 
-```javascript
+```json
 {
 	"type": "Feature",
 	"geometry": {
@@ -65,13 +65,13 @@ All examples in this document use the following feature to demonstrate different
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
-        "temperature": 72,
+        "temperature": 64,
         "title": "Cafeteria", 
-        "zoneColor": "red",
-        "abcArray": ['a', 'b', 'c'],
-        "array2d": [['a', 'b'], ['x', 'y']],
+        "zoneColor": "purple",
+        "abcArray": ["a", "b", "c"],
+        "array2d": [["a", "b"], ["x", "y"]],
         "_style": {
-            "fillColor": 'red'
+            "fillColor": "red"
         }
 	}
 }
@@ -83,22 +83,22 @@ Data expressions provide access to the property data in a feature.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | Retrieves an item from an array. |
+| `['at', number, array]` | value | Retrieves an item from an array. |
 | `['geometry-type']` | string | Gets the feature's geometry type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Gets the property value from the current feature's properties. Returns null if the requested property is missing. |
 | `['get', string, object]` | value | Gets the property value from the properties of the provided object. Returns null if the requested property is missing. |
 | `['has', string]` | boolean | Determines if the properties of a feature have the specified property. |
 | `['has', string, object]` | boolean | Determines if the properties of the object have the specified property. |
 | `['id']` | value | Gets the feature's ID if it has one. |
-| `['length', string | array]` | number | Gets the length of a string or an array. |
 | `['in', boolean | string | number, array]` | boolean | Determines whether an item exists in an array |
 | `['in', substring, string]` | boolean | Determines whether a substring exists in a string |
 | `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | number | Returns the first position at which an item can be found in an array or a substring can be found in a string, or `-1` if the input cannot be found. Accepts an optional index from where to begin the search. |
-| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string` \| array | Returns an item from an array or a substring from a string from a specified start index, or between a start index and an end index if set. The return value is inclusive of the start index but not of the end index. |
+| `['length', string | array]` | number | Gets the length of a string or an array. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | string \| array | Returns an item from an array or a substring from a string from a specified start index, or between a start index and an end index if set. The return value is inclusive of the start index but not of the end index. |
 
 **Examples**
 
-Properties of a feature can be accessed directly in an expression by using a `get` expression. This example uses the "zoneColor" value of the feature to specify the color property of a bubble layer. 
+Properties of a feature can be accessed directly in an expression by using a `get` expression. This example uses the `zoneColor` value of the feature to specify the color property of a bubble layer. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -106,7 +106,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fallback to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
+The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fall back to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -198,7 +198,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['max', number, number, …]` | number | Calculates the maximum number in the specified set of numbers. |
 | `['min', number, number, …]` | number | Calculates the minimum number in the specified set of numbers. |
 | `['pi']` | number | Returns the mathematical constant `PI`. |
-| `['round', number]` | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to -2. |
+| `['round', number]` | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to `-2`. |
 | `['sin', number]` | number | Calculates the sine of the specified number. |
 | `['sqrt', number]` | number | Calculates the square root of the specified number. |
 | `['tan', number]` | number | Calculates the tangent of the specified number. |
@@ -223,6 +223,16 @@ An aggregate expression takes in three values: an operator value, and initial va
 
 If all features in a data set have a `revenue` property, which is a number. Then, the total revenue of all points in a cluster, which are created from the data set, can be calculated. This calculation is done using the following aggregate expression: `['+', 0, ['get', 'revenue']]`
 
+### Accumulated expression
+
+The `accumulated` expression  gets the value of a cluster property accumulated so far. This can only be used in the `clusterProperties` option of a clustered `DataSource` source.
+
+**Usage**
+
+```javascript
+["accumulated"]
+```
+
 ## Boolean expressions
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
@@ -240,6 +250,7 @@ When comparing values, the comparison is strictly typed. Values of different typ
 | `['>=' value, value]` | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `['all', boolean, boolean, …]` | boolean | Returns `true` if all the inputs are `true`, `false` otherwise. |
 | `['any', boolean, boolean, …]` | boolean | Returns `true` if any of the inputs are `true`, `false` otherwise. |
+| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | boolean | Returns `true` if the evaluated feature is fully contained inside a boundary of the input geometry, false otherwise. The input value can be a valid GeoJSON of type `Polygon`, `MultiPolygon`, `Feature`, or `FeatureCollection`. Supported features for evaluation:<br/><br/>- Point: Returns `false` if a point is on the boundary or falls outside the boundary.<br/>- LineString: Returns `false` if any part of a line falls outside the boundary, the line intersects the boundary, or a line's endpoint is on the boundary. |
 
 ## Conditional expressions
 
@@ -350,28 +361,6 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The following example uses a match expression to perform an "in array" or "array contains" type filter. In this case, the expression filters data that has an ID value that is in a list of allowed IDs. When using expressions with filters, the result needs to be a Boolean value.
-
-```javascript
-var layer = new atlas.layer.BubbleLayer(datasource, null, {
-    filter: [
-        'match',  
-
-        //Get the property to match.
-        ['get', 'id'],  
-
-         //List of values to match.
-        [24, 53, 98], 
-
-        //If there is a match, return true.
-        true,
-    
-        //Otherwise return false.
-        false
-    ]
-});
-```
-
 ### Coalesce expression
 
 A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value. 
@@ -389,7 +378,7 @@ The following pseudocode defines the structure of the `coalesce` expression.
 
 **Example**
 
-The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subtitle` property, if its missing or `null`, it will then fall back to an empty string. 
+The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subTitle` property, if its missing or `null`, it will then fall back to an empty string. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -400,8 +389,8 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
             //Try getting the title property.
             ['get', 'title'],
 
-            //If there is no title, try getting the subtitle. 
-            ['get', 'subtitle'],
+            //If there is no title, try getting the subTitle. 
+            ['get', 'subTitle'],
 
             //Default to an empty string.
             ''
@@ -434,8 +423,14 @@ Type expressions provide tools for testing and converting different data types l
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
+| `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Object[] | Asserts that the input is an array. |
+| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Asserts that the input value is a boolean. If multiple values are provided, each one is evaluated in order until a boolean is obtained. If none of the inputs are booleans, the expression is an error. |
+| `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | collator | Returns a collator for use in locale-dependent comparison operations. The case-sensitive and diacritic-sensitive options default to false. The locale argument specifies the IETF language tag of the locale to use. If none is provided, the default locale is used. If the requested locale is not available, the collator will use a system-defined fallback locale. Use resolved-locale to test the results of locale fallback behavior. |
 | `['literal', array]`<br/><br/>`['literal', object]` | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
 | `['image', string]` | string | Checks to see if a specified image ID is loaded into the maps image sprite. If it is, the ID is returned, otherwise null is returned. |
+| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | number | Asserts that the input value is a number. If multiple values are provided, each one is evaluated in order until a number is obtained. If none of the inputs are numbers, the expression is an error. |
+| `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Object | Asserts that the input value is an object.  If multiple values are provided, each one is evaluated in order until an object is obtained. If none of the inputs are objects, the expression is an error. |
+| `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Asserts that the input value is a string. If multiple values are provided, each one is evaluated in order until a string is obtained. If none of the inputs are strings, the expression is an error. |
 | `['to-boolean', value]` | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
@@ -500,6 +495,8 @@ String operator expressions perform conversion operations on strings such as con
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatenates multiple strings together. Each value must be a string. Use the `to-string` type expression to convert other value types to string if needed. |
 | `['downcase', string]` | string | Converts the specified string to lowercase. |
+| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| boolean | Determines if the input string uses a character set supported by the current font stack. For example: `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
+| `['resolved-locale', string]` | string | Returns the IETF language tag of the locale being used by the provided collator. This can be used to determine the default system locale, or to determine if a requested locale was successfully loaded. |
 | `['upcase', string]` | string | Converts the specified string to uppercase. |
 
 **Example**
@@ -570,14 +567,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'interpolate',
         ['linear'],
         ['get', 'temperature'],
-        50,        
-        'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        50, 'blue',
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -619,12 +612,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'step',
         ['get', 'temperature'],
         'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -642,7 +632,7 @@ Special expressions that only apply to specific layers.
 
 ### Heat map density expression
 
-A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1`. It's used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) of the heat map layer.
+A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1`. It's used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) of the heat map layer.
 
 > [!TIP]
 > The color at index 0, in an interpolation expression or the default color of a step color, defines the color of the area where there's no data. The color at index 0 can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black.
@@ -719,7 +709,6 @@ The text field format expression can be used with the `textField` option of the 
 
  * `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
  * `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
- * `'text-color'` - Specifies a color to apply to a text when rendering. 
 
 The following pseudocode defines the structure of the text field format expression. 
 
@@ -729,14 +718,12 @@ The following pseudocode defines the structure of the text field format expressi
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[],
-        'text-color': color
+        'text-font': string[]
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] ,
-        'text-color': color
+        'text-font': string[]
     },
     …
 ]
@@ -744,7 +731,7 @@ The following pseudocode defines the structure of the text field format expressi
 
 **Example**
 
-The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subtitle` property of the feature on a newline, with a scaled down font size and colored red.
+The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subTitle` property of the feature on a newline, with a scaled down font size.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -761,11 +748,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             '\n', {},   //Add a new line without any formatting.
 
-            //Scale the font size down of the subtitle property. 
-            ['get', 'subtitle'],
+            //Scale the font size down of the subTitle property. 
+            ['get', 'subTitle'],
             { 
-                'font-scale': 0.75, 
-                'text-color': 'red' 
+                'font-scale': 0.75
             }
         ]
     }
@@ -812,7 +798,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency': 'USD' }
+            { 'currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -880,7 +866,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         ['zoom'],
         
         //For zoom level 1 set the radius to 2 pixels.
-        10, 2,
+        1, 2,
 
         //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
         19, 2 * Math.pow(2, 19 - 1)
@@ -949,16 +935,16 @@ See the following articles for more code samples that implement expressions:
 Learn more about the layer options that support expressions:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

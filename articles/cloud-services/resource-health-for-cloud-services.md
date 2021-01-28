@@ -1,18 +1,23 @@
 ---
 title: Resource Health for Cloud Services (Classic)
 description: This article talks about Resource Health Check (RHC) Support for Microsoft Azure Cloud Services (Classic)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article  talks about Resource Health Check (RHC) Support for [Microsoft Azure Cloud Services (Classic)](https://azure.microsoft.com/services/cloud-services)
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) for cloud services helps you diagnose and get support for service problems that affect your Cloud Service deployment, Roles & Role Instances. It reports on the current and past health of your cloud services at Deployment, Role & Role Instance level.
+[Azure Resource Health](../service-health/resource-health-overview.md) for cloud services helps you diagnose and get support for service problems that affect your Cloud Service deployment, Roles & Role Instances. It reports on the current and past health of your cloud services at Deployment, Role & Role Instance level.
 
 Azure status reports on problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
 
@@ -25,7 +30,7 @@ Resource health is reported at a deployment or role level. The health check happ
 Resource health checks only work for production slot deployment. Staging slot deployment is not yet supported. 
 
 ## Does Resource Health Check also check the health of the application?
-No, health check only happens for role instances and it does not monitor Application health. E.g. Even if 1 out of 3 role instances are unhealthy, the application can still be available. RHC does not use [load balancer probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) or Guest agent probe. Therefore,
+No, health check only happens for role instances and it does not monitor Application health. E.g. Even if 1 out of 3 role instances are unhealthy, the application can still be available. RHC does not use [load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md) or Guest agent probe. Therefore,
 Customers should continue to using load balancer probes to monitor the health of their application. 
 
 ## What are the annotations for Cloud Services?
