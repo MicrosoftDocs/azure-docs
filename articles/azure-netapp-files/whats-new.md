@@ -13,13 +13,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 02/01/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+
+## January 2021
+
+* [Manual volume and capacity pool management](volume-quota-introduction.md) (hard quota) 
+
+    The behavior of Azure NetApp Files volume and capacity pool provisioning has changed to a manual and controllable mechanism. The storage capacity of a volume is limited to the set size (quota) of the volume. When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an “out of space” condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively [monitor the capacity of a volume](monitor-volume-capacity.md) and the underlying capacity pool.
+
+    This behavior change is a result of the following key requests indicated by many users:
+
+    * Previously, VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when using OS space or capacity monitoring tools.  This situation could result in inaccurate capacity visibility on the client or application side. This behavior has now been corrected.  
+    * The previous auto-grow behavior of capacity pools gave application owners no control over the provisioned capacity pool space (and the associated cost). This behavior was especially cumbersome in environments where “run-away processes” could rapidly fill up and grow the provisioned capacity. This behavior has been corrected.  
+    * Users want to see and maintain a direct correlation between volume size (quota) and performance. The previous behavior allowed for (implicit) over-subscription of a volume (capacity) and capacity pool auto-grow. As such, users could not make a direct correlation until the volume quota had been actively set or reset. This behavior has now been corrected.
+
+    Users have requested direct control over provisioned capacity. Users want to control and balance storage capacity and utilization. They also want to control cost along with the application-side and client-side visibility of available, used, and provisioned capacity and the performance of their application volumes. With this new behavior, all this capability has now been enabled.
 
 ## December 2020
 
@@ -36,18 +50,6 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
     * Support for disaster recovery 
 
 ## November 2020
-
-* [Manual volume and capacity pool management](volume-quota-introduction.md) (hard quota) 
-
-    The behavior of Azure NetApp Files volume and capacity pool provisioning has changed to a manual and controllable mechanism. The storage capacity of a volume is limited to the set size (quota) of the volume. When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an “out of space” condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively [monitor the capacity of a volume](monitor-volume-capacity.md) and the underlying capacity pool.
-
-    This behavior change is a result of the following key requests indicated by many users:
-
-    * Previously, VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when using OS space or capacity monitoring tools.  This situation could result in inaccurate capacity visibility on the client or application side. This behavior has now been corrected.  
-    * The previous auto-grow behavior of capacity pools gave application owners no control over the provisioned capacity pool space (and the associated cost). This behavior was especially cumbersome in environments where “run-away processes” could rapidly fill up and grow the provisioned capacity. This behavior has been corrected.  
-    * Users want to see and maintain a direct correlation between volume size (quota) and performance. The previous behavior allowed for (implicit) over-subscription of a volume (capacity) and capacity pool auto-grow. As such, users could not make a direct correlation until the volume quota had been actively set or reset. This behavior has now been corrected.
-
-    Users have requested direct control over provisioned capacity. Users want to control and balance storage capacity and utilization. They also want to control cost along with the application-side and client-side visibility of available, used, and provisioned capacity and the performance of their application volumes. With this new behavior, all this capability has now been enabled.
 
 * [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
 
