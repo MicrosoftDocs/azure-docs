@@ -15,11 +15,11 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Storage units	
-Azure Files uses base-2 unit prefixes to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same prefixes or counting system.
+Azure Files uses base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same unit of measurement or counting system.
 
 ### Windows
 
-Windows measures storage using the base-2 counting system but displays storage capacity with base-10 prefixes (KB, MB, GB, TB, etc.) without converting to base-10. Azure Files measures storage using the base-2 counting system and displays storage capacity with base-2 prefixes.
+Windows measures storage using the base-2 counting system but displays storage capacity with base-10 units of measurement (KB, MB, GB, TB, etc.) without converting to base-10. Azure Files measures storage using the base-2 counting system and displays storage capacity with base-2 units of measurement.
 
 > [!IMPORTANT]
 > To calculate Azure Files costs, you don't need to convert units if you use Windows. Both Azure Files and Windows measure storage in base-2.
@@ -37,7 +37,7 @@ See [How iOS and macOS report storage capacity](https://support.apple.com/HT2014
 
 ### Linux
 
-There is no uniform counting system used by Linux operating systems, a different counting system could be used by each OS or each individual piece of software. See their documentation to determine how they report storage capacity.
+A different counting system could be used by each operating system or each individual piece of software. See their documentation to determine how they report storage capacity.
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
