@@ -14,9 +14,16 @@ ms.author: v-demjoh
 Follow these steps to install the Speech CLI on Windows:
 
 1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
-2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the directory where you extracted `spx-zips`. This folder contains program files for the Speech CLI on a variety of platforms. 
-4. Extract the files for your platform (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU). Keep in mind that you'll run `spx` from this directory.
+1. Install [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Install the Speech CLI using NuGet by entering this command:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+Type `spx` to see help for the Speech CLI.
+
+> [!NOTE]
+> As an alternative to NuGet, you can download and extract the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), 
+> find and extract your platform from the `spx-zips` directory, and add the `spx` path to your system **PATH** variable.
 
 ### Run the Speech CLI
 
