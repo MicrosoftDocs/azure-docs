@@ -92,16 +92,14 @@ Take the following steps in the Azure portal to create an action rule for your A
 
     ![Completed settings for an action rule that will send alert notifications](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-completed-settings.png)
 
-    The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus in **All** resource groups.
-
-    ![Action rules screen after a new rule is saved](media/azure-stack-edge-manage-alerts/new-action-rule-created.png)
+    The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus is **All** resource groups.
 
 11. To see your new action rule, select the resource group for the rule.
 
-    ![Action rules screen with the new rule displayed](media/azure-stack-edge-manage-alerts/new-action-rule-displayed.png)
+    ![Action rules screen with the new rule displayed](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-displayed.png)<!--After label edits, select the new rule-->
 
 
-## View notifications for an action rule
+## View notifications
 
 Notifications go out when a new event triggers an alert for a resource that's within the scope of an action rule.
 
@@ -109,9 +107,9 @@ The action group for a rule sets who receives a notification and the type of not
 
 It might take a few minutes to receive notifications after an alert is triggered.
 
-An email notification has the format of the following sample email.
+The email notification will look similar to this one.
 
-![Sample email notification for an action rule](media/sample-action-rule-email-notification.png)
+![Sample email notification for an action rule](media/azure-stack-edge-manage-alerts/sample-action-rule-email-notification.png)
 
 
 ## Next steps
