@@ -108,7 +108,7 @@ Use the following procedure to create a ServiceNow connection.
 
 2. Under **Workspace Data Sources**, select **ITSM Connections**.
 
-   ![Screenshot that shows selection of a data source.](media/itsmc-connections-overview/add-new-itsm-connection.png)
+   ![Screenshot that shows selection of a data source.](media/itsmc-overview/add-new-itsm-connection.png)
 
 3. At the top of the right pane, select **Add**.
 

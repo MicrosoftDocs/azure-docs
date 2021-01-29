@@ -34,7 +34,7 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections-provance/add-new-itsm-connection.png)
+	![New connection](media/itsmc-overview/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
