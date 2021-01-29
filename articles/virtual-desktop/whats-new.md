@@ -71,6 +71,10 @@ We recently set up the [Windows Virtual Desktop Agent troubleshooting guide](tro
 
 Microsoft Defender for Endpoint integration is now generally available. This feature gives your Windows Virtual Desktop VMs the same investigation experience as a local Windows 10 machine. If you're using Windows 10 Enterprise multi-session, Microsoft Defender for Endpoint will support up to 50 concurrent user connections, giving you the cost savings of Windows 10 Enterprise multi-session and the confidence of Microsoft Defender for Endpoint. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
 
+### Azure Security baseline for Windows Virtual Desktop
+
+We've recently published an article about the Azure security baseline for Windows Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Azure Security Benchmark, version 2.0 to Windows Virtual Desktop. The Azure Security Benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
+
 ## December 2020
 
 Here's what changed in December 2020: 
