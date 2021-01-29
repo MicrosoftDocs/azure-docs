@@ -25,6 +25,9 @@
   - name: Create a management group - JavaScript
     displayName: hierarchy
     href: ./create-management-group-javascript.md
+  - name: Create a management group - Python
+    displayName: hierarchy
+    href: ./create-management-group-python.md
   - name: Create a management group - REST
     displayName: hierarchy
     href: ./create-management-group-rest-api.md
@@ -50,6 +53,8 @@
     href: /dotnet/api/overview/azure/managementgroups
   - name: Azure SDK for JavaScript
     href: /javascript/api/@azure/arm-managementgroups/managementgroups
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
   - name: REST
     href: /rest/api/resources/managementgroups
   - name: Resource Manager templates
