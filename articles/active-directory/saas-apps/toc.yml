@@ -2035,6 +2035,8 @@
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Asana
         href: asana-provisioning-tutorial.md
+      - name: Atea
+        href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
