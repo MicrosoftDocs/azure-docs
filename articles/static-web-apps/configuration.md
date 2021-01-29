@@ -140,7 +140,7 @@ The following outcomes are possible with this rule.
 | Requests to... | returns... | with the status... |
 | --- | --- | --- |
 | */images/logos/header.png* | The image file  | `200` |
-| */images/icon.svg* | The */index.html* file - since the *svg* file extension is not listed in filter   | `200` |
+| */images/icon.svg* | The */index.html* file - since the *svg* file extension is not listed in the `/images/*.{png,jpg,gif}` filter   | `200` |
 | A non-existent file in any folder under */images* or */css* folders | File not found error  | `404` |
 | */css/global.css* | The stylesheet file | `200` |
 | Any other file outside the */images* or */css* folders | The */index.html* file | `200` |
