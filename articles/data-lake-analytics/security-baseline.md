@@ -486,7 +486,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Data Lake Analytics resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

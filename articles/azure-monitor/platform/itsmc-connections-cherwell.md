@@ -33,7 +33,7 @@ Use the following procedure to create a Cherwell connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+	![New connection](/media/itsmc-overview/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -54,7 +54,7 @@ Use the following procedure to create a Cherwell connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-![Cherwell connection](media/itsmc-connections/itsm-connections-cherwell-latest.png)
+![Cherwell connection](media/itsmc-connections-cherwell/itsm-connections-cherwell-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -72,7 +72,7 @@ To generate the client ID/key for Cherwell, use the following procedure:
 2. Click **Security** > **Edit REST API client settings**.
 3. Select **Create new client** > **client secret**.
 
-    ![Cherwell user id](media/itsmc-connections/itsmc-cherwell-client-id.png)
+    ![Cherwell user id](media/itsmc-connections-cherwell/itsmc-cherwell-client-id.png)
 
 ## Next steps
 

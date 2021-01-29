@@ -28,9 +28,9 @@ Logged activity is available in the Azure portal for the past 90 days. To learn 
 
 ## Set alerts for critical operations
 
-To stay aware of critical operations that service providers (or users in your own tenant) are performing, we recommend creating [activity log alerts](../../azure-monitor/platform/activity-log-alerts.md). For example, you may want to track all administrative actions for a subscription, or be notified when any virtual machine in a particular resource group is deleted. When you create alerts, they will include actions performed by users in the customer's own tenant as well as in any managing tenants.
+To stay aware of critical operations that service providers (or users in your own tenant) are performing, we recommend creating [activity log alerts](../../azure-monitor/alerts/activity-log-alerts.md). For example, you may want to track all administrative actions for a subscription, or be notified when any virtual machine in a particular resource group is deleted. When you create alerts, they will include actions performed by users in the customer's own tenant as well as in any managing tenants.
 
-For more information, see [Create and manage activity log alerts](../../azure-monitor/platform/alerts-activity-log.md).
+For more information, see [Create and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ## Create log queries
 

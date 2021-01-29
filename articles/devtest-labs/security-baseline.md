@@ -348,7 +348,7 @@ By default, all lab OS and data disks are encrypted with a platform managed key.
 ### 4.9: Log and alert on changes to critical Azure resources
 **Guidance:** Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to DevTest Labs instances and other critical or related resources.
 
-- [How to create alerts for Azure activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 - [How to create alerts for DevTest Labs activity log events](create-alerts.md)
 
 **Azure Security Center monitoring:** Not applicable

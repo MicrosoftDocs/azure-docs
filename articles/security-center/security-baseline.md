@@ -86,7 +86,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -403,7 +403,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor to create alerts when changes take place to critical Azure resources related to Azure Security Center. These changes may include any actions that modify configurations related to security center like the disabling of alerts or recommendations, or the update or deletion of data stores.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

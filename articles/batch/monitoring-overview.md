@@ -17,7 +17,7 @@ At the subscription level, which includes Batch accounts, the [Azure activity lo
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
-One way to retrieve events from your activity log is to use the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../azure-monitor/platform/alerts-activity-log.md).
+One way to retrieve events from your activity log is to use the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../azure-monitor/alerts/alerts-activity-log.md).
 
 ## Batch account-level monitoring
 

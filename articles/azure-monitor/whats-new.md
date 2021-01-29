@@ -98,7 +98,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Resource Manager template samples for data collection rules](agents/resource-manager-data-collection-rules.md) - New article.
 
 ### Insights and solutions
-- [Connect Azure to ITSM tools by using Secure Export](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on connecting to ServiceNow.
+- [Connect Azure to ITSM tools by using Secure Export](alerts/it-service-management-connector-secure-webhook-connections.md) - Added section on connecting to ServiceNow.
 
 ### Logs
 - [Integrate Log Analytics and Excel](log-query/log-excel.md) - New article.
@@ -165,7 +165,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Metric alerts from Azure Monitor for containers](insights/container-insights-metric-alerts.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
 ### Insights and solutions
-- [IT Service Management Connector - Secure Export in Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on ServiceNow.
+- [IT Service Management Connector - Secure Export in Azure Monitor](alerts/it-service-management-connector-secure-webhook-connections.md) - Added section on ServiceNow.
 
 ### Logs
 - [Archive data from Log Analytics workspace to Azure storage using Logic App](platform/logs-export-logic-app.md) - New article.
@@ -221,8 +221,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 ### Insights and solutions
 - [Azure Monitor for Azure Cache for Redis](insights/redis-cache-insights-overview.md) - Removed preview designation.
 - [Azure Monitor for Networks (Preview)](insights/network-insights-overview.md) - Added Connectivity and Traffic sections.
-- [IT Service Management Connector - Secure Export in Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) - New article.
-- [IT Service Management Connector in Azure Monitor](platform/itsmc-connections.md) - Note on Cherwell and Provance ITSM integrations.
+- [IT Service Management Connector - Secure Export in Azure Monitor](alerts/it-service-management-connector-secure-webhook-connections.md) - New article.
+- [IT Service Management Connector in Azure Monitor](alerts/itsmc-connections.md) - Note on Cherwell and Provance ITSM integrations.
 - [Monitor Key Vault with Azure Monitor for Key Vault](insights/key-vault-insights-overview.md) - Removed preview designation.
 
 ### Logs
@@ -606,7 +606,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Alerts
 
-- [Create, view, and manage activity log alerts in Azure Monitor](platform/alerts-activity-log.md) - Additional explanation of Resource Manager template.
+- [Create, view, and manage activity log alerts in Azure Monitor](alerts/alerts-activity-log.md) - Additional explanation of Resource Manager template.
 - [Understand how metric alerts work in Azure Monitor.](alerts/alerts-metric-overview.md) - Updated for government support.
 - [Troubleshooting Azure Monitor alerts and notifications](alerts/alerts-troubleshoot.md) - New article.
 
@@ -819,7 +819,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 - [Optimize your Active Directory environment with Azure Monitor](insights/ad-assessment.md) - .NET Framework prerequisite updated.
 - [Optimize your SQL Server environment with Azure Monitor](insights/sql-assessment.md) - .NET Framework prerequisite updated.
 - [Optimize your System Center Operations Manager environment with Azure Log Analytics](insights/scom-assessment.md) - .NET Framework prerequisite updated.
-- [Supported connections with IT Service Management Connector in Azure Log Analytics](platform/itsmc-connections.md) - Added New York to prerequisite client ID and client secret.
+- [Supported connections with IT Service Management Connector in Azure Log Analytics](alerts/itsmc-connections.md) - Added New York to prerequisite client ID and client secret.
 
 ### Logs
 

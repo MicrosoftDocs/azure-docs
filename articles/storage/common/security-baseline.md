@@ -155,7 +155,7 @@ Storage Accounts should use a virtual network service endpoint
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create alerts in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -569,7 +569,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Storage account resources. You can also enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). Additionally, use Azure Monitor to alert on anonymous access for Storage accounts using anonymous authentication condition.
 
-- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md)
 

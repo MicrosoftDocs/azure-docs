@@ -532,7 +532,7 @@ Microsoft manages the underlying infrastructure for Cognitive Search and has imp
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Cognitive Search and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to create alerts for Cognitive Search activities](./search-monitor-logs.md)
 

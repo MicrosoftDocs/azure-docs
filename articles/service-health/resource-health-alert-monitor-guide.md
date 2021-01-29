@@ -58,7 +58,7 @@ Resource Health Alert using Azure portal
 9. Select **Create alert rule**.
 
 The new alert rule for the activity log is created, and a confirmation message appears in the upper-right corner of the window.
-You can enable, disable, edit, or delete a rule. Learn more about [how to manage activity log rules](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
+You can enable, disable, edit, or delete a rule. Learn more about [how to manage activity log rules](../azure-monitor/alerts/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
 
 ## Next steps
 

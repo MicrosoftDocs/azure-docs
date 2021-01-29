@@ -286,7 +286,7 @@ Azure Traffic Manager has a predefined Azure role called "Traffic Manager Contri
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Traffic Manager as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

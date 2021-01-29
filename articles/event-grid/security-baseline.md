@@ -179,7 +179,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -534,7 +534,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Grid resources and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 

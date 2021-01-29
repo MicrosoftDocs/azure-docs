@@ -265,7 +265,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

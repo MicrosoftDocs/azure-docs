@@ -87,7 +87,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 **Guidance**: Use Azure Monitor with activity logs to create alerts for when changes take place in Azure Policy.
 
-* [How to create alerts for Azure activity log events](../../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure activity log events](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Azure Security Center monitoring**: Currently not available

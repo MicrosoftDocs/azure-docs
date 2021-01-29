@@ -148,7 +148,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -528,7 +528,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as it is writte
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure IoT Hub and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 

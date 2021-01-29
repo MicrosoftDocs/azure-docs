@@ -30,7 +30,7 @@ Follow these steps to register the application with Azure AD:
 2. In Azure AD, select **Expose application**.
 3. Select **Set** for **Application ID URI**.
 
-   [![Screenshot of the option for setting the U R I of the application I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
+   [![Screenshot of the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
 4. Select **Save**.
 
 ## Define service principal
@@ -61,7 +61,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 
    The following image shows the configuration of a sample Secure Webhook action:
 
-   ![Screenshot that shows a Secure Webhook action.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
+   ![Screenshot that shows a Secure Webhook action.](media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png)
 
 ## Configure the ITSM tool environment
 

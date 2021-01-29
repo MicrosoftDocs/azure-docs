@@ -34,7 +34,7 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+	![New connection](media/itsmc-overview/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -55,7 +55,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections-provance/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 

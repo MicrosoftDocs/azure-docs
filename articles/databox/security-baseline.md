@@ -465,7 +465,7 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Data Box as well as other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

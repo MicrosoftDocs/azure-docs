@@ -180,7 +180,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 * [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -616,7 +616,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 * [Diagnostic logging for a network security group](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
