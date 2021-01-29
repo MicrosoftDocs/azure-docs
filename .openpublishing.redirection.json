@@ -12215,7 +12215,7 @@
     },
     {
       "source_path_from_root": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart?tabs=azure-powershell",
+      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
       "redirect_document_id": true
     }, 
     {
