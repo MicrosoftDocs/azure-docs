@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both Preciate and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Preciate](https://www.preciate.org/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Preciate
 > * Remove users in Preciate when they do not require access anymore
@@ -48,11 +48,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Preciate secret](media/preciate-provisioning-tutorial/preciate-secret-path.png)
 
-2.  Next click the **Generate** button where it says Active Directory Integration Secret Key. 
+2.  Next clic k the **Generate** button where it says Active Directory Integration Secret Key. 
  
 	![Preciate generate](media/preciate-provisioning-tutorial/preciate-secret-generate.png)
 
-3.  A new **Secret Key** will appear. Copy and save the **Secret Key**. Also make a note that Tenant URL is `https://preciate.com/api/v1/scim` . These values will be entered in the **Secret Token** * and **Tenant URL** * field in the Provisioning tab of your Preciate's application in the Azure portal.
+3.  A new **Secret Key** will appear. Copy and save the **Secret Key**. Also make a note that Tenant URL is `https://preciate.com/api/v1/scim`. These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Preciate's application in the Azure portal.
  
 > [!NOTE]
 >Every time you click the Generate button a new secret key is created. This will immediately invalidate the current one. If an integration is already actively using the current key, generating the new one will cause the integration to stop functioning until the Secret Token is updated in Preciate's application in the Azure porta.
@@ -60,7 +60,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Preciate from the Azure AD application gallery
 
-Add Preciate from the Azure AD application gallery to start managing provisioning to Preciate. If you have previously setup Preciate for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add Preciate from the Azure AD application gallery to start managing provisioning to Preciate. If you have previously setup Preciate for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the [gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
