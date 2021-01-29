@@ -84,9 +84,9 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
 - Use the **Recommended** versions of user flows to do the following:
      
-   - Enable the email one-time passcode feature (OTP) for MFA (this will be effective for both sign-up and sign-in).
-   - Configure a Conditional Access policy to block sign-ins based on location (this will be effective for sign-ins only, not sign-ups).
-   - Use API connectors to integrate with an anti-bot solution like reCAPTCHA (this is effective for sign-up).
+   - [Enable the email one-time passcode feature (OTP)](phone-authentication-user-flows.md) for MFA (applies to both sign-up and sign-in flows).
+   - [Configure a Conditional Access policy](conditional-access-identity-protection-setup.md) to block sign-ins based on location (applies to sign-in flows only, not sign-up flows).
+   - Use API connectors to [integrate with an anti-bot solution like reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (applies to sign-up flows).
 
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
