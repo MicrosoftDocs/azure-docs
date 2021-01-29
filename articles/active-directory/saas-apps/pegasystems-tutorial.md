@@ -201,7 +201,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. Select **Save**.
 
-### Create a Pega Systems test user
+### Create Pega Systems test user
 
 Next, you need to create a user named Britta Simon in Pega Systems. Work with the [Pega Systems support team](https://www.pega.com/contact-us) to create users.
 
