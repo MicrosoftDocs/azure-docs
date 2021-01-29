@@ -18,11 +18,11 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](../role-based-access-control/scope-overview.md) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
-## Assign roles for restore using Azure Portal
+## Assign roles for restore using the Azure portal
 
 To perform a restore, a user or a principal need the permission to restore (that is "restore/action" permission), and permission to provision a new account (that is "write" permission).  To grant these permissions, the owner can assign the "CosmosRestoreOperator" and "Cosmos DB Operator" built in roles to a principal.
 
-1. Sign into to [Azure portal](https://portal.azure.com/)
+1. Sign into the [Azure portal](https://portal.azure.com/)
 
 1. Navigate to your subscription and go to **Access control (IAM)** tab and select **Add** > **Add role assignment**
 
@@ -32,7 +32,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. Select **Save** to grant the "restore/action permission".
 
-1. Repeat Step 3 with **Cosmos DB Operator** role to grant the write permission. When assigning this role from Azure portal, it grants the restore permission to the whole subscription.
+1. Repeat Step 3 with **Cosmos DB Operator** role to grant the write permission. When assigning this role from the Azure portal, it grants the restore permission to the whole subscription.
 
 ## Permission scopes
 
@@ -121,5 +121,5 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-command-line.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Configure and manage continuous backup using the [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-command-line.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
