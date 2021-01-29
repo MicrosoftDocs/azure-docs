@@ -1,7 +1,7 @@
 ---
-title: Getting started with UI Framework Base Components
+title: Getting started with Azure Communication Services UI Framework base components
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to get started with UI Framework Base Components
+description: In this quickstart, you'll learn how to get started with UI Framework base components
 author: ddematheu2
 ms.author: dademath
 ms.date: 11/16/2020
@@ -14,8 +14,11 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Get started with Azure Communication Services by using the UI Framework to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how integrate UI Framework Components into your application to build communication experiences. Components come in two flavors: Base and Composite. 
-- **Base components** represent discrete communication capabilities; they are basic building blocks that can be used to build complex communication experiences. 
+Get started with Azure Communication Services by using the UI Framework to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how integrate UI Framework base components into your application to build communication experiences. 
+
+UI Framework components come in two flavors: Base and Composite.
+
+- **Base components** represent discrete communication capabilities; they're the basic building blocks that can be used to build complex communication experiences. 
 - **Composite components** are turn-key experiences for common communication scenarios that have been built using **base components** as building blocks and packaged to be easily integrated into applications.
 
 ## Prerequisites
@@ -31,7 +34,7 @@ UI Framework requires a React environment to be setup. Next we will do that. If 
 
 ### Set Up React App
 
-We will use the create-react-app template for this quickstart. For more information see: [Getting Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
+We'll use the create-react-app template for this quickstart. For more information see: [Getting Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```console
 
@@ -41,7 +44,7 @@ cd my-app
 
 ```
 
-At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we will be modifying files inside of the `src` folder.
+At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the package
 
@@ -59,7 +62,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Run Create React App
 
-Lets test the Create React App installation by running:
+Let's test the Create React App installation by running:
 
 ```console
 
@@ -69,7 +72,7 @@ yarn start
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services UI SDK client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -85,9 +88,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Calling and Chat Providers. These providers are incharge of maintaining the context of the call and chat experiences. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
 
-UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
 
-In addition, we will instantiate Fluent UI theme for the experience. These themes are used to give the experience its look and feel.
+We'll use a Fluent UI theme to enhance the look and feel of the application:
 
 `App.js`
 ```javascript
@@ -133,11 +136,11 @@ const iconTheme = {
 
 ```
 
-Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together. Next we will use a variety of base components provided by UI Framework to build communication experiences. As a developer you can customize the layout of these components and add any additional custom components that you want to render with them. 
+Once initialized, this provider lets you build your own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together. Next we'll use a variety of base components provided by UI Framework to build communication experiences. You can customize the layout of these components and add any additional custom components that you want to render with them. 
 
 ## Build UI Framework Calling Component Experiences
 
-For Calling, we will use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we will initialize a function component that will hold our base components to then import in `app.js`.
+For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`.
 
 `callingComponents.js`
 ```javascript
@@ -156,9 +159,9 @@ function CallingComponents() {
 
 ```
 
-Developers can add additional layout and styling around the components to make them fit correctly in their applications. 
+You can add additional layout and styling around the components. 
 
-In the same file, at the bottom, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
+At the bottom of this file, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
 
 `callingComponents.js`
 ```javascript
@@ -169,7 +172,7 @@ export default connectFuncsToContext(CallingComponents, MapToCallingSetupProps);
 
 ## Build UI Framework Chat Component Experiences
 
-For Chat, we will use the `ChatThread` and `SendBox` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `chatComponents.js`. Here we will initialize a function component that will hold our base components to then import in `app.js`.
+For Chat, we will use the `ChatThread` and `SendBox` components. For more information about these components, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `chatComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`.
 
 `chatComponents.js`
 ```javascript
@@ -190,9 +193,9 @@ export default ChatComponents;
 
 ```
 
-## Add Calling and Chat Components to the main applications
+## Add Calling and Chat Components to the main application
 
-Back in the `app.js` file, we will now add the components to the application. Specifically, we will add these components inside of the `CallingProvider` and `ChatProvider`.
+Back in the `app.js` file, we will now add the components to the `CallingProvider` and `ChatProvider`:
 
 `App.js`
 ```javascript
