@@ -37,7 +37,7 @@ Microsoft 365 cloud environment.
 >
 > To create an offline version of this article, use your browser's print-to-PDF functionality. Check back here frequently for updates.
 
-## Threats from compromised on-premises environments
+## Primary threat vectors from compromised on-premises environments
 
 
 Your Microsoft 365 cloud environment benefits from an extensive
@@ -48,7 +48,7 @@ attacks and allow you to reconfigure nearly in real time.
 In hybrid
 deployments that connect on-premises infrastructure to Microsoft 365,
 many organizations delegate trust to on-premises components for critical
-authentication and directory object-state management decisions.
+authentication and directory object state management decisions.
 Unfortunately, if the on-premises environment is compromised, these
 trust relationships become an attacker's opportunities to compromise
 your Microsoft 365 environment.
@@ -72,7 +72,7 @@ administrative access to your cloud.
     or groups. Ensure these objects have no direct or nested assignment
     in trusted cloud roles or groups.
 
-## Protection from on-premises compromise
+## Protecting Microsoft 365 from on-premises compromise
 
 
 To address the threat vectors outlined earlier, we recommend you adhere to
@@ -80,7 +80,7 @@ the principles illustrated in the following diagram:
 
 ![Reference architecture for protecting Microsoft 365.](media/protect-m365/protect-m365-principles.png)
 
-*  **Fully isolate your Microsoft 365 administrator accounts.** They
+1. **Fully isolate your Microsoft 365 administrator accounts.** They
     should be:
 
     * Mastered in Azure AD.
@@ -95,12 +95,12 @@ the principles illustrated in the following diagram:
 
     For more information, see the [overview of Microsoft 365 administrator roles](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Also see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
 
-*  **Manage devices from Microsoft 365.** Use Azure AD join and
+1. **Manage devices from Microsoft 365.** Use Azure AD join and
     cloud-based mobile device management (MDM) to eliminate dependencies
     on your on-premises device management infrastructure. These dependencies can
     compromise device and security controls.
 
-* **Ensure no on-premises account has elevated privileges to Microsoft 365.**
+1. **Ensure no on-premises account has elevated privileges to Microsoft 365.**
     Some accounts access on-premises applications that require NTLM, LDAP,
     or Kerberos authentication. These accounts must be in the organization's
     on-premises identity infrastructure. Ensure that these accounts,
@@ -110,7 +110,7 @@ the principles illustrated in the following diagram:
     must not be capable of affecting Microsoft 365 privileged accounts
     or roles.
 
-*  **Use Azure AD cloud authentication** to eliminate dependencies on
+1. **Use Azure AD cloud authentication** to eliminate dependencies on
     your on-premises credentials. Always use strong authentication,
     such as Windows Hello, FIDO, Microsoft Authenticator, or Azure
     AD multifactor authentication.
@@ -147,7 +147,7 @@ Credentials are a primary attack vector. Implement the following
 practices to make credentials more secure:
 
 * [Deploy passwordless authentication](../authentication/howto-authentication-passwordless-deployment.md). Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and
-    validated natively in the cloud. Choose from these resources:
+    validated natively in the cloud. Choose from these authentication methods:
 
    * [Windows Hello for business](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
@@ -163,13 +163,15 @@ practices to make credentials more secure:
 * Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. This vulnerability won't
     compromise your cloud infrastructure. But your cloud accounts won't protect these components from on-premises compromise.
 
-*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This provision is based on the assumption that on-premises Active Directory password policies will mitigate this. If your on-premises instance of Active Directory is compromised and synchronization from Active Directory Connect needs to be disabled, set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
+*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This setting is usually mitigated by on-premises Active Directory password settings. However, if your on-premises instance of Active Directory is compromised and synchronization is disabled, you must set the [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md) option to force password changes.
 
-## Provisioning user access from the cloud
+## Provision user access from the cloud
 
 *Provisioning* refers to the creation of user accounts and groups in applications or identity providers.
 
 ![Diagram of provisioning architecture.](media/protect-m365/protect-m365-provision.png)
+
+We recommend the following provisioning methods:
 
 * **Provision from cloud HR apps to Azure AD**: This provisioning enables an on-premises compromise to be isolated, without disrupting your joiner-mover-leaver cycle from your cloud HR apps to Azure AD.
 
@@ -181,7 +183,7 @@ practices to make credentials more secure:
 
 * **External identities**: Use [Azure AD B2B
     collaboration](../external-identities/what-is-b2b.md).
-    This resource reduces the dependency on on-premises accounts for external
+    This method reduces the dependency on on-premises accounts for external
     collaboration with partners, customers, and suppliers. Carefully
     evaluate any direct federation with other identity providers. We
     recommend limiting B2B guest accounts in the following ways:
@@ -196,14 +198,14 @@ practices to make credentials more secure:
             access](../../role-based-access-control/conditional-access-azure-management.md). 
 
 * **Disconnected forests**: Use [Azure AD cloud
-    provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This resource enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
+    provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This method enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
     broaden the effect of an on-premises breach. 
  
 ### Limitations and tradeoffs
 
 When used to provision hybrid accounts, the Azure-AD-from-cloud-HR system relies on on-premises synchronization to complete the data flow from Active Directory to Azure AD. If synchronization is interrupted, new employee records won't be available in Azure AD.
 
-## Using cloud groups for collaboration and access
+## Use cloud groups for collaboration and access
 
 Cloud groups allow you to decouple your collaboration and access from
 your on-premises infrastructure.
@@ -225,7 +227,7 @@ A takeover would include direct manipulation of group membership on-premises
 or manipulation of on-premises attributes that can affect dynamic group
 membership in Microsoft 365.
 
-## Managing devices from the cloud
+## Manage devices from the cloud
 
 
 Use Azure AD capabilities to securely manage devices.
@@ -290,7 +292,7 @@ authentication decisions. For more information, see the
 
    For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Monitoring 
+## Monitor 
 
 After you configure your environment to protect your Microsoft 365
 from an on-premises compromise, [proactively monitor](../reports-monitoring/overview-monitoring.md)
@@ -331,13 +333,17 @@ monitor access to your business-critical applications and resources.
     security [alerts generated by Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
     Monitor direct assignment of privileged roles outside PIM by
     generating alerts whenever a user is assigned directly.
+
 * **Azure AD tenant-wide configurations**
 
     Any change to tenant-wide configurations should generate alerts in the system. These changes include but aren't limited to:
+
   *  Updated custom domains.  
 
-  * Azure AD B2B changes to allowlists and block lists.
+  * Azure AD B2B changes to allowlists and blocklists.
+
   * Azure AD B2B changes to allowed identity providers (SAML identity providers through direct federation or social sign-ins).  
+
   * Conditional Access or Risk policy changes. 
 
 * **Application and service principal objects**
