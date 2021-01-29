@@ -13,17 +13,17 @@ ms.date: 01/28/2021
 
 # Create a search indexer
 
-A search indexer provides an automated workflow for transferring documents and content from an external data source, to a search index on your search service. As originally designed, it extracts text and metadata from Azure data sources, serializes documents into JSON, and passes off the resulting documents to a search engine for indexing. It's since been extended to support [AI enrichment](cognitive-search-concept-intro.md) for deep content processing. 
+A search indexer provides an automated workflow for transferring documents and content from an external data source, to a search index on your search service. As originally designed, it extracts text and metadata from an Azure data source, serializes documents into JSON, and passes off the resulting documents to a search engine for indexing. It's since been extended to support [AI enrichment](cognitive-search-concept-intro.md) for deep content processing. 
 
-Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the mechanics and structure of indexers, putting a foundation in place before exploring source-specific indexers and [skillsets](cognitive-search-working-with-skillsets.md).
+Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the mechanics of creating an indexer as preparation for more advanced work with source-specific indexers and [skillsets](cognitive-search-working-with-skillsets.md).
 
 ## What's an indexer definition?
 
-Indexers are used for either text-based indexing that pulls text from source fields to index fields, or AI-based processing that analyzes undifferentiated text for structure, or analyzes images for text and information. The following index definitions are typical of what you might create for either scenario.
+Indexers are used for either text-based indexing that pulls alphanumeric content from source fields into index fields, or AI-based processing that analyzes undifferentiated text for structure, or analyzes images for text and information, also adding that content to an index. The following index definitions are typical of what you might create for either scenario.
 
 ### Indexers for text content
 
-The original purpose of an indexer was to simplify the complex process of loading an index by providing a mechanism for connecting to and reading text and numeric content from fields in a data source, serialize that content as JSON documents, and hand off those documents to the search engine for indexing. This is still a primary use case, and for this operation, you'll need to create an indexer with the properties defined in this section.
+The original purpose of an indexer was to simplify the complex process of loading an index by providing a mechanism for connecting to and reading text and numeric content from fields in a data source, serialize that content as JSON documents, and hand off those documents to the search engine for indexing. This is still a primary use case, and for this operation, you'll need to create an indexer with the properties defined in the following example.
 
 ```json
 {
@@ -38,17 +38,18 @@ The original purpose of an indexer was to simplify the complex process of loadin
   "fieldMappings": [ optional unless there are field discrepancies that need resolution]
 }
 ```
-The **`name`**, **`dataSourceName`**, and **`targetIndexName`**  properties are required, and depending on how you create the indexer, both data source and index must already exist before you can run the indexer. 
 
-The **`parameters`** property informs run time behaviors, such as how many errors to accept before failing the entire job. Parameters are also how you would specify source-specific behaviors. For example, if the source is Blob storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`.
+The **`name`**, **`dataSourceName`**, and **`targetIndexName`**  properties are required, and depending on how you create the indexer, both data source and index must already exist on the service before you can run the indexer. 
 
-The **`field mappings`** property is used to explicitly map source-to-destination fields if those fields differ by name or type. Other properties (not shown), are used to specify a schedule, create the indexer in a disabled state, or specify an encryption key for supplemental encryption of data at rest.
+The **`parameters`** property modifies run time behaviors, such as how many errors to accept before failing the entire job. Parameters are also how you would specify source-specific behaviors. For example, if the source is Blob storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`.
+
+The **`field mappings`** property is used to explicitly map source-to-destination fields if those fields differ by name or type. Other properties (not shown), are used to [specify a schedule](search-howto-schedule-indexers.md), create the indexer in a disabled state, or specify an [encryption key](search-security-manage-encryption-keys.md) for supplemental encryption of data at rest.
 
 ### Indexers for AI indexing
 
-Because indexers are the mechanism by which a search service makes outbound requests, indexers were extended to support AI enrichments, adding steps and objects necessary for this use case.
+Because indexers are the mechanism by which a search service makes outbound requests, indexers were extended to support AI enrichments, adding infrastructure and objects to implement this use case.
 
-All of the above properties and parameters apply to indexers that perform AI enrichment, with the addition of three properties that are specific to AI enrichment: **`skillSets`**, **`outputFieldMappings`**, **`cache`** (preview and REST only). 
+All of the above properties and parameters apply to indexers that perform AI enrichment. The following properties are specific to AI enrichment: **`skillSets`**, **`outputFieldMappings`**, **`cache`** (preview and REST only). 
 
 ```json
 {
@@ -70,7 +71,7 @@ All of the above properties and parameters apply to indexers that perform AI enr
 }
 ```
 
-AI enrichment is beyond the scope of this article. For more information, start with [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md) or [Create Skillset (REST)](/rest/api/searchservice/create-skillset).
+AI enrichment is beyond the scope of this article. For more information, start with these articles: [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), and [Create Skillset (REST)](/rest/api/searchservice/create-skillset).
 
 ## Choose an indexer client and create the indexer
 
@@ -86,7 +87,7 @@ All [service tiers limit](search-limits-quotas-capacity.md#indexer-limits) the n
 
 ### Use Azure portal to create an indexer
 
-The portal provides two options for creating an indexer: [**Import data**](search-import-data-portal.md) and **New Indexer** that provides fields for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+The portal provides two options for creating an indexer: [**Import data wizard**](search-import-data-portal.md) and **New Indexer** that provides fields for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
 
 The following screenshot shows where you can find these features in the portal. 
 
@@ -116,11 +117,20 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 
 ## Run the indexer
 
-An indexer runs automatically when you create the indexer on the service. This is the moment of truth where you will find out if there are data source connection errors, field mapping issues, or skillset problems. An interactive HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) will run an indexer. Running a program that calls SearchIndexerClient methods will also run an indexer.
+An indexer runs automatically when you create the indexer on the service. This is the moment of truth where you will find out if there are data source connection errors, field mapping issues, or skillset problems. 
 
-To avoid immediately running an indexer upon creation, include **`disabled=true`** in the indexer definition.
+There are several ways to run an indexer:
 
-Once an indexer exists, you can run it on demand using [Run Indexer (REST)](/rest/api/searchservice/run-indexer) or an equivalent SDK method. Or, put the indexer [on a schedule](search-howto-schedule-indexers.md) to invoke processing at regular intervals. 
++ Send an HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) to add or change the definition, and run the indexer.
+
++ Send an HTTP request for [Run Indexer](/rest/api/searchservice/run-indexer) to execute an indexer with no changes to the definition.
+
++ Run a program that calls SearchIndexerClient methods for create, update, or run.
+
+> [!NOTE]
+> To avoid immediately running an indexer upon creation, include **`disabled=true`** in the indexer definition.
+
+Alternatively, put the indexer [on a schedule](search-howto-schedule-indexers.md) to invoke processing at regular intervals. 
 
 Scheduled processing usually coincides with a need for incremental indexing of changed content. Change detection logic is a capability that's built into source platforms. Changes in a blob container are detected by the indexer automatically. For guidance on leveraging change detection in other data sources, refer to the indexer docs for specific data sources:
 
@@ -131,9 +141,9 @@ Scheduled processing usually coincides with a need for incremental indexing of c
 
 ## Know your data
 
-Indexers expect a tabular row set, where each row becomes a full or partial search document in the index. Often, there is a full one-to-one correspondence between a row and the resulting search document, where all the fields line up. But you can use indexers to generate just part of a document, for example if you're using multiple indexers or approaches to build out the index. 
+Indexers expect a tabular row set, where each row becomes a full or partial search document in the index. Often, there is a one-to-one correspondence between a row and the resulting search document, where all the fields in the row set fully populate each document. But you can use indexers to generate just part of a document, for example if you're using multiple indexers or approaches to build out the index. 
 
-To flatten relational data into a row set, you might need to create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is a SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that will produce the same effect.
+To flatten relational data into a row set, you should create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is a SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that will produce the same effect.
 
 In addition to flattened data, it's important to pull in only searchable data. Searchable data is alphanumeric. Cognitive Search cannot search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, using AI enrichment, large text can be analyzed by natural language models to find structure or relevant information, generating new content that you can add to a search document.
 
@@ -143,7 +153,7 @@ Given that indexers don't fix data problems, other forms of data cleansing or ma
 
 Recall that indexers pass off the search documents to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly effect how strings are indexed (only strings are analyzed and tokenized). Depending on analyzer assignments, indexed strings might be different from what you passed in. You can evaluate the effects of analyzers using [Analyze Text (REST)](/rest/api/searchservice/test-analyzer). For more information about analyzers, see [Analyzers for text processing](search-analyzers.md).
 
-Indexers only check field names and types. There is no validation step that ensures incoming content is correct for the corresponding search field in the index. As a verification step, you can run queries on the populated index that return entire documents or selected fields. For more information about querying the contents of an index, see [Create a basic query](search-query-create.md).
+In terms of how indexers interact with an index, an indexer only checks field names and types. There is no validation step that ensures incoming content is correct for the corresponding search field in the index. As a verification step, you can run queries on the populated index that return entire documents or selected fields. For more information about querying the contents of an index, see [Create a basic query](search-query-create.md).
 
 ## Next steps
 
