@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Identity Provider Single Sign On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    c.  In the **Identity Provider Issuer** textbox, paste the **Azure AD Identifier(Entity ID)** value which you have copied from the Azure portal.
+    c.  In the **Identity Provider Issuer** textbox, paste the **Identifier** value which you have entered in the Azure portal.
 
     d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
 
