@@ -12,9 +12,9 @@ ms.subservice: data-lake-storage-gen2
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the managed migration tool
 
-The managed migration tool makes it easier to migrate from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. This tool automatically moves your data and metadata such as timestamps and access control lists (ACLs). 
+The managed migration tool makes it easier to migrate from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 by automatically moving data and metadata such as timestamps and access control lists (ACLs). 
 
-Your workloads and applications can continue to point to your Gen1 account. Any requests to the URL of your Gen1 account are redirected to the storage account that you created for Data Lake Storage Gen2. Most workloads and applications will continue to work without modification. Data Lake Storage Gen2 provides a server-side compatibility layer which translates each request made to the Data Lake Storage Gen1 account to a request that is formatted for the storage account that you create for Data Lake Storage Gen2.
+After you run the tool, your workloads and applications can continue to point to your Gen1 account. Any requests to the URL of your Gen1 account are redirected to the storage account that you created for Data Lake Storage Gen2. Most workloads and applications will continue to work without modification. That's because Data Lake Storage Gen2 provides a server-side compatibility layer which converts each request to a Data Lake Storage Gen1 endpoint to a request to the Data Lake Storage Gen2 endpoint.
 
 Be sure to first read the general guidance and workflows described in this article: [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
 
@@ -33,7 +33,7 @@ Create either a [general-purpose V2 account](../common/storage-account-create.md
 | **NFS v3** | Disabled |
 | **Hierarchical namespace** | Enabled |
 
-Once you've created the account, you'll have to manually configure account settings such as encryption, network firewalls, data protection. The managed migration tool doesn't move any account settings from Gen1 to Gen2.
+The managed migration tool doesn't move any account settings from Gen1 to Gen2. Once you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
 ## Step 2: Run the managed migration tool
 
@@ -51,12 +51,7 @@ Once you've created the account, you'll have to manually configure account setti
    > [!div class="mx-imgBorder"]
    > ![Image Hint2](./media/managed-migration-tool/managed-migration-wizard-page-1.png)
 
-4.	In the **Consent to the migration** page, review the terms, choose whether to perform a test migration or a complete migration, and then click the **I consent to the migration** button.
-
-   > [!div class="mx-imgBorder"]
-   > ![Image Hint3](./media/managed-migration-tool/managed-migration-wizard-page-2.png)
-
-5. For the **Migration Mode** option, choose **Test Migration**. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't yet redirect the URL of your Gen1 account. In test migration mode, the Gen1 account remains active while you test your applications against Gen2.
+4. For the **Migration Mode** option, choose **Test Migration**. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't yet redirect the URL of your Gen1 account. That way your Gen1 account remains active while you test your applications against Gen2.
 
 ## Step 3: Test your applications
  
@@ -70,7 +65,7 @@ Test your applications against your new account to ensure that they work as expe
    | **Java** | [1.1.21](https://github.com/Azure/azure-data-lake-store-java/blob/master/CHANGES.md) |
    | **Python** | [0.0 51](https://github.com/Azure/azure-data-lake-store-python/blob/master/HISTORY.rst) |
 
-2. Review the list of known issues that have been identified in the Gen1 compatibility layer.
+2. Review known issues that have been identified in the Gen1 compatibility layer.
 
 3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
 
@@ -84,29 +79,65 @@ When you are ready to complete the migration, do this... need to find out what "
 
 ### Known issues with the Gen1 compatibility layer
 
-##### Issue 1
+##### ListStatus API option to ListBefore an entry
 
-Description
+With Gen1, you could use the query parameter `ListBefore` to reverse list entries starting from a specific entry.  The compatibility layer doesn't support this functionality because it isn't supported by Gen2. 
 
-##### Issue 2
+##### ListStatus API to be used with continuation token 
 
-Description
+The `ListStatus` API returns a continuation token if there are more records. Clients need to use a continuation token for next page of a list result. `ListStatus` takes a `listSize` query parameter as a page size, which is set to 4K by default. But in Gen2, there's no guarantee that all all records requested by the client will be returned. Therefore, the client has to rely on the existence of the continuation token in the response to figure out if there are more records. Some older versions of the Gen1 SDKs had a hard dependency on the number of records returned in place of continuation token. This is a breaking experience in the compatibility layer. Any client that has similar logic needs to be fixed to avoid getting incomplete results. 
 
-##### Issue 1
+##### Unsupported characters in file and directory names
 
-Description
+The compatibility layer doesn't support the following file and directory names:  
 
-##### Issue 2
+- Names with only spaces or tabs
 
-Description
+- Names ending with a `.`   
 
-##### Issue 1
+- Names containing a `:`  
 
-Description
+##### Requests paths with multiple forward slashes
 
-##### Issue 2
+The compatibility layer doesn't support request paths that have multiple consecutive forward slashes. In Gen1, Internet Information Services (IIS) used to convert these slashes into a single slash. 
 
-Description
+##### Container name restrictions
+
+Containers didn't exist in Gen1. However in Gen2, all files must be placed into a container. To use the compatibility layer, you must create a container named `gen1` in your Gen2 account. 
+
+##### Maximum file size
+
+The maximum file size of any file that you create by using the compatibility layer is 5 TiB.   
+
+##### Discontinue chunk-encoding support
+
+ADLS Gen1 supports chunk-encoding for append, which won’t be supported by Gen1Shim. Clients sending chunk-encoding requests will receive BadRequest from Gen1Shim. 
+
+##### GetContentSummary server API is not supported  
+
+In ADLS Gen1, Server-side implementation of GetContentSummary was used to have perf implications for large directories due to timeout. To solve that, client-side implementation of the API was introduced using ListStatus. All latest SDK versions implement it at client-side. For similar reasons, the API has not been implemented in Gen1Shim. 
+
+##### Token audience for authentication  
+
+ADLS Gen1 clients send two types of token audiences.  
+
+https://datalake.azure.net  
+
+https://management.azure.com/  
+
+For Gen1Shim, we recommend clients to send  https://datalake.azure.net  only  as management  audience  has security implications. Though  based on priority, it is possible to  allow  management audience  through  DC settings  of a stamp, but it is highly recommended for clients to use  datalake  audience.  
+
+##### User identification as SuperUser  
+
+Users can be tagged to be superusers based on RBAC role that they hold – Mentioned in “RBAC User Role Significance row of “ACL  related Deviations” table below. Other than that, when account is accessed using SAS token or account key too, the user will be identified as superuser.
+
+##### Ownership info displayed as $superuser  
+
+https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control#assigning-the-owning-group-for-a-new-file-or-directory  
+
+The root directory "/" is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to $superuser.”  
+
+Note: Refer Appendix 3 for ACL related deviations across ADLS Gen1, Gen1Compatibility layer & Gen2 
 
 ## Next steps
 
