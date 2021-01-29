@@ -726,6 +726,8 @@
         href: how-to-sqldb-to-cosmosdb.md
       - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
+      - name: Data ingestion with Azure Data Factory
+        href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview
