@@ -17,23 +17,28 @@ ms.date: 12/3/2020
 # Connect Data Factory to Azure Purview (Preview)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article will explain how to connect Data Factory to Azure Purview and how to report data lineage of ADF activities Copy data, Data flow and Execute SSIS package.
+This article will explain how to connect Data Factory to Azure Purview and how to report data lineage of Azure Data Factory activities Copy data, Data flow and Execute SSIS package.
 
 ## Connect Data Factory to Azure Purview
 Azure Purview is a new cloud service for use by data users centrally manage data governance across their data estate spanning cloud and on-prem environments. You can connect your Data Factory to Azure Purview and the connection allows you to use Azure Purview for capturing lineage data of Copy, Data flow and Execute SSIS package. 
 You have two ways to connect data factory to Azure Purview:
 ### Register Azure Purview account to Data Factory
-- In the ADF portal, go to **Manage** -> **Azure Purview**. Select **Connect to a Purview account**. 
-![Screenshot for registering a Purview account](./media/data-factory-purview/register-purview-account.png) 
-- You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
-- Once connected, you should be able to see the name of the Purview account in the tab **Purview account**. 
-- You can use the Search bar at the top center of ADF portal to search for data. 
+1. In the ADF portal, go to **Manage** -> **Azure Purview**. Select **Connect to a Purview account**. 
 
-If you see warning in ADF portal after you register Azure Purview account to Data Factory, follow below steps to fix the issue:
-![Screenshot for warning of registering a Purview account](./media/data-factory-purview/register-purview-account-warning.png)
+:::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Screenshot for registering a Purview account.":::
+2. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
+3. Once connected, you should be able to see the name of the Purview account in the tab **Purview account**. 
+4. You can use the Search bar at the top center of Azure Data Factory portal to search for data. 
+
+If you see warning in Azure Data Factor portal after you register Azure Purview account to Data Factory, follow below steps to fix the issue:
+
+:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
+
 1. Go to Azure portal and find your data factory. Choose section "Tags" and see if there is a tag named **catalogUri**. If not, please disconnect and reconnect the Azure Purview account in the ADF portal.
-![Screenshot for tags of registering a Purview account](./media/data-factory-purview/register-purview-account-tag.png)
-1. Check if the permission is granted for registering an Azure Purview account to Data Factory. See [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection)
+
+:::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Screenshot for tags of registering a Purview account.":::
+
+2. Check if the permission is granted for registering an Azure Purview account to Data Factory. See [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection)
 
 ### Register Data Factory in Azure Purview
 For how to register Data Factory in Azure Purview, see [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 

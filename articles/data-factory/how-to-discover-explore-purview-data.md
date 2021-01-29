@@ -36,12 +36,13 @@ The use Azure Purview in Data Factory requires you to have access to that Purvie
 ### Data discovery: search datasets 
 
 To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Data Factory portal. Make sure that you select Azure Purview to search for all of your organization data. 
-![Screenshot for performing over datasets](./media/data-factory-purview/search-dataset.png) 
+
+:::image type="content" source="./media/data-factory-purview/search-dataset.png" alt-text="Screenshot for performing over datasets.":::
 
 ### Actions that you can perform over datasets with Data Factory resources 
 You can directly create Linked Service, Dataset, or dataflow over the data you search by Azure Purview.
-![Screenshot for performing over datasets](./media/data-factory-purview/actions-over-purview-data.png) 
 
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot for performing over datasets.":::
 
 ##  Next steps 
 

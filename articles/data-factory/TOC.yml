@@ -701,7 +701,7 @@
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
     - name: Discover and explore data in ADF using Purview
-      href: how-to-discover-explore-data-in-adf-using-purview.md
+      href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items:    
     - name: Data migration for data lake & EDW
