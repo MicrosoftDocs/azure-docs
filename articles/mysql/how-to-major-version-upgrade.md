@@ -10,7 +10,7 @@ ms.date: 1/28/2021
 # Major version upgrade in Azure Database for MySQL Single Server
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
 >
 
 > [!IMPORTANT]
