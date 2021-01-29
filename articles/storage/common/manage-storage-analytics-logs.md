@@ -17,10 +17,10 @@ ms.custom: monitoring
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
 >
-> - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md).
-> - [Monitoring Azure Files](../files/storage-files-monitoring.md).
-> - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md).
-> - [Monitoring Azure Table storage](../tables/monitor-table-storage.md).
+> - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+> - [Monitoring Azure Files](../files/storage-files-monitoring.md)
+> - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+> - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
 For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -54,9 +54,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
 4. Click **Save**.
 
-The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
+   The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
-For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -98,6 +98,7 @@ For information about accessing the $logs container, see [Storage analytics logg
 
    > [!WARNING]
    > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
+   
    The following command switches off logging for the table service in your default storage account:  
 
    ```powershell
@@ -146,13 +147,13 @@ Log data can accumulate in your account over time which can increase the cost of
    > [!div class="mx-imgBorder"]
    > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
-The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
    
 4. Click **Save**.
 
-The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
+   The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
-For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -248,7 +249,7 @@ queueClient.SetServiceProperties(queueserviceProperties);
 
 ### Verify that log data is being deleted
 
-You can verify that logs are being deleted after the retention period by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder represents a days worth of logs. If the day today was January 29th 2021 and you set your retention policy to only 1 day, then this folder should contain logs for only 1 day.
+You can verify that logs are being deleted by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder contains logs for one day. If the day today was January 29th 2021, and your retention policy is set to only one day, then this folder should contain logs for only one day.
 
 > [!div class="mx-imgBorder"]
 > ![List of log folders in the Azure Portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)

@@ -18,10 +18,10 @@ Storage Analytics logs detailed information about successful and failed requests
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
 >
-> - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md).
-> - [Monitoring Azure Files](../files/storage-files-monitoring.md).
-> - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md).
-> - [Monitoring Azure Table storage](../tables/monitor-table-storage.md).
+> - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+> - [Monitoring Azure Files](../files/storage-files-monitoring.md)
+> - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+> - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
  Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/) or by using PowerShell, or Azure CLI. For step-by-step guidance, see [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md). 
 
