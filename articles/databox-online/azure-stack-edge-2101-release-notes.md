@@ -14,7 +14,7 @@ ms.author: alkohli
 
 The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
 
-The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.
+The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.  
 
 This release corresponds to software version:
 
