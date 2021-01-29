@@ -103,11 +103,11 @@ The latest SDK requires the use of an Http Pipeline to set the header as detaile
 
 ```csharp
 // Create a custom policy to add the correct headers
-public class CustomRequestPolicy : HttpPipelineSynchronousPolicy
+public class SearchIdPipelinePolicy : HttpPipelineSynchronousPolicy
 {
     public override void OnSendingRequest(HttpMessage message)
     {
-        message.Request.Headers.Add("x-ms-azs-return-searchid", "true");
+        message.Request.Headers.SetValue("x-ms-azs-return-searchid", "true");
     }
 }
 ```
@@ -116,9 +116,9 @@ public class CustomRequestPolicy : HttpPipelineSynchronousPolicy
 // This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
 
 SearchClientOptions clientOptions = new SearchClientOptions();
-clientOptions.AddPolicy(new CustomRequestPolicy(), HttpPipelinePosition.PerCall);
+clientOptions.AddPolicy(new SearchIdPipelinePolicy(), HttpPipelinePosition.PerCall);
 
-var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>), options: clientOptions);
+var client = new SearchClient("<SearchServiceName>", "<IndexName>", new AzureKeyCredential("<QueryKey>"), options: clientOptions);
 
 Response<SearchResults<SearchDocument>> response = await client.SearchAsync<SearchDocument>(searchText: searchText, searchOptions: options);
 string searchId = string.Empty;
