@@ -12,10 +12,10 @@
 
 *Warming up the Cache*
 
-The disk with ReadOnly host caching are able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
+The disk with ReadOnly host caching is able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in more IOPS from the single cache enabled disk.
 
 > [!IMPORTANT]
-> You must warm up the cache before running benchmarking, every time VM is rebooted.
+> You must warm up the cache before running benchmarks every time VM is rebooted.
 
 ## DISKSPD
 
@@ -23,10 +23,10 @@ The disk with ReadOnly host caching are able to give higher IOPS than the disk l
 
 In this example, we use the following set of baseline parameters:
 
-- -c200G: Creates (or recreates) the sample file used in the test. It can be set in bytes, KiB, MiB, GiB, or blocks. In this case, a large file of 200 GiB target file is used to minimize memory caching.
+- -c200G: Creates (or recreates) the sample file used in the test. It can be set in bytes, KiB, MiB, GiB, or blocks. In this case, a large file of 200-GiB target file is used to minimize memory caching.
 - -w100: Specifies the percentage of operations that are write requests (-w0 is equivalent to 100% read).
 - -b4K: Indicates the block size in bytes, KiB, MiB, or GiB. In this case, 4K block size is used to simulate a random I/O test.
-- -F4: Sets a total of 4 threads.
+- -F4: Sets a total of four threads.
 - -r: Indicates the random I/O test (overrides the -s parameter).
 - -o128: Indicates the number of outstanding I/O requests per target per thread. This is also known as the queue depth. In this case, 128 is used to stress the CPU.
 - -W7200: Specifies the duration of the warm-up time before measurements start.
@@ -63,7 +63,7 @@ Results show that the Standard_D8ds_v4 VM is delivering its maximum read IOPS li
 To get the maximum read and write throughput, you can change to a larger block size of 64 KB.
 ## FIO
 
-FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard_D8ds_v4 running **Ubuntu**. Use the same setup described in the beginning of the Benchmarking section and warm up the cache before running the benchmarking tests.
+FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard_D8ds_v4 running **Ubuntu**. Use the same setup described in the beginning of the benchmark section and warm up the cache before running the benchmark tests.
 
 Before you begin, [download FIO](https://github.com/axboe/fio) and install it on your virtual machine.
 
@@ -73,7 +73,7 @@ Run the following command for Ubuntu,
 apt-get install fio
 ```
 
-We use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers are driving traffic on the "nocache" volume, which has 3 disks with cache set to "None". The Read workers are driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
+We use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The write workers are driving traffic on the "nocache" volume, which has three disks with cache set to "None". The read workers are driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
 
 ### Maximum write IOPS
 
