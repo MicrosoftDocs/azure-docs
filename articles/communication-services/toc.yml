@@ -92,6 +92,8 @@
     href: concepts/metrics.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Known issues
+    href: concepts/known-issues.md
 - name: Samples
   items:
   - name: Group calling hero sample
