@@ -59,8 +59,8 @@ information and status to Device Update services.
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
-|manufacturer|string|device to cloud|The device manufacturer of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_manufacturer' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
-|model|string|device to cloud|The device model of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_model' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
+|manufacturer|string|device to cloud|The device manufacturer of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_manufacturer' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
+|model|string|device to cloud|The device model of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_model' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
 
 ### State
 
@@ -86,7 +86,7 @@ actions and metadata to the device or agent.
 |action|integer|cloud to device|This is an integer that corresponds to an action the agent should perform. Values listed below.|
 |updateManifest|string|cloud to device|Used to describe the content of an update. [Learn more](https://github.com/Azure/adu-private-preview/blob/master/docs/agent-reference/update-manifest.md) about the details of the Update Manifest and how Device Update uses it to ensure the identity of the update, sent to a device.|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
-|fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent which files to download and the hash to use to verify the files were downloaded correctly.|
+|fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 
 #### Action
 
@@ -102,6 +102,6 @@ The Device Update Agent will report a `State` (see `State` section above) proces
 |Apply|2|Finalize the update. This will signal the system to reboot if necessary.|
 |Cancel|255|Stop processing the current action and go back to `Idle`. Will also be used to tell the agent in the `Failed` state to go back to `Idle`.|
 
-## Model Id
+## Model ID
 
-Configure your IoT Plug and Play device to announce the model id as part of the device connection with the value **"dtmi:AzureDeviceUpdate;1"** by following this [example](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement). To learn more on how to build smart devices with IoT Plug and Play that advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
+Configure your IoT Plug and Play device to announce the model ID as part of the device connection with the value **"dtmi:AzureDeviceUpdate;1"** by following this [example](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement). To learn more on how to build smart devices with IoT Plug and Play that advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).

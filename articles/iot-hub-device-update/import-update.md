@@ -9,12 +9,13 @@ ms.service: iot-hub
 ---
 
 # Import New Update
+Learn how to import a new update into Device Update for IoT Hub.
 
 ## Prerequisites
 
 * Access to an IoT Hub with Device Update for IoT Hub enabled.
 * An IoT device (or [simulator](./device-update-simulator.md)) provisioned within the IoT Hub, running either Azure RTOS ThreadX or Ubuntu 18.04 x64.
-    * If using a real device, you’ll need an update image file (e.g. Yocto image) for image update, or [APT Manifest]() file for package update.
+    * If using a real device, you’ll need an update image file (for example, Yocto image) for image update, or [APT Manifest]() file for package update.
 * [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
 * Supported browsers:
   * The new [Microsoft Edge](https://www.microsoft.com/edge)
@@ -45,15 +46,15 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, the table below provides some example values for the above parameters. For full documentation, please refer to [Import Manifest Schema]().
+    For quick reference, the table below provides some example values for the above parameters. For full documentation, refer to [Import Manifest Schema]().
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, e.g. Contoso
-    | deviceModel | Model of the device the update is compatible with, e.g. Toaster
-    | updateProvider | Provider part of update identity, e.g. Fabrikam
-    | updateName | Name part of update identity, e.g. ImageUpdate
-    | updateVersion | Update version, e.g. 2.0
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster
+    | updateProvider | Provider part of update identity, for example, Fabrikam
+    | updateName | Name part of update identity, for example, ImageUpdate
+    | updateVersion | Update version, for example, 2.0
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify [recommended value]() for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your PC
@@ -105,11 +106,11 @@ Example:
 
 ## Import update
 
-1. Log into Azure Portal using [this link](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
+1. Log into Azure portal using [this link](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
-   ![Import Updates](media/import-update/import-updates2.png)
+   ![Import Updates](media/import-update/import-updates-2.png)
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
@@ -117,7 +118,7 @@ Example:
 
 4. Select "+ Import New Update" below the "Ready to Deploy" header.
 
-   ![Import New Update](media/import-update/import-new-update2.png)
+   ![Import New Update](media/import-update/import-new-update-2.png)
 
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
 
@@ -127,7 +128,7 @@ Example:
 
    ![Storage Account](media/import-update/storage-account.png)
 
-7. If you’ve already created a container you can re-use it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
 
    ![Select Container](media/import-update/container.png)
 
@@ -137,11 +138,10 @@ Example:
 
 9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
-   ![Update Import Sequencing](media/import-update/update-publishing-sequence2.png)
+   ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
 
 10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
-   ![Job Status](media/import-update/update-ready.png)
-
+    ![Job Status](media/import-update/update-ready.png)
 
 [Next Step: Create Groups](create-update-group.md)

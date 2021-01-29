@@ -19,10 +19,10 @@ ms.service: iot-hub
 
 ## Deploy an update
 
-1. Go to [Azure Portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden&feature.devicetwin=true#home)
+1. Go to [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden&feature.devicetwin=true#home)
 
 2. Navigate to the Device Update blade your IoT Hub.
-![IoT Hub](media/deploy-update/adu-iot-hub.PNG)
+![IoT Hub](media/deploy-update/device-update-iot-hub.PNG)
 
 3. Select the Groups tab at the top of the page.
 ![Groups Tab](media/deploy-update/updated-view.PNG)

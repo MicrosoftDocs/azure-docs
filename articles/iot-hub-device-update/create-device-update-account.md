@@ -16,7 +16,7 @@ To get started with Device Update you will need to create a Device Update accoun
 
 A Device Update account is a resource that is created within your Azure subscription. At the Device Update account level, you can select the region where your Device Update account will be created and set permissions to authorize users that will have access to Device Update.
 
-After an account has been created, a Device Update instance must be created. An instance is a logical container that contains updates and deployments associated with a specific IoT hub. Device Update uses IoT hub as a device directory, and a communication channel with devices. For Private Preview, a single Device update account can be created per subscription, and two device update instances can be created with an account.
+After an account has been created, a Device Update instance must be created. An instance is a logical container that contains updates and deployments associated with a specific IoT hub. Device Update uses IoT hub as a device directory, and a communication channel with devices. A single Device update account can be created per subscription, and two device update instances can be created with an account.
 
 ### Create a Device Update Account - New Preview Customers
 
@@ -38,7 +38,7 @@ To create a Device Update instance after an account has been created.
 
 ### Configure IoT Hub - All Preview Customers
 
-In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the "Built-In" Event Hub. Message routes will need to be configured if you are new to the preview or updated if you have been participating in the Device Update Private Preview. We will also update the Shared Access policy if this is not configured correctly.
+In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the "Built-In" Event Hub. Message routes will need to be configured if you are new to the preview or updated if you have been participating in the Device Update. We will also update the Shared Access policy if this is not configured correctly.
 
 To configure IoT Hub
 
@@ -81,7 +81,7 @@ A combination of roles can be used to provide the right level of access, for exa
 6. You can now go to IoT Hub and go to Device Update
 
 ## Ports used with Device Update for IoT Hub
-Device Update uses a variety of network ports for different purposes.
+Device Update uses various network ports for different purposes.
 
 Purpose|Port Number |
 ---|---

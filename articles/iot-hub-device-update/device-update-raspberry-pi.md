@@ -9,6 +9,7 @@ ms.service: iot-hub
 ---
 
 # Getting Started with Raspberry Pi 3 B+ Reference Yocto Image
+Device Update for IoT Hub provides Yocto reference images for testing and rollout.
 
 ## Download Yocto image
 
@@ -35,7 +36,7 @@ device.
    like `/dev/sd*` or `/dev/mmcblk*`. You can use the `dmesg` utility to help
    locate the correct path.
 
-3. You will need to un-mount all mounted partitions before flashing.
+3. You will need to unmount all mounted partitions before flashing.
 
    ```shell
    sudo umount /dev/<device>
@@ -65,11 +66,10 @@ IoT Hub a connection string will be generated for the device.
 2. Create a new device.
 3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' >
    Select "New".
-4. Provide a name for the device under 'Device ID' -- Ensure that "Auto-generate
+4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate
    keys" is checkbox is selected.
 5. Select 'Save'.
-6. Now you will be returned to the 'Devices' page and the device you just
-   created should be in the list. Select that device.
+6. Now you will be returned to the 'Devices' page and the device you created should be in the list. Select that device.
 7. In the device view, select the 'Copy' icon next to 'Primary Connection
    String'.
 8. Paste the copied characters somewhere for later use in the steps below.
@@ -93,9 +93,9 @@ IoT Hub a connection string will be generated for the device.
 
 5. Save the text file and then remove the SD card from your PC.
 6. Insert the SD card into the Raspberry Pi3 and use the power switch on the
-   cord which is plugged into the device to turn the device on.
+   cord, which is plugged into the device to turn on the device.
 
-**NOTE**:  Wait 1-2 mins to ensure the device is fully booted up.  If you have a
+Wait 1-2 mins to ensure the device is fully booted up.  If you have a
 monitor connected to the Raspberry Pi3, it will boot to a login screen.  This is
 normal.  The agent will be running in the background.  There is no need for you
 to log in.

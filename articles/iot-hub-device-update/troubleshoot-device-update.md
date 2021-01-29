@@ -96,7 +96,7 @@ A useful management API,
 [getDevices](), returns a payload
 containing information about the download and update state on a device.
 
-**NOTE**:  This API's payload contains publicly accessible URL locations.
+This API's payload contains publicly accessible URL locations.
 
 ## Publish Update
 

@@ -25,9 +25,9 @@ provides reporting capabilities so you can always see the state of your devices.
 ### Support for a wide range of IoT devices
 
 Device Update for IoT Hub integrates with the Azure IoT device SDK to enable your
-devices to receive updates. Both an Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
+devices to receive updates. Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
 Device Update for IoT Hub also supports updating Azure IoT Edge devices. For Private
-Preview, an Device Update Agent will be provided for Ubuntu Server 18.04 amd64
+Preview, a Device Update Agent will be provided for Ubuntu Server 18.04 amd64
 platform. Device Update for IoT Hub will also provide open-source code if you are not
 running one of the above platforms so you can port it to the distribution you
 are running.
@@ -64,7 +64,7 @@ for your device environment.
 Once updates are published to Device Update, they are then scanned for malware. More metadata is generated that allows
 the device to verify the integrity of the updates it receives. Device Update uses IoT Hub
 to securely communicate to the device to initiate an update. The device
-then downloads the update from an Device Update-specified location or a Gateway.
+then downloads the update from a Device Update-specified location or a Gateway.
 
 ## Device Update workflows
 
@@ -99,7 +99,7 @@ signature (SAS), such as an ad-hoc SAS for Azure Blob Storage.
 [Learn more about
 SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-![Import an Update](media/understand-device-update/import-an-update.png)
+![Import an Update](media/understand-device-update/import-update.png)
 
 [Learn More]()
 
@@ -115,7 +115,7 @@ Device Update supports the concept of **Groups** via tags in IoT Hub. Deploying 
 out to a test group first is a good way to reduce the risk of issues during a
 production rollout.
 
-In Device Update, deployments are called **Deployments**, which are a way of connecting the
+In Device Update, deployments are called. Deployments**, which are a way of connecting the
 right content to a specific set of compatible devices. Device Update orchestrates the
 process of sending commands to each device, instructing them to download and
 install the updates and getting status back.
