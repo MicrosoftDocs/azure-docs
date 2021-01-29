@@ -3,7 +3,7 @@ title: Access data sources on premises
 description: Connect to on-premises data sources from Azure Logic Apps by creating an data gateway resource in Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ---
@@ -54,7 +54,7 @@ You can also create [custom connectors](../logic-apps/custom-connector-overview.
 
   * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
   
-  * Your logic app and gateway resource don't have to exist in the same Azure subscription. Provided that you have subscription access, in triggers and actions that can access on-premises data sources, you can select other Azure subscriptions that have gateway resources.
+  * Your logic app and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you can use the gateway resource, you can select other Azure subscriptions that have gateway resources. However, these subscriptions need to exist in the same Azure AD tenant or directory as your logic app, *and* you need to have at least Contributor access in those subscriptions.
 
 <a name="create-gateway-resource"></a>
 
