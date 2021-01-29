@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 ---
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 # Azure Communication Services UI Framework
 
 :::image type="content" source="../media/ui framework/preandcustomcomposite.png" alt-text="Comparison between pre-built and custom composites":::

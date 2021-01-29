@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 ---
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 # UI Framework capabilities
 
 The Azure Communication Services UI Framework lets you build communication experiences using a set of reusable components. We refer to individual components as **base** components. We refer to combinations of base components as **composite** components.
