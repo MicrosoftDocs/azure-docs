@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "docsmsft.docs-authoring-pack"
+        "docsmsft.docs-authoring-pack",
+        "acrolinx.vscode-sidebar"
     ]
 }
