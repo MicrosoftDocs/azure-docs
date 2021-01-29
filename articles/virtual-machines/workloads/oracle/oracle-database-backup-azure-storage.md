@@ -1,12 +1,12 @@
 ---
 title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
 description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
-author: cholse
+author: cr027
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
 ms.date: 01/28/2021
-ms.author: cr027
+ms.author: cholse
 ms.reviewer: dbakevlar 
 
 ---
@@ -168,7 +168,7 @@ To back up to Azure Files, complete these steps:
 
 ### Set up Azure File Storage
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure File storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure File storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 

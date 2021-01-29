@@ -1,12 +1,12 @@
 ---
 title: Oracle Database in Azure Virtual Machines backup strategies
 description:  Options to back up Oracle Databases in an Azure Linux VM environment.
-author: cholse
+author: cro27
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
 ms.date: 01/28/2021
-ms.author: cr027
+ms.author: cholse
 ms.reviewer: dbakevlar 
 
 ---
@@ -146,8 +146,8 @@ Azure Backup is now providing an [enhanced pre-script and post-script framework]
 
 ## Next steps
 
-- [Create Oracle Database Quickstart](../oracle-database-quick-create.md)
-- [Back up Oracle Database to Azure Files](../oracle-database-backup-azure-storage.md)
-- [Back up Oracle Database using Azure Backup Service](../oracle-database-backup-azure-backup-service.md)
+- [Create Oracle Database quickstart](oracle-database-quick-create.md)
+- [Back up Oracle Database to Azure Files](oracle-database-backup-azure-storage.md)
+- [Back up Oracle Database using Azure Backup service](oracle-database-backup-azure-backup.md)
 
 
