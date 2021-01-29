@@ -19,7 +19,7 @@ Learn how to create and run data labeling projects to tag data in Azure Machine 
 ## Data labeling capabilities
 
 > [!Important]
-> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
+> Data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
  - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
