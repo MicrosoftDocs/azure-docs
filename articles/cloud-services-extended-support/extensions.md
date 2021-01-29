@@ -30,7 +30,7 @@ With basic monitoring, performance counter data from role instances is sampled a
 
 With advanced monitoring, additional metrics are sampled and collected at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is stored in a storage account, in tables, and is purged after 10 days. The storage account used is configured by role; you can use different storage accounts for different roles. 
 
-Windows Azure Diagnostics extension can be enabled for Cloud Services (extended support) through [PowerShell](deploy-powershell.md) or [ARM template](deploy-template.md)
+For more information, see [Apply the Windows Azure diagnostics extension in Cloud Services (extended support)](enable-wad.md)
 
 
 ## Next steps 

@@ -9,13 +9,13 @@ ms.date: 01/18/2021
 
 ---
 
-# Errors in the connector status
+# Errors in the connector status section
 
-In the connector status list you can find errors that can help you to fix issues in your ITSM connector.
+In the connector status list section in the dashboard you can find errors that can help you to fix issues in your ITSM connector.
 
 ## Status Common Errors
 
-in this section you can find the common errors that presented in the connector status section and how you should resolve it:
+In this section you can find the common errors that presented in the connector status section and how you should resolve them:
 
 * **Error**: "Unexpected response from ServiceNow along with success status code. Response: { "import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [ { "transform_map": "OMS Incident", "table": "incident", "status": "error", "error_message": "{Target record not found|Invalid table|Invalid staging table" }"
 
@@ -23,7 +23,7 @@ in this section you can find the common errors that presented in the connector s
   * A custom script deployed in ServiceNow instance causes incidents to be ignored.
   * "OMS Integrator App" code itself was modified on ServiceNow side, e.g. the onBefore script.
 
-  **Resolution**: Disable all custom scripts or code modifications of the data import path.
+  **Resolution**: Disable all custom scripts or code modifications.
 
 * **Error**: "{"error":{"message":"Operation Failed","detail":"ACL Exception Update Failed due to security constraints"}"
 
@@ -54,7 +54,7 @@ in this section you can find the common errors that presented in the connector s
     **Cause**: ITSM Connector was deleted.
 
     **Resolution**: The ITSM Connector was deleted but there are still ITSM action groups defined associated to it. There are 2 options to solve this issue:
-  * Find and disable or delete such action
+  * Find and disable or delete such action groups
   * [Reconfigure the action group](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) to use an existing ITSM Connector.
   * [Create a new ITSM connector](./itsmc-definition.md#create-an-itsm-connection) and [reconfigure the action group to use it](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
@@ -62,6 +62,10 @@ in this section you can find the common errors that presented in the connector s
 
 * **Error**:"Something went wrong. Could not get connection details." This error presented when the customer defines ITSM action group.
 
-    **Cause**: Newly created ITSM Connector has yet to finish the initial Sync.
+    **Cause**: Such error is displayed when:
+    * Newly created ITSM Connector has yet to finish the initial Sync.
+    * The connector was not defined correctly
 
-    **Resolution**: When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+    **Resolution**: 
+    * When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+    * Review your connection details in the ITSM connector as explained [here](./itsmc-connections-servicenow.md#create-a-connection) and check that your ITSM connector can successfully [sync](./itsmc-resync-servicenow.md).

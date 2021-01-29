@@ -31,7 +31,7 @@ Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign 
 
 ## Permissions for connecting an Azure Purview Account 
 
-- To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account.
+- To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account. For more details, see [Azure Purview permissions](../../purview/catalog-permissions.md).
 
 ## Connect an Azure Purview Account  
 

@@ -4,7 +4,7 @@ description: This article explains how to perform actions using Backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
 ---
-# Perform actions using Backup Center
+# Perform actions using Backup Center (Preview)
 
 Backup Center allows you to perform key backup-related actions from a central interface without needing to navigate to an individual vault. Some actions that you can perform from Backup Center are:
 
@@ -17,26 +17,28 @@ Backup Center allows you to perform key backup-related actions from a central in
 
 ## Supported scenarios
 
-* Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
+* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Configure backup
 
+If you are backing up Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs or Azure Files, you should use a Recovery Services vault. If you are backing up Azure Databases for PostgreSQL Server, you should use a Backup vault. 
+
 Depending on the type of datasource you wish to back up, follow the appropriate instructions as described below.
 
-### Configure backup for Azure virtual machines
+### Configure backup to a Recovery Services vault
 
 1. Navigate to the Backup Center and select **+ Backup** at the top of the **Overview** tab.
 
     ![Backup Center overview](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Select the type of datasource you wish to back up (Azure virtual machine in this case).
+2. Select the type of datasource you wish to back up.
 
     ![Select datasource to configure VM backup](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Choose a Recovery Services vault and select **Proceed**. This leads you to the backup configuration experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how configure backup for Azure virtual machines with a Recovery Services vault](tutorial-backup-vm-at-scale.md).
 
-### Configure backup for Azure Database for PostgreSQL Server
+### Configure backup to a Backup vault
 
 1. Navigate to the Backup Center and select **+ Backup** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL server in this case).
@@ -49,19 +51,19 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 Depending on the type of datasource you wish to restore, follow the appropriate instructions as described below.
 
-### If you're restoring an Azure virtual machine
+### If you're restoring from a Recovery Services vault
 
 1. Navigate to the Backup Center and select **Restore** at the top of the **Overview** tab.
 
     ![Backup Center Overview to restore VM](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Select the type of datasource you wish to restore (Azure virtual machine in this case).
+2. Select the type of datasource you wish to restore.
 
     ![Select datasource for VM restore](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Virtual Machine with a Recovery Services vault](backup-azure-arm-restore-vms.md#before-you-start).
 
-### If you're restoring an Azure Database for PostgreSQL Server
+### If you're restoring from a Backup vault
 
 1. Navigate to the Backup Center and select **Restore** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to restore (Azure Database for PostgreSQL Server in this case).
@@ -83,19 +85,19 @@ You can create a new vault by navigating to Backup Center and selecting **+ Vaul
 
 Depending on the type of datasource you wish to back up, follow the appropriate instructions described below.
 
-### If you're backing up an Azure virtual machine
+### If you're backing up to a Recovery Services vault
 
 1. Navigate to the Backup Center and select **+ Policy** at the top of the **Overview** tab.
 
     ![Backup Center Overview for backup policy](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Select the type of datasource you wish to back up (Azure Virtual machine in this case).
+2. Select the type of datasource you wish to back up.
 
     ![Select datasource for policy for VM backup](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Choose a Recovery services vault and select **Proceed**. This leads you to the policy creation experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to create a new backup policy for Azure Virtual Machine with a Recovery services vault](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### If you're backing up an Azure Database for PostgreSQL Server
+### If you're backing up to a Backup vault
 
 1. Navigate to the Backup Center and select **+ Policy** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).

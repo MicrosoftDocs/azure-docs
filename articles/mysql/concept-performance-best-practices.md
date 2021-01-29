@@ -41,9 +41,9 @@ Establishing a new connection is always an expensive and time-consuming task. Wh
 
 An Azure Database for MySQL performance best practice is to allocate enough RAM so that you’re working set resides almost completely in memory. 
 
-- Check if the memory percentage being used in reaching the [limits](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) using the [metrics for the MySQL server](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Check if the memory percentage being used in reaching the [limits](./concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md). 
 - Set up alerts on such numbers to ensure that as the servers reaches limits you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU — either to higher compute size or to better pricing tier which results in a dramatic increase in performance. 
-- Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics).
+- Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](./concepts-monitoring.md#metrics).
 
 ## Next steps
 

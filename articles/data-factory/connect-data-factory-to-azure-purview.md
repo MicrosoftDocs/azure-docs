@@ -21,13 +21,13 @@ This article will explain how to connect data factory to Azure Purview and how t
 
 ## Connect data factory to Azure Purview
 Azure Purview is a new cloud service for use by data users centrally manage data governance across their data estate spanning cloud and on-prem environments. You can connect your data factory to Azure Purview and the connection allows you to leverage Azure Purview for capturing lineage data of Copy, Data flow and Execute SSIS package. 
-For how to register data factory in Azure Purview, see [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+For how to register data factory in Azure Purview, see [How to connect Azure Data Factory and Azure Purview](../purview/how-to-link-azure-data-factory.md). 
 
 ## Report Lineage data to Azure Purview
 When customers run Copy, Data flow or Execute SSIS package activity in Azure Data Factory, customers could get the dependency relationship and have a high-level overview of whole workflow process among data sources and destination.
-For how to collect lineage from Azure Data Factory, see [data factory lineage](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#supported-azure-data-factory-activities).
+For how to collect lineage from Azure Data Factory, see [data factory lineage](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities).
 
 ## Next steps
-[Catalog lineage user guide](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Catalog lineage user guide](../purview/catalog-lineage-user-guide.md)
 
 [Tutorial: Push Data Factory lineage data to Azure Purview](turorial-push-lineage-to-purview.md)

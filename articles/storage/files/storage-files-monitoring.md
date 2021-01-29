@@ -672,6 +672,6 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](./storage-files-planning.md)
-- [How to deploy Azure Files](./storage-files-deployment-guide.md)
+- [How to deploy Azure Files](./storage-how-to-create-file-share.md)
 - [Troubleshoot Azure Files on Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files on Linux](./storage-troubleshoot-linux-file-connection-problems.md)
