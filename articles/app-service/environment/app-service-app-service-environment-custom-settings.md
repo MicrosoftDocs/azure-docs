@@ -1,12 +1,12 @@
 ---
 title: Configure custom settings
 description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
-author: stefsch
+author: ccompy
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
 ---
 
@@ -88,13 +88,13 @@ If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the ap
 The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
 
 ## Change TLS cipher suite order
-Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+The ASE supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multi-tenant service. Changing the cipher suites affects an entire App Service deployment making this only possible in the single-tenant ASE. There are two cipher suites required for an ASE; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. If you wish to operate your ASE with the strongest and most minimal set of cipher suites then use just those two. To configure your ASE to use just the ciphers that it requires, modify the **clusterSettings** as shown below. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```
