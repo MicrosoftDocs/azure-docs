@@ -117,13 +117,11 @@ function App(){
 
     <Provider theme={iconTheme}>
         <GroupCall
-            config={{
-                displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
-                userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
-                token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
-                refreshTokenCallback={CALLBACK}, //Optional, Callback to refresh the token in case it expires
-                groupId={GROUPID}, //Required, Id for group call that will be joined. (GUID)
-            }}
+            displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
+            userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
+            token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
+            refreshTokenCallback={CALLBACK}, //Optional, Callback to refresh the token in case it expires
+            groupId={GROUPID}, //Required, Id for group call that will be joined. (GUID)
             onEndCall = { () => {
                 //Optional, Action to be performed when the call ends
             }}
