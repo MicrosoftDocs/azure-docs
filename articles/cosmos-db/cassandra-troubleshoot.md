@@ -40,6 +40,33 @@ Connection drops or times out unexpectedly.
 ### Solution 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
 
+## Error with Load Balancing Policy
+
+If you have implemented a load balancing policy in v3.x of the Java Datastax driver, with code similar to the below:
+
+```java
+cluster = Cluster.builder()
+        .addContactPoint(cassandraHost)
+        .withPort(cassandraPort)
+        .withCredentials(cassandraUsername, cassandraPassword)
+        .withPoolingOptions(new PoolingOptions() .setConnectionsPerHost(HostDistance.LOCAL, 1, 2)
+                .setMaxRequestsPerConnection(HostDistance.LOCAL, 32000).setMaxQueueSize(Integer.MAX_VALUE))
+        .withSSL(sslOptions)
+        .withLoadBalancingPolicy(DCAwareRoundRobinPolicy.builder().withLocalDc("West US").build())
+        .withQueryOptions(new QueryOptions().setConsistencyLevel(ConsistencyLevel.LOCAL_QUORUM))
+        .withSocketOptions(getSocketOptions())
+        .build();
+```
+
+You may experience a very intermittent error: `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)`. 
+
+### Solution 
+Implement [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/package/src/main/java/com/microsoft/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java) (you may need to upgrade datastax minor version to make it work):
+
+```java
+LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder().withWriteDC("West US").withReadDC("West US").build();
+```
+
 ## Count fails on large table
 When running `select count(*) from table` or similar for a large number of rows, the server times out.
 
