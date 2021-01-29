@@ -242,7 +242,7 @@ It is recommended that you create a process with automated tools to monitor netw
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
@@ -640,7 +640,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 **Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon any changes to production App Service apps and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

@@ -216,7 +216,7 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 
 - [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -429,7 +429,7 @@ To ensure customer data in Azure remains secure, Microsoft has implemented and m
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources, such as Load Balancers used for important production workloads.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

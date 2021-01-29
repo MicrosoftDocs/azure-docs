@@ -174,7 +174,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -590,9 +590,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Virtual machines and related resources.
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)
 

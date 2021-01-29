@@ -28,7 +28,7 @@ Create alerts within Azure Monitor that will trigger when changes to critical re
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -317,7 +317,7 @@ Make your service private for consumption from your other Virtual Networks (Azur
 
 - [Diagnostic logging for a network security group](private-link-overview.md#logging-and-monitoring)
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

@@ -114,7 +114,7 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 
 - [View and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -517,7 +517,7 @@ When backing up with the MARS agent or using a Recovery Services vault encrypted
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Recovery Services vaults as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

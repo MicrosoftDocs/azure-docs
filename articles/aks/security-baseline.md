@@ -199,7 +199,7 @@ Create and manage the nodes that run the kubelet with container runtime and depl
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md)
 

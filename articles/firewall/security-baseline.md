@@ -92,7 +92,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -440,7 +440,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place in Azure Firewall.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

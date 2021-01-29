@@ -175,7 +175,7 @@ To identify the appropriate log and create an alert:
 
 2. Select the operation name to see the relevant details.
 3. Select **New alert rule** to open the **Create rule** page.
-4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
+4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

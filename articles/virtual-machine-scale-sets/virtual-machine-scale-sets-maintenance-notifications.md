@@ -95,7 +95,7 @@ Azure communicates a schedule for planned maintenance by sending an email to the
    - **Services**: Select **Virtual Machine Scale Sets and Virtual Machines**.
    - **Type**: Select **Planned maintenance**. 
 	
-To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/platform/activity-log-alerts.md)
+To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/alerts/activity-log-alerts.md)
 	
 	
 ## Start maintenance on your virtual machine scale set from the portal

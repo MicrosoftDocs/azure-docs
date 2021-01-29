@@ -71,7 +71,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [View and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -416,7 +416,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 ### 4.9: Log and alert on changes to critical Azure resources
 
 **Guidance**: Use Azure Monitor with Azure Activity Logs to create alerts when changes take place to critical resources,. These resources could include production instances of Recovery Services Vaults, resources of Site Recovery service and related resources.
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

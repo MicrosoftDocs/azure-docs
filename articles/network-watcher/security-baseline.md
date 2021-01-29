@@ -118,7 +118,7 @@ Network Watcher should be enabled
 
 * [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -477,7 +477,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Network Watcher and other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

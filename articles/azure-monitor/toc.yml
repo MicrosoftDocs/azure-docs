@@ -138,7 +138,7 @@
     - name: Log alerts
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
-      href: platform/activity-log-alerts.md  
+      href: alerts/activity-log-alerts.md  
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -498,9 +498,9 @@
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
-        href: platform/alerts-activity-log.md
+        href: alerts/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
-        href: ./platform/activity-log-alerts.md
+        href: ./alerts/activity-log-alerts.md
       - name: Webhook schema
         href: alerts/activity-log-alerts-webhook.md
     - name: Service health alerts
@@ -553,7 +553,7 @@
       - name: ITSM Connector Partners Setup
         items:
         - name: Overview
-          href: platform/itsmc-connections.md
+          href: alerts/itsmc-connections.md
         - name: ServiceNow
           href: platform/itsmc-connections-servicenow.md
         - name: System Center Service Manager
@@ -583,7 +583,7 @@
       - name: Integrate with Secure Export
         items:
            - name: Overview
-             href: platform/it-service-management-connector-secure-webhook-connections.md
+             href: alerts/it-service-management-connector-secure-webhook-connections.md
            - name: Secure Export Azure Configuration
              href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
            - name: ITSM Connector Partners Setup
@@ -1436,6 +1436,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

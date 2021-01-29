@@ -183,7 +183,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 - [Azure Activity log](../azure-monitor/essentials/activity-log.md)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Traffic Manager Monitoring](../traffic-manager/traffic-manager-monitoring.md)
 

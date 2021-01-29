@@ -143,7 +143,7 @@ Include monitoring data collected from your resource in a custom application usi
 
 Different kinds of monitoring data are used for different kinds of alert rules.
 
-- [Activity log alert](../platform/alerts-activity-log.md) - Create an alert when an entry is created in the activity log that matches specific criteria. This allows you to be notified for example when a particular type of resource is created or if a configuration change fails.
+- [Activity log alert](../alerts/alerts-activity-log.md) - Create an alert when an entry is created in the activity log that matches specific criteria. This allows you to be notified for example when a particular type of resource is created or if a configuration change fails.
 - [Metric alert](../alerts/alerts-metric.md) - Create an alert when a metric value exceeds a particular threshold. Metric alerts are more responsive than other alerts and can be automatically resolved when the issue is corrected.
 - [Log query alert](../alerts/alerts-log.md) - Run a log query at regular intervals and create an alert if a particular condition is found. This allows you to perform complex analysis across multiple sets of data and .
 

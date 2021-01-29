@@ -156,7 +156,7 @@ Use Azure Activity Log to monitor resource configurations and detect changes to 
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -432,7 +432,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 - [Diagnostic logging for a network security group](virtual-network-nsg-manage-log.md)
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

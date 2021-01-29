@@ -28,4 +28,4 @@ For more information on the various classes of service health notifications, see
 
 ## Next steps
 
-* Learn more about [activity log alerts](../azure-monitor/platform/activity-log-alerts.md).
+* Learn more about [activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).

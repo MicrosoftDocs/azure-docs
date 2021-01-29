@@ -61884,6 +61884,26 @@
       "source_path_from_root": "/articles/data-factory/data-flow-understand-reservation-charges.md",
       "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/activity-log-alerts.md",
+      "redirect_url": "/azure/azure-monitor/alerts/activity-log-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-activity-log.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/it-service-management-connector-secure-webhook-connections.md",
+      "redirect_url": "/azure/azure-monitor/alerts/it-service-management-connector-secure-webhook-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+      "redirect_document_id": false
     }
   ]
 }

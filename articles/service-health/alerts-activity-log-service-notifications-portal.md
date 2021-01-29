@@ -29,7 +29,7 @@ You also can configure who the alert should be sent to:
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
-For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/platform/alerts-activity-log.md).
+For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/alerts/alerts-activity-log.md).
 
 ### Watch a video on setting up your first Azure Service Health alert
 
