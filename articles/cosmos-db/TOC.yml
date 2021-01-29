@@ -1371,6 +1371,22 @@
           href: online-backup-and-restore.md
         - name: Request quota increase
           href: create-support-request-quota-increase.md
+        - name: Restorable accounts - List
+          href: restorable-database-accounts-list.md
+        - name: Restorable accounts - List by location
+          href: restorable-database-accounts-listby-location.md
+        - name: Restorable SQL resources - List
+          href: restorable-sql-resources-list.md
+        - name: Restorable SQL databases - List
+          href: restorable-sql-databases-list.md
+        - name: Restorable SQL containers - List
+          href: restorable-sql-containers-list.md
+        - name: Restorable MongoDB resources - List
+          href: restorable-mongodb-resources-list.md
+        - name: Restorable MongoDB collections - List
+          href: restorable-mongodb-collections-list.md
+        - name: Restorable MongoDb databases - List
+          href: restorable-mongodb-databases-list.md
     - name: Monitor
       items:
         - name: Monitor Cosmos DB
