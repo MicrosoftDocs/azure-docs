@@ -23,8 +23,8 @@ Continuous integration is the practice of testing each change made to your code
 
 In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
--    Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
--    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
+- Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
+- Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
 For more details, refer to [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md).
 
@@ -43,10 +43,11 @@ Thy "Automated publish" feature takes the *validate all* and export *ARM templat
 
     ![Current CI/CD Flow](media/continuous-integration-deployment-improvements/current-ci-cd-flow.png)
 
-### Problem
-The UX is the intermediary to create the ARM template, therefore a user must go to ADF UI and manually click publish to start the ARM template generation and drop it in the publish branch, which is a bit of a hack.
+### Manual step
 
-### Solution: new CI/CD flow
+In current CI/CD flow, the UX is the intermediary to create the ARM template, therefore a user must go to ADF UI and manually click publish to start the ARM template generation and drop it in the publish branch, which is a bit of a hack.
+
+### The new CI/CD flow
 
 1. Each user makes changes in their private branches.
 2. Push to master is forbidden, users must create a PR to master to make changes.
