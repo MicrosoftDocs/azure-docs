@@ -13,22 +13,35 @@ ms.date: 01/28/2021
 
 # How to schedule indexers in Azure Cognitive Search
 
-An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, [Run Indexer (REST API](/rest/api/searchservice/run-indexer), or .NET SDK. You can also configure an indexer to run on a schedule. Some situations where indexer scheduling is useful:
+An indexer normally runs once, immediately after it is created. Afterwards, you can run it again on demand using either Azure portal, [Run Indexer (REST)](/rest/api/searchservice/run-indexer), or an Azure SDK. Alternatively, you can also configure an indexer to run on a schedule. Some situations where indexer scheduling is useful include:
 
-* The source data will change over time, and you want the search indexer to automatically process the delta.
-* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+* Source data will change over time, and you want the search indexer to automatically process the delta.
+* Source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 * A search index will be populated from multiple data sources, and you want the indexers to run at different times to reduce conflicts.
 
-The scheduler is a built-in feature of Azure Cognitive Search. There is not support for using external schedulers on search indexers.
+Visually, a schedule might look like the following: starting on January 1 and running every 50 minutes.
 
-## Schedule properties
+```json
+{
+    "dataSourceName" : "myazuresqldatasource",
+    "targetIndexName" : "target index name",
+    "schedule" : { "interval" : "PT50M", "startTime" : "2021-01-01T00:00:00Z" }
+}
+```
 
-A schedule is part of the indexer definition. If the **schedule** property is omitted, the indexer will only run once immediately after it is created. An indexer **schedule** property has two parts.
+> [!NOTE]
+> The scheduler is a built-in feature of Azure Cognitive Search. There is no support for external schedulers.
+
+## Schedule property
+
+A schedule is part of the indexer definition. If the **schedule** property is omitted, the indexer will only run once immediately after it is created. If you add a **schedule** property, you'll specify two parts.
 
 | Property | Description |
 |----------|-------------|
-|**Interval** | (required) The between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. <br/><br/>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
-| **Start Time (UTC)** | (optional) Indicates when scheduled executions should begin. If omitted, the current UTC time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original **startTime**. |
+|**Interval** | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. <br/><br/>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
+| **Start Time (UTC)** | (optional) Indicates when scheduled executions should begin. If omitted, the current UTC time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original **startTime**.<br/><br/>Examples: `2021-01-01T00:00:00Z` starting at midnight on January 1, `2021-01-05T22:28:00Z` starting at 10:28 p.m. on January 5.|
+
+## Scheduling behavior
 
 Only one execution of an indexer can run at a time. If an indexer is already running when its next execution is scheduled, that execution is postponed until the next scheduled time.
 
@@ -39,7 +52,7 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 * The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer will not start until 11:00 AM UTC.
 
 > [!NOTE]
-> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
+> If an indexer is set to a certain schedule but repeatedly fails on the same document each time, the indexer will begin running on a less frequent interval (up to the maximum interval of at least once every 24 hours) until it successfully makes progress again. If you believe you have fixed whatever the underlying issue, you can run the indexer manually, and if indexing succeeds, the indexer will return to its regular schedule.
 
 ## Schedule using REST
 
@@ -53,7 +66,7 @@ Specify the **schedule** property when creating or updating the indexer.
     {
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
     }
 ```
 
@@ -76,13 +89,11 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
 await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
-The .NET SDK lets you control indexer operations using the [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
-
-The schedule is defined using the [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) class. The **IndexingSchedule** constructor requires an **Interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **StartTime** parameter, specified as a **DateTimeOffset** object, is optional.
+The schedule is defined using the [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) class, when you create or update an indexer using the [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). The **IndexingSchedule** constructor requires an **Interval** parameter specified using a **TimeSpan** object. As noted previously, the smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **StartTime** parameter, specified as a **DateTimeOffset** object, is optional.
 
 ## Next steps
 
-For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or get more detailed information by enabling diagnostic logging.
+For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling diagnostic logging.
 
 * [Monitor search indexer status](search-howto-monitor-indexers.md)
 * [Collect and analyze log data](search-monitor-logs.md)

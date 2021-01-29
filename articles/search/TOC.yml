@@ -212,12 +212,10 @@
     items:
     - name: Create an indexer
       href: search-howto-create-indexers.md
-    - name: Schedule indexers
+    - name: Schedule an indexer
       href: search-howto-schedule-indexers.md
-    - name: Map fields
+    - name: Define field mappings
       href: search-indexer-field-mappings.md
-    - name: Monitor indexers
-      href: search-howto-monitor-indexers.md
     - name: Connect with managed identities
       items:
       - name: Managed identities overview
@@ -400,6 +398,8 @@
       href: search-monitor-logs-powerbi.md
     - name: Monitor query activity
       href: search-monitor-queries.md
+    - name: Monitor indexers
+      href: search-howto-monitor-indexers.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
