@@ -29,7 +29,7 @@ Spatial queries are powered by the [Havok Physics](https://www.havok.com/product
 A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
 
 ```cs [APITODO]
-async void CastRay(AzureSession session)
+async void CastRay(RenderingSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast = new RayCast(new Double3(0, 0, 0), new Double3(0, 0, 1), 10);
@@ -37,7 +37,7 @@ async void CastRay(AzureSession session)
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
-    RayCastHit[] hits = await session.Actions.RayCastQueryAsync(rayCast).AsTask();
+    RayCastHit[] hits = await session.Connection.RayCastQueryAsync(rayCast).AsTask();
 
     if (hits.Length > 0)
     {
@@ -51,7 +51,7 @@ async void CastRay(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void CastRay(ApiHandle<AzureSession> session)
+void CastRay(ApiHandle<RenderingSession> session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
@@ -62,7 +62,7 @@ void CastRay(ApiHandle<AzureSession> session)
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
+    ApiHandle<RaycastQueryAsync> castQuery = *session->Connection()->RayCastQueryAsync(rayCast);
 
     castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
         {

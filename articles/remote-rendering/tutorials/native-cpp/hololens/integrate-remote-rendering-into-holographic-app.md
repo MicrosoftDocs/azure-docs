@@ -121,9 +121,9 @@ class HolographicAppMain
     ...
     // members:
     std::string m_sessionOverride;                // if we have a valid session ID, we specify it here. Otherwise a new one is created
-    RR::ApiHandle<RR::AzureFrontend> m_frontEnd;  // the front end instance
-    RR::ApiHandle<RR::AzureSession> m_session;    // the current remote rendering session
-    RR::ApiHandle<RR::RemoteManager> m_api;       // the API instance, that is used to perform all the actions. This is just a shortcut to m_session->Actions()
+    RR::ApiHandle<RR::RemoteRenderingClient> m_client;  // the client instance
+    RR::ApiHandle<RR::RenderingSession> m_session;    // the current remote rendering session
+    RR::ApiHandle<RR::RenderingConnection> m_api;       // the API instance, that is used to perform all the actions. This is just a shortcut to m_session->Connection()
     RR::ApiHandle<RR::GraphicsBindingWmrD3d11> m_graphicsBinding; // the graphics binding instance
 }
 ```
@@ -162,7 +162,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     // 2. Create front end
     {
         // Users need to fill out the following with their account data and model
-        RR::AzureFrontendAccountInfo init;
+        RR::SessionConfiguration init;
         init.AccountId = "00000000-0000-0000-0000-000000000000";
         init.AccountKey = "<account key>";
         init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
@@ -170,17 +170,17 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         m_modelURI = "builtin://Engine";
         m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
 
-        m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+        m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
     }
 
     // 3. Open/create rendering session
     {
         bool createNewSession = true;
 
-        // If we had an old (valid) session that we can recycle, we call synchronous function m_frontEnd->OpenRenderingSession
+        // If we had an old (valid) session that we can recycle, we call synchronous function m_client->OpenRenderingSessionAsync
         if (!m_sessionOverride.empty())
         {
-            auto openSessionRes = m_frontEnd->OpenRenderingSession(m_sessionOverride);
+            auto openSessionRes = m_client->OpenRenderingSessionAsync(m_sessionOverride);
             if (openSessionRes->valid())
             {
                 SetNewSession(*openSessionRes);
@@ -194,7 +194,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
             RR::RenderingSessionCreationParams init;
             init.MaxLease.minute = 10; // session is leased for 10 minutes
             init.Size = RR::RenderingSessionVmSize::Standard;
-            auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
+            auto createSessionAsync = *m_client->CreateNewRenderingSessionAsync(init);
             createSessionAsync->Completed([&](auto handler)
                 {
                     if (handler->GetStatus() == RR::Result::Success)
@@ -230,12 +230,12 @@ HolographicAppMain::~HolographicAppMain()
     // Destroy session:
     if (m_session != nullptr)
     {
-        m_session->DisconnectFromRuntime();
+        m_session->Disconnect();
         m_session = nullptr;
     }
 
     // Destroy front end:
-    m_frontEnd = nullptr;
+    m_client = nullptr;
 
     // One-time de-initialization:
     RR::ShutdownRemoteRendering();
@@ -275,7 +275,7 @@ namespace HolographicApp
         // Member functions for state transition handling
         void OnConnectionStatusChanged(RR::ConnectionStatus status, RR::Result error);
         void SetNewState(AppConnectionStatus state, const char* statusMsg);
-        void SetNewSession(RR::ApiHandle<RR::AzureSession> newSession);
+        void SetNewSession(RR::ApiHandle<RR::RenderingSession> newSession);
         void StartModelLoading();
 
         // Members for state handling:
@@ -312,7 +312,7 @@ void HolographicAppMain::StartModelLoading()
     params.Parent = nullptr;
 
     // Start the async model loading
-    if (auto loadModel = m_api->LoadModelFromSASAsync(params))
+    if (auto loadModel = m_api->LoadModelFromSasAsync(params))
     {
         m_loadModelAsync = *loadModel;
         m_loadModelAsync->Completed([this](const RR::ApiHandle<RR::LoadModelAsync>& async)
@@ -362,13 +362,13 @@ void HolographicAppMain::SetNewState(AppConnectionStatus state, const char* stat
     OutputDebugStringA(buffer);
 }
 
-void HolographicAppMain::SetNewSession(RR::ApiHandle<RR::AzureSession> newSession)
+void HolographicAppMain::SetNewSession(RR::ApiHandle<RR::RenderingSession> newSession)
 {
     SetNewState(AppConnectionStatus::StartingSession, nullptr);
 
     m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
     m_session = newSession;
-    m_api = m_session->Actions();
+    m_api = m_session->Connection();
     m_graphicsBinding = m_session->GetGraphicsBinding().as<RR::GraphicsBindingWmrD3d11>();
     m_session->ConnectionStatusChanged([this](auto status, auto error)
         {
@@ -461,10 +461,10 @@ HolographicFrame HolographicAppMain::Update()
                                     // The following is async, but we'll get notifications via OnConnectionStatusChanged
                                     m_sessionStarted = true;
                                     SetNewState(AppConnectionStatus::Connecting, nullptr);
-                                    RR::ConnectToRuntimeParams init;
+                                    RR::RendererInitOptions init;
                                     init.ignoreCertificateValidation = false;
                                     init.mode = RR::ServiceRenderMode::Default;
-                                    m_session->ConnectToRuntime(init);
+                                    m_session->ConnectAsync(init);
                                 }
                                 break;
                                 case RR::RenderingSessionStatus::Error:

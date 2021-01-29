@@ -26,7 +26,7 @@ When you load a model, you get a reference to the root object of the loaded mode
 LoadModelAsync _pendingLoadTask = null;
 void LoadModelWithTask()
 {
-    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
+    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Connection.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
 
     _pendingLoadTask.Completed += (LoadModelAsync res) =>
     {
@@ -51,7 +51,7 @@ void LoadModelWithTask()
 ```cs [APITODO]
 IEnumerator LoadModelWithCoroutine()
 {
-    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
+    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Connection.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
 
     while (!task.IsCompleted)
     {
@@ -73,7 +73,7 @@ IEnumerator LoadModelWithCoroutine()
 ```cs [APITODO]
 async void LoadModelWithAwait()
 {
-    var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
+    var result = await RemoteManagerUnity.CurrentSession.Connection.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
     var gameObject = result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 }
 ```

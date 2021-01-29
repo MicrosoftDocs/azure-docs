@@ -25,7 +25,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 
 For shutting down Remote Rendering, call `RemoteManagerStatic.ShutdownRemoteRendering()`.
 
-After an `AzureSession` has been created and chosen as the primary rendering session, it must be registered with `RemoteManagerUnity`:
+After an `RenderingSession` has been created and chosen as the primary rendering session, it must be registered with `RemoteManagerUnity`:
 
 ```cs [APITODO]
 RemoteManagerUnity.CurrentSession = ...
@@ -41,17 +41,17 @@ RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
 
 // create a frontend
-AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
+SessionConfiguration accountInfo = new SessionConfiguration();
 // ... fill out accountInfo ...
-AzureFrontend frontend = new AzureFrontend(accountInfo);
+RemoteRenderingClient client = new RemoteRenderingClient(accountInfo);
 
 // start a session
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30)).AsTask();
+RenderingSession session = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30));
 
 // let RemoteManagerUnity know about the session we want to use
 RemoteManagerUnity.CurrentSession = session;
 
-session.ConnectToRuntime(new ConnectToRuntimeParams());
+await session.ConnectAsync(new RendererInitOptions());
 
 /// When connected, load and modify content
 

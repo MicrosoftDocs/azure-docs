@@ -37,9 +37,9 @@ To change the environment map, all you need to do is [load a texture](../../conc
 
 ```cs [APITODO]
 LoadTextureAsync _skyTextureLoad = null;
-void ChangeEnvironmentMap(AzureSession session)
+void ChangeEnvironmentMap(RenderingSession session)
 {
-    _skyTextureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
+    _skyTextureLoad = session.Connection.LoadTextureFromSasAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
 
     _skyTextureLoad.Completed += (LoadTextureAsync res) =>
         {
@@ -47,7 +47,7 @@ void ChangeEnvironmentMap(AzureSession session)
             {
                 try
                 {
-                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
+                    session.Connection.SkyReflectionSettings.SkyReflectionTexture = res.Result;
                 }
                 catch (RRException exception)
                 {
@@ -63,18 +63,18 @@ void ChangeEnvironmentMap(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+void ChangeEnvironmentMap(ApiHandle<RenderingSession> session)
 {
     LoadTextureFromSASParams params;
     params.TextureType = TextureType::CubeMap;
     params.TextureUrl = "builtin://VeniceSunset";
-    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Connection()->LoadTextureFromSASAsync(params);
 
     skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
         {
             if (res->GetIsRanToCompletion())
             {
-                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
+                ApiHandle<SkyReflectionSettings> settings = session->Connection()->GetSkyReflectionSettings();
                 settings->SetSkyReflectionTexture(res->GetResult());
             }
             else
@@ -100,7 +100,7 @@ For reference, here is an unwrapped cubemap:
 
 ![An unwrapped cubemap](media/Cubemap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync`/ `LoadTextureFromSASAsync` with `TextureType.CubeMap` to load cubemap textures.
+Use `RenderingSession.Connection.LoadTextureAsync`/ `LoadTextureFromSASAsync` with `TextureType.CubeMap` to load cubemap textures.
 
 ### Sphere environment maps
 
@@ -108,7 +108,7 @@ When using a 2D texture as an environment map, the image has to be in [spherical
 
 ![A sky image in spherical coordinates](media/spheremap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync` with `TextureType.Texture2D` to load spherical environment maps.
+Use `RenderingSession.Connection.LoadTextureAsync` with `TextureType.Texture2D` to load spherical environment maps.
 
 ## Built-in environment maps
 

@@ -16,14 +16,14 @@ In this section, we will describe how to use the API for authentication and sess
 > The functions described in this chapter issue REST calls on the server internally. As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The value of the `SessionGeneralContext.HttpResponseCode` member in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 
-## AzureFrontendAccountInfo
+## SessionConfiguration
 
-AzureFrontendAccountInfo is used to set up the authentication information for an ```AzureFrontend``` instance in the SDK.
+SessionConfiguration is used to set up the authentication information for an ```RemoteRenderingClient``` instance in the SDK.
 
 The important fields are:
 
 ```cs [APITODO]
-public class AzureFrontendAccountInfo
+public class SessionConfiguration
 {
     // Domain that will be used for account authentication for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
     // [region] should be set to the domain of the Azure Remote Rendering account.
@@ -46,7 +46,7 @@ public class AzureFrontendAccountInfo
 The C++ counterpart looks like this:
 
 ```cpp [APITODO]
-struct AzureFrontendAccountInfo
+struct SessionConfiguration
 {
     std::string AccountAuthenticationDomain{};
     std::string AccountDomain{};
@@ -63,17 +63,17 @@ The account information can be obtained from the portal as described in the [ret
 
 ## Azure Frontend
 
-The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality, which includes: asset conversion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
+The relevant classes are ```RemoteRenderingClient``` and ```RenderingSession```. ```RemoteRenderingClient``` is used for account management and account level functionality, which includes: asset conversion and rendering session creation. ```RenderingSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
 
-Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
+Each opened/created ```RenderingSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
-Deallocating a session will not stop the server on Azure, `AzureSession.StopAsync` must be called explicitly.
+Deallocating a session will not stop the server on Azure, `RenderingSession.StopAsync` must be called explicitly.
 
-Once a session has been created and its state has been marked as ready, it can connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
+Once a session has been created and its state has been marked as ready, it can connect to the remote rendering runtime with `RenderingSession.ConnectAsync`.
 
 ### Threading
 
-All AzureSession and AzureFrontend async calls are completed in a background thread, not the main application thread.
+All RenderingSession and RemoteRenderingClient async calls are completed in a background thread, not the main application thread.
 
 ### Conversion APIs
 
@@ -84,9 +84,9 @@ For more information about the conversion service, see [the model conversion RES
 ```cs [APITODO]
 private StartConversionAsync _pendingAsync = null;
 
-void StartAssetConversion(AzureFrontend frontend, string storageContainer, string blobinputpath, string bloboutpath, string modelName, string outputName)
+void StartAssetConversion(RemoteRenderingClient client, string storageContainer, string blobinputpath, string bloboutpath, string modelName, string outputName)
 {
-    _pendingAsync = frontend.StartConversionAsync(
+    _pendingAsync = client.StartConversionAsync(
         new AssetConversionInputParams(storageContainer, blobinputpath, "", modelName),
         new AssetConversionOutputParams(storageContainer, bloboutpath, "", outputName)
         );
@@ -108,7 +108,7 @@ void StartAssetConversion(AzureFrontend frontend, string storageContainer, strin
 ```
 
 ```cpp [APITODO]
-void StartAssetConversion(ApiHandle<AzureFrontend> frontend, std::string storageContainer, std::string blobinputpath, std::string bloboutpath, std::string modelName, std::string outputName)
+void StartAssetConversion(ApiHandle<RemoteRenderingClient> client, std::string storageContainer, std::string blobinputpath, std::string bloboutpath, std::string modelName, std::string outputName)
 {
     AssetConversionInputParams input;
     input.BlobContainerInformation.BlobContainerName = blobinputpath;
@@ -122,7 +122,7 @@ void StartAssetConversion(ApiHandle<AzureFrontend> frontend, std::string storage
     output.BlobContainerInformation.FolderPath = "";
     output.OutputAssetPath = outputName;
 
-    ApiHandle<StartAssetConversionAsync> conversionAsync = *frontend->StartAssetConversionAsync(input, output);
+    ApiHandle<StartAssetConversionAsync> conversionAsync = *client->StartAssetConversionAsync(input, output);
     conversionAsync->Completed([](ApiHandle<StartAssetConversionAsync> res)
     {
         if (res->GetIsRanToCompletion())
@@ -143,9 +143,9 @@ void StartAssetConversion(ApiHandle<AzureFrontend> frontend, std::string storage
 
 ```cs [APITODO]
 private ConversionStatusAsync _pendingAsync = null
-void GetConversionStatus(AzureFrontend frontend, string assetId)
+void GetConversionStatus(RemoteRenderingClient client, string assetId)
 {
-    _pendingAsync = frontend.GetAssetConversionStatusAsync(assetId);
+    _pendingAsync = client.GetAssetConversionStatusAsync(assetId);
     _pendingAsync.Completed +=
         (ConversionStatusAsync res) =>
         {
@@ -164,7 +164,7 @@ void GetConversionStatus(AzureFrontend frontend, string assetId)
 ```
 
 ```cpp [APITODO]
-void GetConversionStatus(ApiHandle<AzureFrontend> frontend, std::string assetId)
+void GetConversionStatus(ApiHandle<RemoteRenderingClient> client, std::string assetId)
 {
     ApiHandle<ConversionStatusAsync> pendingAsync = *frontend->GetAssetConversionStatusAsync(assetId);
     pendingAsync->Completed([](ApiHandle<ConversionStatusAsync> res)
@@ -187,15 +187,15 @@ void GetConversionStatus(ApiHandle<AzureFrontend> frontend, std::string assetId)
 
 See [the session management REST API](session-rest-api.md) for details about session management.
 
-A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an AzureSession object.
+A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an RenderingSession object.
 
 #### Create rendering session
 
 ```cs [APITODO]
 private CreateSessionAsync _pendingAsync = null;
-void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
+void CreateRenderingSession(RemoteRenderingClient client, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
-    _pendingAsync = frontend.CreateNewRenderingSessionAsync(
+    _pendingAsync = client.CreateNewRenderingSessionAsync(
         new RenderingSessionCreationParams(vmSize, maxLease));
 
     _pendingAsync.Completed +=
@@ -215,12 +215,12 @@ void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSiz
 ```
 
 ```cpp [APITODO]
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, RenderingSessionVmSize vmSize, const ARRTimeSpan& maxLease)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, RenderingSessionVmSize vmSize, const ARRTimeSpan& maxLease)
 {
     RenderingSessionCreationParams params;
     params.MaxLease = maxLease;
     params.Size = vmSize;
-    ApiHandle<CreateSessionAsync> pendingAsync = *frontend->CreateNewRenderingSessionAsync(params);
+    ApiHandle<CreateSessionAsync> pendingAsync = *client->CreateNewRenderingSessionAsync(params);
 
     pendingAsync->Completed([] (ApiHandle<CreateSessionAsync> res)
     {
@@ -241,17 +241,17 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, RenderingSessionV
 Opening an existing session is a synchronous call.
 
 ```cs [APITODO]
-void CreateRenderingSession(AzureFrontend frontend, string sessionId)
+void CreateRenderingSession(RemoteRenderingClient client, string sessionId)
 {
-    AzureSession session = frontend.OpenRenderingSession(sessionId);
+    RenderingSession session = client.OpenRenderingSession(sessionId);
     // Query session status, etc.
 }
 ```
 
 ```cpp [APITODO]
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, std::string sessionId)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, std::string sessionId)
 {
-    ApiHandle<AzureSession> session = *frontend->OpenRenderingSession(sessionId);
+    ApiHandle<RenderingSession> session = *client->OpenRenderingSession(sessionId);
     // Query session status, etc.
 }
 ```
@@ -261,9 +261,9 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, std::string sessi
 
 ```cs [APITODO]
 private SessionPropertiesArrayAsync _pendingAsync = null;
-void GetCurrentRenderingSessions(AzureFrontend frontend)
+void GetCurrentRenderingSessions(RemoteRenderingClient client)
 {
-    _pendingAsync = frontend.GetCurrentRenderingSessionsAsync();
+    _pendingAsync = client.GetCurrentRenderingSessionsAsync();
     _pendingAsync.Completed +=
         (SessionPropertiesArrayAsync res) =>
         {
@@ -281,9 +281,9 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 ```
 
 ```cpp [APITODO]
-void GetCurrentRenderingSessions(ApiHandle<AzureFrontend> frontend)
+void GetCurrentRenderingSessions(ApiHandle<RemoteRenderingClient> client)
 {
-    ApiHandle<SessionPropertiesArrayAsync> pendingAsync = *frontend->GetCurrentRenderingSessionsAsync();
+    ApiHandle<SessionPropertiesArrayAsync> pendingAsync = *client->GetCurrentRenderingSessionsAsync();
     pendingAsync->Completed([](ApiHandle<SessionPropertiesArrayAsync> res)
     {
         if (res->GetIsRanToCompletion())
@@ -304,7 +304,7 @@ void GetCurrentRenderingSessions(ApiHandle<AzureFrontend> frontend)
 
 ```cs [APITODO]
 private SessionPropertiesAsync _pendingAsync = null;
-void GetRenderingSessionProperties(AzureSession session)
+void GetRenderingSessionProperties(RenderingSession session)
 {
     _pendingAsync = session.GetPropertiesAsync();
     _pendingAsync.Completed +=
@@ -324,7 +324,7 @@ void GetRenderingSessionProperties(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void GetRenderingSessionProperties(ApiHandle<AzureSession> session)
+void GetRenderingSessionProperties(ApiHandle<RenderingSession> session)
 {
     ApiHandle<SessionPropertiesAsync> pendingAsync = *session->GetPropertiesAsync();
     pendingAsync->Completed([](ApiHandle<SessionPropertiesAsync> res)
@@ -345,7 +345,7 @@ void GetRenderingSessionProperties(ApiHandle<AzureSession> session)
 
 ```cs [APITODO]
 private SessionAsync _pendingAsync;
-void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
+void UpdateRenderingSession(RenderingSession session, ARRTimeSpan updatedLease)
 {
     _pendingAsync = session.RenewAsync(
         new RenderingSessionUpdateParams(updatedLease));
@@ -366,7 +366,7 @@ void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 ```
 
 ```cpp [APITODO]
-void UpdateRenderingSession(ApiHandle<AzureSession> session, const ARRTimeSpan& updatedLease)
+void UpdateRenderingSession(ApiHandle<RenderingSession> session, const ARRTimeSpan& updatedLease)
 {
     RenderingSessionUpdateParams params;
     params.MaxLease = updatedLease;
@@ -389,7 +389,7 @@ void UpdateRenderingSession(ApiHandle<AzureSession> session, const ARRTimeSpan& 
 
 ```cs [APITODO]
 private SessionAsync _pendingAsync;
-void StopRenderingSession(AzureSession session)
+void StopRenderingSession(RenderingSession session)
 {
     _pendingAsync = session.StopAsync();
     _pendingAsync.Completed +=
@@ -409,7 +409,7 @@ void StopRenderingSession(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void StopRenderingSession(ApiHandle<AzureSession> session)
+void StopRenderingSession(ApiHandle<RenderingSession> session)
 {
     ApiHandle<SessionAsync> pendingAsync = *session->StopAsync();
     pendingAsync->Completed([](ApiHandle<SessionAsync> res)
@@ -430,7 +430,7 @@ void StopRenderingSession(ApiHandle<AzureSession> session)
 
 ```cs [APITODO]
 private ArrInspectorAsync _pendingAsync = null;
-void ConnectToArrInspector(AzureSession session)
+void ConnectToArrInspector(RenderingSession session)
 {
     _pendingAsync = session.ConnectToArrInspectorAsync();
     _pendingAsync.Completed +=
@@ -462,7 +462,7 @@ void ConnectToArrInspector(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void ConnectToArrInspector(ApiHandle<AzureSession> session)
+void ConnectToArrInspector(ApiHandle<RenderingSession> session)
 {
     ApiHandle<ArrInspectorAsync> pendingAsync = *session->ConnectToArrInspectorAsync();
     pendingAsync->Completed([](ApiHandle<ArrInspectorAsync> res)

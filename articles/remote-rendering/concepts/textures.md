@@ -37,9 +37,9 @@ The following sample code shows how to load a texture via its SAS URI (or built-
 
 ```cs [APITODO]
 LoadTextureAsync _textureLoad = null;
-void LoadMyTexture(AzureSession session, string textureUri)
+void LoadMyTexture(RenderingSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Connection.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -57,12 +57,12 @@ void LoadMyTexture(AzureSession session, string textureUri)
 ```
 
 ```cpp [APITODO]
-void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+void LoadMyTexture(ApiHandle<RenderingSession> session, std::string textureUri)
 {
     LoadTextureFromSASParams params;
     params.TextureType = TextureType::Texture2D;
     params.TextureUrl = std::move(textureUri);
-    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Connection()->LoadTextureFromSASAsync(params);
     textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
     {
         if (res->GetIsRanToCompletion())

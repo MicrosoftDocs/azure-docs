@@ -215,7 +215,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                return await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast).AsTask();
             }
             else
             {

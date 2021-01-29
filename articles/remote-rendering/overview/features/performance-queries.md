@@ -34,7 +34,7 @@ The illustration shows how:
 Frame statistics provide some high-level information for the last frame, such as latency. The data provided in the `FrameStatistics` structure is measured on the client side, so the API is a synchronous call:
 
 ```cs [APITODO]
-void QueryFrameData(AzureSession session)
+void QueryFrameData(RenderingSession session)
 {
     FrameStatistics frameStatistics;
     if (session.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) == Result.Success)
@@ -45,7 +45,7 @@ void QueryFrameData(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void QueryFrameData(ApiHandle<AzureSession> session)
+void QueryFrameData(ApiHandle<RenderingSession> session)
 {
     FrameStatistics frameStatistics;
     if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
@@ -85,9 +85,9 @@ None of the values above gives clear indication of pure network latency (the red
 ```cs [APITODO]
 PerformanceAssessmentAsync _assessmentQuery = null;
 
-void QueryPerformanceAssessment(AzureSession session)
+void QueryPerformanceAssessment(RenderingSession session)
 {
-    _assessmentQuery = session.Actions.QueryServerPerformanceAssessmentAsync();
+    _assessmentQuery = session.Connection.QueryServerPerformanceAssessmentAsync();
     _assessmentQuery.Completed += (PerformanceAssessmentAsync res) =>
     {
         // do something with the result:
@@ -100,9 +100,9 @@ void QueryPerformanceAssessment(AzureSession session)
 ```
 
 ```cpp [APITODO]
-void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+void QueryPerformanceAssessment(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Connection()->QueryServerPerformanceAssessmentAsync();
     assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
     {
         // do something with the result:

@@ -37,12 +37,12 @@ There are two distinct loading functions that differ by the way the asset is add
 The following code snippets show how to load models with either function. To load a model using the SAS URI, use code like the one below:
 
 ```cs [APITODO]
-async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
+async void LoadModel(RenderingSession session, Entity modelParent, string modelUri)
 {
     // load a model that will be parented to modelParent
     var modelParams = new LoadModelFromSASParams(modelUri, modelParent);
 
-    var loadOp = session.Actions.LoadModelFromSASAsync(modelParams);
+    var loadOp = session.Connection.LoadModelFromSASAsync(modelParams);
 
     loadOp.ProgressUpdated += (float progress) =>
     {
@@ -54,13 +54,13 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 ```
 
 ```cpp [APITODO]
-ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
 {
     LoadModelFromSASParams modelParams;
     modelParams.ModelUrl = modelUri;
     modelParams.Parent = modelParent;
 
-    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
+    ApiHandle<LoadModelAsync> loadOp = *session->Connection()->LoadModelFromSASAsync(modelParams);
 
     loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
     {
@@ -78,7 +78,7 @@ ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<E
 If you want to load a model by directly using its blob storage parameters, use code similar to the following snippet:
 
 ```cs [APITODO]
-async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
+async void LoadModel(RenderingSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
 {
     // load a model that will be parented to modelParent
     var modelParams = new LoadModelParams(
@@ -88,14 +88,14 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
         modelParent
     );
 
-    var loadOp = session.Actions.LoadModelAsync(modelParams);
+    var loadOp = session.Connection.LoadModelAsync(modelParams);
 
     // ... (identical to the SAS URI snippet above)
 }
 ```
 
 ```cpp [APITODO]
-ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
 {
     LoadModelParams modelParams;
     modelParams.Parent = modelParent;
@@ -103,7 +103,7 @@ ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<E
     modelParams.Blob.BlobContainerName = std::move(containerName);
     modelParams.Blob.AssetPath = std::move(assetFilePath);
 
-    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
+    ApiHandle<LoadModelAsync> loadOp = *session->Connection()->LoadModelAsync(modelParams);
     // ... (identical to the SAS URI snippet above)
 }
 ```
