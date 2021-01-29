@@ -94,7 +94,7 @@ You can also set up alerts on your query. For example, to configure an alert whe
 
 3. Enter a name and description for the alert, and choose the severity level. For our example, we could set it to **Informational**.
 
-4. Select the **Action Group** that will be alerted when the signal occurs. You can choose to notify your team via email or text message, or you could automate the action using webhooks, Azure functions or logic apps. Learn more about [creating and managing alert groups in the Azure portal](../../azure-monitor/platform/action-groups.md).
+4. Select the **Action Group** that will be alerted when the signal occurs. You can choose to notify your team via email or text message, or you could automate the action using webhooks, Azure functions or logic apps. Learn more about [creating and managing alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
 
 5. Once you have configured the alert, select **Create alert** to enable it. 
 
@@ -109,5 +109,5 @@ The workbooks provide several reports related to common scenarios involving audi
 ## Next steps
 
 * [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
-* [Create and manage alert groups in the Azure portal](../../azure-monitor/platform/action-groups.md)
+* [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
 * [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

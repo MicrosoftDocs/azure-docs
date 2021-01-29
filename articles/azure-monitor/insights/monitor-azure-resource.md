@@ -150,7 +150,7 @@ Different kinds of monitoring data are used for different kinds of alert rules.
 Use **Alerts** from a resource's menu to view alerts and manage alert rules for that resource. Only Activity log alerts and Metric alerts use individual Azure resources as a target. Log query alerts use a Log Analytics workspace as a target and are based on a query that can access any logs stored in that workspace. Use the Azure Monitor menu to view and manage alerts for all resources and the manage log query alert rules.
 
 - See the articles for the different kinds of alerts above for details on creating alert rules.
-- See [Create and manage action groups in the Azure portal](../platform/action-groups.md) for details on creating an action group which allows you to manage responses to alerts.
+- See [Create and manage action groups in the Azure portal](../alerts/action-groups.md) for details on creating an action group which allows you to manage responses to alerts.
 
 
 

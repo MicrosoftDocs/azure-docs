@@ -228,7 +228,7 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
 
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
+To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Next steps
 

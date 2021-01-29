@@ -27,7 +27,7 @@ The following table lists the different ways that you can use Metrics in Azure M
 |  |  |
 |:---|:---|
 | **Analyze** | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
-| **Alert** | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
+| **Alert** | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the metric value crosses a threshold. |
 | **Visualize** | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](./workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | **Automate** |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
 | **Retrieve** | Access metric values from a command line using  [PowerShell cmdlets](/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |

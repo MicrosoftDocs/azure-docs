@@ -64,7 +64,7 @@ To use the log analytics views, you need:
 
     ![Create rule](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Select the action group to alert. In general, this can be either a team you want to notify via email or text message, or it can be an automated task using webhooks, runbooks, functions, logic apps or external ITSM solutions. Learn how to [create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md).
+6. Select the action group to alert. In general, this can be either a team you want to notify via email or text message, or it can be an automated task using webhooks, runbooks, functions, logic apps or external ITSM solutions. Learn how to [create and manage action groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
 
 7. Select **Create alert rule** to create the alert. Now you will be alerted every time there's a sign-in error.
 

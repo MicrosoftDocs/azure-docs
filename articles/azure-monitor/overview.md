@@ -94,7 +94,7 @@ In addition to allowing you to interactively analyze monitoring data, an effecti
 ### Alerts
 [Alerts in Azure Monitor](platform/alerts-overview.md) proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerts based on numeric values. Rules based on logs allow for complex logic across data from multiple sources.
 
-Alert rules in Azure Monitor use [action groups](platform/action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
+Alert rules in Azure Monitor use [action groups](alerts/action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
 
 ![Screenshot shows alerts in Azure Monitor with severity, total alerts, and other information.](media/overview/alerts.png)
 

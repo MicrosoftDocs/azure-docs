@@ -175,9 +175,9 @@ Alerts in Azure Monitor proactively notify you of important data or patterns ide
 
 
 ### Create action groups
-[Action groups](platform/action-groups.md) are a collection of notification preferences used by alert rules to determine the action to perform when an alert is triggered. Examples of actions include sending a mail or text, calling a webhook, or send data to an ITSM tool. Each alert rule requires at least one action group, and a single action group can be used by multiple alert rules.
+[Action groups](alerts/action-groups.md) are a collection of notification preferences used by alert rules to determine the action to perform when an alert is triggered. Examples of actions include sending a mail or text, calling a webhook, or send data to an ITSM tool. Each alert rule requires at least one action group, and a single action group can be used by multiple alert rules.
 
-See [Create and manage action groups in the Azure portal](platform/action-groups.md) for details on creating an action group and a description of the different actions it can include.
+See [Create and manage action groups in the Azure portal](alerts/action-groups.md) for details on creating an action group and a description of the different actions it can include.
 
 
 ### Create alert rules

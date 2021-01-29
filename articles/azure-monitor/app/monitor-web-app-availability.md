@@ -155,7 +155,7 @@ In addition to the raw results, you can also view two key Availability metrics i
 ## Automation
 
 * [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
+* Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
 
 ## Troubleshooting
 

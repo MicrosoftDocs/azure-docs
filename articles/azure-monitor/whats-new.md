@@ -81,7 +81,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md) - Updated for Azure Arc support.
 
 ### Alerts
-- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added source IP addresses for webhooks.
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md) - Added source IP addresses for webhooks.
 
 ### Application Insights
 - [Java codeless application monitoring Azure Monitor Application Insights](app/java-in-process-agent.md) - Added configuration example.
@@ -142,7 +142,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [What is monitored by Azure Monitor](monitor-reference.md) - Added section on agents.
 
 ### Alerts
-- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added section on service tag.
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md) - Added section on service tag.
 - [Resource Manager template samples for metric alerts](samples/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
 - [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
 
@@ -327,7 +327,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Alerts
 - [Action rules for Azure Monitor alerts](alerts/alerts-action-rules.md) - Added CLI processes.
-- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md) - Updated to reflect changes in UI.
 - [Example queries in Azure Monitor Log Analytics](log-query/example-queries.md) - New article.
 - [Troubleshoot log alerts in Azure Monitor](alerts/alerts-troubleshoot-log.md) - Added section on alert rule quota.
 - [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
@@ -730,9 +730,9 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Alerts
 
-- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Setting removed for v2 functions that is no longer required.
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md) - Setting removed for v2 functions that is no longer required.
 - [Create a metric alert with a Resource Manager template](alerts/alerts-metric-create-templates.md) - Added example for the *ignoreDataBefore* parameter.  Added constraints about multi-criteria rules.
-- [Using Log Analytics Alert REST API](platform/api-alerts.md) - JSON example corrected.
+- [Using Log Analytics Alert REST API](alerts/api-alerts.md) - JSON example corrected.
 
 ### Application Insights
 

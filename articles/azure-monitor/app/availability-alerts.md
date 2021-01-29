@@ -20,7 +20,7 @@ Alerts are now automatically enabled by default, but in order to fully configure
 ![Create experience](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  With the [new unified alerts](../platform/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../platform/action-groups.md) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
+>  With the [new unified alerts](../platform/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../alerts/action-groups.md) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
 
 1. After saving the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
 

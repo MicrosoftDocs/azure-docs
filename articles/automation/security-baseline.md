@@ -416,7 +416,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 

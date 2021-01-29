@@ -38,20 +38,20 @@ Follow these steps to register the application with Azure AD:
 The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with Service now.
 As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal (Requires tenant admin privileges).
 
-This step can be done through the same [PowerShell commands](./action-groups.md#secure-webhook-powershell-script).
+This step can be done through the same [PowerShell commands](../alerts/action-groups.md#secure-webhook-powershell-script).
 
 ## Create a Secure Webhook action group
 
 After your application is registered with Azure AD, you can create work items in your ITSM tool based on Azure alerts, by using the Secure Webhook action in action groups.
 
 Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, Activity Log alerts, and Azure Log Analytics alerts in the Azure portal.
-To learn more about action groups, see [Create and manage action groups in the Azure portal](./action-groups.md).
+To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
 
 To add a webhook to an action, follow these instructions for Secure Webhook:
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 2. Select **Alerts** > **Manage actions**.
-3. Select [Add action group](./action-groups.md#create-an-action-group-by-using-the-azure-portal), and fill in the fields.
+3. Select [Add action group](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal), and fill in the fields.
 4. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 5. Select **Secure Webhook**.
 6. Select these details:

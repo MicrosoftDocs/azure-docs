@@ -191,4 +191,4 @@ This article shows you how to integrate Azure service health alerts with Service
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Learn about [service health notifications](./service-notifications.md).
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

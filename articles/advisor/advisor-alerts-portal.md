@@ -22,7 +22,7 @@ You can also configure the action that will take place when an alert is triggere
 * Selecting an existing action group
 * Creating a new action group
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE] 
 > Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
@@ -52,7 +52,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
     ![Advisor alert action group](./media/advisor-alerts/create6.png)
 
-7. In the **action groups** section, select **Add existing** to use an action group you already created or select **Create new** to set up a new [action group](../azure-monitor/platform/action-groups.md). 
+7. In the **action groups** section, select **Add existing** to use an action group you already created or select **Create new** to set up a new [action group](../azure-monitor/alerts/action-groups.md). 
 
     ![Advisor alert add existing](./media/advisor-alerts/create7.png)
 
@@ -195,4 +195,4 @@ From Azure Advisor, you can edit, delete, or disable and enable your recommendat
 
 ## Next steps
 - Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

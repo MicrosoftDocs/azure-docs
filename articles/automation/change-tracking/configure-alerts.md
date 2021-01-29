@@ -37,7 +37,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 ## Configure action groups for your alerts
 
-Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/platform/action-groups.md).
+Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/alerts/action-groups.md).
 
 1. Select an alert and then select **Create New** under **Action Groups**.
 

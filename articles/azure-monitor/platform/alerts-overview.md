@@ -54,7 +54,7 @@ For certain resources (like virtual machines), you can specify multiple resource
 - Sev 3 = Informational
 - Sev 4 = Verbose 
 
-**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](./action-groups.md).
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../alerts/action-groups.md).
 
 ## What you can alert on
 
@@ -205,7 +205,7 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 ## Next steps
 
 - [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Learn about action groups](./action-groups.md)
+- [Learn about action groups](../alerts/action-groups.md)
 - [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)

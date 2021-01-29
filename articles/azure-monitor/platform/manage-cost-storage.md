@@ -622,7 +622,7 @@ To alert if the billable data volume ingested in the last 24 hours was greater t
    - **Name** to *Billable data volume greater than 50 GB in 24 hours*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified.
+Specify an existing or create a new [Action Group](../alerts/action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the above sections about how to troubleshoot why usage is higher than expected.
 
@@ -648,7 +648,7 @@ When data collection stops, the OperationStatus is **Warning**. When data collec
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
-To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops. Use the steps described in [create an action group](action-groups.md) to configure an e-mail, webhook, or runbook action for the alert rule. 
+To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops. Use the steps described in [create an action group](../alerts/action-groups.md) to configure an e-mail, webhook, or runbook action for the alert rule. 
 
 ## Limits summary
 
