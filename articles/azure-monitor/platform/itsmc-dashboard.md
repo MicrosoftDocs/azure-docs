@@ -17,13 +17,13 @@ This article contains information about the IT Service Management Connector (ITS
 
 To view errors in the dashboard:
 
-1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
+1. Select **All resources**, and then find **ServiceDesk(*your workspace name*)**.
 
-   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
+   ![Screenshot that shows the resources in Azure services.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 2. Under **Workspace Data Sources** on the left pane, select **ITSM Connections**:
 
-   ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Screenshot that shows selecting ITSM Connections under Workplace Data Sources.](media/itsmc-overview/add-new-itsm-connection.png)
 
 3. Under **Summary**, in the **IT Service Management Connector** area, select **View Summary**:
 
@@ -37,7 +37,7 @@ To view errors in the dashboard:
    
    ![Screenshot that shows connector status.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
-## Get to know dashboard elements
+## Understand dashboard elements
 
 The dashboard contains information on the alerts that were sent to the ITSM tool through this connector. The dashboard is split into four parts.
 
