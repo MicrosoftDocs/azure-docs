@@ -62,7 +62,7 @@ The infrastructure requirements for a private application are in the following l
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified
 * Subnets managed by the Azure Spring Cloud deployment must not be modified
 * A subnet must only have one instance of Azure Spring Cloud
-* If [Azure Spring Cloud Config Server][8] is used to load config properties from a git repository, the repository must be private.
+* If [Azure Spring Cloud Config Server][8] is used to load config properties from a repository, the repository must be private.
 
 The components that make up the design are in the following list:
 
@@ -128,7 +128,7 @@ The components that make up the design are in the following list:
 
 The Azure services that are used in this reference architecture are in the following list:
 
-* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java-based Spring microservices, and .NET based [Steeltoe][9] microservices.
+* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java-based Spring microservices, and .NET based [Steeltoe][9] microservices
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
 
