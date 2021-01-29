@@ -86,7 +86,9 @@ All [service tiers limit](search-limits-quotas-capacity.md#indexer-limits) the n
 
 ### Use Azure portal to create an indexer
 
-The portal provides two options for creating an indexer: [**Import Data Wizard**](search-import-data-portal.md) or **New Indexer** that provides fields for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+The portal provides two options for creating an indexer: [**Import data**](search-import-data-portal.md) and **New Indexer** that provides fields for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+
+The following screenshot shows where you can find these features in the portal. 
 
   :::image type="content" source="media/search-howto-create-indexers/portal-indexer-client.png" alt-text="hotels indexer" border="true":::
 
