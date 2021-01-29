@@ -147,7 +147,30 @@ landingContent:
           - text: Back up your app to Storage Blobs
             url: manage-backup.md
 
-
+  - title: Monitor app
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: App Service Integration with Azure Monitor
+            url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
+          - text: New Log Types for Azure Monitor Integration
+            url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
+      - linkListType: tutorial
+        links:
+          - text: Troubleshoot errors with Azure Monitor
+            url: tutorial-troubleshoot-monitor
+      - linkListType: how-to-guide
+        links:
+          - text: Enable logs
+            url: troubleshoot-diagnostic-logs
+          - text: Get resource events
+            url: get-resource-events
+          - text: Health check
+            url: monitor-instances-health-check
+      - linkListType: reference
+        links:
+          - text: Quotas & alerts
+            url: web-sites-monitor
 
   - title: More resources
     linkLists:
