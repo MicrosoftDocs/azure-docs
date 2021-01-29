@@ -1514,6 +1514,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsung Knox and Business Services
+        href: samsung-knox-and-business-services-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
@@ -2035,6 +2037,8 @@
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Asana
         href: asana-provisioning-tutorial.md
+      - name: Atea
+        href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
@@ -2185,12 +2189,14 @@
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
         href: playvox-provisioning-tutorial.md
-      - name: Promapp
-        href: promapp-provisioning-tutorial.md
+      - name: Preciate
+        href: preciate-provisioning-tutorial.md
       - name: PrinterLogic SaaS
         href: printer-logic-saas-provisioning-tutorial.md
       - name: Priority Matrix
         href: priority-matrix-provisioning-tutorial.md
+      - name: Promapp
+        href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
