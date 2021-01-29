@@ -1,11 +1,11 @@
 ---
 title: Performance best practices - Azure Database for MySQL
 description: This article describes the best practices to monitor and tune performance for your Azure Database for MySQL.
-author: mksuni
-ms.author: sumuth
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 1/28/2021
 ---
 
 # Best practices for optimal performance of your Azure Database for MySQL - Single server
@@ -44,6 +44,19 @@ An Azure Database for MySQL performance best practice is to allocate enough RAM 
 - Check if the memory percentage being used in reaching the [limits](./concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md). 
 - Set up alerts on such numbers to ensure that as the servers reaches limits you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU — either to higher compute size or to better pricing tier which results in a dramatic increase in performance. 
 - Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](./concepts-monitoring.md#metrics).
+ 
+## Use InnoDB Buffer Pool Warmup
+
+After restarting Azure Database for MySQL server, the data pages residing in storage are loaded as the tables are queried. This leads to increased latency and slower performance for the first execution of the queries. This may not be acceptable for latency sensitive workloads. Utilizing InnoDB buffer pool warmup shortens the warmup period by reloading disk pages that were in the buffer pool before the restart rather than waiting for DML or SELECT operations to access corresponding rows.
+
+You can reduce the warmup period after restarting your Azure Database for MySQL server which represents a performance advantage by configuring [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB saves a percentage of the most recently used pages for each buffer pool at server shutdown and restores these pages at server startup.
+
+It is also important to note that improved performance comes at the expense of longer start-up time for the server. When this parameter is enabled, the server startup and restart time is expected to increase depending on the IOPS provisioned on the server. We recommend to test and monitor the restart time to ensure the start-up/restart performance is acceptable as the server is unavailable during that time. It is not recommended to use this parameter when IOPS provisioned is less than 1000 IOPS (or in other words, when storage provisioned is less than 335GB.
+
+To save the state of the buffer pool at server shutdown set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up/restart time by lowering and fine tuning the value of server parameter `innodb_buffer_pool_dump_pct`, By default, this parameter is set to `25`.
+
+> [!Note]
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ## Next steps
 
