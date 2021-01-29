@@ -207,6 +207,73 @@ As a helper, if you need to transform normalized coordinates to the original coo
             return original;
         }
 ```
+## Passing images to custom skills
+
+For scenarios where you require a custom skill to work on images, you can pass images to custom skills and have the custom skill return text or images. The [python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) demonstrates passing an image to a custom skill and returning an image from the skill.
+
+The following example skillset contains a single custom skill that accepts an image as an input and returns an image back to the skillset.
+
+#### Request body syntax
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 1000,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+In the custom skill base64 decode the data property of the image.
+
+```python
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an imageto work with
+```
+Similarly to return an image, return a base64 encoded string within a JSON object with a `$type` property of `file`.
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
 
 ## See also
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
@@ -215,3 +282,4 @@ As a helper, if you need to transform normalized coordinates to the original coo
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
++ [How to pass images to custom skills](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)
