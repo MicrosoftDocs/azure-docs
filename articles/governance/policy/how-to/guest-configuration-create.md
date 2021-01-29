@@ -339,7 +339,7 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 - **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
-The example below publishes the package to a storage container name '*guestconfiguration*'.
+The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
