@@ -21,7 +21,7 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant Storage (LRS) account. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant Storage (ZRS) accounts.
 
-:::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage" lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
 The available time window for restore (also known as retention period) is the lower value of the following two: "30 days back in past from now" or "up to the resource creation time". The point in time for restore can be any timestamp within the retention period.
 
@@ -52,11 +52,11 @@ You can add these configurations to the restored account after the restore is co
 The following are some of the key scenarios that are addressed by the point-in-time-restore feature. Scenarios [a] through [c] demonstrate how to trigger a restore if the restore timestamp is known beforehand. 
 However, there could be scenarios where you don't know the exact time of accidental deletion or corruption. Scenarios [d] and [e] demonstrate how to _discover_ the restore timestamp using the new event feed APIs on the restorable database or containers.
 
-:::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Life-cycle events with timestamps for a restorable account" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Life-cycle events with timestamps for a restorable account" lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
 a. **Restore deleted account** - All the deleted accounts that you can restore are visible from the **Restore** pane. For example, if "Account A" is dropped at timestamp T3. In this case the timestamp just before T3, location, target account name, resource group, and target account name is sufficient to restore from [Azure portal](configure-continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](configure-continuous-backup-restore-powershell.md#trigger-restore), or [CLI](configure-continuous-backup-restore-cli.md).  
 
-:::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Life-cycle events with timestamps for a restorable database and container" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Life-cycle events with timestamps for a restorable database and container" lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
 b. **Restore data of an account in a particular region** - For example, if "Account A" exists in two regions "East US" and "West US" at timestamp T3. If you need a copy of account A in "West US", you can do a point in time restore from [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [CLI](configure-continuous-backup-restore-cli.md) with West US as the target location.
 

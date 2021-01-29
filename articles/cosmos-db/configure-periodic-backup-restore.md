@@ -23,7 +23,7 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
   The following image shows how an Azure Cosmos container with all the three primary physical partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
-  :::image type="content" source="./media/configure-periodic-backup-restore/automatic-backup.png" alt-text="Periodic full backups of all Cosmos DB entities in GRS Azure Storage" border="false":::
+  :::image type="content" source="./media/configure-periodic-backup-restore/automatic-backup.png" alt-text="Periodic full backups of all Cosmos DB entities in GRS Azure Storage" lightbox="./media/configure-periodic-backup-restore/automatic-backup.png" border="false":::
 
 * The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
 
@@ -73,7 +73,7 @@ In addition to Azure Cosmos account name, database names, container names, you s
 
 The following screenshot illustrates how to create a support request for a container(collection/graph/table) to restore data by using Azure portal. Provide other details such as type of data, purpose of the restore, time when the data was deleted to help us prioritize the request.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/backup-support-request-portal.png" alt-text="Create a backup support request using Azure portal":::
+:::image type="content" source="./media/configure-periodic-backup-restore/backup-support-request-portal.png" alt-text="Create a backup support request using Azure portal" border="true":::
 
 ## Considerations for restoring the data from a backup
 
