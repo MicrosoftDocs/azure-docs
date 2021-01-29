@@ -38,15 +38,19 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
-1. Install [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract `spx-netcore-30-linux-x64` to a new `~/spx` directory.
-4. In a terminal, type these commands:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Install [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Install the Speech CLI using NuGet by entering this command:
+
+    dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
 
 Type `spx` to see help for the Speech CLI.
+
+Note:
+> [!NOTE]
+> If you don't want to use NuGet, you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
+> extract `spx-netcore-30-linux-x64` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
+> and add the `~/spx` path to your PATH system variable.
+
 
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
 
