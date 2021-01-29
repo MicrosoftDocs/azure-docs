@@ -12214,13 +12214,18 @@
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-powershell",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
+      "redirect_document_id": true
+    }, 
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup",
@@ -18807,6 +18812,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/overview-differences.md",
+      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -24233,11 +24243,6 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
       "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
@@ -61571,6 +61576,16 @@
     {
       "source_path": "articles/aks/view-master-logs.md",
       "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/data-factory/data-flow-reserved-capacity-overview.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/data-factory/data-flow-understand-reservation-charges.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
       "redirect_document_id": false
     }
   ]
