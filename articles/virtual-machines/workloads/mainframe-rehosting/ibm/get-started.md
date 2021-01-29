@@ -18,7 +18,7 @@ keywords:
 
 Many IBM mainframe workloads based on z/OS can be replicated in Azure with no loss of functionality and without users even noticing changes in their underlying systems. Rehosting applications on Azure gives you the mainframe-like features you need plus the elasticity, availability, and potential cost savings of the cloud.
 
-Azure supports integration with existing IBM mainframe environments, enabling you to migrate the applicates that make sense, run hybrid solutions where needed, and migrate over time. Although you can completely rewrite existing mainframe-based programs for Azure, it’s more common to rehost them. Rewriting adds cost, complexity, and time to migration projects. With rehosting, you can:
+Azure supports integration with existing IBM mainframe environments, enabling you to migrate the applications that make sense, run hybrid solutions where needed, and migrate over time. Although you can completely rewrite existing mainframe-based programs for Azure, it’s more common to rehost them. Rewriting adds cost, complexity, and time to migration projects. With rehosting, you can:
 
 - Move applications to a cloud-based emulator.
 
