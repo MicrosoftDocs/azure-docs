@@ -1,9 +1,6 @@
 ---
 title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to

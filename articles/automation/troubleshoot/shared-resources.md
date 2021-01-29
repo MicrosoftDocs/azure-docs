@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation shared resource issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation shared resources.
 services: automation
 ms.subservice:
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
 ---
 
@@ -126,7 +126,7 @@ You don't have the permissions that you need to create or update the Run As acco
 
 #### Resolution
 
-To create or update a Run As account, you must have appropriate [permissions](../manage-runas-account.md#permissions) to the various resources used by the Run As account. 
+To create or update a Run As account, you must have appropriate [permissions](../automation-security-overview.md#permissions) to the various resources used by the Run As account.
 
 If the problem is because of a lock, verify that the lock can be removed. Then go to the resource that is locked in Azure portal, right-click the lock, and select **Delete**.
 
@@ -142,7 +142,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### Cause
 
-This error is most likely caused by an incorrectly configured [Run As account](../manage-runas-account.md).
+This error is most likely caused by an incorrectly configured [Run As account](../automation-security-overview.md).
 
 #### Resolution
 
@@ -161,4 +161,3 @@ If this article doesn't resolve your issue, try one of the following channels fo
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport). This is the official Microsoft Azure account for connecting the Azure community to the right resources: answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
-
