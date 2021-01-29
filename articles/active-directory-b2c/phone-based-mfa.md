@@ -18,80 +18,107 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Any Azure Active Directory B2C (Azure AD B2C) tenant can be prone to fraud attacks during the sign-up process where the user is asked to register phone number as MFA and the voice call method is chosen. Every voice call generates cost, and fraudsters can take advantage of this by creating multiple accounts that place phone call but never end up completing MFA registration process. As a result, the number of failed sign-ups increase, and this prevents other users with no ill-intent in the tenant to be affected by not being able to sign up for a new account due to fraudsters exhausting allowed sign up attempts.
+
+With Azure Active Directory (AD) Multi-Factor Authentication (MFA), users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure Active Directory B2C tenant. To help protect against such fraud attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
 
 ## Prerequisites
 
-Set up a [log analytics workspace](azure-monitor.md).
+Before you begin, create a [Log Analytics workspace](azure-monitor.md).
 
-## Phone-based MFA events workbook
+## Create a phone-based MFA events workbook
 
-Here are few screen shots from the draft workbook created to highlight phone related failures. The workbooks are available at [https://github.com/azure-ad-b2c/siem#phone-authentication-failures](https://github.com/azure-ad-b2c/siem#phone-authentication-failures).
+The [Azure AD B2C Reports & Alerts](https://github.com/azure-ad-b2c/siem#phone-authentication-failures) repository in GitHub contains artifacts you can use to create and publish reports, alerts, and dashboards based on Azure AD B2C logs. The draft workbook pictured below highlights phone-related failures.
 
 ### Overview tab
 
-You'll find the following data on the **Overview** tab:
+The  **Overview** tab, shown below, provides the following information:
 
-- Phone Authentication Failure Reasons
-- Phone Number Failures Per IP Address  
-- Blocked Phone Number Listing  
-- IP Address – Failed Phone Authentications
-- Phone Failures – Client Browsers
-- Phone Failures – Client Operating Systems
+- Phone authentication failure reasons
+- Blocked phone number listing  
+- IP addresses with failed phone authentications  
+- Phone number with IP address and failed phone authentications
+- Phone authentication failures per client browser
+- Phone authentication failures per client operating system
 
 ![Overview tab](media/phone-based-mfa/overview-tab.png)
 
 ### Details tab
 
-The following data is reported on the **Details** tab:
+The following information is reported on the **Details** tab:
 
-- Azure AD B2C Policy – Failed Phone Authentications
-- Failed Phone Authentications by Phone Number – Time Chart (timeline adjustable)
-- Failed Phone Authentications by Azure AD B2C Policy – Time Chart (timeline adjustable)
-- Failed Phone Authentications by IP Address– Time Chart (time line adjustable)
-- Clickable: Select Phone Number to view detail listing of failures
+- Azure AD B2C Policy - Failed Phone Authentications
+- Phone Authentication Failures by Phone Number – Time Chart (timeline adjustable)
+- Phone Authentication Failures by Azure AD B2C Policy – Time Chart (timeline adjustable)
+- Phone Authentication Failures by IP Address – Time Chart (time line adjustable)
+- Select Phone Number to View Failure Details (click a phone number for a detailed listing of failures)
 
-## Using the workbook
+![Details tab 1 of 3](media/phone-based-mfa/details-tab-1.png)
 
-You can use the workbook to understand phone-based MFA events and identify potential users abusing telephony service.
+![Details tab 2 of 3](media/phone-based-mfa/details-tab-2.png)
+
+![Details tab 3 of 3](media/phone-based-mfa/details-tab-3.png)
+
+## Use the workbook to identify fraudulent sign-ups
+
+You can use the workbook to understand phone-based MFA events and identify potentially malicious use of the telephony service.
 
 1. Understand what’s normal for your tenant by answering these questions:
 
-   - Where are the regions you expect phone-based MFAs to happen?
-   - Are the reasons for failing the phone-based MFA something expected or considered as normal?
+   - Where are the regions from which you expect phone-based MFA?
+   - Examine the reasons shown for failed phone-based MFA attempts; are they considered normal or expected?
 
 2. Recognize the characteristics of fraudulent sign-up:
 
-   - **Location-based**: Look for any accounts where you don’t expect to see users signing up from **Phone Number Failures Per IP Address**.
+   - **Location-based**: Examine **Phone Authentication Failures by IP Address** for any accounts that are associated with locations from which you don't expect users to sign up.
 
    > [!NOTE]
    > The IP Address provided is an approximate region.
 
-   - **Velocity-based**: You can look at **Failed Phone Authentications Overtime (Per Day)**, which indicates phone numbers are making abnormal number of failed phone authentication attempts per day, ordered from highest (left) to lowest (right).
+   - **Velocity-based**: Look at **Failed Phone Authentications Overtime (Per Day)**, which indicates phone numbers that are making an abnormal number of failed phone authentication attempts per day, ordered from highest (left) to lowest (right).
 
-3. To mitigate fraudulent sign-ups, follow these steps:
+3. Mitigate fraudulent sign-ups by following the steps in the next section.
+ 
 
-   - Use **Recommended** versions of user flows to:
-      - Enable email-OTP for MFA (this will be effective for both sign-up and sign-in)
-      - Configure Conditional Access policy to block sign-ins based on location (this will only be effective for sign-ins, not sign-ups)
-      - Use API Connectors to integrate with anti-bot solution like reCAPTCHA (this is effective for sign-up)
+## Mitigate fraudulent sign-ups
 
-   - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number. The change will go into effect for future sign-ups.
+Take the following actions to help mitigate fraudulent sign-ups.
 
-      1. Click into your user flow, then navigate to **Languages**. Select **English en** for the United States, or select another language depending on your geographical location in the table. In the right panel that opens up, click on **Download defaults (en)**.
+- Use the **Recommended** versions of user flows to do the following:
+     
+   - Enable the email one-time passcode feature (OTP) for MFA (this will be effective for both sign-up and sign-in).
+   - Configure a Conditional Access policy to block sign-ins based on location (this will be effective for sign-ins only, not sign-ups).
+   - Use API connectors to integrate with an anti-bot solution like reCAPTCHA (this is effective for sign-up).
+
+- Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
+    
+   1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
+
+   2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+
+   3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+
+   4. Select the user flow, and then select **Languages**. Select the language for your geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 
-      1. There should be a .json file downloaded. Open the json file and search for “DEFAULT”
-      1. Replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set **Overrides** to `true`.
-      - You can customize the list of country codes you want to allow by adding country codes. Find the full country code list under countryList in this link: https://docs.microsoft.com/en-us/azure/active-directory-b2c/localization-string-ids#phone-factor-authentication-page-example
-      1. Save the file and upload back in the panel from earlier step under “Upload new overrides”
-      1. Close the panel and click “Run user flow”
-      1. Confirm that “United States” is the only country code available in the dropdown:
+   5. Open the JSON file that downloads from the previous step. In the file, search for `DEFAULT`.
+
+   6. Replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
+
+   > [!NOTE]
+   > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
+
+   7. Save the JSON file. In the language details panel, under **Upload new overrides**, select the modified JSON file to upload it.
+
+   8. Close the panel and select **Run user flow**. Confirm that **United States** is the only country code available in the dropdown:
  
-4.	If any of your end-users are accidentally blocked, they'll need to contact their help desk or support team.
+      ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
+
+> [!NOTE]
+> If any of your end-users are accidentally blocked, they'll need to contact their help desk or support team.
 
 ## Next steps
 
-Read [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md) 
-Apply [Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
+- Learn about [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md) 
+
+- Apply [Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
