@@ -25,7 +25,7 @@ Device Update for IoT Hub allows deploying an update to a group of IoT devices. 
 
 ### 1. Programmatically update Device Twin
 
-You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with Device Update. [Learn More](iot-hub-csharp-csharp-twin-getstarted.md) about how to add tags using a sample .NET app. Learn more about [tag properties](iot-hub-devguide-device-twins.md#tags-and-properties-format).
+You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with Device Update. [Learn More](../iot-hub/iot-hub-csharp-csharp-twin-getstarted.md) about how to add tags using a sample .NET app. Learn more about [tag properties](../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### Device Update Tag Format
 
@@ -37,9 +37,9 @@ You can update the Device Twin with the appropriate Tag using RegistryManager af
 
 ### 2. Using Jobs
 
-It is possible to schedule a Job on multiple devices to add or update an Device Update tag following [these](iot-hub-devguide-jobs.md) examples. [Learn more](iot-hub-csharp-csharp-schedule-jobs.md).
+It is possible to schedule a Job on multiple devices to add or update an Device Update tag following [these](../iot-hub/iot-hub-devguide-jobs.md) examples. [Learn more](iot-hub-csharp-csharp-schedule-jobs.md).
 
-**Note**: This action goes against your current IOT Hub messages quota and it is recommended to change only upto 50,000 device twin Tags at a time otherwise you may need to buy additional IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+**Note**: This action goes against your current IOT Hub messages quota and it is recommended to change only upto 50,000 device twin Tags at a time otherwise you may need to buy additional IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
 
 ### 3. Direct Twin Updates
 
@@ -51,7 +51,7 @@ Tags can also be added or updated in device twin directly.
 
 3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
 
-4. Add a new Device Update tag value as shown below. [Example](iot-hub-devguide-device-twins.md#device-twins) device twin JSON document with tags.
+4. Add a new Device Update tag value as shown below. [Example](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) device twin JSON document with tags.
 
 ```JSON
     "tags": {
@@ -88,7 +88,7 @@ Groups_tag_Device_twin
 6. Select an IoT Hub tag from the list and then select Create update group.
 ![Select Tag](media/create-update-group/select-tag.PNG)
 
-7. Once the group is created you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, Updates in Progress and Devices not yet Grouped. [Learn More](device-update-compliance.md) about update compliance.
+7. Once the group is created you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, Updates in Progress and Devices not yet Grouped. [Learn More](../iot-hub/device-update-compliance.md) about update compliance.
 ![Updated View](media/create-update-group/updated-view.PNG)
 
 8. You should see your newly created group and any available updates for the devices in the new group. You can deploy the update to the new group from this view by clicking on the update name. See Next Step: Deploy Update for more details.
@@ -103,4 +103,4 @@ Groups_tag_Device_twin
 3. You can also click on each individual device within a group to be redirected to the device details page in IoT Hub.
 ![Device Details View](media/create-update-group/device-details.PNG)
 
-[Next Step: Deploy Update](deploy-update.md)
+[Next Step: Deploy Update](../iot-hub/deploy-update.md)

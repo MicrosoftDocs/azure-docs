@@ -92,4 +92,4 @@ Device Update Agent Connection to Azure IoT Hub  | 8883 (MQTT Protocol)
 > [!NOTE] 
 > The Device Update agent can be modified to use any of the supported Azure IoT Hub protocols.
 
-[Learn more](./iot-hub-devguide-protocols.md#ports-used-with-device-update-for-iot-hub) about the current list of supported protocols.
+[Learn more](../iot-hub/iot-hub-devguide-protocols.md#ports-used-with-device-update-for-iot-hub) about the current list of supported protocols.
