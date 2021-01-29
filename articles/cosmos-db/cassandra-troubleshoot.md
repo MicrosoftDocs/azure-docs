@@ -22,7 +22,15 @@ This is a top-level wrapper exception with a large number of possible causes and
 ### Solution
 Some popular causes and solutions are as follows: 
 - Idle timeout of Azure LoadBalancers: This may also manifest as `ClosedConnectionException`. To resolve this, set keep alive setting in driver (see [below](#enable-keep-alive-for-java-driver)) and increase keep-alive settings in operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). 
-- Client application resource exhaustion: ensure that client machines have sufficient resources to complete the request.
+- Client application resource exhaustion: ensure that client machines have sufficient resources to complete the request. 
+
+## Cannot connect to host
+You may see this error: `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
+
+### Solution
+This could be SNAT exhaustion on the client side. Please follow steps [here](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) to rule out this issue. This may also be an idle timeout issue (Azure LoadBalance have 4 minutes of idle timeout by default). See documentation [here](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout?tabs=tcp-reset-idle-portal). Enable tcp-keep alive from the driver settings (see [below](#enable-keep-alive-for-java-driver)) and set the keepAlive interval on the operating system to less than 4 minutes.
+
+ 
 
 ## OverloadedException (Java)
 The total number of request units consumed is more than the request-units provisioned on the keyspace or table. So the requests are throttled.
