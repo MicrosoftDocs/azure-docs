@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 01/29/2021
 ms.author: inhenkel
 ---
 
@@ -45,9 +45,10 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 
 |Encryption option|Description|Media Services v3|
 |---|---|---|
-|Media Services storage encryption| AES-256 encryption, key managed by Media Services. |Not supported.<sup>(1)</sup>|
+|Media Services storage encryption| AES-256 encryption, key managed by Media Services. |Not supported.<sup>1</sup>|
 |[Storage service encryption for data at rest](../../storage/common/storage-service-encryption.md)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer.|Supported.|
 |[Storage client-side encryption](../../storage/common/storage-client-side-encryption.md)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported.|
+
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your assets were created with Media Services v2, which means v3 works with existing storage encrypted assets but won't allow creation of new ones.
 
 ## Storage account double encryption

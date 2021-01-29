@@ -1,16 +1,19 @@
 ---
-title: Managed identities and trusted storage
-description: Media Services can be used with managed identities to enable trusted storage.
+title: Managed identities
+description: Media Services can be used with Azure Managed Identities.
+keywords: 
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
 ---
 
-# Managed identities and Media Services
+# Managed identities
+
+A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
 There are currently two scenarios where Managed Identities can be used with Media Services:
 
