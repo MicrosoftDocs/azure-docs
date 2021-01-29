@@ -21,7 +21,7 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-- Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed
+- Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
 
 ### Install aks-preview CLI extension
 
