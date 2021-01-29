@@ -106,7 +106,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 While the test runs, you are able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering its maximum write IOPS limit of 12,800 IOPS.  
-    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-uncached-writes.jpg" alt-text="Number of write IOPS VM and premium SSDs are delivering.":::
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-uncached-writes.jpg" alt-text="Number of write IOPS VM and premium SSDs are delivering, shows that writes are 13.1k IOPS.":::
 
 ### Maximum read IOPS
 
@@ -139,7 +139,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 While the test runs, you are able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering more than 77,000 Read IOPS. This is a combination of the disk and the cache performance.  
-    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-cached-reads.jpg" alt-text="Screenshot of the number of write IOPS VM and premium SSDs are delivering.":::
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-cached-reads.jpg" alt-text="Screenshot of the number of write IOPS VM and premium SSDs are delivering, shows that reads are 78.6k.":::
 
 ### Maximum read and write IOPS
 
@@ -177,7 +177,7 @@ sudo fio --runtime 30 fioreadwrite.ini
 ```
 
 While the test runs, you are able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering more than 90,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
-    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-both.jpg" alt-text="Combined read and write IOPS.":::
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/FIO-both.jpg" alt-text="Combined read and write IOPS, shows that reads are 78.3k and writes are 12.6k IOPS.":::
 
 ### Maximum combined throughput
 
