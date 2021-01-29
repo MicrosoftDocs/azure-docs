@@ -4,4 +4,4 @@
   items:
   - name: Azure Data Factory
     tocHref: /azure/machine-learning/
-    topicHref: /azure/data-factory/index
+    topicHref: /azure/data-factory/How-to guides/Scenarios/Azure Machine Learning

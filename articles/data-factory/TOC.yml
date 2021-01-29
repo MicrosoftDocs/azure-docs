@@ -209,7 +209,7 @@
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-- name: How-to guides
+- name: How-to guides 
   items:
   - name: Author
     items:
