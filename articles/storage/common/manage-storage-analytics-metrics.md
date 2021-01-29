@@ -1,25 +1,25 @@
 ---
-title: Enable and manage Azure Storage Analytic metrics (classic) | Microsoft Docs
+title: Enable and manage Azure Storage Analytics metrics (classic) | Microsoft Docs
 description: Learn how to enable, edit, and view Azure Storage Analytics metrics.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ---
-# Enable and manage Azure Storage Analytic metrics (classic)
+# Enable and manage Azure Storage Analytics metrics (classic)
 
-[Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics are recorded for your account, and configure charts that provide visual representations of your metrics data. This article shows you how to enable and manage metrics. To learn how to enable logs, see [Enable and manage Azure Storage Analytic logs (classic)](manage-storage-analytics-logs.md).
+[Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics are recorded for your account, and configure charts that provide visual representations of your metrics data. This article shows you how to enable and manage metrics. To learn how to enable logs, see [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md).
 
 We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (preview). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
 
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
 >
-> Premium performance block blob storage accounts don't support Storage Analytic metrics. If you want to view metrics with premium performance block blob storage accounts, consider using [Azure Storage Metrics in Azure Monitor](../blobs/monitor-blob-storage.md).
+> Premium performance block blob storage accounts don't support Storage Analytics metrics. If you want to view metrics with premium performance block blob storage accounts, consider using [Azure Storage Metrics in Azure Monitor](../blobs/monitor-blob-storage.md).
 >
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -275,3 +275,4 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 * To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
 * [Configure Storage Analytics logs](manage-storage-analytics-logs.md).
+* Learn more about the the metrics schema. See [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).

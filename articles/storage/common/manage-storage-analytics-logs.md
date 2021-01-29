@@ -1,28 +1,28 @@
 ---
-title: Enable and manage Azure Storage Analytic logs (classic) | Microsoft Docs
+title: Enable and manage Azure Storage Analytics logs (classic) | Microsoft Docs
 description: Learn how to monitor a storage account in Azure by using Azure Storage Analytics.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ---
-# Enable and manage Azure Storage Analytic logs (classic)
+# Enable and manage Azure Storage Analytics logs (classic)
 
-[Azure Storage Analytics](storage-analytics.md) provides logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure logs are recorded for your account. This article shows you how to enable and manage logs. To learn how to enable metrics, see [Enable and manage Azure Storage Analytic metrics (classic)](storage-monitor-storage-account.md). 
-
-We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (preview). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
+[Azure Storage Analytics](storage-analytics.md) provides logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure logs are recorded for your account. This article shows you how to enable and manage logs. To learn how to enable metrics, see [Enable and manage Azure Storage Analytics metrics (classic)](storage-monitor-storage-account.md).  There are costs associated with examining and storing monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
-> There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
+> We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
 >
-> Azure Files does not yet support Storage Analytics logs.
+> - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
+> - [Monitoring Azure Files](storage-files-monitoring.md).
+> - [Monitoring Azure Queue Storage](monitor-queue-storage.md).
+> - [Monitoring Azure Table storage](monitor-table-storage.md).
 
-> For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
->
+For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 <a id="configure-logging"></a>
 
@@ -30,11 +30,14 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 
 You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
+> [!NOTE]
+> Azure Files currently supports Storage Analytics metrics, but does not support Storage Analytics logging.
+
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 
-2. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
+2. Select **Diagnostic settings (classic)** in the **Monitoring (classic)** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/manage-storage-analytics-logs/storage-enable-metrics-00.png)
 
@@ -42,6 +45,12 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    > [!div class="mx-imgBorder"]
    > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)    
+
+
+4. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the log data.
+
+   > [!WARNING]
+   > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
 
 4. Click **Save**.
 
@@ -84,12 +93,15 @@ For information about accessing the $logs container, see [Storage analytics logg
    The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
 
    ```powershell
-   Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context = $ctx
+   Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context $ctx
    ```  
+
+   > [!WARNING]
+   > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
    The following command switches off logging for the table service in your default storage account:  
 
    ```powershell
-   Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context = $ctx 
+   Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context $ctx 
    ```  
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
@@ -113,10 +125,6 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ---
 
-> [!NOTE]
-> Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
->
-
 <a id="modify-retention-policy"></a>
 
 ## Modify log data retention period
@@ -129,7 +137,7 @@ Log data can accumulate in your account over time which can increase the cost of
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
-2. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
+2. Select **Diagnostic settings (classic)** in the **Monitoring (classic)** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal](./media/manage-storage-analytics-logs/storage-enable-metrics-00.png)
 
@@ -137,6 +145,8 @@ Log data can accumulate in your account over time which can increase the cost of
 
    > [!div class="mx-imgBorder"]
    > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
+
+The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
    
 4. Click **Save**.
 
@@ -236,10 +246,12 @@ queueClient.SetServiceProperties(queueserviceProperties);
 
 ---
 
-> [!NOTE]
-> Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
->
+### Verify that log data is being deleted
 
+You can verify that logs are being deleted after the retention period by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder represents a days worth of logs. If the day today was January 29th 2021 and you set your retention policy to only 1 day, then this folder should contain logs for only 1 day.
+
+> [!div class="mx-imgBorder"]
+> ![List of log folders in the Azure Portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
 
 <a id="download-storage-logging-log-data"></a>
 
@@ -264,13 +276,14 @@ The following example shows how you can download the log data for the queue serv
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-To learn more about how to download specific files, see [Download specific files](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+To learn more about how to download specific files, see [Download blobs from Azure Blob storage by using AzCopy v10](./storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) and [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## Next steps
 
-* Find more details about [metrics, logging, and billing](storage-analytics.md) for Storage Analytics.
+* To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
 * [Configure Storage Analytics metrics](storage-monitor-storage-account.md).
 * For more information about using a .NET language to configure Storage Logging, see [Storage Client Library Reference](/previous-versions/azure/dn261237(v=azure.100)). 
 * For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
+* Learn more about the format of Storage Analytics logs. See [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format).

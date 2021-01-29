@@ -4,7 +4,7 @@ description: Learn how to use Storage Analytics metrics in Azure Storage. Learn 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
