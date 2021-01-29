@@ -23,7 +23,7 @@ The artifacts in the repository are designed to provide a foundation for your us
 
 ## Azure Spring Cloud On-Premises Connectivity
 
-Applications running in Azure Spring Cloud can communicate to external resources and with on-premises databases, messaging systems, file servers, directory services, mail servers, and other enterprise systems. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
+Applications running in Azure Spring Cloud can communicate to a variety of Azure, on-premises, and external resources. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
 
 ### Planning the address space
 
@@ -150,18 +150,18 @@ The following diagram represents a well-architected hub and spoke design that ad
 The Azure Well-Architected Framework is a set of guiding tenets that are recommended to follow in establishing a strong infrastructure foundation. The framework contains the following categories: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 ### Cost Optimization
-By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
+By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using scalable components so that it can meet demand and optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
-Different applications and application types can be deployed to a single instance of Azure Spring Cloud. The service also supports auto-scaling of applications based on metrics or schedules resulting in better resource utilization and cost efficiency.
+Different applications and application types can be deployed to a single instance of Azure Spring Cloud. The service supports autoscaling of applications triggered by metrics or schedules that can improve utilization and cost efficiency.
 
 Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
 ### Operational Excellence
 
-Azure Spring Cloud addresses multiple aspects of operational excellence. These aspects can be combine to ensure the service runs efficiently in production environments:
+Azure Spring Cloud addresses multiple aspects of operational excellence. These aspects can be combined to ensure the service runs efficiently in production environments:
 * Azure Pipelines are used to ensure deployments are reliable and consistent while helping to avoid human error
 * Azure Monitor and Application Insights are used to store log and telemetry data.
-    Collected log and metric data can be assessed to ensure application performance levels, availability, overall health of the application, and operational improvements. Application Performance Monitoring (APM) is fully integrated into the service through a Java agent. This agent provides visibility into all the deployed applications and dependencies without requiring additional code. For more information about this topic, see the [blog post][15].
+    Collected log and metric data can be assessed to ensure the health and performance of the application. Application Performance Monitoring (APM) is fully integrated into the service through a Java agent. This agent provides visibility into all the deployed applications and dependencies without requiring extra code. For more information about this topic, see the [blog post][15].
 * Azure Security Center is used to ensure applications maintain security by providing a platform to analyze and assess the data provided
 * The service supports various deployment patterns. For more information about this topic, see the deployments [guide][14]
 
@@ -177,7 +177,7 @@ Security of this architecture was addressed by adhering to industry defined cont
 
 #### Governance
 
-The primary aspect of governance that this architecture addresses is segregation through isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. Traffic between central services in the hub and resources in the spoke are also filtered. Also, north-south traffic, particularly the flow between the Internet and the resources within the architecture, is managed through an instance of Azure Firewall.
+The primary aspect of governance that this architecture addresses is segregation through isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. Traffic between central services in the hub and resources in the spoke are also filtered. Also, traffic between the Internet and the resources within the architecture is managed through an instance of Azure Firewall.
 
 | CSA CCM Control ID | CSA CCM Control Domain |
 | :----------------- | :----------------------|
@@ -214,7 +214,7 @@ The controls that address key management in this reference from the CCM are in t
 | EKM-03 | Encryption and Key Management Sensitive Data Protection |
 | EKM-04 | Encryption and Key Management Storage and Access |
 
-From the CCM, EKM-02, and EKM-03 specifically address the need for policies and procedures to govern cryptographic keys and the use of encryption protocols to protect sensitive data. EKM-01 recommends that all cryptographic keys have identifiable owners so that they can be managed. EKM-04 recommends the use of standard algorithms.
+From the CCM, EKM-02, and EKM-03 recommend policies and procedures to manage keys and the use of encryption protocols to protect sensitive data. EKM-01 recommends that all cryptographic keys have identifiable owners so that they can be managed. EKM-04 recommends the use of standard algorithms.
 
 | CIS Control ID | CIS Control Description |
 | :------------- | :---------------------- |
@@ -224,14 +224,14 @@ From the CCM, EKM-02, and EKM-03 specifically address the need for policies and 
 
 The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials to ensure rotation is enforced. CIS control 8.4 ensures the contents of the key vault can be restored to maintain business continuity.
 
-Each aspect of application security covered above sets a foundation for the use of this reference architecture to support a Spring workload in Azure.
+The aspects of application security set a foundation for the use of this reference architecture to support a Spring workload in Azure.
 
 ## Next Steps
 Explore this reference architecture through ARM, Terraform, and CLI deployments that are available as defined in the [Reference Deployment](#quickstart-reference-deployments) section.
 
 ## Appendix
 
-When deploying Azure Spring Cloud in a secured environment, management traffic must successfully egress for the service to deploy and remain in a healthy state. Below are the Network and Application rules that must be allowed on Azure Firewall, or Network Virtual Appliance (NVA).
+To deploy Azure Spring Cloud in a secured environment, management traffic must egress for the service to function. Below are the Network and Application rules that must be allowed on Azure Firewall, or equivalent Network Virtual Appliance (NVA).
 
 ### Azure Spring Cloud Network Rules
 
