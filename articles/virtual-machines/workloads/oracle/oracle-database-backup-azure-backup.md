@@ -17,7 +17,7 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 
 > [!div class="checklist"]
 >
-> * Back up the database with application consistent backup
+> * Back up the database with application-consistent backup
 > * Restore and recover the database from a recovery point
 > * Restore the VM from from a recovery point
 
@@ -35,19 +35,19 @@ To prepare the environment, complete these steps:
 
 ### Connect to the VM
 
-To create a Secure Shell (SSH) session with the VM, use the following command. Replace the IP address and the host name combination with the `<publicIpAddress>` value for your VM.
+1. To create a Secure Shell (SSH) session with the VM, use the following command. Replace the IP address and the host name combination with the `<publicIpAddress>` value for your VM.
     
    ```bash
    ssh azureuser@<publicIpAddress>
    ```
    
-Switch to the *root* user:
+1. Switch to the *root* user:
 
    ```bash
    sudo su -
    ```
     
-Add the oracle user to the */etc/sudoers* file:
+1. Add the oracle user to the */etc/sudoers* file:
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
@@ -55,9 +55,9 @@ Add the oracle user to the */etc/sudoers* file:
 
 ### Prepare the database
 
-1. This step assumes that you have an Oracle instance (*test*) that is running on a VM named *vmoracle19c*.
+This step assumes that you have an Oracle instance (*test*) that is running on a VM named *vmoracle19c*.
 
-   Switch user to the *oracle* user:
+1. Switch user to the *oracle* user:
  
    ```bash
     sudo su - oracle
@@ -75,7 +75,7 @@ Add the oracle user to the */etc/sudoers* file:
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
     ```
     
-3. Start the Oracle listener if it is not already running:
+3. Start the Oracle listener if it's not already running:
 
     ```output
     $ lsnrctl start
@@ -127,7 +127,7 @@ Add the oracle user to the */etc/sudoers* file:
     SQL> sqlplus / as sysdba
     ```
 
-6.  Start the database if it is not already running:
+6.  Start the database if it's not already running:
 
     ```bash
     SQL> startup
@@ -152,7 +152,7 @@ Add the oracle user to the */etc/sudoers* file:
     NOARCHIVELOG
     ```
 
-    And if in NOARCHIVELOG mode, run the following commands:
+    If it's in NOARCHIVELOG mode, run the following commands:
 
     ```bash
     SQL> SHUTDOWN IMMEDIATE;
@@ -201,19 +201,19 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle, MySQL, Mongo DB, SAP HANA, and PostGreSQL. This involves invoking a pre-script (to quiesce the applications) before taking a snapshot of disks and calling post-script (commands to unfreeze the applications) after the snapshot is completed, to return the applications to the normal mode. While sample pre-scripts and post-scripts are provided on GitHub, the creation and maintenance of these scripts is your responsibility. 
 
-Now Azure Backup is providing an enhanced pre-scripts and post-script framework, where the Azure Backup service will provide packaged pre-scripts and post-scripts for selected applications. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre-post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are ***Oracle and MySQL***, with more application types expected in the future.
+Now Azure Backup is providing an enhanced pre-scripts and post-script framework, where the Azure Backup service will provide packaged pre-scripts and post-scripts for selected applications. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre-post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
 
-In this section, you will use Azure Backup enhanced framework to take application consistent snapshots of your running VM and Oracle database. The database will be placed into backup mode allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot will be a full copy of the storage and not an incremental or Copy on Write snapshot, so it is an effective medium to restore your database from. The advantage of using Azure Backup application consistent snapshots is that they are extremely fast to take no matter how large your database is, and a snapshot can be used for restore operations as soon as it is taken, without having to wait for it to be transferred to the Recovery Services vault.
+In this section, you will use Azure Backup enhanced framework to take application-consistent snapshots of your running VM and Oracle database. The database will be placed into backup mode allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot will be a full copy of the storage and not an incremental or Copy on Write snapshot, so it is an effective medium to restore your database from. The advantage of using Azure Backup application-consistent snapshots is that they are extremely fast to take no matter how large your database is, and a snapshot can be used for restore operations as soon as it is taken, without having to wait for it to be transferred to the Recovery Services vault.
 
 To use Azure Backup to back up the database, complete these steps:
 
-1. Prepare the environment for application consistent backup.
-1. Set up application consistent backups.
-1. Trigger application consistent backup of the VM
+1. Prepare the environment for an application-consistent backup.
+1. Set up application-consistent backups.
+1. Trigger an application-consistent backup of the VM.
 
-### Prepare the environment for application consistent backup
+### Prepare the environment for an application-consistent backup
 
-1. Switch to the **root** user:
+1. Switch to the *root* user:
 
    ```bash
    sudo su -
@@ -225,7 +225,7 @@ To use Azure Backup to back up the database, complete these steps:
    useradd -G backupdba azbackup
    ```
    
-2. Set up backup user environment:
+2. Set up the backup user environment:
 
    ```bash
    echo "export ORACLE_SID=test" >> ~azbackup/.bashrc
@@ -233,16 +233,15 @@ To use Azure Backup to back up the database, complete these steps:
    echo export PATH='$ORACLE_HOME'/bin:'$PATH' >> ~azbackup/.bashrc
    ```
    
-3. Set up external authentication for new backup user. 
-   The backup user needs to be able to access the database using external authentication, so as not to be challenged by a password.
+3. Set up external authentication for the new backup user. The backup user needs to be able to access the database using external authentication, so as not to be challenged by a password.
 
-   First switch back to the **oracle** user:
+   First, switch back to the *oracle* user:
 
    ```bash
    su - oracle
    ```
 
-   Log in to the database using sqlplus and check the default settings for external authentication
+   Log in to the database using sqlplus and check the default settings for external authentication:
    
    ```bash
    sqlplus / as sysdba
@@ -250,7 +249,7 @@ To use Azure Backup to back up the database, complete these steps:
    SQL> show parameter remote_os_authent
    ```
    
-   The output should show 
+   The output should look like this example: 
 
    ```output
    NAME                                 TYPE        VALUE
@@ -259,23 +258,30 @@ To use Azure Backup to back up the database, complete these steps:
    remote_os_authent                    boolean     FALSE
    ```
 
-   Now create database user azbackup authenticated externally and grant sysbackup privilege:
+   Now, create a database user *azbackup* authenticated externally and grant sysbackup privilege:
    
    ```bash
    SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
    SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
    ```
 
-   >[!IMPORTANT] 
-   >If you receive error “ORA-46953: The password file is not in the 12.2 format.”  when you run the GRANT statement above, please follow these steps to migrate the orapwd file to 12.2 format:
+   > [!IMPORTANT] 
+   > If you receive error `ORA-46953: The password file is not in the 12.2 format.`  when you run the `GRANT` statement, follow these steps to migrate the orapwd file to 12.2 format:
    >
-   >Exit sqlplus, move the password file with old format to a new name, migrate the password file and then remove the old file. After you run the commands below, rerun the grant operation above in sqlplus.
-   
-   ```bash
-   mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
-   orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
-   rm $ORACLE_HOME/dbs/orapwtest.tmp
-   ```
+   > 1. Exit sqlplus.
+   > 1. Move the password file with the old format to a new name.
+   > 1. Migrate the password file.
+   > 1. Remove the old file.
+   > 1. Run the following command:
+   >
+   >    ```bash
+   >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
+   >    orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
+   >    rm $ORACLE_HOME/dbs/orapwtest.tmp
+   >    ```
+   >
+   > 1. Rerun the `GRANT` operation in sqlplus.
+   >
    
 4. Create a stored procedure to log backup messages to the database alert log:
 
@@ -296,20 +302,24 @@ To use Azure Backup to back up the database, complete these steps:
    SQL> QUIT
    ```
    
-### Set up application consistent backups  
+### Set up application-consistent backups  
 
-1. Switch to the root user 
+1. Switch to the *root* user:
+
    ```bash
    sudo su -
    ```
 
-2. Create the application consistent backup working directory
+2. Create the application-consistent backup working directory:
+
    ```bash
    if [ ! -d "/etc/azure" ]; then
       sudo mkdir /etc/azure
    fi
    ```
-3. Create a file in /etc/azure directory called **workload.conf** with the following contents, which must begin with `[workload]`. The following command will create the file and populate the contents:
+
+3. Create a file in the */etc/azure* directory called *workload.conf* with the following contents, which must begin with `[workload]`. The following command will create the file and populate the contents:
+
    ```bash
    echo "[workload]
    workload_name = oracle
@@ -317,14 +327,16 @@ To use Azure Backup to back up the database, complete these steps:
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
-1. Download the preOracleMaster.sql and postOracleMaster.sql scripts from the [GitHub Repository](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) and copy them to the /etc/azure directory
 
-4. Change the file permissions
-   ```bash
+4. Download the preOracleMaster.sql and postOracleMaster.sql scripts from the [GitHub Repository](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) and copy them to the */etc/azure* directory.
+
+5. Change the file permissions
+
+```bash
    chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
-### Trigger application consistent backup of the VM
+### Trigger an application-consistent backup of the VM
 
 # [Portal](#tab/azure-portal)
 
@@ -371,7 +383,8 @@ To use Azure Backup to back up the database, complete these steps:
    ```azurecli
    az backup vault create --location eastus --name myVault --resource-group rg-oracle
    ```
-2. Enable backup protection for the VM
+
+2. Enable backup protection for the VM:
 
    ```azurecli
    az backup protection enable-for-vm \
@@ -380,7 +393,8 @@ To use Azure Backup to back up the database, complete these steps:
       --vm vmoracle19c \
       --policy-name DefaultPolicy
    ```
-3. Trigger a backup to run now rather than waiting for the backup to trigger at the default schedule (5am UTC). 
+
+3. Trigger a backup to run now rather than waiting for the backup to trigger at the default schedule (5 AM UTC): 
 
    ```azurecli
    az backup protection backup-now \
@@ -390,7 +404,8 @@ To use Azure Backup to back up the database, complete these steps:
       --container-name vmoracle19c \
       --item-name vmoracle19c 
    ```
-   You can monitor the progress of the backup job using `az backup job list` and `az backup job show`
+
+   You can monitor the progress of the backup job using `az backup job list` and `az backup job show`.
 
 ---
 
@@ -429,11 +444,11 @@ Later in this article, you'll learn how to test the recovery process. Before you
 
 # [Portal](#tab/azure-portal)
 
-1. In the Azure portal, search for the *myVault* Recovery Services vaults item and click on it.
+1. In the Azure portal, search for the *myVault* Recovery Services vaults item and select it.
 
     ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery-service-06.png)
 
-2. On the **Overview** blade, select **Backup items** and the select ***Azure Virtual Machine***, which should have anon-zero Backup Item Count listed.
+2. On the **Overview** blade, select **Backup items** and the select **Azure Virtual Machine**, which should have anon-zero Backup Item Count listed.
 
     ![Recovery Services vaults Azure Virtual Machine backup item count](./media/oracle-backup-recovery/recovery-service-07.png)
 
@@ -450,8 +465,8 @@ Later in this article, you'll learn how to test the recovery process. Before you
     The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
 
     > [!IMPORTANT]
-    > In the following example, ensure that you update the IP address and folder values. 
-    > The values must map to the folder where the file is saved.
+    > In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
+    >
 
     ```bash
     $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -496,8 +511,8 @@ Copy the .py file to the VM.
 The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
 
 > [!IMPORTANT]
-> In the following example, ensure that you update the IP address and folder values. 
-> The values must map to the folder where the file is saved.
+> In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
+>
 
 ```bash
 $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -508,7 +523,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 1. Create a restore mount point and copy the script to it.
 
-    In the following example, create a ***/restore*** directory for the snapshot to mount to, move the file to the directory, and change the file so that it's owned by the root user and made executable.
+    In the following example, create a */restore* directory for the snapshot to mount to, move the file to the directory, and change the file so that it's owned by the root user and made executable.
 
     ```bash 
     ssh azureuser@<publicIpAddress>
@@ -674,26 +689,24 @@ To restore the entire VM, complete these steps:
 
 # [Portal](#tab/azure-portal)
 
-1. Create a storage account for staging:
-   
-   Configure File Storage in the Azure portal
+1. Create a storage account for staging in the Azure portal.
 
-   In the Azure portal, select ***+ Create a resource*** and search for and select ***Storage Account***
+   1. In the Azure portal, select **+ Create a resource** and search for and select **Storage Account**.
     
-   ![Storage Account add page](./media/oracle-backup-recovery/storage-1.png)
+      ![Storage Account add page](./media/oracle-backup-recovery/storage-1.png)
     
     
-   In the Create storage account page, choose your existing resource group ***rg-oracle***, name your storage account ***oracrestore*** and choose ***Storage V2 (generalpurpose v2)*** for Account Kind. Change Replication to ***Locally-redundant storage (LRS)*** and set Performance to ***Standard***. Ensure that Location is set to the same region as all your other resources in the resource group. 
+   1. In the Create storage account page, choose your existing resource group **rg-oracle**, name your storage account **oracrestore** and choose **Storage V2 (generalpurpose v2)** for Account Kind. Change Replication to **Locally-redundant storage (LRS)** and set Performance to **Standard**. Ensure that Location is set to the same region as all your other resources in the resource group. 
     
-   ![Storage Account add page](./media/oracle-backup-recovery/recovery-storage-1.png)
+      ![Storage Account add page](./media/oracle-backup-recovery/recovery-storage-1.png)
    
-   Click on Review + Create and then click Create.
+   1. Click on Review + Create and then click Create.
 
 2. In the Azure portal, search for the *myVault* Recovery Services vaults item and click on it.
 
     ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery-service-06.png)
     
-3.  On the **Overview** blade, select **Backup items** and the select ***Azure Virtual Machine***, which should have anon-zero Backup Item Count listed.
+3.  On the **Overview** blade, select **Backup items** and the select **Azure Virtual Machine**, which should have anon-zero Backup Item Count listed.
 
     ![Recovery Services vaults Azure Virtual Machine backup item count](./media/oracle-backup-recovery/recovery-service-07.png)
 
@@ -721,7 +734,7 @@ To restore the entire VM, complete these steps:
 
 # [Azure CLI](#tab/azure-cli)
 
-To set up your storage account and file share run the following commands in Azure CLI.
+To set up your storage account and file share, run the following commands in Azure CLI.
 
 1. Create the storage account in the same resource group and location as your VM:
 
@@ -914,11 +927,11 @@ After the VM is restored, you should reassign the original IP address to the new
 
 ### Connect to the VM
 
-* To connect to the VM, use the following script:
+To connect to the VM, use the following script:
 
-    ```azurecli
-    ssh <publicIpAddress>
-    ```
+```azurecli
+ssh <publicIpAddress>
+```
 
 ### Start the database to mount stage and perform recovery
 
