@@ -138,7 +138,7 @@ Wait for a few seconds and the connector should start working. And you can see t
 
 ## Use Azure Synapse Prometheus or REST metrics APIs to collect metrics data
 
-### 1. Authentication.
+### 1. Authentication
 You can use the client credentials flow to get an access token. To access the metrics API, you should get an Azure AD access token for the service principal, which have proper permission to access the APIs.
 
 | Parameter     | Required | Description                                                                                                   |
