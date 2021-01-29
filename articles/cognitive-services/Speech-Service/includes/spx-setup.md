@@ -46,7 +46,8 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
-> If you don't want to use NuGet, you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
+> As an alternative to `dotnet tool install`, 
+> you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
 > extract `spx-netcore-30-linux-x64` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
 > and add the `~/spx` path to your PATH system variable.
 
