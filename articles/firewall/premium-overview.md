@@ -50,7 +50,9 @@ There are several advantages of doing TLS inspection on Azure Firewall:
 
  
 
-While you're probably interested in having TLS inspection for both outbound and inbound scenarios, Azure Firewall Premium Preview only focuses on outbound and internal scenarios. If you're interested in inbound TLS inspection, you can chain Azure Firewall with Azure Web Application Firewall on Azure Application Gateway for that purpose. For more information, see [Azure Virtual Network security](https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway). 
+While you're probably interested in having TLS inspection for both outbound and inbound scenarios, Azure Firewall Premium Preview only focuses on outbound and internal scenarios. If you're interested in inbound TLS inspection, you can chain Azure Firewall with Azure Web Application Firewall on Azure Application Gateway for that purpose. For more information, see [Azure Virtual Network security](https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+
+To learn more about Azure Firewall Premium Preview Intermediate CA certificate requirements, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
 
 ### IDPS
 
