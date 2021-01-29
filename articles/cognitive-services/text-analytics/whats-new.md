@@ -25,9 +25,6 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 * The `2021-01-05` model-version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
 
-> [!div class="nextstepaction"]
-> [Learn more about this NER update](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
-
 ## December 2020
 
 * [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
