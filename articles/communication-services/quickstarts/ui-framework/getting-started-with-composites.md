@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework composite components
+# Quickstart: Getting started with UI Framework Composite Components
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -24,14 +24,6 @@ Get started with Azure Communication Services by using the UI Framework to quick
 - A User Access Token to instantiate the call composite. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
 ## Setting up
-
-Open your terminal or command window create a new directory for your app, and navigate to it.
-
-```console
-
-mkdir ui-framework-quickstart && cd ui-framework-quickstart
-
-```
 
 UI Framework requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
@@ -55,8 +47,6 @@ Use the `npm install` command to install the Azure Communication Services Callin
 
 ```console
 
-npm install @azure/acs-ui-sdk --save 
-
 //Private Preview install tarball
 
 npm install --save ./{path for tarball}
@@ -72,10 +62,6 @@ Let's test the Create React App installation by running:
 ```console
 
 yarn start 
-
-or
-
-npm start
 
 ```
 

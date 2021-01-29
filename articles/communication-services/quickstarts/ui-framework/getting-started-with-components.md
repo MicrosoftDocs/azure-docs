@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework Components
+# Quickstart: Getting started with UI Framework Base Components
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -26,14 +26,6 @@ Get started with Azure Communication Services by using the UI Framework to quick
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
 ## Setting up
-
-Open your terminal or command window create a new directory for your app, and navigate to it.
-
-```console
-
-mkdir ui-framework-quickstart && cd ui-framework-quickstart
-
-```
 
 UI Framework requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
@@ -57,9 +49,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 
 ```console
 
-npm install @azure/acs-ui-sdk --save 
-
-//Private Preview install tarball
+//For Private Preview install tarball
 
 npm install --save ./{path for tarball}
 
@@ -73,11 +63,7 @@ Lets test the Create React App installation by running:
 
 ```console
 
-yarn start 
-
-or
-
-npm start
+yarn start  
 
 ```
 
@@ -88,8 +74,8 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
-| CallingProvider| Calling Provider to insatiate a call. Required to instantiate additional components|
-| ChatProvider | Chat Provider to insatiate a chat thread. Required to instantiate additional components|
+| CallingProvider| Calling Provider to instantiate a call. Required to add additional components|
+| ChatProvider | Chat Provider to instantiate a chat thread. Required to add additional components|
 | MediaGallery | Base component that shows call participants and their remote video streams |
 | MediaControls | Base component to control call including mute, video, share screen |
 | ChatThread | Base component that renders a chat thread with typing indicators, read receipts, etc. |
@@ -101,7 +87,7 @@ Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here w
 
 UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
 
-In addition, we will instantiate Fluent UI theme for the experience. These themes will give the experience the color and feel.
+In addition, we will instantiate Fluent UI theme for the experience. These themes are used to give the experience its look and feel.
 
 `App.js`
 ```javascript
@@ -172,7 +158,7 @@ function CallingComponents() {
 
 Developers can add additional layout and styling around the components to make them fit correctly in their applications. 
 
-In the same file, at the bottom, we will then export the calling components to be initiated inside `app.js`. To export them we will use the `connectFuncsToContext` method part of the UI Framework. This method connects the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework support custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
+In the same file, at the bottom, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
 
 `callingComponents.js`
 ```javascript
@@ -233,10 +219,6 @@ To run the code above use the command:
 
 yarn start
 
-or 
-
-npm start
-
 ```
 
 ## Clean up resources
@@ -251,4 +233,3 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following:
 - [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
 - [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md)
-
