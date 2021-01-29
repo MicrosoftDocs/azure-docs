@@ -1,9 +1,6 @@
 ---
 title: 'Quickstart: Create Spark cluster in HDInsight using Azure portal'
 description: This quickstart shows how to use the Azure portal to create an Apache Spark cluster in Azure HDInsight, and run a Spark SQL query.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc

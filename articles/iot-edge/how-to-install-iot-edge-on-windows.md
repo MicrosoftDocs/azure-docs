@@ -158,7 +158,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
 
    ```azurepowershell-interactive
-   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Create the IoT Edge for Linux on Windows deployment.

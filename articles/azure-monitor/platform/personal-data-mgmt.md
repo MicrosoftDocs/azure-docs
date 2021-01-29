@@ -87,7 +87,7 @@ For both view and export data requests, the [Log Analytics query API](https://de
 We have made available as part of a privacy handling a *purge* API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handle private data.
 
 > [!NOTE]
-> Once the purge operation has been performed, the data cannot be accessed while the [purge operation status](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) is *pending*. 
+> Once the purge operation has been performed, the data cannot be accessed while the [purge operation status](/rest/api/loganalytics/workspacepurge/getpurgestatus) is *pending*. 
 
 Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
 
@@ -125,4 +125,3 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 ## Next steps
 - To learn more about how Log Analytics data is collected, processed, and secured, see [Log Analytics data security](./data-security.md).
 - To learn more about how Application Insights data is collected, processed, and secured, see [Application Insights data security](../app/data-retention-privacy.md).
-

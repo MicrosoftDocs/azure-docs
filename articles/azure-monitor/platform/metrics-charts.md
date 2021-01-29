@@ -125,16 +125,19 @@ You can apply filters to charts whose metrics have dimensions. For example, imag
 
    ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
 
-3. Select the dimension values you want to include when you plot the chart. The following example filters out the successful storage transactions:
+3. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
+
+   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/filter-operator.png)
+
+4. Select which dimension values you want to apply to the filter when plotting the chart (this example shows filtering out the successful storage transactions):
 
    ![Screenshot that shows the successful filtered storage transactions.](./media/metrics-charts/029.png)
 
-4. Select outside the **Filter Selector** to close it. Now the chart shows how many storage transactions have failed:
+5. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
    ![Screenshot that shows how many storage transactions have failed.](./media/metrics-charts/030.png)
 
-You can repeat these steps to apply multiple filters to the same charts.
-
+6. You can repeat steps 1-5 to apply multiple filters to the same charts.
 
 
 ## Metric splitting
@@ -154,9 +157,18 @@ You can split a metric by dimension to visualize how different segments of the m
 
    The chart now shows multiple lines, one for each dimension segment:
 
-   ![Screenshot that shows lines for each dimension segment.](./media/metrics-charts/032.png)
+   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/segment-dimension.png)
+   
+3. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 - 50.
+   
+   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. Choose the sort order on segments: Ascending or Descending. The default selection is descending.
+   
+   ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
 
-3. Select outside the **Grouping Selector** to close it.
+5. Click away from the **Grouping Selector** to close it.
+   
 
    > [!NOTE]
    > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.

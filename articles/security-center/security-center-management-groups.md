@@ -103,6 +103,36 @@ To assign yourself tenant-level permissions:
 
 1. Once you have elevated access, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your Azure AD tenant. 
 
+
+## Request tenant-wide permissions when yours are insufficient
+
+If you login to Security Center and see a banner telling you that your view is limited, you can click through to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
+
+It's the global administrator's decision whether to accept or reject these requests. 
+
+> [!IMPORTANT]
+> You can only submit one request every seven days.
+
+To request elevated permissions from your global administrator:
+
+1. From the Azure portal, open Azure Security Center.
+
+1. If you see the banner "You're seeing limited information." select it.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+
+1. In the detailed request form, select the desired role and the justification for why you need these permissions.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Details page for requesting tenant-wide permissions from your Azure global administrator":::
+
+1. Select **Request access**.
+
+    An email is sent to the global administrator. The email contains a link to Security Center where they can approve or reject the request.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions":::
+
+    After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user. 
+
 ## Assign Azure roles to other users
 
 ### Assign Azure roles to users through the Azure portal: 
@@ -145,6 +175,7 @@ To assign yourself tenant-level permissions:
     ```
 
 ## Remove elevated access 
+
 Once the Azure roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).

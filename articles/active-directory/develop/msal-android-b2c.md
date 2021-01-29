@@ -33,7 +33,7 @@ Given a B2C application that has two policies:
 
 The configuration file for the app would declare two `authorities`. One for each policy. The `type` property of each authority is `B2C`.
 
->Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application).
+>Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](./single-multi-account.md#multiple-account-public-client-application).
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json

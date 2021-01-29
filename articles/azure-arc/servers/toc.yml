@@ -82,7 +82,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
     - name: Azure Stack HCI REST
-      href: https://docs.microsoft.com/rest/api/stackhci
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Go
@@ -99,4 +99,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io
