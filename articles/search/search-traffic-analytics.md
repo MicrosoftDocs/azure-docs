@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 1/29/2020
+ms.date: 1/29/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
