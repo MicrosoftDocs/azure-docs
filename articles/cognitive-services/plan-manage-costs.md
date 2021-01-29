@@ -76,13 +76,13 @@ To view Cognitive Services costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-![Example showing accumulated costs for a subscription](./media/cost-management/all-costs.png)
+:::image type="content" source="./media/cost-management/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
 - To narrow costs for a single service, like Cognitive Services, select **Add filter** and then select **Service name**. Then, select **Cognitive Services**.
 
 Here's an example showing costs for just Cognitive Services.
 
-![Example showing accumulated costs for Cognitive Services](./media/cost-management/cognitive-services-costs.png)
+:::image type="content" source="./media/cost-management/cognitive-services-costs.png" alt-text="Example showing accumulated costs for Cognitive Services":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Cognitive Services costs by resource group are also shown. From here, you can explore costs on your own.
 
