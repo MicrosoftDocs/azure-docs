@@ -23,12 +23,31 @@ Azure Storage includes data protection features that enable you to prevent accid
 
 | Data protection scenario | Blob storage | Azure Data Lake Storage Gen2 |
 |-|-|
-| Protect your data from accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
-| Recover data quickly from accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
-| Protect your data from accidental or malicious updates | [Blob versioning](#blob-versioning)<br>[Blob snapshots](#blob-snapshots)<br>[Point-in-time restore](#point-in-time-restore) | File snapshots (preview) (???are we using file term instead of blob for ADLS? I'm still confused on that???) |
-| Restore all or some of your data to a previous point in time  | [Point-in-time restore](#point-in-time-restore) | Not yet available |
+| Quickly recover data in the event of accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
+| Quickly recover data in the event of accidental or malicious updates | [Blob versioning](#blob-versioning)<br>[Blob snapshots](#blob-snapshots)<br>[Point-in-time restore](#point-in-time-restore) | [Blob snapshots](#blob-snapshots) (preview) |
+| Restore all or some of your data to a previous point in time | [Point-in-time restore](#point-in-time-restore) | Not yet available |
 | Track changes to your data | [Change feed](#change-feed) | Not yet available |
-| Prevent all updates and deletes for a specified period of time | [Immutable blob storage](#immutable-blob-storage) for Write-Once, Read-Many (WORM) workloads | Immutable storage for WORM workloads (preview) |
+| Prevent all updates and deletes for a specified period of time | [Immutable blob storage](#immutable-blob-storage) for Write-Once, Read-Many (WORM) workloads | [Immutable blob storage](#immutable-blob-storage) for WORM workloads (preview) |
+
+## Recover deleted data
+
+| If your scenario requires... | Then configure these data protection features... |
+|-|-|
+| My scenario requires complete coverage, regardless of cost | Container soft delete, blob versioning, point-in-time restore |
+| I need to balance coverage with costs | Container soft delete, blob versioning  |
+|  |  |
+
+## Recover data that has been overwritten
+
+
+
+## Restore data to a previous point in time
+
+
+## Prevent all updates and deletes
+
+
+### Data protection features
 
 ## Soft delete
 
@@ -44,7 +63,11 @@ Microsoft recommends enabling [blob versioning](#blob-versioning) together with 
 
 ### Container soft delete
 
-Container soft delete (preview) protects a container's contents and metadata from deletion. When container soft delete is enabled for a storage account, a deleted container and its blobs may be recovered during a retention interval that you specify. The retention period for deleted containers can be between 1 and 365 days. To recover a deleted container and its blobs, call the **Undelete Container** operation.
+When you enable container soft delete (preview) for your storage account, you can quickly recover a container and its contents and metadata if it is deleted. The container may be recovered during a retention interval that you specify. The retention period for deleted containers can be between 1 and 365 days.
+
+Restoring a soft-deleted container restores all of the blobs within it to their state when the container was deleted. However, it's important to also enable blob soft delete (or versioning) so that you can restore an individual blob in the container if it is deleted.
+
+To recover a deleted container and its blobs, call the **Undelete Container** operation.
 
 The following diagram shows how container soft delete works:
 
@@ -140,7 +163,7 @@ For more information, see [Store business-critical blob data with immutable stor
 
 ## Disaster recovery
 
-Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. For more information about how to configure your storage account for high availability, see [Azure Storage redundancy](../common/storage-redundancy.md).
+Azure Storage always maintains multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. For more information about how to configure your storage account for high availability, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 In the event that a failure occurs in a data center, if your storage account is redundant across two geographical regions (geo-redundant), then you have the option to fail over your account from the primary region to the secondary region. For more information, see [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md).
 
