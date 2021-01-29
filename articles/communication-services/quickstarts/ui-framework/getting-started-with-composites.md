@@ -1,5 +1,5 @@
 ---
-title: Getting started with UI Framework SDK Composite Components
+title: Getting started with Azure Communication Services UI Framework SDK composite components
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to get started with UI Framework Composite Components
 author: ddematheu2
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework Composites
+# Quickstart: Getting started with UI Framework composite components
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -47,7 +47,7 @@ cd my-app
 
 ```
 
-At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we will be modifying files inside of the `src` folder.
+At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the package
 
@@ -67,7 +67,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Run Create React App
 
-Lets test the Create React App installation by running:
+Let's test the Create React App installation by running:
 
 ```console
 
@@ -81,18 +81,18 @@ npm start
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services UI SDK client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
+| Provider| Fluent UI provider that lets you modify underlying Fluent UI components|
 | GroupCall | Composite component that renders a group calling experience with participant gallery and controls. |
 | GroupChat | Composite component that renders a group chat experience with chat thread and input |
 
 
 ## Initialize Group Call and Group Chat Composite Components
 
-Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we will drop the following code to initialize our Composite Components for Group Chat and Calling. Developers can choose which one to use depending on the type of communication experience they look to build or use both when both modalities are required. To initialize the components you will require an access token retrieved from Azure Communication Services. For details on how to do this see: [create and manage user access tokens](../../access-tokens.md).
+Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Composite Components for Group Chat and Calling. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
 
 `App.js`
 ```javascript
@@ -117,26 +117,22 @@ function App(){
 
     <Provider theme={iconTheme}>
         <GroupCall
-            config={{
-                displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
-                userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
-                token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
-                refreshTokenCallback={CALLBACK}, //Optional, Callback to refresh the token in case it expires
-                groupId={GROUPID}, //Required, Id for group call that will be joined. (GUID)
-            }}
+            displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
+            userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
+            token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
+            refreshTokenCallback={CALLBACK}, //Optional, Callback to refresh the token in case it expires
+            groupId={GROUPID}, //Required, Id for group call that will be joined. (GUID)
             onEndCall = { () => {
                 //Optional, Action to be performed when the call ends
             }}
         />
 
         <GroupChat 
-            config={{
-                displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
-                userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
-                token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
-                threadId={THREADID}, //Required, Id for group chat thread that will be joined.
-                environmentURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
-            }}
+            displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
+            userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
+            token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
+            threadId={THREADID}, //Required, Id for group chat thread that will be joined.
+            environmentURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
             onRenderAvatar = { () => {
                 //Optional, ???
             }}
@@ -176,5 +172,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see the following articles:
-- TODO
+For more information, see the following:
+- [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
