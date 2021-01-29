@@ -109,7 +109,7 @@ It might take a few minutes to receive notifications after an alert is triggered
 
 The email notification will look similar to this one.
 
-![Sample email notification for an action rule](media/azure-stack-edge-manage-alerts/sample-action-rule-email-notification.png)
+![Sample email notification for an action rule](media/azure-stack-edge-gpu-manage-alerts/sample-action-rule-email-notification.png)
 
 
 ## Next steps
