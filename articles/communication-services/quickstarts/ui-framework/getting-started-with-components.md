@@ -35,34 +35,21 @@ mkdir ui-framework-quickstart && cd ui-framework-quickstart
 
 ```
 
-### Set Up Fluent UI
+UI Framework requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
-Install Fluent UI package and initialize
+### Set Up React App
 
-
-```console
-
-npm i @fluentui/react
-
-```
-
-```javascript
-import {Provider} from '@fluentui/react';
-```
-
-### Set Up React
-
-Install the React package and initialize 
+We will use the create-react-app template for this quickstart. For more information see: [Getting Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```console
 
-npm i react
+npx create-react-app my-app
+
+cd my-app
 
 ```
 
-```javascript
-import React from 'react';
-```
+At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we will be modifying files inside of the `src` folder.
 
 ### Install the package
 
@@ -70,11 +57,29 @@ Use the `npm install` command to install the Azure Communication Services Callin
 
 ```console
 
-npm install @azure/communication-ui --save
+npm install @azure/acs-ui-sdk --save 
+
+//Private Preview install tarball
+
+npm install --save ./{path for tarball}
 
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
+
+### Run Create React App
+
+Lets test the Create React App installation by running:
+
+```console
+
+yarn start 
+
+or
+
+npm start
+
+```
 
 ## Object model
 
@@ -102,7 +107,7 @@ import {CallingProvider, ChatProvider} from "@azure/communication-ui"
 
 ```
 
-To initialize the `CommunicationsProvider` do the following:
+To initialize the `CallingProvider` and `ChatProvider` do the following:
 
 ```javascript
 
