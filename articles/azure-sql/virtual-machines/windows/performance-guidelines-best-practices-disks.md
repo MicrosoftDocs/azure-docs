@@ -36,9 +36,9 @@ To learn more, see the other articles in this series:
 - Bursting should be only considered for smaller departmental systems and dev/test workloads.
 - Use Ultra Disks if less than 1-ms storage latencies are required for the transaction log and write acceleration is not an option. 
 
-## Disk Overview
+## Overview
 
-Many customers begin their migration process by choosing a virtual machine. The memory optimized (ex. [M-series](https://docs.microsoft.com/en-us/azure/virtual-machines/m-series), [Edsv4-series](https://docs.microsoft.com/en-us/azure/virtual-machines/edv4-edsv4-series?#edsv4-series), and the [Dsv2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series-memory?#dsv2-series-11-15)) virtual machine sizes are recommended for OLTP workloads. Larger machines with higher core-to-memory ratios (ex. [Mv2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/mv2-series)) are well-suited for data warehousing workloads.
+Many customers begin their migration process by choosing a virtual machine. 
 
 Customers that initially selected a virtual machine by the memory and processing requirements, should ensure they have the right storage solution for their application environment.
 
@@ -47,6 +47,7 @@ In order to select a storage solution in Azure you must first know the storage n
 In this section we will first cover Azure Managed Disks and in the following storage section the methods for choosing a storage architecture that follows best practices.
 
 ## Azure Managed Disks and Disk Types
+
 Azure Managed Disks are block-level storage volumes designed for Azure Virtual Machines. Azure Managed Disks are similar to the virtual disks you leverage in an on-premises environment where you will choose your disk type, capacity, and then provision the disk. The performance of the disk increases with the capacity grouped by [premium disk labels](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd) for example, the P1 with 4GiB of space and 120 IOPs to the P80 with 32TiB of storage and 20,000 IOPs.
 
 The available types of disks are standard hard disk drives (HDD), standard solid-state drives (SSD), premium (SSD), and Ultra Disks.
