@@ -76,7 +76,7 @@ From the project directory:
 
     Here's the code:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
 
 1. Save the new file as *blob-quickstart-v12.py* in the *blob-quickstart-v12* directory.
 
