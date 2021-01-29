@@ -79,10 +79,12 @@ Consider the following steps when setting up routing.
    * **Association**: Select all Blue VNets.
    * **Propagation**: Select all Blue VNets.
 3. Repeat the same steps for **RT_RED** route table for Red VNets.
-4. Secure your Virtual Hub using Azure Firewall. For more information about Azure Firewall in the Virtual WAN hub, see [Configuring Azure Firewall in Virtual WAN hub](howto-firewall.md) 
+4. Secure your Virtual Hub using Azure Firewall. For more information about Azure Firewall in the Virtual WAN hub, see [Configuring Azure Firewall in Virtual WAN hub](howto-firewall.md).
 5. Add a static route to the **Default** Route Table directing all traffic destined for the Vnet address spaces (both blue and red) to Azure Firewall. This steps ensures any packets from your branches will be sent to Azure Firewall for inspection.
     * Example: **Destination Prefix**:  10.0.0.0/24 **Next Hop**: Azure Firewall
-1. Add a static route to **RT_RED** and **RT_BLUE** directing all traffic to Azure Firewall. This step ensures VNets will not be able to access branches directly.
+>[!NOTE]
+> This step can also be done via Firewall Manager by selecting the "Secure Private Traffic" option.
+1. Add a static route to **RT_RED** and **RT_BLUE** directing all traffic to Azure Firewall. This step ensures VNets will not be able to access branches directly. This step cannot be done via Firewall Manager.
     * Example: **Destination Prefix**: 0.0.0.0/0 **Next Hop**: Azure Firewall
 
 This will result in the routing configuration changes as seen in the figure below.
