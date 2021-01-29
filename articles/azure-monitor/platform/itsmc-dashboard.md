@@ -44,7 +44,7 @@ The dashboard is split into four sections:
 
 - **WORK ITEMS CREATED**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
       ![Screenshot that shows the work items created section.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-- **IMPACTED COMPUTERS**: The table contains details about the configuration items that created configuration items.
+- **IMPACTED COMPUTERS**: The table contains details about the configuration items that created work items.
       Select rows in the tables for more details about the configuration items.
       The table contains a limited number of rows. To see the entire list, select **See all**.
       ![Screenshot that shows the impacted computers section.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
