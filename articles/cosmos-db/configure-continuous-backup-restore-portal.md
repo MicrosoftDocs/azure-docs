@@ -10,20 +10,20 @@ ms.reviewer: sngun
 
 ---
 
-# Configure continuous backup and point in time restore - using Azure portal
+# Configure and manage continuous backup and point in time restore - using Azure portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
 
 This article describes how to identify the restore point and configure continuous backup using Azure portal.
 
-## Provision an account with continuous backup
+## <a id="provision"></a>Provision an account with continuous backup
 
 When creating a new Azure Cosmos DB account, for the **Backup policy** option, choose **continuous** mode to enable the point in time restore functionality for the new account. After this feature is enabled for the account, all the databases and containers are available for continuous backup. With the point-in-time restore, data is always restored to a new account, currently you can't restore to an existing account.
 
 :::image type="content" source="./media/configure-continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration" border="false":::
 
-## Restore a live account from accidental modification
+## <a id="restore-live-account"></a>Restore a live account from accidental modification
 
 You can use Azure portal to restore a live account or selected databases and containers under it. Use the following steps to restore your data:
 
@@ -60,7 +60,7 @@ For example, if you want to restore to the point before a certain container was 
 > [!NOTE]
 > The event feed does not display the changes to the item resources. You can always manually specify any timestamp in the last 30 days (as long as account exists at that time) for restore.
 
-## Restore a deleted account
+## <a id="restore-deleted-account"></a>Restore a deleted account
 
 You can use Azure portal to completely restore a deleted account within 30 days of its deletion. Use the following steps to restore a deleted account:
 
@@ -91,3 +91,7 @@ After initiating a restore operation, select the **Notification** bell icon at t
 :::image type="content" source="./media/configure-continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete" border="false":::
 
 ## Next steps
+
+* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

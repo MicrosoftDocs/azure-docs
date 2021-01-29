@@ -75,3 +75,8 @@ At any given point in time, Azure Cosmos DB account's "accountName" property is 
 ID or the "instanceId" is a property of an instance of an account and it is used to disambiguate across multiple accounts (live and deleted) if they have same name for restore. You can get the instance ID by running the `Get-AzCosmosDBRestorableDatabaseAccount` or  `az cosmosdb restorable-database-account` commands. The name attribute value denotes the "InstanceID".
 
 ## Next steps
+
+* What is [continuous backup](continuous-backup-restore-introduction.md) mode?
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

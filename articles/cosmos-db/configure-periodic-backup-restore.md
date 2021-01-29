@@ -141,4 +141,6 @@ It is advised that you delete the container or database immediately after migrat
 
 ## Next steps
 
-* To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

@@ -10,14 +10,14 @@ ms.reviewer: sngun
 
 ---
 
-# Configure continuous backup and point in time restore - using Azure Resource Manager templates
+# Configure and manage continuous backup and point in time restore - using Azure Resource Manager templates
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
 
 This article describes how to provision an account with continuous backup and restore data using Azure Resource Manager Templates.
 
-## Provision an account with continuous backup
+## <a id="provision"></a>Provision an account with continuous backup
 
 You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the "backupPolicy" parameter as shown in the following example:
 
@@ -53,7 +53,7 @@ Next deploy the template by using Azure PowerShell or CLI. The following example
 az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
 ```
 
-## Restore using the Resource Manager template
+## <a id="restore"></a>Restore using the Resource Manager template
 
 You can also restore an account using Resource Manager template. When defining the template include the following parameters:
 
@@ -97,3 +97,7 @@ az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFi
 ```
 
 ## Next steps
+
+* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

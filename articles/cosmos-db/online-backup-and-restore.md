@@ -26,7 +26,9 @@ These options allow you to take automatic backups without affecting the performa
 
 ## Next steps
 
-Next you can learn about how to restore data from an Azure Cosmos account or learn how to migrate data to an Azure Cosmos account
+Next you can learn about how to configure and manage periodic and continuous backup modes for your account:
 
-* [Use Cosmos DB change feed](change-feed.md) to move data to Azure Cosmos DB.
-* [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data to Azure Cosmos DB.
+* [Configure and manage periodic backup](configure-periodic-backup-restore.md) policy.
+* What is [continuous backup](continuous-backup-restore-introduction.md) mode?
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

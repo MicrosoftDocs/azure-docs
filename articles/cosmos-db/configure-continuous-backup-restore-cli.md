@@ -10,14 +10,14 @@ ms.reviewer: sngun
 
 ---
 
-# Configure continuous backup and point in time restore - using Azure CLI
+# Configure and manage continuous backup and point in time restore - using Azure CLI
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
 
 This article describes how to provision an account with continuous backup and restore data using Azure CLI.
 
-## Install Azure CLI 
+## <a id="install"></a>Install Azure CLI 
 
 1. Install the latest version of Azure CLI
 
@@ -37,7 +37,7 @@ This article describes how to provision an account with continuous backup and re
    * Sign into your Azure account with `az login` command.
    * Select the required subscription using `az account set -s <subscriptionguid>` command.
 
-## Provision a SQL API account with continuous backup
+## <a id="provision-sql-api"></a>Provision a SQL API account with continuous backup
 
 To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named `pitracct2` with continuous backup policy created in the "West US" region under "gskrg" resource group:
 
@@ -52,7 +52,7 @@ az cosmosdb create \
 
 ```
 
-## Provision an Azure Cosmos DB API for MongoDB account with continuous backup
+## <a id="provision-mongo-api"></a>Provision an Azure Cosmos DB API for MongoDB account with continuous backup
 
 The following command shows an example of a single region write account named `pitracct3` with continuous backup policy created the "West US" region under "gskrg" resource group:
 
@@ -69,7 +69,7 @@ az cosmosdb create \
 
 ```
 
-## Trigger a restore operation with CLI
+## <a id="trigger-restore"></a>Trigger a restore operation with CLI
 
 The simplest way to trigger a restore is by issuing the restore command with name of the target account, source account, location, resource group, timestamp (in UTC), and optionally the database and container names. The following are some examples to trigger the restore operation:
 
@@ -101,7 +101,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
    ```
 
-## Enumerate restorable resources for SQL API
+## <a id="enumerate-sql-api"></a>Enumerate restorable resources for SQL API
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources.
 
@@ -256,7 +256,7 @@ az cosmosdb sql restorable-resource list \
   }
 ```
 
-## Enumerate restorable resources for MongoDB API account
+## <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB API account
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. Like with SQL API, you can use the `az cosmosdb` command but with "mongodb" as parameter instead of "sql". These commands only work for live accounts.
 
@@ -288,3 +288,7 @@ az cosmosdb mongodb restorable-resource list \
 ```
 
 ## Next steps
+
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

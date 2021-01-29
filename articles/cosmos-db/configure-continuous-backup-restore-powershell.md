@@ -10,13 +10,13 @@ ms.reviewer: sngun
 
 ---
 
-# Configure continuous backup and point in time restore - using Azure PowerShell
+# Configure and manage continuous backup and point in time restore - using Azure PowerShell
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
 
 This article describes how to provision an account with continuous backup and restore data using Azure PowerShell.
 
-## Install Azure PowerShell
+## <a id="install-powershell"></a>Install Azure PowerShell
 
 1. Run the following command from Azure PowerShell to install the `Az.CosmosDB` preview module, which contains the commands related to point in time restore:
 
@@ -36,7 +36,7 @@ This article describes how to provision an account with continuous backup and re
    Select-AzSubscription -Subscription <SubscriptionName>
    ```
 
-## Provision a SQL API account with continuous backup
+## <a id="provision-sql-api"></a>Provision a SQL API account with continuous backup
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
@@ -53,7 +53,7 @@ New-AzCosmosDBAccount `
     	  
 ```
 
-## Provision a MongoDB API account with continuous backup
+## <a id="provision-mongodb-api"></a>Provision a MongoDB API account with continuous backup
 
 The following cmdlet is an example of continuous backup account "pitracct2" created in "West US" region under "gskrg" resource group:
 
@@ -69,7 +69,7 @@ New-AzCosmosDBAccount `
 
 ```
 
-## Trigger a restore operation
+## <a id="trigger-restore"></a>Trigger a restore operation
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
 
@@ -113,7 +113,7 @@ Restore-AzCosmosDBAccount `
 
 ```
 
-## Enumerate restorable resources for SQL API
+## <a id="enumerate-sql-api"></a>Enumerate restorable resources for SQL API
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources.
 
@@ -196,7 +196,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ```
 
-## Enumerate restorable resources for MongoDB
+## <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to SQL API commands but with "MongoDB" in the command name instead of "sql".
 
@@ -232,3 +232,7 @@ Get-AzCosmosdbMongoDBRestorableResource `
 ```
 
 ## Next steps
+
+* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [Resource Manager](configure-continuous-backup-resource-manager.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

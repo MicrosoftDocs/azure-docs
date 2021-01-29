@@ -200,3 +200,6 @@ Each resource represents a single database and all the collections under that da
 To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List]() article.
 
 ## Next steps
+
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

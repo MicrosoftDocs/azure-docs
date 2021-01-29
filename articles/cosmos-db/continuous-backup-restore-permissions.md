@@ -9,7 +9,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ---
 
-# Configure permissions to restore an Azure Cosmos DB account
+# Manage permissions to restore an Azure Cosmos DB account
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope or more granularly at the source account scope as shown in the following image:
@@ -121,3 +121,5 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
