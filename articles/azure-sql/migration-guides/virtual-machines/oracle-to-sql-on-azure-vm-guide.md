@@ -53,7 +53,7 @@ To use the MAP Toolkit to perform an inventory scan, follow these steps:
 
 1. Select **Collect inventory data** to open the **Inventory and Assessment Wizard**. 
 
-   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Create an inventory database":::
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Collect inventory data":::
 
 1. In the **Inventory and Assessment Wizard**, choose **Oracle** and then select **Next**. 
 
