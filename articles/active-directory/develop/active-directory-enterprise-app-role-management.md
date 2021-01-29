@@ -26,7 +26,7 @@ By using Azure Active Directory (Azure AD), you can customize the claim type for
 
 ## When to use this feature
 
-If your application expects custom roles to be passed in a SAML response, you need to use this feature. You can create as many roles as you need to be passed back from Azure AD to your application.
+Use this feature, if your application expects custom roles to be passed in a SAML response. You can create as many roles to be passed back from Azure AD to your application.
 
 ## Create roles for an application
 
@@ -79,7 +79,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
         `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-        ![Query for getting the service principal that you need to modify](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+        ![Query for getting the service principal that you  modify](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
     1. Extract the **appRoles** property from the service principal object.
 
@@ -135,7 +135,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
     !["Edit Assignment" pane and "Select Role" pane](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    You need to refresh your session in the Azure portal to see new roles.
+    Refresh your session in the Azure portal to see new roles.
 
 1. Update the **Attributes** table to define a customized mapping of the role claim.
 
