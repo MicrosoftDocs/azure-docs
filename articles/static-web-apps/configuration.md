@@ -50,7 +50,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).<li>Querystring parameters aren't supported.</ul> |
 | `allowedRoles` | No       | anonymous     | Defines a list of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers take precedence over [`globalHeaders`](#global-headers).<li>To remove a header, set the value to an empty string or `null`.</ul> |
-| `statusCode`   | No       | 200, or 302 for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
+| `statusCode`   | No       | `200`, or `302` for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
 | `methods` | No | All methods | List of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`,  and `PATCH`. |
 
 ## Securing routes with roles
@@ -287,7 +287,7 @@ The following example configuration demonstrates how to override an error code.
 
 Based on the above configuration, review the following scenarios.
 
-| Requests to... | Results in... |
+| Requests to... | results in... |
 | --- | --- |
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
 | _/admin/_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a 403 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
