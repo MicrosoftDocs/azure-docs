@@ -2,10 +2,10 @@
 title: Plan to manage costs for Azure Logic Apps
 description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal
 ms.service: logic-apps
-ms.reviewer: logicappspm, azla
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 01/31/2021
+ms.date: 01/29/2021
 
 # Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles. 
 ---

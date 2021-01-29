@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/31/2021
+ms.date: 01/29/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -26,13 +26,14 @@ For example, a request that a polling trigger makes is still metered as an execu
 | [Standard connector](../connectors/apis-list.md#managed-connectors) triggers and actions <p><p>[Custom connector](../connectors/apis-list.md#custom) triggers and actions | Metered using the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | [Enterprise connector](../connectors/apis-list.md#managed-connectors) triggers and actions | Metered using the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps/). However, during public preview, Enterprise connectors are metered using the [*Standard* connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Actions inside [loops](logic-apps-control-flow-loops.md) | Each action that runs in a loop is metered for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. The Logic Apps service meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. These retries along with the original request are charged at rates based on whether the trigger or action has built-in, Standard, or Enterprise type. For example, an action that executes with 2 retries is charged for 3 action executions. |
 | [Data retention and storage consumption](#data-retention) | Metered using the data retention price, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table. |
 |||
 
 For more information, see the following:
 
 * [View metrics for executions and storage consumption](plan-manage-costs.md#monitor-billing-metrics)
-* [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise)
+* [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
 
 ### Not metered
 
@@ -75,12 +76,14 @@ A fixed pricing model applies to logic apps that run in an [*integration service
 | Items | Description |
 |-------|-------------|
 | [Built-in](../connectors/apis-list.md#built-in) triggers and actions | Display the **Core** label and run in the same ISE as your logic apps. |
-| [Standard connectors](../connectors/apis-list.md#managed-connectors) <p><p>[Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) | - Managed connectors that display the **ISE** label are specially designed to work without the on-premises data gateway and run in the same ISE as your logic apps. ISE pricing includes as many Enterprise connections as you want. <p><p>- Connectors that don't display the ISE label run in the multi-tenant Logic Apps service. However, ISE pricing applies when you use these connectors with logic apps that run in an ISE. |
+| [Standard connectors](../connectors/apis-list.md#managed-connectors) <p><p>[Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) | - Managed connectors that display the **ISE** label are specially designed to work without the on-premises data gateway and run in the same ISE as your logic apps. ISE pricing includes as many Enterprise connections as you want. <p><p>- Connectors that don't display the ISE label run in the multi-tenant Logic Apps service. However, ISE pricing includes these executions for logic apps that run in an ISE. |
+| Actions inside [loops](logic-apps-control-flow-loops.md) | ISE pricing includes each action that runs in a loop for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. To get the total number of action executions, multiply the number of list items with the number of actions in the loop, and add the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. ISE pricing includes retries along with the original request. |
 | [Data retention and storage consumption](#data-retention) | Logic apps in an ISE don't incur retention and storage costs. |
 | [Integration accounts](#integration-accounts) | Includes usage for a single integration account tier, based on ISE SKU, at no extra cost. |
 |||
 
-For limits information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
 <a name="integration-accounts"></a>
 
