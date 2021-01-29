@@ -90,40 +90,49 @@ The following classes and interfaces handle some of the major features of the Az
 | Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
 | CallingProvider| Calling Provider to insatiate a call. Required to instantiate additional components|
 | ChatProvider | Chat Provider to insatiate a chat thread. Required to instantiate additional components|
-| ParticipantGallery | Base component that shows call participants and their remote video streams |
-| CallControls | Base component to control call including mute, video, share screen |
+| MediaGallery | Base component that shows call participants and their remote video streams |
+| MediaControls | Base component to control call including mute, video, share screen |
 | ChatThread | Base component that renders a chat thread with typing indicators, read receipts, etc. |
-| ChatInput | Base component that allows user to input messages that will be sent to the joined thread|
+| SendBox | Base component that allows user to input messages that will be sent to the joined thread|
 
 ## Initialize Calling and Chat Providers using Azure Communication Services credentials
 
-Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
+Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Calling and Chat Providers. These providers are incharge of maintaining the context of the call and chat experiences. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
 
-Before initializing lets first import the UI Framework package.
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
 
+In addition, we will instantiate Fluent UI theme for the experience. These themes will give the experience the color and feel.
+
+`App.js`
 ```javascript
 
 import {CallingProvider, ChatProvider} from "@azure/communication-ui"
+import { Provider } from '@fluentui/react-northstar';
+import { svgIconStyles } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconStyles';
+import { svgIconVariables } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconVariables';
+import * as siteVariables from '@fluentui/react-northstar/dist/es/themes/teams/siteVariables';
 
-```
+const iconTheme = {
+  componentStyles: {
+    SvgIcon: svgIconStyles
+  },
+  componentVariables: {
+    SvgIcon: svgIconVariables
+  },
+  siteVariables
+};
 
-To initialize the `CallingProvider` and `ChatProvider` do the following:
-
-```javascript
-
-<Provider theme={/*Insert Fluent Theme*/}>
+<Provider theme={mergeThemes(iconTheme, teamsTheme)}>
     <CallingProvider
     displayName={/*Insert Display Name to be used for the user*/}
     groupId={/*Insert GUID for group call to be joined*/}
     userId={/*Insert the Azure Communication Services user id */}
     token={/*Insert the Azure Communication Services access token*/}
     refreshTokenCallback={/*Insert refresh token call back function*/}
-  >
-  // Add Calling Components Here
-  </CallingProvider>
-</Provider>
+    >
+        // Add Calling Components Here
+    </CallingProvider>
 
-<Provider theme={/*Insert Fluent Theme*/}>
     <ChatProvider
     token={/*Insert the Azure Communication Services access token*/}
     userId={/*Insert the Azure Communication Services user id*/}
@@ -131,32 +140,86 @@ To initialize the `CallingProvider` and `ChatProvider` do the following:
     threadId={/*Insert id for group chat thread to be joined*/}
     environmentUrl={/*Insert the enviornment URL for the Azure Resource used*/}
     refreshTokenCallback={/*Insert refresh token call back function*/}
-  >
-  //  Add Chat Components Here
-  </ChatProvider>
+    >
+        //  Add Chat Components Here
+    </ChatProvider>
 </Provider>
 
 ```
 
-Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together.
+Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together. Next we will use a variety of base components provided by UI Framework to build communication experiences. As a developer you can customize the layout of these components and add any additional custom components that you want to render with them. 
 
-## Add UI Framework Components to your application
+## Build UI Framework Calling Component Experiences
 
-User Base Components for calling and chat to build your own communication experiences. See examples below:
+For Calling, we will use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we will initialize a function component that will hold our base components to then import in `app.js`.
 
+`callingComponents.js`
 ```javascript
 
-<Provider theme={/*Insert Fluent Theme*/}>
-    <CallingProvider>
-        <ParticipantGallery />
-        <CallControls />
-    </CallingProvider>
-</Provider>
+import {MediaGallery, MediaControls, useGroupCall, MapToCallingSetupProps, connectFuncsToContext} from "@azure/acs-ui-sdk"
 
-<Provider theme={/*Insert Fluent Theme*/}>
-    <ChatProvider >
+function CallingComponents() {
+
+  return (
+    <div >
+        <MediaGallery/>
+        <MediaControls/>
+    </div>
+  );
+}
+
+```
+
+Developers can add additional layout and styling around the components to make them fit correctly in their applications. 
+
+In the same file, at the bottom, we will then export the calling components to be initiated inside `app.js`. To export them we will use the `connectFuncsToContext` method part of the UI Framework. This method connects the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework support custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
+
+`callingComponents.js`
+```javascript
+
+export default connectFuncsToContext(CallingComponents, MapToCallingSetupProps);
+
+```
+
+## Build UI Framework Chat Component Experiences
+
+For Chat, we will use the `ChatThread` and `SendBox` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `chatComponents.js`. Here we will initialize a function component that will hold our base components to then import in `app.js`.
+
+`chatComponents.js`
+```javascript
+
+import {ChatThread, SendBox} from "@azure/acs-ui-sdk/dist/connected-components"
+
+function ChatComponents() {
+
+  return (
+    <div >
         <ChatThread />
-        <ChatInput />
+        <SendBox />
+    </div >
+  );
+}
+
+export default ChatComponents;
+
+```
+
+## Add Calling and Chat Components to the main applications
+
+Back in the `app.js` file, we will now add the components to the application. Specifically, we will add these components inside of the `CallingProvider` and `ChatProvider`.
+
+`App.js`
+```javascript
+
+import ChatComponents from './chatComponents';
+import CallingComponents from './callingComponents';
+
+    <CallingProvider .... >
+        <CallingComponents/>
+    </CallingProvider>
+
+    <ChatProvider .... >
+        <ChatComponents />
     </ChatProvider>
 </Provider>
 
@@ -164,9 +227,17 @@ User Base Components for calling and chat to build your own communication experi
 
 ## Run quickstart
 
-TBD
+To run the code above use the command:
 
-TBD Screenshot 
+```console
+
+yarn start
+
+or 
+
+npm start
+
+```
 
 ## Clean up resources
 
@@ -174,5 +245,10 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see the following articles:
-- TODO
+> [!div class="nextstepaction"]
+> [Try UI Framework Composite Components](./getting-started-with-composites.md)
+
+For more information, see the following:
+- [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
+- [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md)
+

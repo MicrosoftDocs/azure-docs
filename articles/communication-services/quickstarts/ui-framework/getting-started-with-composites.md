@@ -94,11 +94,13 @@ The following classes and interfaces handle some of the major features of the Az
 
 Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Composite Components for Group Chat and Calling. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
 
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
+
 `App.js`
 ```javascript
 
 import {GroupCall, GroupChat} from "@azure/acs-ui-sdk"
-import { Provider } from '@fluentui/react-northstar';
+import { Provider, mergeThemes, teamsTheme, } from '@fluentui/react-northstar';
 import { svgIconStyles } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconStyles';
 import { svgIconVariables } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconVariables';
 import * as siteVariables from '@fluentui/react-northstar/dist/es/themes/teams/siteVariables';
@@ -115,7 +117,7 @@ const iconTheme = {
 
 function App(){
 
-    <Provider theme={iconTheme}>
+    <Provider theme={mergeThemes(iconTheme, teamsTheme)}>
         <GroupCall
             displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
             userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
@@ -172,5 +174,9 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Try UI Framework Base Components](./getting-started-with-components.md)
+
 For more information, see the following:
 - [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
+- [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md)

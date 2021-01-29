@@ -51,6 +51,8 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
 
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application.
+
 Before initializing lets first import the UI Framework package.
 
 ```javascript
