@@ -92,15 +92,15 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 10. When you finish your settings, select **Create**.
 
-   ![Completed settings for an action rule that will send alert notifications](media/new-action-rule-completed-settings.png)
+    ![Completed settings for an action rule that will send alert notifications](media/new-action-rule-completed-settings.png)
 
-   The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus in **All** resource groups.
+    The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus in **All** resource groups.
 
-   ![Action rules screen after a new rule is saved](media/new-action-rule-created.png)
+    ![Action rules screen after a new rule is saved](media/new-action-rule-created.png)
 
 11. To see your new action rule, select the resource group for the rule.
 
-   ![Action rules screen with the new rule displayed](media/new-action-rule-displayed.png)
+    ![Action rules screen with the new rule displayed](media/new-action-rule-displayed.png)
 
 
 ## View notifications for an action rule
