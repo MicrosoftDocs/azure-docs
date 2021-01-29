@@ -396,13 +396,34 @@ import requests
 endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
 resourceKey =  'YOUR-RESOURCE-KEY'
 
-payload='{\"inputs\":[{\"source\":{\"sourceUrl\":\"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\",\"storageSource\":\"AzureBlob\",\"language\":\"en\",\"filter\":{\"prefix\":\"Demo_1\/\"}},\"targets\":[{\"targetUrl\":\"https://YOUR-TARGET-CONTAINER-URL-WITH-WRITE-ONLY-SAS\",\"storageSource\":\"AzureBlob\",\"category\":\"general\",\"language\":\"es\"}]}]}'
+payload= {
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "https://kdossblob.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-01-22T02%3A48%3A41Z&se=2021-02-06T02%3A48%3A00Z&sr=c&sp=rl&sig=FSDuKgTb6PsKmofXgeoyl%2B8X6x8F7kY0HB%2BCuey7kDI%3D",
+                "storageSource": "AzureBlob",
+                "language": "en",
+                "filter":{
+                    "prefix": "Demo_1/"
+                }
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://kdossblob.blob.core.windows.net/target-es?sv=2019-12-12&st=2021-01-24T03%3A50%3A18Z&se=2021-02-06T03%3A50%3A00Z&sr=c&sp=wl&sig=lMWFWcbVej%2B9ZElii1KqyRxsUeIF5kr7bzaIS5mP8%2Bs%3D",
+                    "storageSource": "AzureBlob",
+                    "category": "general",
+                    "language": "es"
+                }
+            ]
+        }
+    ]
+}
 headers = {
   'Ocp-Apim-Subscription-Key': resourceKey,
   'Content-Type': 'application/json'
 }
 
-response = requests.post(url=endpoint, headers=headers, data=payload)
+response = requests.post(url=endpoint, headers=headers, json=payload)
 
 print(f'response status code: {response.status_code}\nresponse status: {response.reason}\nresponse headers: {response.headers}')
 ```
