@@ -12214,6 +12214,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
+      "redirect_url": "/azure/azure-sql/managed-instance//azure/azure-sql/managed-instance/create-template-quickstart?tabs=azure-powershell",
+      "redirect_document_id": true
+    }, 
+    {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup",
       "redirect_document_id": true
