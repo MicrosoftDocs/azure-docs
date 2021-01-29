@@ -73,7 +73,7 @@ Microsoft Defender for Endpoint integration is now generally available. This fea
 
 ### Azure Security baseline for Windows Virtual Desktop
 
-We've recently published an article about the Azure security baseline for Windows Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Azure Security Benchmark, version 2.0 to Windows Virtual Desktop. The Azure Security Benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
+We've recently published [an article about the Azure security baseline](security-baseline.md) for Windows Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Azure Security Benchmark, version 2.0 to Windows Virtual Desktop. The Azure Security Benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
 
 ## December 2020
 
