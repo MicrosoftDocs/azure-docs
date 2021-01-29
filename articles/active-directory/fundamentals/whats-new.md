@@ -330,7 +330,7 @@ For more information, go to [Change approval settings for an access package in A
 
 ## November 2020
 
-### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES Deprecation
+### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES deprecation
 
 **Type:** Plan for change  
 **Service category:** All Azure AD applications  
