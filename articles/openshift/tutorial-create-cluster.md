@@ -127,7 +127,7 @@ Next, you will create a virtual network containing two empty subnets.
 
 2. **Create a virtual network.**
 
-   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes. You can either create a new virtual network for this, or use an existing virtual network.
 
    Create a new virtual network in the same resource group you created earlier:
 
