@@ -37,17 +37,18 @@ To move a Marketplace virtual machine to a different subscription, you must crea
 # Set variable values before proceeding. 
 
 # Variables
-sourceResourceGroup = Resource group for the current virtual machine
-sourceSubscription = Subscription for the current virtual machine
-vmName = Name of the current virtual machine
+sourceResourceGroup= Resource group for the current virtual machine
+sourceSubscription= Subscription for the current virtual machine
+vmName= Name of the current virtual machine
 
-destinationResourceGroup = Resource group for the new virtual machine, create if necessary
-destinationSubscription = Subscription for the new virtual machine
+destinationResourceGroup= Resource group for the new virtual machine, create if necessary
+destinationSubscription= Subscription for the new virtual machine
 
 # Load variables about your virtual machine
 # osType = windows or linux
 osType=$(az vm get-instance-view --resource-group $sourceResourceGroup \
-    --name $vmName --query 'storageProfile.osDisk.osType' --output tsv)
+    --name $vmName --subscription $sourceSubscription \
+    --query 'storageProfile.osDisk.osType' --output tsv)
 
 # offer = Your offer in Marketplace
 offer=$(az vm get-instance-view --resource-group $sourceResourceGroup \
@@ -61,6 +62,11 @@ plan=$(az vm get-instance-view --resource-group $sourceResourceGroup \
 publisher=$(az vm get-instance-view --resource-group $sourceResourceGroup \
     --name $vmName --query 'storageProfile.imageReference.publisher' --output tsv)
 
+# Get information to create new virtual machine
+planName=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.name' --name $vmName)
+planProduct=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.product' --name $vmName)
+planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.publisher' --name $vmName)
+
 # Get the name of the OS disk
 osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
     --query 'storageProfile.osDisk.name' --output tsv)
@@ -70,7 +76,7 @@ osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
 az account set --subscription $sourceSubscription
 
 # Verify the terms for your market virtual machine
-az vm image terms show --offer $offer --plan $plan --publisher $publisher \
+az vm image terms show --offer $offer --plan '$plan' --publisher $publisher \
     --subscription $sourceSubscription
 
 # Deallocate the virtual machine
@@ -89,7 +95,7 @@ az resource move --destination-group $destinationResourceGroup \
 az account set --subscription $destinationSubscription
 
 # Accept the terms from the Marketplace
-az vm image terms accept --offer $offer --plan $plan --publisher $publisher \
+az vm image terms accept --offer $offer --plan '$plan' --publisher $publisher \
     --subscription $destinationSubscription
 
 # create disk from the snapshot 
@@ -99,6 +105,7 @@ az disk create --resource-group $destinationResourceGroup --name DestinationDisk
 
 # create virtual machine from disk
 az vm create --resource-group $destinationResourceGroup --name $vmName \
+    --plan-name $planName --plan-product $planProduct  --plan-publisher $planPublisher \
     --attach-os-disk "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/disks/DestinationDisk" \
     --os-type $osType
 ```
