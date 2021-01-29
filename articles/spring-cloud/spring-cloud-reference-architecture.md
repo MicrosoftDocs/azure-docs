@@ -23,7 +23,7 @@ The artifacts in the repository are designed to provide a foundation for your us
 
 ## Azure Spring Cloud On-Premises Connectivity
 
-Applications running in Azure Spring Cloud can communicate to a variety of Azure, on-premises, and external resources. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
+Applications running in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
 
 ### Planning the address space
 
@@ -150,7 +150,7 @@ The following diagram represents a well-architected hub and spoke design that ad
 The Azure Well-Architected Framework is a set of guiding tenets that are recommended to follow in establishing a strong infrastructure foundation. The framework contains the following categories: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 ### Cost Optimization
-By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using scalable components so that it can meet demand and optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
+By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that scale so that it can meet demand and optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
 Different applications and application types can be deployed to a single instance of Azure Spring Cloud. The service supports autoscaling of applications triggered by metrics or schedules that can improve utilization and cost efficiency.
 
