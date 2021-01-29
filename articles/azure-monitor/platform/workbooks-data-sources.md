@@ -55,7 +55,7 @@ To make a query control use this data source, use the Data source drop-down to c
 
 ## Azure Data Explorer
 
-Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.   
+Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
 
 ![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
 
@@ -75,9 +75,42 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ![Screenshot of alerts query that shows the health filter lists.](./media/workbooks-overview/resource-health.png)
 
+## Change Analysis (preview)
+
+To make a query control using [Application Change Analysis](../app/change-analysis.md) as the data source, use the *Data source* drop down and choose *Change Analysis (preview)* and select a single resource. Changes for up to the last 14 days can be shown. The *Level* drop down can be used to filter between "Important", "Normal", and "Noisy" changes, and this drop down supports workbook parameters of type [drop down](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of a workbook with Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## Merge data from different sources
+
+It is often necessary to bring together data from different sources that enhance the insights experience. An example is augmenting active alert information with related metric data. This allows users to see not just the effect ( an active alert), but also potential causes ( for example, high CPU usage). The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
+
+Workbooks allow not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
+The example below combines alerting data with log analytics VM performance data where available to get a rich insights grid.
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of a workbook with a merge control that combines alert and log analytics data](./media/workbooks-data-sources/merge-control.png)
+
+Workbooks support a variety of merges:
+
+* Inner unique join
+* Full inner join
+* Full outer join
+* Left outer join
+* Right outer join
+* Left semi-join
+* Right semi-join
+* Left anti-join
+* Right anti-join
+* Union
+* Duplicate table
+
 ## JSON
 
 The JSON provider allows you to create a query result from static JSON content. It is most commonly used in Parameters to create dropdown parameters of static values. Simple JSON arrays or objects will automatically be converted into grid rows and columns.  For more specific behaviors, you can use the Results tab and JSONPath settings to configure columns.
+
+This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Alerts (preview)
 
@@ -99,10 +132,12 @@ Workbooks support getting data from any external source. If your data lives outs
 
 To make a query control use this data source, use the _Data source_ drop-down to choose _Custom Endpoint_. Provide the appropriate parameters such as `Http method`, `url`, `headers`, `url parameters` and/or `body`. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) otherwise the request will fail.
 
-To avoid automatically making calls to untrusted hosts when using templates, the user needs to mark the used hosts as trusted. This can be done by either clicking on the _Add as trusted_ button, or by adding it as a trusted host in Workbook settings. These settings will be saved in browsers that support IndexDb with web workers, more info [here](https://caniuse.com/#feat=indexeddb).
+To avoid automatically making calls to untrusted hosts when using templates, the user needs to mark the used hosts as trusted. This can be done by either clicking on the _Add as trusted_ button, or by adding it as a trusted host in Workbook settings. These settings will be saved in [browsers that support IndexDb with web workers](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > Do not write any secrets in any of the fields (`headers`, `parameters`, `body`, `url`), since they will be visible to all of the Workbook users.
+
+This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Next steps
 
