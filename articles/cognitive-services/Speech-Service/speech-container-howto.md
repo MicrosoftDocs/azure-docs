@@ -370,13 +370,6 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 
 The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech).
 
-> [!IMPORTANT]
-> The Custom Speech model needs to be trained from one of the following model versions:
-> * **20181201 (v3.3 Unified)**
-> * **20190520 (v4.14 Unified)**
-> * **20190701 (v4.17 Unified)**<br>
-> ![Custom Speech train container model](media/custom-speech/custom-speech-train-model-container-scoped.png)
-
 The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br>
 
@@ -744,10 +737,6 @@ The Speech containers send billing information to Azure, using a *Speech* resour
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
-
-<!--blogs/samples/video courses -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

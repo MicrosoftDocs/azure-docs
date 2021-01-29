@@ -86,7 +86,7 @@ The [RunDocumentsDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/mast
 | [Read document only if document has changed](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## Indexing examples
-The [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) method of the sample *IndexManagement* project shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before you run the following samples, see [index policies](index-policy.md), [index types](index-overview.md#index-kinds), and [index paths](index-policy.md#include-exclude-paths). 
+The [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) method of the sample *IndexManagement* project shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before you run the following samples, see [index policies](index-policy.md), [index types](index-overview.md#index-types), and [index paths](index-policy.md#include-exclude-paths). 
 
 | Task | API reference |
 | --- | --- |

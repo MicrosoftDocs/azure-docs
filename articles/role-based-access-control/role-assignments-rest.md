@@ -20,7 +20,7 @@ ms.reviewer: bagovind
 ---
 # Add or remove Azure role assignments using the REST API
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using the REST API.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the REST API.
 
 ## Prerequisites
 

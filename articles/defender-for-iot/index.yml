@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Defender for IoT documentation
-summary: Azure Defender for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
+summary: Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
 
 metadata:
   title: Azure Defender for IoT documentation
@@ -25,10 +25,12 @@ landingContent:
         links:
           - text: What is Azure Defender for IoT?
             url: overview.md
-          - text: Solution Architecture
+          - text: Solution architecture
             url: architecture.md
-          - text: Setup Overview
-            url: getting-started.md        
+          - text: Solution setup overview
+            url: getting-started.md
+          - text: What's new?
+            url: release-notes.md        
            
   - title: Set up and Onboard - Agentless solution  
     linkLists:
@@ -51,8 +53,6 @@ landingContent:
             url: how-to-investigate-sensor-detections-in-a-device-inventory.md
           - text: Investigate Alerts
             url: how-to-work-with-alerts-on-your-sensor.md
-          - text: Generate Reports
-            url: how-to-generate-reports.md
           - text: Control what Traffic is Detected
             url:  how-to-control-what-traffic-is-monitored.md
           - text: Connect to Azure Sentinel
@@ -86,12 +86,11 @@ landingContent:
     linkLists:
       - linkListType: video
         links:
-          - text: Understanding Azure Defender for IoT
+          - text: Take 
             url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
       - linkListType: reference
         links:
           - text: Frequently asked questions
             url: resources-frequently-asked-questions.md
-          - text: Pricing and associated costs
-            url: concept-pricing.md
+          
 

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # How to find a specific API needed for a custom-developed application

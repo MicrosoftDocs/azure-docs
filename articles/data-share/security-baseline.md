@@ -114,7 +114,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Azure Data Share supports SSO authentication with Azure Active Directory. Reduce the number of identities and credentials users must manage by enabling SSO for the service with your organization's pre-existing identities.
 
-- [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -138,7 +138,7 @@ Enable Azure AD MFA and follow Azure Security Center identity and access recomme
 **Guidance**: 
 Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)

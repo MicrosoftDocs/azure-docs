@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
 ---
 
@@ -93,11 +93,30 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select the AKS cluster you created.
 
-1. Select **Deploy**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot showing how to set up a new real-time endpoint":::
 
+    You can also change **Advanced** setting for your real-time endpoint.
+    
+    |Advanced setting|Description|
+    |---|---|
+    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Ingishts to collect data from the deployed endpoints. </br> By default: false |
+    |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000|
+    |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true|
+    |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1|
+    |Max replicas| The maximum number of containers to use when autoscaling this web service.</br> By default: 10|
+    |Target utilization|The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service.</br> By default: 70|
+    |Refresh period|How often (in seconds) the autoscaler attempts to scale this web service.</br> By default: 1|
+    |CPU reserve capacity|The number of CPU cores to allocate for this web service.</br> By default: 0.1|
+    |Memory reserve capacity|The amount of memory (in GB) to allocate for this web service.</br> By default: 0.5|
+        
+
+1. Select **Deploy**. 
+
     A success notification above the canvas appears after deployment finishes. It might take a few minutes.
+
+> [!TIP]
+> You can also deploy to **Azure Container Instance** (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
+> Azure Container Instance is used for testing or development. Use ACI for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
 ## View the real-time endpoint
 

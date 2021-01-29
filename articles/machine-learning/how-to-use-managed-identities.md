@@ -54,7 +54,7 @@ If ACR admin user is disallowed by subscription policy, you should first create 
 [Create ACR from Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) without setting ```--admin-enabled``` argument, or from Azure portal without enabling admin user. Then, when creating Azure Machine Learning workspace, specify the Azure resource ID of the ACR. The following example demonstrates creating a new Azure ML workspace that uses an existing ACR:
 
 > [!TIP]
-> To get the value for the `--container-registry` parameter, use the [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) command to show information for your ACR. The `id` field contains the resource ID for your ACR.
+> To get the value for the `--container-registry` parameter, use the [az acr show](/cli/azure/acr#az_acr_show) command to show information for your ACR. The `id` field contains the resource ID for your ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -85,7 +85,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
 
     This command returns a value similar to the following text. You only want the last portion of the text, which is the ACR instance name:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

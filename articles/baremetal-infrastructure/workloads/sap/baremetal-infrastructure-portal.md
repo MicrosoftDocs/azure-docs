@@ -2,7 +2,7 @@
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
 ms.topic: how-to
-ms.date: 12/31/2020
+ms.date: 1/4/2021
 ---
 
 # Manage BareMetal Instances through the Azure portal
@@ -10,7 +10,9 @@ ms.date: 12/31/2020
 This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal Instances](baremetal-overview-architecture.md). This article also shows you the activities you can do in the Azure portal with your deployed BareMetal Instance units. 
  
 ## Register the resource provider
-An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview. By default, the Azure subscription you use for BareMetal Instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal Instance units, you must register the resource provider with your subscription. There are two ways to register the BareMetal Instance resource provider:
+An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview. By default, the Azure subscription you use for BareMetal Instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal Instance units, you must register the resource provider with your subscription. 
+
+There are two ways to register the BareMetal Instance resource provider:
  
 * [Azure CLI](#azure-cli)
  
@@ -80,17 +82,17 @@ The attributes in the image don't look much different than the Azure virtual mac
 On the right, you'll see the unit's name, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. You'll also see the power state and hardware version (revision of the BareMetal Instance stamp). The power state indicates if the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running.
  
 The possible hardware revisions are:
+
+* Revision 3 (Rev 3)
+
+* Revision 4 (Rev 4)
  
-* Revision 3
- 
-* Revision 4
- 
-* Revision 4.2
+* Revision 4.2 (Rev 4.2)
  
 >[!NOTE]
->Revision 4.2 is the latest rebranded BareMetal Infrastructure using the Revision 4 architecture. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows. For more information about the different revisions, see [BareMetal Infrastructure on Azure](baremetal-overview-architecture.md).
+>Rev 4.2 is the latest rebranded BareMetal Infrastructure using the existing Rev 4 architecture. Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Rev 4 stamps or rows. You can access and manage your BareMetal instances through the Azure portal. For more information, see [BareMetal Infrastructure on Azure](baremetal-overview-architecture.md).
  
-Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/linux/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
+Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
  
 >[!TIP]
 >To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).

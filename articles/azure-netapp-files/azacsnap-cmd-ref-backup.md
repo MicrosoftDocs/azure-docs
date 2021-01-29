@@ -158,7 +158,7 @@ The *log file* name in this example is `azacsnap-backup-bootVol.log`.
 
 - HANA Large Instance Type: There are two valid values with `TYPEI` or `TYPEII` dependent on
     the HANA Large Instance Unit.
-- See [Available SKUs for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-available-skus) to confirm the available SKUs.
+- See [Available SKUs for HANA Large Instances](../virtual-machines/workloads/sap/hana-available-skus.md) to confirm the available SKUs.
 
 ## Next steps
 

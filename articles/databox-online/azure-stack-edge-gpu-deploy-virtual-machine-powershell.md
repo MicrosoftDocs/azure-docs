@@ -1,20 +1,20 @@
 ---
 title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure PowerShell.
+description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
 
-This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
+This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
@@ -27,14 +27,14 @@ The deployment workflow is illustrated in the following diagram.
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## Query for built in subscription on the device
+## Query for built-in subscription on the device
 
-For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device and this subscription name or subscription ID cannot be changed.
+For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device, and the subscription name or subscription ID cannot be changed.
 
 This subscription contains all the resources that are created required for VM creation. 
 
 > [!IMPORTANT]
-> This subscription is created when you enable VMs from the Azure portal and it lives locally on your device .
+> This subscription is created when you enable VMs from the Azure portal, and it lives locally on your device.
 
 This subscription is used to deploy the VMs.
 
@@ -115,7 +115,7 @@ Successfully created Resource Group:rg191113014333
 
 ## Create a storage account
 
-Create a new storage account using the resource group created in the previous step. This is a **local storage account** that will be used to upload the virtual disk image for the VM.
+Create a new storage account using the resource group created in the previous step. This account is a **local storage account** that will be used to upload the virtual disk image for the VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -174,7 +174,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## Add blob URI to hosts file
 
-You already added the blob URI in hosts file for the client that you are using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
+You already added the blob URI in the hosts file for the client that you are using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
@@ -253,7 +253,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -293,7 +293,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -316,8 +316,8 @@ You must create one virtual network and associate a virtual network interface be
 > [!IMPORTANT]
 > While creating virtual network and virtual network interface, the following rules apply:
 > - Only one Vnet can be created (even across resource groups) and it must match exactly with the logical network in terms of the address space.
-> -   Only one subnet will be allowed in the Vnet. The subnet must be the exact same address space as the Vnet.
-> -   Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
+> - Only one subnet will be allowed in the Vnet. The subnet must be the exact same address space as the Vnet.
+> - Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
 
  
 **Query the automatically created Vnet**
@@ -496,7 +496,7 @@ Run the following cmdlet to turn on a virtual machine running on your device:
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-For more information on this cmdlet, go to [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+For more information on this cmdlet, go to [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### Suspend or shut down the VM
 
@@ -508,7 +508,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### Add a data disk
 
@@ -528,10 +528,10 @@ Run the following cmdlet to remove a virtual machine from your device:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

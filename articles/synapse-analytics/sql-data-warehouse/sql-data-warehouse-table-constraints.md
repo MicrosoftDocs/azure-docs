@@ -23,7 +23,7 @@ Dedicated SQL pool supports these table constraints:
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
 - UNIQUE constraint is only supported with NOT ENFORCED is used.
 
-For syntax, check [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+For syntax, check [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
 FOREIGN KEY constraint is not supported in dedicated SQL pool.  
 

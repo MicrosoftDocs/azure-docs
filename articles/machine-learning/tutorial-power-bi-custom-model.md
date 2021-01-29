@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Create the predictive model by using a notebook (part 1 of 2)"
+title: "Tutorial: Create the predictive model with a notebook (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. You can use the model to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. Also create a scoring script that defines input and output for easy integration into Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,9 +12,9 @@ ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ---
 
-# Tutorial: Power BI integration - Create the predictive model by using a Jupyter Notebook (part 1 of 2)
+# Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You will also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -22,6 +22,7 @@ In this tutorial, you:
 > * Create a Jupyter Notebook.
 > * Create an Azure Machine Learning compute instance.
 > * Train a regression model by using scikit-learn.
+> * Write a scoring script that defines the input and output for easy integration into Microsoft Power BI.
 > * Deploy the model to a real-time scoring endpoint.
 
 There are three ways to create and deploy the model that you'll use in Power BI.  This article covers "Option A: Train and deploy models by using notebooks."  This option is a code-first authoring experience. It uses Jupyter notebooks that are hosted in Azure Machine Learning Studio. 
@@ -152,7 +153,7 @@ You can also view the model in Azure Machine Learning Studio. In the menu on the
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing how to view a model.":::
 
-### Define the scoring script
+## Define the scoring script
 
 When you deploy a model that will be integrated into Power BI, you need to define a Python *scoring script* and custom environment. The scoring script contains two functions:
 
@@ -160,7 +161,7 @@ When you deploy a model that will be integrated into Power BI, you need to defin
 - The `run(data)` function runs when a call to the service includes input data that needs to be scored. 
 
 >[!NOTE]
-> This article uses Python decorators to define the schema of the input and output data. This setup is important for the Power BI integration.
+> The Python decorators in the code below define the schema of the input and output data, which is important for integration into Power BI.
 
 Copy the following code and paste it into a new *code cell* in your notebook. The following code snippet has cell magic that writes the code to a file named *score.py*.
 

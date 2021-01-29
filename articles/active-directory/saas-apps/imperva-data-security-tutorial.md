@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Imperva Data Security supports **IDP** initiated SSO
+* Imperva Data Security supports **SP** initiated SSO
 
 ## Adding Imperva Data Security from the gallery
 
@@ -72,11 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<IMPERVA_DNS_NAME>:8443`
+    a. In the **Identifier** text box, type an identifier using the following pattern:
+    `application-name`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<IMPERVA_DNS_NAME>:8443`
+    
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<IMPERVA_DNS_NAME>:8443`
+    
+    d. In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<IMPERVA_DNS_NAME>:8443`    
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Imperva Data Security Client support team](mailto:support@jsonar.imperva.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -126,11 +132,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Imperva Data Security for which you set up the SSO
 
-* You can use Microsoft My Apps. When you click the Imperva Data Security tile in the My Apps, you should be automatically signed in to the Imperva Data Security for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Imperva Data Security tile in the My Apps, you should be automatically signed in to the Imperva Data Security for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Imperva Data Security you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Imperva Data Security you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
