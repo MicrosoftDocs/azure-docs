@@ -5,7 +5,7 @@ ms.date: 01/25/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Database for MariaDB

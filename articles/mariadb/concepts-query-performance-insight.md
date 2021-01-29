@@ -3,7 +3,7 @@ title: Query Performance Insight - Azure Database for MariaDB
 description: This article describes the Query Performance Insight feature in Azure Database for MariaDB
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
