@@ -130,11 +130,11 @@ function App(){
         />
 
         <GroupChat 
-              displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
-              userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
-              token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
-              threadId={THREADID}, //Required, Id for group chat thread that will be joined.
-              environmentURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
+            displayName={DISPLAY_NAME}, //Required, Display name for the user entering the call
+            userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
+            token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
+            threadId={THREADID}, //Required, Id for group chat thread that will be joined.
+            environmentURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
             onRenderAvatar = { () => {
                 //Optional, ???
             }}
