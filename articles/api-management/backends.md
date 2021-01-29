@@ -24,7 +24,7 @@ A *backend* (or *backend API*) in API Management is an HTTP service that impleme
 
 When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing an [OpenAPI specification](import-api-from-oas.md), [SOAP API](import-soap-api.md), or Azure resources such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
 
-API Management also supports using other Azure resources such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) or custom services as an API backend. Using these backends requires extra configuration, for example, to authorize credentials of requests to the backend service and to define API operations.
+API Management also supports using other Azure resources such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) or custom services as an API backend. Using these backends requires extra configuration, for example, to authorize credentials of requests to the backend service and to define API operations. You configure and manage these backends in the Azure portal or using Azure APIs or tools.
 
 After creating a backend, you can reference the backend URL in your API Management instance. Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming API request to the Service Fabric backend instead of the default backend for that API.
 
@@ -44,24 +44,15 @@ Prerequisites to configure a sample service in a Service Fabric cluster running 
 
 * **API Management instance** - An existing or new API Management instance in the **Premium** or  **Developer** tier and in the same region as the Service Fabric cluster. If you need one, [create an API Management instance](get-started-create-service-instance.md).
 
-* **Virtual network** - Add your API Management instance to the virtual network you created for your Service Fabric cluster. You must use a dedicated subnet for API Management.
+* **Virtual network** - Add your API Management instance to the virtual network you created for your Service Fabric cluster. API Management requires a dedicated subnet in the virtual network.
 
   For steps to enable virtual network connectivity for the API Management instance, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md).
 
 ## Create backend - portal
 
-### Download Service Fabric cluster certificate
-
-If you need a local copy of the Service Fabric cluster certificate with private key, download it from Azure Key Vault.
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the key vault that was used to store the Service Fabric cluster certificate.
-1. Select **Settings** > **Certificates**, and then the name of the certificate.
-1. Select the version of the certificate you want, and then select **Download in PFX/PEM format**.
-1. Save the certificate to secure location on your local system.
-
 ### Add Service Fabric cluster certificate to API Management
 
-Add the Service Fabric cluster certificate to your API Management instance as a client certificate. This certificate is stored and managed in an Azure key vault associated with the cluster. 
+The Service Fabric cluster certificate is stored and managed in an Azure key vault associated with the cluster. Add this certificate to your API Management instance as a client certificate.
 
 For steps to add a certificate to your API Management instance, see [How to secure back-end services using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md). 
 
@@ -77,7 +68,7 @@ For steps to add a certificate to your API Management instance, see [How to secu
 1. In **Runtime URL**, enter the name of the Service Fabric backend service that API Management will forward requests to. Example: `fabric:/myApplication/myService`. 
 1. In **Maximum number of partition resolution retries**, enter a number between 0 and 10.
 1. Enter the management endpoint of the Service Fabric cluster. This endpoint is the URL of the cluster on port `19080`, for example, `https://mysfcluster.eastus.cloudapp.azure.com:19080`.
-1. In **Client certificate**, select the certificate you added to your API Management instance in the previous section.
+1. In **Client certificate**, select the Service Fabric cluster certificate you added to your API Management instance in the previous section.
 1. In **Management endpoint authorization method**, enter a thumbprint or server X509 name of a certificate used by the Service Fabric cluster management service for TLS communication.
 1. Enable the **Validate certificate chain** and **Validate certificate name** settings.
 1. In **Authorization credentials**, provide credentials, if necessary, to reach the configured backend service in Service Fabric. For the sample app used in this scenario, authorization credentials aren't needed.
@@ -87,9 +78,9 @@ For steps to add a certificate to your API Management instance, see [How to secu
 
 ## Use the backend
 
-To use a custom backend, you reference the backend using the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy. This policy changes the default backend service base URL of an incoming API request to a specified backend, in this case the Service Fabric backend. 
+To use a custom backend, reference it using the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy. This policy transforms the default backend service base URL of an incoming API request to a specified backend, in this case the Service Fabric backend. 
 
-The `set-backend-service` policy is often used on an existing API to transform an incoming request to a different backend than the one specified in the API settings. For demonstration purposes in this article, create a test API and set the policy to direct API requests to the Service Fabric backend. 
+The `set-backend-service` policy can be useful with an existing API to transform an incoming request to a different backend than the one specified in the API settings. For demonstration purposes in this article, create a test API and set the policy to direct API requests to the Service Fabric backend. 
 
 ### Create API
 
@@ -102,7 +93,7 @@ Follow the steps in [Add an API manually](add-api-manually.md) to create a blank
 
 ### Add GET operation to the API
 
-As shown in [Deploy a Service Fabric back-end service](../service-fabric/service-fabric-tutorial-deploy-api-management.md#deploy-a-service-fabric-back-end-service), the sample ASP.NET Core service deployed on the Service Fabric cluster supports a single HTTP GET operation on the URL path `api/values`.
+As shown in [Deploy a Service Fabric back-end service](../service-fabric/service-fabric-tutorial-deploy-api-management.md#deploy-a-service-fabric-back-end-service), the sample ASP.NET Core service deployed on the Service Fabric cluster supports a single HTTP GET operation on the URL path `/api/values`.
 
 The default response on that path is a JSON array of two strings:
 
@@ -131,6 +122,8 @@ Add the [`set-backend-service`](api-management-transformation-policies.md#SetBac
 1. On the **Design** tab, in the **Inbound processing** section, select the code editor (**</>**) icon. 
 1. Position the cursor inside the **&lt;inbound&gt;** element
 1. Add the following policy statement. In `backend-id`, substitute the name of your Service Fabric backend.
+
+   The `sf-resolve-condition` is a retry condition if the cluster partition isn't resolved. The number of retries was set when configuring the backend.
 
     ```xml
     <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"  />
