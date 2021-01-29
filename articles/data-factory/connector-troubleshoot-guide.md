@@ -117,7 +117,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: CosmosDbSqlApi operation hit problem.
 
-- **Recommendation**:  Check the error in details. Refer to [CosmosDb help document](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Contact CosmosDb team if need help.
+- **Recommendation**:  Check the error in details. Refer to [CosmosDb help document](../cosmos-db/troubleshoot-dot-net-sdk.md). Contact CosmosDb team if need help.
 
 
 ## Azure Data Lake Storage Gen1
@@ -195,7 +195,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     - Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
 
-    - Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Refer to [Blob Storage Put Block](/rest/api/storageservices/put-block).
 
        To specify the custom block size, you can edit the property in .json editor:
         ```
@@ -483,7 +483,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Resolution**: Try following steps to fix the issue:
 
-    1. Apply SQL sink [fault tolerance](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), especially "redirectIncompatibleRowSettings" to troubleshoot which rows have the issue.
+    1. Apply SQL sink [fault tolerance](./copy-activity-fault-tolerance.md), especially "redirectIncompatibleRowSettings" to troubleshoot which rows have the issue.
 
     	> [!NOTE]
     	> Please be noticed that fault tolerance might introduce additional execution time, which could lead to higher cost.

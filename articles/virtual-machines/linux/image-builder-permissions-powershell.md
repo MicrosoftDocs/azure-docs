@@ -210,4 +210,4 @@ New-AzRoleAssignment @parameters
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

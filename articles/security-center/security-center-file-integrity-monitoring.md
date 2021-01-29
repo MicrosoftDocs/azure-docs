@@ -24,7 +24,7 @@ Learn how to configure file integrity monitoring (FIM) in Azure Security Center 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md).<br>FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.|
 |Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).|

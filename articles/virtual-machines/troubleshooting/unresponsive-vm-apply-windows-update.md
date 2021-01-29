@@ -34,6 +34,9 @@ A core file can't be created in the file system. The operating system is unable 
 
 ### Process overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. [Create and access a repair VM](#create-and-access-a-repair-vm).
 2. [Free up space on the hard disk](#free-up-space-on-the-hard-disk).
 3. [Recommended: Before rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).

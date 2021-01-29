@@ -14,7 +14,7 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
-#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
+#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity
