@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 1/22/2021
+ms.date: 1/29/2021
 ---
 # Quickstart: Create an Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Managed Instance by selecting **Show details** on the **SQL managed instances** tile.
 1. Select **Create**.
 
-   ![Create a managed instance](./media/instance-create-quickstart/create-managed-instance.png)
+   ![Create a managed instance](./media/instance-create-quickstart/create-azure-sql-managed-instance.png)
 
 4. Use the tabs on the **Create Azure SQL Managed Instance** provisioning form to add required and optional information. The following sections describe these tabs.
 
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a SQL Managed Instance.
 
-   !["Basics" tab for creating a SQL Managed Instance](./media/instance-create-quickstart/mi-create-tab-basics.png)
+   !["Basics" tab for creating a SQL Managed Instance](./media/instance-create-quickstart/azure-sql-managed-instance-create-tab-basics.png)
 
    Use the table below as a reference for information required at this tab.
 
@@ -56,7 +56,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tiers. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
 
-   ![Managed instance form](./media/instance-create-quickstart/mi-create-tab-configure-performance.png)
+   ![Managed instance form](./media/instance-create-quickstart/azure-sql-managed-instance-create-tab-configure-performance.png)
 
 | Setting| Suggested value | Description |
 | ------ | --------------- | ----------- |
@@ -74,7 +74,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Fill out optional information on the **Networking** tab. If you omit this information, the portal will apply default settings.
 
-   !["Networking" tab for creating a managed instance](./media/instance-create-quickstart/mi-create-tab-networking.png)
+   !["Networking" tab for creating a managed instance](./media/instance-create-quickstart/azure-sql-managed-instance-create-tab-networking.png)
 
    Use the table below as a reference for information required at this tab.
 
@@ -92,7 +92,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
 
-   !["Additional settings" tab for creating a managed instance](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
+   !["Additional settings" tab for creating a managed instance](./media/instance-create-quickstart/azure-sql-managed-instance-create-tab-additional-settings.png)
 
    Use the table below as a reference for information required at this tab.
 
@@ -109,7 +109,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Add tags to resources in your Azure Resource Manager template (ARM template). [Tags](/azure/azure-resource-manager/management/tag-resources) help you logically organize your resources. The tag values show up in cost reports and allow for other management activities by tag. 
 
-- Consider at least tagging your new SQL Managed Instance with the Owner tag to identify who created, and the Environment tag to identify whether this system is Production, Development, etc. For more, see [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+- Consider at least tagging your new SQL Managed Instance with the Owner tag to identify who created, and the Environment tag to identify whether this system is Production, Development, etc. For more information, see [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  
 - Select **Review + create** to proceed.
 
@@ -117,7 +117,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Select **Review + create** tab to review your choices before you create a managed instance.
 
-   ![Tab for reviewing and creating a managed instance](./media/instance-create-quickstart/mi-create-tab-review-create.png)
+   ![Tab for reviewing and creating a managed instance](./media/instance-create-quickstart/azure-sql-managed-instance-create-tab-review-create.png)
 
 1. Select **Create** to start provisioning the managed instance.
 
@@ -128,12 +128,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Select the **Notifications** icon to view the status of the deployment.
 
-   ![Deployment progress of a SQL Managed Instance deployment](./media/instance-create-quickstart/mi-create-deployment-in-progress.png)
+   ![Deployment progress of a SQL Managed Instance deployment](./media/instance-create-quickstart/azure-sql-managed-instance-create-deployment-in-progress.png)
 
 1. Select **Deployment in progress** in the notification to open the SQL Managed Instance window and further monitor the deployment progress. 
 
 > [!TIP]
-> - If you closed your web browser or moved away from the deployment progress screen, you can monitor the provisioning operation via the managed instance's **Overview** page, or via PowerShell or the Azure CLI. See [Monitor operations](management-operations-monitor.md#monitor-operations). 
+> - If you closed your web browser or moved away from the deployment progress screen, you can monitor the provisioning operation via the managed instance's **Overview** page, or via PowerShell or the Azure CLI. For more information, see [Monitor operations](management-operations-monitor.md#monitor-operations). 
 > - You can cancel the provisioning process through Azure portal, or via PowerShell or the Azure CLI or other tooling using the REST API. See [Canceling Azure SQL Managed Instance management operations](management-operations-cancel.md).
 
 > [!IMPORTANT]
@@ -147,7 +147,7 @@ Upon successful deployment of a managed instance, to view resources created:
 
 1. Open the resource group for your managed instance. 
 
-   ![SQL Managed Instance resources](./media/instance-create-quickstart/resources.png)
+   ![SQL Managed Instance resources](./media/instance-create-quickstart/azure-sql-managed-instance-resources.png)
 
 ## View and fine-tune network settings
 
@@ -157,7 +157,7 @@ To optionally fine-tune networking settings, inspect the following:
 
 2. In the route table, review the entries to route traffic from and within the SQL Managed Instance virtual network. If you create or configure your route table manually, create these entries in the SQL Managed Instance route table.
 
-   ![Entry for a SQL Managed Instance subnet to local](./media/instance-create-quickstart/udr.png)
+   ![Entry for a SQL Managed Instance subnet to local](./media/instance-create-quickstart/azure-sql-managed-instance-route-table-user-defined-route.png)
 
     To change or add routes, open the **Routes** in the Route table settings.
 
@@ -165,12 +165,12 @@ To optionally fine-tune networking settings, inspect the following:
 
 4. Review the inbound and outbound security rules. 
 
-   ![Security rules](./media/instance-create-quickstart/security-rules.png)
+   ![Security rules](./media/instance-create-quickstart/azure-sql-managed-instance-security-rules.png)
 
     To change or add rules, open the **Inbound Security Rules** and **Outbound security rules** in the Network security group settings.
 
 > [!IMPORTANT]
-> If you have configured a public endpoint for SQL Managed Instance, you need to open ports to allow network traffic allowing connections to SQL Managed Instance from the public internet. See [Configure a public endpoint for SQL Managed Instance](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
+> If you have configured a public endpoint for SQL Managed Instance, you need to open ports to allow network traffic allowing connections to SQL Managed Instance from the public internet. For more information, see [Configure a public endpoint for SQL Managed Instance](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 >
 
 ## Retrieve connection details to SQL Managed Instance
@@ -181,7 +181,7 @@ To connect to SQL Managed Instance, follow these steps to retrieve the host name
 
 2. On the **Overview** tab, locate the **Host** property. Copy the host name to your clipboard for the managed instance for use in the next quickstart by clicking the **Copy to clipboard** button.
 
-   ![Host name](./media/instance-create-quickstart/host-name.png)
+   ![Host name](./media/instance-create-quickstart/azure-sql-managed-instance-host-name.png)
 
    The value copied represents a fully qualified domain name (FQDN) that can be used to connect to SQL Managed Instance. It is similar to the following address example: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
 
