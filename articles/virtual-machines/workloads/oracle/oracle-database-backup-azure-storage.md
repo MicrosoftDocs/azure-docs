@@ -1,7 +1,7 @@
 ---
 title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
 description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
-author: cr027
+author: cro27
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
