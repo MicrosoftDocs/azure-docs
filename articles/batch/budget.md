@@ -41,7 +41,7 @@ Depending on which services you use with your Batch solution, you may incur addi
 - Virtual Network
 - VMs with graphics applications
 
-## Cost analysis and budget for a pool
+## View cost analysis and create a budget for a pool
 
 In the Azure portal, you can create budgets and spending alerts for your Batch pools or Batch accounts. Budgets and alerts are useful for notifying stakeholders of any risks of overspending, although it's possible for there to be a delay in spending alerts and to slightly exceed a budget.
 
