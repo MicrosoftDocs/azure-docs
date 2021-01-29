@@ -18,8 +18,8 @@ ms.collection: M365-identity-device-management
 # Protecting Microsoft 365 from on-premises attacks
 
 Many customers connect their private corporate networks to Microsoft 365
-to benefit their users, devices, and applications. However, there are
-many well-documented ways these private networks can be compromised. Because Microsoft 365 acts as the "nervous system" for many organizations, it's critical to protect it from compromised on-premises infrastructure.
+to benefit their users, devices, and applications. However, these private networks can be compromised in 
+many well-documented ways. Because Microsoft 365 acts as a sort of nervous system for many organizations, it's critical to protect it from compromised on-premises infrastructure.
 
 This article shows you how to configure your systems to protect
 your Microsoft 365 cloud environment from on-premises compromise. We
@@ -33,7 +33,7 @@ cloud systems from on-premises compromise.
 We strongly recommend you implement this guidance to secure your
 Microsoft 365 cloud environment.
 > [!NOTE]
-> This article was initially published as a blog post. It has been moved here for longevity and maintenance.
+> This article was initially published as a blog post. It has been moved to its current location for longevity and maintenance.
 >
 > To create an offline version of this article, use your browser's print-to-PDF functionality. Check back here frequently for updates.
 
@@ -43,7 +43,7 @@ Microsoft 365 cloud environment.
 Your Microsoft 365 cloud environment benefits from an extensive
 monitoring and security infrastructure. Using machine learning and human
 intelligence, Microsoft 365 looks across worldwide traffic. It can rapidly detect
-attacks and allow you to reconfigure in close to real time. 
+attacks and allow you to reconfigure nearly in real time. 
 
 In hybrid
 deployments that connect on-premises infrastructure to Microsoft 365,
@@ -87,20 +87,20 @@ the principles illustrated in the following diagram:
 
      * Authenticated by using multifactor authentication.
 
-     *  Secured by Azure AD conditional access.
+     *  Secured by Azure AD Conditional Access.
 
      *  Accessed only by using Azure-managed workstations.
 
     These administrator accounts are restricted-use accounts. *No on-premises accounts should have administrative privileges in Microsoft 365.* 
 
-    For more information, see this [overview of Microsoft 365 administrator roles](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Also see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
+    For more information, see the [overview of Microsoft 365 administrator roles](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Also see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
 
 *  **Manage devices from Microsoft 365.** Use Azure AD join and
     cloud-based mobile device management (MDM) to eliminate dependencies
-    on your on-premises device management infrastructure, which can
+    on your on-premises device management infrastructure. These dependencies can
     compromise device and security controls.
 
-* **No on-premises account has elevated privileges to Microsoft 365.**
+* **Ensure no on-premises account has elevated privileges to Microsoft 365.**
     Some accounts access on-premises applications that require NTLM, LDAP,
     or Kerberos authentication. These accounts must be in the organization's
     on-premises identity infrastructure. Ensure that these accounts,
@@ -118,7 +118,7 @@ the principles illustrated in the following diagram:
 ## Specific security recommendations
 
 
-The following sections provide specific guidance on how to implement the
+The following sections provide specific guidance about how to implement the
 principles described earlier.
 
 ### Isolate privileged identities
@@ -133,11 +133,11 @@ In Azure AD, users who have privileged roles, such as administrators, are the ro
 
 *  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just-in-time (JIT) access to all human accounts that have privileged roles. Require strong authentication to activate roles.
 
-* Provide administrative roles that allow the [least privilege necessary to perform required tasks](../roles/delegate-by-task.md).
+* Provide administrative roles that allow the [least privilege necessary to do required tasks](../roles/delegate-by-task.md).
 
-* To enable a richer role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups (collectively called *cloud groups*). Also [enable role-based access control](../roles/groups-assign-role.md). You can use [administrative units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
+* To enable a rich role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups. These groups are collectively called *cloud groups*. Also [enable role-based access control](../roles/groups-assign-role.md). You can use [administrative units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
 
-* Deploy [emergency access accounts](../roles/security-emergency-access.md). Do NOT use on-premises password vaults to store credentials.
+* Deploy [emergency access accounts](../roles/security-emergency-access.md). Do *not* use on-premises password vaults to store credentials.
 
 For more information, see [Securing privileged access](/security/compass/overview). Also see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
 
@@ -177,7 +177,7 @@ practices to make credentials more secure:
     provisioning](../app-provisioning/user-provisioning.md) as
     opposed to on-premises provisioning solutions. This method protects
     some of your software-as-a-service (SaaS) apps from being affected by malicious hacker
-    profiles in the event of on-premises breaches. 
+    profiles in on-premises breaches. 
 
 * **External identities**: Use [Azure AD B2B
     collaboration](../external-identities/what-is-b2b.md).
@@ -187,7 +187,7 @@ practices to make credentials more secure:
     recommend limiting B2B guest accounts in the following ways:
 
    *  Limit guest access to browsing groups and other properties in
-        the directory. Use the external collaboration settings to restrict guest
+        the directory. Use the external collaboration settings to restrict guests'
             ability to read groups they're not members of. 
 
     *   Block access to the Azure portal. You can make rare necessary
@@ -220,7 +220,7 @@ your on-premises infrastructure.
     membership from on-premises infrastructure.
 
 Owners of groups that are used for access should be considered privileged
-identities to avoid membership takeover in the event of an on-premises compromise.
+identities to avoid membership takeover in an on-premises compromise.
 A takeover would include direct manipulation of group membership on-premises
 or manipulation of on-premises attributes that can affect dynamic group
 membership in Microsoft 365.
@@ -259,18 +259,18 @@ Use Azure AD capabilities to securely manage devices.
 
     [Use Azure AD for SSO](../manage-apps/what-is-single-sign-on.md). The
     more apps you configure to use Azure AD for authentication, the less
-    risk in the case of an on-premises compromise.
+    risk in an on-premises compromise.
 
 
 * **Legacy applications** 
 
-   * You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication by using [Azure AD Application Proxy](../manage-apps/application-proxy.md). You can also enable them through a network or application delivery controller solution by using [secure hybrid access partner integrations](../manage-apps/secure-hybrid-access.md).   
+   * You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../manage-apps/application-proxy.md). You can also enable them through a network or application delivery controller solution by using [secure hybrid access partner integrations](../manage-apps/secure-hybrid-access.md).   
 
-   * Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In the case of an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
+   * Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
 
 *  **Application and workload servers**
 
-   * Applications or resources that required servers can be migrated to Azure IaaS. Use [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Azure AD DS don't have connection to corporate networks.
+   * Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Azure AD DS don't have a connection to corporate networks.
 
    * Follow the guidance for [credential tiering](/security/compass/privileged-access-access-model#ADATM_BM). Application servers are typically considered tier-1 assets.
 
@@ -333,18 +333,18 @@ monitor access to your business-critical applications and resources.
     generating alerts whenever a user is assigned directly.
 * **Azure AD tenant-wide configurations**
 
-    Any change to tenant-wide configurations should generate alerts in the system. These include but are not limited to the following changes:
-  *  Updated custom domains  
+    Any change to tenant-wide configurations should generate alerts in the system. These changes include but aren't limited to:
+  *  Updated custom domains.  
 
-  * Azure AD B2B changes to allowlists and block lists
-  * Azure AD B2B changes to allowed identity providers (SAML IDPs through direct federation or social sign-ins)  
-  * Conditional Access or Risk policy changes 
+  * Azure AD B2B changes to allowlists and block lists.
+  * Azure AD B2B changes to allowed identity providers (SAML identity providers through direct federation or social sign-ins).  
+  * Conditional Access or Risk policy changes. 
 
 * **Application and service principal objects**
     
    * New applications or service principals that might require Conditional Access policies. 
 
-   * Additional credentials added to service principals.
+   * Credentials added to service principals.
    * Application consent activity. 
 
 * **Custom roles**
@@ -356,7 +356,7 @@ monitor access to your business-critical applications and resources.
 
 Define a log storage and retention strategy, design, and implementation to facilitate a consistent tool set. For example, you could consider security information and event management (SIEM) systems like Azure Sentinel, common queries, and investigation and forensics playbooks.
 
-* **Azure AD logs**: Ingest generated logs and signals by consistently following best practices, including diagnostics settings, log retention, and SIEM ingestion. 
+* **Azure AD logs**: Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion. 
 
     The log strategy must include the following Azure AD logs:
    * Sign-in activity 
@@ -374,11 +374,11 @@ Define a log storage and retention strategy, design, and implementation to facil
    *  Application Proxy agents 
 
 
-   * Password write-back agents 
+   * Password writeback agents 
 
    * Password Protection Gateway machines  
 
-   * Network policy servers (NPSs) that have the Azure multifactor authentication RADIUS extension 
+   * Network policy servers (NPSs) that have the Azure AD multifactor authentication RADIUS extension 
 
 ## Next steps
 * [Build resilience into identity and access management by using Azure AD](resilience-overview.md)
