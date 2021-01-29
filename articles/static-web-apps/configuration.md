@@ -290,10 +290,10 @@ Based on the above configuration, review the following scenarios.
 | Requests to... | results in... |
 | --- | --- |
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
-| _/admin/_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a 403 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/admin/_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds). |
-| _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers\_contoso_ roles are served a `401` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
