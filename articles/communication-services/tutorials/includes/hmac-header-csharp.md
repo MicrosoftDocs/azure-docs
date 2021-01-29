@@ -101,7 +101,7 @@ var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
     Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8)
 };
 ```
-replace "resourceEndpoint" with your real resource endpoint value.
+replace **resourceEndpoint** with your real resource endpoint value.
 
 ## Create content hash
 Content hash is a part of signature. 
@@ -138,7 +138,7 @@ static string ComputeSignature(string stringToSign)
     }
 } 
 ```
-replace "resourceAccessKey" with access key of your real Azure Communication Services resource.
+replace **resourceAccessKey** with access key of your real Azure Communication Services resource.
 
 ## Create an authorization header string
 Prepare a string will be used in authorization header.
