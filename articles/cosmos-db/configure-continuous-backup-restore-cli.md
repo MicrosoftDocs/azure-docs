@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Configure and manage continuous backup and point in time restore - using Azure CLI
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
+Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to provision an account with continuous backup and restore data using Azure CLI.
 
@@ -39,13 +39,13 @@ This article describes how to provision an account with continuous backup and re
 
 ## <a id="provision-sql-api"></a>Provision a SQL API account with continuous backup
 
-To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named `pitracct2` with continuous backup policy created in the "West US" region under "gskrg" resource group:
+To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named `pitracct2` with continuous backup policy created in the "West US" region under "myrg" resource group:
 
 ```azurecli-interactive
 
 az cosmosdb create \
   --name pitracct2 \
-  --resource-group gskrg \
+  --resource-group myrg \
   --backup-policy-type Continuous \
   --default-consistency-level Session \
   --locations regionName="West US"
@@ -54,14 +54,14 @@ az cosmosdb create \
 
 ## <a id="provision-mongo-api"></a>Provision an Azure Cosmos DB API for MongoDB account with continuous backup
 
-The following command shows an example of a single region write account named `pitracct3` with continuous backup policy created the "West US" region under "gskrg" resource group:
+The following command shows an example of a single region write account named `pitracct3` with continuous backup policy created the "West US" region under "myrg" resource group:
 
 ```azurecli-interactive
 
 az cosmosdb create \
   --name pitracct3 \
   --kind MongoDB \
-  --resource-group gskrg \
+  --resource-group myrg \
   --server-version "3.6" \
   --backup-policy-type Continuous \
   --default-consistency-level Session \

@@ -78,11 +78,11 @@ The following example is based on the price for an Azure Cosmos account deployed
 
 * All accounts enabled with continuous backup policy incur an additional monthly charge for backup storage that is calculated as follows:
 
-  20 cents/GB * Data size in GB in account * Number of regions
+  $0.20/GB * Data size in GB in account * Number of regions
 
 * Every restore API invocation incurs a one time charge. The charge is a function of the amount of data restore and it is calculated as follows:
 
-  15 Cents/GB * Data size in GB.
+  $0.15/GB * Data size in GB.
 
 For example, if you have 1-TB of data in two regions then:
 

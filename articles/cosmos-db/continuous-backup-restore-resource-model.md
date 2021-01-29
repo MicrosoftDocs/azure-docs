@@ -21,7 +21,7 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named "BackupMode" enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named "BackupType" enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
 > Currently the point-in-time restore feature is in public preview and it's available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.

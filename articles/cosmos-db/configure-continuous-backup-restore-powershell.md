@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Configure and manage continuous backup and point in time restore - using Azure PowerShell
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
+Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to provision an account with continuous backup and restore data using Azure PowerShell.
 
@@ -40,12 +40,12 @@ This article describes how to provision an account with continuous backup and re
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of a single region write account `pitracct2` with continuous backup policy created in "West US" region under "gskrg" resource group:
+The following cmdlet is an example of a single region write account `pitracct2` with continuous backup policy created in "West US" region under "myrg" resource group:
 
 ```azurepowershell
 
 New-AzCosmosDBAccount `
-  -ResourceGroupName "gskrg" `
+  -ResourceGroupName "myrg" `
   -LocationObject "West US" `
   -BackupPolicyType Continuous `
   -Name "pitracct2" `
@@ -55,12 +55,12 @@ New-AzCosmosDBAccount `
 
 ## <a id="provision-mongodb-api"></a>Provision a MongoDB API account with continuous backup
 
-The following cmdlet is an example of continuous backup account "pitracct2" created in "West US" region under "gskrg" resource group:
+The following cmdlet is an example of continuous backup account "pitracct2" created in "West US" region under "myrg" resource group:
 
 ```azurepowershell
 
 New-AzCosmosDBAccount `
-  -ResourceGroupName "gskrg" `
+  -ResourceGroupName "myrg" `
   -LocationObject "West US" `
   -BackupPolicyType Continuous `
   -Name "pitracct3" `

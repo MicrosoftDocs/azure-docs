@@ -25,7 +25,7 @@ The restore may not happen depending on whether the key resources like databases
 Target account name should always be in lowercase.
 
 ### How can I track if an account is being restored?
-When using Azure portal, after you submit the restore request, you can [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status) from the notifications bar.
+When using Azure portal, after you submit the restore request, you can [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status) from the notifications bar. You can also check the status from the Azure Cosmos DB resources page, the status of the resource should be "Creating". 
 
 Similarly for PowerShell and CLI, you can track the progress of restore operation by executing `az cosmosdb show` command as follows:
 

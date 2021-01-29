@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Configure and manage continuous backup and point in time restore - using Azure portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within 30 days of window.
+Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to identify the restore point and configure continuous backup using Azure portal.
 
@@ -51,7 +51,7 @@ You can use Azure portal to restore a live account or selected databases and con
 
 ## <a id="event-feed"></a>Use event feed to identify the restore time
 
-When filling out the restore point time in the Azure portal, if you need help with identifying restore point, select the **click here** link, it takes you to the event feed blade. The event feed provides a full fidelity list of create, replace, delete events on databases and containers of the source account. This feed helps you to identify the restore timestamp in scenarios where database or container has been deleted or its properties are updated around when data was accidentally changed or deleted.
+When filling out the restore point time in the Azure portal, if you need help with identifying restore point, select the **click here** link, it takes you to the event feed blade. The event feed provides a full fidelity list of create, replace, delete events on databases and containers of the source account. 
 
 For example, if you want to restore to the point before a certain container was deleted or updated, check this event feed. Events are displayed in chronologically descending order of time when they occurred, with recent events at the top. You can browse through the results and select the time before or after the event to further narrow your time.
 
