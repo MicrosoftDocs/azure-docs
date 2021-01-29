@@ -11,25 +11,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
 # Security recommendations in Azure Security Center 
+
 This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
 
 
 ## What are security recommendations?
 
-Recommendations are actions for you to take in order to secure your resources.
-
 Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+
+Recommendations are actions for you to take in order to secure and harden your resources. 
 
 Each recommendation provides you with:
 
 - A short description of the issue
 - The remediation steps to carry out in order to implement the recommendation
 - The affected resources
+
+## How does Microsoft decide what needs securing and hardening?
+
+Security Center's recommendations are based on the Azure Security Benchmark. 
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+
+Learn more about [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 

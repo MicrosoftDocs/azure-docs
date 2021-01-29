@@ -762,7 +762,7 @@ You can also choose to view the TCP data as the application layer sees it by rig
 >
 
 ### <a name="appendix-4"></a>Appendix 4: Using Excel to view metrics and log data
-Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure Blob Storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 To import your Storage Logging data into Excel after you download it from blob storage:
 

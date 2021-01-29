@@ -1131,7 +1131,7 @@ The code extracts the email addresses from the trigger's `Body` property and ret
 
 ### Function action
 
-This action calls a previously created [Azure function](../azure-functions/functions-create-first-azure-function.md).
+This action calls a previously created [Azure function](../azure-functions/functions-get-started.md).
 
 ```json
 "<Azure-function-name>": {

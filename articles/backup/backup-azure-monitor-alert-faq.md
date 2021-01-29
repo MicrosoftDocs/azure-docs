@@ -65,5 +65,5 @@ Yes. In the following situations, notifications aren't sent:
 
 Read the other FAQs:
 
-* [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+* [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
 * [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

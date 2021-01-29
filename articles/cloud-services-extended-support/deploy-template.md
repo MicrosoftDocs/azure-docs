@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Cloud Service (extended support) - Templates
-description: Create an Azure Cloud Service (extended support) by using ARM templates
+title: Deploy a Azure Cloud Service (extended support) - Templates
+description: Deploy a Azure Cloud Service (extended support) by using ARM templates
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Create a Cloud Service (extended support) using ARM templates
+# Deploy a Cloud Service (extended support) using ARM templates
 
 This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
@@ -35,7 +35,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     - The associated Key Vault for must be enabled appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate from Key Vault. For more information, see [Certificates and Key Vault](certificates-and-key-vault.md)
     - Key vault needs to be referenced in the OsProfile section of the ARM template shown in the below steps.
 
-## Create a Cloud Service (extended support) 
+## Deploy a Cloud Service (extended support) 
 1. Create virtual network. The name of the virtual network must match the references in the Service Configuration (.cscfg) file. If using an existing virtual network, omit this section from the ARM template.
 
     ```json
@@ -174,46 +174,44 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                 "capacity": "1" 
               } 
             } 
-        } 
+        }
+    }   
     ```
 
 6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding the remote desktop and Windows Azure diagnostics extension. 
     
     ```json
-    "extensionProfile": { 
-              "extensions": [ 
-                 { 
-                  "name": "RDPExtension", 
-                  "properties": { 
-                    "autoUpgradeMinorVersion": true, 
-                    "publisher": "Microsoft.Windows.Azure.Extensions", 
-                    "type": "RDP", 
-                    "typeHandlerVersion": "1.2.1", 
-                    "settings": " <PublicConfig>\r\n  <UserName>>[Insert Password]</UserName>\r\n  <Expiration>1/15/2022 12:00:00 AM</Expiration>\r\n</PublicConfig> ", 
-                    "protectedSettings": "<PrivateConfig>\r\n  <Password>[Insert Password]</Password>\r\n</PrivateConfig>" 
-                  } 
-                } 
-              ] 
-            },
-
-    "extensionProfile": { 
-              "extensions": [ 
-                { 
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1", 
-                  "properties": { 
-                    "autoUpgradeMinorVersion": true, 
-                    "publisher": "Microsoft.Azure.Diagnostics", 
-                    "type": "PaaSDiagnostics", 
-                    "typeHandlerVersion": "1.5", 
-                    "settings": "Include PublicConfig XML as a raw string", 
-                    "protectedSettings": "Include PrivateConfig XML as a raw string”", 
-                    "rolesAppliedTo": [ 
-                      "WebRole1" 
-                    ] 
-                  } 
-                }
+        "extensionProfile": {
+              "extensions": [
+                {
+                  "name": "RDPExtension",
+                  "properties": {
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Windows.Azure.Extensions",
+                    "type": "RDP",
+                    "typeHandlerVersion": "1.2.1",
+                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+                  }
+                },
+                {
+                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+                  "properties": {
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Azure.Diagnostics",
+                    "type": "PaaSDiagnostics",
+                    "typeHandlerVersion": "1.5",
+                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                    "rolesAppliedTo": [
+                      "WebRole1"
               ]
             }
+          }
+        ]
+      }
+
+  
     ```    
 
 7. Review the full template. 
@@ -259,17 +257,17 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
             "description": "Roles created in the cloud service application"
           }
         },
-        "rdpPublicConfig": {
+        "wadPublicConfig_WebRole1": {
           "type": "string",
           "metadata": {
-            "description": "Public config of remote desktop extension"
+             "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-        },
-        "rdpPrivateConfig": {
+         },
+        "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
-            "description": "Private config of remote desktop extension"
-          }
+            "description": "Private configuration of Windows Azure Diagnostics extension"
+         }
         },
         "vnetName": {
           "type": "string",
@@ -409,11 +407,22 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                 }
               ]
             },
-        "extensionProfile": {​​​​
+        "extensionProfile": {
               "extensions": [
-                {​​​​
+                {
+                  "name": "RDPExtension",
+                  "properties": {
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Windows.Azure.Extensions",
+                    "type": "RDP",
+                    "typeHandlerVersion": "1.2.1",
+                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+                  }
+                },
+                {
                   "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {​​​​
+                  "properties": {
                     "autoUpgradeMinorVersion": true,
                     "publisher": "Microsoft.Azure.Diagnostics",
                     "type": "PaaSDiagnostics",
@@ -422,25 +431,14 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                     "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
                     "rolesAppliedTo": [
                       "WebRole1"
-                    ]
-                  }​​​​
-                }​​​​,
-                {​​​​
-                  "name": "RDPExtension",
-                  "properties": {​​​​
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "[parameters('rdpPublicConfig')]",
-                    "protectedSettings": "[parameters('rdpPrivateConfig')]"
-                  }​​​​
-                }​​​​
-              ]
-            }​​​​
-          }​​​​
-        }​​​​
-      ]
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
     ```
  
 8. Deploy the template and create the Cloud Service (extended support) deployment. 
@@ -452,3 +450,4 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 ## Next steps 
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

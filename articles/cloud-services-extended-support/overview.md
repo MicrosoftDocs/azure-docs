@@ -22,9 +22,11 @@ With this change, the Azure Service Manager based deployment model for Cloud Ser
 
 ## What does not change 
 - You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
-- Cloud Services (extended support) also supports two types of roles, [web and worker](../cloud-services/cloud-services-choose-me.md). 
-- The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their [formats](cloud-services-model-and-package.md). 
-- No changes are required to runtime code as data plane is the same and control plane is only changing.  
+- Cloud Services (extended support) also supports two types of roles, [web and worker](../cloud-services/cloud-services-choose-me.md). There are no changes to the design, architecture or components of web and worker roles. 
+- The three components of a cloud service, the service definition (.csdef), the service config (.cscfg), and the service package (.cspkg) are carried forward and there is no change in the their [formats](cloud-services-model-and-package.md). 
+- No changes are required to runtime code as data plane is the same and control plane is only changing. 
+- Azure GuestOS releases and associated updates are aligned with Cloud Services (classic)
+- Underlying update process with respect to update domains, how upgrade proceeds, rollback and allowed service changes during an update don't change
 
 ## Changes in deployment model
 

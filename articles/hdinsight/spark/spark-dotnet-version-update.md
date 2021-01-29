@@ -37,9 +37,9 @@ If you don't want to change the current version of .NET for Apache Spark in your
 
 2. Download [install-worker.sh](https://github.com/dotnet/spark/blob/master/deployment/install-worker.sh) script to install the worker binaries downloaded in Step 1 to all the worker nodes of your HDI cluster.  
 
-3. Upload the above mentioned files to the Azure Storage account your cluster has access to. You can refer to [the .NET for Apache Spark HDI deployment article](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) for more details.
+3. Upload the above mentioned files to the Azure Storage account your cluster has access to. You can refer to [the .NET for Apache Spark HDI deployment article](/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) for more details.
 
-4. Run the `install-worker.sh` script on all worker nodes of your cluster, using Script actions. Refer to [the .NET for Apache Spark HDI deployment article](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action) for more information.
+4. Run the `install-worker.sh` script on all worker nodes of your cluster, using Script actions. Refer to [the .NET for Apache Spark HDI deployment article](/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action) for more information.
 
 ### Update your application to use specific version
 
@@ -53,4 +53,4 @@ Existing HDI clusters will continue to have the same previous version for .NET f
 
 ## Next steps
 
-[Deploy your .NET for Apache Spark application on HDInsight](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment)
+[Deploy your .NET for Apache Spark application on HDInsight](/dotnet/spark/tutorials/hdinsight-deployment)

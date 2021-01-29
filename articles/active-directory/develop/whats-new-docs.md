@@ -1,5 +1,5 @@
 ---
-title: "What's new in Microsoft identity platform docs"
+title: "What's new in the Microsoft identity platform docs"
 titleSuffix: Microsoft identity platform
 description: "New and updated documentation for the Microsoft identity platform."
 services: active-directory
@@ -16,7 +16,7 @@ ms.author: marsma
 
 # Microsoft identity platform docs: What's new
 
-Welcome to what's new in Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
 ## January 2021
 
