@@ -183,11 +183,11 @@ This article explores common troubleshooting methods for data flows in Azure Dat
  ### Error code: DF-Executor-OutOfMemoryError
 - **Message**: Cluster ran into out of memory issue during execution, please retry using an integration runtime with bigger core count and/or memory optimized compute type
 - **Causes**: Cluster is running out of memory.
-- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling appropriate compute type and size to run the payload. Refer https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance  for tuning the dataflows for best performance.
+- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling appropriate compute type and size to run the payload. Refer to [Dataflow Performance Guide](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) for tuning the dataflows for best performance.
 *********************************
 
  ### Error code: DF-Executor-illegalArgument
-- **Message**: Please make sure that the access key in your Linked Service is correct
+- **Message**: Please make sure that the access key in your Linked Service is correct.
 - **Causes**: Account Name or Access Key is incorrect.
 - **Recommendation**: Please supply right account name or access key.
 *********************************
@@ -237,7 +237,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
  ### Error code: DF-Excel-InvalidConfiguration
 - **Message**: Invalid range is provided.
 - **Causes**: Undetermined
-- **Recommendation**: Please check parameter value and specify valid range by reference: https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties.
+- **Recommendation**: Please check parameter value and specify valid range by reference: [Excel properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
 
 *********************************
 
@@ -254,7 +254,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 *********************************
 
  ### Error code: DF-Excel-InvalidData
-- **Message**: Data type is not supported
+- **Message**: Data type is not supported.
 - **Causes**: Undetermined
 - **Recommendation**: Use Excel file right data types.
 *********************************
@@ -270,11 +270,6 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 2. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
 3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
 
-## General troubleshooting guidance
-
-1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
-1. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
-1. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
 
 ## Next steps
 
