@@ -33,5 +33,5 @@ A custom backend has several benefits, including:
 ## Next steps
 
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.md) using the Azure portal.
-* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/2020-06-01-preview/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
+* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
 
