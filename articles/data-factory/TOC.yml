@@ -698,10 +698,12 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
-  - name: Lineage
+  - name: Data Catalog and Governance
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Discover and explore data in ADF using Purview
+      href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items:    
     - name: Data migration for data lake & EDW
@@ -796,10 +798,6 @@
     href: /python/api/overview/azure/datafactory
 - name: Resources
   items:
-  - name: Data flow reserved capacity overview
-    href: data-flow-reserved-capacity-overview.md
-  - name: Data flow understand reservation charges
-    href: data-flow-understand-reservation-charges.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

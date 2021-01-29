@@ -35,7 +35,7 @@ Below are some common issues that may occur during the process.
     1. If an MPN account already exists, this will be recognized and you will be added to the account 
     1. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
 
-- **I don’t know who my Azure AD Global Administrator (also known as Company Admin or Tenant Admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
+- **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
     1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
     1. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
     1. Click the desired admin role
