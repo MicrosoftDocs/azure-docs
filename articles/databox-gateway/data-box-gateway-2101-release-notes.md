@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: alkohli
 ---
 
@@ -33,7 +33,6 @@ This release contains the following bug fix:
 This release also contains the following updates:
 
 - All cumulative Windows updates and .NET framework updates released through October 2020.
-- The baseboard management controller (BMC) firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory installation to address incompatibility with newer Dell power supply units.
 - The static IP address for Azure Data Box Gateway is retained across software updates.
 
 ## Known issues in this release
