@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create access package - Azure AD entitlement management
-description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
+title: Tutorial - Manage access to resources in Azure AD entitlement management
+description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Create your first access package in Azure AD entitlement management
+# Tutorial: Manage access to resources in Azure AD entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
