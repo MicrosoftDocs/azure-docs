@@ -213,7 +213,7 @@ For scenarios where you require a custom skill to work on images, you can pass i
 
 The following example skillset contains a single custom skill that accepts an image as an input and returns an image back to the skillset.
 
-#### Request body syntax
+#### Sample skillset
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -246,9 +246,13 @@ The following example skillset contains a single custom skill that accepts an im
   ]
 }
 ```
+
+#### Custom skill
+
 In the custom skill, base64 decode the data property of the image.
 
 ```python
+# deserialize the request, for each item in the batch
 for value in values:
   data = value['data']
   base64String = data["image"]["data"]
@@ -256,7 +260,7 @@ for value in values:
   inputBytes = base64.b64decode(base64Bytes)
   # Use numpy to convert the string to an image
   jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
-  # you now have an imageto work with
+  # you now have an image to work with
 ```
 Similarly to return an image, return a base64 encoded string within a JSON object with a `$type` property of `file`.
 
