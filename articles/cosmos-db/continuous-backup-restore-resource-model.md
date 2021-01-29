@@ -21,7 +21,7 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named "BackupType" enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named "Type" under "backuppolicy" parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
 > Currently the point-in-time restore feature is in public preview and it's available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
@@ -55,7 +55,6 @@ The following JSON is a sample database account resource with continuous backup 
 ```json
 {
   "location": "westus",
- …
   "properties": {
     "databaseAccountOfferType": "Standard",
     "locations": [
@@ -90,7 +89,7 @@ The following JSON is a sample database account resource with continuous backup 
     "backupPolicy": {
       "type": "Continuous"
     },
-    ….
+}
 }
 ```
 
@@ -100,9 +99,8 @@ A set of new resources and APIs is available to help you discover critical infor
 
 > [!NOTE]
 > All the API used to enumerate these resources require the following permissions:
-
-* `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read`
-* `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read`
+> * `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read`
+> * `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read`
 
 ### Restorable database account
 
@@ -201,5 +199,5 @@ To get a list of all MongoDB database and collection combinations that exist on 
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

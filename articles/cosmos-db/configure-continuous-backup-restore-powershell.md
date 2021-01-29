@@ -123,7 +123,7 @@ Run the `Get-AzCosmosDBRestorableDatabaseAccount` PowerShell command to list all
 
 The response includes all the database accounts (both live and deleted) that can be restored and the regions that they can be restored from.
 
-```json
+```console
 {
     "accountName": "sampleaccount",
     "apiType": "Sql",
@@ -233,6 +233,6 @@ Get-AzCosmosdbMongoDBRestorableResource `
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [Resource Manager](configure-continuous-backup-resource-manager.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
+* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [Resource Manager](configure-continuous-backup-template.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

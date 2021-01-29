@@ -110,7 +110,7 @@ The enumeration commands described below help you discover the resources that ar
 Run the following CLI command to list all the accounts that can be restored in the current subscription
 
 ```azurecli-interactive
-az cosmosdb restorable-database-account list --name "pitrbb"
+az cosmosdb restorable-database-account list --account-name "pitrbb"
 ```
 
 The response includes all the database accounts (both live and deleted) that can be restored and the regions that they can be restored from:
@@ -219,8 +219,7 @@ This command output shows includes list of operations performed on all the conta
       "operationType": "Create",
       "ownerId": "procol3",
       "ownerResourceId": "OIQ1APZ7U18="
-    },
-  }
+  },
 ]
 ```
 
@@ -254,6 +253,7 @@ az cosmosdb sql restorable-resource list \
     ],
     "databaseName": "spdb1"
   }
+]
 ```
 
 ## <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB API account
@@ -289,6 +289,6 @@ az cosmosdb mongodb restorable-resource list \
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

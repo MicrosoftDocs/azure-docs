@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope or more granularly at the source account scope as shown in the following image:
 
-:::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="List of roles required to perform restore operation" lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="List of roles required to perform restore operation." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 
 Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](../role-based-access-control/scope-overview.md) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
@@ -28,7 +28,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. In the **Add role assignment** pane, for **Role** field, select **CosmosRestoreOperator** role. Choose **User, group, or a service principal** for the **Assign access to** field and search for a user's name or email ID as shown in the following image:
 
-   :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles" border="true":::
+   :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles." border="true":::
 
 1. Select **Save** to grant the "restore/action permission".
 
@@ -121,5 +121,5 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

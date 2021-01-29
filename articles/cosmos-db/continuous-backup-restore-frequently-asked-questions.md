@@ -21,11 +21,8 @@ The restore duration dependents on the size of your data.
 ### Can I submit the restore time in local time?
 The restore may not happen depending on whether the key resources like databases or containers existed at that time. You can verify by entering the time and looking at the selected database or container for a given time. If you see no resources exist to restore, then the restore process doesn't work.
 
-### Can I have capital letters for the target account name?
-Target account name should always be in lowercase.
-
 ### How can I track if an account is being restored?
-When using Azure portal, after you submit the restore request, you can [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status) from the notifications bar. You can also check the status from the Azure Cosmos DB resources page, the status of the resource should be "Creating". 
+After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
 
 Similarly for PowerShell and CLI, you can track the progress of restore operation by executing `az cosmosdb show` command as follows:
 
@@ -36,6 +33,7 @@ az cosmosdb show --name "accountName" --resource-group "resourceGroup"
 The provisioningState shows "Succeeded" when the account is online.
 
 ```json
+{
 "virtualNetworkRules": [],
 "writeLocations" : [
 {
@@ -47,10 +45,8 @@ The provisioningState shows "Succeeded" when the account is online.
     "provisioningState": "Succeeded"
 }
 ]
+}
 ```
-
-### How can I know if the restore operation is completed?
-After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [check it's status](configure-continuous-backup-restore-portal.md#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
 
 ### How can I find out whether an account was restored from another account?
 Run the `az cosmosdb show` command, in the output, you can see that the value of `createMode` property. If the value is set to **Restore**. it indicates that the account was restored from another account. The `restoreParameters` property has further details such as `restoreSource`, which has the source account ID. The last GUID in the `restoreSource` parameter is the instanceId of the source account.
@@ -77,6 +73,6 @@ ID or the "instanceId" is a property of an instance of an account and it is used
 ## Next steps
 
 * What is [continuous backup](continuous-backup-restore-introduction.md) mode?
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-resource-manager.md).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
