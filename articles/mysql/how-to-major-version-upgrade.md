@@ -21,7 +21,7 @@ This article describes how you can upgrade your MySQL major version in-place in 
 This feature will enable customers to perform in-place upgrades of their MySQL 5.6 servers to MySQL 5.7 with a click of button without any data movement or the need of any application connection string changes.
 
 > [!Note]
-> * Major version upgrade is only available for major version upgrade from MySQL 5.6 to MySQL 5.7
+> * Major version upgrade is only available for major version upgrade from MySQL 5.6 to MySQL 5.7.
 > * The server will be unavailable throughout the upgrade operation. It is therefore recommended to perform upgrades during your planned maintenance window. You can consider [performing minimal downtime major version upgrade from MySQL 5.6 to MySQL 5.7 using read replica.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ## Perform major version upgrade from MySQL 5.6 to MySQL 5.7 using Azure portal
