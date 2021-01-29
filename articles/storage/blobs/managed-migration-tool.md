@@ -111,25 +111,25 @@ The maximum file size of any file that you create by using the compatibility lay
 
 ##### Discontinue chunk-encoding support
 
-ADLS Gen1 supports chunk-encoding for append, which won’t be supported by Gen1Shim. Clients sending chunk-encoding requests will receive BadRequest from Gen1Shim. 
+Gen1 supports chunk-encoding for append operations, but the compatibility layer does not. Clients that send chunk-encoding requests will receive a `BadRequest` error.  
 
 ##### GetContentSummary server API is not supported  
 
-In ADLS Gen1, Server-side implementation of GetContentSummary was used to have perf implications for large directories due to timeout. To solve that, client-side implementation of the API was introduced using ListStatus. All latest SDK versions implement it at client-side. For similar reasons, the API has not been implemented in Gen1Shim. 
+In Gen1, the server-side implementation of `GetContentSummary` had performance issues with large directories due to timeouts. To solve that, a client-side implementation of the API was introduced that uses `ListStatus`. All of the latest SDK versions implement that new version on the client-side.
 
 ##### Token audience for authentication  
 
-ADLS Gen1 clients send two types of token audiences.  
+Gen1 clients send two types of token audiences.  
 
 https://datalake.azure.net  
 
 https://management.azure.com/  
 
-For Gen1Shim, we recommend clients to send  https://datalake.azure.net  only  as management  audience  has security implications. Though  based on priority, it is possible to  allow  management audience  through  DC settings  of a stamp, but it is highly recommended for clients to use  datalake  audience.  
+When using the compatibility layer, we recommend that clients use only the `https://datalake.azure.net` token audience. The `https://management.azure.com/` audience has security implications. Though based on priority, it's possible to allow the `https://management.azure.com/` audience  through DC settings of a stamp, but it's not recommended.  
 
 ##### User identification as SuperUser  
 
-Users can be tagged to be superusers based on RBAC role that they hold – Mentioned in “RBAC User Role Significance row of “ACL  related Deviations” table below. Other than that, when account is accessed using SAS token or account key too, the user will be identified as superuser.
+Users can be tagged as superusers based on their Azure role. – Mentioned in “RBAC User Role Significance row of “ACL  related Deviations” table below. Other than that, when account is accessed using SAS token or account key too, the user will be identified as superuser.
 
 ##### Ownership info displayed as $superuser  
 
