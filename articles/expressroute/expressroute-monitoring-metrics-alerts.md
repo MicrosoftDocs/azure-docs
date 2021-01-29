@@ -189,7 +189,7 @@ You can also view ExpressRoute metrics by navigating to your ExpressRoute circui
 |TimeGrain|string|PT1M (metric values are pushed every minute)|
 |Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
 |Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
-|Maximum|real|The maxiumum of the two metric values pushed by the two MSEEs|
+|Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
 |Average|real|Equal to (Minimum + Maximum)/2|
 |Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
   
