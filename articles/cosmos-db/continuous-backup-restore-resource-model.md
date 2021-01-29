@@ -50,7 +50,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 
 ### Sample resource
 
-The following JSON is a sample resource with continuous backup enabled:
+The following JSON is a sample database account resource with continuous backup enabled:
 
 ```json
 {
@@ -111,15 +111,15 @@ This resource contains a database account instance that can be restored. The dat
 |Property Name |Description  |
 |---------|---------|
 | ID | The unique identifier of the resource. |
-| accountName | The SQL database account name. |
+| accountName | The global database account name. |
 | creationTime | The time in UTC when the account was created.  |
-| deletionTime | The time when the account was deleted in UTC.  This value is empty if the account is live. |
+| deletionTime | The time in UTC when the account was deleted.  This value is empty if the account is live. |
 | apiType | The API type of the Azure Cosmos DB account. |
 | restorableLocations |	The list of locations where the account existed. |
 | restorableLocations: locationName | The region name of the regional account. |
 | restorableLocations: regionalDatabaseAccountInstanceI | The GUID of the regional account. |
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
-| restorableLocations: deletionTime	| The time when the regional account was deleted in UTC. |
+| restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
 To get a list of all restorable accounts, see [Restorable Database Accounts - list]() or [Restorable Database Accounts- list by location]() articles.
 
@@ -129,7 +129,7 @@ Each resource contains information of a mutation event such as creation and dele
 
 |Property Name |Description  |
 |---------|---------|
-| eventTimestamp | The time in UTC when your database is created or deleted. |
+| eventTimestamp | The time in UTC when the database is created or deleted. |
 | ownerId | The name of the SQL database. |
 | ownerResourceId | The resource ID of the SQL database|
 | operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
