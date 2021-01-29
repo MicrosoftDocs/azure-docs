@@ -87,9 +87,7 @@ Responses such as the following may indicate that the VM's managed identity for 
 - PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
 - CLI: *MSI: Failed to retrieve a token from `http://localhost:50342/oauth2/token` with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
-If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
-
-- Go to the **Identity** page and ensure **System assigned** is set to "Yes."
+If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and go to the **Identity** page and ensure **System assigned** is set to "Yes."
 
 ## Next steps
 
