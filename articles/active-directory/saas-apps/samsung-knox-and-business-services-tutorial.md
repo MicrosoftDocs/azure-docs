@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![ACTIVE DIRECTORY SETTINGS](./media/samsung-knox-and-business-services-tutorial/sso-settings.png)
 
-    a. In the **Identifier(entity ID)** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    a. In the **Identifier(entity ID)** textbox, paste the **Identifier** value which you have entered in the Azure portal.
 
     b. In the **App federation metadata URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
