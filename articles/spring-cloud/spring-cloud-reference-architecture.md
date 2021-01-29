@@ -257,6 +257,3 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 [13]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
 [14]: /azure/spring-cloud/spring-cloud-howto-staging-environment
 [15]: https://devblogs.microsoft.com/java/monitor-applications-and-dependencies-in-azure-spring-cloud/
-
-
-
