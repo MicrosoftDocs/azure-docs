@@ -253,7 +253,7 @@ VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* fun
 
 ### How do I request a host quota increase for Azure VMware Solution?
 
-For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. See [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
+For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md). 
 
 For EA subscriptions, use the following procedure. First, you'll need:
 
