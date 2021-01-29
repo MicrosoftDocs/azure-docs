@@ -1,12 +1,12 @@
 - name: Virtual Machines Documentation
   href: index.yml
-- name: Overview 
+- name: Overview
   items:
   - name: About Linux Virtual Machines
     href: ./linux/overview.md
   - name: About Windows Virtual Machines
     href: ./windows/overview.md
-- name: Quickstarts 
+- name: Quickstarts
   items:
   - name: Create a Linux VM
     items:
@@ -53,24 +53,24 @@
       href: ./linux/tutorial-virtual-network.md
   - name: Windows
     items:
-      - name: 1 - Create / manage a VM
-        href: ./windows/tutorial-manage-vm.md
-      - name: 2 - Create / manage disks
-        href: ./windows/tutorial-manage-data-disk.md
-      - name: 3 - Automate configuration
-        href: ./windows/tutorial-automate-vm-deployment.md
-      - name: 4 - Create VM images
-        href: ./windows/tutorial-custom-images.md
-      - name: 5 - Highly available VMs
-        href: ./windows/tutorial-availability-sets.md
-      - name: 6 - Create a scale set
-        href: ./windows/tutorial-create-vmss.md
-      - name: 7 - Load balance VMs
-        href: ./windows/tutorial-load-balancer.md
-      - name: 8 - Manage networking
-        href: ./windows/tutorial-virtual-network.md
+    - name: 1 - Create / manage a VM
+      href: ./windows/tutorial-manage-vm.md
+    - name: 2 - Create / manage disks
+      href: ./windows/tutorial-manage-data-disk.md
+    - name: 3 - Automate configuration
+      href: ./windows/tutorial-automate-vm-deployment.md
+    - name: 4 - Create VM images
+      href: ./windows/tutorial-custom-images.md
+    - name: 5 - Highly available VMs
+      href: ./windows/tutorial-availability-sets.md
+    - name: 6 - Create a scale set
+      href: ./windows/tutorial-create-vmss.md
+    - name: 7 - Load balance VMs
+      href: ./windows/tutorial-load-balancer.md
+    - name: 8 - Manage networking
+      href: ./windows/tutorial-virtual-network.md
 - name: Workloads
-  items: 
+  items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
   - name: Cloud Foundry
@@ -95,7 +95,7 @@
       href: ./linux/openshift-container-platform-3x-post-deployment.md
     - name: Troubleshooting OpenShift Container Platform 3.11 deployments
       href: ./linux/openshift-container-platform-3x-troubleshooting.md
-    - name: Deploy OKD 
+    - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
     items:
@@ -346,7 +346,7 @@
       href: ./workloads/sap/sap-proximity-placement-scenarios.md
     - name: SAP BusinessObjects Business Intelligence platform on Azure
       items:
-      - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
+      - name: SAP BusinessObjects BI platform planning and implementation guide on Azure
         href: ./workloads/sap/businessobjects-deployment-guide.md
       - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
         href: ./workloads/sap/businessobjects-deployment-guide-linux.md
@@ -450,12 +450,12 @@
       href: ./linux/docker-machine.md
     - name: Use Docker Compose
       href: ./linux/docker-compose-quickstart.md
-  - name: Visual Studio 
+  - name: Visual Studio
     href: ./windows/using-visual-studio-vm.md
 - name: Instances
   items:
   - name: Sizes
-    items: 
+    items:
     - name: Overview
       href: sizes.md
     - name: Change the VM size
@@ -592,7 +592,7 @@
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
-    items: 
+    items:
     - name: Overview
       href: ./linux/dedicated-hosts.md
     - name: CLI
@@ -600,7 +600,7 @@
     - name: Portal
       href: dedicated-hosts-portal.md
     - name: PowerShell
-      href: ./windows/dedicated-hosts-powershell.md    
+      href: ./windows/dedicated-hosts-powershell.md
   - name: Spot Virtual Machines
     displayName: pre-empt, preempt, spot
     items:
@@ -623,7 +623,7 @@
       items:
       - name: Linux
         href: ./linux/azure-hybrid-benefit-linux.md
-      - name: Windows 
+      - name: Windows
         items:
         - name: Use Azure Hybrid Benefit license
           href: ./windows/hybrid-use-benefit-licensing.md
@@ -667,7 +667,7 @@
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
     - name: Secure web server with SSL
-      items: 
+      items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
       - name: Windows
@@ -676,14 +676,14 @@
     items:
     - name: SSH for Linux VMs
       items:
-        - name: On Linux or macOS
-          href: ./linux/mac-create-ssh-keys.md
-        - name: On Windows
-          href: ./linux/ssh-from-windows.md
-        - name: In the portal
-          href: ssh-keys-portal.md
-        - name: Detailed steps
-          href: ./linux/create-ssh-keys-detailed.md  
+      - name: On Linux or macOS
+        href: ./linux/mac-create-ssh-keys.md
+      - name: On Windows
+        href: ./linux/ssh-from-windows.md
+      - name: In the portal
+        href: ssh-keys-portal.md
+      - name: Detailed steps
+        href: ./linux/create-ssh-keys-detailed.md
     - name: Remote Desktop for Linux
       href: ./linux/use-remote-desktop.md
   - name: Create Windows VMs
@@ -705,18 +705,18 @@
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
-  - name: Connect to Windows VMs 
+  - name: Connect to Windows VMs
     href: ./windows/connect-logon.md
     items:
-    - name: WinRM 
+    - name: WinRM
       href: ./windows/winrm.md
   - name: Extensions
     items:
     - name: Overview
       href: ./extensions/overview.md
-    - name: Linux 
-      items: 
-      - name: Linux features 
+    - name: Linux
+      items:
+      - name: Linux features
         href: ./extensions/features-linux.md
       - name: Linux VM Agent
         href: ./extensions/agent-linux.md
@@ -853,7 +853,7 @@
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
       href: migration-classic-resource-manager-faq.md
-  - name: Management basics 
+  - name: Management basics
     items:
     - name: Manage resources
       items:
@@ -862,7 +862,7 @@
       - name: Windows
         href: ./windows/tutorial-govern-resources.md
     - name: Time sync
-      items: 
+      items:
       - name: Linux
         href: ./linux/time-sync.md
       - name: Windows
@@ -876,7 +876,7 @@
         - name: Windows
           href: ./extensions/custom-script-windows.md
       - name: Run Command
-        items: 
+        items:
         - name: Linux
           href: ./linux/run-command.md
         - name: Windows
@@ -957,8 +957,6 @@
         href: ./linux/cloudinit-configure-swapfile.md
       - name: Run existing bash script
         href: ./linux/cloudinit-bash-script.md
-      - name: Prepare existing VM for cloud-init
-        href: ./linux/cloudinit-prepare-custom-image.md
     - name: Create Linux images without a provisioning agent
       href: ./linux/no-agent.md
     - name: Disable Linux Agent provisioning
@@ -1002,10 +1000,10 @@
       - name: Update image resources
         href: update-image-resources-cli.md
       - name: App registration for sharing
-        items: 
+        items:
         - name: Linux
           href: ./linux/share-images-across-tenants.md
-        - name: Windows 
+        - name: Windows
           href: ./windows/share-images-across-tenants.md
     - name: PowerShell
       items:
@@ -1034,10 +1032,10 @@
     - name: Portal
       items:
       - name: Create a gallery, image and VM
-        items: 
+        items:
         - name: Linux
           href: ./linux/shared-images-portal.md
-        - name: Windows 
+        - name: Windows
           href: ./windows/shared-images-portal.md
     - name: Resource Manager Templates
       items:
@@ -1055,7 +1053,7 @@
       displayName: SSE, CMK, encrypt
       href: image-version-encryption.md
     - name: Managed disk from image version
-      href: managed-disk-from-image-version.md  
+      href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
   - name: Image builder (preview)
@@ -1070,6 +1068,10 @@
         href: ./windows/image-builder.md
     - name: PowerShell
       href: ./windows/image-builder-powershell.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-image-builder.md
     - name: Use a VNET
       items:
       - name: CLI
@@ -1090,7 +1092,7 @@
       displayName: json
       href: ./linux/image-builder-json.md
     - name: Build for image galleries
-      items: 
+      items:
       - name: Linux
         href: ./linux/image-builder-gallery.md
       - name: Windows
@@ -1106,7 +1108,7 @@
     - name: Troubleshoot
       href: ./linux/image-builder-troubleshoot.md
   - name: Build image with Packer
-    items: 
+    items:
     - name: Linux
       href: ./linux/build-image-with-packer.md
     - name: Windows
@@ -1128,7 +1130,7 @@
   - name: High availability
     href: manage-availability.md
   - name: Availability sets
-    items: 
+    items:
     - name: Linux
       href: ./linux/tutorial-availability-sets.md
     - name: Windows
@@ -1193,13 +1195,13 @@
       - name: Azure Disk Encryption overviews
         items:
         - name: Windows
-        - name: Linux 
+        - name: Linux
       - name: Linux
         href: ./linux/disk-encryption-linux.md
       - name: Windows
         href: ./windows/disk-encryption-windows.md
       - name: CLI
-        items: 
+        items:
         - name: Linux
           href: ./linux/disk-encryption-cli-quickstart.md
         - name: Windows
@@ -1211,13 +1213,13 @@
         - name: Windows
           href: ./windows/disk-encryption-powershell-quickstart.md
       - name: Portal
-        items: 
+        items:
         - name: Linux
           href: ./linux/disk-encryption-portal-quickstart.md
         - name: Windows
           href: ./windows/disk-encryption-portal-quickstart.md
       - name: Key vault for Azure Disk Encryption
-        items: 
+        items:
         - name: Linux
           href: ./linux/disk-encryption-key-vault.md
         - name: Windows
@@ -1245,7 +1247,7 @@
         - name: Windows
           href: ./windows/disk-encryption-troubleshooting.md
       - name: FAQ
-        items: 
+        items:
         - name: Linux
           href: ./linux/disk-encryption-faq.md
         - name: Windows
@@ -1287,7 +1289,7 @@
     - name: Disk performance tiers
       href: disks-change-performance.md
     - name: Change disk performance tier
-      items: 
+      items:
       - name: CLI and PowerShell
         href: disks-performance-tiers.md
       - name: Portal
@@ -1306,7 +1308,7 @@
       href: disks-incremental-snapshots.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
-    - name:  Snapshot a disk - PowerShell
+    - name: Snapshot a disk - PowerShell
       href: ./windows/snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
@@ -1333,7 +1335,7 @@
       - name: CLI
         href: ./linux/convert-unmanaged-to-managed-disks.md
       - name: PowerShell
-        href: ./windows/convert-unmanaged-to-managed-disks.md  
+        href: ./windows/convert-unmanaged-to-managed-disks.md
   - name: Add a data disk
     items:
     - name: Linux
@@ -1348,17 +1350,17 @@
         href: ./windows/attach-disk-ps.md
       - name: Azure portal
         href: ./windows/attach-managed-disk-portal.md
-      - name: Change temp disk drive letter 
+      - name: Change temp disk drive letter
         href: ./windows/change-drive-letter.md
   - name: Detach a disk
     items:
     - name: Linux
       href: ./linux/detach-disk.md
     - name: Windows
-      href: ./windows/detach-disk.md        
+      href: ./windows/detach-disk.md
   - name: Expand OS disk
-    items: 
-    - name: Linux 
+    items:
+    - name: Linux
       href: ./linux/expand-disks.md
     - name: Windows
       href: ./windows/expand-os-disk.md
@@ -1394,7 +1396,7 @@
     - name: Map managed disk to guest disk - Windows
       href: ./windows/azure-to-guest-disk-mapping.md
     - name: Find unattached disks
-      items: 
+      items:
       - name: CLI
         href: ./linux/find-unattached-disks.md
       - name: PowerShell
@@ -1434,7 +1436,7 @@
       - name: Create a snapshot from a VHD
         href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
-  items: 
+  items:
   - name: Overview
     href: network-overview.md
   - name: Create virtual network
@@ -1447,7 +1449,6 @@
       href: ./windows/nsg-quickstart-powershell.md
     - name: Portal
       href: ./windows/nsg-quickstart-portal.md
-    
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
   - name: Use multiple NICs
@@ -1509,16 +1510,15 @@
         href: ../bastion/create-host-cli.md
       - name: Bastion SSH connection
         href: ../bastion/bastion-connect-vm-ssh.md
-        items:
       - name: Bastion RDP connection
         href: ../bastion/bastion-connect-vm-rdp.md
     - name: Use access controls
       href: ../role-based-access-control/overview.md
     - name: Create a Key Vault
-      items: 
+      items:
       - name: CLI
         href: ./linux/key-vault-setup.md
-      - name: PowerShell 
+      - name: PowerShell
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
     href: mitigate-se.md
@@ -1549,7 +1549,7 @@
   - name: Linux Active Directory sign-in
     href: ./linux/login-using-aad.md
 - name: Maintenance and updates
-  items: 
+  items:
   - name: Overview
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
@@ -1580,7 +1580,7 @@
       items:
       - name: Linux
         href: ./linux/scheduled-events.md
-      - name: Windows 
+      - name: Windows
         href: ./windows/scheduled-events.md
     - name: Track and update VMs
       items:
@@ -1707,10 +1707,10 @@
       href: tag-portal.md
     - name: PowerShell
       href: tag-powershell.md
-    - name: Template 
+    - name: Template
       href: tag-template.md
   - name: Monitor metadata
-    items: 
+    items:
     - name: CLI
       href: ./linux/instance-metadata-service.md
     - name: PowerShell
@@ -1723,27 +1723,27 @@
   items:
   - name: Overview
     href: backup-recovery.md
-  - name: Service disruptions 
+  - name: Service disruptions
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
-    items: 
+    items:
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md
     - name: Quickstarts
-      items: 
+      items:
       - name: CLI
         href: ../backup/quick-backup-vm-cli.md
       - name: PowerShell
         href: ../backup/quick-backup-vm-powershell.md
-      - name: Portal 
+      - name: Portal
         href: ../backup/quick-backup-vm-portal.md
       - name: Template
         href: ../backup/quick-backup-vm-template.md
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
-    - name: Restore options       
+    - name: Restore options
       href: ../backup/backup-azure-arm-restore-vms.md
-    - name: Support matrix 
+    - name: Support matrix
       href: ../backup/backup-support-matrix-iaas.md
     - name: Pricing
       href: ../backup/azure-backup-pricing.md
@@ -1754,7 +1754,7 @@
     - name: Overview
       href: ../site-recovery/site-recovery-overview.md
     - name: Enable disaster recovery
-      items: 
+      items:
       - name: Linux
         href: ./linux/tutorial-disaster-recovery.md
       - name: Windows
@@ -1768,7 +1768,7 @@
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
-      items: 
+      items:
       - name: CLI
         href: ./linux/move-vm.md
       - name: PowerShell
