@@ -22,7 +22,7 @@ The structure of how to do this consists of the following steps.  They are:
 - [Create Sync Job](#create-sync-job)
 - [Update targeted domain](#update-targeted-domain)
 - [Enable sync password hashes](#enable-sync-password-hashes-on-configuration-blade)
-- [Accidental deletes](#accidental-deletes.md)
+- [Accidental deletes](#accidental-deletes)
 - [Start sync job](#start-sync-job)
 - [Review status](#review-status)
 
