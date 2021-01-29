@@ -24,7 +24,7 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 * A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
 
-* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
 ## Initialize the workspace & get data
 
@@ -139,7 +139,7 @@ If you then run `Schedule.list(ws)` again, you should get an empty list.
 
 More complex trigger rules or behavior can be created using an [Azure Logic App](../logic-apps/logic-apps-overview.md).
 
-To use an Azure Logic App to trigger a Machine Learning pipeline, you'll need the REST endpoint for a published Machine Learning pipeline. [Create and publish your pipeline](how-to-create-your-first-pipeline.md). Then find the REST endpoint of your `PublishedPipeline` by using the pipeline ID:
+To use an Azure Logic App to trigger a Machine Learning pipeline, you'll need the REST endpoint for a published Machine Learning pipeline. [Create and publish your pipeline](./how-to-create-machine-learning-pipelines.md). Then find the REST endpoint of your `PublishedPipeline` by using the pipeline ID:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

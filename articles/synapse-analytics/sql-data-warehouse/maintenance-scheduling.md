@@ -33,7 +33,7 @@ Integration with Service Health notifications and the Resource Health Check Moni
 A 24-hour advance notification precedes all maintenance events that aren't for the DWC400c and lower tiers.
 
 > [!NOTE]
-> In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced.
+> In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced. This could occur outside an identified maintenance window due to the critical nature of the update.
 
 If you received advance notification that maintenance will take place, but maintenance can't be performed during the time period in the notification, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
 

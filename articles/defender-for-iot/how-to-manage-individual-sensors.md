@@ -310,7 +310,7 @@ To convert certificates and keys to different formats to make them compatible wi
 
 ## Connect a sensor to the management console
 
-This section describes how to ensure connection between the sensor and the on-premises management console. Do this if you're working in an air-gapped network and want to send asset and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
+This section describes how to ensure connection between the sensor and the on-premises management console. You need to do this if you're working in an air-gapped network and want to send device and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
 
 To connect:
 

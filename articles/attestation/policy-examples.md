@@ -41,7 +41,7 @@ version= 1.0;
 authorizationrules
 {
        [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value=="<product-id>" ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
         && [ type=="x-ms-sgx-svn", value>= 0 ]
         && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
     => permit();

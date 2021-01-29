@@ -26,7 +26,7 @@ To run code snippets without using Azure Functions, learn how to [add and run in
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An function app, which is a container for a function that's created in Azure Functions, along with the function you create. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
+* An function app, which is a container for a function that's created in Azure Functions, along with the function you create. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
 
 * When working with logic apps, the same requirements apply to function apps and functions whether they are existing or new:
 
@@ -97,9 +97,9 @@ Now that you've created your function in Azure, follow the steps to [add functio
 
 ## Create functions inside logic apps
 
-You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
 
-However, before you can create your function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+However, before you can create your function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 

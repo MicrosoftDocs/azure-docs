@@ -1,13 +1,13 @@
 ---
-title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
+title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/27/2020
 
 ---
 
-# IP addresses used by Application Insights and Log Analytics
-The [Azure Application Insights](./app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+# IP addresses used by Azure Monitor
+[Azure Monitor](../overview.md) uses a number of IP addresses. Azure Monitor is made up of core platform metrics and log in addition to Log Analytics and Application Insights. You might need to know these addresses if the app or infrastructure that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
@@ -23,7 +23,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192 | 443 |
+| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## Status Monitor
@@ -241,7 +241,35 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | IP | Ports
 | --- | --- | --- |
-| Alerting | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+| Alerting | 13.66.60.119/32<br/>13.66.143.220/30<br/>13.66.202.14/32<br/>13.66.248.225/32<br/>13.66.249.211/32<br/>13.67.10.124/30<br/>13.69.109.132/30<br/>13.71.199.112/30<br/>13.77.53.216/30<br/>13.77.172.102/32<br/>13.77.183.209/32<br/>13.78.109.156/30<br/>13.84.49.247/32<br/>13.84.51.172/32<br/>13.84.52.58/32<br/>13.86.221.220/30<br/>13.106.38.142/32<br/>13.106.38.148/32<br/>13.106.54.3/32<br/>13.106.54.19/32<br/>13.106.57.181/32<br/>13.106.57.196/31<br/>20.38.149.132/30<br/>20.42.64.36/30<br/>20.43.121.124/30<br/>20.44.17.220/30<br/>20.45.123.236/30<br/>20.72.27.152/30<br/>20.150.172.228/30<br/>20.192.238.124/30<br/>20.193.202.4/30<br/>40.68.195.137/32<br/>40.68.201.58/32<br/>40.68.201.65/32<br/>40.68.201.206/32<br/>40.68.201.211/32<br/>40.68.204.18/32<br/>40.115.37.106/32<br/>40.121.219.215/32<br/>40.121.221.62/32<br/>40.121.222.201/32<br/>40.121.223.186/32<br/>51.104.9.100/30<br/>52.183.20.244/32<br/>52.183.31.0/32<br/>52.183.94.59/32<br/>52.184.145.166/32<br/>191.233.50.4/30<br/>191.233.207.64/26<br/>2603:1000:4:402::178/125<br/>2603:1000:104:402::178/125<br/>2603:1010:6:402::178/125<br/>2603:1010:101:402::178/125<br/>2603:1010:304:402::178/125<br/>2603:1010:404:402::178/125<br/>2603:1020:5:402::178/125<br/>2603:1020:206:402::178/125<br/>2603:1020:305:402::178/125<br/>2603:1020:405:402::178/125<br/>2603:1020:605:402::178/125<br/>2603:1020:705:402::178/125<br/>2603:1020:805:402::178/125<br/>2603:1020:905:402::178/125<br/>2603:1020:a04:402::178/125<br/>2603:1020:b04:402::178/125<br/>2603:1020:c04:402::178/125<br/>2603:1020:d04:402::178/125<br/>2603:1020:e04:402::178/125<br/>2603:1020:f04:402::178/125<br/>2603:1020:1004:800::f8/125<br/>2603:1020:1104:400::178/125<br/>2603:1030:f:400::978/125<br/>2603:1030:10:402::178/125<br/>2603:1030:104:402::178/125<br/>2603:1030:107:400::f0/125<br/>2603:1030:210:402::178/125<br/>2603:1030:40b:400::978/125<br/>2603:1030:40c:402::178/125<br/>2603:1030:504:802::f8/125<br/>2603:1030:608:402::178/125<br/>2603:1030:807:402::178/125<br/>2603:1030:a07:402::8f8/125<br/>2603:1030:b04:402::178/125<br/>2603:1030:c06:400::978/125<br/>2603:1030:f05:402::178/125<br/>2603:1030:1005:402::178/125<br/>2603:1040:5:402::178/125<br/>2603:1040:207:402::178/125<br/>2603:1040:407:402::178/125<br/>2603:1040:606:402::178/125<br/>2603:1040:806:402::178/125<br/>2603:1040:904:402::178/125<br/>2603:1040:a06:402::178/125<br/>2603:1040:b04:402::178/125<br/>2603:1040:c06:402::178/125<br/>2603:1040:d04:800::f8/125<br/>2603:1040:f05:402::178/125<br/>2603:1040:1104:400::178/125<br/>2603:1050:6:402::178/125<br/>2603:1050:403:400::1f8/125<br/> | 443 |
+
+To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
+
+### Action Groups Service Tag
+Managing changes to Source IP addresses can be quite time consuming. Using **Service Tags** eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, eliminating the need to update network security rules for an Action Group.
+
+1. In the Azure portal under Azure Services search for *Network Security Group*.
+2. Click on **Add** and create a Network Security Group.
+
+   1. Add the Resource Group Name and then enter *Instance Details*.
+   1. Click on **Review + Create** and then click *Create*.
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
+
+3. Go to Resource Group and then click on *Network Security Group* you have created.
+
+    1. Select *Inbound Security Rules*.
+    1. Click on **Add**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
+
+4. A new window will open in right pane.
+    1.  Select Source: **Service Tag**
+    1.  Source Service Tag: **ActionGroup**
+    1.  Click **Add**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
+
 
 ## Profiler
 

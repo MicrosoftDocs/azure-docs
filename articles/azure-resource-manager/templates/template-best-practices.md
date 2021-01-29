@@ -20,7 +20,7 @@ You're also limited to:
 * 64 output values
 * 24,576 characters in a template expression
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 ## Resource group
 

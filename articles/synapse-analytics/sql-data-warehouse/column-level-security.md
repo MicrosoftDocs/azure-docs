@@ -18,11 +18,11 @@ tags: azure-synapse
 Column-Level security allows customers to control access to table columns based on the user's execution context or group membership.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) became available for dedicated SQL pool in Azure Synapse.
+Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) became available for dedicated SQL pool in Azure Synapse.
 
 Column-level security simplifies the design and coding of security in your application, allowing you to restrict column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time data access is attempted from any tier. This restriction makes your security more reliable and robust by reducing the surface area of your overall security system. In addition, column-level security also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
 
-You can implement column-level security with the [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (Azure AD) authentication are supported.
+You can implement column-level security with the [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (Azure AD) authentication are supported.
 
 ![Diagram shows a schematic table with the first column headed by a closed padlock and its cells an orange color while the other columns are white cells.](./media/column-level-security/cls.png)
 
