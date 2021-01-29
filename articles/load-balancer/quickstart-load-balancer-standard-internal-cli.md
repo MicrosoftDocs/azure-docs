@@ -27,7 +27,7 @@ Get started with Azure Load Balancer by using the Azure CLI to create an interna
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 >[!NOTE]
->Azure Load Balancer Standard is the recommended choice for production workloads. This article contains information about Azure Load Balancer Standard, as well as Azure Load Balancer Basic.For more information about SKUs, see [Azure Load Balancer SKUs](skus.md).
+>Azure Load Balancer Standard is the recommended choice for production workloads. This article contains information about Azure Load Balancer Standard, as well as Azure Load Balancer Basic. For more information about SKUs, see [Azure Load Balancer SKUs](skus.md).
 
 ## Create a resource group
 
