@@ -61,11 +61,13 @@
             - name: Policy reference index
               href: api-management-policies.md
             - name: Error handling
-              href: api-management-error-handling-policies.md  
+              href: api-management-error-handling-policies.md 
       - name: Security
         items:
             - name: Security baseline
               href: security-baseline.md
+      - name: Backends
+        href: backends.md 
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Versions
@@ -105,9 +107,8 @@
               href: import-logic-app-as-api.md
             - name: Edit an API
               href: edit-api.md
-            - name: Integrate with custom backend
-              href: backends.md
-              displayName: service fabric
+            - name: Configure Service Fabric backend
+              href: how-to-configure-service-fabric-backend.md
       - name: Provision and scale
         items:
             - name: Capacity metric
