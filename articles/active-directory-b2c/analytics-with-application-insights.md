@@ -306,7 +306,7 @@ To enable developer mode, in the *AppInsights-Common* technical profile, change 
 
 ## Disable telemetry
 
-To disable the Application insight logs, in the *AppInsights-Common* technical profile, change the `DeveloperMode` metadata to `true`: 
+To disable the Application insight logs, in the *AppInsights-Common* technical profile, change the `DisableTelemetry` metadata to `true`: 
 
 ```xml
 <TechnicalProfile Id="AppInsights-Common">
