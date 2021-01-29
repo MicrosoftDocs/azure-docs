@@ -586,10 +586,12 @@
              href: platform/it-service-management-connector-secure-webhook-connections.md
            - name: Secure Export Azure Configuration
              href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
-           - name: BMC
-             href: platform/itsmc-secure-webhook-connections-bmc.md
-           - name: ServiceNow
-             href: platform/itsmc-secure-webhook-connections-servicenow.md
+           - name: ITSM Connector Partners Setup
+             items:
+              - name: BMC
+                href: platform/itsmc-secure-webhook-connections-bmc.md
+              - name: ServiceNow
+                href: platform/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 

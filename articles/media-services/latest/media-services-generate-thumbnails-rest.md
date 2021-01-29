@@ -1,5 +1,5 @@
 ---
-title: Get a signing key from a policy using Azure Media Services v3 .NET
+title: Generate thumbnails using Media Encoder Standard  REST
 description: This article shows how to use REST to encode an asset and generate thumbnails at the same time using Media Encoder Standard.
 services: media-services
 documentationcenter: ''

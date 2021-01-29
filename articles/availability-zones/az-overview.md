@@ -1,11 +1,12 @@
 ---
 title: Regions and Availability Zones in Azure
 description: Learn about regions and Availability Zones in Azure to meet your technical and regulatory requirements.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: cynthn
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ---
 
