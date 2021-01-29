@@ -10,16 +10,16 @@ ms.custom: devx-track-python
 When developing for Azure Functions using Python, you need to understand how your functions perform and how that performance affects the way your function app gets scaled. The need is more important when designing highly performant apps. The main factors to consider when designing, writing, and configuring your functions apps are horizontal scaling and throughput performance configurations.
 
 ## Horizontal scaling
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Azure Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Azure Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).
 
 ## Improving throughput performance
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
 
-|| I/O-bound workload | CPU-bound workload |
-|--| -- | -- |
-|Function app characteristics| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
-|Examples| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
+| Workload type | Function app characteristics       | Examples                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **I/O-bound**     | • App needs to handle many concurrent invocations.<br>• App processes a large number of I/O events, such as network calls and disk read/writes. | • Web APIs                                          |
+| **CPU-bound**     | • App does long-running computations, such as image resizing.<br>• App does data transformation.                                                | • Data processing<br>• Machine learning inference<br> |
 
  
 As real world function workloads are usually a mix of I/O and CPU bound, you should profile the app under realistic production loads.

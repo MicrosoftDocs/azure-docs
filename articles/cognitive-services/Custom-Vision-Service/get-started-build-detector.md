@@ -100,9 +100,13 @@ After training has completed, the model's performance is calculated and displaye
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 
-### Probability Threshold
+### Probability threshold
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### Overlap threshold
+
+The **Overlap Threshold** slider deals with how correct an object prediction must be to be considered "correct" in training. It sets the minimum allowed overlap between the predicted object bounding box and the actual user-entered bounding box. If the bounding boxes don't overlap to this degree, the prediction won't be considered correct.
 
 ## Manage training iterations
 

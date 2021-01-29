@@ -219,4 +219,4 @@ Here's the JSON representation of the example activity event shown earlier in th
 
 ## Next steps
 
-You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).

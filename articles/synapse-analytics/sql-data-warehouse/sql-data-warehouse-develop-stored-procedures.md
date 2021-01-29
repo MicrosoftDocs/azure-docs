@@ -68,7 +68,7 @@ GO
 EXEC prc_nesting
 ```
 
-Dedicated SQL pool doesn't currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). As such, you need to track the nest level. It's unlikely that you'll exceed the eight nest level limit. But, if you do, you need to rework your code to fit the nesting levels within this limit.
+Dedicated SQL pool doesn't currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). As such, you need to track the nest level. It's unlikely that you'll exceed the eight nest level limit. But, if you do, you need to rework your code to fit the nesting levels within this limit.
 
 ## INSERT..EXECUTE
 

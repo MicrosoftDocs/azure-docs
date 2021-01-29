@@ -1,6 +1,6 @@
 ---
 title: Move Blob storage data with Azure Storage Explorer - Team Data Science Process
-description: Learn how to use Azure Storage Explorer to upload and download data from Azure blob storage.
+description: Learn how to use Azure Storage Explorer to upload and download data from Azure Blob Storage.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to and from Azure Blob Storage using Azure Storage Explorer
-Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
+Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure Blob Storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -21,7 +21,7 @@ Azure Storage Explorer is a free tool from Microsoft that allows you to work wit
 > If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](../data-science-virtual-machine/overview.md), then Azure Storage Explorer is already installed on the VM.
 > 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../../storage/blobs/storage-quickstart-blobs-dotnet.md) and [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
+> For a complete introduction to Azure Blob Storage, refer to [Azure Blob Basics](../../storage/blobs/storage-quickstart-blobs-dotnet.md) and [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
 > 
 > 
 

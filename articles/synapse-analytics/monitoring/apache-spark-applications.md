@@ -28,7 +28,7 @@ This tutorial covers the following tasks:
 
 Before you start with this tutorial, make sure to meet the following requirements:
 
-- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - An Apache Spark pool.
 
@@ -153,4 +153,4 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 ## Next steps
 
-For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.  
+For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.

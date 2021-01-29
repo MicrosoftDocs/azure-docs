@@ -75,7 +75,7 @@ One or more experiments can be created in your workspace to track and analyze in
     > [!div class="mx-imgBorder"]
     > ![Create an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
-1. Name your experiment "MNIST" and press **Enter** to create the new experiment. 
+1. Name your experiment "Tutorial-VSCode-MNIST" and press **Enter** to create the new experiment. 
 
 Like workspaces, a request is sent to Azure to create an experiment with the provided configurations. After a few minutes, the new experiment appears in the *Experiments* node of your workspace. 
 

@@ -1,6 +1,6 @@
 ---
-title: File extension reporting on your data using Purview Insights 
-description: This how-to guide describes how to view and use the Purview Insights file extension reporting on your data.
+title: File extension reporting on your data in Azure Purview using Purview Insights
+description: This how-to guide describes how to view and use the Purview file extension reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
@@ -29,6 +29,9 @@ Before getting started with Purview insights, make sure that you've completed th
 - Set up your Azure resources and populated the relevant accounts with test data
 
 - Set up and completed a scan on the test data in each data source
+
+- Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
