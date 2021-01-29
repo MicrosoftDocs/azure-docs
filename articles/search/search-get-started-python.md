@@ -172,8 +172,7 @@ To load documents, create a documents collection, using an [index action](/pytho
 1. In a new cell, provide four documents that conform to the index schema. Specify an upload action for each document.
 
     ```python
-    documents = {
-        "value": [
+    documents = [
         {
         "@search.action": "upload",
         "HotelId": "1",
@@ -251,7 +250,6 @@ To load documents, create a documents collection, using an [index action](/pytho
             }
         }
     ]
-    }
     ```  
 
 1. In another cell, formulate the request. This upload_documents request targets the docs collection of the hotels-quickstart index and pushes the documents provided in the previous step into the Cognitive Search index.
