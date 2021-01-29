@@ -44,11 +44,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Preciate to support provisioning with Azure AD
 
-1.  Login to [Preciate Admin Portal](https://preciate.com/web/admin/keys) and navigate to the **Integrations** page.
+1.  Log in to [Preciate Admin Portal](https://preciate.com/web/admin/keys) and navigate to the **Integrations** page.
 
 	![Preciate secret](media/preciate-provisioning-tutorial/preciate-secret-path.png)
 
-2.  Next clic k the **Generate** button where it says Active Directory Integration Secret Key. 
+2.  Select the **Generate** button where it says Active Directory Integration Secret Key. 
  
 	![Preciate generate](media/preciate-provisioning-tutorial/preciate-secret-generate.png)
 
