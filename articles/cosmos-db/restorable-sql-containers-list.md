@@ -46,7 +46,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 **Sample Request**
 
 ```http
-GET https://management.azure.com/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers?api-version=2020-06-01-preview&amp;restorableSqlDatabaseRid=3fu-hg==
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers?api-version=2020-06-01-preview&amp;restorableSqlDatabaseRid=3fu-hg==
 ```
 
 **Sample Response**
@@ -57,7 +57,7 @@ Status code:200
 {
   "value": [
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers/79609a98-3394-41f8-911f-cfab0c075c86",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers/79609a98-3394-41f8-911f-cfab0c075c86",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableSqlContainers",
       "name": "79609a98-3394-41f8-911f-cfab0c075c86",
       "properties": {
@@ -99,7 +99,7 @@ Status code:200
       }
     },
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers/e85298a1-c631-4726-825e-a7ca092e9098",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers/e85298a1-c631-4726-825e-a7ca092e9098",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableSqlContainers",
       "name": "e85298a1-c631-4726-825e-a7ca092e9098",
       "properties": {

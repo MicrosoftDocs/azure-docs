@@ -48,7 +48,7 @@ Status code: 200
 {
   "value": [
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/d9b26648-2f53-4541-b3d8-3044f4f9810d",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/d9b26648-2f53-4541-b3d8-3044f4f9810d",
       "name": "d9b26648-2f53-4541-b3d8-3044f4f9810d",
       "location": "West US",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts",
@@ -73,7 +73,7 @@ Status code: 200
       }
     },
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4f9e6ace-ac7a-446c-98bc-194c502a06b4",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4f9e6ace-ac7a-446c-98bc-194c502a06b4",
       "name": "4f9e6ace-ac7a-446c-98bc-194c502a06b4",
       "location": "East US",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts",
