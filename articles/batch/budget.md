@@ -27,7 +27,9 @@ In general, the cost of storage data associated with Batch is much lower than th
 
 ### Networking resources
 
-Batch pools use networking resources, some of which have associated costs. In particular, for [Virtual Machine Configuration](accounts.md#virtual-machine-configuration) pools, standard load balancers are used, which require static IP addresses. The load balancers used by Batch are visible for **User Subscription** accounts, but are not visible for **Batch Service** accounts. Standard load balancers incur charges for all data passed to and from Batch pool VMs. Select Batch APIs that retrieve data from pool nodes (such as Get Task/Node File), task application packages, resource/output files, and container images will also incur charges.
+Batch pools use networking resources, some of which have associated costs. In particular, for Virtual Machine Configuration pools, standard load balancers are used, which require static IP addresses. The load balancers used by Batch are visible for [accounts](accounts.md#batch-accounts) configured in user subscription mode, but not those in Batch service mode.
+
+Standard load balancers incur charges for all data passed to and from Batch pool VMs. Select Batch APIs that retrieve data from pool nodes (such as Get Task/Node File), task application packages, resource/output files, and container images will also incur charges.
 
 ### Additional services
 
