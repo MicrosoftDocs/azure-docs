@@ -59,7 +59,7 @@ The `/analyze` endpoint enables you to use select features of the Text Analytics
 
 The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
 
-1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics. Afterwards, [get the key](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generated for you to authenticate your requests.
+1. [Create an Azure resource](how-tos/text-analytics-how-to-call-api.md) for Text Analytics. Afterwards, [get the key](how-tos/text-analytics-how-to-call-api.md) generated for you to authenticate your requests.
 
 2. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON.
 

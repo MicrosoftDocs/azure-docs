@@ -2,7 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 01/15/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -19,22 +19,27 @@ Service Bus enables clients to send and receive messages via one of three protoc
 2. Service Bus Messaging Protocol (SBMP)
 3. Hypertext Transfer Protocol (HTTP)
 
-AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and prefetching. Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
+AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements [batching](#batching-store-access) and [prefetching](#prefetching). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 > [!IMPORTANT]
 > The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
 
 ## Choosing the appropriate Service Bus .NET SDK
-There are two supported Azure Service Bus .NET SDKs. Their APIs are similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. We suggest using the Microsoft.Azure.ServiceBus SDK as It's more modern, performant, and is cross-platform compatible. Additionally, it supports AMQP over WebSockets and is part of the Azure .NET SDK collection of open-source projects.
+There are three supported Azure Service Bus .NET SDKs. Their APIs are similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. Azure.Messaging.ServiceBus SDK is the latest and we recommend using it over other SDKs. Both Azure.Messaging.ServiceBus and Microsoft.Azure.ServiceBus SDKs are modern, performant, and cross-platform compatible. Additionally, they support AMQP over WebSockets and are part of the Azure .NET SDK collection of open-source projects.
 
 | NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
 |---------------|----------------------|---------------------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft.Azure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
 
 ## Reusing factories and clients
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+The Service Bus objects that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+
+We recommend that you don't close or dispose these objects after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. Establishing a connection is an expensive operation that you can avoid by reusing the same ServiceBusClient and creating the necessary entity-specific objects from the same ServiceBusClient instance. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -50,6 +55,27 @@ Service Bus client objects, such as `QueueClient` or `MessageSender`, are create
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.
 
 The client schedules concurrent operations by performing **asynchronous** operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
+
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+```csharp
+var messageOne = new ServiceBusMessage(body);
+var messageTwo = new ServiceBusMessage(body);
+
+var sendFirstMessageTask =
+    sender.SendMessageAsync(messageOne).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #1");
+    });
+var sendSecondMessageTask =
+    sender.SendMessageAsync(messageTwo).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #2");
+    });
+
+await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
+Console.WriteLine("All messages sent");
+
+```
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -96,6 +122,35 @@ Console.WriteLine("All messages sent");
 ---
 
 The following code is an example of an asynchronous receive operation.
+
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+
+```csharp
+var client = new ServiceBusClient(connectionString);
+var options = new ServiceBusProcessorOptions 
+{
+
+      AutoCompleteMessages = false,
+      MaxConcurrentCalls = 20
+};
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
+processor.ProcessMessageAsync += MessageHandler;
+processor.ProcessErrorAsync += ErrorHandler;
+
+static Task ErrorHandler(ProcessErrorEventArgs args)
+{
+    Console.WriteLine(args.Exception);
+    return Task.CompletedTask;
+};
+
+static async Task MessageHandler(ProcessMessageEventArgs args)
+{
+    Console.WriteLine("Handle message");
+    await args.CompleteMessageAsync(args.Message);
+}
+
+await processor.StartProcessingAsync();
+```
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -163,9 +218,12 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching doesn't occur for peek or receive operations, nor does batching occur across clients.
 
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
+
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Batching functionality for the .NET Standard SDK, doesn't yet expose a property to manipulate.
+Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -212,6 +270,19 @@ To increase the throughput of a queue, topic, or subscription, Service Bus batch
 Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations aren't affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
 
 When creating a new queue, topic or subscription, batched store access is enabled by default.
+
+
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+To disable batched store access, you'll need an instance of a `ServiceBusAdministrationClient`. Create a `CreateQueueOptions` from a queue description that sets the `EnableBatchedOperations` property to `false`.
+
+```csharp
+var options = new CreateQueueOptions(path)
+{
+    EnableBatchedOperations = false
+};
+var queue = await administrationClient.CreateQueueAsync(options);
+```
+
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -265,6 +336,14 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol doesn't support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+For more information, see the following `PrefetchCount` properties:
+
+- [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
+You can set values for these properties in [ServiceBusReceiverOptions](/dotnet/api/azure.messaging.servicebus.servicebusreceiveroptions) or [ServiceBusProcessorOptions](/dotnet/api/azure.messaging.servicebus.servicebusprocessoroptions).
+
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
 For more information, see the following `PrefetchCount` properties:
@@ -282,10 +361,6 @@ For more information, see the following `PrefetchCount` properties:
 ---
 
 ## Prefetching and ReceiveBatch
-
-> [!NOTE]
-> This section only applies to the WindowsAzure.ServiceBus SDK, as the Microsoft.Azure.ServiceBus SDK doesn't expose batch functions.
-
 While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (`ReceiveBatch`), there are some minor differences that must be kept in mind when using these approaches together.
 
 Prefetch is a configuration (or mode) on the client (`QueueClient` and `SubscriptionClient`) and `ReceiveBatch` is an operation (that has request-response semantics).
@@ -304,7 +379,7 @@ If a single queue or topic can't handle the expected, use multiple messaging ent
 ## Development and testing features
 
 > [!NOTE]
-> This section only applies to the WindowsAzure.ServiceBus SDK, as the Microsoft.Azure.ServiceBus SDK doesn't expose this functionality.
+> This section only applies to the WindowsAzure.ServiceBus SDK, as Microsoft.Azure.ServiceBus and Azure.Messaging.ServiceBus don't expose this functionality.
 
 Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
 
@@ -344,7 +419,7 @@ Goal: Minimize latency of a queue or topic. The number of senders and receivers 
 
 Goal: Maximize throughput of a queue or topic with a large number of senders. Each sender sends messages with a moderate rate. The number of receivers is small.
 
-Service Bus enables up to 1000 concurrent connections to a messaging entity. This limIt's enforced at the namespace level, and queues, topics, or subscriptions are capped by the limit of concurrent connections per namespace. For queues, this number is shared between senders and receivers. If all 1000 connections are required for senders, replace the queue with a topic and a single subscription. A topic accepts up to 1000 concurrent connections from senders. The subscription accepts an additional 1000 concurrent connections from receivers. If more than 1000 concurrent senders are required, the senders should send messages to the Service Bus protocol via HTTP.
+Service Bus enables up to 1000 concurrent connections to a messaging entity. This limit is enforced at the namespace level, and queues, topics, or subscriptions are capped by the limit of concurrent connections per namespace. For queues, this number is shared between senders and receivers. If all 1000 connections are required for senders, replace the queue with a topic and a single subscription. A topic accepts up to 1000 concurrent connections from senders. The subscription accepts an additional 1000 concurrent connections from receivers. If more than 1000 concurrent senders are required, the senders should send messages to the Service Bus protocol via HTTP.
 
 To maximize throughput, follow these steps:
 
@@ -367,9 +442,9 @@ To maximize throughput, follow these guidelines:
 * Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
-### Topic with a small number of subscriptions
+### Topic with a few subscriptions
 
-Goal: Maximize the throughput of a topic with a small number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
+Goal: Maximize the throughput of a topic with a few subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
 To maximize throughput, follow these guidelines:
 

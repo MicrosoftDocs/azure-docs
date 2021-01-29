@@ -144,7 +144,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the Azure File service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
@@ -164,7 +164,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Here's an example:
@@ -178,7 +178,7 @@ For a description of each parameter, see the [Stream Data to Event Hubs via Powe
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Here's an example:
@@ -672,6 +672,6 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](./storage-files-planning.md)
-- [How to deploy Azure Files](./storage-files-deployment-guide.md)
+- [How to deploy Azure Files](./storage-how-to-create-file-share.md)
 - [Troubleshoot Azure Files on Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files on Linux](./storage-troubleshoot-linux-file-connection-problems.md)

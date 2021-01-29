@@ -126,7 +126,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
      <inbound>
         <base />
         <publish-to-dapr
-	       pubsub-name="orders"
+           pubsub-name="orders"
                topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
@@ -139,7 +139,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
     </outbound>
     <on-error>
         <base />
-		<return-response response-variable-name="pubsub-response" />
+        <return-response response-variable-name="pubsub-response" />
     </on-error>
 </policies>
 ```
@@ -222,7 +222,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
     </outbound>
     <on-error>
         <base />
-		<return-response response-variable-name="bind-response" />
+        <return-response response-variable-name="bind-response" />
     </on-error>
 </policies>
 ```

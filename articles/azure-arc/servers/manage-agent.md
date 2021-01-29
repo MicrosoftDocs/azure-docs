@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 10/30/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ---
 
@@ -29,7 +29,74 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
     * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
-3. Uninstall the agent from the machine or server. Follow the steps below.
+3. [Uninstall the agent](#remove-the-agent) from the machine or server following the steps below.
+
+## Renaming a machine
+
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
+
+For Arc enabled servers, before you rename the machine, it is necessary to remove the VM extensions before proceeding.
+
+> [!NOTE]
+> While installed extensions continue to run and perform their normal operation after this procedure is complete, you won't be able to manage them. If you attempt to redeploy the extensions on the machine, you may experience unpredictable behavior.
+
+> [!WARNING]
+> We recommend you avoid renaming the machine's computer name and only perform this procedure if absolutely necessary.
+
+The steps below summarize the computer rename procedure.
+
+1. Audit the VM extensions installed on the machine and note their configuration, using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or using [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+
+2. Remove the VM extensions using PowerShell, the Azure CLI, or from the Azure portal.
+
+    > [!NOTE]
+    > If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) and after the renamed machine is registered with Arc enabled servers.
+
+3. Disconnect the machine from Arc enabled servers using PowerShell, the Azure CLI, or from the portal.
+
+4. Rename the computer.
+
+5. Connect the machine with Arc enabled servers using the `Azcmagent` tool to register and create a new resource in Azure.
+
+6. Deploy VM extensions previously installed on the target machine.
+
+Use the following steps to complete this task.
+
+1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extension), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+2. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. Any VM extensions that are deployed to the machine continue to work during this process.
+
+    # [Azure portal](#tab/azure-portal)
+
+    1. From your browser, go to the [Azure portal](https://portal.azure.com).
+    1. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+    1. From the selected registered Arc enabled server, select **Delete** from the top bar to delete the resource in Azure.
+
+    # [Azure CLI](#tab/azure-cli)
+    
+    ```azurecli
+    az resource delete \
+      --resource-group ExampleResourceGroup \
+      --name ExampleArcMachine \
+      --resource-type "Microsoft.HybridCompute/machines"
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    Remove-AzResource `
+     -ResourceGroupName ExampleResourceGroup `
+     -ResourceName ExampleArcMachine `
+     -ResourceType Microsoft.HybridCompute/machines
+    ```
+
+3. Rename the computer name of the machine.
+
+### After renaming operation
+
+After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
+
+Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 
@@ -56,7 +123,7 @@ Update package for the Connected Machine agent for Windows is available from:
 
 * [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
 
-The agent can be upgraded following a variety of methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
+The agent can be upgraded following various methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * To upgrade the agent, you must have *Administrator* permissions.
@@ -184,7 +251,7 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 ### Disconnect
 
-This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
+This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not remove the agent from the machine, you uninstall the agent separately. After the machine is disconnected, if you want to re-register it with Azure Arc enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
 
 > [!NOTE]
 > If you have deployed one or more of the Azure VM extensions to your Arc enabled server and you delete its registration in Azure, the extensions are still installed. It is important to understand that depending on the extension installed, it is actively performing its function. Machines that are intended to be retired or no longer managed by Arc enabled servers should first have the extensions removed before removing its registration from Azure.
@@ -203,7 +270,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. You need to perform those steps separately when you no longer need to manage the machine in Azure, and they should be completed prior to uninstalling the agent.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. Unregister the machine and remove the installed VM extensions separately when you no longer need to manage the machine in Azure, and those steps should be completed prior to uninstalling the agent.
 
 ### Windows agent
 
@@ -281,6 +348,10 @@ If you are planning to stop managing the machine with supporting services in Azu
 ## Update or remove proxy settings
 
 To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task.
+
+> [!NOTE]
+> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) as a proxy for the Connected Machine agent.
+>
 
 ### Windows
 

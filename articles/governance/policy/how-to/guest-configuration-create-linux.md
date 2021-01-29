@@ -238,8 +238,18 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
+
+Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
+
+- **Path**: Location of the package to be published
+- **ResourceGroupName**: Name of the resource group where the storage account is located
+- **StorageAccountName**: Name of the storage account where the package should be published
+- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **Force**: Overwrite existing package in the storage account with the same name
+
+The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -389,12 +399,21 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-To release an update to the policy definition, there are three fields that require attention.
+If you would like to release an update to the policy, make the change for both the Guest Configuration
+package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
 > are hosted by Microsoft. The best practice for versioning custom content is to include
 > the version in the file name.
+
+First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
+unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
+The number in this example is only used to make the package unique, not to specify that the package
+should be considered newer or older than other packages.
+
+Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
+the explanations below.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.

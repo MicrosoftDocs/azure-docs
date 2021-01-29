@@ -141,7 +141,7 @@ In this tutorial, you create three linked services for source, sink, and staging
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDatabaseLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -175,7 +175,7 @@ In this tutorial, you create three linked services for source, sink, and staging
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDWLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -211,7 +211,7 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -250,7 +250,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDatabaseDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -294,7 +294,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDWDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -386,7 +386,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
 
     Here is the sample output:
 
-    ```json
+    ```console
     PipelineName      : IterateAndCopySQLTables
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -462,7 +462,7 @@ This pipeline performs two steps:
 
     Here is the sample output:
 
-    ```json
+    ```console
     PipelineName      : GetTableListAndTriggerCopyData
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -504,7 +504,7 @@ This pipeline performs two steps:
 
     Here is the output of the sample run:
 
-    ```json
+    ```console
 	Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>

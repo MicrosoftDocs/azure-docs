@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
 ---
 

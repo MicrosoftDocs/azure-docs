@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Navigate the Azure Purview home page and search for an asset'
 description: This tutorial describes how to use features on the Azure Purview home page and search in the catalog. 
-author: hophanms
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial

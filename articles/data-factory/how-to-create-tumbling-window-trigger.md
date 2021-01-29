@@ -49,22 +49,22 @@ A tumbling window has the following trigger type properties:
                 "count": <<int - optional, default: 0>>,
                 "intervalInSeconds": <<int>>,
             },
-			"dependsOn": [
-				{
-					"type": "TumblingWindowTriggerDependencyReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan – optional>>,
-					"referenceTrigger": {
-						"referenceName": "MyTumblingWindowDependency1",
-						"type": "TriggerReference"
-					}
-				},
-				{
-					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan>>
-				}
-			]
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {

@@ -377,7 +377,7 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Azure Security Center monitoring**: Yes
 
@@ -442,7 +442,7 @@ Alternatively, the sign-in/sign-up process can be further customized through del
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

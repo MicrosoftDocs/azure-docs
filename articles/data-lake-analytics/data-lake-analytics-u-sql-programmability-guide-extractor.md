@@ -153,10 +153,10 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-            guid Guid,
- 	    dt String,
-            user String,
-            des String
+        guid Guid,
+        dt String,
+        user String,
+        des String
 	FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 

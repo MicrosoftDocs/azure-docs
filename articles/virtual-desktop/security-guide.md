@@ -96,7 +96,7 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable screen capture protection (preview)
 
-The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. It will also be hidden from malicious software that may be continuously capturing your screen's content.
+The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. It will also be hidden from malicious software that may be continuously capturing your screen's content. We recommend you disable clipboard redirection to prevent copying of remote content to endpoints while using this feature.
 
 This policy is enforced at the host level by configuring a registry key. To enable this policy, open PowerShell and set the **fEnableScreenCaptureProtection** registry key by running this cmdlet:
 

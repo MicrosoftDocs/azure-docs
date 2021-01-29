@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
 ---
 
@@ -203,6 +203,7 @@ The following list describes the limits for custom roles.
 - Each directory can have up to **5000** custom roles.
 - Azure Germany and Azure China 21Vianet can have up to 2000 custom roles for each directory.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
+- You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
 - You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.

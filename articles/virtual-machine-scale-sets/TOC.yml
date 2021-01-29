@@ -118,31 +118,31 @@
     items:
     - name: General purpose
       href: ../virtual-machines/sizes-general.md
-      maintainContext: true
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
         maintainContext: true
+      maintainContext: true
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
     - name: Memory optimized
       href: ../virtual-machines/sizes-memory.md
-      maintainContext: true
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/constrained-vcpu.md
         maintainContext: true
+      maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
     - name: GPU optimized
       href: ../virtual-machines/sizes-gpu.md
-      maintainContext: true
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
+      maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
@@ -165,8 +165,6 @@
   - name: Maintenance and updates
     href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     maintainContext: true
-  - name: Orchestration modes
-    href: orchestration-modes.md
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -184,7 +182,7 @@
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
+      href: ../virtual-machines/disks-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
