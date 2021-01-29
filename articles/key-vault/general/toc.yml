@@ -48,9 +48,11 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
-    - name: Security overview
+    - name: Overview
       href: security-overview.md
     - name: Secure access to a key vault
       href: secure-your-key-vault.md
