@@ -12214,13 +12214,18 @@
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-powershell",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
+      "redirect_document_id": true
+    }, 
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup",
