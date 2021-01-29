@@ -46,7 +46,7 @@ The following cmdlet is an example of a single region write account `pitracct2` 
 
 New-AzCosmosDBAccount `
   -ResourceGroupName "myrg" `
-  -LocationObject "West US" `
+  -Location "West US" `
   -BackupPolicyType Continuous `
   -Name "pitracct2" `
   -ApiKind "Sql"
@@ -61,11 +61,11 @@ The following cmdlet is an example of continuous backup account "pitracct2" crea
 
 New-AzCosmosDBAccount `
   -ResourceGroupName "myrg" `
-  -LocationObject "West US" `
+  -Location "West US" `
   -BackupPolicyType Continuous `
   -Name "pitracct3" `
   -ApiKind "MongoDB" `
-  -MongoDBServerVersion "3.6"
+  -ServerVersion "3.6"
 
 ```
 
@@ -90,7 +90,7 @@ Restore-AzCosmosDBAccount `
 
 Restore-AzCosmosDBAccount `
   -TargetResourceGroupName "rg" `
-  -TargetDatabaseAccountName "pitrbb -ps-1" `
+  -TargetDatabaseAccountName "pitrbb-ps-1" `
   -SourceDatabaseAccountName "source-sql" `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -Location "West US"
@@ -107,7 +107,7 @@ Restore-AzCosmosDBAccount `
   -TargetResourceGroupName "rg" `
   -TargetDatabaseAccountName "pitrbb-ps-1" `
   -SourceDatabaseAccountName "source-sql" `
-  -RestoreTimestampInUtc "2021-01-05T22:06:00" -Location "West US" `
+  -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -DatabasesToRestore $datatabaseToRestore1, $datatabaseToRestore2 `
   -Location "West US"
 
@@ -165,7 +165,7 @@ Run the following PowerShell command to list all the versions of databases. This
 
 Get-AzCosmosdbSqlRestorableDatabase `
   -LocationName "East US" `
-  -DatabaseAccountInstanceId
+  -DatabaseAccountInstanceId <DatabaseAccountInstanceId>
 
 ```
 
@@ -191,7 +191,7 @@ Use the following command to get the list of databases or containers that can be
 Get-AzCosmosdbSqlRestorableResource `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
   -LocationName "West US" `
-  -RestoreLocation "eastus" `
+  -RestoreLocation "East US" `
   -RestoreTimestamp "2020-07-20T16:09:53+0000"
 
 ```
