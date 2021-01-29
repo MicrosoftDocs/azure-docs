@@ -20,11 +20,11 @@ ms.author: abarora
 ---
 # Tutorial: Use dynamic configuration using push refresh in a .NET Core app
 
-The App Configuration .NET Core client library supports updating a set of configuration settings on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
+The App Configuration .NET Core client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
-1. Pull Refresh: This is the default behavior that uses polling to detect changes in the configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
+1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-1. Push Refresh : This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in the configuration. Once the App Configuration resource is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or though one of the [supported event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers) such as a webhook, an Azure function or a Service Bus topic.
+1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or though one of the [supported event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers) such as a webhook, an Azure function or a Service Bus topic.
 
 Applications can choose to subscribe to these events either directly from Event Grid, or through a web hook, or by forwarding events to Azure Service Bus. The Azure Service Bus SDK provides an API to register a message handler that simplifies this process for applications that either do not have an HTTP endpoint or do not wish to poll the event grid for changes continuously.
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a subscription to send configuration change events from App Configuration to a Service Bus topic
-> * Set up your .NET Core app to update its configuration in response to changes in an App Configuration store.
+> * Set up your .NET Core app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
 
 ## Prerequisites
@@ -47,7 +47,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 ## Set up Azure Service Bus topic and subscription
 
-This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that do not wish to poll the event grid for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) to create a service bus namespace, topic and subscription.
+This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that do not wish to poll App Configuration for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) to create a service bus namespace, topic and subscription.
 
 Once the resources are created, add the following environment variables. These will be used to register an event handler for configuration changes in the application code.
 
@@ -76,6 +76,9 @@ Once the resources are created, add the following environment variables. These w
 1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
 
     ![App Configuration event subscriptions](./media/event-subscription-view.png)
+
+> [!NOTE]
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](https://docs.microsoft.com/azure/event-grid/event-filtering) or [Service Bus subscription filters](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
 ## Register event handler to reload data from App Configuration
 
@@ -113,7 +116,7 @@ namespace TestConsole
                     options.ConfigureRefresh(refresh =>
                         refresh
                             .Register("TestApp:Settings:Message")
-                            .SetCacheExpiration(TimeSpan.FromDays(30))  // Important: Reduce frequency of pull refresh
+                            .SetCacheExpiration(TimeSpan.FromDays(30))  // Important: Reduce poll frequency
                     );
 
                     _refresher = options.GetRefresher();
