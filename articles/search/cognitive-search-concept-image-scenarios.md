@@ -246,7 +246,7 @@ The following example skillset contains a single custom skill that accepts an im
   ]
 }
 ```
-In the custom skill base64 decode the data property of the image.
+In the custom skill, base64 decode the data property of the image.
 
 ```python
 for value in values:

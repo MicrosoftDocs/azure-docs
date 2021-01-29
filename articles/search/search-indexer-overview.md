@@ -85,13 +85,13 @@ You can monitor the indexer status in the portal or through Get Indexer Status A
 
 ## Indexer state management
 
-Indexers detect changes in the datasource and only process new or updated documents on each run of the indexer. An [indexer reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer), resets the index state resulting in the indexer processing all documents in the data source again. 
+Indexers detect changes in the data source and only process new or updated documents on each run of the indexer. An [indexer reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer), resets the index state resulting in the indexer processing all documents in the data source again. 
 
 When (incremental enrichment)[https://docs.microsoft.com/azure/search/search-howto-incremental-index] is configured, starting with the [2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) API, indexers also support targeted reset of skills and specific documents. 
 
-[Reset skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills), applicable when using a skillset enables users to reset the output of a specific skill. This is useful when a new version of a skill is deployed and you want the indexer to re-run that skill for all documents. 
+[Reset skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills), applicable when using a skillset enables users to reset the output of a specific skill. Resetting skills invalidates the cached skill results, which is useful when a new version of a skill is deployed and you want the indexer to rerun that skill for all documents. 
 
-[Reset documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) resets specific documents to selectively reprocess the documents. When invoked, the reset documents API changes the mode of the indexer to only reprocess the specified documents on the next run. The indexer state is set to `indexingResetDocs` until all the document keys provided in the reset documents call are processed. Once the documents are reset, the indexer returns to the `indexingAllDocs` mode and will process new or updated documents on the next run.
+[Reset documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) resets specific documents to selectively reprocess the documents from the data source ignoring all cached results. When invoked, the reset documents API changes the mode of the indexer to only reprocess the specified documents on the next run. The indexer state is set to `indexingResetDocs` until all the document keys provided in the reset documents call are processed. Once the documents are reset, the indexer returns to the `indexingAllDocs` mode and will process new or updated documents on the next run.
 
 ## Get indexer status
 
