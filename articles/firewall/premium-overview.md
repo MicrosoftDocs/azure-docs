@@ -18,7 +18,10 @@ ms.author: victorh
 
  Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. 
 
-Azure Firewall Premium Preview uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continues to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge. 
+Azure Firewall Premium Preview uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continues to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
+
+> [!IMPORTANT]
+> Currently the Firewall Premium SKU is unsupported in Secure Hub deployments and forced tunnel configurations. 
 
 Azure Firewall Premium Preview includes the following features:
 

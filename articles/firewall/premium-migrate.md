@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 01/29/2021
 ms.author: victorh
 ---
 
@@ -13,9 +13,11 @@ ms.author: victorh
 
 You can migrate Azure Firewall Standard to Azure Firewall Premium Preview to take advantage of the new Premium capabilities. For more information about Azure Firewall Premium Preview, see [What is Azure Firewall Premium Preview?](premium-overview.md).
 
-Currently, you can migrate using Azure PowerShell, or the Azure portal.
+The following two examples show how to:
+- Migrate an existing standard policy using Azure PowerShell
+- Migrate an existing standard firewall (with classic rules) to Azure Firewall Premium  with a Premium policy.
 
-## Migrate using Azure PowerShell
+## Migrate an existing policy using Azure PowerShell
 
 `Transform-Policy.ps1` is an Azure PowerShell script that creates a new Premium policy from an existing Standard policy.
 
@@ -177,9 +179,44 @@ Transform-Policy -Policy $policy
 
 ```
 
-## Migrate using the Azure portal
+## Migrate an existing standard firewall using the Azure portal
 
+This example shows how to use the Azure portal to migrate a standard firewall (classic rules) to Azure Firewall Premium with a Premium policy.
+
+1. From the Azure portal, select your standard firewall. On the **Overview** page, select **Migrate to firewall policy**.
+
+   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy":::
+
+1. On the **Migrate to firewall policy** page, select **Review + create**.
+1. Select **Create**.
+
+   The deployment takes a few minutes to complete.
+1. Use the `Transform-Policy.ps1` [Azure PowerShell script](#migrate-an-existing-policy-using-azure-powershell) to transform this new standard policy into a Premium policy.
+1. On the portal, select your standard firewall resource. 
+1. Under **Automation**, select **Export template**. Keep this browser tab open. You'll come back to it later.
+1. Open a new browser tab, navigate to the Azure portal, and open the resource group that contains your firewall.
+1. Delete the existing standard firewall instance.
+
+   This takes a few minutes to complete.
+
+1. Return to the browser tab with the exported template.
+1. Select **Deploy**, then on the **Custom deployment** page select **Edit template**.
+1. Edit the template text:
+   
+   1. Under the `Microsoft.Network/azureFirewalls` resource, under `Properties`, `sku`, change the `tier` from "Standard" to "Premium".
+   1. Under the template `Parameters`, change `defaultValue` for the `firewallPolicies_FirewallPolicy_,<your policy name>_externalid` from:
+      
+       `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>"`
+
+      to:
+
+      `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>_premium"`
+1. Select **Save**.
+1. Select **Review + Create**.
+1. Select **Create**.
+
+When the deployment completes, you can now configure all the new Azure Firewall Premium Preview features.
 
 ## Next steps
 
-- [Learn about Azure Firewall](overview.md)
+- [Learn more about Azure Firewall Premium features](premium-overview.md)

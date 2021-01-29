@@ -95,6 +95,8 @@
       href: firewall-workbook.md
     - name: Deploy and configure Firewall Premium
       href: premium-deploy.md
+    - name: Migrate to Azure Firewall Premium
+      href: premium-migrate.md
 - name: Reference
   items:
   - name: Azure CLI
