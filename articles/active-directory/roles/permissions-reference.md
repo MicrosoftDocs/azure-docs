@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 01/29/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -1748,6 +1748,7 @@ Creates and manages security events.
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Read and configure Security & Compliance Center. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read and configure Windows Defender Advanced Threat Protection. |
+| microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 
 ### Security Reader permissions
 
