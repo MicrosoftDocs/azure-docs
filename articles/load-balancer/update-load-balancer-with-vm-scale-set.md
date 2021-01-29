@@ -39,41 +39,41 @@ Individual inbound NAT rules can't be added. But you can add a set of inbound NA
 To add a whole set of inbound NAT rules for the virtual machine scale sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the virtual machine scale set. A full example using the CLI is shown.
 
 The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
-    
-    ```azurecli-interactive
-    az network lb inbound-nat-pool create 
-            -g MyResourceGroup 
-            --lb-name MyLb
-            -n MyNatPool 
-            --protocol Tcp 
-            --frontend-port-range-start 80 
-            --frontend-port-range-end 89 
-            --backend-port 80 
-            --frontend-ip-name MyFrontendIp
-    az vmss update 
-            -g MyResourceGroup 
-            -n myVMSS 
-            --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIp
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
-    az vmss update-instances
-            -–instance-ids *
-            --resource-group MyResourceGroup
-            --name MyVMSS
-    ```
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+```
 ## Update inbound NAT rules
 
 Individual inbound NAT rules can't be updated. But you can update a set of inbound NAT rules with a defined front-end port range and a back-end port for all instances in the virtual machine scale set.
 
 To update a whole set of inbound NAT rules for virtual machine scale sets, update the inbound NAT pool in the load balancer.
     
-    ```azurecli-interactive
-    az network lb inbound-nat-pool update 
-            -g MyResourceGroup 
-            --lb-name MyLb 
-            -n MyNatPool
-            --protocol Tcp 
-            --backend-port 8080
-    ```
+```azurecli-interactive
+az network lb inbound-nat-pool update 
+        -g MyResourceGroup 
+        --lb-name MyLb 
+        -n MyNatPool
+        --protocol Tcp 
+        --backend-port 8080
+```
 
 ## Delete inbound NAT rules
 
@@ -81,19 +81,19 @@ Individual inbound NAT rules can't be deleted, but you can delete the entire set
 
 To delete the whole set of inbound NAT rules used by the scale set, first remove the NAT pool from the scale set. A full example using the CLI is shown here:
     
-    ```azurecli-interactive
-      az vmss update
-         --resource-group MyResourceGroup
-         --name MyVMSS
-       az vmss update-instances 
-         --instance-ids "*" 
-         --resource-group MyResourceGroup
-         --name MyVMSS
-      az network lb inbound-nat-pool delete
-         --resource-group MyResourceGroup
-         -–lb-name MyLoadBalancer
-         --name MyNatPool
-    ```
+```azurecli-interactive
+    az vmss update
+       --resource-group MyResourceGroup
+       --name MyVMSS
+     az vmss update-instances 
+       --instance-ids "*" 
+       --resource-group MyResourceGroup
+       --name MyVMSS
+    az network lb inbound-nat-pool delete
+       --resource-group MyResourceGroup
+       -–lb-name MyLoadBalancer
+       --name MyNatPool
+```
 
 ## Add multiple IP configurations
 
@@ -123,16 +123,16 @@ To delete the front-end IP configuration in use by the scale set:
  
  A full example using the CLI is shown here:
 
-     ```azurecli-interactive
-      az vmss update
-         --resource-group MyResourceGroup
-         --name MyVMSS
-         --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
-      az vmss update-instances 
-         --instance-ids "*" 
-         --resource-group MyResourceGroup
-         --name MyVMSS
-    ```
+```azurecli-interactive
+    az vmss update
+       --resource-group MyResourceGroup
+       --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
+    az vmss update-instances 
+       --instance-ids "*" 
+       --resource-group MyResourceGroup
+       --name MyVMSS
+```
 Finally, delete the load balancer resource.
  
 ## Next steps
