@@ -1,10 +1,9 @@
 ---
-title: Managed identities and trusted storage with media services
+title: Managed identities and trusted storage
 description: Media Services can be used with managed identities to enable trusted storage.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020

@@ -65,12 +65,15 @@ OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/contain
 
 ## Networking  for Azure Red Hat OpenShift
 
-The following networking features are specific to Azure Red Hat OpenShift:
+The following networking features are specific to Azure Red Hat OpenShift:	
 * Users can create their ARO cluster in an existing virtual network or create an virtual network when creating their ARO cluster.
 * Pod and Service Network CIDRs are configurable.
 * Nodes and masters are in different subnets.
 * Nodes and masters virtual network subnets should be minimum /27.
-* Pod CIDR should be minimum /18 in size (The pod network is non-routable IPs, and is only used inside the OpenShift SDN).
+* Default Pod CIDR is 10.128.0.0/14.
+* Default Service CIDR is 172.30.0.0/16.
+* Pod and Service Network CIDRs shouldn't overlap with other address ranges in use on your network, and must not be within the virtual network IP address range of your cluster.
+* Pod CIDR should be minimum /18 in size. (The pod network is non-routable IPs, and is only used inside the OpenShift SDN.)
 * Each node is allocated /23 subnet (512 IPs) for its pods. This value cannot be changed.
 * You cannot attach a pod to multiple networks.
 * You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
