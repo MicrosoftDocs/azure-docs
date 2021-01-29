@@ -7,117 +7,117 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 01/28/2021
 ms.author: alkohli
 ---
 # Manage alerts in Azure Stack Edge Pro
 
-This article describes how to manage alerts for Azure Stack Edge Pro in the Azure portal. You can define action rules that determine how to trigger alerts for a resource group, subscription, or individual resource.
+This article describes how to create action rules in the Azure portal, which you can use to trigger or suppress alert notifications for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource.
 
-In this article, you learn how to:
+The action rule sends notifications to an action group. An action group is a set of notification preferences, used to notify users when an alert is triggered. For more information, see [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups).
 
-> [!div class="checklist"]
->
-> * Create action rules
-> * View alerts
+An action rule can trigger or suppress alerts. This article describes steps to create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). 
 
-## Create action rules
+> [!NOTE]
+> The action rules feature is in preview. Some screens and steps might change as the process is refined.
 
-Configure action rules to trigger or suppress alerts for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. TK: Action groups.
 
-TK: Configure alerts example, suppress alerts example.
+## Create an action rule
 
-NOTE NEEDED? Link to info about configuring notifications for individual alerts (the old way?). <!--Current target: [Create, view, and manage metric alerts using Azure Monitor Link target](/../azure-monitor/platform/alerts-metric.md)-->
+Take the following steps in the Azure portal to create an action rule for your Azure Stack Edge device.
 
-## Create alerts with action rules
+> [!NOTE]
+> These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
 
-Take the following steps in the Azure Portal to configure alerts for a resource group, subscription, or resource.
-
-1. Open your Azure Stack Edge Device in the Azure portal.
-
-2. Go to **Monitor > Alerts**, and select **Manage actions**.
+1. In the Azure portal, go to **Monitor > Alerts**, and select **Manage actions**.
 
    ![Monitoring Alerts, Manage actions option](media/azure-stack-edge-gpu-manage-alerts/manage-actions-open-view.png)
 
-3. In **Manage actions**, select **Action rules (preview)**.
+2. Select **Action rules (preview)**.
 
    ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-alerts/actions-rules-display-rules.png)
 
-4. On the **Action rules (preview)** screen, select **+ New action rule**.
+3. Select **+ New action rule**.
 
-   ![Manage actions, New Action option](media/azure-stack-edge-gpu-manage-alerts/action-rules-select-new.png)
+   ![Manage actions, New Action option](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-select-new.png)
 
-5. Use **Scope** to select specific resources, resource groups, or a subscription as the scope. The action rule will act on all alerts generated within the selected scope.
+   This displays the page for creating a new action rule.
 
-   1. To get started, choose **Select** by **Scope**.
+4. Use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.
 
-      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-alerts/action-rules-select-scope.png)
+   1. Choose **Select**, by **Scope**.
 
-      You will select individual resources, resource groups, or a subscription from the **Resource** list.
+      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-select-scope.png)
 
-      At first, the **Resource** list shows the subscription for this device. Selecting the subscription will apply the action rule to all resources associated with the subscription
+   2. Select the **Subscription** for the action rule and the **Resource** type. To filter to your Azure Stack Edge resources, select **DataBoxEdge**.
 
-      <!--Would this be limited to Azure Stack Edge resources or include all Azure resources associated with the subscription? Resource groups are assigned indirectly to a subscription: storage accounts are added to the subscription, and resource groups are defined for the storage account? Hierarchy seems wrong.-->
+      The **Resource** area lists the available resources based on your selections.
 
-      ![Action rule scoped to the current subscription](media/azure-stack-edge-gpu-manage-alerts/action-rules-scope-to-subscription.png)
+      ![Available resources for an action rule scope](media/new-action-rule-scope-resource-list.png)
 
-   1. If you want to set the scope to a different set of resources you can:
-      - Use **Filter by subscription** to select a different subscription.
-      - Use **Filter by resource type** to select all resource types or one resource type for the subscription.
+   3. Select the check box by each resource you want to apply the action rule to. For example, select the subscription, a resource group, or a resource. Then select **Done**.
 
-      ![Options for filtering by resource type](media/azure-stack-edge-gpu-manage-alerts/action-rules-filter-by-resource-type.png)
+      ![Sample settings for a new action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-completed-scope-settings.png)
 
-      The **Resource** list now shows the filtered resource list. The resources are listed hierarchically with 
+      The **Create action rule** screen shows the selected scope.
 
-   1. Select the check box by each resource type you want to apply the rule to. You can select the subscription, one or more resource groups, or individual resources.
+5. Use **Filter** to narrow the application of the rule to subset of alerts within the selected scope.
 
-<!--Many questions about selecting resources:
-- I can select resource groups but not individual resources within a resource group.
-- When I select a resource group, I would expect for all resources within the resource group to be selected automatically. There's no indication that the resources are selected.
-- I can't seem to select individual resources under a resource group. Can't select sets such as storage accounts either.
-- Storage accounts are listed under resource groups. Isn't it the other way around?-->
+   1. Select **Add**. The **Add filters** pane opens.
 
-      **Selection preview** at the bottom of the pane tracks the total selected resource types.
+      ![Filter option, Add](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-add-filter.png)<!--Verify command name.-->
 
-      ![Select resources to apply the rule to](media/azure-stack-edge-gpu-manage-alerts/action-rules-select-resources.png)
+   2. Under filters, add each filter you want to apply by selecting the filter type, **Operator**, and **Value**. The sample filter below applies to all alerts at Severity level 2, 3, or 4.
+   
+      For a list of filter options, see [Filter criteria](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#filter-criteria)
 
-   1. When you finish selecting resources, select **Done** to save the scope.
+      ![A filter for an action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-completed-filter.png)
 
-      ![Select Done to save the scope](media/azure-stack-edge-gpu-manage-alerts/action-rules-scope-done.png)
+   3. When you finish defining filters, select **Done**.  
 
-   The **Create action rule** screen shows the selected scope.
+6. On the **Create action rule** screen, select **Action group** to define a rule that sends notifications.
 
-6. Use the **Filter** option to add filters that narrow the application of the rule to subset of alerts within the selected scope.
+   ![Action rule Ation group option, which creates a rule that sends alert notifications](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-completed-filter.png)
 
-  1. Select **Add**.
+   > [!NOTE]
+   > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
 
-     ![Select Add to add a filter](media/azure-stack-edge-gpu-manage-alerts/action-rules-add-filter.png)
+7. Select an action group by DOING WHAT?. This action rule will be added to the notification preferences of the selected action group.
 
-   1. In **Filters**, select the type of filter to apply. You can filter by AVAILABLE FILTERS or filter by text in the Description or payload for the alert. 
+   If you need to create a new action group, select WHAT? and follow the steps in [Create an action group by using the Azure portal](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
 
-      ![Select the filter type](media/azure-stack-edge-gpu-manage-alerts/action-rules-add-filter-select-filter-type.png)
+8. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
 
-   1. Select an **Operator** and then a **Value** to define the filter. For example, for a *Severity** filter, you might select **Equals** and **Sev 1** to apply the action rulte to all Severity 1 alerts.
-   1. When you finish, select **Done**.  
+9. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
 
-      ![A filter for an action rule](media/azure-stack-edge-gpu-manage-alerts/action-rules-add-filter-completed-filter.png)
+10. When you finish your settings, select **Create**.
 
-STOPPED HERE.
+   ![Completed settings for an action rule that will send alert notifications](media/new-action-rule-completed-settings.png)
+
+   The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus in **All** resource groups.
+
+   ![Action rules screen after a new rule is saved](media/new-action-rule-after-rule-created.png)
+
+11. To see your new action rule, select the resource group for the rule.
+
+   ![Action rules screen with the new rule displayed](media/new-action-rule-with-new-rule-displayed.png)
 
 
-## Suppress alerts with action rules
+## View notifications for an action rule
 
-Take the following steps in the Azure portal to suppress alerts for a resource group, subscription, or resource.
+Notifications go out when a new event triggers an alert for a resource that's within the scope of an action rule.
 
+The action group for a rule sets who receives a notification and the type of notification that's sent - email, a Short Message Service (SMS) message, or both.
 
-## View alerts
+It might take a few minutes to receive notifications after an alert is triggered.
 
-Take the following steps in the Azure portal to view and manage individual alerts.
+An email notification has the format of the following sample email.
 
-1. Open your Azure Stack Edge device in the Azure portal.
-2. Go to **Monitor > Alerts**.
+![Sample email notification for an action rule](media/sample-action-rule-notification.png)
+
 
 ## Next steps
 
-Learn how to [Monitor your Azure Stack Edge Pro](azure-stack-edge-monitor.md).
-Learn how to [Monitor Kubernetes workloads via the Kubernetes Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+- See [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups) for guidance on creating a new action group.
+- See [Configure an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications.
+- See [Create, view, and manage metric alerts using Azure Monitor Link target](/../azure-monitor/platform/alerts-metric.md) for info about managing individual alerts.
