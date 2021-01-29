@@ -14,7 +14,7 @@ This architecture reference is a foundation using a typical enterprise hub and s
 
 ## Quickstart Reference Deployments
 
-For detailed information and deployment options of this architecture that include ARM, Terraform, and CLI, see the public repository.
+For deployment options of this architecture that include ARM, Terraform, and CLI, see the public github repository.
 
 > [!div class="nextstepaction"]
 > [Quickstart - Azure Spring Cloud Reference Architecture][10]
@@ -140,12 +140,17 @@ Each of these subnets requires a dedicated cluster. Multiple clusters can't shar
 > The selected CIDR range can't overlap with VNET address space.
 > It should also not overlap with any peered or on-premises CIDR address ranges.
 
+## Azure Spring Cloud On-Prem Connectivity
+
+Applications running in Azure Spring Cloud can communicate externally (third party, B2B scenarios) as well as with on-premise databases, messaging systems, file servers, directory services, mail servers and other enterprise systems. By using the hub and spoke design, traffic can be routed externally, or to the on-premise network using Express Route or Site-Site VPN.
+
+
 ## Well-Architected Framework Considerations
 
 ### Cost Optimization
 By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that can't be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
-Multiple different applications (and application types such as Web, API, Console apps) can be deployed on to a single instance of Azure Spring Cloud. The service also supports AutoScaling of applications based on metrics or schedules resulting in better resource utilization and cost efficiency.
+Multiple different applications (and application types such as Web, API, Scheduled Jobs) can be deployed on to a single instance of Azure Spring Cloud. The service also supports AutoScaling of applications based on metrics or schedules resulting in better resource utilization and cost efficiency.
 
 Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
@@ -157,6 +162,8 @@ Azure Spring Cloud addresses multiple aspects of operational excellence.  These 
 * The service supports the blue-green deployment pattern through the concept of [deployments][14] and CI/CD pipelines resulting in lower downtimes and overall operational efficiency
 
 ### Performance Efficiency
+
+TBD
 
 ### Reliability
 
@@ -196,7 +203,7 @@ The network implementation is further secured by defining controls from the MAFB
 
 #### Application Security
 
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. By default, an application deployed in Azure Spring Cloud is configured to use least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Cloud is configured to use least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
@@ -233,11 +240,6 @@ When deploying Azure Spring Cloud in a secured environment, management traffic m
 ### Azure Spring Cloud Application Rules
 
 [Azure Spring Cloud required Application Security Rules][13]
-
-### Azure Spring Cloud On-Prem Connectivity
-
-Applications running in Azure Spring Cloud can communicate externally (third party, B2B scenarios) as well as with on-premise databases, messaging systems, file servers, directory services, mail servers and other enterprise systems. By using the hub and spoke design, traffic can be routed externally, or to the on-premise network using Express Route or Site-Site VPN.
-
 
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
