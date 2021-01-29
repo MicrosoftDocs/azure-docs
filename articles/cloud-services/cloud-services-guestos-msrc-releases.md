@@ -1573,6 +1573,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4014511] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4014514] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4019216] |May non-security rollup |3.50 |May 9, 2017 |
+| N/A | 4014503 |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014506] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014509] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014513] |May .NET non-security rollup |3.50 |May 9, 2017 |
