@@ -1,7 +1,7 @@
 ---
 title: Securing phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Learn tips for how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies.
+description: Learn tips for securing phone-based multi-factor authentication (MFA) in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 
@@ -32,12 +32,12 @@ The [Azure AD B2C Reports & Alerts](https://github.com/azure-ad-b2c/siem#phone-a
 
 The following information is shown on the **Overview** tab:
 
-- Phone authentication failure reasons
-- Blocked phone number listing  
-- IP addresses with failed phone authentications  
-- Phone number with IP address and failed phone authentications
-- Phone authentication failures per client browser
-- Phone authentication failures per client operating system
+- Failure Reasons (the total number of failed phone authentications for each given reason)
+- Blocked Due to Bad Reputation
+- IP Address with Failed Phone Authentications (the total count of failed phone authentications for each given IP address)
+- Phone Numbers With IP address - Failed Phone Authentications
+- Browser (phone authentication failures per client browser)
+- Operating System (phone authentication failures per client operating system)
 
 ![Overview tab](media/phone-based-mfa/overview-tab.png)
 
@@ -46,10 +46,10 @@ The following information is shown on the **Overview** tab:
 The following information is reported on the **Details** tab:
 
 - Azure AD B2C Policy - Failed Phone Authentications
-- Phone Authentication Failures by Phone Number – Time Chart (timeline adjustable)
-- Phone Authentication Failures by Azure AD B2C Policy – Time Chart (timeline adjustable)
-- Phone Authentication Failures by IP Address – Time Chart (time line adjustable)
-- Select Phone Number to View Failure Details (click a phone number for a detailed listing of failures)
+- Phone Authentication Failures by Phone Number – Time Chart (adjustable timeline)
+- Phone Authentication Failures by Azure AD B2C Policy – Time Chart (adjustable timeline)
+- Phone Authentication Failures by IP Address – Time Chart (adjustable timeline)
+- Select Phone Number to View Failure Details (select a phone number for a detailed list of failures)
 
 ![Details tab 1 of 3](media/phone-based-mfa/details-tab-1.png)
 
@@ -96,20 +96,18 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
    3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 
-   4. Select the user flow, and then select **Languages**. Select the language for your geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
+   4. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 
-   5. Open the JSON file that downloads from the previous step. In the file, search for `DEFAULT`.
-
-   6. Replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
+   5. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
 
    > [!NOTE]
    > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
 
    7. Save the JSON file. In the language details panel, under **Upload new overrides**, select the modified JSON file to upload it.
 
-   8. Close the panel and select **Run user flow**. Confirm that **United States** is the only country code available in the dropdown:
+   8. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
 
