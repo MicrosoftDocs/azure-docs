@@ -36,7 +36,7 @@ There are two distinct loading functions that differ by the way the asset is add
 
 The following code snippets show how to load models with either function. To load a model using the SAS URI, use code like the one below:
 
-```csharp
+```cs [APITODO]
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 {
     // load a model that will be parented to modelParent
@@ -53,7 +53,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
 {
     LoadModelFromSASParams modelParams;
@@ -77,7 +77,7 @@ ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<E
 
 If you want to load a model by directly using its blob storage parameters, use code similar to the following snippet:
 
-```csharp
+```cs [APITODO]
 async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
 {
     // load a model that will be parented to modelParent
@@ -94,7 +94,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
 {
     LoadModelParams modelParams;

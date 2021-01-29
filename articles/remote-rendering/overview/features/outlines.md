@@ -30,7 +30,7 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 
 The following code shows an example for setting outline parameters via the API:
 
-```cs
+```cs [APITODO]
 void SetOutlineParameters(AzureSession session)
 {
     OutlineSettings outlineSettings = session.Actions.OutlineSettings;
@@ -40,7 +40,7 @@ void SetOutlineParameters(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void SetOutlineParameters(ApiHandle<AzureSession> session)
 {
     ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();

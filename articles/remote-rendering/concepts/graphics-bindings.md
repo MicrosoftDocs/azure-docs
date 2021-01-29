@@ -31,7 +31,7 @@ The only other relevant part for Unity is accessing the [basic binding](#access)
 
 To select a graphics binding, take the following two steps: First, the graphics binding has to be statically initialized when the program is initialized:
 
-```cs
+```cs [APITODO]
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
 managerInit.graphicsApi = GraphicsApiType.WmrD3D11;
 managerInit.connectionType = ConnectionType.General;
@@ -39,7 +39,7 @@ managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
-```cpp
+```cpp [APITODO]
 RemoteRenderingInitialization managerInit;
 managerInit.graphicsApi = GraphicsApiType::WmrD3D11;
 managerInit.connectionType = ConnectionType::General;
@@ -53,7 +53,7 @@ The call above is necessary to initialize Azure Remote Rendering into the hologr
 
 Once a client is set up, the basic graphics binding can be accessed with the `AzureSession.GraphicsBinding` getter. As an example, the last frame statistics can be retrieved like this:
 
-```cs
+```cs [APITODO]
 AzureSession currentSession = ...;
 if (currentSession.GraphicsBinding)
 {
@@ -65,7 +65,7 @@ if (currentSession.GraphicsBinding)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<AzureSession> currentSession = ...;
 if (ApiHandle<GraphicsBinding> binding = currentSession->GetGraphicsBinding())
 {
@@ -90,7 +90,7 @@ There are two things that need to be done to use the WMR binding:
 
 #### Inform Remote Rendering of the used coordinate system
 
-```cs
+```cs [APITODO]
 AzureSession currentSession = ...;
 IntPtr ptr = ...; // native pointer to ISpatialCoordinateSystem
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
@@ -100,7 +100,7 @@ if (wmrBinding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<AzureSession> currentSession = ...;
 void* ptr = ...; // native pointer to ISpatialCoordinateSystem
 ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
@@ -119,13 +119,13 @@ At the start of each frame, the remote frame needs to be rendered into the back 
 > [!WARNING]
 > After the remote image was blit into the backbuffer, the local content should be rendered using a single-pass stereo rendering technique, e.g. using **SV_RenderTargetArrayIndex**. Using other stereo rendering techniques, such as rendering each eye in a separate pass, can result in major performance degradation or graphical artifacts and should be avoided.
 
-```cs
+```cs [APITODO]
 AzureSession currentSession = ...;
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
 wmrBinding.BlitRemoteFrame();
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<AzureSession> currentSession = ...;
 ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
 wmrBinding->BlitRemoteFrame();
@@ -153,7 +153,7 @@ the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function.
 
 The proxy must match the resolution of the back buffer and should be int the *DXGI_FORMAT_R8G8B8A8_UNORM* or *DXGI_FORMAT_B8G8R8A8_UNORM* format. In the case of stereoscopic rendering, both the color proxy texture and, if depth is used, the depth proxy texture need to have two array layers instead of one. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
 
-```cs
+```cs [APITODO]
 AzureSession currentSession = ...;
 IntPtr d3dDevice = ...; // native pointer to ID3D11Device
 IntPtr color = ...; // native pointer to ID3D11Texture2D
@@ -166,7 +166,7 @@ GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as Graphics
 simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically, stereoscopicRendering);
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<AzureSession> currentSession = ...;
 void* d3dDevice = ...; // native pointer to ID3D11Device
 void* color = ...; // native pointer to ID3D11Texture2D
@@ -190,7 +190,7 @@ If the returned proxy update `SimulationUpdate.frameId` is null, there is no rem
 1. The application should now bind the proxy render target and call `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`. This will fill the remote color and depth information into the proxy render target. Any local content can now be rendered onto the proxy using the proxy camera transform.
 1. Next, the back buffer needs to be bound as a render target and `GraphicsBindingSimD3d11.ReprojectProxy` called at which point the back buffer can be presented.
 
-```cs
+```cs [APITODO]
 AzureSession currentSession = ...;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 SimulationUpdateParameters updateParameters = new SimulationUpdateParameters();
@@ -217,7 +217,7 @@ else
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<AzureSession> currentSession;
 ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
 
@@ -249,7 +249,7 @@ else
 
 Each frame, the **Render loop update** from the previous section requires you to input a range of camera parameters corresponding to the local camera and returns a set of camera parameters that correspond to the next available frame's camera. These two sets are captured in the `SimulationUpdateParameters` and the `SimulationUpdateResult` structures respectively:
 
-```cs
+```cs [APITODO]
 public struct SimulationUpdateParameters
 {
     public UInt32 frameId;
@@ -283,7 +283,7 @@ Since you can change the near-plane and far-plane on the [CameraSettings](../ove
 
 Finally, while the **Simulation Update** call requires the field-of-view in OpenXR convention, for standardization and algorithmic safety reasons, you can make use of the conversion functions illustrated in the following structure population examples:
 
-```cs
+```cs [APITODO]
 public SimulationUpdateParameters CreateSimulationUpdateParameters(UInt32 frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
 {
     SimulationUpdateParameters parameters;
@@ -316,7 +316,7 @@ public void GetCameraSettingsFromSimulationUpdateResult(SimulationUpdateResult r
 }
 ```
 
-```cpp
+```cpp [APITODO]
 SimulationUpdateParameters CreateSimulationUpdateParameters(uint32_t frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
 {
     SimulationUpdateParameters parameters;

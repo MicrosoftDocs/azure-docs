@@ -36,7 +36,7 @@ The shell effect is applied on the final opaque color the scene would be rendere
 
 The following code shows an example usage of the `ShellRenderingSettings` state via the API:
 
-```cs
+```cs [APITODO]
 void SetShellSettings(AzureSession session)
 {
     ShellRenderingSettings shellRenderingSettings = session.Actions.ShellRenderingSettings;
@@ -45,7 +45,7 @@ void SetShellSettings(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void SetShellSettings(ApiHandle<AzureSession> session)
 {
     ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Actions()->GetShellRenderingSettings();

@@ -56,7 +56,7 @@ The Azure Remote Rendering API needs to know about the depth buffer convention o
 
 Changing the camera settings can be done as follows:
 
-```cs
+```cs [APITODO]
 void ChangeCameraSetting(AzureSession session)
 {
     CameraSettings settings = session.Actions.CameraSettings;
@@ -67,7 +67,7 @@ void ChangeCameraSetting(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void ChangeStageSpace(ApiHandle<AzureSession> session)
 {
     ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();

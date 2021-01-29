@@ -35,7 +35,7 @@ There are three different modes:
 
 Changing the :::no-loc text="single-sided"::: rendering settings can be done as follows:
 
-```cs
+```cs [APITODO]
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -48,7 +48,7 @@ void ChangeSingleSidedRendering(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 {
     ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();

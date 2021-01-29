@@ -58,7 +58,7 @@ Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make 
 
 Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual Studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
 
-```cpp
+```cpp [APITODO]
 // 2. Create front end
 {
     // Users need to fill out the following with their account data and model

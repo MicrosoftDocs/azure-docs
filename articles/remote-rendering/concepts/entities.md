@@ -26,7 +26,7 @@ Entities are created when the server loads content or when the user wants to add
 
 To add a new entity to the scene, for example to pass it as a root object for loading models or to attach components to it, use the following code:
 
-```cs
+```cs [APITODO]
 Entity CreateNewEntity(AzureSession session)
 {
     Entity entity = session.Actions.CreateEntity();
@@ -35,7 +35,7 @@ Entity CreateNewEntity(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
@@ -57,14 +57,14 @@ There are two types of query functions on entities: synchronous and asynchronous
 
 To find a component of a specific type, use `FindComponentOfType`:
 
-```cs
+```cs [APITODO]
 CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(ObjectType.CutPlaneComponent);
 
 // or alternatively:
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
 
 // or alternatively:
@@ -78,13 +78,13 @@ Transform queries are synchronous calls on the object. It is important to note t
 > [!NOTE]
 > There is no dedicated API to query the world space transform of arbitrary objects.
 
-```cs
+```cs [APITODO]
 // local space transform of the entity
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
 
-```cpp
+```cpp [APITODO]
 // local space transform of the entity
 Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
@@ -100,7 +100,7 @@ Metadata is additional data stored on objects, that is ignored by the server. Ob
 
 Metadata queries are asynchronous calls on a specific entity. The query only returns the metadata of a single entity, not the merged information of a sub graph.
 
-```cs
+```cs [APITODO]
 MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
 metaDataQuery.Completed += (MetadataQueryAsync query) =>
 {
@@ -115,7 +115,7 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 };
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
 metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
     {

@@ -32,7 +32,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
 1. Create a new script in the same directory as **RemoteRenderedModel** and name it **RemoteBounds**.
 1. Replace the contents of the script with the following code:
 
-    ```csharp
+    ```cs [APITODO]
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -114,7 +114,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
 
 1. Replace the **QueryBounds** method with the following completed method:
 
-    ```csharp
+    ```cs [APITODO]
     // Create a query using the model entity
     private void QueryBounds()
     {
@@ -128,7 +128,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
 
 1. Replace the **ProcessQueryResult** method with the following completed method:
 
-    ```csharp
+    ```cs [APITODO]
     // Check the result and apply it to the local Unity bounding box if it was successful
     private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
     {
@@ -193,7 +193,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
 
 1. Create a new script called **RemoteRayCaster** and replace its contents with the following code:
 
-    ```csharp
+    ```cs [APITODO]
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -238,7 +238,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
 
 1. Create a new script called **RemoteRayCastPointerHandler** and replace the code with the following code:
 
-    ```csharp
+    ```cs [APITODO]
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -309,7 +309,7 @@ When a ray cast is completed successfully in the **RemoteRayCastPointerHandler**
 
 1. Create a new script named **RemoteEntityHelper** and replace its contents with the below:
 
-    ```csharp
+    ```cs [APITODO]
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -358,7 +358,7 @@ The same process can be done programmatically and is the first step in modifying
 
 1. Modify the **RemoteEntityHelper** script to also contain the following method:
 
-    ```csharp
+    ```cs [APITODO]
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);

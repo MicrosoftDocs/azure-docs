@@ -22,7 +22,7 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 The following code enables z-fighting mitigation:
 
-```cs
+```cs [APITODO]
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
@@ -35,7 +35,7 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 {
     ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();

@@ -24,7 +24,7 @@ When the renderer on on a 'Standard' server size hits this limitation, it switch
 
 The desired type of server configuration has to be specified at rendering session initialization time. It cannot be changed within a running session. The following code examples show the place where the server size must be specified:
 
-```cs
+```cs [APITODO]
 async void CreateRenderingSession(AzureFrontend frontend)
 {
     RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
@@ -34,7 +34,7 @@ async void CreateRenderingSession(AzureFrontend frontend)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 {
     RenderingSessionCreationParams sessionCreationParams;

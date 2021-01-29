@@ -49,7 +49,7 @@ The performance characteristics for both modes do vary based on the use case, an
 
 The render mode used on a Remote Rendering server is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
 
-```cs
+```cs [APITODO]
 async void ExampleConnect(AzureSession session)
 {
     ConnectToRuntimeParams parameters = new ConnectToRuntimeParams();

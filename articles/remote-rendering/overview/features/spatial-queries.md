@@ -28,7 +28,7 @@ Spatial queries are powered by the [Havok Physics](https://www.havok.com/product
 
 A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
 
-```cs
+```cs [APITODO]
 async void CastRay(AzureSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
@@ -50,7 +50,7 @@ async void CastRay(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void CastRay(ApiHandle<AzureSession> session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.

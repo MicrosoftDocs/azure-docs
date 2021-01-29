@@ -37,7 +37,7 @@ The `MeshComponent` class is used to place an instance of a mesh resource. Each 
 
 A `Mesh` resource can be shared across multiple instances of mesh components. Furthermore, the `Mesh` resource that is assigned to a mesh component can be changed programmatically at any time. The code below demonstrates how to clone a mesh:
 
-```cs
+```cs [APITODO]
 Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
 {
     MeshComponent meshComp = sourceEntity.FindComponentOfType<MeshComponent>();
@@ -52,7 +52,7 @@ Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHandle<Entity> sourceEntity)
 {
     if (ApiHandle<MeshComponent> meshComp = sourceEntity->FindComponentOfType<MeshComponent>())

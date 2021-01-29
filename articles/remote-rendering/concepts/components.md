@@ -20,7 +20,7 @@ All these components use the transform (position, rotation, scale) of the entity
 
 You can easily add, remove, and manipulate components programmatically:
 
-```cs
+```cs [APITODO]
 // create a point light component
 AzureSession session = GetCurrentlyConnectedSession();
 PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
@@ -35,7 +35,7 @@ lightComponent.Destroy();
 lightComponent = null;
 ```
 
-```cpp
+```cpp [APITODO]
 // create a point light component
 ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
 

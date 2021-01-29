@@ -35,7 +35,7 @@ Similar to loading models, there are two variants of addressing a texture asset 
 
 The following sample code shows how to load a texture via its SAS URI (or built-in texture) - note that only the loading function/parameter differs for the other case:
 
-```cs
+```cs [APITODO]
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
@@ -56,7 +56,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
 {
     LoadTextureFromSASParams params;

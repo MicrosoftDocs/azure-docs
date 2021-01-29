@@ -20,7 +20,7 @@ It's possible to compute the bounds of an entire object hierarchy this way, but 
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
-```cs
+```cs [APITODO]
 private BoundsQueryAsync _boundsQuery = null;
 
 public void GetBounds(Entity entity)
@@ -38,7 +38,7 @@ public void GetBounds(Entity entity)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void GetBounds(ApiHandle<Entity> entity)
 {
     ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();

@@ -36,14 +36,14 @@ Azure Remote Rendering can securely access the contents of your Azure Blob Stora
 
 When using a linked blob storage, you'll use slightly different methods for loading models:
 
-```csharp
+```cs [APITODO]
 var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
 var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
 ```
 
 The above lines use the `FromSAS` version of the params and session action. They must be converted to the non-SAS versions:
 
-```csharp
+```cs [APITODO]
 var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName, modelPath, modelEntity);
 var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
 ```
@@ -53,7 +53,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 1. If you haven't already, complete the [How-to: Link storage accounts](../../../how-tos/create-an-account.md#link-storage-accounts) to grant your ARR instance permission to access your Blob Storage instance.
 1. Add the following modified **LoadModel** method to **RemoteRenderingCoordinator** just below the current **LoadModel** method:
 
-    ```csharp
+    ```cs [APITODO]
     /// <summary>
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
@@ -110,7 +110,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
-    ```csharp
+    ```cs [APITODO]
     private bool loadingLinkedCustomModel = false;
 
     [SerializeField]
@@ -208,7 +208,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
 1. Create a new script named **AADAuthentication** and replace its code with the following:
 
-    ```csharp
+    ```cs [APITODO]
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -371,7 +371,7 @@ For this code, we're using the [device code flow](../../../../active-directory/d
 
 The most important part of this class from an ARR perspective is this line:
 
-```csharp
+```cs [APITODO]
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 

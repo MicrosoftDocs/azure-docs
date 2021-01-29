@@ -22,7 +22,7 @@ When you load a model, you get a reference to the root object of the loaded mode
 
 ### Load model with task
 
-```cs
+```cs [APITODO]
 LoadModelAsync _pendingLoadTask = null;
 void LoadModelWithTask()
 {
@@ -48,7 +48,7 @@ void LoadModelWithTask()
 
 ### Load model with Unity coroutines
 
-```cs
+```cs [APITODO]
 IEnumerator LoadModelWithCoroutine()
 {
     LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
@@ -70,7 +70,7 @@ IEnumerator LoadModelWithCoroutine()
 
 ### Load model with await pattern
 
-```cs
+```cs [APITODO]
 async void LoadModelWithAwait()
 {
     var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
@@ -94,7 +94,7 @@ Objects with a `RemoteEntitySyncObject` can have their remote children instantia
 
 To create proxy Remote Rendering components, use the extension method `GetOrCreateArrComponent`:
 
-```cs
+```cs [APITODO]
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
 ```
 
@@ -106,7 +106,7 @@ To destroy the Unity game object, without affecting the remote entity, you first
 
 The same is true for all proxy components. To destroy only the client-side representation, you need to call `Unbind()` on the proxy component first:
 
-```cs
+```cs [APITODO]
 var cutplane = gameObject.GetComponent<ARRCutPlaneComponent>();
 if (cutplane != null)
 {

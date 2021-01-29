@@ -22,7 +22,7 @@ The debug rendering API provides a range of global options to alter server-side 
 
 The following code enables these debugging effects:
 
-```cs
+```cs [APITODO]
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -38,7 +38,7 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
 {
     ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();

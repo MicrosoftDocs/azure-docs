@@ -66,7 +66,7 @@ We need make small changes to the existing project. These changes are subtle, bu
 ### Enable multithread protection on DirectX device
 The `DirectX11` device must have multithread protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
 
-```cpp
+```cpp [APITODO]
 // Enable multi thread protection as now multiple threads use the immediate context.
 Microsoft::WRL::ComPtr<ID3D11Multithread> contextMultithread;
 if (context.As(&contextMultithread) == S_OK)
@@ -91,13 +91,13 @@ Now that the project is prepared, we can start with the code. A good entry point
 
 We start by adding the necessary includes. Add the following include to file HolographicAppMain.h:
 
-```cpp
+```cpp [APITODO]
 #include <AzureRemoteRendering.h>
 ```
 
 ...and these additional `include` directives to file HolographicAppMain.cpp:
 
-```cpp
+```cpp [APITODO]
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
 #include <windows.perception.spatial.h>
@@ -105,7 +105,7 @@ We start by adding the necessary includes. Add the following include to file Hol
 
 For simplicity of code, we define the following namespace shortcut at the top of file HolographicAppMain.h, after the `include` directives:
 
-```cpp
+```cpp [APITODO]
 namespace RR = Microsoft::Azure::RemoteRendering;
 ```
 
@@ -115,7 +115,7 @@ This shortcut is useful so we don't have to write out the full namespace everywh
  
 We need to hold a few objects for the session etc. during the lifetime of the application. The lifetime coincides with the lifetime of the application's `HolographicAppMain` object, so we add our objects as members to class `HolographicAppMain`. The next step is adding the following class members in file HolographicAppMain.h:
 
-```cpp
+```cpp [APITODO]
 class HolographicAppMain
 {
     ...
@@ -137,7 +137,7 @@ We do all of that sequentially in the constructor. However, in real use cases it
 
 Add the following code to the beginning of the constructor body in file HolographicAppMain.cpp:
 
-```cpp
+```cpp [APITODO]
 HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) :
     m_deviceResources(deviceResources)
 {
@@ -221,7 +221,7 @@ Note that credentials are hard-coded in the sample and needs to be filled out in
 
 We do the de-initialization symmetrically and in reverse order at the end of the destructor body:
 
-```cpp
+```cpp [APITODO]
 HolographicAppMain::~HolographicAppMain()
 {
     // Existing destructor code:
@@ -252,7 +252,7 @@ Accordingly, as a next step, we add a bit of state machine handling to the class
 
 Add the following members and functions to the class declaration:
 
-```cpp
+```cpp [APITODO]
 namespace HolographicApp
 {
     // Our application's possible states:
@@ -302,7 +302,7 @@ namespace HolographicApp
 
 On the implementation side in the .cpp file, add these function bodies:
 
-```cpp
+```cpp [APITODO]
 void HolographicAppMain::StartModelLoading()
 {
     m_modelLoadingProgress = 0.f;
@@ -428,7 +428,7 @@ We need to poll the session's status and see if it has transitioned to `Ready` s
 
 Add the following code to the body of function `HolographicAppMain::Update`:
 
-```cpp
+```cpp [APITODO]
 // Updates the application state once per frame.
 HolographicFrame HolographicAppMain::Update()
 {
@@ -521,7 +521,7 @@ The code above sets the coordinate system once within the `Update` function as s
 
 We need to update the camera clip planes so that server camera is kept in sync with the local camera. We can do that at the very end of the `Update` function:
 
-```cpp
+```cpp [APITODO]
     ...
     if (m_isConnected)
     {
@@ -552,7 +552,7 @@ We need to update the camera clip planes so that server camera is kept in sync w
 
 The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear and setting the viewport. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
 
-```cpp
+```cpp [APITODO]
         ...
         // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);

@@ -35,7 +35,7 @@ For more information on the lighting model, see the [materials](../../concepts/m
 
 To change the environment map, all you need to do is [load a texture](../../concepts/textures.md) and change the session's `SkyReflectionSettings`:
 
-```cs
+```cs [APITODO]
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -62,7 +62,7 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-```cpp
+```cpp [APITODO]
 void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 {
     LoadTextureFromSASParams params;

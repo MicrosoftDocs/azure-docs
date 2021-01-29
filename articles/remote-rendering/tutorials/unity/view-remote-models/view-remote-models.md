@@ -175,7 +175,7 @@ Your project should look like this:
 
 1. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
 
-```csharp
+```cs [APITODO]
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -561,7 +561,7 @@ When entering the **NotAuthorized** state, **CheckAuthorization** is called, whi
 
 1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
 
- ```csharp
+ ```cs [APITODO]
 /// <summary>
 /// Initializes ARR, associating the main camera
 /// Note: This must be called on the main Unity thread
@@ -619,7 +619,7 @@ The state machine will now progress to either **ConnectingToNewRemoteSession** o
 
 1. To join a new session, modify the code to replace the **JoinRemoteSession( )** and **StopRemoteSession( )** methods with the completed examples below:
 
-```csharp
+```cs [APITODO]
 /// <summary>
 /// Attempts to join an existing session or start a new session
 /// </summary>
@@ -677,7 +677,7 @@ The application also needs to listen for events about the connection between the
  1. Replace the **ConnectRuntimeToRemoteSession( )** and **DisconnectRuntimeFromRemoteSession( )** methods with the completed versions below.
  1. It's important to take note of the Unity method **LateUpdate** and that it's updating the current active session. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session. It's critical to ARR functioning correctly.
 
-```csharp
+```cs [APITODO]
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
@@ -733,7 +733,7 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
 
 1. Replace the **LoadModel** method entirely with the code below:
 
-    ```csharp
+    ```cs [APITODO]
     /// <summary>
     /// Loads a model into the remote session for rendering
     /// </summary>
@@ -799,7 +799,7 @@ We now have all the code required to view a remotely rendered model, all four of
 
 1. Add the following code to the **RemoteRenderingCoordinator** class, just below the **LoadModel** method is fine:
 
-    ```csharp
+    ```cs [APITODO]
     private bool loadingTestModel = false;
     [ContextMenu("Load Test Model")]
     public async void LoadTestModel()
