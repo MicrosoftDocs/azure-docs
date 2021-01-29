@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 01/20/2021
 ms.author: aahi
 ---
 
@@ -938,8 +938,7 @@ Document ID: 4
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!CAUTION]
-> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Create a new function called `analyze_example()` that takes the client as an argument, then calls the `begin_analyze()` function. The result will be a long running operation which will be polled for results.
 
