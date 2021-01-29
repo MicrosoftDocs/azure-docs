@@ -2683,7 +2683,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://web.archive.org/web/20200105211929/https://support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269
