@@ -140,7 +140,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Azure Portal-IEF UX |  |  | X |  |
 | Policy upload |  |  | X |  |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) |  | X |  | Used for troubleshooting during development.  |
-| [Application Insights event logs](application-insights-technical-profile.md) |  | X |  | Used to monitor user flows in production. |
+| [Application Insights event logs](analytics-with-application-insights.md) |  | X |  | Used to monitor user flows in production. |
 
 
 ## Next steps
