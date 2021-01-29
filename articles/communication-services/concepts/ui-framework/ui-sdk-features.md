@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # UI Framework capabilities
 
-The Azure Communication Services UI Framework lets you build communication experiences using a set of reusable components. We refer to individual components as **base** components. We refer to combinations of base components as **composite** components.
+The Azure Communication Services UI Framework lets you build communication experiences using a set of reusable components. These components come in two flavors: **Base** components are the most basic building blocks of your UI experience, while combinations of these base components are called **composite** components.
 
 ## UI Framework composite components
 
