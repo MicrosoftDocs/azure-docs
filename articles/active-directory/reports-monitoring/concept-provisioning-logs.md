@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/19/2021
+ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -44,7 +44,7 @@ This topic gives you an overview of the provisioning logs. The logs provide answ
 These users can access the data in provisioning logs:
 
 * Application owners (logs for their own applications)
-* Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Administrator roles
+* Users in the Security Administrator, Security Reader, Report Reader, Security Operator, Application Administrator, and Cloud Application Administrator roles
 * Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Global administrators
 
