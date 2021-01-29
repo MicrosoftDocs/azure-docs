@@ -23,6 +23,8 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
+ARO pull secret does not change the cost of the RH OpenShift license for ARO.
+
 ### Verify your permissions
 
 During this tutorial, you will create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
