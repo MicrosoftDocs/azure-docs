@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Security Benchmark Foundation blueprint sample
 description: Deploy steps for the Azure Security Benchmark Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 01/13/2020
+ms.date: 02/01/2020
 ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample
@@ -102,18 +102,24 @@ to make each deployment of the copy of the blueprint sample unique.
    - Blueprint parameters
 
      The parameters defined in this section are used by many of the artifacts in the blueprint
-     definition to provide consistency.These
-     parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since
-     they're defined during the assignment of the blueprint. For a full list or artifact parameters
-     and their descriptions, see [Blueprint parameters table](#blueprint-parameters-table).
+     definition to provide consistency.
+    
+     - **Prefix for resources and resource groups**: This string will be used as a prefix for all resource and resource group names
+     - **Hub name**: Name for the hub
+     - **Log retention (days)**: Number of days that logs will be retained; entering '0' will retain logs indefinitely
+     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment will deploy the hub components of the architecture
+     - **Hub location**: Location for the hub resource group
+     - **Destination IP addresses**: Destination IP addresses for outbound connectivity; comma-separated list of IP addresses or IP range prefixes
+     - **Network Watcher name**: Name for the Network Watcher resource
+     - **Network Watcher resource group name**: Name for the Network Watcher resource group
+     - **Enable DDoS protection**: Enter 'true' or 'false' to specify whether or not DDoS Protection is enabled in the virtual network
 
-     - **Organization**: Enter your organization name, such as Contoso, must be unique.
-     - **Azure Region**: Select the Azure Region for Deployment.
-     - **Allowed locations**: Which Azure Regions will you allow resources to be built in?
-     
    - Artifact parameters
 
-     There are no artifact parameters for this blueprint sample.
+     The parameters defined in this section apply to the artifact under which it's defined. These
+     parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since
+     they're defined during the assignment of the blueprint. For a full list or artifact parameters
+     and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
 1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
    assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
@@ -128,39 +134,36 @@ to make each deployment of the copy of the blueprint sample unique.
 
 The following table provides a list of the blueprint parameters:
 
-|Parameter name|Description|
-|-|-|
-|Resource Group and Resource name prefix|Resource Group and Resource identifier. String to be used as prefix to all Resource Group and Resource names|
-|Hub name|Name of the Hub|
-|Hub Location|Hub Resource Group Location|
-|Hub Subscription Id|Hub Subscription Id|
-|Deploy Hub|Deploy Hub|
-|Deploy Spoke|Deploy Spoke|
-|Spoke name|Name of the Spoke|
-|Azure Log Analytics Workspace Service tier|Azure Log Analytics Workspace Service tier: Free, Standalone, PerNode or PerGB2018|
-|Log retention in days|Specifies the number of days that logs will be kept for; a value of 0 will retain data indefinitely|
-|Log Analytics Workspace location|Location where Log Analytics workspace to be created. Run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to find available regions|
-|Azure Automation account id|Optional. Automation Account resource identifier, value used to create a LinkedService between Log Analytics and an Automation Account|
-|Network Watcher name|Name of the Network Watcher resource|
-|Network Watcher location|Location of the Network Watcher resource|
-|Network Watcher Resource Group name|Name of the Network Watcher Resource Group|
-|Network Watcher Resource Group location|Location of the Network Watcher Resource Group|
-|Enable NSG Flow Logs|Enable NSG Flow Logs|
-|Destination IP Addresses|Destination IP addresses for outbound connectivity|
-|Virtual Network address prefix|Virtual Network address prefix|
-|Azure Firewall subnet address prefix|Azure Firewall subnet address prefix|
-|Bastion subnet address prefix|Bastion subnet address prefix|
-|Gateway subnet address prefix|Gateway subnet address prefix|
-|Management subnet address prefix|Management subnet address prefix|
-|JumpBox subnet address prefix|JumpBox subnet address prefix|
-|Optional subnet address names|Optional. An Array of subnet names to deploy to the Virtual Network. e.g "subnet1","subnet2"|
-|Optional subnet address prefixes|Optional. An Array of IP Address Prefixes for subnets. e.g "10.0.7.0/24","10.0.8.0/24"|
-|Enable Virtual Network DDoS protection|Determines whether or not DDoS Protection is enabled in the Virtual Network|
-|Azure Firewall private IP|Azure Firewall private IP|
-|Virtual Network address prefix|Virtual Network address prefix|
-|Subnet address prefix|Subnet address prefix|
-|Optional subnet address names|Optional. An Array of subnet names to deploy to the Virtual Network. e.g "subnet1","subnet2"|
-|Optional subnet address prefixes|Optional. An Array of IP Address Prefixes for subnets. e.g "10.0.7.0/24","10.0.8.0/24"|
+|Artifact name|Artifact type|Parameter name|Description|
+|-|-|-|-|
+|Hub resource group|Resource group|Resource group name|Locked - Concatenates prefix with hub name|
+|Hub resource group|Resource group|Resource group location|Locked - Uses hub location|
+|Azure Firewall template|Resource Manager template|Azure Firewall private IP address||
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace will be created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional)|Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
+|Azure Network Security Group template|Resource Manager template|Enable NSG flow logs|Enter 'true' or 'false' to enable or disable NSG flow logs|
+|Azure Virtual Network hub template|Resource Manager template|Virtual network address prefix|Virtual network address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Firewall subnet address prefix|Firewall subnet address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Bastion subnet address prefix|Bastion subnet address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Gateway subnet address prefix|Gateway subnet address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Management subnet address prefix|Management subnet address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Jump box subnet address prefix|Jump box subnet address prefix for hub virtual network|
+|Azure Virtual Network hub template|Resource Manager template|Subnet address names (optional)|Array of subnet names to deploy to the hub virtual network; for example, "subnet1","subnet2"|
+|Azure Virtual Network hub template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for hub virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
+|Spoke resource group|Resource group|Resource group name|Locked - Concatenates prefix with spoke name|
+|Spoke resource group|Resource group|Resource group location|Locked - Uses hub location|
+|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment will deploy the spoke components of the architecture|
+|Azure Virtual Network spoke template|Resource Manager template|Hub subscription ID|Subscription ID where hub is deployed; default value is the subscription where the blueprint definition is located|
+|Azure Virtual Network spoke template|Resource Manager template|Spoke name|Name of the spoke|
+|Azure Virtual Network spoke template|Resource Manager template|Virtual Network address prefix|Virtual Network address prefix for spoke virtual network|
+|Azure Virtual Network spoke template|Resource Manager template|Subnet address prefix|Subnet address prefix for spoke virtual network|
+|Azure Virtual Network spoke template|Resource Manager template|Subnet address names (optional)|Array of subnet names to deploy to the spoke virtual network; for example, "subnet1","subnet2"|
+|Azure Virtual Network spoke template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for the spoke virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
+|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment will deploy the spoke components of the architecture|
+|Network Watcher resource group|Resource group|Resource group name|Locked - Uses Network Watcher resource group name|
+|Network Watcher resource group|Resource group|Resource group location|Locked - Uses hub location|
+|Azure Network Watcher template|Resource Manager template|Network Watcher location|Location for the Network Watcher resource|
+|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|Location of the Network Watcher resource group|
 
 ## Next steps
 
