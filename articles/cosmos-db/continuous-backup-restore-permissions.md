@@ -121,5 +121,5 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](configure-continuous-backup-restore-cli.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
+* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

@@ -98,6 +98,6 @@ az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFi
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure CLI](configure-continuous-backup-restore-cli.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
+* Configure and manage continuous backup using [Azure CLI](continuous-backup-restore-command-line.md), [PowerShell](configure-continuous-backup-restore-powershell.md), or [Azure portal](configure-continuous-backup-restore-portal.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
