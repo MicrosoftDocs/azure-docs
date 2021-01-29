@@ -103,8 +103,7 @@ Status code: 200
 ## Definitions
 
 |Definition  | Description|
-| --- || --- |
-
+| --- | --- |
 | [ApiType](#apitype) | Enum to indicate the API type of the restorable database account. |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
@@ -148,7 +147,6 @@ A Azure Cosmos DB restorable database account.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-
 | id |string| The unique resource identifier of the ARM resource. |
 | location |string| The location of the resource group to which the resource belongs. |
 | name |string| The name of the ARM resource. |

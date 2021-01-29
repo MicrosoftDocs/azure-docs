@@ -77,7 +77,7 @@ Status code:200
 ## Definitions
 
 |Definition  | Description|
-| --- || --- |
+| --- | --- |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
 | [OperationType](#operationtype) | Enum to indicate the operation type of the event. |

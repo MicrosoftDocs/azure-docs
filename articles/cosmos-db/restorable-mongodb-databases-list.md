@@ -150,7 +150,7 @@ The properties of an Azure Cosmos DB MongoDB database event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| resource |[Resource]#resource)| The resource of an Azure Cosmos DB MongoDB database event |
+| resource |[Resource](#resource)| The resource of an Azure Cosmos DB MongoDB database event |
 
 ### <a id="restorablemongodbdatabaseslistresult"></a>RestorableMongodbDatabasesListResult
 
