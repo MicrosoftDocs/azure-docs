@@ -2,8 +2,8 @@
 title: Hyperparameter tuning a model
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley 
 services: machine-learning
 ms.service: machine-learning
@@ -15,7 +15,6 @@ ms.custom: how-to, devx-track-python, contperf-fy21q1
 ---
 
 # Hyperparameter tuning a model with Azure Machine Learning
-
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
@@ -388,15 +387,25 @@ RunDetails(hyperdrive_run).show()
 
 This code displays a table with details about the training runs for each of the hyperparameter configurations.
 
-![hyperparameter tuning table](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Hyperparameter tuning table":::
 
-You can also visualize the performance of each of the runs as training progresses. 
+You can also visualize the performance of each of the runs as training progresses.
 
-![hyperparameter tuning plot](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
+1. **Metrics chart**: This visualization tracks the metrics logged for each hyperdrive child run over the duration of hyperparameter tuning. Each line represents a child run, and each point measures the primary metric value at that iteration of runtime.  
 
-You can visually identify the correlation between performance and values of individual hyperparameters by using a Parallel Coordinates Plot. 
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Hyperparameter tuning metrics chart":::
 
-[![hyperparameter tuning parallel coordinates](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+1. **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Hyperparameter tuning parallel coordinaites chart":::
+
+1. **2-Dimensional Scatter Chart**: This visualization shows the correlation between any two individual hyperparameters along with their associated primary metric value.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Hyparameter tuning 2-dimensional scatter chart":::
+
+1. **3-Dimensional Scatter Chart**: This visualization is the same as 2D but allows for three hyperparameter dimensions of correlation with the primary metric value. You can also click and drag to reorient the chart to view different correlations in 3D space.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter tuning 3-dimensional scatter chart":::
 
 You can also visualize all of your hyperparameter tuning runs in the Azure web portal. For more information on how to view an experiment in the portal, see [how to track experiments](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
