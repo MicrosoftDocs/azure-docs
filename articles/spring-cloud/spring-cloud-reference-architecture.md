@@ -14,7 +14,7 @@ This architecture reference is a foundation using a typical enterprise hub and s
 
 ## Quickstart Reference Deployments
 
-For deployment options of this architecture that include ARM, Terraform, and CLI, see the public github repository.
+For deployment options of this architecture that include ARM, Terraform, and CLI, see the public GitHub repository.
 
 > [!div class="nextstepaction"]
 > [Quickstart - Azure Spring Cloud Reference Architecture][10]
