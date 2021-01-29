@@ -110,7 +110,7 @@ The enumeration commands described below help you discover the resources that ar
 Run the following CLI command to list all the accounts that can be restored in the current subscription
 
 ```azurecli-interactive
-az cosmosdb restorable-database-account list --name <Your_Accountname>
+az cosmosdb restorable-database-account list --name "pitrbb"
 ```
 
 The response includes all the database accounts (both live and deleted) that can be restored and the regions that they can be restored from:
@@ -121,7 +121,7 @@ The response includes all the database accounts (both live and deleted) that can
     "apiType": "Sql",
     "creationTime": "2021-01-08T23:34:11.095870+00:00",
     "deletionTime": null,
-    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865",
     "identity": null,
     "location": "West US",
     "name": "7133a59a-d1c0-4645-a699-6e296d6ac865",
@@ -148,7 +148,7 @@ Run the following CLI command to list all the versions of databases. This comman
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
-  --instance-id "<InstanceID>" \
+  --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
   --location "West US"
 ```
 
@@ -157,7 +157,7 @@ This command output now shows when a database was created and deleted.
 ```json
 [
   {
-    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
     ..
     "name": "40e93dbd-2abe-4356-a31a-35567b777220",
     "resource": {
@@ -172,7 +172,7 @@ This command output now shows when a database was created and deleted.
     ..
   },
   {
-    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
     ..
     "name": "243c38cb-5c41-4931-8cfb-5948881a40ea",
     "resource": {
@@ -195,8 +195,8 @@ Use the following command to list all the versions of SQL containers. This comma
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
-    --instance-id "<InstanceID>" \
-    --database-rid "<DatabaseRID>" \
+    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
+    --database-rid "OIQ1AA==" \
     --location "West US"
 ```
 
@@ -231,7 +231,7 @@ Use the following command to get the list of databases or containers that can be
 ```azurecli-interactive
 
 az cosmosdb sql restorable-resource list \
-  --instance-id "<InstanceID>" \
+  --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
   --location "West US" \
   --restore-location "West US" \  
   --restore-timestamp "2021-01-10 T01:00:00+0000"
@@ -264,7 +264,7 @@ The enumeration commands described below help you discover the resources that ar
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-database list \
-    --instance-id "<InstanceID>" \
+    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
     --location "West US"
 ```
 
@@ -281,7 +281,7 @@ az cosmosdb mongodb restorable-collection list \
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-resource list \
-    --instance-id "<InstanceID>" \
+    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
     --location "West US" \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"

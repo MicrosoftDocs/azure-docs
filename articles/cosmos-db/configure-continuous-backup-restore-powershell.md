@@ -76,7 +76,7 @@ The following cmdlet is an example to trigger a restore operation with the resto
 ```azurepowershell
 
 Restore-AzCosmosDBAccount `
-  - TargetResourceGroupName <resourceGroupName> `
+  -TargetResourceGroupName <resourceGroupName> `
   -TargetDatabaseAccountName <restored-account-name> `
   -SourceDatabaseAccountName <sourceDatabaseAccountName> `
   -RestoreTimestampInUtc <UTC time> `
@@ -129,7 +129,7 @@ The response includes all the database accounts (both live and deleted) that can
     "apiType": "Sql",
     "creationTime": "2020-08-08T01:04:52.070190+00:00",
     "deletionTime": null,
-    "id": "/subscriptions/259fbb24-9bcd-4cfc-865c-fc33b22fe38a/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995",
     "identity": null,
     "location": "West US",
     "name": "23e99a35-cd36-4df4-9614-f767a03b9995",

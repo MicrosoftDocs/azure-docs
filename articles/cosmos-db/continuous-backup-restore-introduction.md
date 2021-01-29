@@ -19,7 +19,7 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such
 * To restore a deleted account, database, or a container.
 * To restore into any region (where backups existed) at the restore point in time.
 
-Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant Storage (LRS) account. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant Storage (ZRS) accounts.
+Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant storage accounts.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage" lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
@@ -86,9 +86,9 @@ The following example is based on the price for an Azure Cosmos account deployed
 
 For example, if you have 1-TB of data in two regions then:
 
-* Backup storage cost is calculated as (1000 * 0.20 * 2) = 400$ per month
+* Backup storage cost is calculated as (1000 * 0.20 * 2) = $400 per month
 
-* Restore cost is calculated as (1000 * 0.15) = 150$
+* Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
 ## Current limitations (public preview)
 

@@ -37,7 +37,7 @@ You can use Azure portal to restore a live account or selected databases and con
 
    * **Restore Point (UTC)** – A timestamp within the last 30 days. The account should exist at that timestamp. You can specify the restore point in UTC. It can be as close to the second when you want to restore it. Select the **Click here** link to get help on [identifying the restore point](#event-feed).
 
-   * **Location** – The destination region where the account is restored. The account should exist in this region at the given timestamp. Example West US or East US. An account can be restored only to the regions in which the source account existed.
+   * **Location** – The destination region where the account is restored. The account should exist in this region at the given timestamp (eg. West US or East US). An account can be restored only to the regions in which the source account existed.
 
    * **Restore Resource** – You can either choose **Entire account** or a **selected database/container** to restore. The databases and containers should exist at the given timestamp. Based on the restore point and location selected, restore resources are populated, which allows user to select specific databases or containers that need to be restored.
 
