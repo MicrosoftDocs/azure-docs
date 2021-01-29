@@ -120,7 +120,7 @@ clientOptions.AddPolicy(new CustomRequestPolicy(), HttpPipelinePosition.PerCall)
 
 var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>), options: clientOptions);
 
-Response<SearchResults<SearchDocument>> response = await client.SearchAsync<SearchDocument>(searchText: searchText, searchOptions: options, customHeaders: headers);
+Response<SearchResults<SearchDocument>> response = await client.SearchAsync<SearchDocument>(searchText: searchText, searchOptions: options);
 string searchId = string.Empty;
 if (response.GetRawResponse().Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
 {
