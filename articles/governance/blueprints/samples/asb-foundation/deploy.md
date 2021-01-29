@@ -130,7 +130,7 @@ to make each deployment of the copy of the blueprint sample unique.
 > resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 > to estimate the cost of running resources deployed by this blueprint sample.
 
-## Blueprint parameters table
+## Artifact parameters table
 
 The following table provides a list of the blueprint parameters:
 
