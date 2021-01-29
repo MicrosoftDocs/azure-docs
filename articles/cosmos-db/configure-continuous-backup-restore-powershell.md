@@ -45,12 +45,12 @@ The following cmdlet is an example of a single region write account `pitracct2` 
 ```azurepowershell
 
 New-AzCosmosDBAccount `
-   -ResourceGroupName "gskrg" `
-   -LocationObject "West US" `
-	-BackupPolicyType Continuous `
-   -Name "pitracct2" `
-   -ApiKind "Sql" `
-    	  
+  -ResourceGroupName "gskrg" `
+  -LocationObject "West US" `
+  -BackupPolicyType Continuous `
+  -Name "pitracct2" `
+  -ApiKind "Sql"
+   	  
 ```
 
 ## <a id="provision-mongodb-api"></a>Provision a MongoDB API account with continuous backup
@@ -60,12 +60,12 @@ The following cmdlet is an example of continuous backup account "pitracct2" crea
 ```azurepowershell
 
 New-AzCosmosDBAccount `
-   -ResourceGroupName "gskrg" `
-   -LocationObject "West US" `
-	-BackupPolicyType Continuous `
-   -Name "pitracct3" `
-   -ApiKind "MongoDB" `
-	-MongoDBServerVersion "3.6" `
+  -ResourceGroupName "gskrg" `
+  -LocationObject "West US" `
+  -BackupPolicyType Continuous `
+  -Name "pitracct3" `
+  -ApiKind "MongoDB" `
+  -MongoDBServerVersion "3.6"
 
 ```
 
@@ -80,7 +80,7 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName <restored-account-name> `
   -SourceDatabaseAccountName <sourceDatabaseAccountName> `
   -RestoreTimestampInUtc <UTC time> `
-  -Location <Azure Region Name> 
+  -Location <Azure Region Name>
 
 ```
 
@@ -89,11 +89,11 @@ Restore-AzCosmosDBAccount `
 ```azurepowershell
 
 Restore-AzCosmosDBAccount `
--TargetResourceGroupName "rg" ``
--TargetDatabaseAccountName "pitrbb -ps-1" `
--SourceDatabaseAccountName "source-sql" `
--RestoreTimestampInUtc "2021-01-05T22:06:00" `
--Location "West US"
+  -TargetResourceGroupName "rg" `
+  -TargetDatabaseAccountName "pitrbb -ps-1" `
+  -SourceDatabaseAccountName "source-sql" `
+  -RestoreTimestampInUtc "2021-01-05T22:06:00" `
+  -Location "West US"
 
 ```
 
@@ -104,12 +104,12 @@ $datatabaseToRestore1 = New-AzCosmosDBDatabaseToRestore -DatabaseName "myDB1" -C
 $datatabaseToRestore2 = New-AzCosmosDBDatabaseToRestore -DatabaseName "myDB2"
 
 Restore-AzCosmosDBAccount `
--TargetResourceGroupName "rg" `
--TargetDatabaseAccountName "pitrbb-ps-1" `
--SourceDatabaseAccountName "source-sql" `
--RestoreTimestampInUtc "2021-01-05T22:06:00" -Location "West US" `
--DatabasesToRestore $datatabaseToRestore1, $datatabaseToRestore2 `
--Location "West US"
+  -TargetResourceGroupName "rg" `
+  -TargetDatabaseAccountName "pitrbb-ps-1" `
+  -SourceDatabaseAccountName "source-sql" `
+  -RestoreTimestampInUtc "2021-01-05T22:06:00" -Location "West US" `
+  -DatabasesToRestore $datatabaseToRestore1, $datatabaseToRestore2 `
+  -Location "West US"
 
 ```
 
@@ -165,7 +165,7 @@ Run the following PowerShell command to list all the versions of databases. This
 
 Get-AzCosmosdbSqlRestorableDatabase `
   -LocationName "East US" `
-  -DatabaseAccountInstanceId `
+  -DatabaseAccountInstanceId
 
 ```
 
@@ -176,9 +176,9 @@ Use the following command to list all the versions of SQL containers. This comma
 ```azurepowershell
 
 Get-AzCosmosdbSqlRestorableContainer `
--DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
--DatabaseRid "AoQ13r==" `
--LocationName "West US" `
+  -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
+  -DatabaseRid "AoQ13r==" `
+  -LocationName "West US"
 
 ```
 
@@ -189,10 +189,10 @@ Use the following command to get the list of databases or containers that can be
 ```azurepowershell
 
 Get-AzCosmosdbSqlRestorableResource `
--DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
--LocationName "West US" `
--RestoreLocation "eastus" `
--RestoreTimestamp "2020-07-20T16:09:53+0000"
+  -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
+  -LocationName "West US" `
+  -RestoreLocation "eastus" `
+  -RestoreTimestamp "2020-07-20T16:09:53+0000"
 
 ```
 
@@ -205,8 +205,8 @@ The enumeration commands described below help you discover the resources that ar
 ```azurepowershell
 
 Get-AzCosmosdbMongoDBRestorableDatabase `
--DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
--LocationName "West US"
+  -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
+  -LocationName "West US"
 
 ```
 
@@ -215,9 +215,9 @@ Get-AzCosmosdbMongoDBRestorableDatabase `
 ```azurepowershell
 
 Get-AzCosmosdbMongoDBRestorableCollection `
--DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
--DatabaseRid "AoQ13r==" `
--LocationName "West US"
+  -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
+  -DatabaseRid "AoQ13r==" `
+  -LocationName "West US"
 ```
 
 **List all the resources of a mongodb database account that are available to restore at a given timestamp and region**
@@ -225,10 +225,10 @@ Get-AzCosmosdbMongoDBRestorableCollection `
 ```azurepowershell
 
 Get-AzCosmosdbMongoDBRestorableResource `
--DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
--LocationName "West US" `
--RestoreLocation "West US" `
--RestoreTimestamp "2020-07-20T16:09:53+0000"
+  -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
+  -LocationName "West US" `
+  -RestoreLocation "West US" `
+  -RestoreTimestamp "2020-07-20T16:09:53+0000"
 ```
 
 ## Next steps

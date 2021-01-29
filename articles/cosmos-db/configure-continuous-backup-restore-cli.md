@@ -17,7 +17,7 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article describes how to provision an account with continuous backup and restore data using Azure CLI.
 
-## <a id="install"></a>Install Azure CLI 
+## <a id="install"></a>Install Azure CLI
 
 1. Install the latest version of Azure CLI
 
@@ -44,11 +44,11 @@ To provision a SQL API account with continuous backup, an extra argument `--back
 ```azurecli-interactive
 
 az cosmosdb create \
---name pitracct2 \
---resource-group gskrg \		
---backup-policy-type Continuous \
---default-consistency-level Session \
---locations regionName="West US"
+  --name pitracct2 \
+  --resource-group gskrg \
+  --backup-policy-type Continuous \
+  --default-consistency-level Session \
+  --locations regionName="West US"
 
 ```
 
@@ -59,13 +59,13 @@ The following command shows an example of a single region write account named `p
 ```azurecli-interactive
 
 az cosmosdb create \
---name pitracct3 \
---kind MongoDB \
---resource-group gskrg \
---server-version "3.6" \
---backup-policy-type Continuous \
---default-consistency-level Session \
---locations regionName="West US"
+  --name pitracct3 \
+  --kind MongoDB \
+  --resource-group gskrg \
+  --server-version "3.6" \
+  --backup-policy-type Continuous \
+  --default-consistency-level Session \
+  --locations regionName="West US"
 
 ```
 
@@ -117,11 +117,11 @@ The response includes all the database accounts (both live and deleted) that can
 
 ```json
 {
-    "accountName": "pitrbb-ps-1",
+    "accountName": "pitrbb",
     "apiType": "Sql",
     "creationTime": "2021-01-08T23:34:11.095870+00:00",
     "deletionTime": null,
-    "id": "/subscriptions/259fbb24-9bcd-4cfc-865c-fc33b22fe38a/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865",
+    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865",
     "identity": null,
     "location": "West US",
     "name": "7133a59a-d1c0-4645-a699-6e296d6ac865",
@@ -148,7 +148,7 @@ Run the following CLI command to list all the versions of databases. This comman
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
-  --instance-id "<Your_InstanceID>" \
+  --instance-id "<InstanceID>" \
   --location "West US"
 ```
 
@@ -157,7 +157,7 @@ This command output now shows when a database was created and deleted.
 ```json
 [
   {
-    "id": "/subscriptions/259fbb24-9bcd-4cfc-865c-fc33b22fe38a/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
+    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
     ..
     "name": "40e93dbd-2abe-4356-a31a-35567b777220",
     "resource": {
@@ -172,7 +172,7 @@ This command output now shows when a database was created and deleted.
     ..
   },
   {
-    "id": "/subscriptions/259fbb24-9bcd-4cfc-865c-fc33b22fe38a/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
+    "id": "/subscriptions/<subscription_ID>/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/7133a59a-d1c0-4645-a699-6e296d6ac865/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
     ..
     "name": "243c38cb-5c41-4931-8cfb-5948881a40ea",
     "resource": {
@@ -195,9 +195,9 @@ Use the following command to list all the versions of SQL containers. This comma
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
-    --instance-id "<Your_InstanceID>" \
-    --database-rid "<database rid>"
---location "West US"
+    --instance-id "<InstanceID>" \
+    --database-rid "<DatabaseRID>" \
+    --location "West US"
 ```
 
 This command output shows includes list of operations performed on all the containers inside this database:
@@ -231,7 +231,7 @@ Use the following command to get the list of databases or containers that can be
 ```azurecli-interactive
 
 az cosmosdb sql restorable-resource list \
-  --instance-id "<Your_InstanceID>" \
+  --instance-id "<InstanceID>" \
   --location "West US" \
   --restore-location "West US" \  
   --restore-timestamp "2021-01-10 T01:00:00+0000"
@@ -264,7 +264,7 @@ The enumeration commands described below help you discover the resources that ar
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-database list \
-    --instance-id "<Your_InstanceID>" \
+    --instance-id "<InstanceID>" \
     --location "West US"
 ```
 
@@ -272,8 +272,8 @@ az cosmosdb mongodb restorable-database list \
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-collection list \
-    --instance-id "<Your_InstanceID>" \
-    --database-rid "AoQ13r=="
+    --instance-id "<InstanceID>" \
+    --database-rid "AoQ13r==" \
     --location "West US"
 ```
 
@@ -281,7 +281,7 @@ az cosmosdb mongodb restorable-collection list \
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-resource list \
-    --instance-id "<Your_InstanceID>" \
+    --instance-id "<InstanceID>" \
     --location "West US" \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
