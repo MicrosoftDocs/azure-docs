@@ -35,4 +35,4 @@ An extensive partner ecosystem is available to help you migrate IBM mainframe sy
 - [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Install IBM zD&T dev/test environment on Azure](./install-ibm-z-environment.md)
 - [Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1](./demo.md)
-- [IBM DB2 pureScale on Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
