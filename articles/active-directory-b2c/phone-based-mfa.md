@@ -1,5 +1,5 @@
 ---
-title: Tips for more secure phone-based MFA
+title: Securing phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn tips for how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies.
 services: active-directory-b2c
@@ -14,12 +14,11 @@ ms.author: mimart
 ms.subservice: B2C
 
 ---
-# Tips for more secure phone-based multi-factor authentication (MFA)
+# Securing phone-based multi-factor authentication (MFA)
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-
-With Azure Active Directory (AD) Multi-Factor Authentication (MFA), users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure Active Directory B2C tenant. To help protect against such fraud attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
+With Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA), users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ The [Azure AD B2C Reports & Alerts](https://github.com/azure-ad-b2c/siem#phone-a
 
 ### Overview tab
 
-The  **Overview** tab, shown below, provides the following information:
+The following information is shown on the **Overview** tab:
 
 - Phone authentication failure reasons
 - Blocked phone number listing  
@@ -113,9 +112,6 @@ Take the following actions to help mitigate fraudulent sign-ups.
    8. Close the panel and select **Run user flow**. Confirm that **United States** is the only country code available in the dropdown:
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
-
-> [!NOTE]
-> If any of your end-users are accidentally blocked, they'll need to contact their help desk or support team.
 
 ## Next steps
 
