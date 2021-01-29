@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 In this quickstart, you learn to manage blobs by using Python. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
-Additional resources:
+More resources:
 
 * [API reference documentation](/python/api/azure-storage-blob)
 * [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
@@ -50,7 +50,7 @@ Create a Python application named *blob-quickstart-v12*.
     cd blob-quickstart-v12
     ```
 
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
+1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This directory is where the blob data files will be created and stored.
 
     ```console
     mkdir data
@@ -84,7 +84,7 @@ From the project directory:
 
 ## Object model
 
-Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 * The storage account
 * A container in the storage account
@@ -102,7 +102,7 @@ Use the following Python classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob Storage client library for Python:
+These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for Python:
 
 * [Get the connection string](#get-the-connection-string)
 * [Create a container](#create-a-container)
@@ -113,7 +113,7 @@ These example code snippets show you how to perform the following with the Azure
 
 ### Get the connection string
 
-The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+The code below retrieves the storage account connection string from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `try` block:
 
@@ -121,7 +121,7 @@ Add this code inside the `try` block:
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
+Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it's unique.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -164,7 +164,7 @@ Add this code to the end of the `try` block:
 
 The following code cleans up the resources the app created by removing the entire container using the [​delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) method. You can also delete the local files, if you like.
 
-The app pauses for user input by calling `input()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they are deleted.
+The app pauses for user input by calling `input()` before it deletes the blob, container, and local files. Verify that the resources were created correctly, before they're deleted.
 
 Add this code to the end of the `try` block:
 
@@ -172,7 +172,7 @@ Add this code to the end of the `try` block:
 
 ## Run the code
 
-This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+This app creates a test file in your local folder and uploads it to Azure Blob Storage. The example then lists the blobs in the container, and downloads the file with a new name. You can compare the old and new files.
 
 Navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `python` command to run the app.
 
@@ -201,7 +201,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
+Before you begin the cleanup process, check your *data* folder for the two files. You can open them and observe that they're identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
