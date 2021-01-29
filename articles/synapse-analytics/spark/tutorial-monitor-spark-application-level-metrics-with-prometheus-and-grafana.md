@@ -66,21 +66,29 @@ The result should look like:
 
 Note down the appId, password and tenant id.
 
-![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
+![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac-new.png)
 
 1. Login to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
-2. In Synapse Studio, on the left-side pane, select **Manage > Access control**
-3. Click the Add button on the upper left to **add a role assignment**
-4. For Scope choose **Workspace**
-5. For Role choose **Synapse Compute User**
-6. For Select user input your **<service_principal_name>** and click your service principal
-7. Click **Apply** (Wait 3 minutes for permission to take effect.)
 
+2. In Synapse Studio, on the left-side pane, select **Manage > Access control**
+
+3. Click the Add button on the upper left to **add a role assignment**
+
+4. For Scope choose **Workspace**
+
+5. For Role choose **Synapse Compute Operator**
+
+6. For Select user input your **<service_principal_name>** and click your service principal
+
+7. Click **Apply** (Wait 3 minutes for permission to take effect.)
 
 ## Install connector, Prometheus server, Grafana dashboard
 
-1.	Add synapse-prometheus-operator repo to Helm client.
-helm repo add synapse-charts https://synapsehelm.blob.core.windows.net/charts
+1. Add synapse-charts repo to Helm client.
+
+```bash
+helm repo add synapse-charts https://github.com/microsoft/azure-synapse-spark-metrics/releases/download/helm-chart
+```
 
 2.	Install components through Helm client:
 

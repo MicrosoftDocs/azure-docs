@@ -56,15 +56,22 @@ Note down the appId, password and tenant id.
 
 #### 2.2 Add corresponding permissions to the service principal created in the above step.
 
-![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
+![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac-new.png)
 
 1. Login to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
-1. In Synapse Studio, on the left-side pane, select **Manage > Access control**
-1. Click the Add button on the upper left to **add a role assignment**
-1. For Scope choose **Workspace**
-1. For Role choose **Synapse Compute User**
-1. For Select user input your **<service_principal_name>** and click your service principal
-1. Click **Apply** (Wait 3 minutes for permission to take effect.)
+
+2. In Synapse Studio, on the left-side pane, select **Manage > Access control**
+
+3. Click the Add button on the upper left to **add a role assignment**
+
+4. For Scope choose **Workspace**
+
+5. For Role choose **Synapse Compute Operator**
+
+6. For Select user input your **<service_principal_name>** and click your service principal
+
+7. Click **Apply** (Wait 3 minutes for permission to take effect.)
+
 
 ### 3. Download the Azure Synapse Prometheus Connector
 
@@ -110,7 +117,7 @@ Add following config section in your Prometheus scrape_config, and replace the <
   metric_relabel_configs:
   - source_labels: [ __name__ ]
     target_label: __name__
-    regex: metrics_sparkapplication_(.+)
+    regex: metrics_application_[0-9]+_[0-9]+_(.+)
     replacement: spark_$1
   - source_labels: [ __name__ ]
     target_label: __name__
@@ -131,13 +138,8 @@ Wait for a few seconds and the connector should start working. And you can see t
 
 ## Use Azure Synapse Prometheus or REST metrics APIs to collect metrics data
 
-
-### 1. Authentication
-
-#### 1.1 You can use the client credentials flow to get an access token.
-
-
-#### 1.2 To access the metrics API, you should get an Azure AD access token for the service principal, which have proper permission to access the APIs.
+### 1. Authentication.
+You can use the client credentials flow to get an access token. To access the metrics API, you should get an Azure AD access token for the service principal, which have proper permission to access the APIs.
 
 | Parameter     | Required | Description                                                                                                   |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
@@ -175,7 +177,7 @@ To get list of spark applications for a Synapse workspace, please follow this do
 ### 3. Collect spark application metrics with the Prometheus or REST APIs
 
 
-#### 3a. Collect spark application metrics with the Prometheus API
+#### Collect spark application metrics with the Prometheus API
 
 Get latest metrics of the specified spark application by Prometheus API
 
@@ -215,8 +217,7 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 
 ```
 
-
-#### 3b. Collect spark application metrics with the REST API
+#### Collect spark application metrics with the REST API
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
