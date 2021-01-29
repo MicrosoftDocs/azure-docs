@@ -121,7 +121,7 @@ Use the following procedure to create a ServiceNow connection.
    | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com* (for example https://XXXXX.service-now.com/).|
    | **Username**   | Enter the integration username that you created in the ServiceNow app to support the connection to ITSMC.|
    | **Password**   | Enter the password associated with this username. **Note**: The username and password are used for generating authentication tokens only. They're not stored anywhere within the ITSMC service.  |
-   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://old.wiki/index.php/OAuth_Setup). |
    | **Client Secret**   | Enter the client secret generated for this ID.   |
    | **Data Sync Scope (in Days)** | Enter the number of past days that you want the data from. The limit is 120 days. |
    | **Work Items To Sync**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through ITSMC. The selected values are imported into Log Analytics. Options are incidents and change requests.|
