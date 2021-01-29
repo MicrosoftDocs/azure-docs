@@ -19,13 +19,13 @@ If you don't have one, you can [**create a free Azure account**](https://azure.m
 1. A Translator resource. You can [create your Translator resource](../translator-how-to-signup.md) in the Azure portal.
 1. An Azure blob storage account. All access to Azure Storage takes place through a storage account. You can [create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) in the Azure portal.
 
-## Create Azure blob storage containers 
+## Create Azure blob storage containers
 
 1. You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account.
 
-* A **source container**. The source container is where you'll upload your documents for translation. You'll need to delegate **list** and  **read-only** access for your source container or you can delegate **read-only** access for a specific blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access signature-tokens-in-the-azure-portal), below.
+* A **source container**. The source container is where you'll upload your documents for translation. You'll need to delegate **list** and  **read-only** access for your source container or you can delegate **read-only** access for a specific blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
-* A **target container**. The target container is where your translated documents will be stored.  You'll need to delegate **list** and **write-only access** for your target container. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature tokens-in-the-azure-portal), below.
+* A **target container**. The target container is where your translated documents will be stored.  You'll need to delegate **list** and **write-only access** for your target container. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
 ## Create Shared Access Signature tokens in the Azure portal
 
@@ -91,7 +91,7 @@ Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as fol
 
 >[!NOTE]
 > To access the Document translation service, you must add the additional parameter **batches** to your endpoint URL.
-> If you have created a Translator service with Virtual Network support. You must use the custom endpoint associated with your Translator resource to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com` and you can't use an access token for authentication.
+> If you have created a Translator service with Virtual Network support, you must use the custom endpoint associated with your Translator resource to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com` and you can't use an access token for authentication.
 
 ## Headers
 
@@ -341,7 +341,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 ```javascript
 const axios = require('axios').default;
 
-let endpoint = "YOUR-RESOURCE-ENDPOINT/batches";
+let endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
 let resourceKey = "YOUR-RESOURCE-KEY";
 
 // Add your location, also known as region. The default is global.
@@ -393,7 +393,7 @@ axios(config)
 
 import requests
 
-endpoint = "YOUR-RESOURCE-ENDPOINT/batches"
+endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
 resourceKey =  'YOUR-RESOURCE-KEY'
 
 payload='{\"inputs\":[{\"source\":{\"sourceUrl\":\"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\",\"storageSource\":\"AzureBlob\",\"language\":\"en\",\"filter\":{\"prefix\":\"Demo_1\/\"}},\"targets\":[{\"targetUrl\":\"https://YOUR-TARGET-CONTAINER-URL-WITH-WRITE-ONLY-SAS\",\"storageSource\":\"AzureBlob\",\"category\":\"general\",\"language\":\"es\"}]}]}'
@@ -466,7 +466,7 @@ import (
 )
 
 func main() {
-url := "YOUR-RESOURCE-ENDPOINT/batches"
+url := "https://YOUR-RESOURCE-ENDPOINT/batches"
 resourceKey := "YOUR-RESOURCE-KEY"
 method := "POST"
 
@@ -508,30 +508,7 @@ The **Operation-Location** header will consist of the `sourceURL` and the `jobID
 
 >> **Ex:** https://<span></span>your-service-endpoint/batches/**1c74f0e7-3920-4320-8779-2c5309777ft**
 
-## Retrieve job and document status via GET requests
-
-### Host URLs for HTTP requests
-
-|Description|Azure geography|Base URL (geographical endpoint)|
-|:--|:--|:--|
-|Azure|Global (non-regional)|api.cognitive.microsofttranslator.com|
-|Azure|United States|api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacific|api-apc.cognitive.microsofttranslator.com|
-
-### GET Jobs
-
-#### Brief Overview
-
-Retrieve a list and current status for all jobs in a document translation request.
-
-#### HTTP request
-
-```http
-GET YOUR-ENDPOINT-QUERY-STRING/batches/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-TRANSLATOR-SUBSCRIPTION-KEY`
-```
+## Submit a job and document status request (GET)
 
 ### [C#](#tab/csharp)
 
@@ -688,6 +665,33 @@ func main() {
 
 ---
 
+## Document Translation HTTP requests
+
+### Host URLs for HTTP requests
+
+|Description|Azure geography|Base URL (geographical endpoint)|
+|:--|:--|:--|
+|Azure|Global (non-regional)|api.cognitive.microsofttranslator.com|
+|Azure|United States|api-nam.cognitive.microsofttranslator.com|
+|Azure|Europe|api-eur.cognitive.microsofttranslator.com|
+|Azure|Asia Pacific|api-apc.cognitive.microsofttranslator.com|
+
+### GET Jobs 
+
+#### Brief Overview
+
+Retrieve a list and current status for all jobs in a document translation request.
+
+#### HTTP request
+
+```http
+GET YOUR-ENDPOINT-QUERY-STRING/batches/
+Host: https://YOUR-RESOURCE-BASE-URL
+Ocp-Apim-Subscription-Key: YOUR-TRANSLATOR-SUBSCRIPTION-KEY`
+```
+
+
+
 ### GET Job Status
 
 #### Brief overview
@@ -718,7 +722,7 @@ Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
 
 #### Response
 
-All documents for which translation has not yet started will be canceled, if possible.
+All documents for which translation hasn't started will be canceled, if possible.
 
 #### Response: GET Jobs, GET Job Status, and DELETE Job
 
