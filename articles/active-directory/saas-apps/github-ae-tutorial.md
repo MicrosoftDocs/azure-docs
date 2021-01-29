@@ -91,11 +91,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, GitHub AE application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| ----------- | --------- |
-	| administrator | true |
+1. Navigate to **Enterprise Applications** in the Azure portal and search for **GitHub AE** and select it.
+
+1. Click on **Single sign-on** and edit the **User Attributes & Claims** tab.
+
+1. Click **Add new claim** and enter the name as **administrator** in the textbox.
+
+1. Expand **Claim conditions** and select **Members** from **User type**.
+
+1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
+
+1. Select **Attribute** for **Source** and enter **true** for the **Value**. 
+
+10.	Click **Save**.
+
+    ![manage claim](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > To know the instructions on how to add a claim, please follow the [link](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
