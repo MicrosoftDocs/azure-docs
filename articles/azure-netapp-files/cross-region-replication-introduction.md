@@ -23,7 +23,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 > [!IMPORTANT]
 > The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
-## Supported cross-region replication pairs
+## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
 Azure NetApp Files volume replication is supported between various [Azure regional pairs](/azure/best-practices-availability-paired-regions#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following region:  
 
