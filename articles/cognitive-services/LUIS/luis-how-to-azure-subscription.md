@@ -168,7 +168,7 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 ### Create resources in the Azure CLI
 
-Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
+Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
 Resource `kind`:
 
