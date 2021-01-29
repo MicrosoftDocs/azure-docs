@@ -68,6 +68,8 @@ Users who has been assigned the Monitoring Reader role at root scope can view de
 
 A list of delegation changes will appear. You can select **Edit columns** to show or hide the **Status**, **Event category**, **Time**, **Time stamp**, **Subscription**, **Event initiated by**, **Resource group**, **Resource type**, and **Resource** values.
 
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Screenshot of delegation changes in the Azure portal.":::
+
 ## Use a service principal account to query the activity log
 
 Because the Monitoring Reader role at root scope is such a broad level of access, you may wish to assign the role to a service principal account and use that account to query data using the script below.
