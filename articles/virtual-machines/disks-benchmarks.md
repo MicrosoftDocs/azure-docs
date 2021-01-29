@@ -3,7 +3,7 @@ title: Benchmarking your application on Azure Disk Storage
 description: Learn about the process of benchmarking your application on Azure.
 author: roygara
 ms.author: rogarana
-ms.date: 01/28/2021
+ms.date: 01/29/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
