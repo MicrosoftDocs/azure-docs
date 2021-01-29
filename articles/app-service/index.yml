@@ -57,8 +57,6 @@ landingContent:
             url: scenario-secure-app-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logs
-            url: troubleshoot-diagnostic-logs.md
           - text: Connect to Linux container via SSH
             url: configure-linux-open-ssh-session.md
           - text: Migrate an active domain to App Service
@@ -81,23 +79,6 @@ landingContent:
             url: tutorial-python-postgresql-app.md
           - text: Ruby (Rails) app with PostgreSQL
             url: tutorial-ruby-postgres-app.md
-  - title: Upload your code or content
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Upload content with FTP
-            url: deploy-ftp.md
-          - text: Upload content as zip packages
-            url: deploy-zip.md
-          - text: Git push from local machine
-            url: deploy-local-git.md
-          - text: Sync content with OneDrive or Dropbox
-            url: deploy-content-sync.md
-          - text: CI/CD with GitHub, BitBucket, etc.
-            url: deploy-continuous-deployment.md
-          - text: Run from package
-            url: deploy-run-package.md
-
 
   - title: Run custom containers
     linkLists:
@@ -119,6 +100,23 @@ landingContent:
             url: configure-connect-to-azure-storage.md
           - text: Deploy with GitHub Actions
             url: deploy-container-github-action.md
+
+  - title: Upload your code or content
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+          - text: Upload content as zip packages
+            url: deploy-zip.md
+          - text: Git push from local machine
+            url: deploy-local-git.md
+          - text: Sync content with OneDrive or Dropbox
+            url: deploy-content-sync.md
+          - text: CI/CD with GitHub, BitBucket, etc.
+            url: deploy-continuous-deployment.md
+          - text: Run from package
+            url: deploy-run-package.md
 
   - title: Manage and integrate
     linkLists:
@@ -147,13 +145,13 @@ landingContent:
           - text: Back up your app to Storage Blobs
             url: manage-backup.md
 
-  - title: Monitor app
+  - title: Monitor your app
     linkLists:
       - linkListType: whats-new
         links:
           - text: App Service Integration with Azure Monitor
             url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
-          - text: New Log Types for Azure Monitor Integration
+          - text: Log Types for Azure Monitor Integration
             url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
       - linkListType: tutorial
         links:
@@ -161,12 +159,13 @@ landingContent:
             url: tutorial-troubleshoot-monitor
       - linkListType: how-to-guide
         links:
-          - text: Enable logs
+          - text: Enable diagnostic logs
             url: troubleshoot-diagnostic-logs
           - text: Get resource events
             url: get-resource-events
           - text: Health check
             url: monitor-instances-health-check
+            
       - linkListType: reference
         links:
           - text: Quotas & alerts
