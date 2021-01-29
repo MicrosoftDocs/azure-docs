@@ -209,7 +209,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](backends.md), management [API](/rest/api/apimanagement/2019-12-01/backend), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement/2019-12-01/backend), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
