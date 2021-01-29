@@ -436,12 +436,6 @@
       href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
-  - name: IBM Db2 pureScale
-    items:
-    - name: Architecture
-      href: ./linux/ibm-db2-purescale-azure.md
-    - name: Deployment
-      href: ./linux/deploy-ibm-db2-purescale-azure.md
   - name: Containers
     items:
     - name: Create Docker host
