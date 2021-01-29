@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-Configure Atea to support provisioning with Azure AD, please drop an email to servicedesk@atea.dk.
+To configure Atea to support provisioning with Azure AD, email servicedesk@atea.dk.
 
 ## Step 3. Add Atea from the Azure AD application gallery
 
@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**.It opens a Atea's login dialog in a new browser window.
+5. In the **Admin Credentials** section, select **Authorize**. It opens an Atea login dialog box in a new browser window.
 
  	 ![Atea authorize](media/atea-provisioning-tutorial/provisioning-authorize.png)
 
