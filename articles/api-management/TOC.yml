@@ -103,10 +103,11 @@
               href: import-function-app-as-api.md
             - name: Import a Logic App
               href: import-logic-app-as-api.md
-            - name: Import a Service Fabric app
-              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
             - name: Edit an API
               href: edit-api.md
+            - name: Integrate with custom backend
+              href: backends.md
+              displayName: service fabric
       - name: Provision and scale
         items:
             - name: Capacity metric
