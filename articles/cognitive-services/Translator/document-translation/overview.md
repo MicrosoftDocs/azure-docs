@@ -54,6 +54,6 @@ The following file types can be translated using the Document Translation API.
 ### Next Step
 
 > [!div class="nextstepaction"]
-> [Create a document translation service](create-a-document-translation-service.md)
+> [Get Started with Document Translation](get-started-with-document-translation.md)
 >
 >

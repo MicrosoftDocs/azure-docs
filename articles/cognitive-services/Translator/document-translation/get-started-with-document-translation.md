@@ -5,7 +5,7 @@ ms.topic: quickstart
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 01/25/2021
+ms.date: 02/04/2021
 ---
 
 # Get started with Document Translation
@@ -23,11 +23,11 @@ If you don't have one, you can [**create a free Azure account**](https://azure.m
 
 1. You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account.
 
-* A **source container**. The source container is where you'll upload your documents for translation. You'll need to delegate **list** and  **read-only** access for your source container or you can delegate **read-only** access for a specific blob. *See* [Create your user delegation SAS in the Azure portal](#create-your-user-delegation-sas-in-the-azure-portal), below.
+* A **source container**. The source container is where you'll upload your documents for translation. You'll need to delegate **list** and  **read-only** access for your source container or you can delegate **read-only** access for a specific blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access signature-tokens-in-the-azure-portal), below.
 
-* A **target container**. The target container is where your translated documents will be stored.  You'll need to delegate **list** and **write-only access** for your target container. *See* [Create your user delegation SAS in the Azure portal](#create-your-user-delegation-sas-in-the-azure-portal), below.
+* A **target container**. The target container is where your translated documents will be stored.  You'll need to delegate **list** and **write-only access** for your target container. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature tokens-in-the-azure-portal), below.
 
-## Create a SAS in the Azure portal
+## Create Shared Access Signature tokens in the Azure portal
 
 ### [Containers](#tab/container)
 
@@ -192,7 +192,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 
 ### Platform setup
 
-### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 * Create a new project.
 * Replace Program.cs with the C# code shown below.
@@ -200,7 +200,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 * To process JSON data, add [Newtonsoft.Json package using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory.
 
-### [Node.js](#tab/javascript)
+### [Node.js](#tab/javascript)
 
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
@@ -208,13 +208,13 @@ Content-Length: YOUR-CONTENT-LENGTH
 * Set your endpoint. subscription key, and container URL values.
 * Run the program.
   
-### [Java](#tab/java)
+### [Java](#tab/java)
 
 * Create a working directory for your project. For example: `mkdir sample-project`.
 * Initialize your project with Gradle: `gradle init --type basic`. When prompted to choose a **DSL**, select **Kotlin**.
 * Update `build.gradle.kts`. Keep in mind that you'll need to update your `mainClassName` depending on the sample.
 
-### [Python](#tab/python)  
+### [Python](#tab/python)  
 
 * Create a new project.
 * Copy and paste the code from one of the samples into your project.
@@ -240,7 +240,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 * Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
 * Run the sample: `gradle run`.
 
-### [Go](#tab/go)  
+### [Go](#tab/go)  
 
 * Create a new Go project.
 * Add the code provided below.
