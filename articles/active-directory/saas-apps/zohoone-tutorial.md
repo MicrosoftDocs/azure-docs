@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the **Organization** tab, Click **Setup** under **SAML Authentication**.
 
-	![Zoho One org](./media/zohoone-tutorial/set-up.png)
+	![Zoho One org](./media/zoho-one-tutorial/set-up.png)
 
 3. On the Pop-up page perform the following steps:
 
-	![Zoho One sig](./media/zohoone-tutorial/save.png)
+	![Zoho One sig](./media/zoho-one-tutorial/save.png)
 
 	a. In the **Sign-in URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -148,15 +148,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. After saving the SAML Authentication setup, copy the **SAML-Identifier** value and append it with the **Reply URL** in place of `<saml-identifier>`, like `https://accounts.zoho.com/samlresponse/one.zoho.com` and paste the generated value in the **Reply URL** textbox under **Basic SAML Configuration** section.
 
-	![Zoho One saml](./media/zohoone-tutorial/saml-identifier.png)
+	![Zoho One saml](./media/zoho-one-tutorial/saml-identifier.png)
 
 5. Go to the **Domains** tab and then click **Add Domain**.
 
-	![Zoho One domain](./media/zohoone-tutorial/add-domain.png)
+	![Zoho One domain](./media/zoho-one-tutorial/add-domain.png)
 
 6. On the **Add Domain** page, perform the following steps:
 
-	![Zoho One add domain](./media/zohoone-tutorial/add-domain-name.png)
+	![Zoho One add domain](./media/zoho-one-tutorial/add-domain-name.png)
 
 	a. In the **Domain Name** textbox, type domain like contoso.com.
 
@@ -175,11 +175,11 @@ To enable Azure AD users to sign in to Zoho One, they must be provisioned into Z
 
 2. On the **Users** tab, Click on **user logo**.
 
-	![Zoho One user](./media/zohoone-tutorial/user.png)
+	![Zoho One user](./media/zoho-one-tutorial/user.png)
 
 3. On the **Add User** page, perform the following steps:
 
-	![Zoho One add user](./media/zohoone-tutorial/add-user.png)
+	![Zoho One add user](./media/zoho-one-tutorial/add-user.png)
 	
 	a. In **Name** text box, enter the name of user like **Britta simon**.
 	
