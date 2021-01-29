@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [NAVEX One Client support team](mailto:ethicspoint@navexglobal.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [NAVEX One Client support team](mailto:ethicspoint@navexglobal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
