@@ -398,6 +398,15 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://database.cloudapi.de/` | ![Available][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Available][check] |
 
+### Azure Data Explorer
+
+| Cloud | Resource ID | Status |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.<region>.kusto.windows.net` | ![Available][check] |
+| Azure Government | `https://<account>.<region>.kusto.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany | `https://<account>.<region>.kusto.cloudapi.de` | ![Available][check] |
+| Azure China 21Vianet | `https://<account>.<region>.kusto.chinacloudapi.cn` | ![Available][check] |
+
 ### Azure Event Hubs
 
 | Cloud | Resource ID | Status |
