@@ -63,7 +63,7 @@ We've made the following improvements to the Azure portal experience:
 - You can now enable or disable drain mode for multiple session hosts in a host pool.
 - Removed the public IP field from the VM details page.
 
-### Windows Virtual Desktop agent troubleshooting
+### Windows Virtual Desktop Agent troubleshooting
 
 We recently set up the [Windows Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
 
