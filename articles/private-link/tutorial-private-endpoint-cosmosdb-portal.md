@@ -241,7 +241,7 @@ In this section, you'll use the virtual machine you created in the previous step
 1. Get your Azure Cosmos DB primary connection string from portal. A valid connection string is in the format:
    
    For SQL API accounts: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` 
-   mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false
+   For Azure Cosmos DB API for MongoDB: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
 1. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
