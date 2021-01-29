@@ -84,11 +84,11 @@ If you provide a custom domain for your cluster note the following points:
 
 * The OpenShift console will be available at a URL such as `https://console-openshift-console.apps.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### Create a virtual network containing two empty subnets
 
-Next, you will create a virtual network containing two empty subnets.
+Next, you will create a virtual network containing two empty subnets. If you have existing virtual network that meets your needs, you can skip this step.
 
 1. **Set the following variables in the shell environment in which you will execute the `az` commands.**
 
@@ -127,7 +127,7 @@ Next, you will create a virtual network containing two empty subnets.
 
 2. **Create a virtual network.**
 
-   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes. You can either create a new virtual network for this, or use an existing virtual network.
 
    Create a new virtual network in the same resource group you created earlier:
 

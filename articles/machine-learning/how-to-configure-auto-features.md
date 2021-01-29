@@ -15,17 +15,19 @@ ms.date: 12/18/2020
 
 # Data featurization in automated machine learning
 
-
-
-Learn about the data featurization settings in Azure Machine Learning and how to customize those features for [automated ML experiments](concept-automated-ml.md).
+Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](concept-automated-ml.md).
 
 ## Feature engineering and featurization
 
-*Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *autoML*, experiments.
+Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
+
+Although many of the raw data fields can be used directly to train a model, it's often necessary to create additional (engineered) features that provide information that  better differentiates patterns in the data. This process is called **feature engineering**, where the use of domain knowledge of the data is leveraged to create features that, in turn, help machine learning algorithms to learn better. 
+
+In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called **featurization** in automated ML experiments.
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
+This article assumes that you already know how to configure an automated ML experiment. For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
@@ -57,7 +59,7 @@ The following table shows the accepted settings for `featurization` in the [Auto
 The following table summarizes techniques that are automatically applied to your data. These techniques are applied for experiments that are configured by using the SDK or the studio. To disable this behavior, set `"featurization": 'off'` in your `AutoMLConfig` object.
 
 > [!NOTE]
-> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx).
+> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Featurization&nbsp;steps| Description |
 | ------------- | ------------- |

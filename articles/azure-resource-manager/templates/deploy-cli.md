@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/26/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
@@ -99,6 +99,18 @@ az deployment group create \
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
 
+To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
+
+```azurepowershell
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).
+
 ## Deployment name
 
 When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
@@ -129,7 +141,7 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
-The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
+The following examples show how to create and deploy a template spec.
 
 First, create the template spec by providing the ARM template.
 

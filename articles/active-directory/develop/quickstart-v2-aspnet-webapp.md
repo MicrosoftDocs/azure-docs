@@ -56,7 +56,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as `https://localhost:44368/`.
+> This quickstart's sample code requires a **Redirect URI** of `https://localhost:44368/`.
+
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -166,7 +167,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
 > | `Authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
-> | `RedirectUri`  | URL where users are sent after authentication against Microsoft identity platform endpoint |
+> | `RedirectUri`  | URL where users are sent after authentication against the Microsoft identity platform |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |
 > | `ResponseType`     | Request that the response from authentication contains an ID token |

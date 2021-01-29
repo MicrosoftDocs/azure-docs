@@ -163,3 +163,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## Next steps
+
+After you've initialized the client application, your next task is to add support for user sign-in, authorized API access, or both.
+
+Our application scenario documentation provides guidance for signing in a user and acquiring an access token to access an API on behalf of that user:
+
+- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
+- [Web app that calls web APIs: Acquire a token](scenario-web-app-call-api-acquire-token.md)

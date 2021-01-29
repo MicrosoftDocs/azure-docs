@@ -420,6 +420,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                            "env": {
                                "REGISTRY_PROXY_REMOTEURL": {
                                    "value": "https://mcr.microsoft.com"
+                               } 
                            },
                            "status": "running",
                            "restartPolicy": "always"
@@ -448,7 +449,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -570,7 +571,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },

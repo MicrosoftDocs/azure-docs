@@ -1,13 +1,10 @@
 ---
 title: Tutorial - Use Apache HBase in Azure HDInsight
 description: Follow this Apache HBase tutorial to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
+ms.date: 01/22/2021
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -339,9 +336,15 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
    - tasks
    - software attributes
 
+## Cluster recreation
+
+After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, however, we recommend that you disable the HBase tables before you delete the cluster. 
+
+You can use the HBase command `disable 'Contacts'`. 
+
 ## Clean up resources
 
-To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster. You can use the HBase command `disable 'Contacts'`. If you're not going to continue to use this application, delete the HBase cluster that you created with the following steps:
+If you're not going to continue to use this application, delete the HBase cluster that you created with the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the **Search** box at the top, type **HDInsight**.
