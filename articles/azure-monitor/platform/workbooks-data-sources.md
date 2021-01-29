@@ -84,10 +84,11 @@ To make a query control using [Application Change Analysis](../app/change-analys
 
 ## Merge data from different sources
 
-It is often necessary to bring together data from different sources that enhance the insights experience. An example is augmenting active alert information with related metric data. This allows users to see not just the effect ( an active alert), but also potential causes ( for example, high CPU usage). The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
+It is often necessary to bring together data from different sources that enhance the insights experience. An example is augmenting active alert information with related metric data. This allows users to see not just the effect (an active alert), but also potential causes (for example, high CPU usage). The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
 
-Workbooks allow not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
-The example below combines alerting data with log analytics VM performance data where available to get a rich insights grid.
+Workbooks allows not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
+
+The example below combines alerting data with log analytics VM performance data to get a rich insights grid.
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of a workbook with a merge control that combines alert and log analytics data](./media/workbooks-data-sources/merge-control.png)
@@ -124,7 +125,7 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 Workbooks allow users to visualize the active alerts related to their resources. 
 Limitations: the alerts data source requires read access to the Subscription in order to query resources, and may not show newer kinds of alerts. 
 
-To make a query control use this data source, use the _Data source_ drop-down to choose _Alerts (preview)_ and select the subscriptions, resource groups or resources to target. Use the alert filter drop downs to select an interesting subset of alerts for your analytic needs.
+To make a query control use this data source, use the _Data source_ drop-down to choose _Alerts (preview)_ and select the subscriptions, resource groups, or resources to target. Use the alert filter drop downs to select an interesting subset of alerts for your analytic needs.
 
 ## Custom endpoint
 
