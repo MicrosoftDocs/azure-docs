@@ -18807,6 +18807,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/overview-differences.md",
+      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -24233,11 +24238,6 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
       "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
