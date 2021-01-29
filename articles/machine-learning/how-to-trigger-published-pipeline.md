@@ -14,7 +14,9 @@ ms.custom: how-to, devx-track-python
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
 
-# Trigger machine learning pipelines 
+# Trigger machine learning pipelines
+
+
 
 {>> rewrite In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can choose to create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use an Azure Logic App to allow more complex triggering logic or behavior. <<}
 
@@ -169,7 +171,7 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
     Choose the **Interval** and **Frequency** to poll for updates that work for you.  
 
     > [!NOTE]
-    > This trigger will monitor the selected Container but will not monitor subfolders.
+    > This trigger will monitor the selected Container but won't monitor subfolders.
 
 1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action.
 
