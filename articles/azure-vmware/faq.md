@@ -75,9 +75,11 @@ No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balanc
 ### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
 Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
 
-### Why does Azure VMware Solution use public 4-byte Autonomous System Number (ASN) instead of private 2-byte ASN?
+### Why does Azure VMware Solution use a Public 4-byte Autonomous System Number (ASN)?
+Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
  
-Azure VMware Solution utilizes officially registered Public 4-byte Autonomous System Numbers (ASNs) to ensure there is never a conflict with customer on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.  
+### How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
+The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.
 
 ## Compute, network, storage, and backup
 
