@@ -76,13 +76,13 @@ Azure Security Center does not require deployment. For more information, see a l
 
 Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms.
 
-- See [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md) to enable Azure Arc enabled servers for multiple Windows or Linux VMs.
+- For information on enabling Azure Arc enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
 ### Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
 You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. 
 
-- See [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+- For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ### Deploy the Log Analytics agent
 

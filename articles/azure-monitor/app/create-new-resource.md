@@ -32,8 +32,8 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
-[!div class="mx-imgBorder"]
-![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
 
 When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
 
