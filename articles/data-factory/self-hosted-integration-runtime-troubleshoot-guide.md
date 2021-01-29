@@ -193,7 +193,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing

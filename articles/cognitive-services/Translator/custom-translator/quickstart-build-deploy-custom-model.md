@@ -2,12 +2,12 @@
 title: "Quickstart: Build, deploy, and use a custom model - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart you go through step-by-step process of building a translation system using the Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 12/09/2019
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---

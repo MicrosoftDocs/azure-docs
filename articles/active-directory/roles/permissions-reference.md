@@ -424,7 +424,7 @@ Users with this role can manage alerts and have global read-only access on secur
 In | Can do
 --- | ---
 [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
+Azure AD Identity Protection | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails.
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role
 [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
 Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts

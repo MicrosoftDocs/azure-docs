@@ -12,7 +12,7 @@ When you're using the Consumption plan, instances of the Azure Functions host ar
 
 ## Benefits
 
-The Consumption plan scales automatically, even even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
+The Consumption plan scales automatically, even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
 For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
