@@ -1,9 +1,6 @@
 ---
 title: Debug Apache Spark jobs running on Azure HDInsight 
 description: Use YARN UI, Spark UI, and Spark History server to track and debug jobs running on a Spark cluster in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -31,11 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!TIP]  
    > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, select **Ambari home** under **Cluster dashboards**. From the Ambari UI, navigate to **YARN** > **Quick Links** > the active Resource Manager > **Resource Manager UI**.
 
-2. Because you started the Spark job using Jupyter notebooks, the application has the name **remotesparkmagics** (the name for all applications started from the notebooks). Select the application ID against the application name to get more information about the job. This action launches the application view.
+2. Because you started the Spark job using Jupyter Notebooks, the application has the name **remotesparkmagics** (the name for all applications started from the notebooks). Select the application ID against the application name to get more information about the job. This action launches the application view.
 
     ![Spark history server Find Spark application ID](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    For such applications that are launched from the Jupyter notebooks, the status is always **RUNNING** until you exit the notebook.
+    For such applications that are launched from the Jupyter Notebooks, the status is always **RUNNING** until you exit the notebook.
 
 3. From the application view, you can drill down further to find out the containers associated with the application and the logs (stdout/stderr). You can also launch the Spark UI by clicking the linking corresponding to the **Tracking URL**, as shown below.
 
@@ -45,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In the Spark UI, you can drill down into the Spark jobs that are spawned by the application you started earlier.
 
-1. To launch the Spark UI, from the application view, select the link against the **Tracking URL**, as shown in the screen capture above. You can see all the Spark jobs that are launched by the application running in the Jupyter notebook.
+1. To launch the Spark UI, from the application view, select the link against the **Tracking URL**, as shown in the screen capture above. You can see all the Spark jobs that are launched by the application running in the Jupyter Notebook.
 
     ![Spark history server jobs tab](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 

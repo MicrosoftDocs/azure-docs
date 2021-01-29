@@ -40,7 +40,7 @@ You can configure the Log Analytics workspace with Azure Sentinel for alert dete
 
 ## Create a Log Analytics workspace
 
-You will need a Log Analytics workspace to collect data from various sources. See the steps in [Create a Log Analytics workspace from the Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
+You will need a Log Analytics workspace to collect data from various sources. For more information, see [Create a Log Analytics workspace from the Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## Deploy Security Center and configure Azure VMware Solution VMs
 
@@ -168,7 +168,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
         |where count_ > 3
         ```
         
-    - Map entity
+    - Map entities
     - Query scheduling
     - Alert threshold
     - Event grouping

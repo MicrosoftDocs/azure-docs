@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
@@ -23,6 +23,9 @@ You can use the Data Factory UI in the Azure portal or a programming interface t
 > [!TIP]
 > We recommend not to parameterize passwords or secrets. Store all connection strings in Azure Key Vault instead, and parameterize the *Secret Name*.
 
+> [!Note]
+> There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
+
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
@@ -37,9 +40,10 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure Databricks
+- Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
-- Azure Synapse Analytics (formerly SQL DW)
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server

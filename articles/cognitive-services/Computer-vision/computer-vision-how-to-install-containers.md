@@ -385,10 +385,6 @@ The Cognitive Services containers send billing information to Azure, using the c
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video course -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:

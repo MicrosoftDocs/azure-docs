@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
 ---
 # Troubleshoot capacity pool issues
@@ -28,10 +28,7 @@ This article describes resolutions to issues you might have when managing capaci
 | Issues deleting a capacity pool  |  Make sure that you remove all Azure NetApp Files volumes and snapshots in the subscription where you are trying to delete the capacity pool. <br> If you already removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. |
 | Volume creation or modification fails with `Requested throughput not available` error | Available throughput for a volume is determined by its capacity pool’s size and the service level. If you do not have sufficient throughput, you should increase the pool size or adjust the existing volume throughput. | 
 
-## Issues moving a capacity pool 
-
-> [!IMPORTANT] 
-> The [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) public preview registration is on hold until further notice.
+## Issues when changing the capacity pool of a volume 
 
 |     Error condition    |     Resolution    |
 |-|-|

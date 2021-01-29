@@ -7,7 +7,7 @@ ms.date: 09/03/2020
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: [amqp, contperfq1]
+ms.custom: [amqp, contperf-fy21q1]
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server

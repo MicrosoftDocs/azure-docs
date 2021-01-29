@@ -1,6 +1,6 @@
 ---
-title: Classification reporting on your data using Purview Insights (preview)
-description: This how-to guide describes how to view and use Purview Insights classification reporting on your data. 
+title: Classification reporting on your data in Azure Purview using Purview Insights
+description: This how-to guide describes how to view and use Purview classification reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
@@ -29,7 +29,9 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source 
+- Set up and completed a scan on the test data in each data source
+
+- Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
@@ -40,7 +42,7 @@ In Azure Purview, classifications are similar to subject tags, and are used to m
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
 
 > [!NOTE]
-> After you have scanned your source types, give **Classification labeling** Insights a couple of hours to reflect the new assets.
+> After you have scanned your source types, give **Classification** Insights a couple of hours to reflect the new assets.
 
 **To view classification insights:**
 

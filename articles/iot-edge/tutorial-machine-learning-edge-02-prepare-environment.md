@@ -13,6 +13,13 @@ services: iot-edge
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Set up a virtual machine for development.
+> * Set up an IoT Hub and cloud storage for your development environment to use.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.

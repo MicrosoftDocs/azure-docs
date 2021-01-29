@@ -23,7 +23,7 @@ ms.author: allensu
 
 A public IP address prefix is a reserved range of IP addresses in Azure. Azure gives a contiguous range of addresses to your subscription based on how many you specify. 
 
-If you're not familiar with public addresses, see [Public IP addresses.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+If you're not familiar with public addresses, see [Public IP addresses.](./public-ip-addresses.md#public-ip-addresses)
 
 Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=56519) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
 
@@ -65,9 +65,9 @@ You can associate the following resources to a static public IP address from a p
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure gives the IP addresses for the prefix, based on the size that you specify.
-- You can create a prefix of up to 16 IP addresses or a /28 by default. Review [Network limits increase requests](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) and [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
+- You can create a prefix of up to 16 IP addresses or a /28 by default. Review [Network limits increase requests](../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
 - You can't change the range, once you've created the prefix.
-- Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+- Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses can't be assigned to resources in the classic deployment model.
 - All public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first.

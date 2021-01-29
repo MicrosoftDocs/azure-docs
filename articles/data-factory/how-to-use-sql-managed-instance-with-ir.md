@@ -158,7 +158,7 @@ For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS in
 
 ## Clean up SSISDB logs
 
-SSISDB logs retention policy are defined by below properties in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
+SSISDB logs retention policy are defined by below properties in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database):
 
 - OPERATION_CLEANUP_ENABLED
 

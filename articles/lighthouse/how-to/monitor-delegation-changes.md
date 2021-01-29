@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
 ---
 
@@ -41,7 +41,7 @@ Because this is a broad level of access, we recommend that you assign this role 
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/security-overview.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 > [!NOTE]
@@ -176,3 +176,4 @@ A list of delegation changes will appear. You can select **Edit columns** to sho
 
 - Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
+- Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.

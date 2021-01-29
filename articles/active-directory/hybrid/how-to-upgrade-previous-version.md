@@ -20,7 +20,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Upgrade from a previous version to the latest
-This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release. We recommend that you keep yourself current with the releases of Azure AD Connect. You also use the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change.
+This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release.  You also use the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change.
+
+>[!NOTE]
+> It is important that you keep your servers current with the latest releases of Azure AD Connect. We are constantly making upgrades to AADConnect, and these upgrades include fixes to security issues and bugs, as well as serviceability, performance and scalability improvements. 
+> To see what the latest version is, and to learn what changes have been made between versions, please refer to the [release version history](./reference-connect-version-history.md)
 
 >[!NOTE]
 > It is currently supported to upgrade from any version of Azure AD Connect to the current version. In-place upgrades of DirSync or ADSync are not supported and a swing migration is required.  If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) or the [Swing migration](#swing-migration) section.  </br>In practice, customers on extremely old versions may encounter problems not directly related to Azure AD Connect. Servers that have been in production for several years, typically have had several patches applied to them and not all of these can be accounted for.  Generally, customers who have not upgraded in 12-18 months should consider a swing upgrade instead as this is the most conservative and least risky option.

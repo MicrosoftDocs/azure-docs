@@ -27,7 +27,7 @@ In part 1 of this tutorial series, you will:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * An [Azure Purview account](create-catalog-portal.md).
-* [The starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) that will deploy your data estate.
+* [The starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) that will deploy your data estate.
 
 > [!NOTE]
 > The starter kit is only available for Windows.
@@ -141,10 +141,11 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    When you run the command, a pop-up window may appear for you to sign in using your Azure Active Directory credentials.
 
-1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname`, and `CatalogResourceGroupName` placeholders. For `newresourcegroupname`, use a unique name for the resource group that will contain the data estate.
 
-> [!IMPORTANT]
-> The **newresourcegroupname** can be alphanumeric or numbers only. **No upper case alphabets and special characters are allowed.**
+1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName`, and `CatalogResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name (with lowercase alphanumeric characters only) for the resource group that will contain the data estate.
+
+   > [!IMPORTANT]
+   > The **newresourcegroupname** use numbers and lower-case letters only and must be less than 17 characters. **No upper case alphabets and special characters are allowed.** This constraint comes from storage account naming rules.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
@@ -183,6 +184,8 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 1. Repeat the previous steps for Azure Data Lake Storage Gen2.
 
 ### Scan your data sources
+
+1. Navigate to your Azure Purview resource in the [Azure portal](https://portal.azure.com) and select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
 
 1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 

@@ -36,8 +36,8 @@ This article explains which languages are supported for the Ink Recognizer API. 
 | Dutch (Netherlands)                        |     `nl-NL`     |
 | English (Australia)                        |     `en-AU`     |
 | English (Canada)                           |     `en-CA`     |
-| English (United Kingdom)                   |     `en-GB`     |
 | English (India)                            |     `en-IN`     |
+| English (United Kingdom)                   |     `en-GB`     |
 | English (United States)                    |     `en-US`     |
 | Finnish                                    |     `fi-FI`     |
 | French (France)                            |     `fr-FR`     |
@@ -62,23 +62,23 @@ This article explains which languages are supported for the Ink Recognizer API. 
 | Polish                                     |     `pl-PL`     |
 | Portuguese (Brazil)                        |     `pt-BR`     |
 | Portuguese (Portugal)                      |     `pt-PT`     |
-| Romansh                                    |     `rm-CH`     |
 | Romanian                                   |     `ro-RO`     |
+| Romansh                                    |     `rm-CH`     |
 | Russian                                    |     `ru-RU`     |
 | Scottish Gaelic                            |     `gd-GB`     |
-| Sesotho sa Leboa                           |    `nso-ZA`     |
 | Serbian (Cyrillic, Bosnia and Herzegovina) |  `sr-Cyrl-BA`   |
 | Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbian (Cyrillic, Serbia)                 |  `sr-Cyrl-RS`   |
 | Serbian (Latin, Bosnia and Herzegovina)    |  `sr-Latn-BA`   |
 | Serbian (Latin, Montenegro)                |  `sr-Latn-ME`   |
 | Serbian (Latin, Serbia)                    |  `sr-Latn-RS`   |
+| Sesotho sa Leboa                           |    `nso-ZA`     |
 | Setswana (South Africa)                    |     `tn-ZA`     |
 | Slovak                                     |     `sk-SK`     |
 | Slovenian                                  |     `sl-SI`     |
 | Spanish (Argentina)                        |     `es-AR`     |
-| Spanish (Spain)                            |     `es-ES`     |
 | Spanish (Mexico)                           |     `es-MX`     |
+| Spanish (Spain)                            |     `es-ES`     |
 | Swedish (Sweden)                           |     `sv-SE`     |
 | Turkish                                    |     `tr-TR`     |
 | Welsh                                      |     `cy-GB`     |

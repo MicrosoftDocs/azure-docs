@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020, contperfq2]
+ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
 keywords: computer vision, computer vision applications, computer vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---

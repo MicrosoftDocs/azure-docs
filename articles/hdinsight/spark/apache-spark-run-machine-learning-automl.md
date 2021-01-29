@@ -1,9 +1,6 @@
 ---
 title: Run Azure Machine Learning workloads on Apache Spark in HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
@@ -19,7 +16,7 @@ For general tutorials of automated machine learning, see [Tutorial: Use automate
 All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK.
 
 > [!Note]
-> Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
+> Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter Notebook should be run using the PySpark3 kernel.
 
 You can use Zeppelin notebooks to use AutoML as well.
 

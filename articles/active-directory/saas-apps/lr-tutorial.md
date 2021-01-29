@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the LoginRadius Admin Con
        - Command to get the certificate key for SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - Command to get the certificate for SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-  	 
+
 	   > [!NOTE]
 	   > Be sure to enter the certificate and certificate key values with the header and footer:
 	   > - Certificate value example format: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

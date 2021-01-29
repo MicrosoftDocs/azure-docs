@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
+ms.date: 12/09/2020
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share
@@ -29,7 +29,7 @@ The data used in this lab is New York City taxi data. To import it into your dat
 
 * **Azure Data Lake Storage Gen2 storage account**: If you don't have an ADLS Gen2 storage account, learn how to [create an ADLS Gen2 storage account](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (formerly SQL DW)**: If you don't have an Azure Synapse Analytics (formerly SQL DW), learn how to [create an Azure Synapse Analytics instance](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: If you don't have an Azure Synapse Analytics, learn how to [create an Azure Synapse Analytics instance](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: If you haven't created a data factory, see how to [create a data factory](./quickstart-create-data-factory-portal.md).
 
@@ -67,19 +67,19 @@ In Azure Data Factory linked services define the connection information to exter
     ![Portal configure 3](media/lab-data-flow-data-share/configure3.png)
 1. The first linked service you'll configure is an Azure SQL DB. You can use the search bar to filter the data store list. Click on the **Azure SQL Database** tile and click continue.
 
-    ![Portal configure 4](media/lab-data-flow-data-share/configure4.png)
+    ![Portal configure 4](media/lab-data-flow-data-share/configure-4.png)
 1. In the SQL DB configuration pane, enter 'SQLDB' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
     ![Portal configure 5](media/lab-data-flow-data-share/configure5.png)
 
 ### Create an Azure Synapse Analytics linked service
 
-1. Repeat the same process to add an Azure Synapse Analytics linked service. In the connections tab, click **New**. Select the **Azure Synapse Analytics (formerly SQL DW)** tile and click continue.
+1. Repeat the same process to add an Azure Synapse Analytics linked service. In the connections tab, click **New**. Select the **Azure Synapse Analytics** tile and click continue.
 
-    ![Portal configure 6](media/lab-data-flow-data-share/configure6.png)
+    ![Portal configure 6](media/lab-data-flow-data-share/configure-6.png)
 1. In the linked service configuration pane, enter 'SQLDW' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
-    ![Portal configure 7](media/lab-data-flow-data-share/configure7.png)
+    ![Portal configure 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### Create an Azure Data Lake Storage Gen2 linked service
 
@@ -123,7 +123,7 @@ In Azure Data Factory, a pipeline is a logical grouping of activities that toget
     ![Portal copy 4](media/lab-data-flow-data-share/copy4.png)
 1. Search for **Azure SQL Database** and click continue.
 
-    ![Portal copy 5](media/lab-data-flow-data-share/copy5.png)
+    ![Portal copy 5](media/lab-data-flow-data-share/copy-5.png)
 1. Call your dataset 'TripData'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripData' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
     ![Portal copy 6](media/lab-data-flow-data-share/copy6.png)
@@ -150,7 +150,7 @@ You have successfully created your source dataset. Make sure in the source setti
 1. To verify your copy activity is working correctly, click **Debug** at the top of the pipeline canvas to execute a debug run. A debug run allows you to test your pipeline either end-to-end or until a breakpoint before publishing it to the data factory service.
 
     ![Portal copy 11](media/lab-data-flow-data-share/copy11.png)
-1. To monitor your debug run, go to the **Output** tab of the pipeline canvas. The monitoring screen will autorefresh every 20 seconds or when you manually click the refresh button. The copy activity has a special monitoring view which can be access by clicking the eye-glasses icon in the **Actions** column.
+1. To monitor your debug run, go to the **Output** tab of the pipeline canvas. The monitoring screen will autorefresh every 20 seconds or when you manually click the refresh button. The copy activity has a special monitoring view, which can be access by clicking the eye-glasses icon in the **Actions** column.
 
     ![Portal copy 12](media/lab-data-flow-data-share/copy12.png)
 1. The copy monitoring view gives the activity's execution details and performance characteristics. You can see information such as data read/written, rows read/written, files read/written, and throughput. If you have configured everything correctly, you should see 49,999 rows written into one file in your ADLS sink.
@@ -206,7 +206,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     ![Portal data flow 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Select the **Azure SQL Database** tile and click continue. *Note: You may notice many of the connectors in data factory are not supported in mapping data flow. To transform data from one of these sources, ingest it into a supported source using the copy activity*.
 
-    ![Portal data flow 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![Portal data flow 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. Call your dataset 'TripFares'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripFares' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
     ![Portal data flow 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -221,7 +221,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     ![Portal join 1](media/lab-data-flow-data-share/join1.png)
 1. Name your join transformation 'InnerJoinWithTripFares'. Select 'TripFaresSQL' from the right stream dropdown. Select **Inner** as the join type. To learn more about the different join types in mapping data flow, see [join types](./data-flow-join.md#join-types).
 
-    Select which columns you wish to match on from each stream via the **Join conditions** dropdown. To add an additional join condition, click on the plus icon next to an existing condition. By default, all join conditions are combined with an AND operator which means all conditions must be met for a match. In this lab, we want to match on columns `medallion`, `hack_license`, `vendor_id`, and `pickup_datetime`
+    Select which columns you wish to match on from each stream via the **Join conditions** dropdown. To add an additional join condition, click on the plus icon next to an existing condition. By default, all join conditions are combined with an AND operator, which means all conditions must be met for a match. In this lab, we want to match on columns `medallion`, `hack_license`, `vendor_id`, and `pickup_datetime`
 
     ![Portal join 2](media/lab-data-flow-data-share/join2.png)
 1. Verify you successfully joined 25 columns together with a data preview.
@@ -256,7 +256,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     To get the total trip distance, use the `sum()` aggregation function to aggregate the `trip_distance` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `sum(toInteger(trip_distance))`. Click **Save and finish** when you're done.
 
     ![Portal agg 6](media/lab-data-flow-data-share/agg6.png)
-1. Test your transformation logic in the **Data Preview** tab. As you can see, there are significantly fewer rows and columns than previously. Only the three group by and aggregation columns defined in this transformation continue downstream. As there are only five payment type groups in the sample, only five rows are outputted.
+1. Test your transformation logic in the **Data Preview** tab. As you can see, there are significantly fewer rows and columns than previously. Only the three groups by and aggregation columns defined in this transformation continue downstream. As there are only five payment type groups in the sample, only five rows are outputted.
 
     ![Portal agg 7](media/lab-data-flow-data-share/agg7.png)
 
@@ -269,9 +269,9 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
     ![Portal sink 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Select the **Azure Synapse Analytics (formerly SQL DW)** tile and click continue.
+1. Select the **Azure Synapse Analytics** tile and click continue.
 
-    ![Portal sink 3](media/lab-data-flow-data-share/sink3.png)
+    ![Portal sink 3](media/lab-data-flow-data-share/sink-3.png)
 1. Call your dataset 'AggregatedTaxiData'. Select 'SQLDW' as your linked service. Select **Create new table** and name the new table dbo.AggregateTaxiData. Click OK when finished
 
     ![Portal sink 4](media/lab-data-flow-data-share/sink4.png)
@@ -325,7 +325,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Under **Share name**, specify a name of your choice. This is the share name that will be seen by your data consumer, so be sure to give it a descriptive name such as TaxiData.
 
-1. Under **Description**, put in a sentence which describes the contents of the data share. The data share will contain world-wide taxi trip data that is stored in a number of stores including Azure Synapse Analytics and Azure Data Lake Store. 
+1. Under **Description**, put in a sentence, which describes the contents of the data share. The data share will contain world-wide taxi trip data that is stored in a number of stores including Azure Synapse Analytics and Azure Data Lake Store. 
 
 1. Under **Terms of use**, specify a set of terms that you would like your data consumer to adhere to. Some examples include "Do not distribute this data outside your organization" or "Refer to legal agreement". 
 

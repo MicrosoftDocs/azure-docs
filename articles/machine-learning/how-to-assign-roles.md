@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
+ms.date: 01/20/2020
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---
 
@@ -157,6 +157,10 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 > [!NOTE]
 > Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
+
+## Use Azure Resource Manager templates for repeatability
+
+If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [201-machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 

@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,20 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## December 2020
+
+### Updated articles
+
+- [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Use the AD FS application activity report (preview) to migrate applications to Azure AD](migrate-adfs-application-activity.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## November 2020
 
@@ -71,7 +85,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [How to use self-service application access](access-panel-manage-self-service-access.md)
 - [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Troubleshoot password-based single sign-on in Azure AD](troubleshoot-password-based-sso.md)
-- [Plan an Azure Active Directory My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md)
 - [What is single sign-on (SSO)?](what-is-single-sign-on.md)
 - [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)

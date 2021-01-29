@@ -7,7 +7,7 @@ ms.topic: how-to
 author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace

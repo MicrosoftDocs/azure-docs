@@ -15,7 +15,7 @@ In this tutorial, you create and deploy your code to Azure Functions as a custom
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or additional libraries as dependencies that require the use of a custom container.
 ::: zone-end
 
-Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -167,19 +167,26 @@ In a text editor, create a file in the project folder named *handler.R*. Add the
 library(httpuv)
 
 PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-PORT = strtoi(PORTEnv , base = 0L)
+PORT <- strtoi(PORTEnv , base = 0L)
 
 http_not_found <- list(
   status=404,
   body='404 Not Found'
 )
+
 http_method_not_allowed <- list(
   status=405,
   body='405 Method Not Allowed'
 )
 
 hello_handler <- list(
-  GET = function (request) list(body="Hello world")
+  GET = function (request) {
+    list(body=paste(
+      "Hello,",
+      if(substr(request$QUERY_STRING,1,6)=="?name=") 
+        substr(request$QUERY_STRING,7,40) else "World",
+      sep=" "))
+  }
 )
 
 routes <- list(
@@ -265,12 +272,9 @@ R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
 func start
 ```
 ::: zone-end 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
+
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
-::: zone-end
-::: zone pivot="programming-language-other"
-Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample`. The browser should display a "Hello world" message.
-::: zone-end
+
 Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
@@ -347,7 +351,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
 - An Azure Storage account, which maintains state and other information about your projects.
-- An Azure functions app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 

@@ -82,7 +82,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
 ## Create a search handler
 

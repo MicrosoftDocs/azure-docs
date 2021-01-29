@@ -221,7 +221,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### Are network security groups (NSG) enabled for private endpoints?
-No, they are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
+No, they are disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR. 
+
+Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used
+
+### Can I use firewall rules with private endpoints?
+No, this is a current limitation of private endpoints. The private endpoint will not work properly if firewall rules are configured on the cache.
 
 ### How can I connect to a clustered cache?
 `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.

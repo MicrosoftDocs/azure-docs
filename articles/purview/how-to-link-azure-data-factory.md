@@ -36,6 +36,13 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 ## Create new Data Factory connection
 
+>[!Note]
+>In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>- Owner
+>- User Access Administrator
+>
+> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
+
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
 1. Select **Management Center** on the left navigation pane.
@@ -56,20 +63,24 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 >[!Note]
 >We now support adding no more than 10 Data Factories at once. If you want to add more than 10 Data Factories at once, please file a support ticket.
 
+### How does the authentication work?
+
+When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
+
+1. The **Data Factory MSI** gets added to Purview RBAC role: **Purview Data Curator**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. The Data Factory pipeline needs to be executed again so that the lineage metadata can be pushed back into Purview.
+3. Post execution the Data Factory metadata is pushed into Purview.
 
 ### Remove data factory connections
 To remove a data factory connection, do the following:
 
 1. On the **Data Factory connection** page, select the **Remove** button next to one or more data factory connections.
-1. Select **Confirm** in the popup to delete the selected data factory connections.
+2. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
->- Owner
->- User Access Administrator
-> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”, or “Data Factory contributor”. 
 
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 
@@ -92,9 +103,9 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 | Data storage system | Supported as source | Supported as sink |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (no JSON support) | Yes | Yes (non-binary copy only) |
-| ADLS Gen2 (no JSON support) | Yes | Yes |
-| Azure Blob (no JSON support) | Yes | Yes |
+| ADLS Gen1 | Yes | Yes (non-binary copy only) |
+| ADLS Gen2 | Yes | Yes |
+| Azure Blob | Yes | Yes |
 | Azure Cosmos DB (SQL API) | Yes | Yes |
 | Azure Cosmos DB (Mongo API) | Yes | Yes |
 | Azure Cognitive Search | Yes | Yes |

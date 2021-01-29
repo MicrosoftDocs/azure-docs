@@ -16,6 +16,17 @@ Frequently, IoT applications want to take advantage of the intelligent cloud and
 
 The primary objective of this tutorial is to introduce the processing of IoT data with machine learning, specifically on the edge. While we touch many aspects of a general machine learning workflow, this tutorial is not intended as an in-depth introduction to machine learning. As a case in point, we do not attempt to create a highly optimized model for the use case – we just do enough to illustrate the process of creating and using a viable model for IoT data processing.
 
+This section of the tutorial discusses:
+
+> [!div class="checklist"]
+>
+> * The prerequisites to complete the subsequent parts of the tutorial.
+> * The target audience of the tutorial.
+> * The use case the tutorial simulates.
+> * The overall process the tutorial follows to fulfill the use case.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete the tutorial, you need access to an Azure subscription in which you have rights to create resources. Several of the services used in this tutorial will incur Azure charges. If you do not already have an Azure subscription, you may be able to get started with an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/).

@@ -8,7 +8,7 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
@@ -19,7 +19,7 @@ ms.author: kumud
 Virtual Network (VNet) integration for an Azure service enables you to lock down access to the service to only your virtual network infrastructure. The VNet infrastructure also includes peered virtual networks and on-premises networks.
 
 VNet integration provides Azure services the benefits of network isolation and can be accomplished by one or more of the following methods:
-- [Deploying dedicated instances of the service into a virtual network](virtual-network-service-endpoints-overview.md). The services can then be privately accessed within the virtual network and from on-premises networks.
+- [Deploying dedicated instances of the service into a virtual network](virtual-network-for-azure-services.md). The services can then be privately accessed within the virtual network and from on-premises networks.
 - Using [Private Endpoint](../private-link/private-endpoint-overview.md) that connects you privately and securely to a service powered by [Azure Private Link](../private-link/private-link-overview.md). Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your virtual network.
 - Accessing the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
 - Using [service tags](service-tags-overview.md) to allow or deny traffic to your Azure resources to and from public IP endpoints.
@@ -61,7 +61,7 @@ For more information, see [Virtual network service endpoints](virtual-network-se
 
 ## Service tags
 
-A service tag represents a group of IP address prefixes from a given Azure service. Using service tags, you can define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
+A service tag represents a group of IP address prefixes from a given Azure service. Using service tags, you can define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
 
 ![Allow or deny traffic using Service Tags](./media/network-isolation/service-tags.png)
 
@@ -71,6 +71,6 @@ For more information about Service Tags and Azure services that support them, se
 
 ## Next steps
 
-- Learn how to [integrate you app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
+- Learn how to [integrate your app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
-- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

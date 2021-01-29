@@ -25,7 +25,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
 - For an existing cluster from the Azure portal or using Azure Resource Manager template.
-- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](/cli/azure/openshift#az-openshift-create).
 
 ## Supported and unsupported features
 
@@ -148,7 +148,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 5. The following step deploys the cluster with monitoring enabled by using the Azure CLI.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     The output resembles the following:
@@ -230,7 +230,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 6. To deploy with Azure CLI, run the following commands:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     The output resembles the following:

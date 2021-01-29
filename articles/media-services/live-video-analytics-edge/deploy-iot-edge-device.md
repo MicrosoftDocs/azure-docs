@@ -103,7 +103,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     Examples:
     
     * **IoT Edge Module Name**: lvaEdge
-    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0	 
+    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:2.0	 
     
     ![Screenshot shows the Module Settings tab.](./media/deploy-iot-edge-device/add.png)
     

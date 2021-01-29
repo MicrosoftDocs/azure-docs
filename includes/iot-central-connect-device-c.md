@@ -64,7 +64,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` function first calls `CreateAndConfigureDeviceClientHandleForPnP` to:
 
-* Set the `dtmi:com:example:Thermostat;1` model ID.
+* Set the `dtmi:com:example:Thermostat;1` model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Use DPS to provision and register the device.
 * Creates a command handler for the `getMaxMinReport` command.
 * Creates a property update handler for the writable `targetTemperature` property.
