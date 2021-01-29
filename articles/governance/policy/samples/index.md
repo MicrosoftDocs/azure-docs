@@ -36,7 +36,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
 - [CMMC Level 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
-- [ISO 27001:2013](./iso27001.md)
+- [ISO 27001:2013](./iso-27001.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 
