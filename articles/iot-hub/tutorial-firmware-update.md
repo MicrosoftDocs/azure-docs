@@ -81,7 +81,7 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Add a device type tag
-az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"devicetype":"chiller"}'
+az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"device type":"chiller"}'
 
 # Retrieve the device connection string, you need this later
 az iot hub device-identity connection-string show --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
@@ -93,7 +93,7 @@ az iot hub device-identity connection-string show --device-id MyFirmwareUpdateDe
 
 ## Start the firmware update
 
-You create an [automatic device management configuration](iot-hub-automatic-device-management.md#create-a-configuration) in the back-end application to begin the firmware update process on all devices tagged with a **devicetype** of chiller. In this section, you see how to:
+You create an [automatic device management configuration](iot-hub-automatic-device-management.md#create-a-configuration) in the back-end application to begin the firmware update process on all devices tagged with a **device type** of chiller. In this section, you see how to:
 
 * Create a configuration from a back-end application.
 * Monitor the job to completion.
