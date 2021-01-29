@@ -12211,7 +12211,7 @@
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
