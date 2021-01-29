@@ -99,6 +99,8 @@
           href: spring-cloud-howto-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: Structured application log
+          href: spring-cloud-structured-app-log.md
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
