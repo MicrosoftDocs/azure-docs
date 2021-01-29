@@ -156,20 +156,20 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Troubleshoot errors with Azure Monitor
-            url: tutorial-troubleshoot-monitor
+            url: tutorial-troubleshoot-monitor.md
       - linkListType: how-to-guide
         links:
           - text: Enable diagnostic logs
-            url: troubleshoot-diagnostic-logs
+            url: troubleshoot-diagnostic-logs.md
           - text: Get resource events
-            url: get-resource-events
+            url: get-resource-events.md
           - text: Health check
-            url: monitor-instances-health-check
+            url: monitor-instances-health-check.md
             
       - linkListType: reference
         links:
           - text: Quotas & alerts
-            url: web-sites-monitor
+            url: web-sites-monitor.md
 
   - title: More resources
     linkLists:
