@@ -30,7 +30,7 @@ We recommend that you use GPv2, so you can take advantage of the latest features
 > [!NOTE]
 > Only the hot access tier is supported for use with Azure Media Services, although the other access tiers can be used to reduce storage costs on content that isn't being actively used.
 
-There are different SKUs you can choose for your storage account. For more information, see [storage accounts](/cli/azure/storage/account?view=azure-cli-latest). If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production, you should consider `--sku Standard_RAGRS`, which provides geographic replication for business continuity.
+There are different SKUs you can choose for your storage account. If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production, you should consider `--sku Standard_RAGRS`, which provides geographic replication for business continuity.
 
 ## Assets in a storage account
 
@@ -53,7 +53,7 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 
 ## Storage account double encryption
 
-Storage accounts support double encryption but the second layer must explicitly be enabled (see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Storage accounts support double encryption but the second layer must explicitly be enabled. See [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## Storage account errors
 
