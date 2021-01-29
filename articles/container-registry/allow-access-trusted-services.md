@@ -1,11 +1,11 @@
 ---
-title: Access network-restricted registry using trusted service
-description: Enable a trusted service instance to securely access a network-restricted container registry to pull or push images 
+title: Access network-restricted registry using trusted Azure service
+description: Enable a trusted Azure service instance to securely access a network-restricted container registry to pull or push images 
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 01/29/2021
 ---
 
-# Allow trusted services to securely access a network-restricted container registry
+# Allow trusted services to securely access a network-restricted container registry (preview)
 
 Azure Container Registry can allow select trusted Azure services to access a registry that's configured with network access rules. When trusted services are allowed, a trusted service instance can securely bypass the registry's network rules and perform operations such as pull or push images. The service instance's managed identity is used for access, and must be assigned an Azure role and authenticate with the registry.
 
@@ -27,7 +27,7 @@ Azure Container Registry has a layered security model, supporting multiple netwo
 
 When deployed in a virtual network or configured with firewall rules, a registry denies access by default to users or services from outside those sources. 
 
-Several multi-tenant Azure services operate from networks that can't be included in registry network settings, preventing them from pulling or pushing images to the registry. By designating certain service instances as "trusted", a registry owner can allow select Azure resources to securely bypass the registry's network settings to pull or push images. 
+Several multi-tenant Azure services operate from networks that can't be included in these registry network settings, preventing them from pulling or pushing images to the registry. By designating certain service instances as "trusted", a registry owner can allow select Azure resources to securely bypass the registry's network settings to pull or push images. 
 
 ### Trusted services
 
@@ -39,17 +39,12 @@ Instances of the following services can access a network-restricted container re
 |Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-docker-image.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image |
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
-### Non-trusted services
-
-Instances of other managed Azure services including the following examples are *not* allowed access to a network-restricted Azure container registry at this time:
-
-* Azure Security Center
-* Container Instances
-* App Service
+> [!NOTE]
+> Enabling the allow trusted services setting does not allow instances of other managed Azure services including App Service, Azure Container Instances, and Azure Security Center to access a network-restricted Azure container registry at this time.
 
 ## Allow trusted services - CLI
 
-When it has network restrictions, the registry by default is configured to allow access by trusted services. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
+By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
 
 To disable:
 
@@ -63,19 +58,19 @@ To enable the setting in an existing registry or a registry where it's already d
 az acr update --name myregistry --allow-trusted-services true
 ```
 
-<!--
 ## Allow trusted services - portal
 
-By default, the allow trusted services setting is enabled in new Azure container registries. 
+By default, the allow trusted services setting is enabled in a new Azure container registry. 
 
-Disable or enable the setting on the registry's **Networking** tab in the portal:
+To disable or re-enable the setting in the portal:
 
 1. In the portal, navigate to your container registry.
 1. Under **Settings**, select **Networking**. 
+1. In **Allow public network access**, select **Selected networks** or **Disabled**.
 1. Do one of the following:
-    * To disable access by trusted services, under **Firewall exception**, uncheck **Allow trusted Microsoft services to bypass this firewall**. 
-    * To allow trusted services, under **Firewall exception**, check **Allow trusted Microsoft services to bypass this firewall**. -->
-
+    * To disable access by trusted services, under **Firewall exception**, uncheck **Allow trusted Microsoft services to access this container registry**. 
+    * To allow trusted services, under **Firewall exception**, check **Allow trusted Microsoft services to access this container registry**.
+1. Select **Save**.
 
 ## Trusted services workflow
 
