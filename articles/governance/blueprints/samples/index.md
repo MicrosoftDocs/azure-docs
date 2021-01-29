@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 09/14/2020
+ms.date: 02/01/2020
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -15,6 +15,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/index.md) | Provides guardrails for compliance to Australian Government ISM PROTECTED. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Provides guardrails for compliance to [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
+| [Azure Security Benchmark Foundation](./asb-foundation/index.md) | Deploys and configures Azure Security Benchmark Foundation. |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Provides a set of policies to help comply with DoD Impact Level 4. |
