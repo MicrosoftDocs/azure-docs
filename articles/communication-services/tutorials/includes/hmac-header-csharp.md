@@ -105,7 +105,7 @@ replace "resourceEndpoint" with your real resource endpoint value.
 
 ## Create content hash
 Content hash is a part of signature. 
-Use following code to create a method to hash a content and add it into Progma.cs under Main method.
+Use following code to create a method to hash a content and add it into Progam.cs under Main method.
 ```csharp
 async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
 {
