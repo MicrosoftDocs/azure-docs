@@ -49,6 +49,9 @@ The dashboard is split into four parts:
     ![Screenshot that shows impacted computers.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
 3. Connector status: The graph and the table below contain messages about the status of the connector. By clicking on the graph on rows in the table, you can get further details on the messages of the connector status.
     The table contains limited number of rows if you would like to see all the list you can click on "See all".
+
+    You can see details about the messages in the table - [here](itsmc-dashboard-errors.md).
+
     ![Screenshot that shows connector status.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
 4. Alert rules: The tables contain the information on the number of alert rules that were detected.
     By clicking on rows in the tables, you can get further details on the rules that were detected.

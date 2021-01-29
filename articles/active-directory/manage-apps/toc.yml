@@ -50,9 +50,7 @@
       - name: Plan for apps not listed in the gallery
         href: non-gallery-apps.md
       - name: Plan a My Apps deployment
-        href: access-panel-deployment-plan.md
-      - name: Guidance for developers
-        href: developer-guidance-for-integrating-applications.md
+        href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
       - name: Plan a single sign-on deployment
