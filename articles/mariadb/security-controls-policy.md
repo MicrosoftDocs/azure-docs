@@ -5,7 +5,7 @@ ms.date: 01/25/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Database for MariaDB
