@@ -1384,13 +1384,13 @@
             - name: Permissions and roles for restore
               href: continuous-backup-restore-permissions.md
             - name: Continuous backup - Portal
-              href: configure-continuous-backup-restore-portal.md
+              href: continuous-backup-restore-portal.md
             - name: Continuous backup - PowerShell
-              href: configure-continuous-backup-restore-powershell.md
+              href: continuous-backup-restore-command-line.md
             - name: Continuous backup - CLI
               href: continuous-backup-restore-command-line.md
             - name: Continuous backup - ARM
-              href: configure-continuous-backup-template.md
+              href: continuous-backup-restore-template.md
         - name: Manage periodic backup
           href: configure-periodic-backup-restore.md 
         - name: Request quota increase

@@ -22,7 +22,7 @@ The restore duration dependents on the size of your data.
 The restore may not happen depending on whether the key resources like databases or containers existed at that time. You can verify by entering the time and looking at the selected database or container for a given time. If you see no resources exist to restore, then the restore process doesn't work.
 
 ### How can I track if an account is being restored?
-After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [track the status of account being restored](configure-continuous-backup-restore-portal.md#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
+After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [track the status of account being restored](continuous-backup-restore-portal.md#track-restore-status). While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
 
 Similarly for PowerShell and CLI, you can track the progress of restore operation by executing `az cosmosdb show` command as follows:
 
@@ -73,6 +73,6 @@ ID or the "instanceId" is a property of an instance of an account and it is used
 ## Next steps
 
 * What is [continuous backup](continuous-backup-restore-introduction.md) mode?
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
+* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-command-line.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

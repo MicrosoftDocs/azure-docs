@@ -42,7 +42,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB restorable account resource | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the "instanceID" of the restorable account. To learn more, see the [PowerShell](configure-continuous-backup-restore-powershell.md) or [CLI](configure-continuous-backup-restore-powershell.md) article.
+The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the "instanceID" of the restorable account. To learn more, see the [PowerShell](continuous-backup-restore-command-line.md) or [CLI](continuous-backup-restore-command-line.md) article.
 
 ## Permissions
 
@@ -121,5 +121,5 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](configure-continuous-backup-restore-portal.md), [PowerShell](configure-continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](configure-continuous-backup-template.md).
+* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-command-line.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
