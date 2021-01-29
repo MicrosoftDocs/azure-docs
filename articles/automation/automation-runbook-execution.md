@@ -108,7 +108,7 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 
 ## Runbook permissions
 
-A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md).
+A runbook needs permissions for authentication to Azure, through credentials. See [Azure Automation authentication overview](automation-security-overview.md).
 
 ## Modules
 
