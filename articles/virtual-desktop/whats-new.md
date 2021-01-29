@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/26/2021
+ms.date: 01/29/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -56,23 +56,20 @@ For more information, see the release notes in [What's new in FSLogix](/fslogix/
 
 We've made the following improvements to the Azure portal experience:
 
-- You can now add local VM admin credentials without having to also add Active Directory domain admin credentials.
-
-- Users can now ist both Individual and Group assignments in separate tabs for individual users and groups.
-
+- You can now add local VM admin credentials directly instead of having to add a local account created with the Active Directory domain join account credentials.
+- Users can now list both individual and group assignments in separate tabs for individual users and groups.
 - The version number of the Windows Virtual Desktop Agent is now visible in the Virtual Machine overview for host pools.
-
 - Added bulk delete for host pools and application groups.
-
 - You can now enable or disable drain mode for multiple session hosts in a host pool.
-
-- Fixed an issue where changing the desktop app's display name also changed the app group's display name.
-
 - Removed the public IP field from the VM details page.
 
 ### Windows Virtual Desktop agent troubleshooting
 
 We recently set up the [Windows Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
+
+### Microsoft Defender for Endpoint integration
+
+Microsoft Defender for Endpoint integration is now generally available. This feature gives your Windows Virtual Desktop VMs the same investigation experience as a local Windows 10 machine. If you're using Windows 10 Enterprise multi-session, Microsoft Defender for Endpoint will support up to 50 concurrent user connections, giving you the cost savings of Windows 10 Enterprise multi-session and the confidence of Microsoft Defender for Endpoint. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
 
 ## December 2020
 
