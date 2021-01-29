@@ -264,7 +264,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### Get a user token interactively
 
-There are situations where you need to force users to interact with the Microsoft identity platform. For example:
+There are situations where force users to interact with the Microsoft identity platform. For example:
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
 * Two-factor authentication is required.

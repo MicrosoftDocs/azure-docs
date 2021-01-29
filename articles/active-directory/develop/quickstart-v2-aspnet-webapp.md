@@ -176,7 +176,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge
