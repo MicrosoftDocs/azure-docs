@@ -359,6 +359,8 @@
         href: newsignature-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
+      - name: CloudKnox Permissions Management Platform
+        href: cloudknox-permissions-management-platform-tutorial.md
       - name: Cloudmore
         href: cloudmore-tutorial.md
       - name: CloudPassage
@@ -1226,6 +1228,8 @@
         href: officespace-tutorial.md
       - name: Oktopost SAML
         href: oktopost-saml-tutorial.md
+      - name: Olfeo SAAS
+        href: olfeo-saas-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
       - name: OneDesk
@@ -1302,6 +1306,8 @@
         href: pegasystems-tutorial.md
       - name: Pendo
         href: pendo-tutorial.md
+      - name: Penji
+        href: penji-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart
@@ -1594,6 +1600,8 @@
         href: shucchonavi-tutorial.md
       - name: Shutterstock
         href: shutterstock-tutorial.md
+      - name: Sigma Computing
+        href: sigma-computing-tutorial.md
       - name: Signagelive
         href: signagelive-tutorial.md
       - name: SignalFx
