@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 01/26/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -21,9 +21,10 @@ You can configure data protection for your blob and Azure Data Lake Storage Gen2
 
 Azure Storage includes data protection features that enable you to prevent accidental deletes or overwrites, restore data that has been deleted, track changes to data, and apply legal holds and time-based retention policies. You can implement these features for your blob data without needing to reach out to Microsoft.
 
-| Data protection feature | Blob storage | Azure Data Lake Storage Gen2 |
+| Data protection scenario | Blob storage | Azure Data Lake Storage Gen2 |
 |-|-|
 | Protect your data from accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
+| Recover data quickly from accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
 | Protect your data from accidental or malicious updates | [Blob versioning](#blob-versioning)<br>[Blob snapshots](#blob-snapshots)<br>[Point-in-time restore](#point-in-time-restore) | File snapshots (preview) (???are we using file term instead of blob for ADLS? I'm still confused on that???) |
 | Restore all or some of your data to a previous point in time  | [Point-in-time restore](#point-in-time-restore) | Not yet available |
 | Track changes to your data | [Change feed](#change-feed) | Not yet available |
