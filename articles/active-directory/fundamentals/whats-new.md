@@ -48,21 +48,11 @@ Customers can work around this requirement for testing purposes by using a featu
  
 ---
 
-### My Apps redirect removed
-
-**Type:** Fixed  
-**Service category:** My Apps  
-**Product capability:** End User Experiences
- 
-The redirect from myapps.microsoft.com to myapplications.microsoft.com has been removed. Both links will take you directly to the latest My Apps experience.
- 
----
-
 ### Public Preview - Customize and configure Android shared devices for Firstline Workers at scale
 
 **Type:** New feature  
 **Service category:** Device Registration and Management  
-**Product capability:** Developer Experience
+**Product capability:** Identity Security & Protection
  
 Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your Firstline Worker devices.
 
@@ -82,35 +72,6 @@ To learn more, refer to [Customize and configure shared devices for Firstline Wo
 **Product capability:** Identity Lifecycle Management
 
 Customers can download the provisioning logs as a CSV or JSON file through the UI and via graph API. To learn more, refer to [Provisioning reports in the Azure Active Directory portal](../reports-monitoring/concept-provisioning-logs.md).
-
----
-
-### Public preview - Attack Simulation Administrator and Attack Payload Author built-in roles
-
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
- 
-Two new roles in Role-Based Access Control are available to assign to users, Attack simulation Administrator and Attack Payload author. 
-
-Users in the [Attack Simulation Administrator](../roles/permissions-reference.md#attack-simulation-administrator) role have access for all simulations in the tenant and can:
-- create and manage all aspects of attack simulation creation
-- launch/scheduling of a simulation
--  review simulation results. 
-
-Users in the [Attack Payload Author](../roles/permissions-reference.md#attack-payload-author) role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
-
----
-
-### Public preview - Usage Summary Reports Reader built-in role
-
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
- 
-Users with the Usage Summary Reports Reader role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score. However, they cannot access any user level details or insights. 
-
-In the Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role adds an extra layer of protection to individual user identifiable data. [Learn more](../roles/permissions-reference.md#usage-summary-reports-reader).
 
 ---
 
@@ -134,6 +95,34 @@ Azure AD Connect cloud sync is now generally available to all customers.
 
 Azure AD Connect cloud moves the heavy lifting of transform logic to the cloud, reducing your on-premises footprint. Additionally, multiple light-weight agent deployments are available for higher sync availability. [Learn more](https://aka.ms/cloudsyncGA).
  
+---
+### General Availability - Attack Simulation Administrator and Attack Payload Author built-in roles
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Two new roles in Role-Based Access Control are available to assign to users, Attack simulation Administrator and Attack Payload author. 
+
+Users in the [Attack Simulation Administrator](../roles/permissions-reference.md#attack-simulation-administrator) role have access for all simulations in the tenant and can:
+- create and manage all aspects of attack simulation creation
+- launch/scheduling of a simulation
+-  review simulation results. 
+
+Users in the [Attack Payload Author](../roles/permissions-reference.md#attack-payload-author) role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
+
+---
+
+### General Availability - Usage Summary Reports Reader built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with the Usage Summary Reports Reader role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score. However, they cannot access any user level details or insights. 
+
+In the Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role adds an extra layer of protection to individual user identifiable data. [Learn more](../roles/permissions-reference.md#usage-summary-reports-reader).
+
 ---
 
 ### General availability - Require App protection policy grant in Azure AD Conditional Access
