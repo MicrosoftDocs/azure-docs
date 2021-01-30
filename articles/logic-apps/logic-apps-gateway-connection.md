@@ -54,7 +54,11 @@ You can also create [custom connectors](../logic-apps/custom-connector-overview.
 
   * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
   
-  * Your logic app and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you can use the gateway resource, you can select other Azure subscriptions that have gateway resources. However, these subscriptions need to exist in the same Azure AD tenant or directory as your logic app, *and* you need to have at least Contributor access in those subscriptions.
+  * Your logic app and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you can use the gateway resource, you can select other Azure subscriptions that have gateway resources. However, these subscriptions need to exist in the same Azure AD tenant or directory as your logic app. You also need to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: DataGateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
+    > [!NOTE]
+    > Currently, you can't share a gateway resource or installation across multiple subscriptions. 
+    > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
