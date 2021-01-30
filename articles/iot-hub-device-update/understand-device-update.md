@@ -34,7 +34,7 @@ are running.
 
 Device Update works with IoT Plug and Play (PnP) and can manage any device that supports
 the required PnP interfaces. For more information, see [Device Update for IoT Hub and
-IoT Plug and Play](device-update-pnp.md).
+IoT Plug and Play](device-update-plug-and-play.md).
 
 ### Support for a wide range of update artifacts
 

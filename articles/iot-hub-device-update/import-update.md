@@ -59,7 +59,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify [recommended value]() for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your PC
 
-The update imported using import manifest generated above will be deployable to devices implementing [Device Update for IoT Hub PnP interface](device-update-pnp.md) `urn:azureiot:AzureDeviceUpdateCore:1` and `urn:azureiot:AzureDeviceUpdateCore:4`.
+The update imported using import manifest generated above will be deployable to devices implementing [Device Update for IoT Hub PnP interface](device-update-plug-and-play.md) `urn:azureiot:AzureDeviceUpdateCore:1` and `urn:azureiot:AzureDeviceUpdateCore:4`.
 
 ## Review Generated Import Manifest
 

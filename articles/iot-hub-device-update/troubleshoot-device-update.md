@@ -52,7 +52,7 @@ additional information in the payload response of the API.
 
 The Device Update for IoT Hub Core PnP interface reports `ResultCode` and
 `ExtendedResultCode` which can be used to diagnose failures. [Learn
-More](device-update-pnp.md) about the Device Update Core PnP interface.
+More](device-update-plug-and-play.md) about the Device Update Core PnP interface.
 
 #### ResultCode
 

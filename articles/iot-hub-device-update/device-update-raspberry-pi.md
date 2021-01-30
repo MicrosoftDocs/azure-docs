@@ -107,9 +107,9 @@ to log in.
 3. At the top of the page, select 'Device Twin'.
 4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
-[DeviceManagement:DeviceInformation:1.swVersion](device-update-pnp.md) value will represent
+[DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
 the firmware version running on the device.  Once an update has been applied to a device, Device Update will
-use [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-pnp.md) property
+use [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md) property
 value to represent the firmware version running on the device.
 5. The base and update image files have a version number in the filename.
 
