@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-python
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-In this quickstart, you provision a Windows computer as an X.509 device. You use sample device code from the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) to connect the device to your IoT hub. An individual enrollment is used with the Device Provisioning Service (DPS) in this example.
+In this quickstart, you provision a development machine as a Python X.509 device. You use sample device code from the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) to connect the device to your IoT hub. An individual enrollment is used with the Device Provisioning Service (DPS) in this example.
 
 ## Prerequisites
 
@@ -46,16 +46,26 @@ In this section, you will create a self-signed X.509 certificate. It is importan
 * Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is one year.
 
-If you don't already have your device certificates to authenticate a device, you can create a self-signed certificate with OpenSSL for testing with this article.  OpenSSL is included with Git for Windows. 
+If you don't already have your device certificates to authenticate a device, you can create a self-signed certificate with OpenSSL for testing with this article.  OpenSSL is included with the Git installation. 
 
 1. Run the following command in the Git Bash prompt.
 
+    # [Windows](#tab/windows)
+    
     ```bash
     winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "//CN=Python-device-01"
     ```
 
     > [!IMPORTANT]
     > The extra forward slash given for the subject name (`//CN=Python-device-01`) is only required to escape the string with Git on Windows platforms. 
+
+    # [Linux](#tab/linux)
+    
+    ```bash
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "/CN=Python-device-01"
+    ```
+    
+    ---
     
 2. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234` for testing with this article.    
 
@@ -208,7 +218,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
+In this quickstart, you’ve created a simulated X.509 device on your development machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
 > [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)
