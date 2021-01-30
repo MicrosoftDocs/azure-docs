@@ -40,7 +40,7 @@ To enable custom event logs, you add an Application Insights technical profile. 
 When using the Application Insights, consider the following:
 
 - There is a short delay, typically less than five minutes, before new logs available in Application Insights.
-- Azure AD B2C allows you to choose the claims to be recorded. Don't include claims with personally identifiable information.
+- Azure AD B2C allows you to choose the claims to be recorded. Don't include claims with personal data.
 - To record a user session, events can be unified by using a correlation ID. 
 - Call the Application Insights technical profile directly from a [user journey](userjourneys.md) or a [sub journeys](subjourneys.md). Don't use Application Insights technical profile as a [validation technical profile](validation-technical-profile.md).
 
