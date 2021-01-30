@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.custom: references_regions
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 
