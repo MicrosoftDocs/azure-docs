@@ -67,53 +67,28 @@ A certificate file (*python-device.pem*) and private key file (*python-device.ke
 ## Create an individual enrollment entry in DPS
 
 
-You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
-
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 - [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-This article demonstrates individual enrollments.
+This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 
-1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your provisioning service.
 
-2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. 
+2. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
 
-3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
-    
-    ```output
-    Copy the first certificate to clipboard. Begin with the first occurrence of:
-    
-        -----BEGIN CERTIFICATE----- 
-        
-    End you copying after the first occurrence of:
-    
-        -----END CERTIFICATE-----
-        
-    Make sure to include both of those lines as well.
-    ``` 
-
-    ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
- 
-4. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
-
-5. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your provisioning service.
-
-6. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
-
-7. In the **Add Enrollment** panel, enter the following information:
+3. In the **Add Enrollment** panel, enter the following information:
    - Select **X.509** as the identity attestation *Mechanism*.
-   - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
+   - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **python-device.pem** if you are using the test certificate created earlier.
    - Optionally, you may provide the following information:
      - Select an IoT hub linked with your provisioning service.
-     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
      - Update the **Initial device twin state** with the desired initial configuration for the device.
    - Once complete, press the **Save** button. 
 
      [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-   Upon successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
+   Upon successful enrollment, your X.509 device appears as **Python-device-01** under the *Registration ID* column in the *Individual Enrollments* tab. This registration is value comes from the subject name on the device certificate. 
 
 ## Simulate the device
 
