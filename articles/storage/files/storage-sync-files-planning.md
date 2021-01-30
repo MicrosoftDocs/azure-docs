@@ -300,11 +300,13 @@ For more information about encryption in transit, see [requiring secure transfer
 
 For regional availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-There are some regions that are supported but, you must request access to Azure Storage to use Azure File Sync with them. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/). The regions that you must request access in are:
+The following regions require you to request access to Azure Storage before you can use Azure File Sync with them:
 
 - France South
 - South Africa West
 - UAE Central
+
+To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
