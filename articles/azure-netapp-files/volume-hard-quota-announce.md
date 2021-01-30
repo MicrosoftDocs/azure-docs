@@ -52,7 +52,7 @@ You will not be able to write more data on the volume beyond this size
 * Capacity pool: remains 4 TiB in size and does not automatically grow
 * Volume quota change: changes performance (bandwidth) and client visible/usable capacity of the volume.
 
-You need to proactively monitor the utilization of Azure NetApp Files volumes and capacity pools. You need to purposely change the volume and pool pool utilization for close-to-full consumption. Azure NetApp Files will continue to allow for on-the-fly volume and capacity pool resize operations.
+You need to proactively monitor the utilization of Azure NetApp Files volumes and capacity pools. You need to purposely change the volume and pool utilization for close-to-full consumption. Azure NetApp Files will continue to allow for on-the-fly volume and capacity pool resize operations.
 
 ## How to operationalize the volume hard quota change  
 
@@ -60,7 +60,7 @@ This section provides guidance on how to operationalize the change to volume har
 
 ### Currently provisioned volumes and capacity pools  
 
-As a result of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools will require ongoing capacity management. .  Because the changed behavior will happen instantly, Azure NetApp Files will take a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described below.
+As a result of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools will require ongoing capacity management.  Because the changed behavior will happen instantly, Azure NetApp Files will take a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described below.
 
 ### One-time corrective or preventative measures  
 
@@ -73,7 +73,7 @@ The volume hard quota change will result in changes in provisioned and available
     There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit increase for the volume.
 
 * Provisioned capacity pool sizes: 
-    If the hosting capacity pool for the collection of volumes becomes higher than 100% allocation after the volumes increase, the capacity pool will be increased to a size equal to the amount of total allocated volume sizes. The allocated volume size will be rounded up to the nearest TiB, with an at maximum capacity pool size of 500 TiB (which is the capacity pool size limit). Capacity pools will not be decreased in provisioned size. Any additional capacity pool capacity will be subject to ACR charge as normal .
+    If the hosting capacity pool for the collection of volumes becomes higher than 100% allocation after the volumes increase, the capacity pool will be increased to a size equal to the amount of total allocated volume sizes. The allocated volume size will be rounded up to the nearest TiB, with a maximum capacity pool size of 500 TiB (which is the capacity pool size limit). Capacity pools will not be decreased in provisioned size. Additional capacity pool capacity will be subject to ACR charge as normal.
 
 #### Example 1 – Without capacity pool change  
 
@@ -92,7 +92,7 @@ After the volumes are resized, based on the mentioned logic, the new usable volu
  
 Vol1 and vol3 will be increased towards the original quota. Vol2 will be increased towards the used capacity. The capacity pool will not have to be increased to accommodate the new volume sizes. The capacity pool will no longer automatically grow.
 
- The following diagrams explains this scenario:
+ The following diagrams explain this scenario:
 
  
  
@@ -108,9 +108,9 @@ Vol2 is overcommitted, so the used capacity exceeds the set volume quota. A capa
 After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to as follows:
 
  
-Vol1 and vol3 will be increased towards the original quota.  Vol2 will be increased towards the used capacity. The capacity pool will have to be increased to accommodate the new volume sizes . The capacity pool will no longer automatically grow.
+Vol1 and vol3 will be increased towards the original quota.  Vol2 will be increased towards the used capacity. The capacity pool will have to be increased to accommodate the new volume sizes. The capacity pool will no longer automatically grow.
  
- The following diagrams explains this scenario:
+ The following diagrams explain this scenario:
  
 
 ### Ongoing capacity management  
@@ -183,7 +183,7 @@ In some cases, the hosting capacity pool does not have sufficient capacity to re
 3.	Use the context menu options to resize or delete the capacity pool.
 
 #### CLI or PowerShell
-You can use the Azure NetApp Files CLI tools, including the Azure CLI and Azure PowerShell, to manually change the or volume capacity pool size The following two commands can be used to manage Azure NetApp Files volume and pool resources:
+You can use the Azure NetApp Files CLI tools, including the Azure CLI and Azure PowerShell, to manually change the volume or capacity pool size. The following two commands can be used to manage Azure NetApp Files volume and pool resources:
 * az netappfiles pool
 * az netappfiles volume
 
@@ -250,7 +250,7 @@ o	Remove older snapshots to free up space in the hosting volume.
 
 ### Does this change mean volume auto-grow will disappear from Azure NetApp Files?
 
-A common misconception is that Azure NetApp Files volumes would automatically grow upon filling up. This has never been the case.  Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlaying capacity pool would automatically grow with 1-TiB increments. This change will address the (visible and usable) volume size to the set quota, and capacity pools will no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids ‘runaway’ capacity consumption.
+A common misconception is that Azure NetApp Files volumes would automatically grow upon filling up. Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlaying capacity pool would automatically grow with 1-TiB increments. This change will address the (visible and usable) volume size to the set quota, and capacity pools will no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids ‘runaway’ capacity consumption.
 
 ### How can I report a bug or submit a feature request for ANFCapacityManger?
 
