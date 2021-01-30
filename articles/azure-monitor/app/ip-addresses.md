@@ -239,9 +239,33 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 ## Action Group webhooks
 
-| Purpose | IP | Ports
-| --- | --- | --- |
-| Alerting | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
+
+### Action Groups Service Tag
+Managing changes to Source IP addresses can be quite time consuming. Using **Service Tags** eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, eliminating the need to update network security rules for an Action Group.
+
+1. In the Azure portal under Azure Services search for *Network Security Group*.
+2. Click on **Add** and create a Network Security Group.
+
+   1. Add the Resource Group Name and then enter *Instance Details*.
+   1. Click on **Review + Create** and then click *Create*.
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
+
+3. Go to Resource Group and then click on *Network Security Group* you have created.
+
+    1. Select *Inbound Security Rules*.
+    1. Click on **Add**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
+
+4. A new window will open in right pane.
+    1.  Select Source: **Service Tag**
+    1.  Source Service Tag: **ActionGroup**
+    1.  Click **Add**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
+
 
 ## Profiler
 

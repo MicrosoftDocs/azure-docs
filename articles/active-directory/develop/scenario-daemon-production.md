@@ -65,6 +65,6 @@ Try the quickstart [Acquire a token and call Microsoft Graph API from a Python c
 
 # [Java](#tab/java)
 
-MSAL Java is currently in public preview. For more info, see [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](./quickstart-v2-java-daemon.md).
 
 ---
