@@ -96,9 +96,9 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 | Variable name              | Description                                     |
 | :------------------------- | :---------------------------------------------- |
-| `PROVISIONING_HOST`        |  This is the global endpoint used for connecting to your the DPS resource |    
-| `PROVISIONING_IDSCOPE`     |  This is the ID Scope for your the DPS resource |    
-| `DPS_X509_REGISTRATION_ID` |  This is the ID for your device. It must also match the subject name on the device certificate |    
+| `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |    
+| `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |    
+| `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |    
 | `X509_CERT_FILE`           |  Your device certificate filename |    
 | `X509_KEY_FILE`            |  The private key filename for your device certificate |
 | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |    
