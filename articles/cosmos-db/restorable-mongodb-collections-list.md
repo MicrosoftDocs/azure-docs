@@ -30,7 +30,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
-| **restorableSqlDatabaseRid** | query | |string| The resource ID of the MongoDB database. |
+| **restorableMongodbDatabaseRid** | query | |string| The resource ID of the MongoDB database. |
 
 ## Responses
 
@@ -46,7 +46,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 **Sample Request**
 
 ```http
-GET https://management.azure.com/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableMongodbCollections?api-version=2020-06-01-preview&amp;restorableMongodbDatabaseRid=PD5DALigDgw=
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableMongodbCollections?api-version=2020-06-01-preview&amp;restorableMongodbDatabaseRid=PD5DALigDgw=
 ```
 
 **Sample Response**
@@ -57,7 +57,7 @@ Status code:200
 {
   "value": [
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableMongodbCollections/79609a98-3394-41f8-911f-cfab0c075c86",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDb/locations/westus/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableMongodbCollections/79609a98-3394-41f8-911f-cfab0c075c86",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableMongodbCollections",
       "name": "79609a98-3394-41f8-911f-cfab0c075c86",
       "properties": {

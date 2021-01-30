@@ -10,7 +10,7 @@ ms.author: govindk
 
 # List restorable database accounts using Azure Cosmos DB REST API
 
-Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read/*` permission.
+Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` permission.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/restorableDatabaseAccounts?api-version=2020-06-01-preview
@@ -48,7 +48,7 @@ Status code: 200
 {
   "value": [
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/d9b26648-2f53-4541-b3d8-3044f4f9810d",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/d9b26648-2f53-4541-b3d8-3044f4f9810d",
       "name": "d9b26648-2f53-4541-b3d8-3044f4f9810d",
       "location": "West US",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts",
@@ -73,7 +73,7 @@ Status code: 200
       }
     },
     {
-      "id": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4f9e6ace-ac7a-446c-98bc-194c502a06b4",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4f9e6ace-ac7a-446c-98bc-194c502a06b4",
       "name": "4f9e6ace-ac7a-446c-98bc-194c502a06b4",
       "location": "East US",
       "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts",
@@ -107,7 +107,7 @@ Status code: 200
 | [ApiType](#apitype) | Enum to indicate the API type of the restorable database account. |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
-| [RestorableDatabaseAccountGetResult](#restorabledatabaseaccountgetresult) | A Azure Cosmos DB restorable database account. |
+| [RestorableDatabaseAccountGetResult](#restorabledatabaseaccountgetresult) | An Azure Cosmos DB restorable database account. |
 | [RestorableDatabaseAccountsListResult](#restorabledatabaseaccountslistresult) | The List operation response, that contains the restorable database accounts and their properties. |
 | [RestorableLocationResource](#restorablelocationresource) | Properties of the regional restorable account. |
 
@@ -143,7 +143,7 @@ Error Response.
 
 ### <a id="restorabledatabaseaccountgetresult"></a>RestorableDatabaseAccountGetResult
 
-A Azure Cosmos DB restorable database account.
+An Azure Cosmos DB restorable database account.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
