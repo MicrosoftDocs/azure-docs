@@ -27,7 +27,7 @@ The Azure NetApp Files behavior regarding volume and capacity pool provisioning 
 
 Many customers have indicated three main challenges with the current behavior:
 * VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when utilizing OS space or capacity monitoring tools, giving inaccurate client or application side capacity visibility.
-* Application owners would have no control of provisioned capacity pool space (and associated cost), given the capacity pool auto-grow functionality. This situation is cumbersome in environments, which would observe so called ‘run-away processes’, rapidly filling up and growing provisioned capacity.
+* Application owners would have no control of provisioned capacity pool space (and associated cost), given the capacity pool auto-grow behavior. This situation is cumbersome in environments where "run-away processes" would rapidly fill up and grow provisioned capacity.
 * Customers want to see and maintain a direct correlation between volume size (quota) and performance. With the current behavior of (implicit) oversubscribing a volume (capacity-wise) and pool auto-grow, customers do not have a direct correlation, until volume quota has been actively (re)set. 
 
 Many customers have requested self-control over provisioned capacity, to control and balance storage capacity, utilization, and control cost along with application- and client-side visibility of available, used, and provisioned capacity and performance of their application volumes.
@@ -42,7 +42,7 @@ The current behavior:
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 100 TiB
 You will not be able to write more data on the volume beyond this size
-* Capacity pool: auto-grows with 1-TiB increments when it is full
+* Capacity pool: automatically grows with 1-TiB increments when it is full
 * Volume quota change: only changes performance (bandwidth) of the volume. It does not change client visible/usable capacity.
 
 The Changed behavior:
@@ -108,7 +108,7 @@ Vol2 is overcommitted, so the used capacity exceeds the set volume quota. A capa
 After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to as follows:
 
  
-Vol1 and vol3 will be increased towards the original quota.  Vol2 will be increased towards the used capacity. The capacity pool will have to be increased to accommodate the new volume sizes . The capacity pool will no longer auto-grow.
+Vol1 and vol3 will be increased towards the original quota.  Vol2 will be increased towards the used capacity. The capacity pool will have to be increased to accommodate the new volume sizes . The capacity pool will no longer automatically grow.
  
  The following diagrams explains this scenario:
  
@@ -250,7 +250,7 @@ o	Remove older snapshots to free up space in the hosting volume.
 
 ### Does this change mean volume auto-grow will disappear from Azure NetApp Files?
 
-A common misconception is that Azure NetApp Files volumes would auto-grow upon filling up. This has never been the case.  Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlaying capacity pool would auto-grow with 1-TiB increments. This change will address the (visible and usable) volume size to the set quota, and capacity pools will no longer auto-grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids ‘runaway’ capacity consumption.
+A common misconception is that Azure NetApp Files volumes would automatically grow upon filling up. This has never been the case.  Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlaying capacity pool would automatically grow with 1-TiB increments. This change will address the (visible and usable) volume size to the set quota, and capacity pools will no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids ‘runaway’ capacity consumption.
 
 ### How can I report a bug or submit a feature request for ANFCapacityManger?
 
