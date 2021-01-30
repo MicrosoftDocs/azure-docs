@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/21/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 
