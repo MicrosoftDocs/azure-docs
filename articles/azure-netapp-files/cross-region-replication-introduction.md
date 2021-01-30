@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: b-juche
+ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
