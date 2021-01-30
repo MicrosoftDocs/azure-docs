@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-python
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-In this quickstart, you provision a Windows computer as an X.509 device. You use sample device code from the [Python SDK](https://github.com/Azure/azure-iot-sdk-python) to connect the device to your IoT hub. An individual enrollment is used with the Device Provisioning Service (DPS) in this example.
+In this quickstart, you provision a Windows computer as an X.509 device. You use sample device code from the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) to connect the device to your IoT hub. An individual enrollment is used with the Device Provisioning Service (DPS) in this example.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In this quickstart, you provision a Windows computer as an X.509 device. You use
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-2. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample.
+2. Open a Git Bash prompt. Clone the GitHub repo for [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
@@ -61,7 +61,7 @@ If you don't already have your device certificates to authenticate a device, you
 
 3. When asked again **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.    
 
-A certificate file (*python-device.pem*) and private key file (*python-device.key.pem*) are generated in the directory where you ran the `openssl` command.
+A test certificate file (*python-device.pem*) and private key file (*python-device.key.pem*) are generated in the directory where you ran the `openssl` command.
 
 
 ## Create an individual enrollment entry in DPS
@@ -88,7 +88,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
      [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-   Upon successful enrollment, your X.509 device appears as **Python-device-01** under the *Registration ID* column in the *Individual Enrollments* tab. This registration is value comes from the subject name on the device certificate. 
+   Upon successful enrollment, your X.509 device appears as **Python-device-01** under the *Registration ID* column in the *Individual Enrollments* tab. This registration value comes from the subject name on the device certificate. 
 
 ## Simulate the device
 
@@ -96,21 +96,21 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 | Variable name              | Description                                     |
 | :------------------------- | :---------------------------------------------- |
-| `PROVISIONING_HOST`        |  This is the endpoint for your the DPS resource |    
+| `PROVISIONING_HOST`        |  This is the global endpoint used for connecting to your the DPS resource |    
 | `PROVISIONING_IDSCOPE`     |  This is the ID Scope for your the DPS resource |    
 | `DPS_X509_REGISTRATION_ID` |  This is the ID for your device. It must also match the subject name on the device certificate |    
 | `X509_CERT_FILE`           |  Your device certificate filename |    
 | `X509_KEY_FILE`            |  The private key filename for your device certificate |
 | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |    
 
-1. From the Device Provisioning Service menu, select **Overview**. Note your _ID Scope_ and _Global Service Endpoint_.
+1. From the Device Provisioning Service menu, select **Overview**. Note your _ID Scope_ and _Global device endpoint_.
 
     ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. In your Git Bash prompt, use the following commands add the environment variables for the service endpoint and ID Scope.
+2. In your Git Bash prompt, use the following commands add the environment variables for the global device endpoint and ID Scope.
 
     ```bash
-    $export PROVISIONING_HOST=<your DPS name>.azure-devices-provisioning.net
+    $export PROVISIONING_HOST=global.azure-devices-provisioning.net
     $export PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
@@ -190,7 +190,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     done sending message #3
     ```
 
-7. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+7. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade located under the **Explorers** section in the left menu. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device-x509/registration.png) 
 
