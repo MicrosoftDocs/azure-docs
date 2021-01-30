@@ -118,7 +118,7 @@ Use the following procedure to create a ServiceNow connection.
    | --- | --- |
    | **Connection Name**   | Enter a name for the ServiceNow instance that you want to connect with ITSMC. You use this name later in Log Analytics when you configure ITSM work items and view detailed analytics. |
    | **Partner Type**   | Select **ServiceNow**. |
-   | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com*.|
+   | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com* (for example https://XXXXX.service-now.com/).|
    | **Username**   | Enter the integration username that you created in the ServiceNow app to support the connection to ITSMC.|
    | **Password**   | Enter the password associated with this username. **Note**: The username and password are used for generating authentication tokens only. They're not stored anywhere within the ITSMC service.  |
    | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |

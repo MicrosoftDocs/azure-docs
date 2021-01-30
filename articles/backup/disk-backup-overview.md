@@ -48,7 +48,7 @@ Consider Azure Disk Backup in scenarios where:
 
 ## How the backup and restore process works
 
-- The first step in configuring backup for Azure file shares is creating a [Backup vault](backup-vault-overview.md). The vault gives you a consolidated view of the backups configured across different workloads.
+- The first step in configuring backup for Azure managed disks is creating a [Backup vault](backup-vault-overview.md). The vault gives you a consolidated view of the backups configured across different workloads.
 
 - Then create a Backup policy that allows you to configure backup frequency and retention duration.
 

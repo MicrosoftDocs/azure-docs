@@ -50,7 +50,7 @@ To view your security policies in Security Center:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-   ![policy page](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Security Center's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
@@ -98,7 +98,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
 
-   ![policy management](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center":::
 
 2. Select the subscription or management group for which you want to disable the recommendation.
 
@@ -107,7 +107,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Select **View effective policy**.
 
-   ![view policy](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="How to open the effective policy assigned to your subscription":::
 
 1. Select the assigned policy.
 
@@ -122,10 +122,8 @@ For more information about recommendations, see [Managing security recommendatio
    > [!NOTE]
    > The disable policy changes can take up to 12 hours to take effect.
 
-
-
 ## Next steps
-This article explained security policies. For related information, see the following articles:
+This page explained security policies. For related information, see the following pages:
 
 - [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
