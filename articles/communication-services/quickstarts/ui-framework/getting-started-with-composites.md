@@ -128,10 +128,10 @@ function App(){
                 refreshToken = { () => {
                     //Optional, function to refresh the access token in case it expires
                 }}
-                options = {
+                options = {{
                     //Optional, options to define chat behavior
                     sendBoxMaxLength: number | undefined //Optional, Limit the max send box length based on viewport size change.
-                }
+                }}
             />
 
         </Provider>
