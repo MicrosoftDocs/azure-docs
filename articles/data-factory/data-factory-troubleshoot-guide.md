@@ -1011,10 +1011,22 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 1. Go to: **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+## Webhook activity
+
+###  Webhook failed with error code
+
+- **Message**: `Operation on Webhook fialed because error message is set in callback request body.`
+
+- **Cause**: Data Factory expects to call this URI before the specified timeout value. If the URI is not called, the activity will fail with the status "TimedOut". 
+
+- **Recommendation**: The webhook activity waits for feedback from callback. If you forget this step, the webhook activity will wait till time out and then fail the pipeline. Therefore, this step is necessary for Webhook. To enable the feedback function, you must turn on the option **Report status on callback** in the ADF Webhook activity. If you do not enable it, ADF will ignore your message. The error message and status code will be displayed in the ADF Pipeline Monitor.
+
+
 
 ## General
 
-### Activity stuck issue
+
+### Pipeline activity stuck issue
 
 When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
