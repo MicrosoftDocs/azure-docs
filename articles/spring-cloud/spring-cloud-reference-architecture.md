@@ -21,11 +21,7 @@ For deployment options of this architecture that include ARM, Terraform, and CLI
 
 The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
 
-## Azure Spring Cloud On-Premises Connectivity
-
-Applications running in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
-
-### Planning the address space
+## Planning the address space
 
 Azure Spring Cloud requires two dedicated subnets:
 * Service runtime
@@ -45,7 +41,7 @@ Typical uses for this architecture include:
 
 These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
-### Private applications
+## Private applications
 
 The infrastructure requirements for a private application are in the following list:
 
@@ -92,7 +88,7 @@ The Azure services that are used in this reference architecture are in the follo
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
 
-### Public applications
+## Public applications
 
 The infrastructure requirements for a public application are in the following list:
 
@@ -144,6 +140,10 @@ The Azure services that are used in this reference architecture are in the follo
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
+
+## Azure Spring Cloud On-Premises Connectivity
+
+Applications running in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, traffic can be routed externally, or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
 
 ## Azure Well-Architected Framework Considerations
 
@@ -203,7 +203,7 @@ The network implementation is further secured by defining controls from the MAFB
 
 #### Application Security
 
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Cloud is configured to use least privilege. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Cloud only runs with least amount of privileges required to function. The set of authorization controls is directly related to data protection when using the service. This layered application security approach is strengthened through key management.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
