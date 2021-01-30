@@ -25,7 +25,7 @@ The artifacts in the repository are designed to provide a foundation for your us
 
 Azure Spring Cloud requires two dedicated subnets:
 * Service runtime
-* Spring Boot microservice applications
+* Spring Boot applications
 
 Each of these subnets requires a dedicated cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Cloud can support varies based on the size of the subnet. The detailed Virtual Network (VNET) requirements can be found in the [Spring Cloud VNET Requirements][11] section.
 
@@ -75,7 +75,7 @@ The components that make up the design are in the following list:
 
 The Azure services that are used in this reference architecture are in the following list:
 
-* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Spring microservices that are written in Java
+* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Spring Boot applications that are written in Java
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
 
@@ -124,7 +124,7 @@ The components that make up the design are in the following list:
 
 The Azure services that are used in this reference architecture are in the following list:
 
-* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java-based Spring microservices, and .NET based [Steeltoe][9] microservices
+* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java-based Spring Boot applications, and .NET based [Steeltoe][9] applications
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
 
