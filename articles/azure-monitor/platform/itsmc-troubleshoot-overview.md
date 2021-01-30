@@ -87,6 +87,6 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### You can't create an ITSM action for an action group
 
-**Cause**: A newly created ITSM Connector instance has yet to finish the initial sync.
+**Cause**: A newly created ITSMC instance has yet to finish the initial sync.
 
-**Resolution**: Review the [common UI errors and their resolutions](itsmc-dashboard-errors.md#ui-common-errors).
+**Resolution**: Review the [common errors and their resolutions](itsmc-dashboard-errors.md).

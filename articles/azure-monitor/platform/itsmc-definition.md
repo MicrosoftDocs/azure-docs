@@ -111,7 +111,7 @@ To create an action group:
 
 7. Select a **Work Item** type.
 
-8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#template-definitions) in the **Template** list and enter the fixed values in the template fields.
+8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#define-a-template) in the **Template** list and enter the fixed values in the template fields.
 
 9. In the last section of the interface for creating an ITSM action group, you can define how many work items will be created for each alert.
 

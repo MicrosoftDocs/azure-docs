@@ -35,7 +35,7 @@ To view errors in the dashboard:
 
 5. The dashboard appears. Use it to review the status and the errors in your connector.
    
-   ![Screenshot that shows connector status.](media/itsmc-resync-servicenow/connector-dashboard.png)
+   ![Screenshot that shows connector status on the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
 ## Understand dashboard elements
 
