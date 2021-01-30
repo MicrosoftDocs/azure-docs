@@ -221,7 +221,7 @@ You can run this project on your local development computer before you publish t
 
 1. A response is returned, which looks like the following in a browser:
 
-    ![Browser - localhost example output](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Browser - localhost example output](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. Information about the request is shown in **Terminal** panel.
 

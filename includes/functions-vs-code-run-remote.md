@@ -9,7 +9,7 @@ ms.author: glenga
 
 1. Back in the **Azure: Functions** area in the side bar, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
 
-    :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+    :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Execute function now in Azure from Visual Studio Code":::
 
 1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
 

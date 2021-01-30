@@ -41,24 +41,49 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
-
 * An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure). The following prerequisites are language-specific:
+Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure). 
+
+### Run local requirements
+
+The following prerequisites are only required to be able to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
+
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 # [C\#](#tab/csharp)
 
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
 
++ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x)  
+
+# [Java](#tab/java)
+
++ [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+
++ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+
++ [Maven 3 or later](https://maven.apache.org/)
+
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version. 
 
+# [PowerShell](#tab/powershell)
 
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
++ Both [.NET Core 3.1 runtime](https://www.microsoft.com/net/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
+
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+
+# [Python](#tab/python)
+
+[Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended
+
+---
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -311,24 +336,9 @@ The function URL is copied to the clipboard, along with any required keys passed
 
 The Azure Functions extension lets you run a Functions project on your local development computer. The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings-file).
 
-### Additional requirements for running a project locally
-
-To run your Functions project locally, you must meet these additional requirements:
-
-* Install version 2.x or later of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
-
-* Install the specific requirements for your chosen language:
-
-    | Language | Requirement |
-    | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 or later](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended|
-
-    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-
 ### Configure the project to run locally
+
+To run your Functions project locally, you must meet [additional requirements](#run-local-requirements).
 
 The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. So you need to set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
 
