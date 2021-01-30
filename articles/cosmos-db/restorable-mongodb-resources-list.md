@@ -86,7 +86,7 @@ Status code: 200
 | [DatabaseRestoreResource](#databaserestoreresource) | Specific Databases to restore. |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
-| [RestorableMongodbResourcesListResult](#restorablemongoresourceslistresult) | The List operation response, that contains the restorable SQL resources. |
+| [RestorableMongodbResourcesListResult](#restorablemongodbresourceslistresult) | The List operation response, that contains the restorable SQL resources. |
 
 ### <a id="databaserestoreresource"></a>DatabaseRestoreResource
 
