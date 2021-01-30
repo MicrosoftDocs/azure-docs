@@ -239,7 +239,7 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 ## Action Group webhooks
 
-You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-5.4.0#description).
+You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
 
 ### Action Groups Service Tag
 Managing changes to Source IP addresses can be quite time consuming. Using **Service Tags** eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, eliminating the need to update network security rules for an Action Group.
