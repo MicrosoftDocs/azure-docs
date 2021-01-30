@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
 ---
 
@@ -37,7 +37,7 @@ Previous versions also currently supported include: `3.0.2`
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
 | chained search                 | No        | Yes       | No        |                                           |
-| reverse chained search         | No        | No        | No        |                                            |
+| reverse chained search         | No        | Yes       | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -71,9 +71,9 @@ All search parameter types are supported.
 |`:below` (token)       | No        | No        | No        |         |
 |`:above` (token)       | No        | No        | No        |         |
 |`:not-in` (token)      | No        | No        | No        |         |
-|`:[type]` (reference)  | No        | No        | No        |         |
+|`:[type]` (reference)  | Yes       | Yes       | Yes       |         |
 |`:below` (uri)         | Yes       | Yes       | Yes       |         |
-|`:not`                 | No        | No        | No        |         |
+|`:not`                 | Yes       | Yes       | Yes       |         |
 |`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
