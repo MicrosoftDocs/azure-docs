@@ -168,7 +168,7 @@ function CallingComponents(props) {
 
 ```
 
-At the bottom of this file, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. We use this props to initialize using the `isCallInitialized` property to check whether the `CallAgent` is ready and then we use the `joinCall` method to join in. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
+At the bottom of this file, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. This yields the component having its props populated, which we then use to check state and join the call. Using the `isCallInitialized` property to check whether the `CallAgent` is ready and then we use the `joinCall` method to join in. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
 
 `callingComponents.js`
 ```javascript
