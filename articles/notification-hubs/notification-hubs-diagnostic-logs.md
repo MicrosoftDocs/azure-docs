@@ -3,7 +3,7 @@ title: Azure Notification Hubs diagnostics logs | Microsoft Docs
 description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Notification Hubs. 
 author: brannon
 ms.author: brjones
-ms.service: Azure Notification Hubs
+ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
 ---
