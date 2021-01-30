@@ -114,7 +114,7 @@ Error Response.
 | code |string| Error code. |
 | message |string| Error message indicating why the operation failed. |
 
-### <a id="restorablemongoresourceslistresult"></a>RestorableMongodbResourcesListResult
+### <a id="restorablemongodbresourceslistresult"></a>RestorableMongodbResourcesListResult
 
 The List operation response, that contains the restorable Azure Cosmos DB API for MongoDB resources.
 
