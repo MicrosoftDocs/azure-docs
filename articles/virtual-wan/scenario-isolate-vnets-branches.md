@@ -1,7 +1,7 @@
 ---
-title: 'Scenario: Custom isolation for VNets'
+title: 'Scenario: Custom isolation for VNets and branches'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - prevent selected VNets from being able to reach each other
+description: Scenarios for routing - prevent selected VNets and braches from being able to reach each other
 services: virtual-wan
 author: wellee
 
@@ -32,7 +32,7 @@ In order to figure out how many route tables will be needed, you can build a con
 
 Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) communicates with a destination (the "To" side of the flow, the column headers in italics). **Direct** implies the traffic flows directly through Virtual WAN while **AzFW** implies that the traffic is inspected by Azure Firewall before being forwarded to the destination. A blank entry means that flow is blocked in the setup.
 
-In this case, two route route tables for the VNets are required to achieve the goal of VNet isolation without Azure Firewall in the path. We will call these routes tables **RT_BLUE** and **RT_RED**.
+In this case, the two route tables for the VNets are required to achieve the goal of VNet isolation without Azure Firewall in the path. We will call these routes tables **RT_BLUE** and **RT_RED**.
 
 In addition, branches must always be associated to the  **Default** Route Table. To ensure that traffic to and from the branches is inspected by Azure Firewall,  we add static routes in the **Default**, **RT_RED** and **RT_BLUE** route tables pointing traffic to Azure Firewall and set up Network Rules to allow desired traffic. We also ensure that the branches do **not** propagate to **RT_BLUE** and **RT_RED**.
 
@@ -84,6 +84,7 @@ Consider the following steps when setting up routing.
     * Example: **Destination Prefix**:  10.0.0.0/24 **Next Hop**: Azure Firewall
 >[!NOTE]
 > This step can also be done via Firewall Manager by selecting the "Secure Private Traffic" option. This will add a route for all RFC1918 private IP addresses applicable to VNets and branches. You will need to manually add in any branches or virtual networks that are not compliant with RFC1918. 
+
 6. Add a static route to **RT_RED** and **RT_BLUE** directing all traffic to Azure Firewall. This step ensures VNets will not be able to access branches directly. This step cannot be done via Firewall Manager because these Virtual Networks are not associated with the Default Route Table.
     * Example: **Destination Prefix**: 0.0.0.0/0 **Next Hop**: Azure Firewall
 
