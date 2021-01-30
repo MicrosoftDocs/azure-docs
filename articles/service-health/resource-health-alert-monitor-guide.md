@@ -28,7 +28,7 @@ You also can configure who the alert should be sent to:
 * Select an existing action group.
 * Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](./resource-health-alert-arm-template-guide.md).
 Resource Health Alert using Azure portal
@@ -53,7 +53,7 @@ Resource Health Alert using Azure portal
     1. **Alert rule name**: The name for the new alert rule.
     2. **Description**: The description for the new alert rule.
     3. **Save alert to resource group**: Select the resource group where you want to save this new rule.
-7. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](../azure-monitor/platform/action-groups.md) and assign it to the new rule. To create a new group, select + **New group**.
+7. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](../azure-monitor/alerts/action-groups.md) and assign it to the new rule. To create a new group, select + **New group**.
 8. To enable the rules after you create them, select **Yes** for the **Enable rule upon creation** option.
 9. Select **Create alert rule**.
 

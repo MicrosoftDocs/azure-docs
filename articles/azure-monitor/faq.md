@@ -118,7 +118,7 @@ See [Overview of alerts in Microsoft Azure](platform/alerts-overview.md).
 
 
 ### What is an action group?
-An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to leverage common sets of notifications and actions. See [Create and manage action groups in the Azure portal](platform/action-groups.md).
+An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to leverage common sets of notifications and actions. See [Create and manage action groups in the Azure portal](alerts/action-groups.md).
 
 
 ### What is an action rule?
@@ -179,7 +179,7 @@ Use the steps described in [create a new log alert](alerts/alerts-metric.md) to 
    - **Name**: *Data collection stopped*
    - **Severity**: *Warning*
 
-Specify an existing or new [Action Group](platform/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
+Specify an existing or new [Action Group](alerts/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
 
 ### What are the firewall requirements for Azure Monitor agents?

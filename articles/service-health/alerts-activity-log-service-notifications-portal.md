@@ -27,7 +27,7 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/alerts/alerts-activity-log.md).
 
@@ -57,7 +57,7 @@ For information on how to configure service health notification alerts by using 
 
 5. Choose the **Event types** you want to be alerted for: *Service issue*, *Planned maintenance*, *Health advisories*, and *Security advisory*.
 
-6. Click **Select action group** to choose an existing action group or to create a new action group. For more information on action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
+6. Click **Select action group** to choose an existing action group or to create a new action group. For more information on action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
 
 7. Define your alert details by entering an **Alert rule name** and **Description**.
@@ -79,4 +79,4 @@ Learn how to [Configure webhook notifications for existing problem management sy
 - Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 - Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

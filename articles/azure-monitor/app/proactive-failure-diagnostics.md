@@ -60,7 +60,7 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 
 You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
 
-This alert rule is created with an associated [Action Group](../platform/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
+This alert rule is created with an associated [Action Group](../alerts/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
 
 > [!NOTE]
 > Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](./proactive-email-notification.md).

@@ -29,7 +29,7 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 ## Prerequisites
 
@@ -197,4 +197,4 @@ Remove-AzResourceGroup -Name my-resource-group
 - Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 - Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

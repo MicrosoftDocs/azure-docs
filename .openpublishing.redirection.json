@@ -61909,6 +61909,21 @@
       "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections.md",
       "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/action-groups.md",
+      "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-webhooks.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-webhooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/api-alerts.md",
+      "redirect_url": "/azure/azure-monitor/alerts/api-alerts",
+      "redirect_document_id": false
     }
   ]
 }

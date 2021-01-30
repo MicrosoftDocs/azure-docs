@@ -58,7 +58,7 @@ There are common properties across all of these alert rules:
 
 * All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
 
-* Alerts rules do not have an action group assigned to them by default. You can add an [action group](../platform/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
+* Alerts rules do not have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
 
 * You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying its threshold.
 
@@ -122,7 +122,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
     ![Enable alert rule](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Alert rules are not associated with an [action group](../platform/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
+5. Alert rules are not associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
 
     ![Select an action group](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -194,7 +194,7 @@ The basic steps are as follows:
 
 ## Edit alert rules
 
-You can view and manage Azure Monitor for containers alert rules, to edit its threshold or configure an [action group](../platform/action-groups.md) for your AKS cluster. While you can perform these actions from the Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Azure Monitor for containers.
+You can view and manage Azure Monitor for containers alert rules, to edit its threshold or configure an [action group](../alerts/action-groups.md) for your AKS cluster. While you can perform these actions from the Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Azure Monitor for containers.
 
 1. From the command bar, select **Recommended alerts**.
 

@@ -46,7 +46,7 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
 ### Define the action to take
 
-1. Under **Action group**, select **Specify action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups and steps to create one that sends an email notification, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+1. Under **Action group**, select **Specify action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups and steps to create one that sends an email notification, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 ### Define alert details
 

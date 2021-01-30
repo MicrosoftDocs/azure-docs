@@ -193,7 +193,7 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
     ![Configure signal logic](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Select **Create New** under **Action Groups**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+10. Select **Create New** under **Action Groups**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 11. Under **Alert details**, enter a name and description for the alert. 
 
