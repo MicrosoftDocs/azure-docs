@@ -43,7 +43,7 @@ At the end of this process you should have a full application inside of the fold
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript. Move the provided tarball (Private Preview) over to the my-app directory.
 
 ```console
 
@@ -61,7 +61,7 @@ Let's test the Create React App installation by running:
 
 ```console
 
-yarn start 
+npm run start 
 
 ```
 
@@ -120,7 +120,7 @@ function App(){
             userId={USERID}, //Required, Azure Communication Services user id retrieved from authentication service
             token={TOKEN}, // Required, Azure Communication Services access token retrieved from authentication service
             threadId={THREADID}, //Required, Id for group chat thread that will be joined.
-            environmentURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
+            endpointURL={ENDPOINT_URL}, //Required, URL for Azure endpoint being used for Azure Communication Services
             onRenderAvatar = { () => {
                 //Optional, ???
             }}
@@ -146,11 +146,7 @@ To run the code above use the command:
 
 ```console
 
-yarn start
-
-or 
-
-npm start
+npm run start 
 
 ```
 

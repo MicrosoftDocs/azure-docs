@@ -48,7 +48,7 @@ At the end of this process you should have a full application inside of the fold
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript. Move the provided tarball (Private Preview) over to the my-app directory.
 
 ```console
 
@@ -66,7 +66,7 @@ Let's test the Create React App installation by running:
 
 ```console
 
-yarn start  
+npm run start   
 
 ```
 
@@ -95,8 +95,8 @@ We'll use a Fluent UI theme to enhance the look and feel of the application:
 `App.js`
 ```javascript
 
-import {CallingProvider, ChatProvider} from "@azure/communication-ui"
-import { Provider } from '@fluentui/react-northstar';
+import {CallingProvider, ChatProvider} from "@azure/acs-ui-sdk"
+import { Provider, mergeThemes, teamsTheme } from '@fluentui/react-northstar';
 import { svgIconStyles } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconStyles';
 import { svgIconVariables } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconVariables';
 import * as siteVariables from '@fluentui/react-northstar/dist/es/themes/teams/siteVariables';
@@ -111,28 +111,35 @@ const iconTheme = {
   siteVariables
 };
 
-<Provider theme={mergeThemes(iconTheme, teamsTheme)}>
-    <CallingProvider
-    displayName={/*Insert Display Name to be used for the user*/}
-    groupId={/*Insert GUID for group call to be joined*/}
-    userId={/*Insert the Azure Communication Services user id */}
-    token={/*Insert the Azure Communication Services access token*/}
-    refreshTokenCallback={/*Insert refresh token call back function*/}
-    >
-        // Add Calling Components Here
-    </CallingProvider>
+function App(props) {
 
-    <ChatProvider
-    token={/*Insert the Azure Communication Services access token*/}
-    userId={/*Insert the Azure Communication Services user id*/}
-    displayName={/*Insert Display Name to be used for the user*/}
-    threadId={/*Insert id for group chat thread to be joined*/}
-    environmentUrl={/*Insert the enviornment URL for the Azure Resource used*/}
-    refreshTokenCallback={/*Insert refresh token call back function*/}
-    >
-        //  Add Chat Components Here
-    </ChatProvider>
-</Provider>
+  return (
+    <Provider theme={mergeThemes(iconTheme, teamsTheme)}>
+        <CallingProvider
+        displayName={/*Insert Display Name to be used for the user*/}
+        groupId={/*Insert GUID for group call to be joined*/}
+        userId={/*Insert the Azure Communication Services user id */}
+        token={/*Insert the Azure Communication Services access token*/}
+        refreshTokenCallback={/*Optional, Insert refresh token call back function*/}
+        >
+            // Add Calling Components Here
+        </CallingProvider>
+
+        <ChatProvider
+        token={/*Insert the Azure Communication Services access token*/}
+        userId={/*Insert the Azure Communication Services user id*/}
+        displayName={/*Insert Display Name to be used for the user*/}
+        threadId={/*Insert id for group chat thread to be joined*/}
+        endpointUrl={/*Insert the environment URL for the Azure Resource used*/}
+        refreshTokenCallback={/*Optional, Insert refresh token call back function*/}
+        >
+            //  Add Chat Components Here
+        </ChatProvider>
+    </Provider>
+  );
+}
+
+export default App;
 
 ```
 
@@ -140,14 +147,16 @@ Once initialized, this provider lets you build your own layout using UI Framewor
 
 ## Build UI Framework Calling Component Experiences
 
-For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`.
+For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`. You can add additional layout and styling around the components. 
 
 `callingComponents.js`
 ```javascript
 
 import {MediaGallery, MediaControls, useGroupCall, MapToCallingSetupProps, connectFuncsToContext} from "@azure/acs-ui-sdk"
 
-function CallingComponents() {
+function CallingComponents(props) {
+
+  if (props.isCallInitialized) {props.joinCall()}
 
   return (
     <div >
@@ -159,14 +168,12 @@ function CallingComponents() {
 
 ```
 
-You can add additional layout and styling around the components. 
-
-At the bottom of this file, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
+At the bottom of this file, we will then export the calling components to be initiated inside `app.js`. We will use the `connectFuncsToContext` method from the UI Framework to connect the calling UI components to the underlying state using the mapping function `MapToCallingSetupProps`. We use this props to initialize using the `isCallInitialized` property to check whether the `CallAgent` is ready and then we use the `joinCall` method to join in. UI Framework supports custom mapping functions to be used for scenarios where developers want to control how data is pushed to the components.
 
 `callingComponents.js`
 ```javascript
 
-export default connectFuncsToContext(CallingComponents, MapToCallingSetupProps);
+export default connectFuncsToContext(CallingComponents, MapToCallConfigurationProps);
 
 ```
 
@@ -177,7 +184,7 @@ For Chat, we will use the `ChatThread` and `SendBox` components. For more inform
 `chatComponents.js`
 ```javascript
 
-import {ChatThread, SendBox} from "@azure/acs-ui-sdk/dist/connected-components"
+import {ChatThread, SendBox} from '@azure/acs-ui-sdk'
 
 function ChatComponents() {
 
@@ -195,7 +202,7 @@ export default ChatComponents;
 
 ## Add Calling and Chat Components to the main application
 
-Back in the `app.js` file, we will now add the components to the `CallingProvider` and `ChatProvider`:
+Back in the `app.js` file, we will now add the components to the `CallingProvider` and `ChatProvider` like shown below.
 
 `App.js`
 ```javascript
@@ -203,6 +210,7 @@ Back in the `app.js` file, we will now add the components to the `CallingProvide
 import ChatComponents from './chatComponents';
 import CallingComponents from './callingComponents';
 
+<Provider ... >
     <CallingProvider .... >
         <CallingComponents/>
     </CallingProvider>
@@ -220,7 +228,7 @@ To run the code above use the command:
 
 ```console
 
-yarn start
+npm run start   
 
 ```
 
