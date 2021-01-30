@@ -65,7 +65,7 @@ The following management operations are captured in operational logs:
 | Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | Create or Update Authorization Rule |
 | Namespace | Microsoft.NotificationHubs/Namespaces/delete | Delete Namespace |
 | Namespace | Microsoft.NotificationHubs/Namespaces/read | Get Namespace |
-| Namespace | Microsoft.NotificationHubs/Namespaces/write | Creaste or Update Namespace |
+| Namespace | Microsoft.NotificationHubs/Namespaces/write | Create or Update Namespace |
 | Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | List Authorization Rules |
 | Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | Delete Authorization Rule |
 | Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | List Keys |
