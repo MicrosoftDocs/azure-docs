@@ -2,7 +2,7 @@
 title: Log alerts from Azure Monitor for containers | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/05/2021
 
 ---
 
@@ -220,7 +220,7 @@ KubePodInventory
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterName
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),

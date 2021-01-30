@@ -39,7 +39,8 @@
     - name: Node.js - MSAL | Preview
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
-      displayName: OIDC
+      displayName: OIDC, express
+      href: quickstart-v2-nodejs-webapp.md
     - name: Java
       href: quickstart-v2-java-webapp.md
     - name: Python
@@ -67,6 +68,8 @@
       href: quickstart-v2-netcore-daemon.md
     - name: Python console daemon
       href: quickstart-v2-python-daemon.md
+    - name: Java console daemon
+      href: quickstart-v2-java-daemon.md
 - name: Tutorials
   items:
   - name: Single-page app (SPA)
@@ -279,7 +282,7 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Work with Microsoft Authentication Library
+  - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
     - name: All platforms
@@ -328,7 +331,7 @@
         href: msal-error-handling-dotnet.md
         displayName: handling, catch
       - name: Logging in MSAL.NET
-        href: msal-logging.md?tabs=dotnet
+        href: msal-logging-dotnet.md
       - name: Acquire a token from the cache
         href: msal-net-acquire-token-silently.md
       - name: Token cache serialization
@@ -370,7 +373,7 @@
         href: msal-error-handling-js.md
         displayName: handling, catch
       - name: Logging in MSAL.js
-        href: msal-logging.md?tabs=javascript
+        href: msal-logging-js.md
     - name: MSAL for iOS and macOS
       items:
       - name: MSAL for iOS and macOS differences
@@ -400,7 +403,7 @@
         href: msal-error-handling-ios.md
         displayName: handling, catch
       - name: Logging in MSAL for iOS/macOS
-        href: msal-logging.md?tabs=swift
+        href: msal-logging-ios.md
     - name: MSAL for Python
       items:
       - name: Custom token cache serialization
@@ -413,7 +416,7 @@
         href: msal-error-handling-python.md
         displayName: handling, catch
       - name: Logging in MSAL for Python
-        href: msal-logging.md?tabs=python
+        href: msal-logging-python.md
     - name: MSAL for Java
       items:
       - name: Custom token cache serialization
@@ -428,7 +431,7 @@
         href: msal-error-handling-java.md
         displayName: handling, catch
       - name: Logging in MSAL for Java
-        href: msal-logging.md?tabs=java
+        href: msal-logging-java.md
     - name: MSAL for Android
       items:
       - name: Accounts and tenant profiles
@@ -448,7 +451,7 @@
         href: msal-android-handling-exceptions.md
         displayName: android, mobile, handling, catch
       - name: Logging in MSAL for Android
-        href: msal-logging.md?tabs=android
+        href: msal-logging-android.md
   - name: Customize tokens and claims
     items:
     - name: Configure role claim
@@ -636,41 +639,13 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
   - name: Videos
     href: identity-videos.md
   - name: Microsoft identity platform developer blog
     href: https://developer.microsoft.com/en-us/identity/blogs/
-  - name: Azure portal help articles
-    items:
-    - name: Token lifetime defaults for a custom-developed application
-      href: registration-config-change-token-lifetime-how-to.md
-    - name: Discover endpoints
-      href: registration-config-how-to.md
-    - name: Select permissions for a given API
-      href: perms-for-given-api.md
-    - name: Authentication protocols
-      href: active-directory-authentication-protocols.md
-    - name: Differences between delegated and application permissions
-      href: delegated-and-app-perms.md
-    - name: How application consent works
-      href: consent-framework-links.md
-    - name: Find a specific API needed for a custom-developed application
-      href: api-find-an-api-how-to.md
-    - name: App registration reference
-      href: active-directory-v2-registration-portal.md
-    - name: Azure portal registration fields for custom-developed apps
-      href: registration-config-specific-application-property-how-to.md
-    - name: Configure a new multitenant application
-      href: setup-multi-tenant-app.md
-    - name: Add a multitenant application to the Azure AD application gallery
-      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-    - name: Integrating with Azure Active Directory
-      href: active-directory-how-to-integrate.md
-    - name: Configure single sign-on for an application
-      href: registration-config-sso-how-to.md
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Azure roadmap

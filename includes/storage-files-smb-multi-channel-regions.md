@@ -11,18 +11,16 @@
 ---
 SMB Multichannel for Azure file shares is currently only available in the following regions:
 
-- Australia East
-- Brazil South
-- Canada Central
-- Canada East
-- Central India
-- France Central
-- Germany West Central
-- Japan East
-- North Central US
-- South Central US
-- UAE North
-- UK South
-- UK West
-- West Central US
-- West India
+| Geographic region | Azure region |
+|-------------|-------------------|
+| Australia | Australia East |
+| Brazil | Brazil South |
+| Canada | Canada Central, Canada East |
+| France | France Central |
+| Germany | Germany West Central |
+| India | Central India, West India |
+| Japan | Japan East, Japan West |
+| Korea | Korea Central, Korea West |
+| United Arab Emirates | UAE North |
+| United Kingdom | UK South, UK West |
+| United States | North Central US, South Central US, West Central US |

@@ -13,7 +13,7 @@ ms.custom: contperf-fy21q1, devx-track-azurecli
 ---
 # Add or remove Azure role assignments using Azure CLI
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using Azure CLI.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using Azure CLI.
 
 ## Prerequisites
 

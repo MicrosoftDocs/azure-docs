@@ -21,9 +21,16 @@ For more information about Key Vault, see
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [PowerShell module](/powershell/azure/install-az-ps).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
+* The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:
+
+  | Permission | Description |
+  |---|---|
+  |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
+  |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
+
 
 ## What are soft-delete and purge protection
 
@@ -383,10 +390,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
-- [Azure Key Vault PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.keyvault)
-- [Key Vault Azure CLI commands](https://docs.microsoft.com/cli/azure/keyvault)
+- [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
+- [Key Vault Azure CLI commands](/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
 - [Secure access to a key vault](secure-your-key-vault.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Best practices to use a key vault](best-practices.md)
+- [Best practices to use a key vault](security-overview.md)

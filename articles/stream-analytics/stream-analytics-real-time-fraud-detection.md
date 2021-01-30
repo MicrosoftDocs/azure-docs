@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Analyze fraudulent call data with Azure Stream Analytics and visualize results in Power BI dashboard
 description: This tutorial provides an end-to-end demonstration of how to use Azure Stream Analytics to analyze fraudulent calls in a phone call stream.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2

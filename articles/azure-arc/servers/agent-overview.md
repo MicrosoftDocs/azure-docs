@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 
@@ -63,6 +63,8 @@ The following versions of the Windows and Linux operating system are officially 
 ### Azure subscription and service limits
 
 Before configuring your machines with Azure Arc enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+
+Azure Arc enabled servers supports up to 5,000 machine instances in a resource group.
 
 ### Transport Layer Security 1.2 protocol
 

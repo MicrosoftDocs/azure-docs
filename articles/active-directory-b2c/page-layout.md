@@ -47,7 +47,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from the checkbox control. 
 - Added support for a display control for phone number verification.
-- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
