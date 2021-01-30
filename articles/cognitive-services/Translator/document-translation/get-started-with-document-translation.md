@@ -1,7 +1,7 @@
 ---
-title: Use Translator for document translation
-description: How to create a document translation service using C#, Go, Java, Node.js, or Python platforms
-ms.topic: quickstart
+title: Get started with Document Translation
+description: How to create a document translation service using C#, Go, Java, Node.js, or Python progamming languages and platforms
+ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
@@ -10,29 +10,39 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation
 
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service that enables the translation of whole documents from and to more than 70 languages available in the Translator service. In this article, you'll learn to use Document Translator via your programming language and HTTP REST API methods.
+
 ## Prerequisites
 
 To get started, you'll need:
 
 1. An active Azure subscription.
 If you don't have one, you can [**create a free Azure account**](https://azure.microsoft.com/free/cognitive-services/).
-1. A Translator resource. You can [create your Translator resource](../translator-how-to-signup.md) in the Azure portal.
-1. An Azure blob storage account. All access to Azure Storage takes place through a storage account. You can [create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) in the Azure portal.
+1. A Translator resource. You can [create your Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
+1. An Azure blob storage account. All access to Azure Storage takes place through a storage account. You can [create an Azure storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.
 
 ## Create Azure blob storage containers
 
-1. You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account.
+You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account:
 
-* A **source container**. The source container is where you'll upload your documents for translation. You'll need to delegate **list** and  **read-only** access for your source container or you can delegate **read-only** access for a specific blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
+1. **Source container**. The source container is where you'll upload your documents for translation. 
+1. **Target container**. The target container is where your translated documents will be stored.  
+1. Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token. The token can be assigned to your container or specific blobs. Source containers are delegated **list** and **read-only** access. Source container blobs
 
-* A **target container**. The target container is where your translated documents will be stored.  You'll need to delegate **list** and **write-only access** for your target container. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
+### Source and target SAS access tokens
 
-## Create Shared Access Signature tokens in the Azure portal
+* You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob. 
+* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specfic target blob  . *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
-### [Containers](#tab/container)
+## Create Shared Access Signature tokens  in the Azure portal
+
+Your `sourceUrl` and `targetUrl`  must include a Shared Access Signature(SAS) token as part of the query string. You can create SAS tokens for your entire containers or designate specific blobs:
+
+### [Designate SAS access for containers](#tab/container)
 
 * Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
 
+<!-- markdownlint-disable MD036 -->
 **Source container**  
 
  **Your storage account** → **containers** and select your **source** container by selecting the adjacent box.
@@ -67,10 +77,11 @@ If you don't have one, you can [**create a free Azure account**](https://azure.m
   * Select your **Preferred routing tier**. The default value is Basic.
   * You'll have the option of creating one or two shared access keys.
 
-### [Blob](#tab/blob)
+### [Designate SAS access for Blobs](#tab/blob)
 
 Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
- **your storage account** → **containers** → **your container** → **your blob**
+
+ **Your storage account** → **containers** → **your container** → **your blob**
 
 * Select **Generate SAS** from the menu near the top of the page.
 * Select **Signing method** → **User delegation key**.
@@ -82,7 +93,7 @@ Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as fol
 
 ---
 
-## Keys and endpoints
+### Keys and endpoints
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
@@ -91,11 +102,11 @@ Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as fol
 
 >[!NOTE]
 > To access the Document translation service, you must add the additional parameter **batches** to your endpoint URL.
-> If you have created a Translator service with Virtual Network support, you must use the custom endpoint associated with your Translator resource to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com` and you can't use an access token for authentication.
+> If you have created a Translator service with Virtual Network support, you must use the custom endpoint associated with your Translator resource to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com`  nor use an access token for authentication.
 
-## Headers
+### HTTP headers
 
-The following headers are included with each HTTP REST API request:
+The following headers are included with each Document Translator API request:
 
 |HTTP header|Description|
 |---|--|
@@ -107,12 +118,12 @@ The following headers are included with each HTTP REST API request:
 
 ## Submit a Document Translation request (POST)
 
-### POST Request properties
+### POST request properties
 
-* You submit a batch document translation request to your translation service endpoint via a POST request. The request body is a JSON object named inputs.
-* The inputs object will contain both a `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
-* The `prefix` and `suffix` fields (if supplied) will be used to filter the folders. The prefix will be applied to the subpath after the container name.
-* Glossaries / Translation memory can be supplied and will be applied when the document is being translated.
+* A batch document translation request is submitted to your translation service endpoint via a POST request. The request body is a JSON object named `inputs`.
+* The `inputs` object contains both a `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
+* The `prefix` and `suffix` fields (if supplied) will be used to filter container subdirectories (folders).
+* A value for the  `glossaries`  field can be included and will be applied when the document is being translated.
 * If the file with the same name already exists in the destination, it will be overwritten.
 * The `targetUrl` for each target language needs to be unique.
 
@@ -290,7 +301,7 @@ Content-Length: YOUR-CONTENT-LENGTH
     {
 
 
-        private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
+        private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT";
 
         private static readonly string resourceKey = "YOUR-RESOURCE-KEY";
 
@@ -298,11 +309,12 @@ Content-Length: YOUR-CONTENT-LENGTH
         // This is required if using a Cognitive Services resource.
         private static readonly string location = "YOUR-RESOURCE-LOCATION";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-CONTAINER-URL-WITH-WRITE-ONLY-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
         
         static async Task Main(string[] args)
         {
-
+            
+            string route = "/batches";
             using HttpClient client = new HttpClient();
             using HttpRequestMessage request = new HttpRequestMessage();
             {
@@ -310,7 +322,7 @@ Content-Length: YOUR-CONTENT-LENGTH
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 // Create the request
                 request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(endpoint);
+                request.RequestUri = new Uri(endpoint + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", resourceKey);
                 request.Content = content;
                 request.Headers.Add("Ocp-Apim-Subscription-Region", location);
@@ -341,7 +353,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 ```javascript
 const axios = require('axios').default;
 
-let endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
+let endpoint = "https://YOUR-RESOURCE-ENDPOINT";
 let resourceKey = "YOUR-RESOURCE-KEY";
 
 // Add your location, also known as region. The default is global.
@@ -351,7 +363,7 @@ let location = "YOUR_RESOURCE_LOCATION";
 let data = JSON.stringify({"inputs": [
   {
       "source": {
-          "sourceUrl": "https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS",
+          "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",
           "storageSource": "AzureBlob",
           "language": "en",
           "filter":{
@@ -360,7 +372,7 @@ let data = JSON.stringify({"inputs": [
       },
       "targets": [
           {
-              "targetUrl": "https://YOUR-TARGET-CONTAINER-URL-WITH-WRITE-ONLY-SAS",
+              "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS",
               "storageSource": "AzureBlob",
               "category": "general",
               "language": "es"}]}]});
@@ -368,6 +380,7 @@ let data = JSON.stringify({"inputs": [
 let config = {
   method: 'post',
   baseURL: endpoint,
+  url: '/batches', 
   headers: {
     'Ocp-Apim-Subscription-Key': resourceKey,
     'Content-Type': 'application/json'
@@ -393,14 +406,16 @@ axios(config)
 
 import requests
 
-endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
+path ='/batches/'
+endpoint = "https://YOUR-RESOURCE-ENDPOINT"
+constructed_url = endpoint + path
 resourceKey =  'YOUR-RESOURCE-KEY'
 
 payload= {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS",
+                "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",
                 "storageSource": "AzureBlob",
                 "language": "en",
                 "filter":{
@@ -409,7 +424,7 @@ payload= {
             },
             "targets": [
                 {
-                    "targetUrl": "https://YOUR-TARGET-CONTAINER-URL-WITH-WRITE-ONLY-SAS",
+                    "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS",
                     "storageSource": "AzureBlob",
                     "category": "general",
                     "language": "es"
@@ -423,7 +438,7 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-response = requests.post(url=endpoint, headers=headers, json=payload)
+response = requests.post(url=constructed_url, headers=headers, json=payload)
 
 print(f'response status code: {response.status_code}\nresponse status: {response.reason}\nresponse headers: {response.headers}')
 ```
@@ -431,44 +446,36 @@ print(f'response status code: {response.status_code}\nresponse status: {response
 ### [Java](#tab/java)
 
 ```java
-import okhttp3.*;
 import java.io.*;
-
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
+    String resourceKey = "'YOUR-RESOURCE-KEY'";
+    String url = "https://YOUR-RESOURCE-ENDPOINT/batches";
 
     OkHttpClient client = new OkHttpClient();
-    private static String resourceKey = "YOUR-RESOURCE-KEY";
-    
-    private static String url = "YOUR-RESOURCE-ENDPOINT";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    public static void main(String[] args) throws IOException {
-        DocumentTranslation obj = new DocumentTranslation();
-        obj.Post();
+    public void post() throws IOException {
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType,  "{ \"inputs\": [ {  \"source\": { \"sourceUrl\": \"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\", \"storageSource\": \"AzureBlob\",  \"language\": \"en\", \"filter\":{ \"prefix\": \"Demo_1/\" }  },  \"targets\": [ { \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\": \"AzureBlob\", \"category\": \"general\",  \"language\": \"es\" }  ] } ]}");
+        Request request = new Request.Builder()
+                .url(url).post(body)
+                .addHeader("Ocp-Apim-Subscription-Key", resourceKey)
+                .addHeader("Content-type", "application/json")
+                .build();
+        Response response = client.newCall(request).execute();
+        System.out.println(response.code());
+        System.out.println(response.headers());
     }
 
-    public void Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-            "{ \"inputs\": [ {  \"source\": { \"sourceUrl\": \"https://kdossblob.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-01-22T02%3A48%3A41Z&se=2021-02-06T02%3A48%3A00Z&sr=c&sp=rl&sig=FSDuKgTb6PsKmofXgeoyl%2B8X6x8F7kY0HB%2BCuey7kDI%3D\", \"storageSource\": \"AzureBlob\",  \"language\": \"en\", \"filter\":{ \"prefix\": \"Demo_1/\" }  },  \"targets\": [ { \"targetUrl\": \"https://kdossblob.blob.core.windows.net/target-es?sv=2019-12-12&st=2021-01-24T03%3A50%3A18Z&se=2021-02-06T03%3A50%3A00Z&sr=c&sp=wl&sig=lMWFWcbVej%2B9ZElii1KqyRxsUeIF5kr7bzaIS5mP8%2Bs%3D\", \"storageSource\": \"AzureBlob\", \"category\": \"general\",  \"language\": \"es\" }  ] } ]}");
-
-        Request request = new Request.Builder()
-            .url(url)
-            .addHeader("Ocp-Apim-Subscription-Key", "resourceKey")
-            .addHeader("Content-Type", "application/json")
-            .post(body)
-            .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) throw new IOException("Error" + response);
-
-            // Get response body
-            System.out.println(response.headers().string());
-            System.out.println(response.status().string());
+  public static void main(String[] args) {
+        try {
+            DocumentTranslation sampleRequest = new DocumentTranslation();
+            sampleRequest.post();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
@@ -491,7 +498,7 @@ url := "https://YOUR-RESOURCE-ENDPOINT/batches"
 resourceKey := "YOUR-RESOURCE-KEY"
 method := "POST"
 
-var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://kdossblob.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-01-22T02%3A48%3A41Z&se=2021-02-06T02%3A48%3A00Z&sr=c&sp=rl&sig=FSDuKgTb6PsKmofXgeoyl%2B8X6x8F7kY0HB%2BCuey7kDI%3D","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://kdossblob.blob.core.windows.net/target-es?sv=2019-12-12&st=2021-01-24T03%3A50%3A18Z&se=2021-02-06T03%3A50%3A00Z&sr=c&sp=wl&sig=lMWFWcbVej%2B9ZElii1KqyRxsUeIF5kr7bzaIS5mP8%2Bs%3D","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", resourceKey)
@@ -604,7 +611,7 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-public class DocTranslator {
+public class DocumentTranslator {
 
     public static void main(String[] args) throws IOException {
         OkHttpExample1 obj = new OkHttpExample1();
@@ -613,10 +620,13 @@ public class DocTranslator {
 
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
+String resourceKey = "YOUR-RESOURCE-KEY";
+String endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
+
 Request request = new Request.Builder()
-  .url("https://kdoss-cs-mt-global.cognitiveservices.azure.com//translator/text/batch/v1.0-preview.1/batches")
+  .url(endpoint)
   .method("GET", null)
-  .addHeader("Ocp-Apim-Subscription-Key", "6d9013264d0746b68b9d61ab0c638c46")
+  .addHeader("Ocp-Apim-Subscription-Key", resourceKey)
   .build();
 Response response = client.newCall(request).execute();
 
