@@ -1742,7 +1742,7 @@
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
     - name: Restore options
-      href: ../backup/backup-azure-arm-restore-vms.md
+      href: /azure/backup/backup-azure-arm-restore-vms
     - name: Support matrix
       href: ../backup/backup-support-matrix-iaas.md
     - name: Pricing
