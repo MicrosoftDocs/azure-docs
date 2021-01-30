@@ -30,7 +30,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
-| **restorableSqlDatabaseRid** | query | |string| The resource ID of the MongoDB database. |
+| **restorableMongodbDatabaseRid** | query | |string| The resource ID of the MongoDB database. |
 
 ## Responses
 

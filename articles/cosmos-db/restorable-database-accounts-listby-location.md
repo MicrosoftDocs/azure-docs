@@ -10,7 +10,7 @@ ms.author:
 
 # Restorable Database Accounts - List By Location
 
-Lists all the restorable Azure Cosmos DB database accounts available under the subscription and in a region. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read/*` permission.
+Lists all the restorable Azure Cosmos DB database accounts available under the subscription and in a region. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` permission.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts?api-version=2020-06-01-preview
@@ -109,7 +109,7 @@ Status code: 200
 | [ApiType](#apitype) | Enum to indicate the API type of the restorable database account. |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
-| [RestorableDatabaseAccountGetResult](#restorabledatabaseaccountgetresult) | A Azure Cosmos DB restorable database account. |
+| [RestorableDatabaseAccountGetResult](#restorabledatabaseaccountgetresult) | An Azure Cosmos DB restorable database account. |
 | [RestorableDatabaseAccountsListResult](#restorabledatabaseaccountslistresult) | The List operation response, that contains the restorable database accounts and their properties. |
 | [RestorableLocationResource](#restorablelocationresource) | Properties of the regional restorable account. |
 
@@ -145,7 +145,7 @@ Error Response.
 
 ### <a id="restorabledatabaseaccountgetresult"></a>RestorableDatabaseAccountGetResult
 
-A Azure Cosmos DB restorable database account.
+An Azure Cosmos DB restorable database account.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |

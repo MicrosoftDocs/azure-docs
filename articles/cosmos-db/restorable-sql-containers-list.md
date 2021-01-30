@@ -193,10 +193,10 @@ Enum to indicate the operation type of the event.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| Create |string|collection creation event|
-| Delete |string|collection deletion event|
-| Replace |string|collection modification event|
-| SystemOperation |string|collection modification event triggered by the system. This event is not initiated by the user|
+| Create |string|containercreation event|
+| Delete |string|container deletion event|
+| Replace |string|container modification event|
+| SystemOperation |string|container modification event triggered by the system. This event is not initiated by the user|
 
 ### <a id="resource"></a>Resource
 
