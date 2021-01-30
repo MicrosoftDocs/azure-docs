@@ -61,7 +61,7 @@ If you can't find an answer to your question through search, submit a new questi
 | [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/en-us/answers/topics/azure-active-directory.html) |
+| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
