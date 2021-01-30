@@ -1,5 +1,5 @@
 ---
-title: List restorable databasess in Azure Cosmos DB API for MongoDB using REST API
+title: List restorable databases in Azure Cosmos DB API for MongoDB using REST API
 description: Show the event feed of all mutations done on all the Azure Cosmos DB MongoDB databases under the restorable account. This helps in scenario where database was accidentally deleted to get the deletion time.
 author: kanshiG
 ms.service: cosmos-db
@@ -21,7 +21,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | **instanceId** | path | True |string| The instanceId GUID of a restorable database account. |
-| **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
+| **location** | path | True | string| Azure Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
 
@@ -44,7 +44,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 **Sample Response**
 
-Status code:200
+Status code: 200
 
 ```json
 {
@@ -88,10 +88,10 @@ Status code:200
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
 | [OperationType](#operationtype) | Enum to indicate the operation type of the event. |
-| [Resource](#resource) | The resource of an Azure Cosmos DB MongoDB database event |
-| [RestorableMongodbDatabaseGetResult](#restorablemongodbdatabasegetresult) | An Azure Cosmos DB MongoDB database event |
-| [RestorableMongodbDatabaseProperties](#restorablemongodbdatabaseproperties) | The properties of an Azure Cosmos DB MongoDB database event |
-| [RestorableMongodbDatabasesListResult](#restorablemongodbdatabaseslistresult) | The List operation response, that contains the MongoDB database events and their properties. |
+| [Resource](#resource) | The resource of an Azure Cosmos DB API for MongoDB database event |
+| [RestorableMongodbDatabaseGetResult](#restorablemongodbdatabasegetresult) | An Azure Cosmos DB API for MongoDB database event |
+| [RestorableMongodbDatabaseProperties](#restorablemongodbdatabaseproperties) | The properties of an Azure Cosmos DB API for MongoDB database event |
+| [RestorableMongodbDatabasesListResult](#restorablemongodbdatabaseslistresult) | The List operation response, that contains the Azure Cosmos DB API for MongoDB database events and their properties. |
 
 ### <a id="defaulterrorresponse"></a>DefaultErrorResponse
 
@@ -122,39 +122,45 @@ Enum to indicate the operation type of the event.
 
 ### <a id="resource"></a>Resource
 
-The resource of an Azure Cosmos DB MongoDB database event
+The resource of an Azure Cosmos DB API for MongoDB database event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| _rid |string| A system generated property. A unique identifier. |
+| _rid |string| A system-generated property. A unique identifier. |
 | eventTimestamp |string| The time when this database event happened. |
 | operationType |[OperationType](#operationtype)| The operation type of this database event.  |
-| ownerId |string| The name of the MongoDB database.|
-| ownerResourceId |string| The resource ID of the MongoDB database. |
+| ownerId |string| The name of the Azure Cosmos DB API for  MongoDB database.|
+| ownerResourceId |string| The resource ID Azure Cosmos DB API for  MongoDB database. |
 
 ### <a id="restorablemongodbdatabasegetresult"></a>RestorableMongodbDatabaseGetResult
 
-An Azure Cosmos DB MongoDB database event
+An Azure Cosmos DB API for MongoDB database event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| id |string| The unique resource Identifier of the ARM resource. |
-| name |string| The name of the ARM resource. |
-| properties |[RestorableMongodbDatabaseProperties](#restorablemongodbdatabaseproperties)| The properties of a MongoDB database event. |
+| ID |string| The unique resource Identifier of the Azure Resource Manager resource. |
+| name |string| The name of the Resource Manager resource. |
+| properties |[RestorableMongodbDatabaseProperties](#restorablemongodbdatabaseproperties)| The properties of a Azure Cosmos DB API for MongoDB database event. |
 | type |string| The type of Azure resource. |
 
 ### <a id="restorablemongodbdatabaseproperties"></a>RestorableMongodbDatabaseProperties
 
-The properties of an Azure Cosmos DB MongoDB database event
+The properties of an Azure Cosmos DB API for MongoDB database event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| resource |[Resource](#resource)| The resource of an Azure Cosmos DB MongoDB database event |
+| resource |[Resource](#resource)| The resource of an Azure Cosmos DB API for MongoDB database event |
 
 ### <a id="restorablemongodbdatabaseslistresult"></a>RestorableMongodbDatabasesListResult
 
-The List operation response, that contains the MongoDB database events and their properties.
+The List operation response, that contains the  database events and their properties.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| value |[RestorableMongodbDatabaseGetResult](#restorablemongodbdatabasegetresult)[]| List of MongoDB database events and their properties. |
+| value |[RestorableMongodbDatabaseGetResult](#restorablemongodbdatabasegetresult)[]| List of database events and their properties. |
+
+## Next steps
+
+* [List restorable resources](restorable-mongodb-resources-list.md)  in Azure Cosmos DB API for MongoDB using REST API.
+* [List restorable collections](restorable-mongodb-collections-list.md)  in Azure Cosmos DB API for MongoDB using REST API.
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

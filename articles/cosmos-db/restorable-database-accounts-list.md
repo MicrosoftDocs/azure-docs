@@ -147,19 +147,19 @@ An Azure Cosmos DB restorable database account.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| id |string| The unique resource identifier of the ARM resource. |
+| ID |string| The unique resource identifier of the Azure Resource Manager resource. |
 | location |string| The location of the resource group to which the resource belongs. |
-| name |string| The name of the ARM resource. |
+| name |string| The name of the Resource Manager resource. |
 | properties.accountName |string| The name of the global database account |
 | properties.apiType |[ApiType](#apitype)| The API type of the restorable database account. |
 | properties.creationTime |string| The creation time of the restorable database account (ISO-8601 format). |
 | properties.deletionTime |string| The time at which the restorable database account has been deleted (ISO-8601 format). |
-| properties.restorableLocations |[RestorableLocationResource](#restorablelocationresource)[]| List of regions where the of the database account can be restored from. |
+| properties.restorableLocations |[RestorableLocationResource](#restorablelocationresource)[]| List of regions from which the database account can be restored. |
 | type |string| The type of Azure resource. |
 
 ### <a id="restorabledatabaseaccountslistresult"></a>RestorableDatabaseAccountsListResult
 
-The List operation response, that contains the restorable database accounts and their properties.
+The List operation response that contains the restorable database accounts and their properties.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
@@ -174,8 +174,9 @@ Properties of the regional restorable account.
 | creationTime |string| The creation time of the regional restorable database account (ISO-8601 format). |
 | deletionTime |string| The time at which the regional restorable database account has been deleted (ISO-8601 format). |
 | locationName |string| The location of the regional restorable account. |
-| regionalDatabaseAccountInstanceId |string| The instance id of the regional restorable account. |
+| regionalDatabaseAccountInstanceId |string| The instance ID of the regional restorable account. |
 
 ## Next steps
 
-* [Restorable database accounts - List by location](restorable-database-accounts-listby-location.md)
+* [Restorable database accounts - List by location.](restorable-database-accounts-listby-location.md)
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

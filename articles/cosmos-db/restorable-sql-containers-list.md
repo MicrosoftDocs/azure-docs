@@ -27,7 +27,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | **instanceId** | path | True |string| The instanceId GUID of a restorable database account. |
-| **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
+| **location** | path | True | string| Azure Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
 | **restorableSqlDatabaseRid** | query | |string| The resource ID of the SQL database. |
@@ -51,7 +51,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 **Sample Response**
 
-Status code:200
+Status code: 200
 
 ```json
 {
@@ -149,7 +149,7 @@ Status code:200
 
 |Definition  | Description|
 | --- || --- |
-| [Container](#container) | Cosmos DB SQL container resource object |
+| [Container](#container) | Azure Cosmos DB SQL container resource object |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
 | [ErrorResponse](#errorresponse) | Error Response. |
 | [OperationType](#operationtype) | Enum to indicate the operation type of the event. |
@@ -160,15 +160,15 @@ Status code:200
 
 ### <a id="container"></a>Container
 
-Cosmos DB SQL container resource object
+Azure Cosmos DB SQL container resource object
 
 | **Name** | **Type** | **Description** |
 | --- || --- | ---|
-| _etag |string| A system generated property representing the resource etag required for optimistic concurrency control. |
-| _rid |string| A system generated property. A unique identifier. |
-| _self |string| A system generated property that specifies the addressable path of the container resource. |
-| _ts | | A system generated property that denotes the last updated timestamp of the resource. |
-| id |string| Name of the Cosmos DB SQL container |
+| _etag |string| A system-generated property representing the resource etag required for optimistic concurrency control. |
+| _rid |string| A system-generated property. A unique identifier. |
+| _self |string| A system-generated property that specifies the addressable path of the container resource. |
+| _ts | | A system-generated property that denotes the last updated timestamp of the resource. |
+| ID |string| Name of the Azure Cosmos DB SQL container |
 
 ### <a id="defaulterrorresponse"></a>DefaultErrorResponse
 
@@ -193,7 +193,7 @@ Enum to indicate the operation type of the event.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| Create |string|containercreation event|
+| Create |string|container creation event|
 | Delete |string|container deletion event|
 | Replace |string|container modification event|
 | SystemOperation |string|container modification event triggered by the system. This event is not initiated by the user|
@@ -204,8 +204,8 @@ The resource of an Azure Cosmos DB SQL container event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| _rid |string| A system generated property. A unique identifier. |
-| container |[Container](#container)| Cosmos DB SQL container resource object |
+| _rid |string| A system-generated property. A unique identifier. |
+| container |[Container](#container)| Azure Cosmos DB SQL container resource object |
 | eventTimestamp |string| The time when this container event happened. |
 | operationType |[OperationType](#operationtype)| The operation type of this container event. |
 | ownerId |string| The name of the SQL container. |
@@ -217,8 +217,8 @@ An Azure Cosmos DB SQL container event
 
 | **Name** | **Type** | **Description** |
 | --- | --- | ---
-| id |string| The unique resource Identifier of the ARM resource. |
-| name |string| The name of the ARM resource. |
+| ID |string| The unique resource Identifier of the Azure Resource Manager resource. |
+| name |string| The name of the Azure Resource Manager resource. |
 | properties |[RestorableSqlContainerProperties](#restorablesqlcontainerproperties)| The properties of a SQL container event. |
 | type |string| The type of Azure resource. |
 
@@ -237,3 +237,8 @@ The List operation response, that contains the SQL container events and their pr
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | value |[RestorableSqlContainerGetResult](#restorablesqlcontainergetresult)[]| List of SQL container events and their properties. |
+
+## Next steps
+
+* [List restorable databases](restorable-mongodb-databases-list.md)  in Azure Cosmos DB API for MongoDB using REST API.
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

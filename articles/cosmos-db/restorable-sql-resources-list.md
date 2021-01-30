@@ -27,7 +27,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | **instanceId** | path | True |string| The instanceId GUID of a restorable database account. |
-| **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
+| **location** | path | True | string| Azure Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
 | **restoreLocation** | query | |string| The location where the restorable resources are located. |
@@ -120,3 +120,8 @@ The List operation response, that contains the restorable SQL resources.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | value |[DatabaseRestoreResource](#databaserestoreresource)[]| List of restorable SQL resources, including the database and collection names. |
+
+## Next steps
+
+* [List restorable databases](restorable-sql-databases-list.md) in Azure Cosmos SQL API using REST API.
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

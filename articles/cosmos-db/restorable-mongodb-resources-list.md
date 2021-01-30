@@ -27,7 +27,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | **instanceId** | path | True |string| The instanceId GUID of a restorable database account. |
-| **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
+| **location** | path | True | string| Azure Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
 | **restoreLocation** | query | |string| The location where the restorable resources are located. |
@@ -53,7 +53,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 **Sample Response**
 
-Status code:200
+Status code: 200
 
 ```json
 {
@@ -116,8 +116,13 @@ Error Response.
 
 ### <a id="restorablemongoresourceslistresult"></a>RestorableMongodbResourcesListResult
 
-The List operation response, that contains the restorable MongoDB resources.
+The List operation response, that contains the restorable Azure Cosmos DB API for MongoDB resources.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| value |[DatabaseRestoreResource](#databaserestoreresource)[]| List of restorable MongoDB resources, including the database and collection names. |
+| value |[DatabaseRestoreResource](#databaserestoreresource)[]| List of restorable Azure Cosmos DB API for MongoDB resources, including the database and collection names. |
+
+## Next steps
+
+* [List restorable databases](restorable-mongodb-databases-list.md)  in Azure Cosmos DB API for MongoDB using REST API.
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

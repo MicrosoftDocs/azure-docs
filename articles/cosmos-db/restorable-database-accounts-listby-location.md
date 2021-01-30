@@ -17,11 +17,11 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ```
 
-## URI Parameters
+## URI parameters
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
+| **location** | path | True | string| Azure Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
 
@@ -108,7 +108,7 @@ Status code: 200
 | --- | --- |
 | [ApiType](#apitype) | Enum to indicate the API type of the restorable database account. |
 | [DefaultErrorResponse](#defaulterrorresponse) | An error response from the service. |
-| [ErrorResponse](#errorresponse) | Error Response. |
+| [ErrorResponse](#errorresponse) | Error response. |
 | [RestorableDatabaseAccountGetResult](#restorabledatabaseaccountgetresult) | An Azure Cosmos DB restorable database account. |
 | [RestorableDatabaseAccountsListResult](#restorabledatabaseaccountslistresult) | The List operation response, that contains the restorable database accounts and their properties. |
 | [RestorableLocationResource](#restorablelocationresource) | Properties of the regional restorable account. |
@@ -132,7 +132,7 @@ An error response from the service.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| error | [ErrorResponse](#errorresponse)| Error Response. |
+| error | [ErrorResponse](#errorresponse)| Error response. |
 
 ### <a id="errorresponse"></a>ErrorResponse
 
@@ -149,10 +149,10 @@ An Azure Cosmos DB restorable database account.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| id |string| The unique resource identifier of the ARM resource. |
+| ID |string| The unique resource identifier of the Azure Resource Manager resource. |
 | location |string| The location of the resource group to which the resource belongs. |
-| name |string| The name of the ARM resource. |
-| properties.accountName |string| The name of the global database account |
+| name |string| The name of the Resource Manager resource. |
+| properties.accountName |string| The name of the global database account. |
 | properties.apiType |[ApiType](#apitype)| The API type of the restorable database account. |
 | properties.creationTime |string| The creation time of the restorable database account (ISO-8601 format). |
 | properties.deletionTime |string| The time at which the restorable database account has been deleted (ISO-8601 format). |
@@ -176,4 +176,9 @@ Properties of the regional restorable account.
 | creationTime |string| The creation time of the regional restorable database account (ISO-8601 format). |
 | deletionTime |string| The time at which the regional restorable database account has been deleted (ISO-8601 format). |
 | locationName |string| The location of the regional restorable account. |
-| regionalDatabaseAccountInstanceId |string| The instance id of the regional restorable account. |
+| regionalDatabaseAccountInstanceId |string| The instance ID of the regional restorable account. |
+
+## Next steps
+
+* [List restorable collections](restorable-database-accounts-listby-location.md) in Azure Cosmos DB API for MongoDB using REST API.
+* [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.
