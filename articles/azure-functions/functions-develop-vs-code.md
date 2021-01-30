@@ -41,14 +41,24 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
+
 * An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure).
+Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure). The following prerequisites are language-specific:
 
-> [!IMPORTANT]
-> You can develop functions locally and publish them to Azure without having to start and run them locally. To run your functions locally, you'll need to meet some additional requirements, including an automatic download of Azure Functions Core Tools. To learn more, see [Additional requirements for running a project locally](#additional-requirements-for-running-a-project-locally).
+# [C\#](#tab/csharp)
+
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
+
+# [JavaScript](#tab/nodejs)
+
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version. 
+
+
+
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -61,8 +71,6 @@ The Functions extension lets you create a function app project, along with your 
     ![Create a function](./media/functions-develop-vs-code/create-function.png)
 
 1. Select the folder for your function app project, and then **Select a language for your function project**.
-
-1. If you haven't already installed the Core Tools, you are asked to **Select a version** of the Core Tools to install. Choose version 2.x or a later version. 
 
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
@@ -93,7 +101,11 @@ Depending on your language, these other files are created:
 
 * [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
 
-At this point, you can add input and output bindings to your function by [adding a parameter to a C# class library function](#add-input-and-output-bindings).
+# [Java](#tab/java)
+
++ A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.   
+
++ A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
 
 # [JavaScript](#tab/nodejs)
 
@@ -101,20 +113,19 @@ At this point, you can add input and output bindings to your function by [adding
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-input-and-output-bindings).
+# [PowerShell](#tab/powershell)
 
-<!-- # [PowerShell](#tab/powershell)
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+* An HttpExample folder that contains the [function.json definition file](functions-reference-powershell.md#folder-structure) and the run.ps1 file, which contains the function code.
  
 # [Python](#tab/python)
     
 * A project-level requirements.txt file that lists packages required by Functions.
     
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-     -->
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#folder-structure) and the \_\_init\_\_.py file, which contains the function code.
+
 ---
 
+At this point, you can [add input and output bindings](#add-input-and-output-bindings) to your function. 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
 ## Install binding extensions
@@ -129,7 +140,19 @@ Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in t
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+# [Java](#tab/java)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 # [JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# [PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# [Python](#tab/python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -145,9 +168,21 @@ The results of this action depend on your project's language:
 
 A new C# class library (.cs) file is added to your project.
 
+# [Java](#tab/java)
+
+A new Java (.java) file is added to your project.
+
 # [JavaScript](#tab/nodejs)
 
 A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
+
+# [PowerShell](#tab/powershell)
+
+A new folder is created in the project. The folder contains a new function.json file and the new PowerShell code file.
+
+# [Python](#tab/python)
+
+A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
 
 ---
 
@@ -161,61 +196,55 @@ The following examples connect to a storage queue named `outqueue`, where the co
 
 Update the function method to add the following parameter to the `Run` method definition:
 
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-This code requires you to add the following `using` statement:
+The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. The following code adds a messages to the collection:
 
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="30-31":::
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
+ Messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) documentation.
+# [Java](#tab/java)
+
+Update the function method to add the following parameter to the `Run` method definition:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
+
+The `msg` parameter is an `OutputBinding<T>` type, where is `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
+
+This message is sent to the queue when the function completes.
 
 # [JavaScript](#tab/nodejs)
 
-Visual Studio Code lets you add bindings to your function.json file by following a convenient set of prompts. To create a binding, right-click (Ctrl+click on macOS) the **function.json** file in your function folder and select **Add binding**:
-
-![Add a binding to an existing JavaScript function ](media/functions-develop-vs-code/function-add-binding.png)
-
-Following are example prompts to define a new storage output binding:
-
-| Prompt | Value | Description |
-| -------- | ----- | ----------- |
-| **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
-| **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
-| **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.settings.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
-
-In this example, the following binding is added to the `bindings` array in your function.json file:
-
-```javascript
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "msg",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnection"
-}
-```
-
-You can also add the same binding definition directly to your function.json.
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 In your function code, the `msg` binding is accessed from the `context`, as in this example:
 
-```javascript
-context.bindings.msg = "Name passed to the function: " req.query.name;
-```
+:::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) reference.
+# [PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+:::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
+
+# [Python](#tab/python)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+Update the `Main` definition to add an output parameter `msg: func.Out[func.QueueMessage]` so that the definition looks like the following:
+
+:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+The following code adds string data from the request to the output queue:
+
+:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
 ---
 
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md). 
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -325,17 +354,14 @@ When the project is running, you can use the **Execute Function Now...** feature
 
     :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
 
-    This feature uses the administrator APIs to start the function. The request sent to the function depends on the type of function. 
-
 1. For an HTTP-triggered function, you would need to submit a request message body with any required values. Press Enter to send this request message to your function.  
 
 1. When the function runs locally and after the response is received, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
 
-Function keys for HTTP triggers aren't used when a project is running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
+For HTTP trigger functions, the extension calls the endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The request sent to the function depends on the type of function. 
 
-You can also use **Execute Function Now...** to trigger functions deployed to your function apps in Azure. The extension automatically obtains an admin key, which it uses to call the remote admin APIs that can be used to start your functions in Azure.
+Local execution of functions doesn't require using keys. When running functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
-To learn more, see [Work with Azure Functions Core Tools][Azure Functions Core Tools].
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -349,6 +375,8 @@ The function application settings values can also be read in your code as enviro
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 ## Application settings in Azure
 
