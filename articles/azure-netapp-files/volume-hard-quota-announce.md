@@ -21,12 +21,12 @@ ms.custom: references_regions
 
 Azure NetApp Files has been using an automatic capacity pool provisioning and growth mechanism. Volumes are thinly provisioned on an underlaying, customer-provisioned capacity pool of a selected tier and size. Volume quotas are used to provide performance and scalability, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when capacity fills up.  
 
-The Azure NetApp Files behavior regarding volume and capacity pool provisioning will change to a manual and controllable mechanism. Starting  $RELEASE/$DATA, volume sizes (quota) will manage bandwidth performance and provisioned capacity, and underlying capacity pools will no longer grow automatically.  This article provides details about this change.
+The Azure NetApp Files behavior about volume and capacity pool provisioning will change to a manual and controllable mechanism. Starting  $RELEASE/$DATA, volume sizes (quota) will manage bandwidth performance and provisioned capacity, and underlying capacity pools will no longer grow automatically.  This article provides details about this change.
 
 ## Reasons for the change to volume hard quota 
 
 Many customers have indicated three main challenges with the current behavior:
-* VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when utilizing OS space or capacity monitoring tools, giving inaccurate client or application side capacity visibility.
+* VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when using OS space or capacity monitoring tools, giving inaccurate client or application side capacity visibility.
 * Application owners would have no control of provisioned capacity pool space (and associated cost), given the capacity pool auto-grow behavior. This situation is cumbersome in environments where "run-away processes" would rapidly fill up and grow provisioned capacity.
 * Customers want to see and maintain a direct correlation between volume size (quota) and performance. With the current behavior of (implicit) oversubscribing a volume (capacity-wise) and pool auto-grow, customers do not have a direct correlation, until volume quota has been actively (re)set. 
 
@@ -43,7 +43,7 @@ The current behavior:
 * Total usable (and client visible) capacity: 100 TiB
 You will not be able to write more data on the volume beyond this size
 * Capacity pool: automatically grows with 1-TiB increments when it is full
-* Volume quota change: only changes performance (bandwidth) of the volume. It does not change client visible/usable capacity.
+* Volume quota change: only changes performance (bandwidth) of the volume. It does not change client visible or usable capacity.
 
 The Changed behavior:
 * Expected bandwidth: 128 MiB/s
@@ -60,7 +60,7 @@ This section provides guidance on how to operationalize the change to volume har
 
 ### Currently provisioned volumes and capacity pools  
 
-As a result of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools will require ongoing capacity management.  Because the changed behavior will happen instantly, Azure NetApp Files will take a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described below.
+Because of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools will require ongoing capacity management.  Because the changed behavior will happen instantly, Azure NetApp Files will take a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described below.
 
 ### One-time corrective or preventative measures  
 
@@ -224,7 +224,7 @@ See Develop for Azure NetApp Files with REST API using PowerShell.
 
 #### Capacity Management with ANFCapacityManager
 
-ANFCapacityManager is an Azure Logic App that manages capacity-based alert rules. It automatically increases volume sizes to prevent your Azure NetApp Files volumes from running out of space. In addition to sending alerts, it optionally enables the automatic increase of volume and capacity pool sizes to prevent your Azure NetApp Files volumes from running out of space:
+ANFCapacityManager is an Azure Logic App that manages capacity-based alert rules. It automatically increases volume sizes to prevent your Azure NetApp Files volumes from running out of space. In addition to sending alerts, it can enable the automatic increase of volume and capacity pool sizes to prevent your Azure NetApp Files volumes from running out of space:
 * Optionally, when an Azure NetApp Files Volume reaches the specified percent consumed threshold, the volume quota (size) will be increased by the percent specified between 10-100%.
 * If increasing the volume size exceeds the capacity of the containing capacity pool, the capacity pool size will also be increased to accommodate the new volume size.
 You can configure the following key capacity management setting:
