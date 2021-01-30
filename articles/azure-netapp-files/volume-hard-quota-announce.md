@@ -21,14 +21,14 @@ ms.custom: references_regions
 
 Azure NetApp Files has been using an automatic capacity pool provisioning and growth mechanism. Volumes are thinly provisioned on an underlaying, customer-provisioned capacity pool of a selected tier and size. Volume quotas are used to provide performance and scalability, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when capacity fills up.  
 
-The Azure NetApp Files behavior regarding volume and capacity pool provisioning will change to a manual and controllable mechanism. Starting  $RELEASE/$DATA, volume sizes (quota) will manage bandwidth performance as well as provisioned capacity, and underlying capacity pools will no longer auto-grow.  This article provides details about this change.
+The Azure NetApp Files behavior regarding volume and capacity pool provisioning will change to a manual and controllable mechanism. Starting  $RELEASE/$DATA, volume sizes (quota) will manage bandwidth performance and provisioned capacity, and underlying capacity pools will no longer grow automatically.  This article provides details about this change.
 
 ## Reasons for the change to volume hard quota 
 
 Many customers have indicated three main challenges with the current behavior:
-* VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when utilizing OS space/capacity monitoring tools, giving inaccurate client/application side capacity visibility.
-* Application owners would have no control of provisioned capacity pool space (and associated cost), given the capacity pool auto-grow functionality. This is especially cumbersome in environments which would observe so called ‘run-away processes’, rapidly filling up and growing provisioned capacity.
-* Customers want to see and maintain a direct correlation between volume size (quota) and performance. With the current behavior of (implicit) oversubscribing a volume (capacity-wise) and pool auto-grow customers do not have a direct correlation, until volume quota has been actively (re)set. 
+* VM clients would see the thinly provisioned (100 TiB) capacity of any given volume when utilizing OS space or capacity monitoring tools, giving inaccurate client or application side capacity visibility.
+* Application owners would have no control of provisioned capacity pool space (and associated cost), given the capacity pool auto-grow functionality. This situation is cumbersome in environments, which would observe so called ‘run-away processes’, rapidly filling up and growing provisioned capacity.
+* Customers want to see and maintain a direct correlation between volume size (quota) and performance. With the current behavior of (implicit) oversubscribing a volume (capacity-wise) and pool auto-grow, customers do not have a direct correlation, until volume quota has been actively (re)set. 
 
 Many customers have requested self-control over provisioned capacity, to control and balance storage capacity, utilization, and control cost along with application- and client-side visibility of available, used, and provisioned capacity and performance of their application volumes.
 
@@ -41,15 +41,15 @@ For example, consider an ANF volume configured at 1-TiB size (quota) on a 4-TiB 
 The current behavior:
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 100 TiB
-You will not be able to write additional data the volume beyond this size
-* Capacity pool: auto-grows with 1TiB increments upon full
+You will not be able to write more data on the volume beyond this size
+* Capacity pool: auto-grows with 1-TiB increments when it is full
 * Volume quota change: only changes performance (bandwidth) of the volume. It does not change client visible/usable capacity.
 
 The Changed behavior:
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 1 TiB 
-You will not be able to write additional data the volume beyond this size
-* Capacity pool: remains 4TiB in size and does not auto-grow
+You will not be able to write more data on the volume beyond this size
+* Capacity pool: remains 4 TiB in size and does not automatically grow
 * Volume quota change: changes performance (bandwidth) and client visible/usable capacity of the volume.
 
 You need to proactively monitor the utilization of Azure NetApp Files volumes and capacity pools. You need to purposely change the volume and pool pool utilization for close-to-full consumption. Azure NetApp Files will continue to allow for on-the-fly volume and capacity pool resize operations.
@@ -67,7 +67,7 @@ As a result of the volume hard quota change, you should change your operating mo
 The volume hard quota change will result in changes in provisioned and available capacity and for previously provisioned volumes and pools. As a result, some capacity allocation challenges might happen. To avoid short-term out-of-space situations for customers, the Azure NetApp Files team will provide the following, one-time corrective/preventative measures:
 
 * Provisioned volume sizes: 
-    Every provisioned volume will be resized with an additional 20% buffer capacity with a maximum of 100 TiB (which is the volume size limit). The new volume size, including buffer capacity, will be based on the following:  
+    Every provisioned volume will be resized with 20% more buffer capacity with a maximum of 100 TiB (which is the volume size limit). The new volume size, including buffer capacity, will be based on the following factors:  
     * Provisioned volume capacity, in case the used capacity is less than the provisioned volume quota
     * Used volume capacity, in case the used capacity is more than the provisioned volume quota
     There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit increase for the volume.
@@ -77,20 +77,20 @@ The volume hard quota change will result in changes in provisioned and available
 
 #### Example 1 – Without capacity pool change  
 
-In this scenario, a single capacity pool named pool includes three volumes named vol1, vol2 and vol3 and provisioned as follows (all sizes in TiB):
+In this scenario, a single capacity pool named pool includes three volumes named vol1, vol2, and vol3 and provisioned as follows (all sizes in TiB):
 
  
 Vol2 is overcommitted, so the used capacity exceeds the set volume quota.
 
-Before the change, the usable(available) space for each volume would be represented at 100 TiB, and total capacity pool usable space would appear (and auto-grow to) 300 TiB as follows:
+Before the change, the usable(available) space for each volume would be represented at 100 TiB, and total capacity pool usable space would appear (and automatically grow to) 300 TiB as follows:
 
  
 Vol2 can be overcommitted because the usable capacity for this volume is 100 TiB per the current logic. More capacity pool has been provisioned to accommodate both the provisioned (quota) and used volume capacities.
 
-After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to the following: 
+After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to as follows: 
 
  
-Vol1 and vol3 will be increased towards the original quota. Vol2 will be increased towards the used capacity. The capacity pool will not have to be increased to accommodate the new volume sizes. The capacity pool will no longer auto-grow.
+Vol1 and vol3 will be increased towards the original quota. Vol2 will be increased towards the used capacity. The capacity pool will not have to be increased to accommodate the new volume sizes. The capacity pool will no longer automatically grow.
 
  The following diagrams explains this scenario:
 
@@ -100,12 +100,12 @@ Vol1 and vol3 will be increased towards the original quota. Vol2 will be increas
 
 #### Example 2 – With capacity pool change: 
 
-In this similar scenario, a single capacity pool named pool includes three volumes named vol1, vol2 and vol3.  The volumes are provisioned as follows (all sizes in TiB):
+In this similar scenario, a single capacity pool named pool includes three volumes named vol1, vol2, and vol3.  The volumes are provisioned as follows (all sizes in TiB):
 
  
-Vol2 is overcommitted, so the used capacity exceeds the set volume quota. A capacity pool just large enough has been provisioned to accommodate both the provisioned (quota) and used volume capacities.
+Vol2 is overcommitted, so the used capacity exceeds the set volume quota. A capacity pool large enough has been provisioned to accommodate both the provisioned (quota) and used volume capacities.
 
-After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to the following:
+After the volumes are resized, based on the mentioned logic, the new usable volume and capacity pool sizes have changed to as follows:
 
  
 Vol1 and vol3 will be increased towards the original quota.  Vol2 will be increased towards the used capacity. The capacity pool will have to be increased to accommodate the new volume sizes . The capacity pool will no longer auto-grow.
@@ -156,13 +156,13 @@ After installing ANFCapacityManager is successfully, you can expect the followin
 
 #### Linux  
 
-Linux clients can check the used and available capacity of a volume by using the df command. The -h option will show the size, used space, and available space in human-readable format, using M, G and T unit sizes.
+Linux clients can check the used and available capacity of a volume by using the df command. The -h option will show the size, used space, and available space in human-readable format, using M, G, and T unit sizes.
 
 The following screenshot shows volume capacity reporting in Linux before the changed behavior:
 
 ## Capacity management
 
-In addition to monitoring and alerting, you should also incorporate an application-capacity management practice to manage Azure NetApp Files (increased) capacity consumption. When an Azure NetApp Files volume or capacity pool fills up, additional capacity can be provided on-the-fly without application disruption. This section describes various manual and automated ways to increase volume and capacity pool provisioned space as needed.
+In addition to monitoring and alerting, you should also incorporate an application-capacity management practice to manage Azure NetApp Files (increased) capacity consumption. When an Azure NetApp Files volume or capacity pool fills up, extra capacity can be provided on-the-fly without application disruption. This section describes various manual and automated ways to increase volume and capacity pool provisioned space as needed.
  
 ### Manual 
 
@@ -236,7 +236,7 @@ You can configure the following key capacity management setting:
 This section answers some questions about the volume hard quota change. 
 ### Is ANFCapacityManager Microsoft supported?
 
-This logic app (ANFCapacityManager) is provided as is and is not supported by NetApp or Microsoft. You are encouraged to modify to fit your specific environment or requirements. It is strongly recommended that you test the functionality before deploying it to any business critical or production environments.
+This logic app (ANFCapacityManager) is provided as is and is not supported by NetApp or Microsoft. You are encouraged to modify to fit your specific environment or requirements. You should test the functionality before deploying it to any business critical or production environments.
 
 ### Is there an example ANFCapacityManager workflow?
 
