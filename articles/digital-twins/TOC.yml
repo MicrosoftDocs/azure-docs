@@ -4,8 +4,6 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from previous release
-    href: overview-differences.md
 - name: Quickstarts
   expanded: true
   items:
@@ -53,6 +51,8 @@
         href: how-to-set-up-instance-powershell.md
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
+    - name: Enable private access with Private Link
+      href: how-to-enable-private-link.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -107,6 +107,8 @@
         href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+    - name: Enable a managed identity for routing events
+      href: how-to-enable-managed-identities.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -165,6 +167,8 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
+  - name: Differences from original release
+    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
