@@ -1186,55 +1186,55 @@
     - name: Visualizations
       items:
       - name: Text
-        href: platform/workbooks-text-visualizations.md
+        href: visualizations/workbooks-text-visualizations.md
       - name: Chart 
-        href: platform/workbooks-chart-visualizations.md
+        href: visualizations/workbooks-chart-visualizations.md
       - name: Grid
-        href: platform/workbooks-grid-visualizations.md
+        href: visualizations/workbooks-grid-visualizations.md
       - name: Tile
-        href: platform/workbooks-tile-visualizations.md
+        href: visualizations/workbooks-tile-visualizations.md
       - name: Tree
-        href: platform/workbooks-tree-visualizations.md
+        href: visualizations/workbooks-tree-visualizations.md
       - name: Graph
-        href: platform/workbooks-graph-visualizations.md
+        href: visualizations/workbooks-graph-visualizations.md
       - name: Map
         href: platform/workbooks-map-visualizations.md
       - name: Honey comb
-        href: platform/workbooks-honey-comb.md
+        href: visualizations/workbooks-honey-comb.md
       - name: Composite bar
-        href: platform/workbooks-composite-bar.md
+        href: visualizations/workbooks-composite-bar.md
     - name: Data sources
-      href: platform/workbooks-data-sources.md
+      href: visualizations/workbooks-data-sources.md
     - name: Parameters
       items:
       - name: Parameter summary
-        href: platform/workbooks-parameters.md
+        href: visualizations/workbooks-parameters.md
       - name: Drop down parameters
-        href: platform/workbooks-dropdowns.md
+        href: visualizations/workbooks-dropdowns.md
       - name: Interactive parameters
-        href: platform/workbooks-interactive.md
+        href: visualizations/workbooks-interactive.md
       - name: Time parameters
-        href: platform/workbooks-time.md
+        href: visualizations/workbooks-time.md
       - name: Text parameters
-        href: platform/workbooks-text.md
+        href: visualizations/workbooks-text.md
       - name: Resource parameters
-        href: platform/workbooks-resources.md
+        href: visualizations/workbooks-resources.md
     - name: Configuration
       items:
       - name: Access control
-        href: platform/workbooks-access-control.md
+        href: visualizations/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
-        href: platform/workbooks-automate.md
+        href: visualizations/workbooks-automate.md
       - name: Groups
-        href: platform/workbooks-groups.md
+        href: visualizations/workbooks-groups.md
       - name: Bring your own storage
         href: platform/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
-        href: platform/workbooks-jsonpath.md
+        href: visualizations/workbooks-jsonpath.md
       - name: Move Workbooks to another region
-        href: platform/workbooks-move-region.md
+        href: visualizations/workbooks-move-region.md
       - name: Move Workbook Templates to another region
-        href: platform/workbook-templates-move-region.md
+        href: visualizations/workbook-templates-move-region.md
     - name: Links
       items:
       - name: Link actions
@@ -1436,6 +1436,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

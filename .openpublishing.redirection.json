@@ -12224,7 +12224,7 @@
       "source_path_from_root": "/articles/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
       "redirect_document_id": true
-    }, 
+    },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup",
@@ -61923,6 +61923,111 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/api-alerts.md",
       "redirect_url": "/azure/azure-monitor/alerts/api-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-access-control.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-automate.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-automate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-chart-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-chart-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-composite-bar.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-composite-bar",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-data-sources.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-dropdowns.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-dropdowns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-graph-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-graph-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-grid-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-grid-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-groups.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-honey-comb.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-honey-comb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-interactive.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-interactive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-jsonpath.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-jsonpath",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-move-region.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-parameters.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-resources.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-text.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-text-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-text-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-tile-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-tile-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-time.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-time",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-tree-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-tree-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbook-templates-move-region.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbook-templates-move-region",
       "redirect_document_id": false
     }
   ]
