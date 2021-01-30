@@ -67,39 +67,39 @@ All search parameter types are supported.
 |`:exact`               | Yes       | Yes       | Yes       |         |
 |`:contains`            | Yes       | Yes       | Yes       |         |
 |`:text`                | Yes       | Yes       | Yes       |         |
+|`:[type]` (reference)  | Yes       | Yes       | Yes       |         |
+|`:not`                 | Yes       | Yes       | Yes       |         |
+|`:below` (uri)         | Yes       | Yes       | Yes       |         |
+|`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` (token)          | No        | No        | No        |         |
 |`:below` (token)       | No        | No        | No        |         |
 |`:above` (token)       | No        | No        | No        |         |
 |`:not-in` (token)      | No        | No        | No        |         |
-|`:[type]` (reference)  | Yes       | Yes       | Yes       |         |
-|`:below` (uri)         | Yes       | Yes       | Yes       |         |
-|`:not`                 | Yes       | Yes       | Yes       |         |
-|`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Yes       | Yes       | Yes       |         |
 | `_lastUpdated`          | Yes       | Yes       | Yes       |         |
 | `_tag`                  | Yes       | Yes       | Yes       |         |
-| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
+| `_list`                 | Yes       | Yes       | Yes       |         |
+| `_type`                 | Yes       | Yes       | Yes       |         |
 | `_security`             | Yes       | Yes       | Yes       |         |
+| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | Yes       | Yes       | Yes       |         |
 | `_has`                  | No        | No        | No        |         |
-| `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |
 | `_filter`               | No        | No        | No        |         |
 
 | Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
+| `_elements`             | Yes       | Yes       | Yes       |         |
 | `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
 | `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
-| `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
-| `_elements`             | Yes       | Yes       | Yes       |         |
+| `_total`                | Partial   | Partial   | Partial   | `_total=non` and `_total=accurate`      |
+| `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated` is supported       |
 | `_contained`            | No        | No        | No        |         |
 | `containedType`         | No        | No        | No        |         |
 | `_score`                | No        | No        | No        |         |
