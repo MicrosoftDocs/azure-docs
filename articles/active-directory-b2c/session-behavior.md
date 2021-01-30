@@ -228,6 +228,9 @@ Upon a sign-out request, Azure AD B2C:
 
 The sign-out clears the user's single sign-on state with Azure AD B2C, but it might not sign the user out of their social identity provider session. If the user selects the same identity provider during a subsequent sign-in, they might reauthenticate without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
 
+> [!NOTE]
+> Currently Azure AD B2C does not support complete federated sign out to the third party OpenId Connect IDP. Azure AD B2C executes federated sign out request to the third party OpenId Connect end session endpoint if `SingleLogoutEnabled` is configured to `true` but relay of the third party Id Token in `id_token_hint` parameter is not currently supported. This might affect that third party OpenId Connect IDP won't sign out user session.
+
 ::: zone pivot="b2c-custom-policy"
 
 ### Single sign-out 
