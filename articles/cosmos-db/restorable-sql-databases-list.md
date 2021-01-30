@@ -1,15 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable SQL API databases in Azure Cosmos DB using REST API
+description: Show the event feed of all mutations done on all the Azure Cosmos DB SQL databases under the restorable account. This helps in scenario where database was accidentally deleted to get the deletion time.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-# Restorable Sql Databases - List
-
+# List restorable SQL API databases in Azure Cosmos DB using REST API
 
 Show the event feed of all mutations done on all the Azure Cosmos DB SQL databases under the restorable account. This helps in scenario where database was accidentally deleted to get the deletion time. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission
 

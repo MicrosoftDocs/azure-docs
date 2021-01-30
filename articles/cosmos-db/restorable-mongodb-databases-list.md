@@ -1,14 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable databasess in Azure Cosmos DB API for MongoDB using REST API
+description: Show the event feed of all mutations done on all the Azure Cosmos DB MongoDB databases under the restorable account. This helps in scenario where database was accidentally deleted to get the deletion time.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-# Restorable Mongodb Databases - List
+# List restorable databases in Azure Cosmos DB API for MongoDB using REST API
 
 Show the event feed of all mutations done on all the Azure Cosmos DB MongoDB databases under the restorable account. This helps in scenario where database was accidentally deleted to get the deletion time. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission
 
@@ -24,7 +24,6 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 | **location** | path | True | string| Cosmos DB region, with spaces between words and each word capitalized. |
 | **subscriptionId** | path | True | string| The ID of the target subscription. |
 | **api-version** | query | True | string | The API version to use for this operation. |
-| **restorableSqlDatabaseRid** | query | |string| The resource ID of the MongoDB database. |
 
 ## Responses
 

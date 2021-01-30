@@ -1,14 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable database accounts using Azure Cosmos DB REST API
+description: Lists all the restorable Azure Cosmos DB database accounts available under a subscription.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-# Restorable database accounts - List
+# List restorable database accounts using Azure Cosmos DB REST API
 
 Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read/*` permission.
 
@@ -175,3 +175,7 @@ Properties of the regional restorable account.
 | deletionTime |string| The time at which the regional restorable database account has been deleted (ISO-8601 format). |
 | locationName |string| The location of the regional restorable account. |
 | regionalDatabaseAccountInstanceId |string| The instance id of the regional restorable account. |
+
+## Next steps
+
+* [Restorable database accounts - List by location](restorable-database-accounts-listby-location.md)

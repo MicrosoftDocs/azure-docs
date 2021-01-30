@@ -1,14 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable SQL API resources in Azure Cosmos DB using REST API
+description: Return a list of database and container combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-# Restorable Sql Resources - List
+# List restorable SQL API resources in Azure Cosmos DB using REST API
 
 Return a list of database and container combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission.
 

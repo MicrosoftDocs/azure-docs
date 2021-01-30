@@ -1,14 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable SQL API containers in Azure Cosmos DB using REST API
+description: Show the event feed of all mutations done on all the Azure Cosmos DB SQL containers under a specific database. This helps in scenario where container was accidentally deleted.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-# Restorable Sql Containers - List
+# List restorable SQL API containers in Azure Cosmos DB using REST API
 
 Show the event feed of all mutations done on all the Azure Cosmos DB SQL containers under a specific database. This helps in scenario where container was accidentally deleted. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission
 

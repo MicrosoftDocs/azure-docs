@@ -1,15 +1,14 @@
 ---
-title: 
-description: 
-author: 
+title: List restorable resources in Azure Cosmos DB API for MongoDB using REST API
+description: Return a list of database and collection combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location.
+author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: 
+ms.author: govindk
 ---
 
-
-# Restorable Mongodb Resources - List
+# List restorable resources in Azure Cosmos DB API for MongoDB using REST API
 
 Return a list of database and collection combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission.
 
