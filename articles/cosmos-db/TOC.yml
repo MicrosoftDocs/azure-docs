@@ -1399,12 +1399,12 @@
       items:
         - name: Manage continuous backup
           items:
-            - name: Permissions and roles for restore
+            - name: Continuous backup - Permissions and roles
               href: continuous-backup-restore-permissions.md
             - name: Continuous backup - Portal
               href: continuous-backup-restore-portal.md
             - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-command-line.md
+              href: continuous-backup-restore-powershell.md
             - name: Continuous backup - CLI
               href: continuous-backup-restore-command-line.md
             - name: Continuous backup - ARM
