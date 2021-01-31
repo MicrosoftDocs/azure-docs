@@ -25,105 +25,116 @@ In this quickstart, you'll learn how create your own components using the pre-de
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
-## Setting up
+UI Framework requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
-### Create a new Node.js application
+### Set Up React App
 
-Open your terminal or command window create a new directory for your app, and navigate to it.
+We'll use the create-react-app template for this quickstart. For more information see: [Getting Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```console
-mkdir calling-quickstart && cd calling-quickstart
+
+npx create-react-app my-app
+
+cd my-app
+
 ```
 
-TBD
+At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript. Move the provided tarball (Private Preview) over to the my-app directory.
 
 ```console
-npm install @azure/communication-ui --save
+
+//For Private Preview install tarball
+
+npm install --save ./{path for tarball}
+
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Initialize Calling and Chat Providers using Azure Communication Services credentials
+### Run Create React App
 
-Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
+Let's test the Create React App installation by running:
 
-UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group Ids or thread Ids. These elements come from services that go through the proper steps to generate this Ids and pass them to the client application.
+```console
 
-Before initializing lets first import the UI Framework package.
-
-```javascript
-
-import {CallingProvider, ChatProvider} from "@azure/communication-ui"
+npm run start   
 
 ```
 
-To initialize the `CommunicationsProvider` do the following:
+## Object model
 
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
+| CallingProvider| Calling Provider to instantiate a call. Required to add additional components|
+| ChatProvider | Chat Provider to instantiate a chat thread. Required to add additional components|
+| connectFuncsToContext | TBD |
+| MapToChatMessageProps | TBD |
+
+
+## Initialize Chat Providers using Azure Communication Services credentials
+
+For this quickstart we will use chat as an example, for more information on calling see [Base Components Quickstart](./getting-started-with-components.md) and [Composite Components Quickstart](./getting-started-with-composites.md).
+
+Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Chat Provider. This provider is incharge of maintaining the context of the call and chat experiences. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
+
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
+
+`App.js`
 ```javascript
 
-<Provider theme={/*Insert Fluent Theme*/}>
-    <CallingProvider
-    displayName={/*Insert Display Name to be used for the user*/}
-    groupId={/*Insert GUID for group call to be joined*/}
-    userId={/*Insert the Azure Communication Services user id */}
-    token={/*Insert the Azure Communication Services access token*/}
-    refreshTokenCallback={/*Insert refresh token call back function*/}
-  >
-  // Add Calling Components Here
-  </CallingProvider>
-</Provider>
+import {CallingProvider, ChatProvider} from "@azure/acs-ui-sdk"
 
-<Provider theme={/*Insert Fluent Theme*/}>
+function App(props) {
+
+  return (
     <ChatProvider
     token={/*Insert the Azure Communication Services access token*/}
     userId={/*Insert the Azure Communication Services user id*/}
     displayName={/*Insert Display Name to be used for the user*/}
     threadId={/*Insert id for group chat thread to be joined*/}
-    environmentUrl={/*Insert the enviornment URL for the Azure Resource used*/}
-    refreshTokenCallback={/*Insert refresh token call back function*/}
-  >
-  //  Add Chat Components Here
-  </ChatProvider>
-</Provider>
+    endpointUrl={/*Insert the environment URL for the Azure Resource used*/}
+    refreshTokenCallback={/*Optional, Insert refresh token call back function*/}
+    >
+        //  Add Chat Components Here
+    </ChatProvider>
+  );
+}
+
+export default App;
 
 ```
 
-Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together.
+Once initialized, this provider lets you build your own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together. Next we'll create a custom component using UI Framework mappers to connect to our chat provider.
 
 
-## Create a new component using provider
+## Create a custom component using mappers
 
-We will start by creating a new file called `customComponent.tsx` where we will create the component. We will start by importing the UI Framework. 
+We will start by creating a new file called `customComponent.js` where we will create the component. We will start by importing the UI Framework components we will need. Here we will use out of the box html and react to create a fully custom components for a simple chat thread. Using the the `connectFuncsToContext` method, we will use the `MapToChatMessageProps` mapper to map props to  `SimpleChatThread` custom components. This props will give us access to the chat messages being sent and received to populate them onto our simple thread.
 
+`customComponent.js`
 ```javascript
 
-import  {
-    connectFuncsToContext, 
-    ChatMessagePropsFromContext, 
-    ChatMessage,
-    MapToChatMessageProps} from "@azure/communication-ui"
+import {connectFuncsToContext, MapToChatMessageProps} from "@azure/acs-ui-sdk"
 
-```
+function SimpleChatThread(props) {
 
-Once imported, we will generate a simple thread that will connect to the Chat provider and help pass messages that the custom component will render.
-
-```javascript
-
-const SimpleChatThread  = (props: MapToChatMessageProps): JSX.Element => {
-    return(
+    return (
         <div>
-            {props.chatMessages?.map((message: ChatMessage) => (
+            {props.chatMessages?.map((message) => (
                 <div key={message.id ?? message.clientMessageId}> {`${message.senderDisplayName}: ${message.content}`}</div>
             ))}
         </div>
     );
-};
+}
 
-export default connectFuncsToContext(SimpleChatThread, MapToChatMessageProps)
+export default connectFuncsToContext(SimpleChatThread, MapToChatMessageProps);
 
 ```
 
@@ -133,23 +144,33 @@ Now that we have our custom component ready, we will import it and add it to our
 
 ```javascript
 
-import {SimpleChatThread } from "./customComponent.tsx"
+import {CallingProvider, ChatProvider} from "@azure/acs-ui-sdk"
+import SimpleChatThread from "./customComponents"
 
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <ChatProvider chatSettings={...}>
-            <SimpleChatThread  />
+function App(props) {
+
+  return (
+        <ChatProvider ... >
+            <SimpleChatThread />
         </ChatProvider>
-    </CommunicationsProvider>
-</Provider>
+  );
+}
+
+export default App;
 
 ```
 
 ## Run quickstart
 
-TBD
+To run the code above use the command:
 
-TBD Screenshot 
+```console
+
+npm run start   
+
+```
+
+To fully test the capabilities, you will need a second client with chat functionality to send messages that will be received by our Simple Chat Thread. See our [Calling Hero Sample](./../../samples/calling-hero-sample.md) and [Chat Hero Sample](./../../samples/chat-hero-sample.md) as potential options.
 
 ## Clean up resources
 
@@ -157,5 +178,10 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see the following articles:
-- TODO
+> [!div class="nextstepaction"]
+> [Try UI Framework Composite Components](./getting-started-with-composites.md)
+
+For more information, see the following:
+- [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
+- [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md)
+- [UI Framework Base Components Quickstart](./getting-started-with-components.md)
