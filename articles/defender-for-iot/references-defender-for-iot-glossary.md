@@ -30,7 +30,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Business unit** | A logical organization of your business according to specific industries.<br /><br />For example, a global company that contains glass factories and plastic factories can be managed as two different business units. You can control access of Defender for IoT users to specific business units. | **[On-premises management console](#o)<br /><br />[Access group](#o)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
+| **Business unit** | A logical organization of your business according to specific industries.<br /><br />For example, a global company that contains glass factories and plastic factories can be managed as two different business units. You can control access of Defender for IoT users to specific business units. | **[On-premises management console](#o)<br /><br />[Access group](#a)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
 | **Baseline** | Approved network traffic, protocols, commands, and devices. Defender for IoT identifies deviations from the network baseline. View approved baseline traffic by generating data-mining reports. | **[Data mining](#d)<br /><br />[Learning mode](#l)** |
 
 ## C
