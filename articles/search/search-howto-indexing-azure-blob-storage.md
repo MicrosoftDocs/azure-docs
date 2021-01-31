@@ -23,7 +23,7 @@ The blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Blob data source definitions
+## Data source definitions
 
 The difference between a blob indexer and any other indexer is the data source definition that's assigned to the indexer. The data source encapsulates all properties that specify the type, connection, and location of the content to be indexed.
 
@@ -42,27 +42,27 @@ The `"credentials"` property can be a connection string, as shown in the above e
 
 <a name="Credentials"></a>
 
-## How to specify credentials
+## Credentials
 
 You can provide the credentials for the blob container in one of these ways:
 
 **Managed identity connection string**:
-`ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;`
+`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`
 
 This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
 
 **Full access storage account connection string**: 
-`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`
+`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
 
 You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
 
 **Storage account shared access signature** (SAS) connection string: 
-`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
+`{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }`
 
 The SAS should have the list and read permissions on containers and objects (blobs in this case).
 
 **Container shared access signature**: 
-`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
+`{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }`
 
 The SAS should have the list and read permissions on the container. 
 
@@ -71,7 +71,7 @@ For more information on storage shared access signatures, see [Using Shared Acce
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
-## Index definitions for blob content
+## Index definitions
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience. The following examples create a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). The searchable `content` field is used to store the text extracted from blobs:
 
@@ -196,6 +196,37 @@ You don't need to define fields for all of the above properties in your search i
 > Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Cognitive Search to the field names in your search index. You will see an example of field mappings use below.
 >
 
+<a name="PartsOfBlobToIndex"></a>
+
+## Index parts of a blob
+
+You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
+
++ `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
++ `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
++ `allMetadata` - specifies that standard blob properties and any [metadata for found content types](search-blob-metadata-properties.md) are extracted from the blob content and indexed.
+
+For example, to index only the storage metadata, use:
+
+```http
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
+}
+```
+
+<!-- ### Using blob metadata to control how blobs are indexed
+
+The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
+
+| Property name | Property value | Explanation |
+| ------------- | -------------- | ----------- |
+| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. | -->
 
 <a name="WhichBlobsAreIndexed"></a>
 
@@ -234,38 +265,6 @@ api-key: [admin key]
 ```
 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, the indexer first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is in both lists, it will be excluded from indexing.
-
-<a name="PartsOfBlobToIndex"></a>
-
-## Index parts of a blob
-
-You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
-
-+ `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
-+ `allMetadata` - specifies that storage metadata and the [content-type specific metadata](search-blob-metadata-properties.md) extracted from the blob content are indexed.
-+ `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
-
-For example, to index only the storage metadata, use:
-
-```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-  ... other parts of indexer definition
-  "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
-}
-```
-
-### Using blob metadata to control how blobs are indexed
-
-The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
-
-| Property name | Property value | Explanation |
-| ------------- | -------------- | ----------- |
-| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 ## Index large datasets
 
@@ -315,7 +314,7 @@ api-key: [admin key]
 }
 ```
 
-#### `"failOnUnsupportedContentType"` and `failOnUnprocessableDocument` 
+#### `"failOnUnsupportedContentType"` and `"failOnUnprocessableDocument"` 
 
 For some blobs, Azure Cognitive Search is unable to determine the content type, or unable to process a document of an otherwise supported content type. To ignore these failure conditions, set configuration parameters to `false`:
 
