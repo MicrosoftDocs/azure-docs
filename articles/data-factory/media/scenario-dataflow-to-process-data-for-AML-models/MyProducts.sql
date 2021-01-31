@@ -1,4 +1,4 @@
---create a table MyTransaction
+--create a table MyProducts
 CREATE TABLE [dbo].[MyProducts](
 	[ID] [int] NULL,
 	[Col1] [char](124) NULL,
