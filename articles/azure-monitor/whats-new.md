@@ -542,8 +542,8 @@ New and updated articles from restructure and consolidation of platform log cont
 - [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md) - Added limitations section for unavailable metrics.
 
 ### Visualizations
-- [Azure Monitor Workbooks and Azure Resource Manager Templates](visualizations/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
-- [Azure Monitor Workbooks Groups](visualizations/workbooks-groups.md) - New article.
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](platform/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
+- [Azure Monitor Workbooks Groups](platform/workbooks-groups.md) - New article.
 - [Azure Monitor Workbooks - Transform JSON data with JSONPath](visualizations/workbooks-jsonpath.md) - New article.
 
 
