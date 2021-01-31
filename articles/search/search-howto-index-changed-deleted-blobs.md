@@ -20,7 +20,7 @@ Although change detection is a given, deletion detection is not. If you want to 
 There are two ways to implement the soft delete approach:
 
 + Native blob soft delete (preview), described next
-+ [Soft delete using custom metadata](#Soft-delete-using-custom-metadata)
++ [Soft delete using custom metadata](#soft-delete-using-custom-metadata)
 
 ## Native blob soft delete (preview)
 

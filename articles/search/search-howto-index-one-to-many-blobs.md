@@ -14,16 +14,17 @@ ms.date: 02/01/2021
 
 # Indexing blobs to produce multiple search documents
 
-By default, a blob indexer will treat the contents of a blob as a single search document. If you want a more granular representation of the blob in a search index, you can set **parsingMode** values to create multiple search documents from one blob. Values for **parsingMode** include:
+By default, a blob indexer will treat the contents of a blob as a single search document. If you want a more granular representation of the blob in a search index, you can set **parsingMode** values to create multiple search documents from one blob. The **parsingMode** values that result in many search documents include `delimitedText` (for [CSV](search-howto-index-csv-blobs.md)), and `jsonArray` or `jsonLines` (for [JSON](search-howto-index-json-blobs.md)).
 
-+ `delimitedText` for [indexing CSV files](search-howto-index-csv-blobs.md)
-+ `jsonArray` or `jsonLines` for [indexing JSON files](search-howto-index-json-blobs.md)
+When you use any of these parsing modes, the new search documents that emerge must have unique document keys, and a problem arises in determining where that value comes from. The parent blob has at least one unique value in the form of `metadata_storage_path property`, but if it contributes that value to more than one search document, the key is no longer unique in the index.
+
+To address this problem, the blob indexer generates an `AzureSearch_DocumentKey` that uniquely identifies each child search document created from the single blob parent. This article explains how this feature works.
 
 ## One-to-many document key
 
 Each document that shows up in an Azure Cognitive Search index is uniquely identified by a document key. 
 
-When no parsing mode is specified, and if there is no explicit field mapping in the indexer definition for the search document key, the blob indexer automatically maps the `metadata_storage_path property` as the document key. This mapping ensures that each blob appears as a distinct search document, and it saves you the step of having to create this field mapping yourself (normally, only fields having identical names and types are automatically mapped).
+When no parsing mode is specified, and if there is no [explicit field mapping](search-indexer-field-mappings.md) in the indexer definition for the search document key, the blob indexer automatically maps the `metadata_storage_path property` as the document key. This mapping ensures that each blob appears as a distinct search document, and it saves you the step of having to create this field mapping yourself (normally, only fields having identical names and types are automatically mapped).
 
 When using any of the parsing modes listed above, one blob maps to "many" search documents, making a document key solely based on blob metadata unsuitable. To overcome this constraint, Azure Cognitive Search is capable of generating a "one-to-many" document key for each individual entity extracted from a blob. This property is named AzureSearch_DocumentKey and is added to each individual entity extracted from the blob. The value of this property is guaranteed to be unique for each individual entity across blobs and the entities will show up as separate search documents.
 
