@@ -1,6 +1,6 @@
 ---
-title: Connect Microsoft 365 Defender raw data to Azure Sentinel| Microsoft Docs
-description: Learn how to ingest raw event data from Microsoft 365 Defender into Azure Sentinel.
+title: Microsoft 365 Defender incident integration with Azure Sentinel | Microsoft Docs
+description: Learn how to Microsoft 365 Defender incident integration with Azure Sentinel gives you the power and flexibility to use Azure Sentinel as your universal incidents queue while leveraging M365D's strengths to assist in investigating M365 security incidents.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,21 +13,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 01/31/2021
 ms.author: yelevin
 
 ---
-# Connect data from Microsoft 365 Defender to Azure Sentinel
+# Microsoft 365 Defender incident integration with Azure Sentinel
 
 > [!IMPORTANT]
->
-> **Microsoft 365 Defender** was formerly known as **Microsoft Threat Protection** or **MTP**.
->
-> **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
->
-> You may see the old names still in use for a period of time.
+> Microsoft 365 Defender incident integration is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Background
+Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all M365D incidents into Azure Sentinel and keep them synchronized between both portals. Incidents from M365D (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage in Azure Sentinel. Once in Sentinel, Incidents will remain bi-directionally synced with M365D, allowing you to take advantage of the benefits of both portals in your incident investigation.
+
+This integration gives Microsoft security incidents the visibility to be managed from within Azure Sentinel as part of the primary incident queue across the entire organization. At the same time, it leverages the strength of M365D for in-depth investigations and an M365-specific experience across the M365 stack. M365 Defender enriches and groups alerts from multiple M365 products, thus reducing both the size of the SOC’s incident queue and the time to resolve. The services that are included in M365 Defender are:
+
+- Microsoft Defender for Endpoint (MDE, formerly MDATP)
+- Microsoft Defender for Identity (MDI, formerly AATP)
+- Microsoft Defender for O365 (MDO, formerly OATP)
+- Microsoft Cloud App Security.
+- In addition, M365 Defender itself has its own alerts.
+
+## Common use cases and scenarios
+
+- One-click connect of M365 Defender incidents and alerts from M365 security products.
+
+- Bi-directional sync between Sentinel and M365D incidents on status, owner and closing reason as well as alerts and entities.
+
+- Leverage M365 Defender alert grouping and enrichment capabilities in Azure Sentinel, thus reducing time to resolve.
+
+- In-context deep link between a Sentinel and M365 Defender incident to facilitate investigations across both portals.
+
+
+=============================
 
 The new [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream **advanced hunting** logs - a type of raw event data - from Microsoft 365 Defender into Azure Sentinel. 
 
@@ -41,7 +57,7 @@ With the integration of [Microsoft Defender for Endpoint (MDATP)](/windows/secur
 
 > [!IMPORTANT]
 >
-> The Microsoft 365 Defender connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft 365 Defender connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
