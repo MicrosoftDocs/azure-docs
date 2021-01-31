@@ -107,7 +107,6 @@ function App(){
         <Provider theme={mergeThemes(iconTheme, teamsTheme)}>
             <GroupCall
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
-                userId={USERID} //Required, Azure Communication Services user id retrieved from authentication service
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
                 refreshTokenCallback={CALLBACK} //Optional, Callback to refresh the token in case it expires
                 groupId={GROUPID} //Required, Id for group call that will be joined. (GUID)
@@ -118,7 +117,6 @@ function App(){
 
             <GroupChat 
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
-                userId={USERID} //Required, Azure Communication Services user id retrieved from authentication service
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
                 threadId={THREADID} //Required, Id for group chat thread that will be joined.
                 endpointUrl={ENDPOINT_URL} //Required, URL for Azure endpoint being used for Azure Communication Services
