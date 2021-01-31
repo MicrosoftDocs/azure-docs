@@ -1635,6 +1635,6 @@ To Monitor:
 
 Select the Monitor button for your plugin from the Overview.
 
-## Next Steps
+Next Steps
 
 Set up your [Horizon API](references-horizon-api.md)
