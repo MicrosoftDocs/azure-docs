@@ -13,9 +13,17 @@ Windows Virtual Desktop is globally available. Administrators can create virtual
 
 The [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Windows Virtual Desktop rolls out to new areas.
 
-## Azure Traffic Manager
+## Interpreting results from the Windows Virtual Desktop Experience Estimator tool
 
-Windows Virtual Desktop uses the Azure Traffic Manager, which checks the location of the user's DNS server to find the nearest Windows Virtual Desktop service instance. We recommend admins review the location of the user's DNS server before choosing the location for the VMs.
+In Windows Virtual Desktop latency up to 150ms shouldn’t see impact on experience (assuming no rendering/video). 150ms to 200ms should be fine for text processing. Anything above 200ms may impact experience. 
+
+In addition the user’s internet connection plays a large role in the WVD connection. If latency is over 200ms and user does not have stable internet connection, circuit is saturated and/or rate limited, has bad wireless connection, etc.. users may experience intermittent disconnects and input delay. 
+
+We recommend customers place VM's as close to users as possible. For example if client is connecting from India and VM is in US it is expected there will be latency and user experience will be impacted. 
+
+## Azure Front Door
+
+Windows Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) to redirect the users connection to the nearest WVD gateway based on source IP address. Windows Virtual Desktop will always use the WVD gateway chosen by the client.
 
 ## Next steps
 
