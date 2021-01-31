@@ -51,29 +51,35 @@ Other resources that you need, like an Azure storage account, are created in you
 
 The following prerequisites are only required to be able to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
-
 # [C\#](#tab/csharp)
+
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
 
-+ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x)  
++ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).  
 
 # [Java](#tab/java)
 
-+ [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-+ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
++ [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+
++ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) recommended. For other supported versions, see [Java versions](functions-reference-java.md#java-versions).
 
 + [Maven 3 or later](https://maven.apache.org/)
 
 # [JavaScript](#tab/nodejs)
 
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version. 
 
 # [PowerShell](#tab/powershell)
 
-+ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
 + Both [.NET Core 3.1 runtime](https://www.microsoft.com/net/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
 
@@ -81,7 +87,11 @@ The following prerequisites are only required to be able to [run and debug your 
 
 # [Python](#tab/python)
 
-[Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+
++ [Python 3.x](https://www.python.org/downloads/). For version information, see [Python versions](functions-reference-python.md#python-version) by the Azure Functions runtime.
+
++ [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
 ---
 
@@ -211,9 +221,9 @@ A new folder is created in the project. The folder contains a new function.json 
 
 ---
 
-## Add input and output bindings
+## <a name="#add-input-and-output-bindings"></name>Connect to services
 
-You can expand your function by adding input and output bindings. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
 
@@ -229,6 +239,8 @@ The `msg` parameter is an `ICollector<T>` type, which represents a collection of
 
  Messages are sent to the queue when the function completes.
 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=csharp). 
+
 # [Java](#tab/java)
 
 Update the function method to add the following parameter to the `Run` method definition:
@@ -241,6 +253,8 @@ The `msg` parameter is an `OutputBinding<T>` type, where is `T` is a string that
 
 This message is sent to the queue when the function completes.
 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=java). 
+
 # [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
@@ -249,11 +263,19 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 
 :::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
+This message is sent to the queue when the function completes.
+
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=javascript). 
+
 # [PowerShell](#tab/powershell)
 
 [!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 :::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
+
+This message is sent to the queue when the function completes.
+
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=powershell). 
 
 # [Python](#tab/python)
 
@@ -267,9 +289,11 @@ The following code adds string data from the request to the output queue:
 
 :::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
----
+This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=python). 
+
+---
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
