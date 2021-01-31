@@ -42,7 +42,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts?api-version=2020-06-01-preview
 ```
 
-**Sample Response**
+**Sample response**
 
 Status code: 200
 

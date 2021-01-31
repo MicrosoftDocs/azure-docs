@@ -16,7 +16,7 @@ Show the event feed of all mutations done on all the Azure Cosmos DB MongoDB dat
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{instanceId}/restorableMongodbDatabases?api-version=2020-06-01-preview
 ```
 
-## URI Parameters
+## URI parameters
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
@@ -36,13 +36,13 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ### CosmosDBRestorableMongodbDatabaseList
 
-**Sample Request**
+**Sample request**
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/d9b26648-2f53-4541-b3d8-3044f4f9810d/restorableMongodbDatabases?api-version=2020-06-01-preview
 ```
 
-**Sample Response**
+**Sample response**
 
 Status code: 200
 

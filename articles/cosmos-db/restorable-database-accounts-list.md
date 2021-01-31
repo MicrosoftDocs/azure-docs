@@ -16,7 +16,7 @@ Lists all the restorable Azure Cosmos DB database accounts available under the s
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/restorableDatabaseAccounts?api-version=2020-06-01-preview
 ```
 
-## URI Parameters
+## URI parameters
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 GET https://management.azure.com/subscriptions/subid/providers/Microsoft.DocumentDB/restorableDatabaseAccounts?api-version=2020-06-01-preview
 ```
 
-**Sample Response**
+**Sample response**
 
 Status code: 200
 

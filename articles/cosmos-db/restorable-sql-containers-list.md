@@ -22,7 +22,7 @@ With optional parameters:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{instanceId}/restorableSqlContainers?api-version=2020-06-01-preview&amp;restorableSqlDatabaseRid={restorableSqlDatabaseRid}
 ```
 
-## URI Parameters
+## URI parameters
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
@@ -43,13 +43,13 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ### CosmosDBRestorableSqlContainerList
 
-**Sample Request**
+**Sample request**
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/98a570f2-63db-4117-91f0-366327b7b353/restorableSqlContainers?api-version=2020-06-01-preview&amp;restorableSqlDatabaseRid=3fu-hg==
 ```
 
-**Sample Response**
+**Sample response**
 
 Status code: 200
 
