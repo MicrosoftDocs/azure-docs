@@ -58,15 +58,22 @@ Maintenance Notifications can be configured to alert customers on upcoming plann
 
 ## Availability
 
-The SQL Maintenance Window is available in the following regions:
-
+The SQL Maintenance Window is available in the following regions with more regions planned over time.
 - Australia East
+- Australia SouthEast
+- Brazil South
+- Canada Central
+- Central US
 - East US
-- East US 2
+- East US2
+- Japan East
+- NorthCentral US
 - North Europe
-- South Central US
-- Southeast Asia
+- SouthCentral US
+- SouthEast Asia
 - UK South
 - West Europe
-- West US 2
+- West US
+- West US2
+
 
