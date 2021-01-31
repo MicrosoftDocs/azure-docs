@@ -8,12 +8,12 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/03/2021
 ---
 
 # How to configure a blob indexer in Azure Cognitive Search
 
-This article shows you how to use Azure Cognitive Search to index text-based documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
+This article shows you how to configure a blob indexer for indexing text-based documents (such as PDFs, Microsoft Office documents, and several other common formats) in Azure Cognitive Search. If you're unfamiliar with indexer concepts and creation, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
 
 <a name="SupportedFormats"></a>
 
@@ -23,119 +23,136 @@ The blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Set up blob indexing
+## Blob data source definitions
 
-You can set up an Azure Blob Storage indexer using:
+The difference between a blob indexer and any other indexer is the data source definition that's assigned to the indexer. The data source encapsulates all properties that specify the type, connection, and location of the content to be indexed.
 
-* [Azure portal](https://ms.portal.azure.com)
-* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/overview/azure/search)
-
-> [!NOTE]
-> Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically.
->
-
-Here, we demonstrate the flow using the REST API.
-
-### Step 1: Create a data source
-
-A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
-
-For blob indexing, the data source must have the following required properties:
-
-* **name** is the unique name of the data source within your search service.
-* **type** must be `azureblob`.
-* **credentials provide the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
-* **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
-
-To create a data source:
+A blob data source definition looks similar to the example below:
 
 ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
-    }
+{
+    "name" : "my-blob-datasource",
+    "type" : "azureblob",
+    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+}
 ```
 
-For more on the Create Datasource API, see [Create Datasource](/rest/api/searchservice/create-data-source).
+The `"credentials"` property can be a connection string, as shown in the above example, or one of the alternative approaches described in the next section. The `"container"` property provides the location of content within Azure Storage. For more information about data source definitions, see [Create Datasource (REST)](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 
-#### How to specify credentials
+## How to specify credentials
 
 You can provide the credentials for the blob container in one of these ways:
 
-* **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
+**Managed identity connection string**:
+`ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;`
 
-  This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
+This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
 
-* **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`
+**Full access storage account connection string**: 
+`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`
 
-  You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
 
-* **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
+**Storage account shared access signature** (SAS) connection string: 
+`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
 
-  The SAS should have the list and read permissions on containers and objects (blobs in this case).
+The SAS should have the list and read permissions on containers and objects (blobs in this case).
 
-* **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
+**Container shared access signature**: 
+`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
 
-  The SAS should have the list and read permissions on the container.
+The SAS should have the list and read permissions on the container. 
 
 For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
-### Step 2: Create an index
+## Index definitions for blob content
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
-
-Here's how to create an index with a searchable `content` field to store the text extracted from blobs:
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience. The following examples create a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). The searchable `content` field is used to store the text extracted from blobs:
 
 ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-          "name" : "my-target-index",
-          "fields": [
-            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
-          ]
-    }
+{
+      "name" : "my-target-index",
+      "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+      ]
+}
 ```
 
-For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
+<a name="DocumentKeys"></a>
 
-### Step 3: Create an indexer
+### Defining document keys and field mappings
 
-An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
+In a search index, the document key uniquely identifies each document. The field you choose must be of type `Edm.String`. For blob content, the best candidates for a document key are metadata properties on the blob.
 
-Once the index and data source have been created, you're ready to create the indexer:
++ **`metadata_storage_name`** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) for that purpose).
+
++ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules).  As above, you have the option of encoding the keys using the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction).
+
++ A third option is to add a custom metadata property to the blobs. This option does, however, require that your blob upload process adds that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
+
+> [!IMPORTANT]
+> If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
+>
+
+For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
 
 ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "blob-indexer",
-      "dataSourceName" : "blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" }
-    }
+"fieldMappings" : [
+  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+]
 ```
 
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
+To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
 
-For more information, see [Create Indexer (REST API)](/rest/api/searchservice/create-indexer). For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+```http
+PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+  "dataSourceName" : " blob-datasource ",
+  "targetIndexName" : "my-target-index",
+  "schedule" : { "interval" : "PT2H" },
+  "fieldMappings" : [
+    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+  ]
+}
+```
+
+For more information, see [Field mappings and transformations](search-indexer-field-mappings.md).
+
+#### What if you need to encode a field to use it as a key, but you also want to search it?
+
+There are times when you need to use an encoded version of a field like metadata_storage_path as the key, but you also need that field to be searchable (without encoding). In order to resolve this issue, you can map it into two fields; one that will be used for the key, and another one that will be used for search purposes. In the example below the *key* field contains the encoded path, while the *path* field is not encoded and will be used as the searchable field in the index.
+
+```http
+PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+  "dataSourceName" : " blob-datasource ",
+  "targetIndexName" : "my-target-index",
+  "schedule" : { "interval" : "PT2H" },
+  "fieldMappings" : [
+    { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+    { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+  ]
+}
+```
 
 <a name="how-azure-search-indexes-blobs"></a>
 
@@ -148,30 +165,30 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 >
 > A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field.
 
-* The textual content of the document is extracted into a string field named `content`.
++ The textual content of the document is extracted into a string field named `content`.
 
   > [!NOTE]
   > Azure Cognitive Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. A warning is included in the indexer status response for truncated documents.  
 
-* User-specified metadata properties present on the blob, if any, are extracted verbatim. Note that this requires a field to be defined in the index with the same name as the metadata key of the blob. For example, if your blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
++ User-specified metadata properties present on the blob, if any, are extracted verbatim. Note that this requires a field to be defined in the index with the same name as the metadata key of the blob. For example, if your blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
 
-* Standard blob metadata properties are extracted into the following fields:
++ Standard blob metadata properties are extracted into the following fields:
 
-  * **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+  + **metadata\_storage\_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
-  * **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  + **metadata\_storage\_path** (`Edm.String`) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-  * **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+  + **metadata\_storage\_content\_type** (`Edm.String`) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
 
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Cognitive Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
+  + **metadata\_storage\_last\_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the blob. Azure Cognitive Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
 
-  * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+  +* **metadata\_storage\_size** (`Edm.Int64`) - blob size in bytes.
 
-  * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+  + **metadata\_storage\_content\_md5** (`Edm.String`) - MD5 hash of the blob content, if available.
 
-  * **metadata\_storage\_sas\_token** (Edm.String) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the blob. This token should not be stored for later use as it might expire.
+  + **metadata\_storage\_sas\_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the blob. This token should not be stored for later use as it might expire.
 
-* Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
++ Metadata properties specific to each document format are extracted into the fields listed [here](search-blob-metadata-properties.md).
 
 You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
 
@@ -179,73 +196,7 @@ You don't need to define fields for all of the above properties in your search i
 > Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Cognitive Search to the field names in your search index. You will see an example of field mappings use below.
 >
 
-<a name="DocumentKeys"></a>
 
-### Defining document keys and field mappings
-
-In Azure Cognitive Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
-
-You should carefully consider which extracted field should map to the key field for your index. The candidates are:
-
-* **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) for that purpose).
-
-* **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules).  As above, you have the option of encoding the keys using the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction).
-
-* A third option is to add a custom metadata property to the blobs. This option does, however, require that your blob upload process adds that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
-
-> [!IMPORTANT]
-> If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
->
->
-
-For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
-
-```http
-    "fieldMappings" : [
-      { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-      { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-    ]
-```
-
-To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
-
-```http
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "dataSourceName" : " blob-datasource ",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-      ]
-    }
-```
-
-For more information, see [Field mappings and transformations](search-indexer-field-mappings.md).
-
-#### What if you need to encode a field to use it as a key, but you also want to search it?
-
-There are times when you need to use an encoded version of a field like metadata_storage_path as the key, but you also need that field to be searchable (without encoding). In order to resolve this issue, you can map it into two fields; one that will be used for the key, and another one that will be used for search purposes. In the example below the *key* field contains the encoded path, while the *path* field is not encoded and will be used as the searchable field in the index.
-
-```http
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "dataSourceName" : " blob-datasource ",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
-      ]
-    }
-```
 <a name="WhichBlobsAreIndexed"></a>
 
 ## Index by file type
@@ -254,35 +205,35 @@ You can control which blobs are indexed, and which are skipped.
 
 ### Include blobs having specific file extensions
 
-You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
+Use `indexedFileNameExtensions` to provide a comma-separated list of file extensions to index (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+}
 ```
 
 ### Exclude blobs having specific file extensions
 
-You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
+Use `excludedFileNameExtensions` to provide a comma-separated list of file extensions to skip (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+}
 ```
 
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
+If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, the indexer first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is in both lists, it will be excluded from indexing.
 
 <a name="PartsOfBlobToIndex"></a>
 
@@ -290,21 +241,21 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
-* `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
-* `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
++ `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
++ `allMetadata` - specifies that storage metadata and the [content-type specific metadata](search-blob-metadata-properties.md) extracted from the blob content are indexed.
++ `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
 For example, to index only the storage metadata, use:
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
+}
 ```
 
 ### Using blob metadata to control how blobs are indexed
@@ -312,23 +263,17 @@ For example, to index only the storage metadata, use:
 The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
 
 | Property name | Property value | Explanation |
-| --- | --- | --- |
+| ------------- | -------------- | ----------- |
 | AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
-
-## Index from multiple sources
-
-You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts.
-
-For this to work, all indexers and other components need to agree on the document key. For additional details on this topic, refer to [Index multiple Azure data sources](./tutorial-multiple-data-sources.md) or this blog post, [Combine documents with other data in Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 ## Index large datasets
 
 Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up:
 
-* Partition your data into multiple blob containers or virtual folders
++ Partition your data into multiple blob containers or virtual folders
 
-* Set up several Azure Cognitive Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
++ Set up several Azure Cognitive Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
 
     ```json
     {
@@ -339,84 +284,63 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
     }
     ```
 
-* Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
++ Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
-* One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
++ One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
 
 <a name="DealingWithErrors"></a>
 
 ## Handle errors
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
+Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
+
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Troubleshooting common indexer issues](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+
+### Respond to errors
+
+There are four indexer properties that control the indexer's response when errors occur. The following examples show how to set these properties in the indexer definition. If an indexer already exists, you can add these properties by editing the definition in the portal.
+
+#### `"maxFailedItems"` and `"maxFailedItemsPerBatch"`
+
+Continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. Set these properties to the number of acceptable failures. A value of `-1` allows processing no matter how many errors occur. Otherwise, the value is a positive integer.
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+}
 ```
 
-For some blobs, Azure Cognitive Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
+#### `"failOnUnsupportedContentType"` and `failOnUnprocessableDocument` 
+
+For some blobs, Azure Cognitive Search is unable to determine the content type, or unable to process a document of an otherwise supported content type. To ignore these failure conditions, set configuration parameters to `false`:
 
 ```http
-      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false, "failOnUnprocessableDocument" : false } }
+}
 ```
 
-Azure Cognitive Search limits the size of blobs that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](./search-limits-quotas-capacity.md). Oversized blobs are treated as errors by default. However, you can still index storage metadata of oversized blobs if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
+### Relax indexer constraints
 
-```http
-    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
-```
+You can also set [blob configuration properties](/rest/api/searchservice/create-indexer#blob-configuration-parameters) that effectively determine whether an error condition exists. The following properties relax constraints, suppressing errors that would otherwise occur.
 
-You can also continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. To ignore a specific number of errors, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to the desired values. For example:
-
-```http
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-```
-
-<a name="ContentSpecificMetadata"></a>
-
-## Content type-specific metadata properties
-
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Cognitive Search.
-
-| Document format / content type | Extracted metadata | Processing details |
-| --- | --- | --- |
-| HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Strip HTML markup and extract text |
-| PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extract text, including embedded documents (excluding images) |
-| DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
-| DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
-| DOCM (application/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
-| WORD XML (application/vnd.ms-word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Strip XML markup and extract text |
-| WORD 2003 XML (application/vnd.ms-wordml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |Strip XML markup and extract text |
-| XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
-| XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
-| XLSM (application/vnd.ms-excel.sheet.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
-| PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
-| PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
-| PPTM (application/vnd.ms-powerpoint.presentation.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extract text, including text extracted from attachments. `metadata_message_to_email`, `metadata_message_cc_email` and `metadata_message_bcc_email` are string collections, the rest of the fields are strings.|
-| ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
-| ODS (application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
-| ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extract text, including embedded documents |
-| ZIP (application/zip) |`metadata_content_type` |Extract text from all documents in the archive |
-| GZ (application/gzip) |`metadata_content_type` |Extract text from all documents in the archive |
-| EPUB (application/epub+zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Extract text from all documents in the archive |
-| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Strip XML markup and extract text |
-| JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details |
-| EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
-| RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extract text|
-| Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extract text|
++ `"excludedFileNameExtensions"` to exclude by file type.
++ `"indexedFileNameExtensions"` to include specific file types.
++ `"indexStorageMetadataOnlyForOversizedDocuments"` to index storage metadata for blob content that is too large to process. Oversized blobs are treated as errors by default. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md).
++ `"dataToExtract"` to specify whether the indexer reads `"storageMetadata"`, `"allMetadata"`, or `"contentAndMetadata"` (default).
 
 ## See also
 
-* [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-* [Understand blobs using AI](search-blob-ai-integration.md)
-* [Blob indexing overview](search-blob-storage-integration.md)
++ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [Understand blobs using AI](search-blob-ai-integration.md)
++ [Blob indexing overview](search-blob-storage-integration.md)
