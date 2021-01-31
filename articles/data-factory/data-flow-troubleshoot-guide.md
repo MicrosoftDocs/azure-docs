@@ -218,13 +218,13 @@ If you are executing the data flow in a debug test execution from a debug pipeli
  ### Error code: DF-Excel-InvalidConfiguration
 - **Message**: Excel sheet name or index is required.
 - **Causes**: Undetermined
-- **Recommendation**: Please check parameter value and specify sheet name or index to read excel data.
+- **Recommendation**: Please check parameter value and specify sheet name or index to read Excel data.
 
 
  ### Error code: DF-Excel-InvalidConfiguration
 - **Message**: Excel sheet name and index cannot exist at the same time.
 - **Causes**: Undetermined
-- **Recommendation**: Please check parameter value and specify sheet name or index to read excel data.
+- **Recommendation**: Please check parameter value and specify sheet name or index to read Excel data.
 
 
  ### Error code: DF-Excel-InvalidConfiguration
@@ -236,7 +236,7 @@ If you are executing the data flow in a debug test execution from a debug pipeli
  ### Error code: DF-Excel-InvalidData
 - **Message**: Excel worksheet does not exist.
 - **Causes**: Undetermined
-- **Recommendation**: Please check parameter value and specify valid sheet name or index to read excel data.
+- **Recommendation**: Please check parameter value and specify valid sheet name or index to read Excel data.
 
  ### Error code: DF-Excel-InvalidData
 - **Message**: Reading excel files with different schema is not supported now.
