@@ -29,13 +29,13 @@ The blob indexer provides a **`parsingMode`** parameter on the request to optimi
 
 For both **`jsonArray`** and **`jsonLines`**, review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
-Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For `jsonArray` parsing mode, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
+Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
 
 The following sections describe each mode in more detail. If you are unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md).
 
 <a name="parsing-single-blobs"></a>
 
-## Parse single JSON blobs
+## Index single JSON documents (one per blob)
 
 By default, [blob indexers](search-howto-indexing-azure-blob-storage.md) parse JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
 
@@ -43,7 +43,7 @@ By default, [blob indexers](search-howto-indexing-azure-blob-storage.md) parse J
 {
     "article" : {
         "text" : "A hopefully useful article explaining how to parse JSON blobs",
-        "datePublished" : "2016-04-13",
+        "datePublished" : "2020-04-13",
         "tags" : [ "search", "storage", "howto" ]    
     }
 }
@@ -83,7 +83,7 @@ api-key: [admin key]
 
 <a name="nested-json-arrays"></a>
 
-## Parse nested arrays
+## Parse nested JSON arrays
 
 For JSON arrays having nested elements, you can specify a **`documentRoot`** to indicate a multi-level structure. For example, if your blobs look like this:
 
@@ -109,7 +109,7 @@ Use this configuration to index the array contained in the `level2` property:
 }
 ```
 
-## Parse blobs separated by newlines
+## Parse JSON entities separated by newlines
 
 If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate search document, use **`jsonLines`**.
 
