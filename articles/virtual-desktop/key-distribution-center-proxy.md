@@ -14,7 +14,7 @@ manager: lizross
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will show you how to configure a Kerberos Key Distribiution Center (KDC) proxy (preview) for your host pool. This proxy lets organizations authenticate with Kerberos outside of their enterprise boundaries. For example, you can use the KDC proxy to enable Smartcard authentication for external clients.
+This article will show you how to configure a Kerberos Key Distribution Center (KDC) proxy (preview) for your host pool. This proxy lets organizations authenticate with Kerberos outside of their enterprise boundaries. For example, you can use the KDC proxy to enable Smartcard authentication for external clients.
 
 ## How to configure the KDC proxy
 
