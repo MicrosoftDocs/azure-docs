@@ -119,7 +119,7 @@ This resource contains a database account instance that can be restored. The dat
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
-To get a list of all restorable accounts, see [Restorable Database Accounts - list]() or [Restorable Database Accounts- list by location]() articles.
+To get a list of all restorable accounts, see [Restorable Database Accounts - list](restorable-database-accounts-list.md) or [Restorable Database Accounts- list by location](restorable-database-accounts-list-by-location.md) articles.
 
 ### Restorable SQL database
 
@@ -133,7 +133,7 @@ Each resource contains information of a mutation event such as creation and dele
 | operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
 | database |The properties of the SQL database at the time of the event|
 
-To get a list of all database mutations, see [Restorable Sql Databases - List]() article.
+To get a list of all database mutations, see [Restorable Sql Databases - List](restorable-sql-databases-list.md) article.
 
 ### Restorable SQL container
 
@@ -147,7 +147,7 @@ Each resource contains information of a mutation event such as creation and dele
 | operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event is not initiated by the user</li></ul> |
 | container | The properties of the SQL container at the time of the event.|
 
-To get a list of all container mutations under the same database, see [Restorable Sql Containers - List]() article.
+To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](restorable-sql-containers-list.md) article.
 
 ### Restorable SQL resources
 
@@ -158,7 +158,7 @@ Each resource represents a single database and all the containers under that dat
 | databaseName	| The name of the SQL database.
 | collectionNames	| The list of SQL containers under this database.|
 
-To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List]() article.
+To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](restorable-sql-resources-list.md) article.
 
 ### Restorable MongoDB database
 
@@ -171,7 +171,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the MongoDB database. |
 | operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
-To get a list of all database mutation, see [Restorable Mongodb Databases - List]() article.
+To get a list of all database mutation, see [Restorable Mongodb Databases - List](restorable-mongodb-databases-list.md) article.
 
 ### Restorable MongoDB collection
 
@@ -184,7 +184,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the MongoDB collection. |
 | operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
 
-To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List]() article.
+To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List](restorable-mongodb-collections-list.md) article.
 
 ### Restorable MongoDB resources
 
@@ -195,9 +195,9 @@ Each resource represents a single database and all the collections under that da
 | databaseName	|The name of the MongoDB database. |
 | collectionNames | The list of MongoDB collections under this database. |
 
-To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List]() article.
+To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](restorable-mongodb-resources-list.md) article.
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-command-line.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

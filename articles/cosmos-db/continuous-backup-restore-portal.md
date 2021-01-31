@@ -92,6 +92,6 @@ After initiating a restore operation, select the **Notification** bell icon at t
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure CLI](continuous-backup-restore-command-line.md), [PowerShell](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Configure and manage continuous backup using [Azure CLI](continuous-backup-restore-command-line.md), [PowerShell](continuous-backup-restore-powershell.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

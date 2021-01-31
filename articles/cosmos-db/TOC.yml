@@ -118,10 +118,28 @@
           items:
           - name: Continuous backup - Introduction
             href: continuous-backup-restore-introduction.md
-          - name: Continuous backup - Resource model
-            href: continuous-backup-restore-resource-model.md
           - name: Continuous backup - FAQ
             href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            items:
+            - name: Resource model overview
+              href: continuous-backup-restore-resource-model.md
+            - name: Restorable accounts - List
+              href: restorable-database-accounts-list.md
+            - name: Restorable accounts - List by location
+              href: restorable-database-accounts-list-by-location.md
+            - name: Restorable SQL resources - List
+              href: restorable-sql-resources-list.md
+            - name: Restorable SQL databases - List
+              href: restorable-sql-databases-list.md
+            - name: Restorable SQL containers - List
+              href: restorable-sql-containers-list.md
+            - name: Restorable MongoDB resources - List
+              href: restorable-mongodb-resources-list.md
+            - name: Restorable MongoDB collections - List
+              href: restorable-mongodb-collections-list.md
+            - name: Restorable MongoDb databases - List
+              href: restorable-mongodb-databases-list.md
         - name: Compliance
           href: compliance.md
     - name: Automatic recommendations
@@ -1381,12 +1399,12 @@
       items:
         - name: Manage continuous backup
           items:
-            - name: Permissions and roles for restore
+            - name: Continuous backup - Permissions and roles
               href: continuous-backup-restore-permissions.md
             - name: Continuous backup - Portal
               href: continuous-backup-restore-portal.md
             - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-command-line.md
+              href: continuous-backup-restore-powershell.md
             - name: Continuous backup - CLI
               href: continuous-backup-restore-command-line.md
             - name: Continuous backup - ARM
