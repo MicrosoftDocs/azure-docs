@@ -119,7 +119,7 @@ This resource contains a database account instance that can be restored. The dat
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
-To get a list of all restorable accounts, see [Restorable Database Accounts - list](restorable-database-accounts-list.md) or [Restorable Database Accounts- list by location](restorable-database-accounts-listby-location.md) articles.
+To get a list of all restorable accounts, see [Restorable Database Accounts - list](restorable-database-accounts-list.md) or [Restorable Database Accounts- list by location](restorable-database-accounts-list-by-location.md) articles.
 
 ### Restorable SQL database
 

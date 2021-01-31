@@ -180,5 +180,5 @@ Properties of the regional restorable account.
 
 ## Next steps
 
-* [List restorable collections](restorable-database-accounts-listby-location.md) in Azure Cosmos DB API for MongoDB using REST API.
+* [List restorable collections](restorable-database-accounts-list-by-location.md) in Azure Cosmos DB API for MongoDB using REST API.
 * [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.

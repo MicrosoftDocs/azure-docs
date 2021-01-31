@@ -127,7 +127,7 @@
             - name: Restorable accounts - List
               href: restorable-database-accounts-list.md
             - name: Restorable accounts - List by location
-              href: restorable-database-accounts-listby-location.md
+              href: restorable-database-accounts-list-by-location.md
             - name: Restorable SQL resources - List
               href: restorable-sql-resources-list.md
             - name: Restorable SQL databases - List

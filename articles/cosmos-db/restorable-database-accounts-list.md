@@ -178,5 +178,5 @@ Properties of the regional restorable account.
 
 ## Next steps
 
-* [Restorable database accounts - List by location.](restorable-database-accounts-listby-location.md)
+* [Restorable database accounts - List by location.](restorable-database-accounts-list-by-location.md)
 * [Resource model](continuous-backup-restore-resource-model.md) of continuous backup mode.
