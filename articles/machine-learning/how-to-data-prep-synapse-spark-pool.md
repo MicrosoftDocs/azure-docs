@@ -1,5 +1,5 @@
 ---
-title: Connect Spark pools for data preparation (public preview)
+title: Connect Spark pools for data preparation (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to connect Spark pools for data preparation with Azure Synapse and Azure Machine Learning
 services: machine-learning
@@ -18,11 +18,11 @@ ms.custom: how-to, devx-track-python, data4ml
 
 # Connect Spark pools for data preparation with Azure Synapse (preview)
 
-In this article, you learn how to connect and launch an Apache Spark pool backed by [Azure Synapse](/synapse-analytics/overview-what-is.md) for data preparation within your Azure Machine Learning workspace.
+In this article, you learn how to connect and launch an Apache Spark pool backed by [Azure Synapse](/synapse-analytics/overview-what-is.md) for data preparation within your Azure Machine Learning experiments.
 
 ## Azure Machine Learning and Azure Synapse integration (preview)
 
-The Azure Synapse integration with Azure Machine Learning (preview) allows you to connect a separate compute, in this case an Apache Spark pool backed by Azure Synapse, for interactive data exploration and preparation. With this integration you can perform large scale data preparation tasks within the same Python notebook you use for training your machine learning models.
+The Azure Synapse integration with Azure Machine Learning (preview) allows you to connect a separate compute, in this case an Apache Spark pool backed by Azure Synapse, for interactive data exploration and preparation. With this integration, you can perform data preparation at scale within the same Python notebook you use for training your machine learning models.
 
 >[!IMPORTANT]
 > The Azure Machine Learning and Azure Synapse integration is in public preview. The functionalities presented from the `azureml-synapse` package are [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time.
@@ -31,9 +31,9 @@ The Azure Synapse integration with Azure Machine Learning (preview) allows you t
 
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=python).
 
-* [Create a Synapse workspace in Azure Portal](/synapse-analytics/quickstart-create-workspace.md).
+* [Create a Synapse workspace in Azure portal](/synapse-analytics/quickstart-create-workspace.md).
 
-* [Create Apache Spark pool using Azure Portal, web tools or Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+* [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 * Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
@@ -47,7 +47,7 @@ The Azure Synapse integration with Azure Machine Learning (preview) allows you t
 
 Before you can attach a Spark pool for data preparation, you first need to link your Azure Machine Learning workspace with your Azure Synapse workspace.
 
-To link to the Synapse workspace successfully, grant User Assigned Identity the synapse admin role in Synapse Studio. The resource ID of your User Assigned Identity can be found in the [Azure Portal](https://ms.portal.azure.com/).
+To link to the Synapse workspace successfully, grant User Assigned Identity the synapse admin role in Synapse Studio. The resource ID of your User Assigned Identity can be found in the [Azure portal](https://ms.portal.azure.com/).
 
 > [!IMPORTANT]
 > There is a MSI `system_assigned_identity_principal_id` created for each linked service. Make sure you grant Spark *admin* role of the synapse workspace to MSI in synapse studio before you submit job.
@@ -72,13 +72,13 @@ linked_workspace = LinkedWorkspace.register(workspace = ws,
 
 ### Manage linked services
 
-To unlink your workspaces use the `unregister()` method
+To unlink your workspaces, use the `unregister()` method
 
 ``` python
 linked_workspace.unregister()
 ```
 
-To get linked workspace content use the following code
+To get linked workspace content, use the following code
 
 ``` python
 ws.linked_workspaces['synapse workspace alias']
