@@ -24,7 +24,7 @@ Before you can create a connection, you need to install ITSMC.
 
    ![Screenshot that shows the menu item for creating a resource.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Search for **IT Service Management Connector** in Azure Marketplace. Select **Create**:
+2. Search for **IT Service Management Connector** in Azure Marketplace. Then select **Create**:
 
    ![Screenshot that shows the Create button in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -118,7 +118,7 @@ To create an action group:
    > [!NOTE]
    > This section is relevant only for log search alerts. For all other alert types, you'll create one work item per alert.
 
-   * If you select **Incident** or **Alert** in the **Work Item** drop-down list, you have the option to create individual work items for each configuration item.
+   * If you selected **Incident** or **Alert** in the **Work Item** drop-down list, you have the option to create individual work items for each configuration item.
     
      ![Screenshot that shows the I T S M Ticket area with Incident selected as a work item.](media/itsmc-overview/itsm-action-configuration.png)
     
@@ -133,13 +133,13 @@ To create an action group:
 
        For example, an alert that has three configuration items will create one work item. If an alert for the same alert rule as the previous example has one configuration item, that configuration item will be attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item will create one work item.
 
-   * If you select **Event** in the **Work Item** drop-down list, you can choose to create individual work items for each log entry or for each configuration item.
+   * If you selected **Event** in the **Work Item** drop-down list, you can choose to create individual work items for each log entry or for each configuration item.
     
      ![Screenshot that shows the I T S M Ticket area with Event selected as a work item.](media/itsmc-overview/itsm-action-configuration-event.png)
 
      * If you select **Create individual work items for each Log Entry (Configuration item field is not filled. Can result in large number of work items.)**, a work item will be created for each row in the search results of the log search alert query. The description property in the payload of the work item will contain the row from the search results.
       
-     * If you select **Create individual work items for each Configuration Item**, every configuration item in every alert will create a new work item. Each configuration item can have more than one work item in the ITSM system. This option is the same as the selecting the check box that appears if you select **Incident** as the work item type.
+     * If you select **Create individual work items for each Configuration Item**, every configuration item in every alert will create a new work item. Each configuration item can have more than one work item in the ITSM system. This option is the same as the selecting the check box that appears after you select **Incident** as the work item type.
 
 10. Select **OK**.
 
