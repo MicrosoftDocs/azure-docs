@@ -107,7 +107,7 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Prefix for resources and resource groups**: This string is used as a prefix for all resource and resource group names
      - **Hub name**: Name for the hub
      - **Log retention (days)**: Number of days that logs are retained; entering '0' retains logs indefinitely
-     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment is deployed the hub components of the architecture
+     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment deploys the hub components of the architecture
      - **Hub location**: Location for the hub resource group
      - **Destination IP addresses**: Destination IP addresses for outbound connectivity; comma-separated list of IP addresses or IP range prefixes
      - **Network Watcher name**: Name for the Network Watcher resource
