@@ -1,5 +1,6 @@
 ---
 title: Security agent authentication (Preview)
+titleSuffix: Azure Defender for IoT
 description: Perform micro agent authentication with two possible methods.
 author: shhazam-ms
 manager: rkarlin
@@ -63,3 +64,5 @@ To perform authentication using a certificate:
     :::image type="content" source="media/concept-security-agent-authentication/active.png" alt-text="Ensure your service is stable by making sure it is active.":::
 
 ## Next steps
+
+Check your [Security posture – CIS benchmark](concept-security-posture.md).

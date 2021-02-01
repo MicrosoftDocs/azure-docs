@@ -1,10 +1,10 @@
 ---
-title: "Quickstart: Investigate security recommendations"
+title: Investigate security recommendations"
 description: Investigate security recommendations with the Defender for IoT security service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
+ms.author: shhazam
 ---
 
 # Quickstart: Investigate security recommendations
@@ -49,12 +49,12 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 1.  After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation. 
 
-    [ :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Remediate security recommendations with ASC for IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Remediate security recommendations with ASC for IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
 
 
 1.  Explore the recommendation details for a specific device by selecting the desired device in the drill-down page.
 
-    [ :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Investigate specific security recommendations for a device with ASC for IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Investigate specific security recommendations for a device with ASC for IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
 
 
 1.  If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 

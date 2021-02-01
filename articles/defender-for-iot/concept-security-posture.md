@@ -1,5 +1,6 @@
 ---
 title: Security posture - CIS benchmark
+titleSuffix: Azure Defender for IoT
 description: Improve your security compliance and posture by using Defender for IoT micro agent.
 author: shhazam-ms
 manager: rkarlin
@@ -22,3 +23,5 @@ CIS Benchmarks are the only consensus-based, best-practice security configuratio
 Azure Defender for IoT micro agent enables you to quickly improve your organization’s device security and defense capabilities by offering CIS best practice configurations, along with constant identification of any existing weak links in your OS security posture.
 
 ## Next steps 
+
+Review your [Event aggregation (Preview)](concept-event-aggregation.md).

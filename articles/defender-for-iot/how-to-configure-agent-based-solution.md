@@ -39,7 +39,8 @@ To enable, or disable the collection of IP address data:
 
 Defender for IoT allows you to store security alerts, recommendations, and raw security data, in your Log Analytics workspace. Log Analytics ingestion in IoT Hub is set to **off** by default in the Defender for IoT solution. It is possible, to attach Defender for IoT to a Log Analytic workspace, and to store the security data there as well. 
 
-There are two types of information stored by default in your Log Analytics workspace by Defender for IoT; 
+There are two types of information stored by default in your Log Analytics workspace by Defender for IoT:
+ 
 - Security alerts.
 
 - Recommendations. 

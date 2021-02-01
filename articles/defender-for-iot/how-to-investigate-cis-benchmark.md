@@ -1,5 +1,6 @@
 ---
 title: Investigate CIS benchmark recommendation
+titleSuffix: Azure Defender for IoT
 description: Perform basic and advanced investigations based on OS baseline recommendations.
 author: shhazam-ms
 manager: rkarlin
@@ -43,13 +44,13 @@ To query your IoT security events in Log Analytics workspace directly:
 
 1. Navigate to the **Logs** page.
 
-    :::image type="content" source="media/how-to-investigate-cis-benchmark/logs.png" alt-text="Select logs from tne left side pane.":::
+    :::image type="content" source="media/how-to-investigate-cis-benchmark/logs.png" alt-text="Select logs from the left side pane.":::
 
 1. Select **Investigate the alerts** or, select the **Investigate the alerts in Log Analytics** option from any security recommendation, or alert.   
 
 ## Useful queries to investigate the OS baseline resources: 
 
-> Note
+> [!Note]
 > Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries. 
 
 
@@ -137,5 +138,7 @@ To query your IoT security events in Log Analytics workspace directly:
     project DeviceId; 
     ```
  
-Next steps
+## Next steps
+
+[Investigate security recommendations](quickstart-investigate-security-recommendations.md).
  

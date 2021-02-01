@@ -1,5 +1,6 @@
 ---
 title: Build the Defender micro agent from source code (Preview)
+titleSuffix: Azure Defender for IoT
 description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
 author: shhazam-ms
 manager: rkarlin
@@ -100,4 +101,6 @@ If you require a different configuration for production scenarios, contact the D
     cmake --build . -- -j${env:NPROC}
     ```
 
-## Next Steps
+## Next steps
+
+[Configure your Azure Defender for IoT solution](quickstart-configure-your-solution.md).

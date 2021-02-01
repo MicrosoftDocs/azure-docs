@@ -1,5 +1,6 @@
 ---
 title: Event aggregation (Preview)
+titleSuffix: Azure Defender for IoT
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
 author: shhazam-ms
 manager: rkarlin
@@ -41,4 +42,6 @@ Network Connection events are considered identical when the *local port*, *r
 
 The default buffer for network connection events is 64. No new network events will be cached until the next collection cycle. A warning to increase the cache size will be logged.
 
-## Next Steps
+## Next steps
+
+check your [Defender for IoT security alerts](concept-security-alerts.md).

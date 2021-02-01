@@ -1,5 +1,6 @@
 ---
 title: Create a Defender Iot micro agent module twin (Preview)
+titleSuffix: Azure Defender for IoT
 description: Learn how to create individual DefenderIotMicroAgent module twins for new devices.
 author: shhazam-ms
 manager: rkarlin

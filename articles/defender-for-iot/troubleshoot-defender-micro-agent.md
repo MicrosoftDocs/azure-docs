@@ -1,5 +1,6 @@
 ---
 title: Defender IoT micro agent troubleshooting (Preview)
+titleSuffix: Azure Defender for IoT
 description: Learn how to handle unexpected or unexplained errors.
 author: shhazam-ms
 manager: rkarlin
@@ -57,6 +58,6 @@ To restart the service, use the following command:
 sudo systemctl restart defender-iot-micro-agent  
 ```
 
-## Next Steps
+## Next steps
 
 Check out the [Feature support and retirement](edge-security-module-deprecation.md).

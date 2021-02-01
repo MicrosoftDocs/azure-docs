@@ -1,5 +1,6 @@
 ---
 title: Install Defender for IoT micro agent (Preview)
+titleSuffix: Azure Defender for IoT
 description: Learn how to install, and authenticate the Defender Micro Agent.
 author: shhazam-ms
 manager: rkarlin
@@ -115,6 +116,6 @@ To install a specific version of the Defender IoT micro agent, run the following
 sudo apt-get install defender-iot-micro-agent=<version>
 ```
 
-## Next Steps
+## Next steps
 
 [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
