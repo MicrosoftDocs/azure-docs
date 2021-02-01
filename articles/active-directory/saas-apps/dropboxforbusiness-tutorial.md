@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. If you want to setup Dropbox Business manually, open a new web browser window and go on your Dropbox Business tenant and sign on to your Dropbox Business tenant. and perform the following steps:
 
-	![Screenshot that shows the "Dropbox Business Sign in" page.](./media/dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
+	![Screenshot that shows the "Dropbox Business Sign in" page.](./media/dropboxforbusiness-tutorial/account.png "Configure single sign-on")
 
 4. Click on the **User Icon** and select **Settings** tab.
 
