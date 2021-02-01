@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 01/27/2021
 ms.author: rogarana
 ---
 | Resource | Standard file shares\* | Premium file shares |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | No minimum; pay as you go | 100 GiB; provisioned |
 | Maximum size of a file share | 100 TiB\*\*, 5 TiB | 100 TiB |
-| Maximum size of a file in a file share | 1 TiB | 4 TiB |
+| Maximum size of a file in a file share | 4 TiB | 4 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum IOPS per share | 10,000 IOPS\*\*, 1,000 IOPS or 100 requests in 100ms | 100,000 IOPS |
 | Maximum number of stored access policies per file share | 5 | 5 |

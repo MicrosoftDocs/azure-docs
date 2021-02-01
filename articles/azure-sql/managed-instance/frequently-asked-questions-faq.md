@@ -357,7 +357,7 @@ Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](./custom
 
 **Can I do DNS refresh?**
 
-Currently, we don't provide a feature to refresh DNS server configuration for SQL Managed Instance.
+Yes. See [Synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 DNS configuration is eventually refreshed:
 
