@@ -95,4 +95,4 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 
 ## Next steps
 
-- [Learn about Azure Firewall](overview.md)
+- [Learn about Azure Firewall Premium certificates](premium-certificates.md)
