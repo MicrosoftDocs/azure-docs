@@ -378,26 +378,11 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## Visualize hyperparameter tuning runs
 
-You can visualize your hyperparameter tuning runs with a notebook widget and also in Azure Machine Learning studio.
-
-### Notebook widget
-
-Use the [Notebook widget](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) to visualize the progress of your training runs. The following snippet visualizes all your hyperparameter tuning runs in one place in a Jupyter notebook:
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(hyperdrive_run).show()
-```
-
-This code displays a table with details about the training runs for each of the hyperparameter configurations.
-
-:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Hyperparameter tuning table":::
-
-You can also visualize the performance of each of the runs as training progresses.
+You can visualize your hyperparameter tuning runs in the Azure Machine Learning studio, or you can use a notebook widget.
 
 ### Studio
 
-You can also visualize all of your hyperparameter tuning runs in the [Azure Machine Learning studio](https://ml.azure.com). For more information on how to view an experiment in the portal, see [how to track experiments](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+You can visualize all of your hyperparameter tuning runs in the [Azure Machine Learning studio](https://ml.azure.com). For more information on how to view an experiment in the portal, see [View run records in the studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
 1. **Metrics chart**: This visualization tracks the metrics logged for each hyperdrive child run over the duration of hyperparameter tuning. Each line represents a child run, and each point measures the primary metric value at that iteration of runtime.  
 
@@ -415,7 +400,20 @@ You can also visualize all of your hyperparameter tuning runs in the [Azure Mach
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter tuning 3-dimensional scatter chart":::
 
+### Notebook widget
 
+Use the [Notebook widget](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) to visualize the progress of your training runs. The following snippet visualizes all your hyperparameter tuning runs in one place in a Jupyter notebook:
+
+```Python
+from azureml.widgets import RunDetails
+RunDetails(hyperdrive_run).show()
+```
+
+This code displays a table with details about the training runs for each of the hyperparameter configurations.
+
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Hyperparameter tuning table":::
+
+You can also visualize the performance of each of the runs as training progresses.
 
 ## Find the best model
 
