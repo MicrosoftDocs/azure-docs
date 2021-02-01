@@ -16,6 +16,9 @@ This article lists recent features added for Azure Sentinel, and new features in
 
 For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
+Some of the features listed below are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 > [!TIP]
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use. 
 >
@@ -28,7 +31,7 @@ For information about earlier features delivered, see our [Tech Community blogs]
 - [Improved incident comments](#improved-incident-comments)
 - [Dedicated Log Analytics clusters](#dedicated-log-analytics-clusters)
 - [Logic apps managed identities](#logic-apps-managed-identities)
-- [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs)
+- [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 ### SQL database connector
 
@@ -69,7 +72,7 @@ For more information, see:
 - [Authenticating with Managed Identity in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 - [Azure Sentinel Logic Apps connector documentation](/connectors/azuresentinel) 
 
-### Improved rule tuning with the analytics rule preview graphs
+### Improved rule tuning with the analytics rule preview graphs (Public preview)
 
 Azure Sentinel now helps you better tune your analytics rules, helping you to increase their accuracy and decrease noise.
 
