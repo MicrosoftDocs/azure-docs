@@ -90,7 +90,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Release notes for Microsoft.ApplicationInsights.SnapshotCollector](app/snapshot-collector-release-notes.md) - New article.
 
 ### Autoscale
-- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to a different region.
+- [Get started with autoscale in Azure](autoscale/autoscale-get-started.md) - Added section on moving Autoscale to a different region.
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
@@ -157,7 +157,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Added sections on virtual machines and Activity log.
   
 ### Autoscale
-- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to different region.
+- [Get started with autoscale in Azure](autoscale/autoscale-get-started.md) - Added section on moving Autoscale to different region.
 
 ### Containers
 - [Configure PV monitoring with Azure Monitor for containers](insights/container-insights-persistent-volumes.md) - New article.
@@ -286,7 +286,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Usage analysis with Azure Application Insights](app/usage-overview.md) - Added video.
 
 ### Autoscale
-- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
+- [Get started with autoscale in Azure](autoscale/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - New article.
@@ -483,7 +483,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for workbooks](samples/resource-manager-workbooks.md)
 
 ### Agents
-- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
+- [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
 - [Log Analytics agent overview](agents/log-analytics-agent.md) - Added supported Linux versions.
 
 ### Application Insights
@@ -670,11 +670,11 @@ General updates for general availability of Azure Monitor for VMs
 Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
-- [Azure Diagnostics extension overview](platform/diagnostics-extension-overview.md) - Complete rewrite.
-- [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs.md) - General rewrite for update and clarity.
-- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - New article. 
-- [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows.md) - Reorganized.
-- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
+- [Azure Diagnostics extension overview](essentials/diagnostics-extension-overview.md) - Complete rewrite.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](essentials/diagnostics-extension-logs.md) - General rewrite for update and clarity.
+- [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) - New article. 
+- [Windows diagnostics extension schema](essentials/diagnostics-extension-schema-windows.md) - Reorganized.
+- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](essentials/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
 - [Store and view diagnostic data in Azure Storage](../cloud-services/diagnostics-extension-to-storage.md) - Completely rewritten and updated.
 - [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md) - Better clarifies relationship with Log Analytics agent.
 - [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md) - Better clarifies relationship with Log Analytics agent.

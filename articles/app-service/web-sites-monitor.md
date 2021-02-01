@@ -160,7 +160,7 @@ Metrics for an app or an App Service plan can be hooked up to alerts. For more i
 
 App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 
-For more information about autoscale, see [How to scale](../azure-monitor/platform/autoscale-get-started.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md).
+For more information about autoscale, see [How to scale](../azure-monitor/autoscale/autoscale-get-started.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

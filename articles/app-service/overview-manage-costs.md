@@ -110,7 +110,7 @@ Production workloads come with the recommendation of the dedicated **Standard** 
 > [!NOTE]
 > **Premium V3** supports both Windows containers and Linux containers. 
 
-Once you choose the pricing tier you want, you should minimize the idle instances. In a scale-out deployment, you can waste money on underutilized compute instances. You should [configure autoscaling](../azure-monitor/platform/autoscale-get-started.md), available in **Standard** tier and above. By creating scale-out schedules, as well as metric-based scale-out rules, you only pay for the instances you really need at any given time.
+Once you choose the pricing tier you want, you should minimize the idle instances. In a scale-out deployment, you can waste money on underutilized compute instances. You should [configure autoscaling](../azure-monitor/autoscale/autoscale-get-started.md), available in **Standard** tier and above. By creating scale-out schedules, as well as metric-based scale-out rules, you only pay for the instances you really need at any given time.
 
 ### Azure Reservations
 

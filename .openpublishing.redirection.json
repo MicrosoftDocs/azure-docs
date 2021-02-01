@@ -62089,6 +62089,101 @@
       "source_path_from_root": "/articles/azure-monitor/log-query/workspace-expression.md",
       "redirect_url": "/azure/azure-monitor/logs/workspace-expression",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-best-practices.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-common-metrics.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-common-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-common-scale-patterns.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-common-scale-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-custom-metric.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-custom-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-get-started.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-overview.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-resource-log-schema.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-resource-log-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-understanding-settings.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-understanding-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-virtual-machine-scale-sets.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/autoscale-webhook-email.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/autoscale-webhook-email",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-overview.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-schema-windows.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-schema-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-stream-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-to-application-insights.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-to-application-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-troubleshooting.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-versions.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-windows-install.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-windows-install",
+      "redirect_document_id": false
     }
   ]
 }

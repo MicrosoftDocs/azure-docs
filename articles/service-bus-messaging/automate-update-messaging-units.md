@@ -6,7 +6,7 @@ ms.date: 09/15/2020
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources that are sitting idle. See [Overview of autoscale in Microsoft Azure](../azure-monitor/platform/autoscale-overview.md) to learn more about the Autoscale feature of Azure Monitor. 
+Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources that are sitting idle. See [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) to learn more about the Autoscale feature of Azure Monitor. 
 
 Service Bus Premium Messaging provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a **messaging unit**. To learn more about messaging units, see [Service Bus Premium Messaging](service-bus-premium-messaging.md). 
 
@@ -132,7 +132,7 @@ The previous section shows you how to add a default condition for the autoscale 
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
 > [!IMPORTANT]
-> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/platform/autoscale-understanding-settings.md).          
+> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)

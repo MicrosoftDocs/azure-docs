@@ -389,14 +389,14 @@
     - name: Azure Diagnostics extension
       items:
       - name: Overview
-        href: platform/diagnostics-extension-overview.md
+        href: essentials/diagnostics-extension-overview.md
       - name: Windows
         displayname: diagnostics extension
         items:
         - name: Install and configure
           items:
           - name: Installation options
-            href: platform/diagnostics-extension-windows-install.md
+            href: essentials/diagnostics-extension-windows-install.md
           - name: PowerShell
             href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
           - name: Resource Manager template
@@ -412,15 +412,15 @@
           - name: Cloud service
             href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
         - name: Send to Event Hubs
-          href: platform/diagnostics-extension-stream-event-hubs.md
+          href: essentials/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
-          href: platform/diagnostics-extension-logs.md
+          href: essentials/diagnostics-extension-logs.md
         - name: Send to Application Insights
-          href: platform/diagnostics-extension-to-application-insights.md
+          href: essentials/diagnostics-extension-to-application-insights.md
         - name: Version history
-          href: platform/diagnostics-extension-versions.md
+          href: essentials/diagnostics-extension-versions.md
         - name: Troubleshooting
-          href: platform/diagnostics-extension-troubleshooting.md
+          href: essentials/diagnostics-extension-troubleshooting.md
       - name: Linux
         displayname: diagnostics extension
         items: 
@@ -442,29 +442,29 @@
   - name: Autoscale
     items:
     - name: Overview
-      href: platform/autoscale-overview.md
+      href: autoscale/autoscale-overview.md
     - name: Walkthrough
-      href: platform/autoscale-get-started.md
+      href: autoscale/autoscale-get-started.md
     - name: Configuration settings
-      href: platform/autoscale-understanding-settings.md
+      href: autoscale/autoscale-understanding-settings.md
     - name: Best practices
-      href: platform/autoscale-best-practices.md
+      href: autoscale/autoscale-best-practices.md
     - name: Common metrics
-      href: platform/autoscale-common-metrics.md
+      href: autoscale/autoscale-common-metrics.md
     - name: Common patterns
-      href: platform/autoscale-common-scale-patterns.md
+      href: autoscale/autoscale-common-scale-patterns.md
     - name: Scale with custom metrics
-      href: platform/autoscale-custom-metric.md
+      href: autoscale/autoscale-custom-metric.md
     - name: Scale virtual machine scale sets
       href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
     - name: Scale virtual machine scale sets using Resource Manager templates
-      href: platform/autoscale-virtual-machine-scale-sets.md
+      href: autoscale/autoscale-virtual-machine-scale-sets.md
     - name: Use webhooks and email notifications
-      href: platform/autoscale-webhook-email.md
+      href: autoscale/autoscale-webhook-email.md
     - name: Troubleshooting
-      href: platform/autoscale-troubleshoot.md
+      href: autoscale/autoscale-troubleshoot.md
     - name: Resource Log schemas
-      href: platform/autoscale-resource-log-schema.md 
+      href: autoscale/autoscale-resource-log-schema.md 
   - name: Alerts
     items:
     - name: Metric alert rules
@@ -1306,7 +1306,7 @@
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
-      href: platform/diagnostics-extension-schema-windows.md
+      href: essentials/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
@@ -1436,6 +1436,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 
