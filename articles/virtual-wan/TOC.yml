@@ -49,7 +49,7 @@
       href: scenario-isolate-vnets.md
     - name: Isolating VNets - custom
       href: scenario-isolate-vnets-custom.md
-    - name: Isolating VNets and Branches
+    - name: Isolating virtual networks and branches
       href: scenario-isolate-vnets-branches.md
     - name: Shared Services VNets
       href: scenario-shared-services-vnet.md
