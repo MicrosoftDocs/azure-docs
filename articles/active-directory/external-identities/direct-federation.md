@@ -76,7 +76,7 @@ When direct federation is established with a partner organization, it takes prec
 ### Does direct federation address sign-in issues due to a partially synced tenancy?
 No, the [email one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The direct federation feature addresses scenarios where the guest has their own IdP-managed organizational account, but the organization has no Azure AD presence at all.
 ### Once Direct Federation is configured with an organization, does each guest need to be sent and redeem an individual invitation?
-Yes as any invited new guest user invited requires individual authentication.
+Setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
 ## Step 1: Configure the partner organization’s identity provider
 First, your partner organization needs to configure their identity provider with the required claims and relying party trusts. 
 
