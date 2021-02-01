@@ -74,3 +74,12 @@ With additional configuration, this sample supports connecting to an **Azure Act
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps
+
+For more information, see the following articles:
+
+- Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
+
+### Additional reading
+
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page

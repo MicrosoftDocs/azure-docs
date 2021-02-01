@@ -74,3 +74,16 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 >[!div class="nextstepaction"] 
 >[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
+For more information, see the following articles:
+
+- Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
+
+### Additional reading
+
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Redux](https://redux.js.org/) - Client-side state management
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
+- [React](https://reactjs.org/) - Library for building user interfaces
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications

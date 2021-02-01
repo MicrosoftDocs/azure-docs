@@ -22,16 +22,3 @@ zone_pivot_groups: acs-web-ios
 ::: zone pivot="platform-ios"
 [!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
 ::: zone-end
-
-### Additional reading
-
-For more information, see the following articles:
-
-- Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
-
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
-- [Redux](https://redux.js.org/) - Client-side state management
-- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
-- [React](https://reactjs.org/) - Library for building user interfaces
-- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications
