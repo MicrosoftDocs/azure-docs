@@ -7,16 +7,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: alkohli
 ---
 # Manage alert notifications for Azure Stack Edge Pro resources
 
-This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource.
+This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.
 
-An action rule can trigger or suppress alerts. This article describes steps to create an action rule that sends notifications. For guidance on creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+## About action rules
 
-An action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to take action on alerts triggered in different contexts for a resource or set of resources. For more information, see [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups).
+An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to take action on alerts triggered in different contexts for a resource or set of resources.
+
+For more information about action rules, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups).
 
 > [!NOTE]
 > The action rules feature is in preview. Some screens and steps might change as the process is refined.
@@ -29,11 +31,11 @@ Take the following steps in the Azure portal to create an action rule for your A
 > [!NOTE]
 > These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
 
-1. Open your Azure Stack Edge device in the Azure portal, go to **Monitoring > Alerts**, and then select **Manage actions**.
+1. Go to the Azure Stack Edge device in the Azure portal, and then go to **Monitoring > Alerts**. Select **Manage actions**.
 
    ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-alerts/action-rules-open-view-01.png)
 
-2. Select **Action rules (preview)**. Then select **+ New action rule**.
+2. Select **Action rules (preview)**, and then select **+ New action rule**.
 
    ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-alerts/action-rules-open-view-02.png)
 
@@ -57,7 +59,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-scope-04.png)
 
-5. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
+4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
 
    1. Select **Add** to open the **Add filters** pane.
 
@@ -73,20 +75,20 @@ Take the following steps in the Azure portal to create an action rule for your A
    
       ![Sample filter for an action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-filter-02.png)
 
-6. On the **Create action rule** screen, select **Action group** to create a rule that sends notifications. Then, by **Actions**, choose **Select**.
+5. On the **Create action rule** screen, select **Action group** to create a rule that sends notifications. Then, by **Actions**, choose **Select**.
 
    ![Action group option for creating an action rule that sends notifications](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-action-group-01.png)
 
    > [!NOTE]
    > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
 
-7. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
+6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
 
    If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
 
    ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-action-group-02.png)
 
-8. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
+7. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
 
 9. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
 
