@@ -19,7 +19,7 @@ Azure addresses the perceived risk of resource sharing by providing a trustworth
 This article provides technical guidance to address common security and isolation concerns pertinent to cloud adoption.  It also explores design principles and technologies available in Azure to help customers achieve their secure isolation objectives.
 
 ## Executive summary
-Microsoft Azure is a hyperscale public multi-tenant cloud services platform that provides customers with access to a feature=rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, big-data analytics, intelligent edge, and many more to help customers increase efficiency and unlock insights into their operations and performance.
+Microsoft Azure is a hyperscale public multi-tenant cloud services platform that provides customers with access to a feature-rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, big-data analytics, intelligent edge, and many more to help customers increase efficiency and unlock insights into their operations and performance.
 
 A multi-tenant cloud platform implies that multiple customer applications and data are stored on the same physical hardware.  Azure uses logical isolation to segregate each customer's applications and data.  This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent customers from accessing one another's data or applications.
 

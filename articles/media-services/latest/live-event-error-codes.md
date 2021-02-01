@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services live event error codes | Microsoft Docs
+title: Azure Media Services live event error codes 
 description: This article lists live event error codes.
 author: IngridAtMicrosoft
 manager: femila

@@ -3,7 +3,7 @@ title: Azure Active Directory and Workday integration reference
 description: Technical deep dive into Workday-HR driven provisioning 
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -38,7 +38,7 @@ To further secure the connectivity between Azure AD provisioning service and Wor
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address list.
 1. Log in to Workday admin portal. 
 1. Access the **Maintain IP Ranges** task to create a new IP range for Azure data centers. Specify the IP ranges (using CIDR notation) as a comma-separated list.  
-1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use **Authentication Whitelist** to specify the Azure AD IP range and the security group that will be allowed access from this IP range. Save the changes. 
+1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allow list to specify the Azure AD IP range and the security group that will be allowed access from this IP range. Save the changes. 
 1. Access the **Activate All Pending Authentication Policy Changes** task to confirm changes.
 
 ### Limiting access to worker data in Workday using constrained security groups
@@ -344,7 +344,7 @@ If any of the above queries returns a future-dated hire, then the following *Get
 </Get_Workers_Request>
 ```
 
-### Retrieving worker data attributes
+## Retrieving worker data attributes
 
 The *Get_Workers* API can return different data sets associated with a worker. Depending on the [XPATH API expressions](workday-attribute-reference.md) configured in the provisioning schema, Azure AD provisioning service determines which data sets to retrieve from Workday. Accordingly, the *Response_Group* flags are set in the *Get_Workers* request. 
 
@@ -398,6 +398,9 @@ The table below provides guidance on mapping configuration to use to retrieve a 
 | 44 | Talent Assessment Data               | No                  | wd:Worker\_Data/wd:Talent\_Assessment\_Data                                   |
 | 45 | User Account Data                    | No                  | wd:Worker\_Data/wd:User\_Account\_Data                                        |
 | 46 | Worker Document Data                 | No                  | wd:Worker\_Data/wd:Worker\_Document\_Data                                     |
+
+>[!NOTE]
+>Each Workday entity listed in the table is protected by a **Domain Security Policy** in Workday. If you are unable to retrieve any attribute associated with the entity after setting the right XPATH, check with your Workday admin to ensure that the appropriate domain security policy is configured for the integration system user associated with the provisioning app. For example, to retrieve *Skill data*, *Get* access is required on the Workday domain *Worker Data: Skills and Experience*. 
 
 Here are some examples on how you can extend the Workday integration to meet specific requirements. 
 

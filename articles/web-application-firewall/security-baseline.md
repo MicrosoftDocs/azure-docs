@@ -406,7 +406,7 @@ Configure Azure Web Application Firewall (WAF) to run in Prevention mode after b
 
 The Azure WAF, in Prevention mode, blocks intrusions and attacks that are detected by the rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [Overview of integration between Application Gateway and Azure Security Center](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Overview of integration between Application Gateway and Azure Security Center](../security-center/security-center-partner-integration.md)
 
 - [WAF modes on Application Gateway](ag/ag-overview.md#waf-modes)
 
