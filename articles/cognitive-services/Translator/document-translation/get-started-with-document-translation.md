@@ -129,15 +129,15 @@ The following headers are included with each Document Translator API request:
 
 ### POST Request URL
 
-Send a POST request to: **\<Your-Translator-Service-Endpoint>/batches**
+Send a POST request to: **{Your-Translator-Service-Endpoint}/batches**
 
-### Request body
+#### Request body
 
-#### inputs array
+#### Inputs array
 
 The body of the POST request is a JSON array named **inputs**. The inputs array contains a source object and an array of target objects.
 
-#### source object
+#### Source object
 
 |property|description|
 |---|---|
@@ -146,7 +146,7 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 |**`filter`**   |Filter definitions:</br>&emsp;&bullet; **prefix**—To filter files and/or folders (optional). </br>&emsp;&bullet; **suffix**—To filter files and/or folders (optional).  |
 |**`language`**   | language of source documents  |
 
-#### targets array object
+#### Targets array object
 
 &emsp; Multiple targets can be defined.
 
@@ -201,7 +201,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 > [!CAUTION]
 > For the samples below, you'll hard-code your keys and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly. See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
-### Platform setup
+## Platform setup
 
 ### [C#](#tab/csharp)
 
@@ -735,7 +735,7 @@ func main() {
 |Azure|Europe|api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|api-apc.cognitive.microsofttranslator.com|
 
-### GET Jobs 
+## GET Jobs 
 
 #### Brief Overview
 
@@ -747,7 +747,7 @@ Retrieve a list and current status for all jobs in a document translation reques
 GET /batches/
 ```
 
-### GET Job Status
+## GET Job Status
 
 #### Brief overview
 
@@ -759,7 +759,7 @@ Retrieve  the current status for a single job and a summary of all jobs in a doc
 GET /batches/{jobId}
 ```
 
-### DELETE Job
+## DELETE Job
 
 #### Brief overview
 
@@ -788,7 +788,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**summary**|List of overall status|
 ||&bullet; **total**—Total number of documents in the job.</br>&bullet; **failed**—Number of documents for which translation failed.</br>&bullet; **success**—Number of completed documents.</br>&bullet; **inProgress**—Number of documents in progress.</br>&bullet; **notYetStarted**—Number of documents pending translation.</br>&bullet; **canceled—Number of documents that have been canceled. |
 
-### GET documents
+## GET documents
 
 #### Brief overview
 
@@ -800,7 +800,7 @@ Retrieve the status of all documents in a document translation request.
 GET /batches/{jobId}/documents/
 ```
 
-### GET Document Status
+## GET Document Status
 
 #### Brief overview
 
@@ -827,7 +827,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**progress**| Progress of the request measured in decimals|
 |**id**|The `jobId`  you provided in the request|
 
-### GET Document Formats
+## GET Document Formats
 
 #### Brief overview
 
@@ -839,7 +839,7 @@ Retrieve a list of supported document formats.
 GET /documents/formats/
 ```
 
-### GET Glossary Formats
+## GET Glossary Formats
 
 #### Brief overview
 
@@ -862,7 +862,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**contentType**| List of supported content types.|
 |**versions**|List of supported content type versions.|
 
-### GET Storage Sources
+## GET Storage Sources
 
 #### Brief overview
 
