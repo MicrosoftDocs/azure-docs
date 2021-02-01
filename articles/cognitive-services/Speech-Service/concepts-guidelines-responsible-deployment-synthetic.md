@@ -12,17 +12,18 @@ ms.date: 10/11/2019
 ms.author: benoah
 ---
 
-# General considerations to keep in mind when implementing AI systems 
+# Guidelines for responsible deployment of synthetic voice technology
+
+## General considerations to keep in mind when implementing AI systems 
 
 This article talks specifically about synthetic speech and Custom Neural Voice and the key considerations for making use of this technology responsibly. In general, however, there are several things you need to consider carefully when deciding how to use and implement AI-powered products and features: 
 
 * Will this product or feature perform well in my scenario? Before deploying AI into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
 * Are we equipped to identify and respond to errors? AI-powered products and features will not always be 100% accurate, so consider how you will identify and respond to any errors that may occur. 
 
-# Guidelines for responsible deployment of synthetic voice technology
+## General guidelines for using synthetic voice technology 
 Here are Microsoft’s general design guidelines for using synthetic voice technology. These were developed in studies that Microsoft conducted with voice talent, consumers, as well as individuals with speech disorders to guide the responsible development of synthetic voice.
 
-## General considerations
 For deployment of synthetic speech technology, the following guidelines apply across most scenarios.
 
 ### Disclose when the voice is synthetic
