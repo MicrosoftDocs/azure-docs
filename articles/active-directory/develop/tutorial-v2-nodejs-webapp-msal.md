@@ -16,13 +16,13 @@ ms.author: v-doeris
 
 # Tutorial: Sign-in users in a Node.js & Express web app
 
-In this tutorial, you build a web app that signs-in users. The web app you build uses the Microsoft Authentication Library (MSAL) for Node.
+In this tutorial, you build a web app that signs-in users. The web app you build uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 Follow the steps in this tutorial to:
 
 > [!div class="checklist"]
 > - Register the application in the Azure portal
-> - Create a $PLATFORM $APP_TYPE project
+> - Create an Express web app project
 > - Install the authentication library packages
 > - Add app registration details
 > - Add code for user login
@@ -47,7 +47,7 @@ Use the following settings for your app registration:
 
 ## Create the project
 
-Create a folder to host your application, for example *NodeConsoleApp*.
+Create a folder to host your application, for example *ExpressWebApp*.
 
 1. First, change to your project directory in your terminal and then run the following `npm` commands:
 
@@ -129,7 +129,7 @@ In the *index.js* file you've created earlier, add the following code:
 
 ```JavaScript
     // Create msal application object
-    const pca = new msal.ConfidentialClientApplication(config);
+    const cca = new msal.ConfidentialClientApplication(config);
     
     app.get('/', (req, res) => {
         const authCodeUrlParameters = {
@@ -138,7 +138,7 @@ In the *index.js* file you've created earlier, add the following code:
         };
     
         // get url to sign user in and consent to scopes needed for application
-        pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             res.redirect(response);
         }).catch((error) => console.log(JSON.stringify(error)));
     });
@@ -150,7 +150,7 @@ In the *index.js* file you've created earlier, add the following code:
             redirectUri: "http://localhost:3000/redirect",
         };
     
-        pca.acquireTokenByCode(tokenRequest).then((response) => {
+        cca.acquireTokenByCode(tokenRequest).then((response) => {
             console.log("\nResponse: \n:", response);
             res.sendStatus(200);
         }).catch((error) => {
@@ -180,7 +180,7 @@ You've completed creation of the application and are now ready to test the app's
 
 ## How the application works
 
-In this tutorial, you initialized an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD application on Azure portal. The web app you created in this tutorial uses the [OAuth 2.0 Authorization code grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) to obtain access tokens and call web APIs (such as Microsoft Graph API).
+In this tutorial, you initialized an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OAuth 2.0 Authorization code grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) to sign-in users and obtain ID and access tokens.
 
 ## Next steps
 
