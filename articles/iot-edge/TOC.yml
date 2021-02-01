@@ -110,7 +110,7 @@
     - name: IoT Edge certificates
       href: iot-edge-certs.md
     - name: Confidential computing
-      href: deploy-trusted-applications.md
+      href: deploy-confidential-applications.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist

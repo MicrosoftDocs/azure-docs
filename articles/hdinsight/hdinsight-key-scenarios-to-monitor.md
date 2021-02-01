@@ -1,9 +1,6 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
 description: How to monitor health and performance of Apache Hadoop clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive

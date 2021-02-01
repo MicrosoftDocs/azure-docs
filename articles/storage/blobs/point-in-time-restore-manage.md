@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -181,6 +181,17 @@ az storage blob restore \
     --account-name <storage-account> \
     --time-to-restore 2021-01-14T06:31:22Z \
     --no-wait
+```
+
+To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource_group> \ 
+    --expand blobRestoreStatus \
+    --query blobRestoreStatus.status \
+    --output tsv
 ```
 
 To run the **az storage blob restore** command synchronously and block on execution until the restore operation is complete, omit the `--no-wait` parameter.
