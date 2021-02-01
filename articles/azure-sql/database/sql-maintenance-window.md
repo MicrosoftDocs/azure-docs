@@ -17,8 +17,7 @@ ms.date: 01/19/2021
 
 The SQL Maintenance Window feature allows for the configuration of predictable maintenance window schedules for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
 
-> [!Note]
-> For more information on maintenance events, see [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md).
+For more information on maintenance events, see [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md).
 
 ## Overview
 
@@ -43,11 +42,16 @@ Once the maintenance window selection is made, all planned maintenance updates w
 
 ### Cost
 
-SQL Maintenance Window is free of charge to all customers with [subscription types](/support/legal/offer-details/) Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
+SQL Maintenance Window is free of charge to all customers subscription with [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
+
+> [!Note]
+> An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](/azure/cost-management-billing/manage/switch-azure-offer).
 
 ## Notifications
 
 Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](advance-notifications.md).
+
+## Availability
 
 ### Supported service level objectives
 
@@ -56,7 +60,7 @@ The SQL Maintenance Window feature is available on all Azure SQL Database and SQ
 * Legacy Gen4 vCore
 * DTU S0 and S1 
 
-## Availability
+### Azure region support
 
 The SQL Maintenance Window is available in the following regions:
 
