@@ -92,7 +92,7 @@
     items:
     - name: What is Document Translation?
       href: document-translation/overview.md 
-  - name: How-to Guide 
+  - name: How-to guide 
     items:   
     - name: Get started with Document Translation
       href: document-translation/get-started-with-document-translation.md
