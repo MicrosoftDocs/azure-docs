@@ -66,4 +66,3 @@ For more information, see [File extension insights about your data from Azure Pu
 * [Glossary insights](glossary-insights.md)
 * [Scan insights](scan-insights.md)
 * [Classification insights](./classification-insights.md)
-* [Tutorial on how to view Insights in Purview](./starter-kit-tutorial-6.md)
