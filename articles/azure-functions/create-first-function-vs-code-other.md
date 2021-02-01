@@ -336,13 +336,11 @@ In this section, you create a function app and related resources in your Azure s
 
     :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
 
-1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
+1. When completed, the following Azure resources are created in your subscription:
 
     [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     A notification is displayed after your function app is created and the deployment package is applied. 
-
-    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
 4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
