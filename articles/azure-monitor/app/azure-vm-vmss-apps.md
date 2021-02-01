@@ -45,7 +45,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
 > Before installing the Application Insights Agent, you'll need a connection string. [Create a new Application Insights Resource](./create-new-resource.md) or copy the connection string from an existing application insights resource.
 
 > [!NOTE]
-> New to powershell? Check out the [Get Started Guide](/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> New to powershell? Check out the [Get Started Guide](/powershell/azure/get-started-azureps).
 
 Install or update the Application Insights Agent as an extension for Azure virtual machines
 ```powershell

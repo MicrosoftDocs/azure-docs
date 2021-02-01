@@ -36,6 +36,8 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
+If you're experiencing problems using the registry wih Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+
 > [!NOTE]
 > Some network connectivity symptoms can also occur when there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
 

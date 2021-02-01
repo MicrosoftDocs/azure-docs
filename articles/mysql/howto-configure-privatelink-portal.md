@@ -218,6 +218,8 @@ After you've created **myVm**, connect to it from the internet as follows:
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > If public access is disabled in the firewall settings in Azure Database for MySQL - Single Server. These ping and telnet tests will succeed regardless of the firewall settings. Those tests will ensure the network connectivity.
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
 
