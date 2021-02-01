@@ -3,13 +3,13 @@ title: Get started - Translator
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to sign up for the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # How to sign up for Translator
 

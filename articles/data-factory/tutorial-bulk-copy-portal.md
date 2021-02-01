@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/12/2021
+ms.date: 01/29/2021
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -256,7 +256,6 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-
 
 1. Switch to the **Settings** tab, and do the following steps: 
 

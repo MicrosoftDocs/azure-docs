@@ -109,10 +109,10 @@ Now that you have imported the data into Power BI, it’s time to build a report
 Once you have created your report, you can publish it to Power BI Reporting Services and share with others in your organization.
 
 ## Advanced editing
-If you have already loaded a dataset in Power BI but would like to modify the query (such as the date/time or Environment ID parameters), you can do this via Power BI’s Advanced Editor functionality. Refer to the [Power BI documentation](https://docs.microsoft.com/power-bi/desktop-query-overview) to learn more about how to make changes using the **Power Query Editor**. 
+If you have already loaded a dataset in Power BI but would like to modify the query (such as the date/time or Environment ID parameters), you can do this via Power BI’s Advanced Editor functionality. Refer to the [Power BI documentation](/power-bi/desktop-query-overview) to learn more about how to make changes using the **Power Query Editor**. 
 
 ## Next Steps
 
-* Learn more about [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Learn more about [Power BI desktop](/power-bi/desktop-query-overview).
 
 * Learn about [querying data](concepts-query-overview.md) in Azure Time Series Insights Gen2.
