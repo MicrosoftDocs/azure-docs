@@ -117,4 +117,5 @@ or
 Agent running. [main]
 ```
 
-**[Next Step: Import New Update](./import-update.md)**
+> [!div class="nextstepaction"]
+> [Import New Update](import-update.md)

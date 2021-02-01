@@ -9,6 +9,7 @@ ms.service: iot-hub
 ---
 
 # Create Groups
+Device Update for IoT Hub allows deploying an update to a group of IoT devices.
 
 ## Prerequisites
 
@@ -38,7 +39,8 @@ You can update the Device Twin with the appropriate Tag using RegistryManager af
 
 It is possible to schedule a Job on multiple devices to add or update a Device Update tag following [these](../iot-hub/iot-hub-devguide-jobs.md) examples. [Learn more](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
-**Note**: This action goes against your current IOT Hub messages quota and it is recommended to change only upto 50,000 device twin Tags at a time otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+  > [!NOTE] 
+  > This action goes against your current IOT Hub messages quota and it is recommended to change only up to 50,000 device twin Tags at a time otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
 
 ### 3. Direct Twin Updates
 

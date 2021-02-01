@@ -94,8 +94,8 @@ manifest to an Internet-accessible location. After that, you can use the Azure p
 REST API to initiate the asynchronous process where Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 
-**NOTE:** For sensitive content, protect the download using a shared access
-signature (SAS), such as an ad-hoc SAS for Azure Blob Storage.
+> [!NOTE] 
+> For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage.
 
 [Learn more about
 SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
