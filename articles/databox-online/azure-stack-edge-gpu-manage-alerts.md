@@ -16,7 +16,7 @@ This article describes how to create action rules in the Azure portal to trigger
 
 ## About action rules
 
-An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to take action on alerts triggered in different contexts for a resource or set of resources.
+An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to act on alerts triggered in different contexts for a resource or set of resources.
 
 For more information about action rules, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups).
 
