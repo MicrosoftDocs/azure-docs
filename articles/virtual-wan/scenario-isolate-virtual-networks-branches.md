@@ -11,7 +11,7 @@ ms.date: 01/25/2021
 ms.author: wellee
 
 ---
-# Scenario: Custom Isolation for VNets and Branches
+# Scenario: Custom Isolation for Virtual Networks and Branches
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for both Virtual Networks (VNets) and branches, the goal is to prevent a specific set of VNets from reaching another  set of VNets. Likewise, branches (VPN/ER/User VPN) are only allowed to reach certain sets of VNets.
 
@@ -82,20 +82,19 @@ Consider the following steps when setting up routing.
 4. Provision an Azure Firewall in Virtual WAN. For more information about Azure Firewall in the Virtual WAN hub, see [Configuring Azure Firewall in Virtual WAN hub](howto-firewall.md).
 5. Add a static route to the **Default** Route Table of the Virtual Hub directing all traffic destined for the Vnet address spaces (both blue and red) to Azure Firewall. This step ensures any packets from your branches will be sent to Azure Firewall for inspection.
     * Example: **Destination Prefix**:  10.0.0.0/24 **Next Hop**: Azure Firewall
->[!NOTE]
-> This step can also be done via Firewall Manager by selecting the "Secure Private Traffic" option. This will add a route for all RFC1918 private IP addresses applicable to VNets and branches. You will need to manually add in any branches or virtual networks that are not compliant with RFC1918. 
+    >[!NOTE]
+    > This step can also be done via Firewall Manager by selecting the "Secure Private Traffic" option. This will add a route for all RFC1918 private IP addresses applicable to VNets and branches. You will need to manually add in any branches or virtual networks that are not compliant with RFC1918. 
 
 6. Add a static route to **RT_RED** and **RT_BLUE** directing all traffic to Azure Firewall. This step ensures VNets will not be able to access branches directly. This step cannot be done via Firewall Manager because these Virtual Networks are not associated with the Default Route Table.
     * Example: **Destination Prefix**: 0.0.0.0/0 **Next Hop**: Azure Firewall
 
-> [!NOTE]
-> Routing is performed using Longest Prefix Match (LPM). As a result, the 0.0.0.0/0 static routes will **NOT** be preferred over the exact prefixes that exist in **BLUE_RT** and **RED_RT**. As a result, intra-Vnet traffic will not be inspected by Azure Firewall.
+    > [!NOTE]
+    > Routing is performed using Longest Prefix Match (LPM). As a result, the 0.0.0.0/0 static routes will **NOT** be preferred over the exact prefixes that exist in **BLUE_RT** and **RED_RT**. As a result, intra-Vnet traffic will not be inspected by Azure Firewall.
 
 This will result in the routing configuration changes as seen in the figure below.
 
 **Figure 1**
-
-:::image type="content" source="./media/routing-scenarios/custom-branch-vnet/custombranch.png" alt-text="figure 1":::
+[ ![Figure 1](./media/routing-scenarios/custom-branch-vnet/custom-branch.png) ](./media/routing-scenarios/custom-branch-vnet/custom-branch.png#lightbox)
 
 ## Next steps
 
