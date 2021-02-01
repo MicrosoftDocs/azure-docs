@@ -343,16 +343,16 @@
             - name: Create read replicas using Azure PowerShell
               href: howto-read-replicas-powershell.md
               displayName: data-in replication, replica, failover
-   - name: Service Maintenance
-     items:
+  - name: Service Maintenance
+    items:
        - name: Planned maintenance
          href: concepts-planned-maintenance-notification.md
        - name: Gateway maintenance
          href: concepts-connectivity-architecture.md
        - name: SSL root certificate expiring
          href: concepts-certificate-rotation.md
-   - name: Monitor and tune
-       items:
+  - name: Monitor and tune
+    items:
        - name: Monitoring overview
          href: concepts-monitoring.md
          displayName: monitor, alerts, audit log, slow query log
@@ -376,8 +376,8 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
-   - name: Best Practices
-     items:
+  - name: Best Practices
+    items:
        - name: Monitoring best practices
          href: concept-monitoring-best-practices.md
        - name: Performance best practices
@@ -387,8 +387,8 @@
          displayName: application
        - name: Operational best practices
          href: concept-operation-excellence-best-practices.md
-   - name: Troubleshooting
-     items:
+  - name: Troubleshooting
+    items:
       - name: Troubleshoot query performance
         href: howto-troubleshoot-query-performance.md
         displayName: debug, performance issues, query performance
