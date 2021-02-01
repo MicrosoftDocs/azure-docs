@@ -121,7 +121,7 @@ This is the simplest pattern.
 
 1. Stop all writes to Gen1.
 
-2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md). ACLs copy with the data.
+2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md) or the [Microsoft managed migration tool (preview)](managed-migration-tool.md). ACLs copy with the data.
 
 3. Point ingest operations and workloads to Gen2.
 
@@ -139,6 +139,9 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 :heavy_check_mark: Expect downtime during the migration and the cutover period.
 
 :heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
+
+> ![TIP]
+> Consider using [Microsoft managed migration (preview)](managed-migration-tool.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
 
 ### Incremental copy pattern
 

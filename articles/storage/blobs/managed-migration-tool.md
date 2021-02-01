@@ -10,36 +10,42 @@ ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using Microsoft managed migration
+# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using Microsoft managed migration (preview)
 
 You can migrate to Gen2 more easily by using *Microsoft managed migration*; a data migration tool and API compatibility layer. 
 
-Managed migration reduces the number of steps required by you to complete a migration. You won't have to configure a separate tool to move your data, and your workloads and applications can continue working with minimal modifications. 
+Managed migration reduces the number of steps required by you to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. 
 
-You won't have to point workloads to your Gen2 enabled account because requests are redirected to Gen2. Applications can continue using Gen1 APIs because a server-side compatibility layer translates requests from Gen1 to Gen2.  
+You won't have to point workloads to your Gen2 enabled account because requests are redirected to Gen2. Applications can continue using Gen1 APIs because a server-side compatibility layer translates requests from Gen1 to Gen2.
+
+> [!NOTE]
+> Microsoft managed migration is in public preview, and is available in the (need list of regions) regions. To enroll in the preview, see [this form](https://www.microsoft.com).  
+
+This article guides through the following tasks:
+
+- Step 1: Create a storage account that has Gen2 capabilities
+
+- Step 2: Run the managed migration tool
+
+- Step 3. Test your applications
+
+- Step 4: Complete the migration
+
+Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2. 
 
-This article guides through the following tasks:
-
-Step 1: Create a storage account that has Gen2 capabilities
-Step 2: Run the managed migration tool
-Step 3. Test your applications
-Step 4: Complete the migration
-
-Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
-
-## Create a storage account that has Gen2 capabilities
+## Create a storage account with Gen2 capabilities
 
 The first step is to create a storage account to use with Gen2. Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. Gen2 capabilities are supported in the following types of storage accounts:
 
-- General-purpose v2
-- BlockBlobStorage
+- [General-purpose v2](../common/storage-account-create.md)
+- [BlockBlobStorage](storage-blob-create-account-block-blob.md)
 
 For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
 
-Create either a [general-purpose V2 account](../common/storage-account-create.md) or a [BlockBlobStorage](storage-blob-create-account-block-blob.md) account. As you create the account, make sure to use the following values. All of these settings except for the hierarchical namespace setting are required by Microsoft managed migration.
+Create one of these types of storage accounts and make sure to use the following values. 
 
 | Setting | Value |
 |--|--|
@@ -49,7 +55,8 @@ Create either a [general-purpose V2 account](../common/storage-account-create.md
 | **NFS v3** | Disabled |
 | **Hierarchical namespace** | Enabled |
 
-The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
+> [!NOTE]
+> The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
 ## Run the managed migration tool
 
@@ -96,6 +103,8 @@ Test your applications against your new account to ensure that they work as expe
 To complete the migration, run the managed migration tool again. Make sure to choose **Complete Migration** this time. When the migration is complete all Gen1 requests will be redirected to your Gen2 enabled account. as time permits, you can move applications and workloads over to Gen2. For guidance, see [Migrate data, workloads, and applications](data-lake-storage-migrate-gen1-to-gen2.md#step-3-migrate-data-workloads-and-applications).
 
 ### Known issues with the Gen1 compatibility layer
+
+Before you begin testing your applications, you might have to make some slight modifications based on the following known issues.
 
 ##### ListStatus API option to ListBefore an entry
 
