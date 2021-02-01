@@ -10,7 +10,7 @@ ms.author: abnarain
 ms.reviewer: maghan
 manager: weetok
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/01/2021
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -26,13 +26,13 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 - Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 - Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
-For more details, refer to [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md).
+For more information, see [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md).
 
 In this article, we focus on the continuous deployment improvements and the automated publish feature for CI/CD.
 
 ## Continuous deployment improvements
 
-Thy "Automated publish" feature takes the *validate all* and export *ARM template* features from the ADF UX and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities/v/0.1.1). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This will give your CI/CD pipelines a truer continuous integration experience.
+The "Automated publish" feature takes the *validate all* and export *ARM template* features from the ADF UX and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This will give your CI/CD pipelines a truer continuous integration experience.
 
 ### Current CI/CD flow
 
@@ -62,7 +62,9 @@ In current CI/CD flow, the UX is the intermediary to create the ARM template, th
 - The build pipeline uses ADFUtilities NPM package, which will validate all the resources and generate the ARM templates (single and linked templates).
 - The build pipeline will be responsible of validating ADF resources and generating the ARM template instead of ADF UI (Publish button).
 - DevOps release definition will now consume this new build pipeline instead of the Git artifact.
-- We get rid of the publish branch since it is not needed anymore.
+
+> [!NOTE]
+> You can continue to use existing mechanism (adf_publish branch) or use the new flow. Both are supported. 
 
 > [!NOTE]
 >  We will always be compatible with the old CI/CD flow, i.e., ADF UI will not change the current publish flow (we can make it optionally later leveraging publish_config.json to optimize publish time).
@@ -109,12 +111,12 @@ Follow the below steps to get started:
 
     ```json
     {
-    "scripts":{
-        "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
-    },
-    "dependencies":{
-        "@microsoft/azure-data-factory-utilities":"^0.1.1"
-    }
+        "scripts":{
+            "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
+        },
+        "dependencies":{
+            "@microsoft/azure-data-factory-utilities":"^0.1.2"
+        }
     } 
     ```
 3.	Select *Starter pipeline*. If you have uploaded or merged the YAML file (as shown in below example), you can also point directly at that and edit it. 
