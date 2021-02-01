@@ -86,15 +86,15 @@
       href: howto-configure-ssl.md
       displayName: ssl, security, application
     - name: Configure Firewall rules
-        items:
-        - name: Concepts
-         href: concepts-firewall-rules.md
-        - name: Configure Firewall rules using Azure portal
-          href: howto-manage-firewall-using-portal.md
-          displayName: firewall
-        - name: Configure Firewall rules using Azure CLI
-          href: howto-manage-firewall-using-cli.md
-          displayName: firewall
+      items:
+      - name: Concepts
+        href: concepts-firewall-rules.md
+      - name: Configure Firewall rules using Azure portal
+        href: howto-manage-firewall-using-portal.md
+        displayName: firewall
+      - name: Configure Firewall rules using Azure CLI
+        href: howto-manage-firewall-using-cli.md
+        displayName: firewall
     - name: Configure server parameters
       items:
       - name: Azure portal
