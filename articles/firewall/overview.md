@@ -29,7 +29,7 @@ Azure Firewall Premium Preview is a next generation firewall with capabilities t
 
 - To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
-- To learn about Azure Firewall Premium Preview features, see [What is Azure Firewall Premium Preview?](premium-overview.md)
+- To learn about Azure Firewall Premium Preview features, see [What is Azure Firewall Premium Preview?](premium-features.md)
 
 ## Pricing and SLA
 
