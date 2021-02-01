@@ -1573,7 +1573,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4014511] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4014514] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4019216] |May non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4014503] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | 4014503 |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014506] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014509] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014513] |May .NET non-security rollup |3.50 |May 9, 2017 |
@@ -2322,7 +2322,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2674,7 +2673,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2684,7 +2683,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

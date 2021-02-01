@@ -225,7 +225,7 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: Reference (New!)
+- name: Reference
   items:
   - name: Azure RBAC roles
     items:
@@ -241,10 +241,20 @@
       href: hunting-with-rest-api.md
     - name: Manage watchlists with REST-API
       href: watchlist-with-rest-api.md
+  - name: Azure Monitor data reference
+    href: /azure/azure-monitor/reference/
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
   - name: Network normalization schema
     href: normalization-schema.md
+  - name: Data source schema reference
+    href: data-source-schema-reference.md
+  - name: Kusto Query Language
+    items:
+    - name: Kusto query overview
+      href: /azure/data-explorer/kusto/query/
+    - name: Kusto Query Language quick reference
+      href: /azure/data-explorer/kql-quick-reference
   - name: UEBA enrichments
     href: ueba-enrichments.md
 - name: Resources
