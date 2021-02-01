@@ -14,12 +14,11 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Azure Communication Services allows you to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial intended for new developers who want to get started with real-time communications. 
+Azure Communication Services allows you to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial intended for new developers who want to get started with real-time communications.
 
 By the end of this tutorial, you'll have a baseline web application configured with Azure Communication Services client libraries that you can use to begin building your real-time communications solution.
 
 Feel free to visit the [Azure Communication Services GitHub](https://github.com/Azure/communication) page to provide feedback.
-
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -38,8 +37,8 @@ In this tutorial, you learn how to:
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token. See the [access tokens quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or the [trusted service tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial) for instructions.
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
+- A user access token. See the [access tokens quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or the [trusted service tutorial](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial) for instructions.
 
 
 ## Configure your development environment
@@ -95,7 +94,7 @@ node --version
 
 Install the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) either through the Visual Studio marketplace or with Visual Studio Code (View > Extensions > Azure Storage).
 
-:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension 1":::
 
 Follow the same steps for the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions.
 
@@ -300,7 +299,7 @@ npm init -y
 
 This command initializes a new npm package and adds `package.json` into the root folder of your project.
 
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Package JSON":::
 
 Additional documentation on the npm init command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-init)
 
@@ -438,15 +437,15 @@ From your browser's development tools, you can inspect the source and see our fi
 
 Go to the [Azure portal](https://portal.azure.com/#home), select your resource group, select the application you created, and navigate to `Settings` > `Static website`. You can see that static websites are enabled and note the primary endpoint, Index document, and Error path document files.
 
-:::image type="content" source="./media/step-one-pic-31.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-31.png" alt-text="Static website selection":::
 
 Under "Blob service" select the "Containers" and you'll see two containers created, one for logs ($logs) and content of your website ($web)
 
-:::image type="content" source="./media/step-one-pic-32.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-32.png" alt-text="Container configuration":::
 
 If you go to `$web` you'll see your files you created in Visual Studio and deployed to Azure. 
 
-:::image type="content" source="./media/step-one-pic-33.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-33.png" alt-text="Deployment":::
 
 You can redeploy the application from Visual Studio Code at any time.
 
