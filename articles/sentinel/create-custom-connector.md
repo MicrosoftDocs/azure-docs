@@ -1,6 +1,6 @@
 ---
-title: Creating custom connectors for Azure Sentinel | Microsoft Docs
-description: Extend Azure Sentinel to your own connector if there isn't yet a built-in connector for your data source.
+title: Resources for creating Azure Sentinel custom connectors | Microsoft Docs
+description: Learn about available resources for creating custom connectors for Azure Sentinel, including the Log Analytics agent, Fluentd, Logstash, Logic Apps, PowerShell, API, and Azure Functions.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -14,49 +14,47 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/28/2021
+ms.date: 02/01/2021
 ms.author: bagol
 ---
 
-# Creating custom connectors for Azure Sentinel
+# Resources for creating Azure Sentinel custom connectors
 
-Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891), and also supports ingesting data from some sources without a dedicated connector. For example, you can [collect telemetry from on-premises and IaaS servers](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Azure-Sentinel-Agent-Collecting-telemetry-from-on-prem-and-IaaS/ba-p/811760),  and [collect log files from Microsoft services and applications](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Collecting-Azure-PaaS-services-logs-in-Azure-Sentinel/ba-p/792669).
+Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891), and also supports ingesting data from some sources without a dedicated connector. 
 
-If you are unable to connect to Azure Sentinel using any of the existing solutions available, you may consider creating your own data source connector to ingest vent data and import context and enrichment data from your data source to Azure Sentinel.
+For example, you can [collect telemetry from on-premises and IaaS servers](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Azure-Sentinel-Agent-Collecting-telemetry-from-on-prem-and-IaaS/ba-p/811760),  and [collect log files from Microsoft services and applications](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Collecting-Azure-PaaS-services-logs-in-Azure-Sentinel/ba-p/792669).
 
-## Use the Log Analytics agent to create your connector
+If you are unable to connect your data source to Azure Sentinel using any of the existing solutions available, consider creating your own data source connector using the methods described in this article.
 
-If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent, which can collect events stored in files.
+## Azure Monitor Log Analytics agent
 
-For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
+If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
 
 The Log Analytics agent is based on [Fluentd](https://www.fluentd.org/), and can use any [Fluentd input plugin](https://www.fluentd.org/plugins/all#input-output) bundled with the agent to collect events and then forward them to an Azure Sentinel workspace.
 
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
+- For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
+
+    For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
 
 - For more information about other collection roles supported by the Log Analytics agent, see the [Azure Sentinel Agent: Collecting from servers and workstations, on-prem and in the cloud
 ](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-agent-collecting-from-servers-and-workstations-on/ba-p/811760) blog.
 
 ## Use Fluentd or Fluent Bit to create your connector
 
-If the Log Analytics agent is not flexible enough for your data source, you may want to use [Fluentd](https://www.fluentd.org/) directly or its lighter sibling, [Fluent Bit](https://docs.fluentbit.io/manual/).
+If the Log Analytics agent is not flexible enough for your data source, you may want to use [Fluentd](https://www.fluentd.org/) directly or its lighter sibling, [Fluent Bit](https://docs.fluentbit.io/manual/) to create your custom connector.
 
-For more information, see:
-
-[FluentD plug-in for Log Analytics output](https://github.com/yokawasa/fluent-plugin-azure-loganalytics)
-[Fluent Bit plug-in for Azure Sentinel](https://docs.fluentbit.io/manual/pipeline/outputs/azure)
+For more information, see [Fluent Bit plug-in for Azure Sentinel](https://docs.fluentbit.io/manual/pipeline/outputs/azure).
  
-
 ## Use Logstash to create your connector
 
-If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use the [Logstash output plug-in for Azure Sentinel](connect-logstash.md).
+If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use the [Logstash output plug-in for Azure Sentinel](connect-logstash.md) to create your custom connector.
 
 The Logstash plugin enables you to leverage any Logstash input plugin, and configure Azure Sentinel as the output for a Logstash pipeline.
 
 Sample use cases for the Logstash plug-in include:
 
 - [Collecting AWS CloudWatch data](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767). See *Ingest S3 Logs to Azure Sentinel via Logstash*.
-- [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854)
+- [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
 
 
 ## Using Logic Apps to create your connector
@@ -64,7 +62,9 @@ Sample use cases for the Logstash plug-in include:
 Create an Azure Sentinel playbook to use a Logic App as a serverless, custom connector. 
 
 > [!NOTE]
-> While creating serverless connectors may be convenient, using Logic Apps for your connectors may be costly for large volumes of data. We recommend that you use this method only for low-volume data sources, or enriching your data uploads.
+> While creating serverless connectors may be convenient, using Logic Apps for your connectors may be costly for large volumes of data. 
+>
+> We recommend that you use this method only for low-volume data sources, or enriching your data uploads.
 >
 
 1. **Use one of the following triggers to start your playbook**:
@@ -93,8 +93,6 @@ Create an Azure Sentinel playbook to use a Logic App as a serverless, custom con
 
     For more information, see the [Azure Log Analytics Data Collector](/connectors/azureloganalyticsdatacollector/) documentation.
 
-### Sample custom connectors that use Logic Apps
-
 For examples of how you can create a custom connector for Azure Sentinel using Logic Apps, see:
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
@@ -103,7 +101,7 @@ For examples of how you can create a custom connector for Azure Sentinel using L
 
 ## Use PowerShell to create your custom connector
 
-The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) enables you to use PowerShell to stream events or context information to Azure Sentinel from the command line. 
+The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) enables you to use PowerShell to stream events or context information to Azure Sentinel from the command line, effectively creating a custom connector between your data source and Azure Sentinel.
 
 For example, the following script uploads a CSV file to Azure Sentinel:
 
@@ -122,15 +120,24 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 
 |Parameter  |Description  |
 |---------|---------|
-|**WorkspaceId**     |   Your Azure Sentinel workspace ID, where you'll be storing your data.    |
-|**WorkspaceKey**     |   The primary or secondary key for the Azure Sentinel workspace where you'll be storing your data. <br><br>You can find this workspace ID in Azure Sentinel > Advanced Settings > Windows Server tab. |
+|**WorkspaceId**     |   Your Azure Sentinel workspace ID, where you'll be storing your data.  [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
+|**WorkspaceKey**     |   The primary or secondary key for the Azure Sentinel workspace where you'll be storing your data. [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
 |**LogTypeName**     |    The name of the custom log table where you want to store the data. A suffix of **_CL** will automatically be added to the end of your table name.  |
-|**AddComputerName**     |   When turned on, the script adds the current computer name to every log record, in a field named **Computer**.      |
-|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This enables these log records for resource-context queries, as well as adheres to resource-centric, role-based access control.       |
-|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds an additional field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. In this case, **AdditionalDataTaggingValue** must not be empty. |
+|**AddComputerName**     |   When this parameter exists, the script adds the current computer name to every log record, in a field named **Computer**.      |
+|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, as well as adheres to resource-centric, role-based access control.       |
+|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds an additional field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
 |**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds an additional field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
 |     |         |
 
+### Find your workspace ID and key
+
+Find the details for the **WorkspaceID** and **WorkspaceKey** parameters in Azure Sentinel:
+
+1. In Azure Sentinel, select **Settings** on the left. 
+
+1. Under **Get started with Log Analytics** > **1 Connect a data source**, select **Windows and Linux agents management**. 
+
+1. Find your workspace ID, primary key, and secondary key on the **Windows servers** tabs.
 ## Create a custom collector via a direct API
 
 Instead of using the Log Analytics Collector API to stream events to Azure Sentinel, you can call a RESTful endpoint directly to stream events to Azure Sentinel.
@@ -156,7 +163,10 @@ For examples of this method, see:
 
 You can use your custom connector's built-in parsing technique to extract the relevant information and populate the relevant fields in Azure Sentinel.
 
-For example, if you've used Logstash, use the [Grok](https://www.elastic.co/guide/logstash/current/plugins-filters-grok.html) filter plugin to parse your data. And if you've used the Log Analytics agent, use the  [Fluentd parsers](https://docs.fluentd.org/parser). 
+For example:
+
+- **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/logstash/current/plugins-filters-grok.html) filter plugin to parse your data. 
+- **If you've used the Log Analytics agent**, use the  [Fluentd parsers](https://docs.fluentd.org/parser) to parse your data.
 
 Azure Sentinel also allows parsing at query time, which enables you to push data in at the original format, and then parse on demand, when needed. 
 
@@ -164,14 +174,25 @@ When you parse at query time, you don't need to know your data's exact structure
 
 Updating your parser also applies to data that you've already ingested into Azure Sentinel.
 
- 
-> [!TIP]
-> JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool. For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog).
-> 
-
 Save your parsers as functions, and use those functions instead of Azure Sentinel tables in any query, including hunting an detection queries. For more information, see:
 
 - [Data normalization in Azure Sentinel](normalization.md#parsers)
 - [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
+ 
+> [!TIP]
+> JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool. 
+>
+> For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog).
+> 
+
 
 ## Next steps
+
+Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
+
+- [Get visibility into alerts](quickstart-get-visibility.md)
+- [Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Investigate incidents](tutorial-investigate-cases.md)
+- [Detect threats](tutorial-detect-threats-built-in.md)
+- [Automate threat prevention](tutorial-respond-threats-playbook.md)
+- [Hunt for threats](hunting.md)
