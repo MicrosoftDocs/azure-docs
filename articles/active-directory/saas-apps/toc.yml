@@ -2119,6 +2119,8 @@
         href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: HelloID
+        href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
       - name: Ideo
