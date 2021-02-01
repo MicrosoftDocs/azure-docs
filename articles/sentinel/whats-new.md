@@ -155,39 +155,15 @@ To provide insights into the health, performance, and usage of your playbooks, i
 
 Use the **Playbooks health monitoring** workbook to monitor the health of your playbooks, or look for anomalies in the amount of succeeded or failed runs. 
 
-Spot out-of-the-ordinary playbooks that may run unexpectedly long, and monitor and manage changes made by users, especially for critical playbooks. View runtimes at a glance for specific logic apps, giving you a quick estimate for usage costs.
-
 The **Playbooks health monitoring** workbook is now available in the Azure Sentinel Templates gallery:
 
 :::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Sample Playbooks health monitoring workbook":::
 
-#### Playbooks health monitoring workbook insights
+For more information, see:
 
-The **Playbooks health monitoring** workbook provides the following insights:
+- [Logic Apps documentation](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs)
 
-|Workbook tab  |Insights  |
-|---------|---------|
-|**Overview**     |  Displays the following insights: <br><br> - **Successes and failures over time**:  Shows success and failures for each Logic App run, and a line chart for data over time to help you spot anomalies. Select a time range to drill down to a more specific time range. <br><br>-  **Failure percentage per Logic App**: For each Logic App, view failure percentages and failures over time, the numbers of runs started and completed, as well as the run latency (the Logic App's duration runtime). <br><br>- **Logic Apps by status**: View the numbers and trends of successful and failed Logic Apps by status. Select **Failed** or **Succeeded** to update the grids, where you can select a specific Logic App to learn more.     |
-|**Activity**     |Provides data from the Azure Activity table, with the following insights: <br><br>- **Logic App activities by user** <br><br>- **API connection activities** (by user) <br><br>- **Logic App activities by Logic App**, grouping Logic App activity by Logic App, but also displaying user data         |
-|**Billable Info**     |   Shows the total billable executions per subscription. <br><br>Collapse the subscription to display details for each Logic App, which enables you to estimate your costs using the pricing calculator and become more cost effective.      |
-|     |         |
-
-> [!NOTE]
-> When switching between tabs in the **Playbooks health monitoring** workbook, refresh each tab to show updated data.
->
-
-#### Playbooks health monitoring workbook configuration requirements
-
-- **Logic Apps configuration**: For the **Playbooks health monitoring** workbook to display data, you must enable diagnostic settings for any Logic Apps you want to monitor. 
-
-    Ensure that you've selected the **Send to Log Analytics** option in the diagnostics settings to send your data to the configured Log Analytics workspace. Your data is stored in the AzureDiagnostics table, and your configured workspace does not need to be your Sentinel workspace.
-
-    For more information, see the [Logic Apps documentation](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs).
-
-- **Activity log configuration**: The **Activity** tab data is based on activity logs. Make sure that you have activity logs configured to send the data to your chosen Log Analytics workspace. 
-
-    For more information, see the [Azure Monitor documentation](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
- 
+- [Azure Monitor documentation](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
 
 ### Microsoft 365 Defender connector (Public preview)
  
