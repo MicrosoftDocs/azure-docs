@@ -158,6 +158,9 @@ Read [this section](../../iot-edge/module-composition.md#declare-routes) on how 
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
 
+Ensure that you are using LVA 2.0, go to src/edge/deployment.objectCounter.amd64.json. Under the "lvaEdge" module, edit the following:
+`"image": "mcr.microsoft.com/media/live-video-analytics:2"`
+
 For the objectCounter module to detect a person instead of a truck, go to src/edge/deployment.objectCounter.template.json and edit the following at the end of the file:
 
 `"objectCounter": {
@@ -228,9 +231,6 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
     
-1. Ensure that you are using LVA 2.0, go to src/edge/deployment.objectCounter.amd64.json. Under the "lvaEdge" module, edit the following:
- 
-    `"image": "mcr.microsoft.com/media/live-video-analytics:2",`
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
 1. The operations.json file starts off with calls to GraphTopologyList and GraphInstanceList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and pauses for you to select **Enter**, as shown:
 
