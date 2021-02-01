@@ -227,6 +227,10 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets-motion-files/topology.json"`
     
+1. Next, under the **GraphInstanceSet** node in the **parameters**, edit the **rtspURL** value to the following:
+
+    `"value": "rtsp://rtspsim:554/media/camera-1800s.mkv"`
+
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, edit:
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
