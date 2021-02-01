@@ -36,8 +36,8 @@ Previous versions also currently supported include: `3.0.2`
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
-| chained search                 | No        | Yes       | No        |                                           |
-| reverse chained search         | No        | Yes       | No        |                                            |
+| chained search                 | No        | Yes       | No        |                                                     |
+| reverse chained search         | No        | Yes       | No        |                                                     |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -98,7 +98,7 @@ All search parameter types are supported.
 | `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
-| `_total`                | Partial   | Partial   | Partial   | `_total=non` and `_total=accurate`      |
+| `_total`                | Partial   | Partial   | Partial   | `_total=none` and `_total=accurate`      |
 | `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated` is supported       |
 | `_contained`            | No        | No        | No        |         |
 | `containedType`         | No        | No        | No        |         |
