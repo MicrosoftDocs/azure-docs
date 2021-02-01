@@ -29,6 +29,9 @@
     {
       "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
@@ -589,7 +592,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "source_path_from_root": "/articles/active-directory-b2c/application-insights-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
       "redirect_document_id": true
     },
@@ -1191,6 +1194,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/view-usage-reports.md",
       "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/company-branding.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui",
       "redirect_document_id": false
     },
     {
@@ -12206,13 +12214,18 @@
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-powershell",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
+      "redirect_document_id": true
+    }, 
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup",
@@ -13371,11 +13384,6 @@
     {
       "source_path_from_root": "/articles/billing-upgrade-azure-subscription.md",
       "redirect_url": "/azure/billing/billing-upgrade-azure-subscription",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/billing/billing-usage-rate-card-overview",
       "redirect_document_id": false
     },
     {
@@ -16065,8 +16073,18 @@
     },
     {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-overview.md",
-      "redirect_url": "/azure/cost-management-billing/manage/usage-rate-card-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/manage/usage-rate-card-overview.md",
+      "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/billing/billing-view-all-accounts.md",
@@ -18794,6 +18812,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/overview-differences.md",
+      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -19282,6 +19305,21 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
       "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
       "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -22794,6 +22832,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/how-to-manage-dps-with-cli.md",
+      "redirect_url": "/azure/iot-dps/quick-setup-auto-provision-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
       "redirect_url": "/azure/iot-edge/about-iot-edge",
       "redirect_document_id": false
@@ -22981,6 +23024,11 @@
     {
       "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-x509.md",
       "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-edge/deploy-trusted-applications.md",
+      "redirect_url": "/azure/iot-edge/deploy-confidential-applications",
       "redirect_document_id": false
     },
     {
@@ -24210,11 +24258,6 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
       "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
@@ -32944,6 +32987,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/redhat-create-upload-vhd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-container-linux.md",
       "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
       "redirect_document_id": false
@@ -33596,6 +33644,16 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-v12-whats-new.md",
       "redirect_url": "/azure/sql-database/sql-database-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/ibm-db2-purescale-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
       "redirect_document_id": false
     },
     {
@@ -34742,6 +34800,11 @@
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
+      "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
@@ -47654,6 +47717,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/hdinsight/kafka/schema-registry.md",
+      "redirect_url": "/azure/hdinsight/kafka/apache-kafka-producer-consumer-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/response-center.md",
       "redirect_url": "https://www.microsoft.com/msrc",
       "redirect_document_id": false
@@ -48593,6 +48661,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-users-create-external-azure-portal.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/access-panel-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/my-apps-deployment-plan",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-conditional-access-content-map.md",
@@ -61518,6 +61591,31 @@
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-manage-account-basics.md",
+      "redirect_url": "/azure/batch/accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/view-master-logs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/data-factory/data-flow-reserved-capacity-overview.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/data-factory/data-flow-understand-reservation-charges.md",
+      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
       "redirect_document_id": false
     }
   ]

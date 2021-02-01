@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 01/18/2021
 ms.author: jeedes
 ---
 
@@ -172,7 +172,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the Azure portal, on the **SAP Cloud Platform Identity Authentication** application integration page, select **Linked Sign-on**.
 
-	![Configure Linked Sign-On](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+	![Configure Linked Sign-On](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked-sign-on.png)
 
 5. Save the configuration.
 
