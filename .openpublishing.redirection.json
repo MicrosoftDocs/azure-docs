@@ -592,7 +592,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "source_path_from_root": "/articles/active-directory-b2c/application-insights-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
       "redirect_document_id": true
     },
