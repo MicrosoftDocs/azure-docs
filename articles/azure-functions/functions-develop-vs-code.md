@@ -337,6 +337,18 @@ The following steps publish your project to a new function app created with adva
 
     A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
+### Get the URL of an HTTP triggered function in Azure
+
+To call an HTTP-triggered function from a client, you need the URL of the function when it's deployed to your function app. This URL includes any required function keys. You can use the extension to get these URLs for your deployed functions. If you just want to run the remote function in Azure, use the [Execute function now functionality of the extension](#run-functions-in-azure).
+
+1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Copy Function URL**.
+
+1. Follow the prompts to select your function app in Azure and then the specific HTTP trigger that you want to invoke.
+
+The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
+
+When getting the URL of functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+
 ## Republish project files
 
 When you set up [continuous deployment](functions-continuous-deployment.md), your function app in Azure is updated when you update source files in the connected source location. We recommend continuous deployment, but you can also republish your project file updates from Visual Studio Code.
@@ -345,16 +357,6 @@ When you set up [continuous deployment](functions-continuous-deployment.md), you
 > Publishing to an existing function app overwrites the content of that app in Azure.
 
 [!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
-
-## Get the URL of the deployed function
-
-To call an HTTP-triggered function, you need the URL of the function when it's deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
-
-1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Copy Function URL**.
-
-1. Follow the prompts to select your function app in Azure and then the specific HTTP trigger that you want to invoke.
-
-The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
 ## Run functions
 
