@@ -146,7 +146,7 @@ Spring Boot version | Spring Cloud version
 2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> We've identified an issue with Spring Boot 2.4.0 on TLS authentication between your apps and Eureka, please use 2.4.1 or above. Please refer to our [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
+> We've identified an issue with Spring Boot 2.4.0 on TLS authentication between your apps and Eureka, please use 2.4.1 or above. Please refer to our [FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
 
 ### Dependencies for Spring Boot version 2.2/2.3
 

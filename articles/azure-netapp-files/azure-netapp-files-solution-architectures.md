@@ -91,7 +91,7 @@ This section provides references to SAP on Azure solutions.
 
 ## Azure VMware Solutions
 
-* [Azure NetApp Files with Azure VMware Solution - Guest OS Mounts](../azure-vmware/net-app-files-with-azure-vmware-solution.md)
+* [Azure NetApp Files with Azure VMware Solution - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 
 ## Virtual Desktop Infrastructure solutions
 
