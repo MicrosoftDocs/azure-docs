@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: SQL Maintenance Window FAQ
-  description: Understand how Azure SQL Database and Managed Instance maintenance windows can be configured.
+  description: FAQ on how the Azure SQL Database and Managed Instance maintenance window can be configured.
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -13,19 +13,23 @@ metadata:
   ms.date: 01/19/2021
 
 title: SQL Maintenance Window FAQ
-summary: This article answers frequently asked questions about SQL Maintenance Windows.
+summary: This article answers frequently asked questions about the SQL Maintenance Window feature.
 sections:
   - name: General
     questions: 
       - question: What is the SQL Maintenance Window feature?
         answer: |
-         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-sql-maintenance-windows) for more information.
+         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-sql-maintenance-window) for more information.
 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
-          The default window remains 5PM to 8AM local time, Monday - Sunday.
+          The default window remains 5PM to 8AM local time, Monday - Sunday. 
 
-      - question: Can I choose a specific time/day in SQL Maintenance Windows?
+      - question: Users work in a different time zone than the Azure data center. Which time zone is local?
+        answer: |
+          Local time is determined by the Azure region that hosts the resource, such as the Azure SQL Database. 
+
+      - question: Can I choose a specific time/day for the SQL Maintenance Window?
         answer: |
           No, you can choose between pre-scheduled Weekday or Weekend windows. The maintenance can happen any time or day within the window.  
 
@@ -57,13 +61,17 @@ sections:
         answer: |
           This feature is available in most SLOs, see [SQL maintenance window supported service level objectives](sql-maintenance-window.md#supported-service-level-objectives).
 
-      - question: If I have selected a SQL Maintenance Window for a resource, and I downscale to a service tier where SQL Maintenance Windows is not supported, would the Maintenance Window revert to default?
+      - question: If I have selected a SQL Maintenance Window for a resource, and I downscale to a service tier where the SQL Maintenance Window feature is not supported, would the maintenance window schedule revert to default?
         answer: |
-          Yes.
+          Yes. Some service tiers only support the default SQL maintenance window.
       
       - question: Can I cancel or postpone a maintenance event? 
         answer: |
-          No.
+          No. Cancelling or postponing an upcoming maintenance window within 24 hours is not supported. 
+
+      - question: How long does it take to process a maintenance window schedule change?
+        answer: |
+          Changes made to the SQL maintenance window schedule may take up to 24 hours to take effect.
 
       - question: What happens if SQL maintenance fails?
         answer: |
@@ -85,4 +93,9 @@ sections:
         answer: |
           Azure Portal, PowerShell, CLI, Azure API.
 
-
+additionalContent: |
+ ## See Also
+ - [SQL Maintenance Window](sql-maintenance-window.md)
+ - [SQL Maintenance Window walkthrough](sql-maintenance-window-configure.md)
+ - [SQL Maintenance Window Notifications walkthrough](advance-notifications.md)
+ - [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)
