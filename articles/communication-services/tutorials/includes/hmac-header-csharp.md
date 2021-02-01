@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your **resourceEndpoint** and  **resourceAccessKey** for this tutorial.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).You'll need to record your **resourceEndpoint** and  **resourceAccessKey** for this tutorial.
  
 
 
