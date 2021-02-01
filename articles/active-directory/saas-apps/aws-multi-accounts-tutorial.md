@@ -109,7 +109,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
     ![Screenshot of the Edit button on the "User Attributes" pane.](common/edit-attribute.png)
 
-1. In the **User Claims** section of the **User Attributes** pane, configure the SAML token attribute by using values in the following table:
+1. In the **User Claims** section of the **User Attributes** pane, configure the SAML token attribute by using the values in the following table:
 
     | Name  | Source attribute  | Namespace |
     | --------------- | --------------- | --------------- |
@@ -117,30 +117,28 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
     | Role | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
     | SessionDuration | "provide a value from 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
   
-  <br>
-    
-    a. Select **Add new claim** and then, on the **Manage user claims** pane, do the following:
+   a. Select **Add new claim** and then, on the **Manage user claims** pane, do the following:
 
-      ![Screenshot of "Add new claim" and "Save" buttons on the "User claims" pane.](common/new-save-attribute.png)
+   ![Screenshot of "Add new claim" and "Save" buttons on the "User claims" pane.](common/new-save-attribute.png)
 
-      ![Screenshot of the "Manage user claims" pane.](common/new-attribute-details.png)
+   ![Screenshot of the "Manage user claims" pane.](common/new-attribute-details.png)
 
-    b. In the **Name** box, enter the attribute name.  
+   b. In the **Name** box, enter the attribute name.  
 
-    c. In the **Namespace** box, enter the namespace value.
+   c. In the **Namespace** box, enter the namespace value.
 
-    d. For the **Source**, select **Attribute**.
+   d. For the **Source**, select **Attribute**.
 
-    e. In the **Source attribute** drop-down list, select the attribute.
+   e. In the **Source attribute** drop-down list, select the attribute.
 
-    f. Select **Ok**, and then select **Save**.
+   f. Select **Ok**, and then select **Save**.
 
-    >[!NOTE]
-    >For more information about roles in Azure AD, see [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+   >[!NOTE]
+   >For more information about roles in Azure AD, see [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the federation metadata XML file, and then save it to your computer.
 
-    ![Screenshot of the "Federation Metadata XML" download link on the "SAML Signing Certificate" pane.](common/metadataxml.png)
+   ![Screenshot of the "Federation Metadata XML" download link on the "SAML Signing Certificate" pane.](common/metadataxml.png)
 
 ### Configure AWS SSO
 
@@ -148,7 +146,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 1. Select the **AWS Home** icon.
 
-    ![Screenshot of the "AWS Home" icon.][11]
+   ![Screenshot of the "AWS Home" icon.][11]
 
 1. On the **AWS services** pane, under **Security, Identity & Compliance**, select **IAM (Identity & Access Management)**.
 
