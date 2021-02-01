@@ -37,7 +37,7 @@ The views that you create with View Designer contain the elements that are descr
 | Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log queries](../log-query/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log query that provides detailed records. |
 
 ## Required permissions
-You require at least [contributor level permissions](manage-access.md#manage-access-using-azure-permissions) in the Log Analytics workspace to create or modify views. If you don't have this permission, then the View Designer option won't be displayed in the menu.
+You require at least [contributor level permissions](../platform/manage-access.md#manage-access-using-azure-permissions) in the Log Analytics workspace to create or modify views. If you don't have this permission, then the View Designer option won't be displayed in the menu.
 
 
 ## Work with an existing view

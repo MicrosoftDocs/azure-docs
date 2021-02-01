@@ -16,7 +16,7 @@ Areas in Azure Monitor where you will use queries include the following:
 
 - [Log Analytics](../log-query/log-analytics-overview.md). Primary tool in the Azure portal for editing log queries and interactively analyzing their results. Even if you intend to use a log query elsewhere in Azure Monitor, you'll typically write and test it in Log Analytics before copying it to its final location.
 - [Log alert rules](../platform/alerts-overview.md). Proactively identify issues from data in your workspace.  Each alert rule is based on a log query that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
-- [Workbooks](../platform/workbooks-overview.md). Include the results of log queries using different visualizations in interactive visual reports in the Azure portal.
+- [Workbooks](../visualizations/workbooks-overview.md). Include the results of log queries using different visualizations in interactive visual reports in the Azure portal.
 - [Azure Dashboards](../learn/tutorial-logs-dashboards.md). Pin the results of any query into an Azure dashboard which allow you to visualize log and metric data together and optionally share with other Azure users.
 - [Logic Apps](../platform/logicapp-flow-connector.md).  Use the results of a log query in an automated workflow using Logic Apps.
 - [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses Get-AzOperationalInsightsSearchResults.
@@ -70,7 +70,7 @@ The following operators support specific Azure Monitor features and are not avai
 
 * [app()](app-expression.md)
 * [resource()](resource-expression.md)
-* [workspace()](workspace-expression.md)
+* [workspace()](../logs/workspace-expression.md)
 
 ## Next steps
 - Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).

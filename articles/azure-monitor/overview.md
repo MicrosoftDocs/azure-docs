@@ -19,7 +19,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Correlate infrastructure issues with [Azure Monitor for VMs](insights/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
-- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](platform/workbooks-overview.md).
+- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](visualizations/workbooks-overview.md).
 - Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./platform/data-platform-metrics.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
@@ -112,7 +112,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Screenshot shows an Azure Dashboard, which includes Application and Security tiles, along with other customizable information.](media/overview/dashboard.png)
 
 ### Workbooks
-[Workbooks](platform/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. Use workbooks provided with Insights or create your own from predefined templates.
+[Workbooks](visualizations/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. Use workbooks provided with Insights or create your own from predefined templates.
 
 
 ![Workbooks example](media/overview/workbooks.png)

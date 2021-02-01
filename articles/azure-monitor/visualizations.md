@@ -15,7 +15,7 @@ This article provides a summary of the available methods to visualize log and me
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
 ## Workbooks
-[Workbooks](./platform/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](./visualizations/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
 ![Diagram shows screenshots of several pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualizations/workbook.png)
 
@@ -111,9 +111,9 @@ You can access data in log and metric data in Azure Monitor through their API us
 ## Azure Monitor Views
 
 > [!IMPORTANT]
-> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
+> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](visualizations/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
 
-[Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
+[Views in Azure Monitor](visualizations/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
 
 
 ![Screenshot shows a Container Monitoring Solution tile and the detailed Azure Monitor View that opens when you select it.](media/visualizations/view.png)
@@ -122,7 +122,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Rich visualizations for log data.
 - Export and import views to transfer them to other resource groups and subscriptions.
 - Integrates into Azure Monitor management model with workspaces and monitoring solutions.
-- [Filters](platform/view-designer-filters.md) for custom parameters.
+- [Filters](visualizations/view-designer-filters.md) for custom parameters.
 - Interactive, supports multi-level drill-in (view that drills into another view)
 
 ### Limitations
@@ -137,8 +137,8 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Metrics Explorer](platform/metrics-getting-started.md)
-- Learn about [Workbooks](./platform/workbooks-overview.md).
+- Learn about [Workbooks](./visualizations/workbooks-overview.md).
 - Learn about [import log data into Power BI](./platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).
-- Learn about [Views in Azure Monitor](platform/view-designer.md).
+- Learn about [Views in Azure Monitor](visualizations/view-designer.md).
 

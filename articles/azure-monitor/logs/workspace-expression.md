@@ -60,6 +60,6 @@ union
 
 ## Next steps
 
-- See the [app expression](app-expression.md) to refer to an Application Insights app.
-- Read about how [Azure Monitor data](log-query-overview.md) is stored.
+- See the [app expression](../log-query/app-expression.md) to refer to an Application Insights app.
+- Read about how [Azure Monitor data](../log-query/log-query-overview.md) is stored.
 - Access full documentation for the [Kusto query language](/azure/kusto/query/).
