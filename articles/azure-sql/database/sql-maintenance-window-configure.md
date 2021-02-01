@@ -1,8 +1,8 @@
 ---
-title: SQL Maintenance Window
-description: Understand how Azure SQL Database and Managed Instance maintenance windows can be configured.
+title: Configure SQL maintenance window (Preview)
+description: Learn how to set the time when planned maintenance should be performed on your Azure SQL databases, elastic pools, and managed instance databases.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: how-to
 author: stevestein
@@ -10,18 +10,19 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 01/26/2021
 ---
-# Configure SQL maintenance window
+# Configure SQL maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-Configure the [SQL maintenance window](sql-maintenance-window.md) for an Azure SQL database or Azure SQL Managed Instance database during database creation or anytime after a database is created. 
+Configure the [SQL maintenance window (Preview)](sql-maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during database creation or anytime after a database is created. 
 
-All Azure SQL databases and Managed Instance databases are updated during the *default* maintenance window: 5PM to 8AM daily (local time of the Azure region the database is hosted in) to avoid peak business hours interruptions. If the default maintenance window is not the best time, select one of the other available maintenance windows that you can configure your databases or pools to use:
+All databases are updated during the *default* maintenance window: 5PM to 8AM daily (local time of the Azure region the database is hosted in) to avoid peak business hours interruptions. If the default maintenance window is not the best time, select one of the other available maintenance windows:
 
 * **SQL_Default** window, 5PM to 8AM local time Mon-Sunday 
 * **Weekday** window, 10PM to 6AM local time Monday to Thursday
 * **Weekend** window, 10PM to 6AM local time Friday to Sunday
 
+SQL maintenance window is not available for every service level or in every region. For details on availability, see [SQL maintenance window availability](sql-maintenance-window.md#availability).
 
 ## Configure SQL maintenance window during database creation 
 
