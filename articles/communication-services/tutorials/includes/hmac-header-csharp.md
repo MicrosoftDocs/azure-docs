@@ -55,7 +55,7 @@ dotnet build
 Install the  package Newtonsoft.Json, used for body serialization.
 
 ```console
-dotnet add package Newtonsoft.Json --version 12.0.3
+dotnet add package Newtonsoft.Json
 ```
 
 Update the Main method declaration to support async code
@@ -84,7 +84,7 @@ namespace SignHmacTutorial
 }
 ```
 ## Create a request message
-For this specific example we will try to sign request to create new identity calling Api of version 2020-07-20-preview2
+For this specific example we will try to sign request to create new identity calling ACS AUTH Api of version 2020-07-20-preview2
 Add following code into Main method:
 
 ```csharp
@@ -93,12 +93,12 @@ string resourceEndpoint = "resourceEndpoint";
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2020-07-20-preview2");
 
 //Endpoint identities?api-version=2020-07-20-preview2 accepts list of scopes as a body
-var body = new[] { "chat" };
+var body = new[] { "chat" }; 
+var serializedBody = JsonConvert.SerializeObject(body);
 
-//Create your requestMessage
 var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 {
-    Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8)
+    Content = new StringContent(serializedBody, Encoding.UTF8)
 };
 ```
 replace **resourceEndpoint** with your real resource endpoint value.
@@ -107,17 +107,13 @@ replace **resourceEndpoint** with your real resource endpoint value.
 Content hash is a part of signature. 
 Use following code to create a method to hash a content and add it into Progam.cs under Main method.
 ```csharp
-async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
+static string ComputeContentHash(string content)
 {
-    string content = "";
-    if (requestMessage?.Content != null)
+    using (var sha256 = SHA256.Create())
     {
-        content = await requestMessage.Content.ReadAsStringAsync();
+        byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
+        return Convert.ToBase64String(hashedBytes);
     }
-
-    using var sha256 = SHA256.Create();
-    byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
-    return Convert.ToBase64String(hashedBytes);
 }
 ```
 
@@ -126,7 +122,7 @@ Prepare a method to compute your signature.
 Use following code to create a method for computing a signature.
 
 ```csharp
-static string ComputeSignature(string stringToSign)
+ static string ComputeSignature(string stringToSign)
 {
     string secret = "resourceAccessKey";
 
@@ -136,7 +132,7 @@ static string ComputeSignature(string stringToSign)
         var hashedBytes = hmacsha256.ComputeHash(bytes);
         return Convert.ToBase64String(hashedBytes);
     }
-} 
+}
 ```
 replace **resourceAccessKey** with access key of your real Azure Communication Services resource.
 
@@ -150,12 +146,12 @@ steps:
 5. Concatenate the string, which will be used in authorization header
  Add following code into Main method:
 ```csharp
-//Compute a content hash
-var contentHash = await ComputeContentHash(requestMessage);
+// Compute a content hash
+var contentHash = ComputeContentHash(serializedBody);
 //Specify the Coordinated Universal Time (UTC) timestamp
 var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
 //Prepare a string to sign
-var stringToSign = $"{requestMessage.Method}\n{requestMessage.RequestUri.PathAndQuery}\n{date};{requestMessage.RequestUri.Authority};{contentHash}";
+var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authority};{contentHash}";
 //Compute the signature
 var signature = ComputeSignature(stringToSign);
 //Concatenate the string, which will be used in authorization header
@@ -177,8 +173,10 @@ requestMessage.Headers.Add("Authorization", authorizationHeader);
 ## Test the client
 Call the endpoint using HttpClient and check the response.
 ```csharp
-HttpClient httpClient = new HttpClient();
-httpClient.BaseAddress = requestUri; 
+HttpClient httpClient = new HttpClient
+{
+    BaseAddress = requestUri
+};
 
 var response = await httpClient.SendAsync(requestMessage);
 var responseString = await response.Content.ReadAsStringAsync();
