@@ -22,8 +22,8 @@ By default, pgAudit log statements are emitted along with your regular log state
 
 ## Enabling pgAudit
 
-The pgAudit extension is pre-installed and enabled on all Hyperscale server
-group nodes. No action is required to enable it.
+The pgAudit extension is pre-installed and enabled on all Hyperscale (Citus)
+server group nodes. No action is required to enable it.
 
 ## pgAudit settings
 
