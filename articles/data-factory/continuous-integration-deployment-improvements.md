@@ -66,9 +66,6 @@ In current CI/CD flow, the UX is the intermediary to create the ARM template, th
 > [!NOTE]
 > You can continue to use existing mechanism (adf_publish branch) or use the new flow. Both are supported. 
 
-> [!NOTE]
->  We will always be compatible with the old CI/CD flow, i.e., ADF UI will not change the current publish flow (we can make it optionally later leveraging publish_config.json to optimize publish time).
-
 ## Package Overview
 
 There are two commands currently available in the package:
