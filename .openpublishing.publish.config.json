@@ -414,13 +414,13 @@
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "cosmos-dotnet-v4-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-v4-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cosmos-dotnet-bulk-import",

@@ -11,7 +11,7 @@ ms.date: 11/17/2020
 ---
 # Register and scan Azure Data Lake Storage Gen2
 
-This article outlines how to register Azure Data Lake Storage Gen2 as data source in Azure Purview and set up a scan on it.
+This article outlines how to register Azure Data Lake Storage Gen2 as data source in Azure Purview and set up a scan.
 
 ## Supported capabilities
 
@@ -33,108 +33,93 @@ The following authentication methods are supported for Azure Data Lake Storage G
 - Service principal
 - Account Key
 
-#### Authentication using the Data Catalog's MSI
+#### Managed Identity (Recommended)
 
-For ease and security, you may want to use the Catalog's Managed Service Identity (MSI) to authenticate with your data store.
+When you choose **Managed Identity**, to set up the connection, you must first give your Purview account the permission to scan the data source:
 
-To set up a scan using the Data Catalog's Managed Identity, you must *first* give it permissions (meaning add the identity to the correct role) to whatever resources you are trying to scan. This step must be done *before* you set up your scan or your scan will fail.
-
-#### Adding the catalog MSI to an Azure Data Lake Gen2 account
-
-You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
-
-> [!Note]
-> You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
-
-1. From the [Azure portal](https://portal.azure.com), find either the
-    Subscription, Resource Group, or Resource (for example, an Azure Data Lake Storage Gen2 storage
-    account) that you would like to allow the catalog to scan.
-
-1. Choose **Access control (IAM)**.
-
-   :::image type="content" source="./media/register-scan-adls-gen2/access-control.png" alt-text="Choose access control":::
-
-1. The **Add role assignment** page opens.
-
-   :::image type="content" source="./media/register-scan-adls-gen2/add-role-assignment.png" alt-text="Add role assignment":::
-
-1. Fill in the form as follows:
-
-   1. Under **Role**, Choose **Storage Blob Data Reader** from the list.
-
-      :::image type="content" source="./media/register-scan-adls-gen2/storage-blob-data-reader.png" alt-text="Storage Blob Data Reader":::
-
-   1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
-
-      :::image type="content" source="./media/register-scan-adls-gen2/assign-access.png" alt-text="Assign access ":::
-
-   1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
-
-      :::image type="content" source="./media/register-scan-adls-gen2/select-catalog.png" alt-text="Select your catalog":::
-
-   1. Select **Save**.
+1. Navigate to your ADLS Gen2 storage account.
+1. Select **Access Control (IAM)** from the left navigation menu. 
+1. Select **+ Add**.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your Azure Purview account name under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
 > [!Note]
-> Once you have added the catalog's MSI on the data source, wait up to 15 minutes for the permissions to propagate before setting up a scan.
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
 
-After about 15 minutes, the catalog should have the appropriate permissions to be able to scan the resource(s).
+#### Account Key
 
-#### Authentication using account key
+When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
-If you choose to use the account key for authorization, use the Azure portal to search for your data source, and select **Settings** > **Access keys**, copy the first key in the list.
+1. Navigate to your ADLS Gne2 storage account
+1. Select **Settings > Access keys**
+1. Copy your *key* and save it somewhere for the next steps
+1. Navigate to your key vault
+1. Select **Settings > Secrets**
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
+1. Select **Create** to complete
+1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
 
-#### Authentication using service principal
+#### Service principal
 
-To use a service principal, you must first create one, by following these steps:
+To use a service principal, you can use an existing one or create a new one. 
 
 > [!Note]
-> You can find out more information about how to register an app via [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+> If you have to create a new Service Principal, please follow these steps:
+> 1. Navigate to the [Azure portal](https://portal.azure.com).
+> 1. Select **Azure Active Directory** from the left-hand side menu.
+> 1. Select **App registrations**.
+> 1. Select **+ New application registration**.
+> 1. Enter a name for the **application** (the service principal name).
+> 1. Select **Accounts in this organizational directory only**.
+> 1. For Redirect URI select **Web** and enter any URL you want; it doesn't have to be real or work.
+> 1. Then select **Register**.
 
-1. Navigate to [Azure portal](https://portal.azure.com).
+It is required to get the Service Principal's application ID and secret:
 
-1. Select **Azure Active Directory** from the left-hand side menu.
+1. Navigate to your Service Principal in the [Azure portal](https://portal.azure.com)
+1. Copy the values the **Application (client) ID** from **Overview** and **Client secret** from **Certificates & secrets**.
+1. Navigate to your key vault
+1. Select **Settings > Secrets**
+1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
+1. Select **Create** to complete
+1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
-1. Select **App registrations**.
+##### Granting the Service Principal access to your ADLS gen2 account
 
-1. Select **+ New application registration**.
+1. Navigate to your storage account.
+1. Select **Access Control (IAM)** from the left navigation menu. 
+1. Select **+ Add**.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your service principal name or object ID under **Select** input box. Then, select **Save** to give this role assignment to your service principal.
+### Firewall settings
 
-1. Enter a name for the **application** (the service principal name).
+> [!NOTE]
+> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
 
-1. Select **Accounts in this organizational directory only (Microsoft
-only - Single Tenant)**.
+1. Go into your ASLS Gen2 storage account in [Azure portal](https://portal.azure.com)
+1. Navigate to **Settings > Networking** and
+1. Choose **Selected Networks** under **Allow access from**
+1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
 
-1. For **Redirect URI** select **Web** and enter any URL you want; it doesn't have to be real or work.
-
-1. Then select **Register**.
-
-1. Copy the values for both the display name and the application ID.
-
-1. Add your service principal to a role on the data stores that you would like to scan. Do this in the Azure portal.
-
-   For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
-
-   > [!Note]
-   > This step is important because Purview will need access to **Microsoft APIs** for **Azure Storage** with `user_impersonation` permission. Otherwise your scan will fail.
+:::image type="content" source="./media/register-scan-adls-gen2/firewall-setting.png" alt-text="Screenshot showing firewall setting":::
 
 ## Register Azure Data Lake Storage Gen2 data source
 
 To register a new ADLS Gen2 account in your data catalog, do the following:
 
-1. Navigate to your Purview Data Catalog.
-1. Select **Management center** on the left navigation.
-1. Select **Data sources** under **Sources and scanning**.
-1. Select **+ New**.
-1. On **Register sources**, select **Azure Data Lake Storage Gen2**. Select **Continue**.
-
-:::image type="content" source="media/register-scan-adls-gen2/register-new-data-source.png" alt-text="register new data source" border="true":::
+1. Navigate to your Purview account
+2. Select **Sources** on the left navigation
+3. Select **Register**
+4. On **Register sources**, select **Azure Data Lake Storage Gen2**
+5. Select **Continue**
 
 On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Data Lake Store account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
+2. Choose your subscription to filter down storage accounts
+3. Select a storage account
+4. Select a collection or create a new one (Optional)
+5. **Finish** to register the data source.
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="register sources options" border="true":::
 

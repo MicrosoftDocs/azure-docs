@@ -109,4 +109,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision client library](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)

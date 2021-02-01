@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
 ---
 
@@ -134,6 +134,8 @@ Get the Amortized costs data and filter the data for a reserved instance. Then:
 1. Get estimated pay-as-you-go costs. Multiply the _UnitPrice_ value with _Quantity_ values to get estimated pay-as-you-go costs, if the reservation discount didn't apply to the usage.
 2. Get the reservation costs. Sum the _Cost_ values to get the monetary value of what you paid for the reserved instance. It includes the used and unused costs of the reservation.
 3. Subtract reservation costs from estimated pay-as-you-go costs to get the estimated savings.
+
+Keep in mind that if you have an underutilized reservation, the _UnusedReservation_ entry for _ChargeType_ becomes a factor to consider. When you have a fully utilized reservation, you receive the maximum savings possible. Any _UnusedReservation_ quantity reduces savings.
 
 ## Reservation purchases and amortization in cost analysis
 

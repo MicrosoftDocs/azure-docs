@@ -331,6 +331,22 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-computer-vision
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language

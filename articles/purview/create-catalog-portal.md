@@ -70,7 +70,7 @@ Before you or your team can begin to use Azure Purview, one or more security pri
 
 To add a security principal to the **Purview Data Curator** data plane role in an Azure Purview account:
 
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+1. Go to the [**Purview accounts**](https://aka.ms/purviewportal) page in the Azure portal.
 
 1. Select the Azure Purview account you want to modify.
 

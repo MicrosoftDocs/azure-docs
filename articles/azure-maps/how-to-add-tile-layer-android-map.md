@@ -1,6 +1,6 @@
 ---
-title: Add a tile layer to Android maps | Microsoft Azure Maps
-description: Learn how to add a tile layer to a map. See an example that uses the Azure Maps Android SDK to add a weather radar overlay to a map.
+title: Add a tile layer to a map using the Azure Maps Android SDK
+description: Learn how to add a tile layer to a map. See an example that uses the Microsoft Azure Maps Android SDK to add a weather radar overlay to a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019

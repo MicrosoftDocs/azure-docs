@@ -22,11 +22,14 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure China 21Vianet isn't currently supported.
-
 ## Limitations
 
-* Private clusters aren't currently supported.
+Private clusters are only supported in the following regions:
+ *  East US
+ *  West US
+ *  West US2
+ *  North Central US
+ *  West Central US
 
 ## SLA terms and conditions
 

@@ -60,13 +60,13 @@ To access lineage information for an asset in Purview, follow the steps:
 
 1. From the search results, select the asset and select its **Lineage** tab.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab." lightbox="./media/catalog-lineage-user-guide/select-lineage-from-asset.png":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab." border="true":::
 
 ## Asset-level lineage
 
 Azure Purview supports asset level lineage for the datasets and processes. To see the asset level lineage go to the **Lineage** tab of the current asset in the catalog. Select the current dataset asset node. By default the list of columns belonging to the data appears in the left pane.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page" lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page" border="true":::
 
 ## Column-level lineage
 

@@ -14,6 +14,11 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
+Use the Computer Vision client library to:
+
+* Analyze an image for tags, text description, faces, adult content, and more.
+* Read printed and handwritten text with the Read API.
+
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## Prerequisites

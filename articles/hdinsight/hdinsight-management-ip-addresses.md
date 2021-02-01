@@ -26,7 +26,7 @@ The following sections discuss the specific IP addresses that must be allowed.
 
 ## Azure DNS service
 
-If you're using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you're using custom DNS, skip this step.
+If you're using the Azure-provided DNS service, allow access to __168.63.129.16__ on port 53 for both TCP and UDP. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you're using custom DNS, skip this step.
 
 ## Health and management services: All regions
 

@@ -14,6 +14,11 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
+Use the Computer Vision client library to:
+
+* Analyze an image for tags, text description, faces, adult content, and more.
+* Read printed and handwritten text with the Read API.
+
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
 ## Prerequisites

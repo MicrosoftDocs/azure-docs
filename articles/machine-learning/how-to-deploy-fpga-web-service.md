@@ -28,7 +28,7 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 
 |Processor| Abbreviation |Description|
 |---|:-------:|------|
-|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's Tensor Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
 |Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|

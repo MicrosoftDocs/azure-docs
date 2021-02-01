@@ -38,7 +38,7 @@ Use the following checklist to ensure you have this information after you have p
 | Activation  | Require activation key from the Azure Stack Edge Pro/ Data Box Gateway resource.    | Once generated, the key expires in 3 days. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be approved, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

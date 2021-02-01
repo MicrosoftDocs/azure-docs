@@ -30,7 +30,7 @@ The Azure SQL Database Managed Instance data source supports the following funct
     > [!Note]
     > Your organization must be able to allow public endpoint as **private endpoint is not yet supported** by Purview. If you use private endpoint, the scan will not be successful.
 
-### Set up authentication for a scan
+### Setting up authentication for a scan
 
 Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
 
@@ -105,15 +105,13 @@ It is required to get the service principal's application ID and secret:
 
 1. Select **Register**
 
-4. Select **New** to register a new data source. 
-
-5. Select **Azure SQL Database Managed Instance** and then **Continue**
+1. Select **Azure SQL Database Managed Instance** and then **Continue**
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
-6. Select **Enter manually**
+1. Select **Enter manually**
 
-7. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
+1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
 

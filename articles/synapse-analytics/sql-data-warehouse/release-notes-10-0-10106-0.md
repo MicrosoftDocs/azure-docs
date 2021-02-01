@@ -36,6 +36,13 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## Dec 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Stored procedure sp_rename for columns (preview)**|Renaming a column without a [CTAS](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) just became simpler. Azure Synapse SQL has now added support for the system stored procedure sp_rename (preview) to rename a non-distribution column in a user table. This feature is currently in Preview and will be supported in tooling at GA. For details, see [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Additional parameter for T-SQL Predict**|With this new release, a required additional parameter called 'RUNTIME' is added for the existing T-SQL PREDICT statement. For updating your existing scripts, see examples in [T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
+
 ## Oct 2020
 
 | Service improvements | Details |

@@ -8,14 +8,38 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 12/01/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you create an Azure Cognitive Search service, a [resource is created](search-create-service-portal.md) at a pricing tier that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier that's fixed for the lifetime of the service. The tier you select determines:
 
-Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
++ Quantity of indexes and other objects (maximum limits)
++ Size and speed of partitions (physical storage)
++ Billable rate, a fixed cost that also flexes with the number of partitions and replicas in use
+
+Additionally, a few [premium features](#premium-features) come with tier requirements.
+
+## Tier descriptions
+
+Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Standard and Storage Optimized are available with several configurations and capacities.
+
+The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). 
+
+![Pricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Pricing tiers of Azure Cognitive Search")
+
+**Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+
+**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
+
+Some tiers are optimized for certain types of work. For example, **Standard 3 High Density (S3 HD)** is a *hosting mode* for S3, where the underlying hardware is optimized for a large number of smaller indexes and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.
+
+**Storage Optimized** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements. To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+
+You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
+
+<a name="premium-features"></a>
 
 ## Feature availability by tier
 
@@ -31,34 +55,13 @@ The following table describes tier-related feature constraints.
 
 Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
-## Tiers
-
-Tiers are differentiated by:
-
-+ Quantity of indexes and indexers (maximum limits)
-+ Size and speed of partitions (physical storage)
-
-The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
-
-**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
-
-**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
-
-![Pricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Pricing tiers of Azure Cognitive Search")
-
-Some tiers are optimized for certain types of work. For example, **Standard 3 High Density (S3 HD)** is a *hosting mode* for S3, where the underlying hardware is optimized for a large number of smaller indexes and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.
-
-**Storage Optimized** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
-
-You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
-
 ## Billable events
 
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
++ [Cost of the service](#service-costs) itself, running 24x7, at minimum configuration (one partition and replica), at the base rate
 
-+ Adding capacity (replicas or partitions)
++ Adding capacity (replicas or partitions), where costs increase at increments of the billable rate
 
 + Bandwidth charges (outbound data transfer)
 
@@ -83,7 +86,7 @@ When you're estimating the cost of a search solution, keep in mind that pricing 
 Using [indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Cognitive Search.
-+ In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
++ In multi-service solutions, there's no charge for data crossing the wire when all services are in the same region.
 
 Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
 
@@ -145,7 +148,7 @@ In Azure Cognitive Search, capacity is structured as *replicas* and *partitions*
 
 ### Evaluating capacity
 
-Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and resources. You should think about both because whichever limit you reach first is the effective limit.
+Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and content (number of indexes, for example). You should think about both because whichever limit you reach first is the effective limit.
 
 Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
 

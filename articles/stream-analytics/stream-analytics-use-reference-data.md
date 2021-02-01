@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
+ms.date: 12/2/2020
 ---
 # Using reference data for lookups in Stream Analytics
 
@@ -105,13 +105,13 @@ You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-manag
 
 ## Size limitation
 
-It is recommended to use reference datasets which are less than 300 MB for best performance. Usage of reference data greater than 300 MB is supported in jobs with 6 SUs or more. This functionality is in preview and must not be used in production. Using a very large reference data may impact performance of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
+It is recommended to use reference datasets which are less than 300 MB for best performance. Reference datasets 5 GB or lower is supported in jobs with 6 SUs or more. Using a very large reference data may impact end-to-end latency of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
 |**Number of Streaming Units**  |**Recommended Size**  |
 |---------|---------|
 |1   |50 MB or lower   |
 |3   |150 MB or lower   |
-|6 and beyond   |300 MB or lower. Using reference data greater than 300 MB is supported in preview and could impact performance of your job.    |
+|6 and beyond   |5 GB or lower.    |
 
 Support for compression is not available for reference data.
 

@@ -18,18 +18,18 @@ If you're using a managed identity or service principal as a method of authentic
 
 There are specific instructions for each source type:
 
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#set-up-authentication-for-a-scan)
-- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#set-up-authentication-for-a-scan)
-- [Azure Data Explorer](register-scan-azure-data-explorer.md#set-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
+- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#setting-up-authentication-for-a-scan)
+- [Azure Data Explorer](register-scan-azure-data-explorer.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)
-- [SQL Server](register-scan-on-premises-sql-server.md)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
+- [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
 
-## Store your credential in your key vault and are you using the right secret name and version?
+## Storing your credential in your key vault and using the right secret name and version
 
 You must also store your credential in your Azure Key Vault instance and use the right secret name and version.
 

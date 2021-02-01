@@ -13,13 +13,16 @@ ms.date: 11/25/2020
 
 In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview). Azure Purview supports the following data sources:
 
+* SQL server on-premises
 * Azure Data Lake Storage Gen1 
 * Azure Data Lake Storage Gen2
 * Azure Blob Storage
 * Azure Data Explorer
-* Azure File Storage
-* Azure SQL Server
-* CosmosDB
+* Azure SQL DB
+* Azure SQL DB Managed Instance
+* Azure Synapse Analytics (formerly SQL DW)
+* Azure Cosmos DB
+* Power BI
 
 ## Register a new source
 

@@ -15,7 +15,7 @@ A template spec is a resource type for storing an Azure Resource Manager templat
 To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands as you would for the template.
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it, you must install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Why use template specs?
 

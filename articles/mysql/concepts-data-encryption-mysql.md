@@ -56,7 +56,7 @@ When the server is configured to use the customer-managed key stored in the key 
 The following are requirements for configuring Key Vault:
 
 * Key Vault and Azure Database for MySQL must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving Key Vault resource afterwards requires you to reconfigure the data encryption.
-* Enable the [soft-delete]((../key-vault/general/soft-delete-overview.md) feature on the key vault with retention period set to **90 days**, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days by default, unless the retention period is explicitly set to <=90 days. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
+* Enable the [soft-delete](../key-vault/general/soft-delete-overview.md) feature on the key vault with retention period set to **90 days**, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days by default, unless the retention period is explicitly set to <=90 days. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
 * Enable the [Purge Protection](../key-vault/general/soft-delete-overview.md#purge-protection) feature on the key vault with retention period set to **90 days**. Purge protection can only be enabled once soft-delete is enabled. It can be turned on via Azure CLI or PowerShell. When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
 * Grant the Azure Database for MySQL access to the key vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique 'Service' identity is automatically created when data encryption is enabled on the MySQL. See [Configure data encryption for MySQL](howto-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
 
@@ -65,8 +65,8 @@ The following are requirements for configuring the customer-managed key:
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
 * The key activation date (if set) must be a date and time in the past. The expiration date not set.
 * The key must be in the *Enabled* state.
-* The key must have [soft delete](../key-vault/general/soft-delete-overview.md) with retention period set to **90 days**.
-* The kay must have [purge protection enabled](../key-vault/general/soft-delete-overview.md#purge-protection).
+* The key must have [soft delete](../key-vault/general/soft-delete-overview.md) with retention period set to **90 days**.This implicitly sets the required key attribute recoveryLevel: “Recoverable”. If the retention is set to < 90 days, the recoveryLevel: "CustomizedRecoverable" which doesnt the requirement so ensure to set the retention period is set to **90 days**.
+* The key must have [purge protection enabled](../key-vault/general/soft-delete-overview.md#purge-protection).
 * If you're [importing an existing key](/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations

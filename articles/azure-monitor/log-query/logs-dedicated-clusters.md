@@ -10,9 +10,9 @@ ms.date: 09/16/2020
 
 # Azure Monitor Logs Dedicated Clusters
 
-Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capability for Azure Monitor Logs customers. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
+Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
 
-The capabilities that requires dedicated clusters are:
+The capabilities that require dedicated clusters are:
 
 - **[Customer-managed Keys](../platform/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
@@ -43,11 +43,11 @@ The cluster capacity reservation level is configured via programmatically with A
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
 
-1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. 
+1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. 
 
 2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](../../security-center/index.yml) for each workspace.)
 
-Note that if your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster’s Capacity Reservation, and no longer per node. Per node data allocations from Azure Security Center will continue to be applied.
+If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster’s Capacity Reservation, and no longer per node. Per node data allocations from Azure Security Center will continue to be applied.
 
 More details are billing for Log Analytics dedicated clusters are available [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 

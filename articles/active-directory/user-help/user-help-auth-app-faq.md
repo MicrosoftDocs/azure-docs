@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -28,6 +28,14 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 **Q**: Is registering a device agreeing to give the company or service access to my device?
 
 **A**: Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device.
+
+## Too many app permissions
+
+**Q**: Why does the app request so many permissions?
+
+**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have.
+
+- **Location**. Sometimes your organization wants to know your location before allowing you to access certain resources. The app will request this permission only if your organization has a policy requiring location. 
 
 ### Legacy APNs support deprecated
 

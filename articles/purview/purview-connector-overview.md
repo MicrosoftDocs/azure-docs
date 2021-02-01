@@ -26,7 +26,7 @@ details.
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Azure Synapse Analytics (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
 |Database|[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|
 
