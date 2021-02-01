@@ -30,11 +30,11 @@ Command line:
 logman query providers
 ```
 
-Powershell:
+PowerShell:
 ```
 Get-NetEventProvider -ShowInstalled | Select-Object Name, Guid
 ```
-Optionally, you may choose to pipe this Powershell output to Out-Gridview to aid navigation.
+Optionally, you may choose to pipe this PowerShell output to Out-Gridview to aid navigation.
 
 Record the ETW provider name and GUID that aligns to the Analytic or Debug log that is presented in the Event Viewer, or to the module you intend to collect event data for.
 
