@@ -3,10 +3,13 @@ title: Optimize Apache HBase with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache HBase.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 02/01/2021
 ---
 
 # Optimize Apache HBase with Apache Ambari in Azure HDInsight
+
+> [!NOTE]
+> This article contains references to the term *master*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 Apache Ambari is a web interface to manage and monitor HDInsight clusters. For an introduction to Ambari Web UI, see [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
