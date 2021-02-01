@@ -238,8 +238,18 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
+
+Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
+
+- **Path**: Location of the package to be published
+- **ResourceGroupName**: Name of the resource group where the storage account is located
+- **StorageAccountName**: Name of the storage account where the package should be published
+- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **Force**: Overwrite existing package in the storage account with the same name
+
+The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -335,6 +345,28 @@ describe file(attr_path) do
 end
 ```
 
+Add the property **AttributesYmlContent** in your configuration with any string as the value.
+The Guest Configuration agent automatically creates the YAML file
+used by InSpec to store attributes. See the example below.
+
+```powershell
+Configuration AuditFilePathExists
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node AuditFilePathExists
+    {
+        ChefInSpecResource 'Audit Linux path exists'
+        {
+            Name = 'linux-path'
+            AttributesYmlContent = "fromParameter"
+        }
+    }
+}
+```
+
+Recompile the MOF file using the examples given in this document.
+
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
 parameter named **Parameter**. This parameter takes a hashtable including all details about each
 parameter and automatically creates all the required sections of the files used to create each Azure
@@ -364,28 +396,10 @@ New-GuestConfigurationPolicy
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
     -Parameter $PolicyParameterInfo `
+    -Platform 'Linux' `
     -Version 1.0.0
 ```
 
-For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
-used by InSpec to store attributes. See the example below.
-
-```powershell
-Configuration AuditFilePathExists
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node AuditFilePathExists
-    {
-        ChefInSpecResource 'Audit Linux path exists'
-        {
-            Name = 'linux-path'
-            AttributesYmlContent = "path: /tmp"
-        }
-    }
-}
-```
 
 ## Policy lifecycle
 
