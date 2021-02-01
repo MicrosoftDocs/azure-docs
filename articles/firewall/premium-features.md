@@ -11,17 +11,21 @@ ms.author: victorh
 
 # Azure Firewall Premium Preview features
 
+:::image type="content" source="media/overview/icsa-cert-firewall-small.png" alt-text="ICSA certification logo" border="false":::
+
 > [!IMPORTANT]
 > Azure Firewall Premium is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. 
+ Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments.
+
+:::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
 Azure Firewall Premium Preview uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continues to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
 
 > [!IMPORTANT]
-> Currently the Firewall Premium SKU is unsupported in Secure Hub deployments and forced tunnel configurations. 
+> Currently the Firewall Premium SKU is  not supported in Secure Hub deployments and forced tunnel configurations. 
 
 Azure Firewall Premium Preview includes the following features:
 
@@ -34,23 +38,7 @@ Azure Firewall Premium Preview includes the following features:
 
 ### TLS inspection
 
-Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the standard security technology for establishing an encrypted link between a client and a server. This link ensures that all data passed between the client and server remain private and encrypted.  
-
-Azure Firewall Premium Preview decrypts the outbound traffic, does the required value-added security services, and then encrypts the traffic and sends it to the original destination. 
-
-There are several advantages of doing TLS inspection on Azure Firewall: 
-
-- Enhanced Visibility: logs and metrics are available for all decrypted traffic. 
-
-- URL Filtering: TLS Inspection is an enabler for advanced security services, such as URL Filtering. An URL, as opposed to a FQDN, isn't accessible to the firewall when traffic is encrypted. URLs provide stricter outbound traffic filtering for domains that are common for different customers (for example, OneDrive.live.com). 
-
-- IDPS: while some detections can be done for encrypted traffic, TLS inspection is important to use the best of IDPS. 
-
-- Threat Intelligence based filtering works better for shared domains when URLs are visible (for example, CDN).
-
- 
-
-While you're probably interested in having TLS inspection for both outbound and inbound scenarios, Azure Firewall Premium Preview only focuses on outbound and internal scenarios. If you're interested in inbound TLS inspection, you can chain Azure Firewall with Azure Web Application Firewall on Azure Application Gateway for that purpose. For more information, see [Azure Virtual Network security](https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+Azure Firewall Premium terminates outbound and east-west TLS connections. Inbound TLS inspection is supported in conjunction with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) allowing end-to-end encryption. Azure Firewall performs the required value-added security functions and re-encrypts the traffic which is sent to the original destination.
 
 To learn more about Azure Firewall Premium Preview Intermediate CA certificate requirements, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
 
@@ -95,6 +83,14 @@ Azure Firewall Premium Preview has the following known issues:
 |Untrusted Certificates|Users may connect from time to time to servers with untrusted certificates. Azure Firewall will drop the connection as if the server terminated the connection.|None
 |Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall re-negotiates a connection with the server and has no access to the private key of the client certificates.|None|
 |QUIC/HTTP3|QUIC is the new major version of HTTP. It is a UDP based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection will not be supported.|Configure passing UDP 80/443 as network rules.|
+|Secure Hub and forced tunneling not supported|Currently the Firewall Premium SKU is not supported in Secure Hub deployments and forced tunnel configurations.|Fix scheduled for GA.|
+Untrusted customer signed certificates|Customer signed certificates are not trusted by the firewall once received from an intranet based web server.|Fix scheduled for GA.
+|Wrong source and destination IP addresses in Alerts for IDPS with TLS inspection.|When you enable TLS inspection and IDPS issues a new alert, the displayed source/destination IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
+|Wrong source IP address in Alerts with IDPS for HTTP (without TLS inspection).|When plain text HTTP traffic is in use, and IDPS issues a new alert, and the destination is public a IP address, the displayed source IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
+|Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|Fix scheduled for GA.|
+|IDPS Bypass|IDPS Bypass does not work for TLS terminated traffic and Source IP address  and Source IP Groups are not supported.|Fix scheduled for GA.|
+
+
 
 
 ## Next steps
