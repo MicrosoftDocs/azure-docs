@@ -61599,6 +61599,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-certificates.md",
+      "redirect_url": "/azure/batch/credential-access-key-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
