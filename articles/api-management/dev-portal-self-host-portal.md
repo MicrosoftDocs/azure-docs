@@ -183,7 +183,7 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
 
 1. Select **Save**.
 
-Run the portal
+## Run the portal
 
 Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
 
@@ -195,7 +195,7 @@ npm start
 
 It will automatically open the default browser with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project will trigger a rebuild and refresh your browser window.
 
-Edit through the visual editor
+## Edit through the visual editor
 
 Use the visual editor to carry out these tasks:
 
@@ -208,7 +208,7 @@ See [Tutorial: Access and customize the developer portal](api-management-howto-d
 
 ![API Management developer portal development - save content](media/dev-portal/readme-dev-save.png)
 
-Publish locally
+## Publish locally
 
 The portal data originates in the form of strong-typed objects. The following command will translate them into static files and place the output in the `./dist/website` directory:
 
@@ -218,7 +218,7 @@ npm run publish
 
 ![API Management developer portal development - generate static files](media/dev-portal/readme-dev-generate.png)
 
-Upload static files to a blob
+## Upload static files to a blob
 
 Use Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
 
@@ -236,13 +236,13 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
 
 ![API Management developer portal development - publish portal](media/dev-portal/readme-dev-upload.png)
 
-Go to your website
+## Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (**Primary endpoint** in **Static websites**).
 
 ![API Management developer portal development - visit portal](media/dev-portal/readme-dev-visit.png)
 
-Change API Management notification templates
+## Change API Management notification templates
 
 Replace the developer portal URL in the API Management notification templates to point to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
