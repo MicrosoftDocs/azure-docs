@@ -1,8 +1,8 @@
 ---
 title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: dominicbetts
+ms.author: dobett
 ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
@@ -227,11 +227,8 @@ The Azure Device SDKs offer the easiest way for you implement your device code. 
 All device communication with IoT Hub uses the following IoT Hub connectivity options:
 
 - [Device-to-cloud messaging](../../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Cloud-to-Device messaging](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
+- [Cloud-to-device messaging](../../iot-hub/iot-hub-devguide-messages-c2d.md)
 - [Device twins](../../iot-hub/iot-hub-devguide-device-twins.md)
-
-> [!NOTE]
-> Azure now supports
 
 The following table summarizes how Azure IoT Central device features map on to IoT Hub features:
 

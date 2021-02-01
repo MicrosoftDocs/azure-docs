@@ -1,6 +1,5 @@
 ---
-
-title: Manage streaming endpoints with Azure Media Services v3
+title: Manage streaming endpoints
 description: This article demonstrates how to manage streaming endpoints with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -8,16 +7,14 @@ author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.author: inhenkel 
-ms.custom: "devx-track-azurecli, devx-track-csharp"
-
+ms.author: inhenkel
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Manage streaming endpoints with  Media Services v3

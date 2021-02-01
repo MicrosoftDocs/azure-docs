@@ -36,7 +36,7 @@ For instance, you might have two resources that have two scopes each:
 - `https://mytenant.onmicrosoft.com/customerapi` with the scopes `customer.read` and `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` with the scopes `vendor.read` and `vendor.write`
 
-In this example, use the `.WithAdditionalPromptToConsent` modifier that has the `extraScopesToConsent` parameter.
+In this example, use the `.WithExtraScopesToConsent` modifier that has the `extraScopesToConsent` parameter.
 
 For instance:
 
