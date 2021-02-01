@@ -32,6 +32,8 @@
       href: custom-domain.md
     - name: Build and workflow configuration
       href: github-actions-workflow.md
+    - name: Deployment token management
+      href: deployment-token-management.md
 - name: How-to guides
   items:
     - name: Setup local development
