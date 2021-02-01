@@ -79,7 +79,7 @@ Learn more about these recommendations in the [security recommendations referenc
 
 **Estimated date for change:** Q2 2021
 
-The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be deprecated and replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
+The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
 
 - The recommendation will no longer affect your secure score
 - The security control ("Apply data classification") will no longer affect your secure score
