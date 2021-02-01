@@ -22,8 +22,6 @@ ms.author: bagol
 
 Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891), and also supports ingesting data from some sources without a dedicated connector. 
 
-For example, you can [collect telemetry from on-premises and IaaS servers](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Azure-Sentinel-Agent-Collecting-telemetry-from-on-prem-and-IaaS/ba-p/811760),  and [collect log files from Microsoft services and applications](https://techcommunity.microsoft.com/t5/Azure-Sentinel/Collecting-Azure-PaaS-services-logs-in-Azure-Sentinel/ba-p/792669).
-
 If you are unable to connect your data source to Azure Sentinel using any of the existing solutions available, consider creating your own data source connector using the methods described in this article.
 
 ## Azure Monitor Log Analytics agent
@@ -39,7 +37,7 @@ The Log Analytics agent is based on [Fluentd](https://www.fluentd.org/), and can
 - For more information about other collection roles supported by the Log Analytics agent, see the [Azure Sentinel Agent: Collecting from servers and workstations, on-prem and in the cloud
 ](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-agent-collecting-from-servers-and-workstations-on/ba-p/811760) blog.
 
-## Use Fluentd or Fluent Bit to create your connector
+## Use Fluentd or Fluent Bit with the Log Analytics agent
 
 If the Log Analytics agent is not flexible enough for your data source, you may want to use [Fluentd](https://www.fluentd.org/) directly or its lighter sibling, [Fluent Bit](https://docs.fluentbit.io/manual/) to create your custom connector.
 
