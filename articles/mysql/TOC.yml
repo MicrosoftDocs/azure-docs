@@ -559,19 +559,19 @@
       - name: Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migration
-    items:
-      - name: Migrate data with mysqldump or phpmyadmin
-        href: concepts-migrate-dump-restore.md
-        displayName: migrate, mysqldump
-      - name: Migrate data with MySQL Workbench
-        href: concepts-migrate-import-export.md
-        displayName: import , migrate, export
-      - name: Minimal downtime migration with DMS
-        href: howto-migrate-online.md
-        displayName: migrate, dms, database migration service
-      - name: Troubleshoot common errors
-        href: howto-troubleshoot-common-errors.md
-        displayName: SUPER privilege, DBA role, Access is denied
+  items:
+  - name: Migrate data with mysqldump or phpmyadmin
+    href: concepts-migrate-dump-restore.md
+    displayName: migrate, mysqldump
+  - name: Migrate data with MySQL Workbench
+    href: concepts-migrate-import-export.md
+    displayName: import , migrate, export
+  - name: Minimal downtime migration with DMS
+    href: howto-migrate-online.md
+    displayName: migrate, dms, database migration service
+  - name: Troubleshoot common errors
+    href: howto-troubleshoot-common-errors.md
+    displayName: SUPER privilege, DBA role, Access is denied
 - name: Reference
   items:
   - name: Azure CLI
