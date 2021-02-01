@@ -146,4 +146,4 @@ Perform the following steps to install StorSimple Migration tool on your compute
   
 
 ## Next steps
-Download the step-by-step instructions on how to [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Download the step-by-step instructions on how to [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).
