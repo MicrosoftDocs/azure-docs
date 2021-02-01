@@ -39,4 +39,4 @@ Access to the spatial analysis public preview is subject to Microsoft's sole dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Characteristics and limitations for spatial analysis](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Get started with Spatial Analysis Container](intro-to-spatial-analysis-public-preview.md)

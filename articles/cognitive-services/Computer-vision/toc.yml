@@ -41,8 +41,6 @@
     href: concept-generating-thumbnails.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-  - name: Spatial Analysis
-    href: intro-to-spatial-analysis-public-preview.md  
 - name: Responsible use of AI
   items:
   - name: Spatial Analysis
@@ -84,6 +82,8 @@
       displayName: container instances, container, containers, images
   - name: Spatial Analysis container
     items:
+    - name: Overview of Spatial Analysis 
+      href: intro-to-spatial-analysis-public-preview.md  
     - name: Setup the host machine and run the container
       href: spatial-analysis-container.md
     - name: Configure operations
