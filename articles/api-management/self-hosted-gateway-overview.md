@@ -45,7 +45,7 @@ The following functionality found in the managed gateways is **not available** i
 
 - Azure Monitor logs
 - Upstream (backend side) TLS version and cipher management
-- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. For more information, see [Using a custom CA](#using-a-custom-ca), later in this article.
+- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. For more information, see [Certificate validation in self-hosted gateway](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS session resumption
 - Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
@@ -78,7 +78,7 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 
 ## Using a custom CA
 
-When installed in its default configuration, the self-hosted gateway doesn't support validating server and client certificates using CA root certificates uploaded to an API Management instance. Clients presenting a custom certificate to the self-hosted gateway may experience slow responses, because certificate revocation list (CRL) validation can take a long time to time out on the gateway.
+When installed in its default configuration, the self-hosted gateway doesn't support validating server and client certificates using CA root certificates uploaded to an API Management instance. 
  
 ### Workaround 
  
