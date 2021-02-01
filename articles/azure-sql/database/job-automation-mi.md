@@ -5,13 +5,13 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
-devlangs:
+dev_langs:
     - TSQL 
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer:
-ms.date: 12/31/2020
+ms.date: 02/01/2021
 ---
 # Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
