@@ -78,10 +78,15 @@ Then, select **OK** to save the values and create the gateway subnet.
     | Name | Name your gateway. This isn't the same as naming a gateway subnet. It's the name of the gateway object you're creating.|
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the location isn't pointing to the region where your virtual network is, the virtual network won't appear in the 'Choose a virtual network' dropdown. |
     | Gateway type | Select **ExpressRoute**|
-    | SKU | Select the gateway SKU from the dropdown. *If you are planning to use IPv6-based private peering, select an AZ SKU.*|
+    | SKU | Select the gateway SKU from the dropdown. |
     | Virtual network | Select *TestVNet*. |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Provide a name for the public IP address. |
+
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku**.
+> 
+> 
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
 
