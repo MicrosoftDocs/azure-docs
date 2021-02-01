@@ -10,7 +10,7 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents from and to more than 70 languages while preserving source document structure and text formatting. Here, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting. Here, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-b
 
 ### Source and target SAS access tokens
 
-Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token as part of the query string.. The token can be assigned to your container or specific blobs.
+Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token as part of the query string. The token can be assigned to your container or specific blobs.
 
 * You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob.
 * You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
@@ -38,44 +38,25 @@ Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(S
 
 You can create SAS tokens for your entire containers or specific blobs:
 
-### [Create SAS access for containers](#tab/container)
+### [Create SAS access for each container](#tab/container)
 
-* Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
+>[!NOTE]
+> You'll need to create the SAS token for one container at a time.
 
-<!-- markdownlint-disable MD036 -->
-**Source container**  
+#### Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate to **your storage account** → **containers**
 
- **Your storage account** → **containers** and select your **source** container by selecting the adjacent box.
-
-* From the left rail menu under **Settings**, select **shared access signature**.
-
-* In the main window, make the following selections:
-
-  * **Allowed services** → select **Blob** and **File** (clear the Queue and Table check boxes).
-  * **Allowed resource types** →  select **Service** and **Container**.
-  * **Allowed permissions** → select **Read** and **List** only (clear the remaining permissions).
-  * Specify the signed key **Start** and **Expiry** times.
-  * The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
-  * The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
-  * Select your **Preferred routing tier**. The default value is Basic.
-  * You'll have the option of creating one or two shared access keys.
-
-**Target container**  
-
- **Your storage account** → **containers** and select your **target** container by selecting the adjacent box.
-
-* From the left rail menu under **Settings**, select **shared access signature**.
-
-* In the main window, make the following selections:
-
-  * **Allowed services** → select **Blob** and **File** (clear the Queue and Table check boxes).
-  * **Allowed resource types** →  select **Service** and **Container**.
-  * **Allowed permissions** → select **Write** and **List** only (clear the remaining permissions).
-  * Specify the signed key **Start** and **Expiry** times.
-  * The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
-  * The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
-  * Select your **Preferred routing tier**. The default value is Basic.
-  * You'll have the option of creating one or two shared access keys.
+|Source container|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Both containers|Target container|
+|---|---|--|
+|&#120783;. Choose your **source** container by selecting the adjacent box.||&#120783;. Choose your **target** container by selecting the adjacent box.|
+||&#120784;. From the left rail menu under **Settings**, select **shared access signature**.||
+||&#120785;.  In the main window, make the following selections:||
+||&#120786;. **Allowed services** → select **Blob** and **File** (clear the Queue and Table|| check boxes).
+||&#120787;. **Allowed resource types** →  select **Service** and **Container**.||
+|&#120788;. **Allowed permissions** → select **Read** and **List** only (clear the remaining permissions).||&#120788;. **Allowed permissions** → select **Write** and **List** only (clear the remaining permissions).|
+||&#120789;.. The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.||
+||&#120790;. The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS token. The default value is HTTPS.||
+||&#120791;. Select your **Preferred routing tier**. The default value is Basic.||
+||&#120783;&#120782;. You have the option of creating one or two shared access keys.||
 
 ### [Create SAS access for blobs](#tab/blob)
 
@@ -147,8 +128,8 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 |---|---|
 |**`sourceUrl`**| The URL for the container storing your uploaded source documents and the SAS token with read-only access.|
 |**`storageSource`**|The type of cloud storage. Currently, only **"AzureBlob"** is supported. |
-|**`filter`**   |Filter definitions:</br>&emsp;&bullet; **prefix**—To filter files and/or folders (optional). </br>&emsp;&bullet; **suffix**—To filter files and/or folders (optional).  |
-|**`language`**   | language of source documents  |
+|**`language`**   | Language of source documents  |
+|**`filter`**   |**Optional**: Filter definitions:</br>&emsp;&bullet; **prefix**—To filter files and/or folders (optional). </br>&emsp;&bullet; **suffix**—To filter files and/or folders (optional).  |
 
 #### Targets array object
 
@@ -248,9 +229,9 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Java source files (e.g., _sample.java_) live in src/main/**java**.
+* Java source files (for example, _sample.java_) live in src/main/**java**.
 
-* In your root directory (*sample-project*),  initialize your project with Gradle:
+* In your root directory (for example, *sample-project*),  initialize your project with Gradle:
 
 ```powershell
 gradle init --type basic
@@ -862,7 +843,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 
 |Property|value|
 |---|---|
-|**format**|Format for the file, e.g., .txt, .docx.|
+|**format**|The file format.|
 |**fileExtensions**| List of supported file extensions.|
 |**contentType**| List of supported content types.|
 |**versions**|List of supported content type versions.|
@@ -887,7 +868,7 @@ GET /storagesources/
 
 ## Data Limits
 
-The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, you can divide the file contents into smaller blobs prior to sending your API requests.
+The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, divide the file contents into smaller blobs prior to sending requests.
 
 |Attribute | Limit|
 |---|---|
