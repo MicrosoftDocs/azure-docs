@@ -49,7 +49,7 @@ az vmss list-instances --resource-group MyResourceGroup --name myScaleSet --outp
 
 # See the disks for your virtual machine
 az disk list --resource-group MyResourceGroup \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+    --query "[*].{Name:name,Gb:diskSizeGb,Tier:accountType}" --output table
 
 # Deallocate the virtual machine
 az vmss deallocate --resource-group MyResourceGroup --name myScaleSet --instance-ids 0 
@@ -67,7 +67,7 @@ This example resized a data disk. You can use this same procedure to update an O
 
 ```azurecli
 # Enable managed service identity on your scale set. This is required to authenticate and interact with other Azure services using bearer tokens.
-az vmss identity assign --resource-group MyResourceGroup --name MyScaleSet --role Owner \
+az vmss identity assign --resource-group MyResourceGroup --name myScaleSet --role Owner \
     --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup
 
 # Connect to Azure AD authentication
