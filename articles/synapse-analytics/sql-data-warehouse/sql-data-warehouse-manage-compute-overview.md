@@ -117,7 +117,7 @@ To check the dedicated SQL pool (formerly SQL DW) state, see the [PowerShell](qu
 
 ## Permissions
 
-Scaling the dedicated SQL pool (formerly SQL DW) requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Pause and Resume require the [SQL DB Contributor](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
+Scaling the dedicated SQL pool (formerly SQL DW) requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Pause and Resume require the [SQL DB Contributor](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
 
 ## Next steps
 

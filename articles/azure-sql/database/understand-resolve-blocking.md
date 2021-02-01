@@ -344,7 +344,7 @@ The following scenarios will expand on these scenarios.
     After sending a query to the server, all applications must immediately fetch all result rows to completion. If an application does not fetch all result rows, locks can be left on the tables, blocking other users. If you are using an application that transparently submits SQL statements to the server, the application must fetch all result rows. If it does not (and if it cannot be configured to do so), you may be unable to resolve the blocking problem. To avoid the problem, you can restrict poorly behaved applications to a reporting or a decision-support database.
     
     > [!NOTE]
-    > See [guidance for retry logic](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
+    > See [guidance for retry logic](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
     
     **Resolution**: The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
 
@@ -370,7 +370,7 @@ The following scenarios will expand on these scenarios.
 
 ## See also
 
-* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/monitor-tune-overview.md)
+* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview)
 * [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Transaction Locking and Row Versioning Guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

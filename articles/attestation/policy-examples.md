@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy.
 
-## Default policy for an SGX enclave in text format
+## Default policy for an SGX enclave 
 
 ```
 version= 1.0;
@@ -34,26 +34,17 @@ issuancerules
 };
 ```
 
-## Sample custom policy for an SGX enclave in text format
+## Sample custom policy for an SGX enclave 
 
 ```
-Version= 1.0;
-authorizationrules 
+version= 1.0;
+authorizationrules
 {
        [ type=="x-ms-sgx-is-debuggable", value==false ]
         && [ type=="x-ms-sgx-product-id", value==<product-id> ]
         && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"] 
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
     => permit();
-};
-issuancerules
-{
-	c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
-	c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
-	c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
-	c:[type=="x-ms-sgx-product-id"] => issue(type="product-id", value=c.value);
-	c:[type=="x-ms-sgx-svn"] => issue(type="svn", value=c.value);
-	c:[type=="x-ms-sgx-tee"] => issue(type="tee", value=c.value);
 };
 ```
 
