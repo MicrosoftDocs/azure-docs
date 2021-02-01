@@ -39,6 +39,8 @@
       items:
       - name: SQL maintenance window
         href: database/sql-maintenance-window.md
+      - name: Configure SQL maintenance window
+        href: database/sql-maintenance-window-configure.md
       - name: SQL Maintenance window FAQ
         href: database/sql-maintenance-window-faq.yml
       - name: Advance notifications
