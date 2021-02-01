@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
+ms.custom: references_regions
 
 ---
 
@@ -98,7 +99,7 @@ Currently the point in time restore functionality is in public preview and it ha
 
 * An existing account with default periodic backup policy cannot be converted to use continuous backup mode.
 
-* Accounts with government and national regions are not yet supported.
+* Azure sovereign and Azure Government cloud regions not yet supported.
 
 * Accounts with customer-managed keys are not supported to use continuous backup.
 
