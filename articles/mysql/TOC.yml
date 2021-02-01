@@ -245,12 +245,13 @@
         href: ./security-controls-policy.md
         displayName: regulatory, compliance, standards, domains
   - name: High Availability
-       - name: Business continuity intro
-         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
-         href: concepts-business-continuity.md
-       - name: High availability
-         href: concepts-high-availability.md
-         displayName: backup, restore,high availability
+    items:
+        - name: Business continuity intro
+          displayName: backup, restore, backups, restores, georestore, geo-restore, outage
+          href: concepts-business-continuity.md
+        - name: High availability
+          href: concepts-high-availability.md
+          displayName: backup, restore,high availability
   - name: Server Management 
     items:
         - name: Servers
@@ -302,7 +303,7 @@
               href: howto-move-regions-portal.md
               displayName: move servers across regions
    - name: Backup & Restore
-       items:
+     items:
        - name: Backups
          href: concepts-backup.md
          displayName: backup, restore, backups, restores, georestore, geo-restore, outage
