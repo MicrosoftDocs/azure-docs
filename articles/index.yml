@@ -531,7 +531,7 @@ productDirectory:
       azureCategories:
         - compute
         - featured
-      url: quantum/index.yml
+      url: /azure/quantum/
     # Card
     - title: Azure Spring Cloud
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
