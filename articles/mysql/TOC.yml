@@ -437,13 +437,6 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
-      - name: Database deployment
-        items:
-          - name: GitHub Actions
-            href: quickstart-mysql-github-actions.md
-      - name: Create databases and users
-        href: howto-create-users.md
-        displayName: users
   - name: Tutorials
     items:
     - name : WordPress on Azure Kubernetes
