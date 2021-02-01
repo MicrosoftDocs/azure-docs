@@ -88,7 +88,10 @@ The following classes and interfaces handle some of the major features of the Az
 
 Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Calling and Chat Providers. These providers are incharge of maintaining the context of the call and chat experiences. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do get access tokens, see: [create and manage access tokens](./../access-tokens.md).
 
-UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs, or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. For more information, see: [Client Server Architecture](./../../concepts/client-and-server-architecture.md).
+> [!NOTE]
+> The components don't generate access tokens, group IDs, or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. For more information, see: [Client Server Architecture](./../../concepts/client-and-server-architecture.md).
+> 
+> For Example: The Chat Provider expects that the `userId` associated to the `token` being used to initialize it has already been joined to the `threadId` being provided. If the token hasn't been joined to the thread ID, then the Chat Provider will fail. For more information on chat, see: [Getting Started with Chat](./../chat/get-started.md)
 
 We'll use a Fluent UI theme to enhance the look and feel of the application:
 
@@ -118,16 +121,16 @@ function App(props) {
         <CallingProvider
         displayName={/*Insert Display Name to be used for the user*/}
         groupId={/*Insert GUID for group call to be joined*/}
-        userId={/*Insert the Azure Communication Services user id */}
         token={/*Insert the Azure Communication Services access token*/}
         refreshTokenCallback={/*Optional, Insert refresh token call back function*/}
         >
             // Add Calling Components Here
         </CallingProvider>
 
+        {/*Note: Make sure that the userId associated to the token has been added to the provided threadId*/}
+
         <ChatProvider
         token={/*Insert the Azure Communication Services access token*/}
-        userId={/*Insert the Azure Communication Services user id*/}
         displayName={/*Insert Display Name to be used for the user*/}
         threadId={/*Insert id for group chat thread to be joined*/}
         endpointUrl={/*Insert the environment URL for the Azure Resource used*/}
@@ -152,7 +155,7 @@ For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For mo
 `callingComponents.js`
 ```javascript
 
-import {MediaGallery, MediaControls, useGroupCall, MapToCallingSetupProps, connectFuncsToContext} from "@azure/acs-ui-sdk"
+import {MediaGallery, MediaControls, MapToCallConfigurationProps, connectFuncsToContext} from "@azure/acs-ui-sdk"
 
 function CallingComponents(props) {
 

@@ -71,7 +71,6 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| Provider| Fluent UI provider that lets you modify underlying Fluent UI components|
 | GroupCall | Composite component that renders a group calling experience with participant gallery and controls. |
 | GroupChat | Composite component that renders a group chat experience with chat thread and input |
 
@@ -80,31 +79,22 @@ The following classes and interfaces handle some of the major features of the Az
 
 Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Composite Components for Group Chat and Calling. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do get access tokens, see: [create and manage user access tokens](./../access-tokens.md).
 
-UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs, or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. For more information, see: [Client Server Architecture](./../../concepts/client-and-server-architecture.md).
+> [!NOTE]
+> The components don't generate access tokens, group IDs, or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. For more information, see: [Client Server Architecture](./../../concepts/client-and-server-architecture.md).
+> 
+> For Example: The Group Chat composite expects that the `userId` associated to the `token` being used to initialize it has already been joined to the `threadId` being provided. If the token hasn't been joined to the thread ID, then the Group Chat composite will fail. For more information on chat, see: [Getting Started with Chat](./../chat/get-started.md)
+
 
 `App.js`
 ```javascript
 
 import {GroupCall, GroupChat} from "@azure/acs-ui-sdk"
-import { Provider, mergeThemes, teamsTheme, } from '@fluentui/react-northstar';
-import { svgIconStyles } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconStyles';
-import { svgIconVariables } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconVariables';
-import * as siteVariables from '@fluentui/react-northstar/dist/es/themes/teams/siteVariables';
-
-const iconTheme = {
-  componentStyles: {
-    SvgIcon: svgIconStyles
-  },
-  componentVariables: {
-    SvgIcon: svgIconVariables
-  },
-  siteVariables
-};
 
 function App(){
 
     return(
-        <Provider theme={mergeThemes(iconTheme, teamsTheme)}>
+        {/* Example styling provided, developers can provide their own styling to position and resize components */}
+        <div style={{height: "30rem", width="50rem"}}>
             <GroupCall
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
@@ -114,7 +104,10 @@ function App(){
                     //Optional, Action to be performed when the call ends
                 }}
             />
+        </div>
 
+            {/*Note: Make sure that the userId associated to the token has been added to the provided threadId*/}
+        <div style={{height: "30rem", width="20rem"}}>
             <GroupChat 
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
@@ -131,8 +124,7 @@ function App(){
                     sendBoxMaxLength: number | undefined //Optional, Limit the max send box length based on viewport size change.
                 }}
             />
-
-        </Provider>
+        </div>
     );
 }
 
