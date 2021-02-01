@@ -75,22 +75,12 @@ There are three types of certificates used for your deployment setup:
 
 - **Intermediate CA Certificate (CA Certificate)**
 
-   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that the certificate is not signed by a recognized authority and asks the user if they wish to continue communications with unverified site.
 - **Server Certificate (Website certificate)**
-
-   A certificate associated with to specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
-   - The website address matches the address on the certificate.
-   - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
 
 - **Root CA Certificate (root certificate)**
 
-   A certificate authority can issue multiple certificates in the form of a tree structure. A root certificate is the top-most certificate of the tree.
+For addition details about certificates used by Azure Firewall Premium Preview, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
 
-As shown in the following diagram, Azure Firewall Premium Preview serves as man-in-the-middle and in Step 4 auto-generates a server certificate for www.website.com. This certificate is generated using the CA certificate provided by the customer.
-
-An end-user must have a Root CA certificate installed on their client to ensure the server certificate is signed by the trusted CA. 
-
-:::image type="content" source="media/premium-deploy/certificate-process.png" alt-text="Certificate process":::
 
 To configure the certificates to test with, do the following:
 

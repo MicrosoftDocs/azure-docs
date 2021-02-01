@@ -18,6 +18,28 @@ ms.author: victorh
 
  To properly configure Azure Firewall Premium Preview TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
 
+## Certificates used by Azure Firewall Premium Preview
+
+There are three types of certificates used in a typical deployment:
+
+- **Intermediate CA Certificate (CA Certificate)**
+
+   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that the certificate is not signed by a recognized authority and asks the user if they wish to continue communications with unverified site.
+
+- **Server Certificate (Website certificate)**
+
+   A certificate associated with to specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
+   - The website address matches the address on the certificate.
+   - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
+
+- **Root CA Certificate (root certificate)**
+
+   A certificate authority can issue multiple certificates in the form of a tree structure. A root certificate is the top-most certificate of the tree.
+
+Azure Firewall Premium Preview can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
+
+:::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Certificate process":::
+
 ## Intermediate CA certificate requirements
 
 Ensure your CA certificate complies with the following requirements:
@@ -37,6 +59,27 @@ Ensure your CA certificate complies with the following requirements:
 - The `CA` flag must be set to TRUE.
 
 - The Path Length must be greater than or equal to one.
+
+## Configure a certificate in your policy
+
+To configure a CA certificate in your Firewall Premium policy, select your policy and then select **TLS inspection (preview)**. Select **Enabled** on the **TLS inspection** page. Then select your CA certificate in Azure Key Vault, as shown in the following figure:
+
+:::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Azure Firewall Premium overview diagram":::
+ 
+## Azure Key Vault
+
+[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
+ 
+To configure your key vault:
+
+- You need to import an existing certificate with its key pair into your key vault. 
+- Alternatively, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file.  A PFX file is a digital certificate containing both private key and public key.
+- It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
+- After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
+- The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
+
+You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
+
 
 ## Troubleshooting
 
