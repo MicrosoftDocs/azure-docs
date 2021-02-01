@@ -218,12 +218,6 @@ Content-Length: YOUR-CONTENT-LENGTH
 * Copy pasted the code below into your project.
 * Set your endpoint. subscription key, and container URL values.
 * Run the program.
-  
-### [Java](#tab/java)
-
-* Create a working directory for your project. For example: `mkdir sample-project`.
-* Initialize your project with Gradle: `gradle init --type basic`. When prompted to choose a **DSL**, select **Kotlin**.
-* Update `build.gradle.kts`. Keep in mind that you'll need to update your `mainClassName` depending on the sample.
 
 ### [Python](#tab/python)  
 
@@ -231,6 +225,35 @@ Content-Length: YOUR-CONTENT-LENGTH
 * Copy and paste the code from one of the samples into your project.
 * Set your endpoint. subscription key, and container URL values.
 * Run the program. For example: `python translate.py`.
+  
+### [Java](#tab/java)
+
+* Create a working directory for your project. For example:
+
+```powershell
+mkdir sample-project
+```
+
+* In your project directory, create the following subdirectory structure:  
+
+  src</br>
+&emsp; └ main</br>
+&emsp;&emsp;&emsp;└ java
+
+```powershell
+mkdir -p src/main/java/
+```
+
+* Java source files live in src/main/**java**
+
+* In your root directory (*sample-project*),  initialize your project with Gradle: 
+
+```powershell
+gradle init --type basic
+```
+
+* When prompted to choose a **DSL**, select **Kotlin**.
+* Update the `build.gradle.kts`  file. Keep in mind that you'll need to update your `mainClassName` depending on the sample:
 
   ```java
   plugins {
@@ -248,8 +271,13 @@ Content-Length: YOUR-CONTENT-LENGTH
   }
   ```
 
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
-* Run the sample: `gradle run`.
+* Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
+*Build and run the sample:
+
+```powershell
+gradle build
+gradle run
+```
 
 ### [Go](#tab/go)  
 
@@ -263,7 +291,7 @@ Content-Length: YOUR-CONTENT-LENGTH
 
 ---
 
-## Translate documents via a POST request
+## Translate documents via HTTP POST
 
 > [!IMPORTANT]
 >
@@ -536,7 +564,7 @@ The **Operation-Location** header will consist of the `sourceURL` and the `jobID
 
 >> **Ex:** https://<span></span>your-service-endpoint/batches/**1c74f0e7-3920-4320-8779-2c5309777ft**
 
-## Submit a job and document status request (GET)
+## Retrieve job and document status via HTTP GET
 
 ### [C#](#tab/csharp)
 
@@ -716,12 +744,8 @@ Retrieve a list and current status for all jobs in a document translation reques
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/batches/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-TRANSLATOR-SUBSCRIPTION-KEY`
+GET /batches/
 ```
-
-
 
 ### GET Job Status
 
@@ -732,9 +756,7 @@ Retrieve  the current status for a single job and a summary of all jobs in a doc
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/batches/{jobId}
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET /batches/{jobId}
 ```
 
 ### DELETE Job
@@ -746,14 +768,12 @@ Cancel currently processing or queued job.
 #### HTTP request
 
 ```http
-DELETE YOUR-ENDPOINT-QUERY-STRING/batches/{jobId}/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+DELETE /batches/{jobId}/
 ```
 
 #### Response
 
-All documents for which translation hasn't started will be canceled, if possible.
+If possible, all documents for which translation hasn't started will be canceled.
 
 #### Response: GET Jobs, GET Job Status, and DELETE Job
 
@@ -777,9 +797,7 @@ Retrieve the status of all documents in a document translation request.
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/batches/{jobId}/documents/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET /batches/{jobId}/documents/
 ```
 
 ### GET Document Status
@@ -791,9 +809,7 @@ Retrieve the status of a specific document in a document translation request.
 #### HTTP request
 
 ```http
-GET  YOUR-ENDPOINT-QUERY-STRING/batches/{jobId}/document/{documentId}
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET  /batches/{jobId}/document/{documentId}
 ```
 
 #### Response: GET Documents and GET Document Status
@@ -820,12 +836,10 @@ Retrieve a list of supported document formats.
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/documents/formats/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET /documents/formats/
 ```
 
-### GET Glossary Formats 
+### GET Glossary Formats
 
 #### Brief overview
 
@@ -834,10 +848,9 @@ Retrieve a list of supported glossary formats.
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/glossaries/formats/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET /glossaries/formats/
 ```
+
 #### Response: GET Document Formats and GET Glossary Formats
 
 If successful, these methods return a `200 OK` response code and a JSON object with the following values:
@@ -858,9 +871,7 @@ Retrieve a list of supported storage sources.
 #### HTTP request
 
 ```http
-GET YOUR-ENDPOINT-QUERY-STRING/storagesources/
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
+GET /storagesources/
 ```
 
 #### Response: GET Storage Sources
@@ -869,7 +880,9 @@ Ocp-Apim-Subscription-Key: YOUR-RESOURCE-SUBSCRIPTION-KEY
 |---|---|
 |**value**|List of supported storage sources (currently only AzureBlob is supported by the service).|
 
-## Request Limits
+## Data Limits
+
+The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, you can divide the file contents into smaller blobs prior to using the APIs.
 
 |Attribute | Limit|
 |---|---|
