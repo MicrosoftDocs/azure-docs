@@ -21,17 +21,17 @@ This article shows you how to configure a [blob indexer](search-howto-indexing-a
 
 The blob indexer provides a **`parsingMode`** parameter on the request to optimize the output based on the structure of the JSON input. Output is a search document, which can be conceptualized as a single item in search results. Parsing modes consist of the following options:
 
-| parsingMode | JSON document | Description | Availability |
-|--------------|-------------|--------------|--------------|
-| **`json`** | One per blob | (default) Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single search document. | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
-| **`jsonArray`** | Multiple per blob | Parses a JSON array in the blob, where each element of the array becomes a separate search document.  | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
-| **`jsonLines`** | Multiple per blob | Parses a blob that contains multiple JSON entities (also an array), with individual elements separated by a newline. The indexer starts a new search document after each new line. | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
+| parsingMode | JSON document | Description |
+|--------------|-------------|--------------|
+| **`json`** | One per blob | (default) Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single search document. |
+| **`jsonArray`** | Multiple per blob | Parses a JSON array in the blob, where each element of the array becomes a separate search document.  |
+| **`jsonLines`** | Multiple per blob | Parses a blob that contains multiple JSON entities (also an array), with individual elements separated by a newline. The indexer starts a new search document after each new line. |
 
-For both **`jsonArray`** and **`jsonLines`**, review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
+For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
-Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
+Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a **`document root`** property indicating where the array is placed within the blob.
 
-The following sections describe each mode in more detail. If you are unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md).
+The following sections describe each mode in more detail. If you are unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with [blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
 <a name="parsing-single-blobs"></a>
 
@@ -175,7 +175,8 @@ You can also refer to individual array elements by using a zero-based index. For
 
 ## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs with Azure Cognitive Search blob indexer](search-howto-index-csv-blobs.md)
++ [Configure blob indexers](search-howto-indexing-azure-blob-storage.md)
++ [Define field mappings](search-indexer-field-mappings.md)
++ [Indexers overview](search-indexer-overview.md)
++ [How to index CSV blobs with a blob indexer](search-howto-index-csv-blobs.md)
 + [Tutorial: Search semi-structured data from Azure Blob storage](search-semi-structured-data.md)
