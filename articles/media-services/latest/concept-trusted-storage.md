@@ -17,7 +17,7 @@ When you create a Media Services account, you must associate it with a storage a
 
 However, if you want to use a firewall to secure your storage account and enable trusted storage, you must use [Managed Identities](concept-managed-identities.md) authentication. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.
 
-To understand the methods of creating trusted storage with Managed Identities, read [Managed Identities and Media Services](concept-manged-identities.md).
+To understand the methods of creating trusted storage with Managed Identities, read [Managed Identities and Media Services](concept-managed-identities.md).
 
 For more information about customer managed keys and Key Vault, see [Bring your own key (customer-managed keys) with Media Services](concept-use-customer-managed-keys-byok.md)
 
