@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ---
 
 # What's new in Azure Sentinel
@@ -22,9 +22,30 @@ For information about earlier features delivered , see our [Tech Community blogs
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
 
-## Dedicated clusters for Azure Sentinel
+## January 2021
 
-**Released**: Jan 18, 2021
+- [SQL database connector](#sql-database-connector)
+- [Improved incident comments](#improved-incident-comments)
+- [Dedicated clusters for Azure Sentinel](#dedicated-clusters-for-azure-sentinel)
+- [Managed Identity for the Azure Sentinel Logic Apps connector](#managed-identity-for-the-azure-sentinel-logic-apps-connector)
+- [Improved rule tuning with the analytics rule preview graphs (public preview)](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
+
+### SQL database connector
+
+Azure Sentinel now provides an Azure SQL database connector, which you to stream your databases' auditing and diagnostic logs into Azure Sentinel and continuously monitor activity in all your instances.
+
+Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
+
+For more information, see [Connect Azure SQL database diagnostics and auditing logs](connect-azure-sql-logs.md).
+
+### Improved incident comments
+
+Analysts use incident comments to collaborate on incidents, documenting processes and steps manually or as part of a playbook. 
+
+Our improved incident commenting experience enables you to format your comments, as well as edit or delete existing comments.
+
+For more information, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
+### Dedicated clusters for Azure Sentinel
 
 Azure Sentinel now supports dedicated Log Analytics clusters as a deployment option. We recommend considering a dedicated cluster if you:
 
@@ -55,7 +76,7 @@ The following image illustrates the differences between using separate, individu
 
 :::image type="content" source="media/whats-new/dedicated-cluster-compare.png" alt-text="Compare individual workspaces to multiple workspaces on a dedicated cluster":::
 
-### Considering migrating to a dedicated cluster?
+#### Considering migrating to a dedicated cluster?
  
 There are some considerations and limitations for using dedicated clusters:
 
@@ -77,9 +98,7 @@ There are some considerations and limitations for using dedicated clusters:
 
 For more information, see the [Azure Monitor documentation](/azure/azure-monitor/log-query/logs-dedicated-clusters).
 
-## Managed Identity for the Azure Sentinel Logic Apps connector
-
-**Released** Jan 17, 2021
+### Managed Identity for the Azure Sentinel Logic Apps connector
 
 Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions to a directly to a specific playbook to operate on Azure Sentinel instead of creating additional identities.
 
@@ -104,7 +123,7 @@ For more information, see:
 - [Authenticating with Managed Identity in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 - [Azure Sentinel Logic Apps connector documentation](/connectors/azuresentinel) 
 
-## Improved rule tuning with the analytics rule preview graphs (public preview)
+### Improved rule tuning with the analytics rule preview graphs (public preview)
 
 **Released** Jan 5, 2021
 
@@ -123,9 +142,11 @@ In this graph:
 
 For more information, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 
-## 80 new built-in hunting queries
 
-**Released** Dec 7, 2020
+## December 2020
+
+- [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
+### 80 new built-in hunting queries
  
 Azure Sentinel's built-in hunting queries empower SOC analysts to reduce gaps in current detection coverage and ignite new hunting leads.
 
@@ -148,9 +169,11 @@ If, after running these queries, you are confident with the results, you may wan
 
 All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 
-## Monitor your Logic Apps Playbooks in Azure Sentinel
+## November 2020
 
-**Released** Nov 10, 2020
+- [Monitor your Logic Apps Playbooks in Azure Sentinel](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Microsoft 365 Defender connector (Public preview)](#microsoft-365-defender-connector-public-preview)
+### Monitor your Logic Apps Playbooks in Azure Sentinel
 
 Azure Sentinel now integrates with [Azure Log Apps](/azure/logic-apps/), a cloud service that helps you schedule, automate, and orchestrate tasks, business processes, and workflows.
 
@@ -166,10 +189,7 @@ The **Playbooks health monitoring** workbook is now available in the Azure Senti
 
 :::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Sample Playbooks health monitoring workbook":::
 
-
-
-
-### Playbooks health monitoring workbook insights
+#### Playbooks health monitoring workbook insights
 
 The **Playbooks health monitoring** workbook provides the following insights:
 
@@ -184,7 +204,7 @@ The **Playbooks health monitoring** workbook provides the following insights:
 > When switching between tabs in the **Playbooks health monitoring** workbook, refresh each tab to show updated data.
 >
 
-### Playbooks health monitoring workbook configuration requirements
+#### Playbooks health monitoring workbook configuration requirements
 
 - **Logic Apps configuration**: For the **Playbooks health monitoring** workbook to display data, you must enable diagnostic settings for any Logic Apps you want to monitor. 
 
@@ -197,10 +217,8 @@ The **Playbooks health monitoring** workbook provides the following insights:
     For more information, see the [Azure Monitor documentation](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
  
 
-## Microsoft 365 Defender connector (Public preview)
+### Microsoft 365 Defender connector (Public preview)
  
-**Released** Nov 9, 2020
-
 The Microsoft 365 Defender connector for Azure Sentinel enables you to stream advanced hunting logs (a type of raw event data) from Microsoft 365 Defender into Azure Sentinel. 
 
 With the integration of [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/) into the [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) security umbrella, you can now collect your Microsoft Defender for Endpoint advanced hunting events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. 
