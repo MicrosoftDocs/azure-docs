@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-:::image type="content" source="../media/ui framework/pre-and-custom-composite.png" alt-text="Comparison between pre-built and custom composites":::
+:::image type="content" source="../media/ui-framework/pre-and-custom-composite.png" alt-text="Comparison between pre-built and custom composites":::
 
 Azure Communication Services UI Framework makes it easy for you to build modern communications user experiences. It gives you a library of production-ready UI components that you can drop into your applications:
 
@@ -27,11 +27,11 @@ These UI client libraries all use [Microsoft's Fluent design language](https://d
 
 **Base Components** are built on top of core Azure Communication Services client libraries and implement basic actions such as initializing the core client libraries, rendering video, and providing user controls for muting, video on/off, etc. You can use these **Base Components** to build your own custom layout experiences using pre-built, production ready communication components.
 
-:::image type="content" source="../media/ui framework/component-overview.png" alt-text="Overview of component for UI Framework":::
+:::image type="content" source="../media/ui-framework/component-overview.png" alt-text="Overview of component for UI Framework":::
 
 **Composite Components** combine multiple **Base Components** to create more complete communication experiences. These higher-level components can be easily integrated into an existing app to drop a fully fledge communication experience without the task of building it from scratch. Developers can concentrate on building the surrounding experience and flow desired into their apps and leave the communications complexity to Composite Components.
 
-:::image type="content" source="../media/ui framework/composite-overview.png" alt-text="Overview of composite for UI Framework":::
+:::image type="content" source="../media/ui-framework/composite-overview.png" alt-text="Overview of composite for UI Framework":::
 
 ## What UI Framework is best for my project?
 
@@ -71,7 +71,7 @@ An Azure Communication Services identity is required to initialize the UI Framew
 
 ## Recommended architecture 
 
-:::image type="content" source="../media/ui framework/framework-architecture.png" alt-text="UI Framework recommended architecture with client-server architecture ":::
+:::image type="content" source="../media/ui-framework/framework-architecture.png" alt-text="UI Framework recommended architecture with client-server architecture ":::
 
 Composite and Base Components are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
 trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
