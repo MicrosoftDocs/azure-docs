@@ -81,7 +81,7 @@ In this scenario, a single capacity pool named pool includes three volumes named
  
 Vol2 is overcommitted, so the used capacity exceeds the set volume quota.
 
-Before the change, the usable(available) space for each volume would be represented at 100 TiB, and total capacity pool usable space would appear (and automatically grow to) 300 TiB as follows:
+Before the change, the usable (available) space for each volume would be represented at 100 TiB, and total capacity pool usable space would appear (and automatically grow to) 300 TiB as follows:
 
  
 Vol2 can be overcommitted because the usable capacity for this volume is 100 TiB per the current logic. More capacity pool has been provisioned to accommodate both the provisioned (quota) and used volume capacities.
