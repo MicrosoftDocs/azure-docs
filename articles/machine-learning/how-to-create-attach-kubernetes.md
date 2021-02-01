@@ -65,7 +65,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
-- Azure Machine Learning deployments overwrite any customizations you may have manually made by updating the YAML configuration for the cluster. The only two YAML fields that are not overwritten are __request limits__ and and __cpu and memory__.
+- __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and and __cpu and memory__.
 
 ## Azure Kubernetes Service version
 
@@ -378,7 +378,6 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 ---
 
 ## Troubleshooting
-
 ### Update the cluster
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
