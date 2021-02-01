@@ -31,7 +31,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 >[!NOTE]
 >If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) before you can create and configure an NSX-T segment.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments (Preview)** and then **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments (Preview)** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
 
@@ -46,12 +46,14 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
       - **T1** - Name of the Tier-1 gateway in NSX-T Manager. An Azure VMware Solution private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
       - **Type** - Overlay segment supported by Azure VMware Solution.
 
-1. Select **OK** to create the segment and attach it to the Tier-1 gateway. The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
+1. Select **OK** to create the segment and attach it to the Tier-1 gateway. 
+
+   The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
 
 ## Create a DHCP server or DHCP relay in the Azure portal
 You can create a DHCP server or relay directly from the Azure VMware Solution console in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway, which gets created when you deploy Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP.  After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP (Preview)** and then **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP (Preview)** > **Add**.
 
 2. Select either **DHCP Server** or **DHCP Relay**.
 
@@ -126,7 +128,7 @@ You'll configure a default DNS zone and FQDN zone to send DNS queries to the ups
 >[!NOTE]
 >A default DNS zone must be defined before you configure an FQDN zone. 
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking** > **DNS (Preview)** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS (Preview)** > **DNS zones** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones and a DNS service.":::
 
@@ -152,7 +154,7 @@ You'll configure a default DNS zone and FQDN zone to send DNS queries to the ups
 
 ### Step 2. Configure DNS service
 
-1. Select **DNS service** > **Add** and provide:
+1. Select the **DNS service** tab, select **Add** and then provide:
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Screenshot showing the information required for the DNS service.":::
 
