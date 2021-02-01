@@ -77,7 +77,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host. Specify the following:
 
-* Create a standard zone redundant public IP address named **myBastionIP**
+* Create a standard zone-redundant public IP address named **myBastionIP**
 * In **CreateIntLBQS-rg**
 
 ```azurecli-interactive
@@ -365,7 +365,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host. Specify the following:
 
-* Create a standard zone redundant public IP address named **myBastionIP**
+* Create a standard zone-redundant public IP address named **myBastionIP**
 * In **CreateIntLBQS-rg**
 
 ```azurecli-interactive
