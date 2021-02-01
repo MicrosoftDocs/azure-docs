@@ -707,15 +707,18 @@
       href: create-data-lake-storage-account.md
     - name: Migrate
       items:
-      - name: Migrate from Data Lake Storage Gen1
-        href: data-lake-storage-migrate-gen1-to-gen2.md
-      - name: Managed migration tool (Gen1 to Gen2)
-        href: managed-migration-tool.md
-      - name: Migrate an on-premises HDFS store
-      - name: Migrate an HDFS store offline
-        href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-      - name: Migrate an HDFS store online
-        href: migrate-gen2-wandisco-live-data-platform.md
+      - name: Data Lake Storage Gen1
+        items:
+        - name: Migrate from Gen1
+          href: data-lake-storage-migrate-gen1-to-gen2.md
+        - name: Lift and shift with managed migration
+          href: managed-migration-tool.md
+      - name: HDFS stores
+        items:
+        - name: Migrate a store offline
+          href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+        - name: Migrate a store online
+          href: migrate-gen2-wandisco-live-data-platform.md
     - name: Manage
       items:
       - name: .NET

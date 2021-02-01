@@ -1,5 +1,5 @@
 ---
-title: Managed migration tool (Azure Data Lake Storage Gen1)
+title: Microsoft managed migration (Azure Data Lake Storage Gen1 to Gen2)
 description: Use an automation tool to migrate Azure Data Lake Storage from Gen1 to Gen2.
 author: normesta
 ms.topic: how-to
@@ -10,18 +10,27 @@ ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the managed migration tool
+# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using Microsoft managed migration
 
-The managed migration tool moves data and metadata from Data Lake Storage Gen1 to Data Lake Storage Gen2. There's no immediate need to update your workloads and applications. Your workloads can continue to point to your Gen1 account because requests will be redirected to your Gen2 enabled account. Your applications can continue using Gen1 APIs because of a server side compatibility layer which translates requests from Gen1 to Gen2. As time permits, you can update workloads and applications to use Gen2 endpoints. This tool along with the compatibility layer is designed to make migration easier and reduce downtime while you calibrate your ecosystem to Gen2.
+You can migrate to Gen2 more easily by using *Microsoft managed migration*; a data migration tool and API compatibility layer. 
 
-To migrate to Gen2 by using the managed migration tool, we recommend the following 
+Managed migration reduces the number of steps required by you to complete a migration. You won't have to configure a separate tool to move your data, and your workloads and applications can continue working with minimal modifications. 
 
-Before you run this tool, read the general guidance and workflows described in this article: [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
+You won't have to point workloads to your Gen2 enabled account because requests are redirected to Gen2. Applications can continue using Gen1 APIs because a server-side compatibility layer translates requests from Gen1 to Gen2.  
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2. 
 
-## Create a storage account with Gen2 capabilities
+This article guides through the following tasks:
+
+Step 1: Create a storage account that has Gen2 capabilities
+Step 2: Run the managed migration tool
+Step 3. Test your applications
+Step 4: Complete the migration
+
+Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
+
+## Create a storage account that has Gen2 capabilities
 
 The first step is to create a storage account to use with Gen2. Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. Gen2 capabilities are supported in the following types of storage accounts:
 
@@ -30,7 +39,7 @@ The first step is to create a storage account to use with Gen2. Gen2 is not a de
 
 For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
 
-Create either a [general-purpose V2 account](../common/storage-account-create.md) or a [BlockBlobStorage](storage-blob-create-account-block-blob.md) account. As you create the account, make sure to use the following values. All of these settings except for the hierarchical namespace setting are required by the managed migration tool.
+Create either a [general-purpose V2 account](../common/storage-account-create.md) or a [BlockBlobStorage](storage-blob-create-account-block-blob.md) account. As you create the account, make sure to use the following values. All of these settings except for the hierarchical namespace setting are required by Microsoft managed migration.
 
 | Setting | Value |
 |--|--|
@@ -43,6 +52,8 @@ Create either a [general-purpose V2 account](../common/storage-account-create.md
 The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
 ## Run the managed migration tool
+
+The managed migration tool moves data and metadata (such as timestamps and ACLs) from your Gen1 account to your Gen2-enabled account. 
 
 1. Navigate to your Data Lake Storage Gen1 account in the Azure portal.
 
@@ -140,7 +151,7 @@ Users can be tagged as superusers based on their Azure role. – Mentioned in 
 
 ##### Ownership info displayed as $superuser  
 
-https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control#assigning-the-owning-group-for-a-new-file-or-directory  
+[Assigning the owning group for a new file or directory](data-lake-storage-access-control.md#assigning-the-owning-group-for-a-new-file-or-directory)
 
 The root directory "/" is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to $superuser.”  
 
