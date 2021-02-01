@@ -3,7 +3,7 @@ title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azu
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -63,7 +63,7 @@ The schema defined above would be represented using the JSON payload below. Note
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
-     "userName":"bjensen",
+     "userName":"bjensen@testuser.com",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -957,7 +957,7 @@ If the response to a query to the web service for a user with an `externalId` at
      "urn:ietf:params:scim:schemas:core:2.0:User",
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
    "externalId":"jyoung",
-   "userName":"jyoung",
+   "userName":"jyoung@testuser.com",
    "active":true,
    "addresses":null,
    "displayName":"Joy Young",

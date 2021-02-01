@@ -3,7 +3,7 @@ title: Problems signing in to SAML-based single sign-on configured apps
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
