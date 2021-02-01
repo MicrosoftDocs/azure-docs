@@ -12,7 +12,7 @@ a cloud-based architecture that offers solutions to scenarios that have accredit
 requirements. This foundational blueprint sample is an extension of the [Azure Security Benchmark
 sample blueprint](../azure-security-benchmark/index.md). It deploys and configures network boundaries,
 monitoring, and other resources in alignment with the policies and other guardrails defined in the
-[Azure Security Benchmark](../../../security/benchmarks/index.yml).
+[Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## Architecture
 
@@ -35,37 +35,37 @@ management jump boxes.
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
 
-- [Azure Monitor Logs](../../../azure-monitor/platform/data-platform-logs.md)
+- [Azure Monitor Logs](../../../../azure-monitor/platform/data-platform-logs.md)
   and an Azure storage account to ensure resource logs, activity logs, metrics, and networks traffic
   flows are stored in a central location for easy querying, analytics, archival, and alerting.
-- [Azure Security Center](../../../security-center/security-center-introduction.md)
+- [Azure Security Center](../../../../security-center/security-center-introduction.md)
   (standard version) to provide threat protection for Azure resources.
-- [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)
+- [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md)
   in the hub supporting subnets for connectivity back to an on-premises network, an ingress and
   egress stack to/for Internet connectivity, and optional subnets for deployment of additional
   administrative or management services. Virtual Network in the spoke contains subnets for hosting
   application workloads. Additional subnets can be created after deployment as needed to support
   applicable scenarios.
-- [Azure Firewall](../../../firewall/overview.md) to route all outbound
+- [Azure Firewall](../../../../firewall/overview.md) to route all outbound
   internet traffic and to enable inbound internet traffic via jump box. (Default firewall rules
   block all internet inbound and outbound traffic and rules must be configured after deployment, as
   applicable.)
-- [Network security groups](../../../virtual-network/network-security-group-how-it-works.md)
+- [Network security groups](../../../../virtual-network/network-security-group-how-it-works.md)
   (NSGs) assigned to all subnets (except service-owned subnets such as Azure Bastion, Gateway and
   Azure Firewall) configured to block all internet inbound and outbound traffic.
-- [Application security groups](../../../virtual-network/application-security-groups.md)
+- [Application security groups](../../../../virtual-network/application-security-groups.md)
   to enable grouping of Azure virtual machines to apply common network security policies.
-- [Route tables](../../../virtual-network/manage-route-table.md) to route all
+- [Route tables](../../../../virtual-network/manage-route-table.md) to route all
   outbound internet traffic from subnets through the firewall. (Azure Firewall and NSG rules will
   need to be configured after deployment to open connectivity.)
-- [Azure Network Watcher](../../../network-watcher/network-watcher-monitoring-overview.md)
+- [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
   to monitor, diagnose, and view metrics of resources in the Azure virtual network.
-- [Azure DDoS Protection Standard](../../../ddos-protection/ddos-protection-overview.md)
+- [Azure DDoS Protection Standard](../../../../ddos-protection/ddos-protection-overview.md)
   to protect Azure resources against DDoS attacks.
-- [Azure Bastion](../../../bastion/bastion-overview.md) to provide seamless and
+- [Azure Bastion](../../../../bastion/bastion-overview.md) to provide seamless and
   secure connectivity to a virtual machine that does not require a public IP address, agent, or
   special client software.
-- [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) to
+- [Azure VPN Gateway](../../../../vpn-gateway/vpn-gateway-about-vpngateways.md) to
   enable encrypted traffic between an Azure virtual network and an on-premises location over the
   public Internet.
 
