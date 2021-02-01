@@ -33,7 +33,7 @@ The illustration shows how:
 
 Frame statistics provide some high-level information for the last frame, such as latency. The data provided in the `FrameStatistics` structure is measured on the client side, so the API is a synchronous call:
 
-```cs [APITODO]
+```cs
 void QueryFrameData(RenderingSession session)
 {
     FrameStatistics frameStatistics;
@@ -44,11 +44,11 @@ void QueryFrameData(RenderingSession session)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void QueryFrameData(ApiHandle<RenderingSession> session)
 {
     FrameStatistics frameStatistics;
-    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    if (session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
     {
         // do something with the result
     }
@@ -82,34 +82,22 @@ None of the values above gives clear indication of pure network latency (the red
 
 *Performance assessment queries* provide more in-depth information about the CPU and GPU workload on the server. Since the data is requested from the server, querying a performance snapshot follows the usual async pattern:
 
-```cs [APITODO]
-PerformanceAssessmentAsync _assessmentQuery = null;
-
-void QueryPerformanceAssessment(RenderingSession session)
+```cs
+async void QueryPerformanceAssessment(RenderingSession session)
 {
-    _assessmentQuery = session.Connection.QueryServerPerformanceAssessmentAsync();
-    _assessmentQuery.Completed += (PerformanceAssessmentAsync res) =>
-    {
-        // do something with the result:
-        PerformanceAssessment result = res.Result;
-        // ...
-
-        _assessmentQuery = null;
-    };
+    PerformanceAssessment result = await session.Connection.QueryServerPerformanceAssessmentAsync();
+    // do something with result...
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void QueryPerformanceAssessment(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Connection()->QueryServerPerformanceAssessmentAsync();
-    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
-    {
-        // do something with the result:
-        PerformanceAssessment result = res->GetResult();
-
-        // ...
-
+    session->Connection()->QueryServerPerformanceAssessmentAsync([](Status status, PerformanceAssessment result) {
+        if (status == Status::OK)
+        {
+            // do something with result...
+        }
     });
 }
 ```
@@ -134,12 +122,12 @@ This assessment metric provides a rough indication of the server's health, but i
 
 The class `ARRServiceStats` is a C# class that wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
 
-```cs [APITODO]
-ARRServiceStats _stats = null;
+```cs
+ServiceStatistics _stats = null;
 
 void OnConnect()
 {
-    _stats = new ARRServiceStats();
+    _stats = new ServiceStatistics();
 }
 
 void OnDisconnect()
@@ -170,8 +158,8 @@ There are also variants of the members, which aggregate the values over time. Se
 
 ## API documentation
 
-* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
-* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
+* [C# RenderingConnection.QueryServerPerformanceAssessmentAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.queryserverperformanceassessmentasync)
+* [C++ RenderingConnection::QueryServerPerformanceAssessmentAsync()](/cpp/api/remote-rendering/renderingconnection#queryserverperformanceassessmentasync)
 
 ## Next steps
 

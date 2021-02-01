@@ -19,7 +19,7 @@ The image below demonstrates the effect. The left shows the original mesh, on th
 
 You add a cut plane to the scene by creating a *CutPlaneComponent*. The location and orientation of the plane is determined by the component's owner [entity](../../concepts/entities.md).
 
-```cs [APITODO]
+```cs
 void CreateCutPlane(RenderingSession session, Entity ownerEntity)
 {
     CutPlaneComponent cutPlane = (CutPlaneComponent)session.Connection.CreateComponent(ObjectType.CutPlaneComponent, ownerEntity);
@@ -29,7 +29,7 @@ void CreateCutPlane(RenderingSession session, Entity ownerEntity)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void CreateCutPlane(ApiHandle<RenderingSession> session, ApiHandle<Entity> ownerEntity)
 {
     ApiHandle<CutPlaneComponent> cutPlane = session->Connection()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;

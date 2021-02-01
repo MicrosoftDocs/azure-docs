@@ -66,7 +66,7 @@ We need make small changes to the existing project. These changes are subtle, bu
 ### Enable multithread protection on DirectX device
 The `DirectX11` device must have multithread protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
 
-```cpp [APITODO]
+```cpp
 // Enable multi thread protection as now multiple threads use the immediate context.
 Microsoft::WRL::ComPtr<ID3D11Multithread> contextMultithread;
 if (context.As(&contextMultithread) == S_OK)
@@ -91,13 +91,13 @@ Now that the project is prepared, we can start with the code. A good entry point
 
 We start by adding the necessary includes. Add the following include to file HolographicAppMain.h:
 
-```cpp [APITODO]
+```cpp
 #include <AzureRemoteRendering.h>
 ```
 
 ...and these additional `include` directives to file HolographicAppMain.cpp:
 
-```cpp [APITODO]
+```cpp
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
 #include <windows.perception.spatial.h>
@@ -105,7 +105,7 @@ We start by adding the necessary includes. Add the following include to file Hol
 
 For simplicity of code, we define the following namespace shortcut at the top of file HolographicAppMain.h, after the `include` directives:
 
-```cpp [APITODO]
+```cpp
 namespace RR = Microsoft::Azure::RemoteRendering;
 ```
 
@@ -115,7 +115,7 @@ This shortcut is useful so we don't have to write out the full namespace everywh
  
 We need to hold a few objects for the session etc. during the lifetime of the application. The lifetime coincides with the lifetime of the application's `HolographicAppMain` object, so we add our objects as members to class `HolographicAppMain`. The next step is adding the following class members in file HolographicAppMain.h:
 
-```cpp [APITODO]
+```cpp
 class HolographicAppMain
 {
     ...
@@ -137,20 +137,20 @@ We do all of that sequentially in the constructor. However, in real use cases it
 
 Add the following code to the beginning of the constructor body in file HolographicAppMain.cpp:
 
-```cpp [APITODO]
+```cpp
 HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) :
     m_deviceResources(deviceResources)
 {
     // 1. One time initialization
     {
         RR::RemoteRenderingInitialization clientInit;
-        clientInit.connectionType = RR::ConnectionType::General;
-        clientInit.graphicsApi = RR::GraphicsApiType::WmrD3D11;
-        clientInit.toolId = "<sample name goes here>"; // <put your sample name here>
-        clientInit.unitsPerMeter = 1.0f;
-        clientInit.forward = RR::Axis::Z_Neg;
-        clientInit.right = RR::Axis::X;
-        clientInit.up = RR::Axis::Y;
+        clientInit.ConnectionType = RR::ConnectionType::General;
+        clientInit.GraphicsApi = RR::GraphicsApiType::WmrD3D11;
+        clientInit.ToolId = "<sample name goes here>"; // <put your sample name here>
+        clientInit.UnitsPerMeter = 1.0f;
+        clientInit.Forward = RR::Axis::NegativeZ;
+        clientInit.Right = RR::Axis::X;
+        clientInit.Up = RR::Axis::Y;
         if (RR::StartupRemoteRendering(clientInit) != RR::Result::Success)
         {
             // something fundamental went wrong with the initialization
@@ -159,53 +159,54 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     }
 
 
-    // 2. Create front end
+    // 2. Create Client
     {
         // Users need to fill out the following with their account data and model
         RR::SessionConfiguration init;
         init.AccountId = "00000000-0000-0000-0000-000000000000";
         init.AccountKey = "<account key>";
-        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
-        init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
+        init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
         m_modelURI = "builtin://Engine";
         m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-
         m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
     }
 
     // 3. Open/create rendering session
     {
-        bool createNewSession = true;
+        auto SessionHandler = [&](RR::Status status, RR::ApiHandle<RR::CreateRenderingSessionResult> result)
+        {
+            if (status == RR::Status::OK)
+            {
+                auto ctx = result->GetContext();
+                if (ctx.Result == RR::Result::Success)
+                {
+                    SetNewSession(result->GetSession());
+                }
+                else
+                {
+                    SetNewState(AppConnectionStatus::ConnectionFailed, ctx.ErrorMessage.c_str());
+                }
+            }
+            else
+            {
+                SetNewState(AppConnectionStatus::ConnectionFailed, "failed");
+            }
+        };
 
-        // If we had an old (valid) session that we can recycle, we call synchronous function m_client->OpenRenderingSessionAsync
+        // If we had an old (valid) session that we can recycle, we call async function m_client->OpenRenderingSessionAsync
         if (!m_sessionOverride.empty())
         {
-            auto openSessionRes = m_client->OpenRenderingSessionAsync(m_sessionOverride);
-            if (openSessionRes->valid())
-            {
-                SetNewSession(*openSessionRes);
-                createNewSession = false;
-            }
+            m_client->OpenRenderingSessionAsync(m_sessionOverride, SessionHandler);
+            SetNewState(AppConnectionStatus::CreatingSession, nullptr);
         }
-
-        if (createNewSession)
+        else
         {
             // create a new session
-            RR::RenderingSessionCreationParams init;
-            init.MaxLease.minute = 10; // session is leased for 10 minutes
+            RR::RenderingSessionCreationOptions init;
+            init.MaxLeaseInMinutes = 10; // session is leased for 10 minutes
             init.Size = RR::RenderingSessionVmSize::Standard;
-            auto createSessionAsync = *m_client->CreateNewRenderingSessionAsync(init);
-            createSessionAsync->Completed([&](auto handler)
-                {
-                    if (handler->GetStatus() == RR::Result::Success)
-                    {
-                        SetNewSession(handler->GetResult());
-                    }
-                    else
-                    {
-                        SetNewState(AppConnectionStatus::ConnectionFailed, "failed");
-                    }
-                });
+            m_client->CreateNewRenderingSessionAsync(init, SessionHandler);
             SetNewState(AppConnectionStatus::CreatingSession, nullptr);
         }
     }
@@ -221,7 +222,7 @@ Note that credentials are hard-coded in the sample and needs to be filled out in
 
 We do the de-initialization symmetrically and in reverse order at the end of the destructor body:
 
-```cpp [APITODO]
+```cpp
 HolographicAppMain::~HolographicAppMain()
 {
     // Existing destructor code:
@@ -252,7 +253,7 @@ Accordingly, as a next step, we add a bit of state machine handling to the class
 
 Add the following members and functions to the class declaration:
 
-```cpp [APITODO]
+```cpp
 namespace HolographicApp
 {
     // Our application's possible states:
@@ -302,39 +303,33 @@ namespace HolographicApp
 
 On the implementation side in the .cpp file, add these function bodies:
 
-```cpp [APITODO]
+```cpp
 void HolographicAppMain::StartModelLoading()
 {
     m_modelLoadingProgress = 0.f;
 
-    RR::LoadModelFromSASParams params;
-    params.ModelUrl = m_modelURI.c_str();
+    RR::LoadModelFromSasOptions params;
+    params.ModelUri = m_modelURI.c_str();
     params.Parent = nullptr;
 
-    // Start the async model loading
-    if (auto loadModel = m_api->LoadModelFromSasAsync(params))
-    {
-        m_loadModelAsync = *loadModel;
-        m_loadModelAsync->Completed([this](const RR::ApiHandle<RR::LoadModelAsync>& async)
+    // start the async model loading
+    m_api->LoadModelFromSasAsync(params,
+        // completed callback
+        [this](RR::Status status, RR::ApiHandle<RR::LoadModelResult> result)
         {
-            m_modelLoadResult = async->GetStatus();
+            m_modelLoadResult = RR::StatusToResult(status);
             m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
-            m_loadModelAsync = nullptr;
             char buffer[1024];
             sprintf_s(buffer, "Remote Rendering: Model loading completed. Result: %s\n", RR::ResultToString(m_modelLoadResult));
             OutputDebugStringA(buffer);
-            });
-        m_loadModelAsync->ProgressUpdated([this](float progress)
+        },
+        // progress update callback
+            [this](float progress)
         {
-            // Progress callback
+            // progress callback
             m_modelLoadingProgress = progress;
-
-            // Output progress percentage to VS output
-            char buffer[1024];
-            sprintf_s(buffer, "Remote Rendering: Model loading progress: %.1f\n", m_modelLoadingProgress * 100.f);
-            OutputDebugStringA(buffer);
+            m_needsStatusUpdate = true;
         });
-    }
 }
 
 
@@ -366,7 +361,7 @@ void HolographicAppMain::SetNewSession(RR::ApiHandle<RR::RenderingSession> newSe
 {
     SetNewState(AppConnectionStatus::StartingSession, nullptr);
 
-    m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
+    m_sessionStartingTime = m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
     m_session = newSession;
     m_api = m_session->Connection();
     m_graphicsBinding = m_session->GetGraphicsBinding().as<RR::GraphicsBindingWmrD3d11>();
@@ -428,7 +423,7 @@ We need to poll the session's status and see if it has transitioned to `Ready` s
 
 Add the following code to the body of function `HolographicAppMain::Update`:
 
-```cpp [APITODO]
+```cpp
 // Updates the application state once per frame.
 HolographicFrame HolographicAppMain::Update()
 {
@@ -446,25 +441,25 @@ HolographicFrame HolographicAppMain::Update()
             if (m_sessionPropertiesAsync == nullptr && m_timer.GetTotalSeconds() - m_timeAtLastRESTCall > delayBetweenRESTCalls)
             {
                 m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
-                if (auto propAsync = m_session->GetPropertiesAsync())
-                {
-                    m_sessionPropertiesAsync = *propAsync;
-                    m_sessionPropertiesAsync->Completed([this](const RR::ApiHandle<RR::SessionPropertiesAsync>& async)
+                m_session->GetPropertiesAsync([this](RR::Status status, RR::ApiHandle<RR::RenderingSessionPropertiesResult> propertiesResult)
+                    {
+                        if (status == RR::Status::OK)
                         {
-                            if (async->GetStatus() == RR::Result::Success)
+                            auto ctx = propertiesResult->GetContext();
+                            if (ctx.Result == RR::Result::Success)
                             {
-                                auto res = async->GetResult();
+                                auto res = propertiesResult->GetSessionProperties();
                                 switch (res.Status)
                                 {
                                 case RR::RenderingSessionStatus::Ready:
                                 {
-                                    // The following is async, but we'll get notifications via OnConnectionStatusChanged
+                                    // The following ConnectAsync is async, but we'll get notifications via OnConnectionStatusChanged
                                     m_sessionStarted = true;
                                     SetNewState(AppConnectionStatus::Connecting, nullptr);
                                     RR::RendererInitOptions init;
-                                    init.ignoreCertificateValidation = false;
-                                    init.mode = RR::ServiceRenderMode::Default;
-                                    m_session->ConnectAsync(init);
+                                    init.IgnoreCertificateValidation = false;
+                                    init.RenderMode = RR::ServiceRenderMode::Default;
+                                    m_session->ConnectAsync(init, [](RR::Status, RR::ConnectionStatus) {});
                                 }
                                 break;
                                 case RR::RenderingSessionStatus::Error:
@@ -477,16 +472,18 @@ HolographicFrame HolographicAppMain::Update()
                                     SetNewState(AppConnectionStatus::ConnectionFailed, "Session expired");
                                     break;
                                 }
-    
                             }
                             else
                             {
-                                SetNewState(AppConnectionStatus::ConnectionFailed, "Failed to retrieve session status");
+                                SetNewState(AppConnectionStatus::ConnectionFailed, ctx.ErrorMessage.c_str());
                             }
-                            m_sessionPropertiesAsync = nullptr; // next try
-                            m_needsStatusUpdate = true;
-                        });
-                }
+                        }
+                        else
+                        {
+                            SetNewState(AppConnectionStatus::ConnectionFailed, "Failed to retrieve session status");
+                        }
+                        m_sessionPropertiesQueryInProgress = false; // next try
+                    });                }
             }
         }
         if (m_isConnected && !m_modelLoadTriggered)
@@ -521,7 +518,7 @@ The code above sets the coordinate system once within the `Update` function as s
 
 We need to update the camera clip planes so that server camera is kept in sync with the local camera. We can do that at the very end of the `Update` function:
 
-```cpp [APITODO]
+```cpp
     ...
     if (m_isConnected)
     {
@@ -552,7 +549,7 @@ We need to update the camera clip planes so that server camera is kept in sync w
 
 The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear and setting the viewport. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
 
-```cpp [APITODO]
+```cpp
         ...
         // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);

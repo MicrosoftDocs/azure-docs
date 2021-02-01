@@ -31,7 +31,7 @@ First, we'll create a wrapper around the [**HierarchicalStateOverrideComponent**
 
 1. Create a new script named **EntityOverrideController** and replace its contents with the following code:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -157,13 +157,13 @@ To apply states to entities, we can modify the **RemoteEntityHelper** created pr
 
 1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This modification will allow the use of a view controller provided in the **Tutorial Assets**. It should look like this when modified:
 
-    ```cs [APITODO]
+    ```cs
     public class RemoteEntityHelper : BaseRemoteEntityHelper
     ```
 
 2. Override the abstract methods using the following code:
 
-    ```cs [APITODO]
+    ```cs
     public override BaseEntityOverrideController EnsureOverrideComponent(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -244,7 +244,7 @@ We'll create a script that automatically creates a remote entity, adds a cut pla
 
 1. Create a new script named **RemoteCutPlane** and replace its code with the code below:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -317,7 +317,7 @@ We'll create a script that automatically creates a remote entity, adds a cut pla
 
 2. Replace the `CreateCutPlane()` method with the completed version below:
 
-    ```cs [APITODO]
+    ```cs
     public override void CreateCutPlane()
     {
         if (remoteCutPlaneComponent != null)
@@ -348,7 +348,7 @@ We'll create a script that automatically creates a remote entity, adds a cut pla
 
 3. Replace the `DestroyCutPlane()` method with the completed version below:
 
-    ```cs [APITODO]
+    ```cs
     public override void DestroyCutPlane()
     {
         if (remoteCutPlaneComponent == null)
@@ -386,7 +386,7 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
 
 1. Create a new script named **RemoteSky** and replace its entire contents with the code below:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -397,7 +397,7 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
 
     public class RemoteSky : BaseRemoteSky
     {
-        public override Dictionary<string, LoadTextureFromSASParams> AvailableCubemaps => builtInTextures;
+        public override Dictionary<string, LoadTextureFromSasOptions> AvailableCubemaps => builtInTextures;
 
         private bool canSetSky;
         public override bool CanSetSky
@@ -421,22 +421,22 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
             }
         }
 
-        private Dictionary<string, LoadTextureFromSASParams> builtInTextures = new Dictionary<string, LoadTextureFromSASParams>()
+        private Dictionary<string, LoadTextureFromSasOptions> builtInTextures = new Dictionary<string, LoadTextureFromSasOptions>()
         {
-            {"Autoshop",new LoadTextureFromSASParams("builtin://Autoshop", TextureType.CubeMap)},
-            {"BoilerRoom",new LoadTextureFromSASParams("builtin://BoilerRoom", TextureType.CubeMap)},
-            {"ColorfulStudio",new LoadTextureFromSASParams("builtin://ColorfulStudio", TextureType.CubeMap)},
-            {"Hangar",new LoadTextureFromSASParams("builtin://Hangar", TextureType.CubeMap)},
-            {"IndustrialPipeAndValve",new LoadTextureFromSASParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
-            {"Lebombo",new LoadTextureFromSASParams("builtin://Lebombo", TextureType.CubeMap)},
-            {"SataraNight",new LoadTextureFromSASParams("builtin://SataraNight", TextureType.CubeMap)},
-            {"SunnyVondelpark",new LoadTextureFromSASParams("builtin://SunnyVondelpark", TextureType.CubeMap)},
-            {"Syferfontein",new LoadTextureFromSASParams("builtin://Syferfontein", TextureType.CubeMap)},
-            {"TearsOfSteelBridge",new LoadTextureFromSASParams("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
-            {"VeniceSunset",new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap)},
-            {"WhippleCreekRegionalPark",new LoadTextureFromSASParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
-            {"WinterRiver",new LoadTextureFromSASParams("builtin://WinterRiver", TextureType.CubeMap)},
-            {"DefaultSky",new LoadTextureFromSASParams("builtin://DefaultSky", TextureType.CubeMap)}
+            {"Autoshop",new LoadTextureFromSasOptions("builtin://Autoshop", TextureType.CubeMap)},
+            {"BoilerRoom",new LoadTextureFromSasOptions("builtin://BoilerRoom", TextureType.CubeMap)},
+            {"ColorfulStudio",new LoadTextureFromSasOptions("builtin://ColorfulStudio", TextureType.CubeMap)},
+            {"Hangar",new LoadTextureFromSasOptions("builtin://Hangar", TextureType.CubeMap)},
+            {"IndustrialPipeAndValve",new LoadTextureFromSasOptions("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
+            {"Lebombo",new LoadTextureFromSasOptions("builtin://Lebombo", TextureType.CubeMap)},
+            {"SataraNight",new LoadTextureFromSasOptions("builtin://SataraNight", TextureType.CubeMap)},
+            {"SunnyVondelpark",new LoadTextureFromSasOptions("builtin://SunnyVondelpark", TextureType.CubeMap)},
+            {"Syferfontein",new LoadTextureFromSasOptions("builtin://Syferfontein", TextureType.CubeMap)},
+            {"TearsOfSteelBridge",new LoadTextureFromSasOptions("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
+            {"VeniceSunset",new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap)},
+            {"WhippleCreekRegionalPark",new LoadTextureFromSasOptions("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
+            {"WinterRiver",new LoadTextureFromSasOptions("builtin://WinterRiver", TextureType.CubeMap)},
+            {"DefaultSky",new LoadTextureFromSasOptions("builtin://DefaultSky", TextureType.CubeMap)}
         };
 
         public UnityBoolEvent OnCanSetSkyChanged;
@@ -480,7 +480,7 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
             {
                 Debug.Log("Setting sky to " + skyKey);
                 //Load the texture into the session
-                var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+                var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
                 //Apply the texture to the SkyReflectionSettings
                 RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
@@ -496,9 +496,9 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
 
     The most important part of this code is just a few lines:
 
-    ```cs [APITODO]
+    ```cs
     //Load the texture into the session
-    var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+    var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
     //Apply the texture to the SkyReflectionSettings
     RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
@@ -520,7 +520,7 @@ Remote scene lights include: point, spot, and directional. Similar to the Cut Pl
 
 1. Create a new script named **RemoteLight** and replace its code with the code below:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -721,7 +721,7 @@ From the material, we can access common values like albedo. First the materials 
 
 1. Create a script named **EntityMaterialController** and replace its contents with the following code:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -885,7 +885,7 @@ From the material, we can access common values like albedo. First the materials 
 
 The `OverrideMaterialProperty` type should be flexible enough to allow for a few other material values to be changed, if desired. The `OverrideMaterialProperty` type tracks the state of an override, maintains the old and new value, and uses a delegate to set the override. As an example, look at the `ColorOverride`:
 
-```cs [APITODO]
+```cs
 ColorOverride = new OverrideMaterialProperty<Color>(
     GetMaterialColor(targetMaterial), //The original value
     targetMaterial, //The target material
@@ -896,7 +896,7 @@ This is creating a new `OverrideMaterialProperty` where the override will wrap t
 
 The `ColorOverride` uses the `ApplyMaterialColor` method to do its work:
 
-```cs [APITODO]
+```cs
 private void ApplyMaterialColor(ARRMaterial material, Color color)
 {
     if (material.MaterialSubType == MaterialType.Color)

@@ -14,9 +14,9 @@ To enable Azure Remote Rendering (ARR) in Unity, we provide dedicated methods th
 
 ## Startup and shutdown
 
-To initialize Remote Rendering, use `RemoteManagerUnity`. This class calls into the generic `RemoteManager` but already implements Unity-specific details for you. For example, Unity uses a specific coordinate system. When calling `RemoteManagerUnity.Initialize`, the proper convention will be set up. The call also requires you to provide the Unity camera that should be used for displaying the remotely rendered content.
+To initialize Remote Rendering, use `RemoteManagerUnity`. This class calls into the generic `RenderingConnection` but already implements Unity-specific details for you. For example, Unity uses a specific coordinate system. When calling `RemoteManagerUnity.Initialize`, the proper convention will be set up. The call also requires you to provide the Unity camera that should be used for displaying the remotely rendered content.
 
-```cs [APITODO]
+```cs
 // initialize Azure Remote Rendering for use in Unity:
 // it needs to know which camera is used for rendering the scene
 RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
@@ -27,7 +27,7 @@ For shutting down Remote Rendering, call `RemoteManagerStatic.ShutdownRemoteRend
 
 After an `RenderingSession` has been created and chosen as the primary rendering session, it must be registered with `RemoteManagerUnity`:
 
-```cs [APITODO]
+```cs
 RemoteManagerUnity.CurrentSession = ...
 ```
 
@@ -35,7 +35,7 @@ RemoteManagerUnity.CurrentSession = ...
 
 The code below demonstrates all the steps needed to initialize Azure Remote Rendering in Unity:
 
-```cs [APITODO]
+```cs
 // initialize Remote Rendering
 RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
@@ -46,7 +46,7 @@ SessionConfiguration accountInfo = new SessionConfiguration();
 RemoteRenderingClient client = new RemoteRenderingClient(accountInfo);
 
 // start a session
-RenderingSession session = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30));
+RenderingSession session = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationOptions(RenderingSessionVmSize.Standard, 0, 30));
 
 // let RemoteManagerUnity know about the session we want to use
 RemoteManagerUnity.CurrentSession = session;

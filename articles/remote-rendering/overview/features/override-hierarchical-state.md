@@ -67,7 +67,7 @@ Therefore each state can be set to one of:
 
 You can change states directly or through the `SetState` function:
 
-```cs [APITODO]
+```cs
 HierarchicalStateOverrideComponent component = ...;
 
 // set one state directly
@@ -80,7 +80,7 @@ component.SetState(HierarchicalStates.SeeThrough, HierarchicalEnableState.Inheri
 component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollision, HierarchicalEnableState.ForceOff);
 ```
 
-```cpp [APITODO]
+```cpp
 ApiHandle<HierarchicalStateOverrideComponent> component = ...;
 
 // set one state directly

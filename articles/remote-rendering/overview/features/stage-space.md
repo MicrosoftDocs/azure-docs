@@ -27,7 +27,7 @@ To inform the server that an additional transform is applied to the stage space,
 > [!IMPORTANT]
 > In the [desktop simulation](../../concepts/graphics-bindings.md) the world-space location of the camera is provided by the user application. In this case, setting the stage space origin must be skipped as it is already multiplied into the camera transform.
 
-```cs [APITODO]
+```cs
 void ChangeStageSpace(RenderingSession session)
 {
     StageSpaceSettings settings = session.Connection.StageSpaceSettings;
@@ -38,7 +38,7 @@ void ChangeStageSpace(RenderingSession session)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void ChangeStageSpace(ApiHandle<RenderingSession> session)
 {
     ApiHandle<StageSpaceSettings> settings = session->Connection()->GetStageSpaceSettings();

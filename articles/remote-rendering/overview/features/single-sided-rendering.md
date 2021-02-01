@@ -35,7 +35,7 @@ There are three different modes:
 
 Changing the :::no-loc text="single-sided"::: rendering settings can be done as follows:
 
-```cs [APITODO]
+```cs
 void ChangeSingleSidedRendering(RenderingSession session)
 {
     SingleSidedSettings settings = session.Connection.SingleSidedSettings;
@@ -48,7 +48,7 @@ void ChangeSingleSidedRendering(RenderingSession session)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void ChangeSingleSidedRendering(ApiHandle<RenderingSession> session)
 {
     ApiHandle<SingleSidedSettings> settings = session->Connection()->GetSingleSidedSettings();
@@ -63,8 +63,8 @@ void ChangeSingleSidedRendering(ApiHandle<RenderingSession> session)
 
 ## API documentation
 
-* [C# RemoteManager.SingleSidedSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
-* [C++ RemoteManager::SingleSidedSettings()](/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
+* [C# RenderingConnection.SingleSidedSettings property](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.singlesidedsettings)
+* [C++ RenderingConnection::SingleSidedSettings()](/cpp/api/remote-rendering/renderingconnection#singlesidedsettings)
 
 ## Next steps
 

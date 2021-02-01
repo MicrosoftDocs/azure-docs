@@ -24,27 +24,36 @@ When the renderer on on a 'Standard' server size hits this limitation, it switch
 
 The desired type of server configuration has to be specified at rendering session initialization time. It cannot be changed within a running session. The following code examples show the place where the server size must be specified:
 
-```cs [APITODO]
+```cs
 async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
+    RenderingSessionCreationOptions sessionCreationParams = default;
     sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    RenderingSession session = await client.CreateNewRenderingSessionAsync(sessionCreationParams);
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationParams);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
+    RenderingSessionCreationOptions sessionCreationParams;
     sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = client->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationParams, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 For the [example PowerShell scripts](../samples/powershell-example-scripts.md), the desired server size has to be specified inside the `arrconfig.json` file:

@@ -20,7 +20,7 @@ All these components use the transform (position, rotation, scale) of the entity
 
 You can easily add, remove, and manipulate components programmatically:
 
-```cs [APITODO]
+```cs
 // create a point light component
 RenderingSession session = GetCurrentlyConnectedSession();
 PointLightComponent lightComponent = session.Connection.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
@@ -35,7 +35,7 @@ lightComponent.Destroy();
 lightComponent = null;
 ```
 
-```cpp [APITODO]
+```cpp
 // create a point light component
 ApiHandle<RenderingSession> session = GetCurrentlyConnectedSession();
 
@@ -59,10 +59,10 @@ The Unity integration has additional extension functions for interacting with co
 ## API documentation
 
 * [C# ComponentBase](/dotnet/api/microsoft.azure.remoterendering.componentbase)
-* [C# RemoteManager.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [C# RenderingConnection.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
 * [C# Entity.FindComponentOfType()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
 * [C++ ComponentBase](/cpp/api/remote-rendering/componentbase)
-* [C++ RemoteManager::CreateComponent()](/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [C++ RenderingConnection::CreateComponent()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
 * [C++ Entity::FindComponentOfType()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## Next steps

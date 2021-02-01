@@ -78,7 +78,7 @@ You can [extend the lease time](../how-tos/session-rest-api.md#modify-and-query-
 
 The code below shows a simple implementation of starting a session, waiting for the *ready* state, connecting, and then disconnecting and shutting down again.
 
-```cs [APITODO]
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
@@ -89,15 +89,17 @@ SessionConfiguration accountInfo = new SessionConfiguration();
 
 RemoteRenderingClient client = new RemoteRenderingClient(accountInfo);
 
-RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
+RenderingSessionCreationOptions sessionCreationParams = new RenderingSessionCreationOptions();
 // fill out sessionCreationParams...
 
-RenderingSession session = await clinet.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationParams);
 
+RenderingSession session = result.Session;
 RenderingSessionProperties sessionProperties;
 while (true)
 {
-    sessionProperties = await session.GetPropertiesAsync().AsTask();
+    var propertiesResult = await session.GetPropertiesAsync();
+    sessionProperties = propertiesResult.SessionProperties;
     if (sessionProperties.Status != RenderingSessionStatus.Starting &&
         sessionProperties.Status != RenderingSessionStatus.Unknown)
     {
@@ -113,11 +115,11 @@ if (sessionProperties.Status != RenderingSessionStatus.Ready)
 }
 
 // Connect to server
-Result connectResult = await session.ConnectAsync(new RendererInitOptions()).AsTask();
+ConnectionStatus connectResult = await session.ConnectAsync(new RendererInitOptions());
 
 // Connected!
 
-while(...)
+while (...)
 {
     // per frame update
 
@@ -128,7 +130,7 @@ while(...)
 session.Disconnect();
 
 // stop the session
-await session.StopAsync().AsTask();
+await session.StopAsync();
 
 // shut down the remote rendering SDK
 RemoteManagerStatic.ShutdownRemoteRendering();
@@ -140,7 +142,7 @@ The lifetime of a virtual machine isn't tied to the `RemoteRenderingClient` inst
 
 The persistent session ID can be queried via `RenderingSession.SessionUuid()` and cached locally. With this ID, an application can call `RemoteRenderingClient.OpenRenderingSessionAsync` to bind to that session.
 
-When `RenderingSession.IsConnected` is true, `RenderingSession.Connections` returns an instance of `RemoteManager`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
+When `RenderingSession.IsConnected` is true, `RenderingSession.Connections` returns an instance of `RenderingConnection`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
 
 ## API documentation
 

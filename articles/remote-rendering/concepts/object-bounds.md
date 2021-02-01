@@ -20,37 +20,29 @@ It's possible to compute the bounds of an entire object hierarchy this way, but 
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
-```cs [APITODO]
-private BoundsQueryAsync _boundsQuery = null;
-
-public void GetBounds(Entity entity)
+```cs
+public async void GetBounds(Entity entity)
 {
-    _boundsQuery = entity.QueryWorldBoundsAsync();
-    _boundsQuery.Completed += (BoundsQueryAsync bounds) =>
-    {
-        if (bounds.IsRanToCompletion)
-        {
-            Double3 aabbMin = bounds.Result.min;
-            Double3 aabbMax = bounds.Result.max;
-            // ...
-        }
-    };
+    Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
+    Bounds result = await boundsQuery;
+
+    Double3 aabbMin = result.Min;
+    Double3 aabbMax = result.Max;
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void GetBounds(ApiHandle<Entity> entity)
 {
-    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
-    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
-    {
-        if (bounds->GetIsRanToCompletion())
+    entity->QueryWorldBoundsAsync(
+        // completion callback:
+        [](Status status, Bounds bounds)
         {
-            Double3 aabbMin = bounds->GetResult().min;
-            Double3 aabbMax = bounds->GetResult().max;
+            Double3 aabbMin = bounds.Min;
+            Double3 aabbMax = bounds.Max;
             // ...
         }
-    });
+    );
 }
 ```
 

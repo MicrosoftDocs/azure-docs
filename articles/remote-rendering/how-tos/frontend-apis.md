@@ -22,15 +22,15 @@ SessionConfiguration is used to set up the authentication information for an ```
 
 The important fields are:
 
-```cs [APITODO]
+```cs
 public class SessionConfiguration
 {
     // Domain that will be used for account authentication for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
     // [region] should be set to the domain of the Azure Remote Rendering account.
-    public string AccountAuthenticationDomain;
+    public string AccountDomain;
     // Domain that will be used to generate sessions for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
     // [region] should be selected based on the region closest to the user. For example, westus2.mixedreality.azure.com or westeurope.mixedreality.azure.com.
-    public string AccountDomain;
+    public string RemoteRenderingDomain;
 
     // Can use one of:
     // 1) ID and Key.
@@ -45,11 +45,11 @@ public class SessionConfiguration
 
 The C++ counterpart looks like this:
 
-```cpp [APITODO]
+```cpp
 struct SessionConfiguration
 {
-    std::string AccountAuthenticationDomain{};
     std::string AccountDomain{};
+    std::string RemoteRenderingDomain{};
     std::string AccountId{};
     std::string AccountKey{};
     std::string AuthenticationToken{};
@@ -81,105 +81,69 @@ For more information about the conversion service, see [the model conversion RES
 
 #### Start asset conversion
 
-```cs [APITODO]
-private StartConversionAsync _pendingAsync = null;
-
-void StartAssetConversion(RemoteRenderingClient client, string storageContainer, string blobinputpath, string bloboutpath, string modelName, string outputName)
+```cs
+async void StartAssetConversion(RemoteRenderingClient client, string storageContainer, string blobinputpath, string bloboutpath, string modelName, string outputName)
 {
-    _pendingAsync = client.StartConversionAsync(
-        new AssetConversionInputParams(storageContainer, blobinputpath, "", modelName),
-        new AssetConversionOutputParams(storageContainer, bloboutpath, "", outputName)
+    var result = await client.StartAssetConversionAsync(
+        new AssetConversionInputOptions(storageContainer, blobinputpath, "", modelName),
+        new AssetConversionOutputOptions(storageContainer, bloboutpath, "", outputName)
         );
-    _pendingAsync.Completed +=
-        (StartConversionAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                Console.WriteLine("Failed to start asset conversion!");
-            }
-        };
-
-        _pendingAsync = null;
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void StartAssetConversion(ApiHandle<RemoteRenderingClient> client, std::string storageContainer, std::string blobinputpath, std::string bloboutpath, std::string modelName, std::string outputName)
 {
-    AssetConversionInputParams input;
+    AssetConversionInputOptions input;
     input.BlobContainerInformation.BlobContainerName = blobinputpath;
     input.BlobContainerInformation.StorageAccountName = storageContainer;
     input.BlobContainerInformation.FolderPath = "";
     input.InputAssetPath = modelName;
 
-    AssetConversionOutputParams output;
+    AssetConversionOutputOptions output;
     output.BlobContainerInformation.BlobContainerName = blobinputpath;
     output.BlobContainerInformation.StorageAccountName = storageContainer;
     output.BlobContainerInformation.FolderPath = "";
     output.OutputAssetPath = outputName;
 
-    ApiHandle<StartAssetConversionAsync> conversionAsync = *client->StartAssetConversionAsync(input, output);
-    conversionAsync->Completed([](ApiHandle<StartAssetConversionAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    client->StartAssetConversionAsync(input, output, [](Status status, ApiHandle<AssetConversionResult> result) {
+        if (status == Status::OK)
         {
-            //use res.Result
+            //use result
         }
         else
         {
             printf("Failed to start asset conversion!");
         }
-    }
-    );
+    });
 }
 ```
-
 
 #### Get conversion status
 
-```cs [APITODO]
-private ConversionStatusAsync _pendingAsync = null
-void GetConversionStatus(RemoteRenderingClient client, string assetId)
+```cs
+async void GetConversionStatus(RemoteRenderingClient client, string assetId)
 {
-    _pendingAsync = client.GetAssetConversionStatusAsync(assetId);
-    _pendingAsync.Completed +=
-        (ConversionStatusAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                Console.WriteLine("Failed to get status of asset conversion!");
-            }
-
-            _pendingAsync = null;
-        };
+    AssetConversionStatusResult status = await client.GetAssetConversionStatusAsync(assetId);
+    // do something with status (e.g. check current status etc.)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void GetConversionStatus(ApiHandle<RemoteRenderingClient> client, std::string assetId)
 {
-    ApiHandle<ConversionStatusAsync> pendingAsync = *frontend->GetAssetConversionStatusAsync(assetId);
-    pendingAsync->Completed([](ApiHandle<ConversionStatusAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    client->GetAssetConversionStatusAsync(assetId, [](Status status, ApiHandle<AssetConversionStatusResult> result) {
+        if (status == Status::OK)
         {
-            // use res->Result
+            // do something with result (e.g. check current status etc.)
         }
         else
         {
             printf("Failed to get status of asset conversion!");
         }
-
     });
 }
+
 ```
 
 
@@ -191,41 +155,26 @@ A rendering session can either be created dynamically on the service or an alrea
 
 #### Create rendering session
 
-```cs [APITODO]
-private CreateSessionAsync _pendingAsync = null;
-void CreateRenderingSession(RemoteRenderingClient client, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
+```cs
+async void CreateRenderingSession(RemoteRenderingClient client, RenderingSessionVmSize vmSize, int maxLeaseInMinutes)
 {
-    _pendingAsync = client.CreateNewRenderingSessionAsync(
-        new RenderingSessionCreationParams(vmSize, maxLease));
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(
+        new RenderingSessionCreationOptions(vmSize, maxLeaseInMinutes / 60, maxLeaseInMinutes % 60));
 
-    _pendingAsync.Completed +=
-        (CreateSessionAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                Console.WriteLine("Failed to create session!");
-            }
-            _pendingAsync = null;
-        };
+    // if the call was successful, result.Session holds a valid session reference, otherwise check result.Context for error information
 }
 ```
 
-```cpp [APITODO]
-void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, RenderingSessionVmSize vmSize, const ARRTimeSpan& maxLease)
+```cpp
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, RenderingSessionVmSize vmSize, int maxLeaseInMinutes)
 {
-    RenderingSessionCreationParams params;
-    params.MaxLease = maxLease;
+    RenderingSessionCreationOptions params;
+    params.MaxLeaseInMinutes = maxLeaseInMinutes;
     params.Size = vmSize;
-    ApiHandle<CreateSessionAsync> pendingAsync = *client->CreateNewRenderingSessionAsync(params);
-
-    pendingAsync->Completed([] (ApiHandle<CreateSessionAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    client->CreateNewRenderingSessionAsync(params, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
+            result->GetSession();
             //use res->Result
         }
         else
@@ -240,55 +189,54 @@ void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, RenderingSe
 
 Opening an existing session is a synchronous call.
 
-```cs [APITODO]
-void CreateRenderingSession(RemoteRenderingClient client, string sessionId)
+```cs
+async void CreateRenderingSession(RemoteRenderingClient client, string sessionId)
 {
-    RenderingSession session = client.OpenRenderingSession(sessionId);
-    // Query session status, etc.
+    CreateRenderingSessionResult result = await client.OpenRenderingSessionAsync(sessionId);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // Query session status, etc.
+    }
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client, std::string sessionId)
 {
-    ApiHandle<RenderingSession> session = *client->OpenRenderingSession(sessionId);
-    // Query session status, etc.
+    client->OpenRenderingSessionAsync(sessionId, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode()==Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // Query session status, etc.
+        }
+    });
 }
 ```
 
 
 #### Get current rendering sessions
 
-```cs [APITODO]
-private SessionPropertiesArrayAsync _pendingAsync = null;
-void GetCurrentRenderingSessions(RemoteRenderingClient client)
+```cs
+async void GetCurrentRenderingSessions(RemoteRenderingClient client)
 {
-    _pendingAsync = client.GetCurrentRenderingSessionsAsync();
-    _pendingAsync.Completed +=
-        (SessionPropertiesArrayAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                Console.WriteLine("Failed to get current rendering sessions!");
-            }
-            _pendingAsync = null;
-        };
+    RenderingSessionPropertiesArrayResult result = await client.GetCurrentRenderingSessionsAsync();
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSessionProperties[] properties = result.SessionProperties;
+        // Query session status, etc.
+    }
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void GetCurrentRenderingSessions(ApiHandle<RemoteRenderingClient> client)
 {
-    ApiHandle<SessionPropertiesArrayAsync> pendingAsync = *client->GetCurrentRenderingSessionsAsync();
-    pendingAsync->Completed([](ApiHandle<SessionPropertiesArrayAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    client->GetCurrentRenderingSessionsAsync([](Status status, ApiHandle<RenderingSessionPropertiesArrayResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
-            // use res.Result
+            std::vector<RenderingSessionProperties> properties;
+            result->GetSessionProperties(properties);
         }
         else
         {
@@ -302,36 +250,28 @@ void GetCurrentRenderingSessions(ApiHandle<RemoteRenderingClient> client)
 
 #### Get rendering session properties
 
-```cs [APITODO]
-private SessionPropertiesAsync _pendingAsync = null;
-void GetRenderingSessionProperties(RenderingSession session)
+```cs
+async void GetRenderingSessionProperties(RenderingSession session)
 {
-    _pendingAsync = session.GetPropertiesAsync();
-    _pendingAsync.Completed +=
-        (SessionPropertiesAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                Console.WriteLine("Failed to get properties of session!");
-            }
-            _pendingAsync = null;
-        };
+    RenderingSessionPropertiesResult result = await session.GetPropertiesAsync();
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSessionProperties properties = result.SessionProperties;
+    }
+    else
+    {
+        Console.WriteLine("Failed to get properties of session!");
+    }
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void GetRenderingSessionProperties(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<SessionPropertiesAsync> pendingAsync = *session->GetPropertiesAsync();
-    pendingAsync->Completed([](ApiHandle<SessionPropertiesAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    session->GetPropertiesAsync([](Status status, ApiHandle<RenderingSessionPropertiesResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
-            //use res.Result
+            RenderingSessionProperties properties = result->GetSessionProperties();
         }
         else
         {
@@ -343,37 +283,29 @@ void GetRenderingSessionProperties(ApiHandle<RenderingSession> session)
 
 #### Update rendering session
 
-```cs [APITODO]
-private SessionAsync _pendingAsync;
-void UpdateRenderingSession(RenderingSession session, ARRTimeSpan updatedLease)
+```cs
+async void UpdateRenderingSession(RenderingSession session, int updatedLeaseInMinutes)
 {
-    _pendingAsync = session.RenewAsync(
-        new RenderingSessionUpdateParams(updatedLease));
-    _pendingAsync.Completed +=
-        (SessionAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                Console.WriteLine("Rendering session renewed succeeded!");
-            }
-            else
-            {
-                Console.WriteLine("Failed to renew rendering session!");
-            }
-            _pendingAsync = null;
-        };
+    SessionContextResult result = await session.RenewAsync(
+        new RenderingSessionUpdateOptions(updatedLeaseInMinutes / 60, updatedLeaseInMinutes % 60));
+    if (result.ErrorCode == Result.Success)
+    {
+        Console.WriteLine("Rendering session renewed succeeded!");
+    }
+    else
+    {
+        Console.WriteLine("Failed to renew rendering session!");
+    }
 }
 ```
 
-```cpp [APITODO]
-void UpdateRenderingSession(ApiHandle<RenderingSession> session, const ARRTimeSpan& updatedLease)
+```cpp
+void UpdateRenderingSession(ApiHandle<RenderingSession> session, int updatedLeaseInMinutes)
 {
-    RenderingSessionUpdateParams params;
-    params.MaxLease = updatedLease;
-    ApiHandle<SessionAsync> pendingAsync = *session->RenewAsync(params);
-    pendingAsync->Completed([](ApiHandle<SessionAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    RenderingSessionUpdateOptions params;
+    params.MaxLeaseInMinutes = updatedLeaseInMinutes;
+    session->RenewAsync(params, [](Status status, ApiHandle<SessionContextResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
             printf("Rendering session renewed succeeded!");
         }
@@ -387,34 +319,26 @@ void UpdateRenderingSession(ApiHandle<RenderingSession> session, const ARRTimeSp
 
 #### Stop rendering session
 
-```cs [APITODO]
-private SessionAsync _pendingAsync;
-void StopRenderingSession(RenderingSession session)
+```cs
+async void StopRenderingSession(RenderingSession session)
 {
-    _pendingAsync = session.StopAsync();
-    _pendingAsync.Completed +=
-        (SessionAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                Console.WriteLine("Rendering session stopped successfully!");
-            }
-            else
-            {
-                Console.WriteLine("Failed to stop rendering session!");
-            }
-            _pendingAsync = null;
-        };
+    SessionContextResult result = await session.StopAsync();
+    if (result.ErrorCode == Result.Success)
+    {
+        Console.WriteLine("Rendering session stopped successfully!");
+    }
+    else
+    {
+        Console.WriteLine("Failed to stop rendering session!");
+    }
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void StopRenderingSession(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<SessionAsync> pendingAsync = *session->StopAsync();
-    pendingAsync->Completed([](ApiHandle<SessionAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    session->StopAsync([](Status status, ApiHandle<SessionContextResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
             printf("Rendering session stopped successfully!");
         }
@@ -428,49 +352,33 @@ void StopRenderingSession(ApiHandle<RenderingSession> session)
 
 #### Connect to ARR inspector
 
-```cs [APITODO]
-private ArrInspectorAsync _pendingAsync = null;
-void ConnectToArrInspector(RenderingSession session)
+```cs
+async void ConnectToArrInspector(RenderingSession session)
 {
-    _pendingAsync = session.ConnectToArrInspectorAsync();
-    _pendingAsync.Completed +=
-        (ArrInspectorAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                // Launch the html file with default browser
-                string htmlPath = res.Result;
+    string htmlPath = await session.ConnectToArrInspectorAsync();
 #if WINDOWS_UWP
-                UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
-                {
-                    var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(htmlPath);
-                    await Windows.System.Launcher.LaunchFileAsync(file);
-                }, true);
+    UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
+    {
+        var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(htmlPath);
+        await Windows.System.Launcher.LaunchFileAsync(file);
+    }, true);
 #else
-                InvokeOnAppThreadAsync(() =>
-                {
-                    System.Diagnostics.Process.Start("file:///" + htmlPath);
-                });
+    InvokeOnAppThreadAsync(() =>
+        {
+            System.Diagnostics.Process.Start("file:///" + htmlPath);
+        });
 #endif
-            }
-            else
-            {
-                Console.WriteLine("Failed to connect to ARR inspector!");
-            }
-        };
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void ConnectToArrInspector(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<ArrInspectorAsync> pendingAsync = *session->ConnectToArrInspectorAsync();
-    pendingAsync->Completed([](ApiHandle<ArrInspectorAsync> res)
-    {
-        if (res->GetIsRanToCompletion())
+    session->ConnectToArrInspectorAsync([](Status status, std::string result) {
+        if (status == Status::OK)
         {
             // Launch the html file with default browser
-            std::string htmlPath = "file:///" + *res->Result();
+            std::string htmlPath = "file:///" + result;
             ShellExecuteA(NULL, "open", htmlPath.c_str(), NULL, NULL, SW_SHOWDEFAULT);
         }
         else

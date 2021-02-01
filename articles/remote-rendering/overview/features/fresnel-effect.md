@@ -43,7 +43,7 @@ As shown, the objects on the diagonal are fully transparent, but fresnel shine r
 
 The following code samples show enabling and customizing the fresnel effect for both a [PBR material](../../overview/features/pbr-materials.md) and a [Color material](../../overview/features/color-materials.md):
 
-```cs [APITODO]
+```cs
     void SetFresnelEffect(RenderingSession session, Material material)
     {
         if (material.MaterialSubType == MaterialType.Pbr)
@@ -63,7 +63,7 @@ The following code samples show enabling and customizing the fresnel effect for 
     }
 ```
 
-```cpp [APITODO]
+```cpp
 void SetFresnelEffect(ApiHandle<RenderingSession> session, ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Pbr)

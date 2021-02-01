@@ -49,22 +49,22 @@ The performance characteristics for both modes do vary based on the use case, an
 
 The render mode used on a Remote Rendering server is specified during `RenderingSession.ConnectAsync` via the `RendererInitOptions`.
 
-```cs [APITODO]
+```cs
 async void ExampleConnect(RenderingSession session)
 {
     RendererInitOptions parameters = new RendererInitOptions();
 
     // Connect with one rendering mode
-    parameters.mode = ServiceRenderMode.TileBasedComposition;
-    await session.ConnectAsync(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.TileBasedComposition;
+    await session.ConnectAsync(parameters);
 
     session.Disconnect();
 
     // Wait until session.IsConnected == false
 
     // Reconnect with a different rendering mode
-    parameters.mode = ServiceRenderMode.DepthBasedComposition;
-    await session.ConnectAsync(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.DepthBasedComposition;
+    await session.ConnectAsync(parameters);
 }
 ```
 

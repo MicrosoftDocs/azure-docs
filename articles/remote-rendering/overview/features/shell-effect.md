@@ -36,7 +36,7 @@ The shell effect is applied on the final opaque color the scene would be rendere
 
 The following code shows an example usage of the `ShellRenderingSettings` state via the API:
 
-```cs [APITODO]
+```cs
 void SetShellSettings(RenderingSession session)
 {
     ShellRenderingSettings shellRenderingSettings = session.Connection.ShellRenderingSettings;
@@ -45,7 +45,7 @@ void SetShellSettings(RenderingSession session)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void SetShellSettings(ApiHandle<RenderingSession> session)
 {
     ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Connection()->GetShellRenderingSettings();

@@ -22,7 +22,7 @@ The debug rendering API provides a range of global options to alter server-side 
 
 The following code enables these debugging effects:
 
-```cs [APITODO]
+```cs
 void EnableDebugRenderingEffects(RenderingSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Connection.DebugRenderingSettings;
@@ -38,7 +38,7 @@ void EnableDebugRenderingEffects(RenderingSession session, bool highlight)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void EnableDebugRenderingEffects(ApiHandle<RenderingSession> session, bool highlight)
 {
     ApiHandle<DebugRenderingSettings> settings = session->Connection()->GetDebugRenderingSettings();
@@ -72,7 +72,7 @@ However, the provided effects do no give any detailed introspection into service
 
 ## API documentation
 
-* [C++ RemoteManager::DebugRenderingSettings()](/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+* [C++ RenderingConnection::DebugRenderingSettings()](/cpp/api/remote-rendering/renderingconnection#debugrenderingsettings)
 
 ## Next steps
 

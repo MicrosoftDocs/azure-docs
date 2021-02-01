@@ -39,7 +39,7 @@ During conversion multiple materials with the same properties and textures are a
 
 All materials provided by the API derive from the base class `Material`. Their type can be queried through `Material.MaterialSubType` or by casting them directly:
 
-```cs [APITODO]
+```cs
 void SetMaterialColorToGreen(Material material)
 {
     if (material.MaterialSubType == MaterialType.Color)
@@ -58,7 +58,7 @@ void SetMaterialColorToGreen(Material material)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void SetMaterialColorToGreen(ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Color)
@@ -82,11 +82,11 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 * [C# Material class](/dotnet/api/microsoft.azure.remoterendering.material)
 * [C# ColorMaterial class](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
 * [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [C++ Material class](/cpp/api/remote-rendering/material)
 * [C++ ColorMaterial class](/cpp/api/remote-rendering/colormaterial)
 * [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## Next steps
 

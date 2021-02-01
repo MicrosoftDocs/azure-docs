@@ -36,16 +36,16 @@ Azure Remote Rendering can securely access the contents of your Azure Blob Stora
 
 When using a linked blob storage, you'll use slightly different methods for loading models:
 
-```cs [APITODO]
-var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSASAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams);
 ```
 
-The above lines use the `FromSAS` version of the params and session action. They must be converted to the non-SAS versions:
+The above lines use the `FromSas` version of the params and session action. They must be converted to the non-SAS versions:
 
-```cs [APITODO]
-var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName, modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
 Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linked blob storage account.
@@ -53,7 +53,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 1. If you haven't already, complete the [How-to: Link storage accounts](../../../how-tos/create-an-account.md#link-storage-accounts) to grant your ARR instance permission to access your Blob Storage instance.
 1. Add the following modified **LoadModel** method to **RemoteRenderingCoordinator** just below the current **LoadModel** method:
 
-    ```cs [APITODO]
+    ```cs
     /// <summary>
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
@@ -63,7 +63,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
@@ -95,11 +95,9 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
-        if (progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -110,7 +108,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
-    ```cs [APITODO]
+    ```cs
     private bool loadingLinkedCustomModel = false;
 
     [SerializeField]
@@ -208,7 +206,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
 1. Create a new script named **AADAuthentication** and replace its code with the following:
 
-    ```cs [APITODO]
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -371,7 +369,7 @@ For this code, we're using the [device code flow](../../../../active-directory/d
 
 The most important part of this class from an ARR perspective is this line:
 
-```cs [APITODO]
+```cs
 return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 

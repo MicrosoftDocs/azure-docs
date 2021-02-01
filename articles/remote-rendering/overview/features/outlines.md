@@ -30,7 +30,7 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 
 The following code shows an example for setting outline parameters via the API:
 
-```cs [APITODO]
+```cs
 void SetOutlineParameters(RenderingSession session)
 {
     OutlineSettings outlineSettings = session.Connection.OutlineSettings;
@@ -40,7 +40,7 @@ void SetOutlineParameters(RenderingSession session)
 }
 ```
 
-```cpp [APITODO]
+```cpp
 void SetOutlineParameters(ApiHandle<RenderingSession> session)
 {
     ApiHandle<OutlineSettings> outlineSettings = session->Connection()->GetOutlineSettings();
@@ -58,8 +58,8 @@ Outline rendering may have a significant impact on rendering performance. This i
 
 ## API documentation
 
-* [C# RemoteManager.OutlineSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
-* [C++ RemoteManager::OutlineSettings()](/cpp/api/remote-rendering/remotemanager#outlinesettings)
+* [C# RenderingConnection.OutlineSettings property](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
+* [C++ RenderingConnection::OutlineSettings()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
 
 ## Next steps
 
