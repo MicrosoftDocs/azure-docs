@@ -55,9 +55,7 @@ You can create a DHCP server or relay directly from the Azure VMware Solution co
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP (Preview)** > **Add**.
 
-2. Select either **DHCP Server** or **DHCP Relay**.
-
-3. Provide a name for the server or relay and three IP addresses. 
+2. Select either **DHCP Server** or **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
 
    >[!NOTE]
    >For DHCP relay, only one IP address is required for a successful configuration.
