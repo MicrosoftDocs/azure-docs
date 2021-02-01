@@ -45,8 +45,8 @@ Details about feature availability in the varied [UI SDKs is available here](ui-
 
 |Client library / SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../voice-video-calling/teams-interop.md)
 |---|---|---|---|---|---|---|
-|Composite Components|Low|Low|✔|✔|Coming
-|Base Components|Medium|Medium|✔|✔|Coming
+|Composite Components|Low|Low|✔|✔|✕
+|Base Components|Medium|Medium|✔|✔|✕
 |Core client libraries|High|High|✔|✔ |✔
 
 ## Cost
