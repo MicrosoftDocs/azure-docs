@@ -3,7 +3,7 @@ title: PowerShell sample - Assign user to an Application Proxy app
 description: PowerShell example that assigns a user to an Azure Active Directory (Azure AD) Application Proxy application.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

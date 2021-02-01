@@ -40,6 +40,7 @@ There are two required header parameters that must be set for $export jobs. The 
 
 ### Query parameters
 The Azure API for FHIR supports the following query parameters. All of these parameters are optional:
+
 |Query parameter        | Defined by the FHIR Spec?    |  Description|
 |------------------------|---|------------|
 | \_outputFormat | Yes | Currently supports three values to align to the FHIR Spec: application/fhir+ndjson, application/ndjson, or just ndjson. All export jobs will return `ndjson` and the passed value has no effect on code behavior. |
