@@ -43,7 +43,7 @@ Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or lat
 1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select the **Single-page application** tile.
-1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant**.
+1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant and hybrid flows**.
 1. Select **Configure** to finish adding the redirect URI.
 
 You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By configuring your redirect URI using the **Single-page application** tile in the **Add a platform** pane, your application registration is configured to support the authorization code flow with PKCE and CORS.
@@ -58,7 +58,7 @@ Follow these steps to add a redirect URI for a single-page app that uses MSAL.js
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md).
-1. Enable the **Implicit flow**:
+1. Enable the **Implicit grant and hybrid flows**:
     - If your application signs in users, select **ID tokens**.
     - If your application also needs to call a protected web API, select **Access tokens**. For more information about these token types, see [ID tokens](id-tokens.md) and [Access tokens](access-tokens.md).
 1. Select **Configure** to finish adding the redirect URI.
