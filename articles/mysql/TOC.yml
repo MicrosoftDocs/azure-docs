@@ -300,9 +300,9 @@
         - name: Move Servers between regions
           items:
             - name: Azure portal
-              href: howto-move-regions-portal.md
-              displayName: move servers across regions
-   - name: Backup Restore
+            - href: howto-move-regions-portal.md
+            - displayName: move servers across regions
+   - name: Backup & Restore
      items:
        - name: Backups
          href: concepts-backup.md
