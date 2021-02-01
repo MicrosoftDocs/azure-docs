@@ -114,8 +114,8 @@ Take the following steps to enable Container Insights on your workspace.
 
 1. Get the resource ID and location. Go to `Your Log Analytics workspace > General > Properties`. Copy the following information:
 
-    - **resource ID** which is the fully qualified Azure resource ID of the Azure Log Analytics workspace. 
-    - **location** which is the Azure region.
+    - **resource ID**, which is the fully qualified Azure resource ID of the Azure Log Analytics workspace. 
+    - **location**, which is the Azure region.
 
     ![Properties of Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
