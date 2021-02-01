@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
 
 ---
@@ -27,16 +27,11 @@ This article shows you how to configure [routing preference](./routing-preferenc
 
 By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
 
-> [!IMPORTANT]
-> Routing preference is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 ## Create a public IP address with a routing preference
-1. Sign in to the [Azure portal](https://preview.portal.azure.com/).
-2. Select **Create a resource**. 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **Create a resource**.
 3. In the search box, type *Public IP address*.
 3. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
 3. In the **Routing preference** options, select **Internet**.
