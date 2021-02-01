@@ -17,7 +17,7 @@ This article shows you how to configure a blob indexer for indexing text-based d
 
 <a name="SupportedFormats"></a>
 
-## Supported formats
+## Supported document formats
 
 The blob indexer can extract text from the following document formats:
 
@@ -154,7 +154,7 @@ api-key: [admin key]
 
 <a name="PartsOfBlobToIndex"></a>
 
-## Index parts of a blob
+## Index content and metadata
 
 Blobs contain content and metadata. You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
@@ -188,7 +188,7 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-### Indexing content
+### Indexing blob content
 
 By default, blobs with structured content, such as JSON or CSV, are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md).
 
@@ -199,29 +199,27 @@ The textual content of the document is extracted into a string field named `cont
   > [!NOTE]
   > Azure Cognitive Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. A warning is included in the indexer status response for truncated documents.  
 
-### Indexing metadata
+### Indexing blob metadata
 
-Indexers can also index metadata.
+Indexers can also index blob metadata. First, any user-specified metadata properties can be extracted verbatim. To receive the values, you must define field in the search index of type `Edm.String` and same name as the metadata key of the blob. For example, if a blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
 
-+ User-specified metadata properties present on the blob, if any, are extracted verbatim. Note that this requires a field to be defined in the index with the same name as the metadata key of the blob. For example, if your blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
+Second, standard blob metadata properties are extracted into the fields listed below. If you're using the **Import data** wizard for blob indexing, the wizard will autogenerate the corresponding fields in the index schema. For programmatic solutions, define the fields in the index schema:
 
-+ Standard blob metadata properties are extracted into the following fields:
+  + **metadata_storage_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
-  + **metadata\_storage\_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+  + **metadata_storage_path** (`Edm.String`) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-  + **metadata\_storage\_path** (`Edm.String`) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  + **metadata_storage_content_type** (`Edm.String`) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
 
-  + **metadata\_storage\_content\_type** (`Edm.String`) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+  + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the blob. Azure Cognitive Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
 
-  + **metadata\_storage\_last\_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the blob. Azure Cognitive Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
+  + **metadata_storage_size** (`Edm.Int64`) - blob size in bytes.
 
-  + **metadata\_storage\_size** (`Edm.Int64`) - blob size in bytes.
+  + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the blob content, if available.
 
-  + **metadata\_storage\_content\_md5** (`Edm.String`) - MD5 hash of the blob content, if available.
+  + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the blob. This token should not be stored for later use as it might expire.
 
-  + **metadata\_storage\_sas\_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the blob. This token should not be stored for later use as it might expire.
-
-+ Metadata properties specific to each document format are extracted into the fields listed [here](search-blob-metadata-properties.md).
+Lastly, any metadata properties specific to the document format of the blobs you are indexing can also be represented in the index schema. For more information about content-specific metadata, see [here](search-blob-metadata-properties.md).
 
 You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
 
