@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the left navigation pane, click **Settings**.
 
-	![Settings Section On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+	![Settings Section On App side](./media/moveittransfer-tutorial/settings.png)
 
 3. Click **Single Signon** link, which is under **Security Policies -> User Auth**.
 
-	![Security Policies On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+	![Security Policies On App side](./media/moveittransfer-tutorial/sso.png)
 
 4. Click the Metadata URL link to download the metadata document.
 
@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Click **Browse...** to select the metadata file which you downloaded from Azure portal, then click **Add Identity Provider** to upload the downloaded file.
 
-	![SAML Identity Provider](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+	![SAML Identity Provider](./media/moveittransfer-tutorial/saml.png)
 
 7. Select "**Yes**" as **Enabled** in the **Edit Federated Identity Provider Settings...** page and click **Save**.
 
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 8. In the **Edit Federated Identity Provider User Settings** page, perform the following actions:
 	
-	![Edit Federated Identity Provider Settings](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+	![Edit Federated Identity Provider Settings](./media/moveittransfer-tutorial/attributes.png)
 	
 	a. Select **SAML NameID** as **Login name**.
 	

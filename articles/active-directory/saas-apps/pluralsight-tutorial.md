@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<instancename>.pluralsight.com/sso/<companyname>`
 
-    b. In the **Identifier** box, type the URL using the following pattern:
+    b. In the **Identifier** box, type the URL:
     `www.pluralsight.com`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:

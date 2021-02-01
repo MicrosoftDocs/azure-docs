@@ -167,11 +167,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select **Create** > **SysAdmin** > **Authentication Service**:
 
-	![Select Authentication Service](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
+	![Select Authentication Service](./media/pegasystems-tutorial/admin.png)
 	
 3. Complete the following steps on the **Create Authentication Service** screen.
 
-	![Create Authentication Service screen](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+	![Create Authentication Service screen](./media/pegasystems-tutorial/admin1.png)
 
 	1. In the **Type** list, select **SAML 2.0**.
 
@@ -183,7 +183,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 4. In the **Identity Provider (IdP) information** section, select **Import IdP metadata** and browse to the metadata file that you downloaded from the Azure portal. Click **Submit** to load the metadata:
 
-	![Identity Provider (IdP) information section](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+	![Identity Provider (IdP) information section](./media/pegasystems-tutorial/admin2.png)
 	
     The import will populate the IdP data as shown here:
 
