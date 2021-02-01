@@ -1,17 +1,17 @@
 ---
-title: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
-description: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster.
+title: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+description: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: jiangma
 ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ---
 
-# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
-This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty or WebSphere Liberty runtime and then deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty or WebSphere Liberty runtime and then deploy the containerized application to an AKS cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,15 +26,15 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) and the AKS cluster later. 
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) instance and the AKS cluster later. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
 ```
 
-## Create ACR instance
+## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) command to create the ACR instance. The following example creates an ACR named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ```azurecli-interactive
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
@@ -48,9 +48,9 @@ After a short time, you should see a JSON output that contains:
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the ACR
+### Connect to the ACR instance
 
-To push an image to the ACR, you need to log into it first. Run the following commands to verify the connection:
+To push an image to the ACR instance, you need to log into it first. Run the following commands to verify the connection:
 
 ```azurecli-interactive
 REGISTRY_NAME=youruniqueacrname
@@ -61,9 +61,9 @@ PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value'
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
 
-You should see `Login Succeeded` at the end of command output if you have logged into the ACR successfully.
+You should see `Login Succeeded` at the end of command output if you have logged into the ACR instance successfully.
 
-## Create AKS cluster
+## Create an AKS cluster
 
 Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
@@ -80,7 +80,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the cluster
+### Connect to the AKS cluster
 
 To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_install_cli) command:
 
@@ -139,18 +139,18 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 1. Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Change directory to `javaee-app-simple-cluster` of your local clone.
 1. Run `mvn clean package` to package the application.
-1. Run one of the following commands to build the application image and push it to the ACR.
+1. Run one of the following commands to build the application image and push it to the ACR instance.
    * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
 
      ```azurecli-interactive
-     # Build and tag application image. This will cause ACR to pull the necessary Open Liberty base images.
+     # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.
      az acr build -t javaee-cafe-simple:1.0.0 -r $REGISTRY_NAME .
      ```
 
    * Build with WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
      ```azurecli-interactive
-     # Build and tag application image. This will cause ACR to pull the necessary WebSphere Liberty base images.
+     # Build and tag application image. This will cause the ACR instance to pull the necessary WebSphere Liberty base images.
      az acr build -t javaee-cafe-simple:1.0.0 -r $REGISTRY_NAME --file=Dockerfile-wlp .
      ```
 
@@ -158,7 +158,7 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Create a pull secret so that the AKS is authenticated to pull image from the ACR.
+1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
 
    ```azurecli-interactive
    kubectl create secret docker-registry acr-secret \
