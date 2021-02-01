@@ -140,6 +140,12 @@
           items:
             - name: Audio Content Creation
               href: how-to-audio-content-creation.md
+
+    - name: Responsible use of AI
+      items:
+        - name: Custom Neural Voice
+          items:
+          
     - name: Reference
       items:
         - name: C++
