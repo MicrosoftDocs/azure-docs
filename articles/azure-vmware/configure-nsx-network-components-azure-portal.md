@@ -31,7 +31,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 >[!NOTE]
 >If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) before you can create and configure an NSX-T segment.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments (Preview)** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
 
@@ -53,7 +53,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 ## Create a DHCP server or DHCP relay in the Azure portal
 You can create a DHCP server or relay directly from the Azure VMware Solution console in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway, which gets created when you deploy Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP.  After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP (Preview)** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
 
 2. Select either **DHCP Server** or **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
 
@@ -77,7 +77,7 @@ To set up port mirroring in the Azure VMware Solution console, you'll:
 
 In this step, you'll create a source VM group and a destination VM group.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Port mirroring (Preview)** > **VM groups** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Port mirroring** > **VM groups** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-vm-groups.png" alt-text="Screenshot showing how to create a VM group for port mirroring.":::
 
@@ -126,7 +126,7 @@ You'll configure a default DNS zone and FQDN zone to send DNS queries to the ups
 >[!NOTE]
 >A default DNS zone must be defined before you configure an FQDN zone. 
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS (Preview)** > **DNS zones** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones and a DNS service.":::
 
@@ -175,5 +175,3 @@ You'll configure a default DNS zone and FQDN zone to send DNS queries to the ups
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-success.png" alt-text="Screenshot showing the DNS service added successfully.":::
 
-## Next steps
-[where do we want to send them after this?]
