@@ -279,6 +279,8 @@
       items:
       - name: Using metric charts
         href: azure-stack-edge-monitor.md 
+      - name: Manage alerts
+        href: azure-stack-edge-gpu-manage-alerts.md 
       - name: Using Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
       - name: Using Azure Monitor
