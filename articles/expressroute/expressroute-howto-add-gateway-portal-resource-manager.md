@@ -74,7 +74,7 @@ Then, click **OK** to save the values and create the gateway subnet.
     ![Create virtual network gateway blade fields](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Create virtual network gateway blade fields")
 3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
 4. **Gateway type**: Select **ExpressRoute**.
-5. **SKU**: Select the gateway SKU from the dropdown. If you are planning to use IPv6-based private peering, select an AZ SKU.
+5. **SKU**: Select the gateway SKU from the dropdown. *If you are planning to use IPv6-based private peering, select an AZ SKU.*
 6. **Location**: Adjust the **Location** field to point to the location where your virtual network is located. If the location is not pointing to the region where your virtual network resides, the virtual network doesn't appear in the 'Choose a virtual network' dropdown.
 7. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
 9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned. Click **OK** to save your changes to this blade.
