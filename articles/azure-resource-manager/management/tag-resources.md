@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 11/20/2020 
+ms.date: 01/04/2021 
 ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
@@ -20,9 +20,11 @@ For recommendations on how to implement a tagging strategy, see [Resource naming
 
 ## Required access
 
-To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role lets you apply tags to an entity without having access to the entity itself. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+There are two ways to get the required access to tag resources.
 
-The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role also grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- You can have write access to the **Microsoft.Resources/tags** resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+
+- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## PowerShell
 
@@ -271,7 +273,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-To add tags to a resource that already has tags, use **az tag update**. Set the **--operation** parameter to **Merge**.
+To add tags to a resource that already has tags, use `az tag update`. Set the `--operation` parameter to `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -307,7 +309,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-When you set the **--operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
+When you set the `--operation` parameter to `Replace`, the existing tags are replaced by the new set of tags.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -400,7 +402,7 @@ az group list --tag Dept=Finance
 
 ### Remove tags
 
-To remove specific tags, use **az tag update** and set **--operation** to **Delete**. Pass in the tags you want to delete.
+To remove specific tags, use `az tag update` and set `--operation` to `Delete`. Pass in the tags you want to delete.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
@@ -430,9 +432,12 @@ If your tag names or values include spaces, enclose them in double quotes.
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## Templates
+## ARM templates
 
-You can tag resources, resource groups, and subscriptions during deployment with a Resource Manager template.
+You can tag resources, resource groups, and subscriptions during deployment with an Azure Resource Manager template (ARM template).
+
+> [!NOTE]
+> The tags you apply through the ARM template overwrite any existing tags.
 
 ### Apply values
 
@@ -440,7 +445,7 @@ The following example deploys a storage account with three tags. Two of the tags
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -479,7 +484,7 @@ You can define an object parameter that stores several tags, and apply that obje
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -517,7 +522,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -550,7 +555,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup()](../
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -686,7 +691,7 @@ Tags applied to the resource group or subscription aren't inherited by the resou
 
 You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and Rate Card APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags by downloading  the usage file, a comma-separated values (CSV) file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 

@@ -35,11 +35,11 @@ When a PRT is used to request access to an application, its device, session, and
 
   If there are older versions of Windows in your organization, upgrade those devices to use Windows 10.
 
-* Standardize user browser access to use either [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) that enabled seamless SSO to web applications using the PRT.
+* Standardize user browser access to use either [Microsoft Edge](/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) that enabled seamless SSO to web applications using the PRT.
 
-* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview.md). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/brokered-auth.md) with fewer authentication prompts for end users.
+* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview.md). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/msal-android-single-sign-on.md) with fewer authentication prompts for end users.
 
-* For personal or company owned iOS and Android devices use [mobile application management](https://docs.microsoft.com/mem/intune/apps/app-management.md) to securely access company resources with fewer authentication requests. 
+* For personal or company owned iOS and Android devices use [mobile application management](/mem/intune/apps/app-management) to securely access company resources with fewer authentication requests. 
 
 * [Use the Microsoft Enterprise SSO plug-in for Apple devices (preview)](../develop/apple-sso-plugin.md). This registers the device and provides SSO across browser and native Azure AD applications. 
 

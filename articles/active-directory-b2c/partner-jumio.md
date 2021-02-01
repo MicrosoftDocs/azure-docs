@@ -61,7 +61,7 @@ After you create a Jumio account, you use the account to configure Azure AD B2C.
 
 ### Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) to an Azure service. You can publish the code from Visual Studio, by following [these instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) to an Azure service. You can publish the code from Visual Studio, by following [these instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.

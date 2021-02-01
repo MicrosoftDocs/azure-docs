@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/5/2020
+ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V11.1 Release - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported - Flighting |
+| V11.1 Release - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |
 | V10 Release - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | April 9, 2020 | Supported |
@@ -232,14 +232,14 @@ The following release notes are for version 9.0.0.0 of the Azure File Sync agent
 ### Improvements and issues that are fixed
 
 - Self-service restore support
-	- Users can now restore their files by using the previous version feature. Prior to the v9 release, the previous version feature was not supported on volumes that had cloud tiering enabled. This feature must be enabled for each volume separately, on which an endpoint with cloud tiering enabled exists. To learn more, see  
+	- Users can now also restore tiered files (along with on-disk files) by using the previous version feature, from the VSS snapshots that are created after the self-service restore feature is enabled on the volume. Prior to the v9 release, the previous version feature was not supported for tiered files. This feature must be enabled for each volume separately, on which an endpoint with cloud tiering enabled exists. To learn more, see  
 [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Support for larger file share sizes 
 	- Azure File Sync now supports up to 64TiB and 100 million files in a single, syncing namespace.  
  
 - Data Deduplication support on Server 2019 
-	- Data Deduplication is now supported with cloud tiering enabled on Windows Server 2019. To support Data Deduplication on volumes with cloud tiering, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed. 
+	- Data Deduplication is now supported (irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume) on Windows Server 2016 and Windows Server 2019. To support Data Deduplication on volumes with cloud tiering on Server 2019, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed. 
  
 - Improved minimum file size for a file to tier 
 	- The minimum file size for a file to tier is now based on the file system cluster size (double the file system cluster size). For example, by default, the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. 

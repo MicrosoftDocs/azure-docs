@@ -1,15 +1,16 @@
 ---
-title: Monitor scheduled events for your Windows VMs in Azure 
+title: Monitor scheduled events for your VMs in Azure 
 description: Learn how to monitor your Azure virtual machines for scheduled events.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
+# Monitoring Scheduled Events
 ---
 
-# Monitoring Scheduled Events
+# Monitor scheduled events for your Azure VMs
 
 Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
@@ -34,7 +35,7 @@ You will also need to [create a Log Analytics workspace](../../azure-monitor/lea
 
 ## Set up the environment
 
-You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called myCollectorVM, in the same availability set. 
+You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called `myCollectorVM`, in the same availability set. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -127,7 +128,7 @@ This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md)
 ## Creating an alert rule with Azure Monitor 
 
 
-Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/log-query/get-started-portal.md) to look for the schedule Events.
+Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/log-query/log-analytics-tutorial.md) to look for the schedule Events.
 
 1. At the top of the page, select **Logs** and paste the following into the text box:
 
@@ -145,7 +146,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 	| project-away RenderedDescription,ReqJson
 	```
 
-1. Select **Save**, and then type *logQuery* for the name, leave **Query** as the type, type *VMLogs* as the **Category**, and then select **Save**. 
+1. Select **Save**, and then type `ogQuery` for the name, leave **Query** as the type, type `VMLogs` as the **Category**, and then select **Save**. 
 
 	![Save the query](./media/notifications/save-query.png)
 
@@ -155,7 +156,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 1. Under **Threshold value**, enter *0* and then select **Done**.
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
-1. In **Short name**, type **myActionGroup**.
+1. In **Short name**, type *myActionGroup*.
 1. In **Resource group**, select **myResourceGroupAvailability**.
 1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
 1. Select **Email**, type in your e-mail address, then select **OK**.

@@ -41,10 +41,9 @@ You need to protect with pre-authentication and provide SSO through password vau
 
 ## Implement password-based SSO with Azure AD
 
-* [What is password based SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [What is password based SSO](../manage-apps/what-is-single-sign-on.md) 
 
-* [Configure password based SSO for cloud applications ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Configure password based SSO for cloud applications ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configure password-based SSO for on-premises applications with Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Configure password-based SSO for on-premises applications with Application Proxy](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

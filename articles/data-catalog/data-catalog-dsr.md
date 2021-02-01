@@ -7,8 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ---
-
 # Supported data sources in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Azure Data Catalog web portal. The following table summarizes all data sources that are supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each data source can launch from our portal "open-in" experience. The second table contains a more technical specification of each data-source connection property.
 

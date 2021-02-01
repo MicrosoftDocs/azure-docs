@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/27/2020
+ms.date: 12/22/2020
 ms.custom: references_regions
 
 ---
@@ -22,83 +22,17 @@ This article provides an overview of the options available to enable Azure Monit
 
 To set up Azure Monitor for VMs:
 
-* Enable a single Azure VM, Azure VMSS, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
-* Enable multiple Azure VMs, Azure VMSS, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
-* Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
+* Enable a single Azure virtual machine, Azure virtual machine scale set, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
+* Enable multiple Azure virtual machines, Azure virtual machines, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant virtual machines and scale sets are reported, so you can decide whether to enable them and to remediate them.
+* Enable multiple Azure virtual machines, Azure Arc virtual machines, Azure virtual machine scale sets, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
 * Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
 
-## Prerequisites
-
-Before you start, make sure that you understand the information in the following sections. 
-
->[!NOTE]
->The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
-
-### Log Analytics workspace
-
-Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
-
-- Africa
-  - South Africa North
-- Asia Pacific
-  - East Asia
-  - Southeast Asia
-- Australia
-  - Australia East
-  - Australia Southeast
-- Azure Government
-  - US Gov Az
-  - US Gov Va
-- Canada
-  - Canada Central
-- Europe
-  - North Europe
-  - West Europe
-- India
-  - Central India
-- Japan
-  - Japan East
-- United Kingdom
-  - UK South
-- United States
-  - Central US
-  - East US
-  - East US2
-  - North Central US
-  - South Central US
-  - West Central US
-  - West US
-  - West US 2
-
-
->[!NOTE]
->You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
->
-
-If you don't have a Log Analytics workspace, you can create one by using one of the  resources:
-* [Azure CLI](../learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+## Supported machines
+Azure Monitor for VMs supports the following machines:
 
 - Azure virtual machine
 - Azure virtual machine scale set
 - Hybrid virtual machine connected with Azure Arc
-
-## Supported operating systems
-
-Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
-](../platform/agents-overview.md#supported-operating-systems) for a complete list.
-
-See the following list of considerations on Linux support of the Dependency agent that supports Azure Monitor for VMs:
-
-- Only default and SMP Linux kernel releases are supported.
-- Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
-- Custom kernels, including recompilations of standard kernels, aren't supported.
-- For Debian distros other than version 9.4, the map feature isn't supported, and the Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
-- CentOSPlus kernel is supported.
-- The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
-
 
 
 ## Supported Azure Arc machines
@@ -110,11 +44,29 @@ Azure Monitor for VMs is available for Azure Arc enabled servers in regions wher
 | Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
+## Supported operating systems
+
+Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
+](../platform/agents-overview.md#supported-operating-systems) for a complete list.
+
+> [!IMPORTANT]
+> The Azure Monitor for VMs guest health feature has more limited operating system support while it's in public preview. See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for a detailed list.
+
+See the following list of considerations on Linux support of the Dependency agent that supports Azure Monitor for VMs:
+
+- Only default and SMP Linux kernel releases are supported.
+- Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
+- Custom kernels, including recompilations of standard kernels, aren't supported.
+- For Debian distros other than version 9.4, the map feature isn't supported, and the Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
+- CentOSPlus kernel is supported.
+- The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
+## Log Analytics workspace
+Azure Monitor for VMs requires a Log Analytics workspace. See [Configure Log Analytics workspace for Azure Monitor for VMs](vminsights-configure-workspace.md) for details and requirements of this workspace.
 ## Agents
-Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
+Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. To onboard the resource, install these agents and connect them to the workspace.  See [Network requirements](../platform/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
 - [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
-- Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which is used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
+- Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
 > [!NOTE]
 > The Log Analytics agent is the same agent used by System Center Operations Manager. Azure Monitor for VMs can monitor agents that are also monitored by Operations Manager if they are directly connected, and you install the Dependency agent on them. Agents connected to Azure Monitor through a [management group connection](../tform/../platform/om-agents.md) cannot be monitored by Azure Monitor for VMs.
@@ -132,7 +84,7 @@ The following are multiple methods for deploying these agents.
 
 
 ## Management packs
-When a Log Analytics workspace is configured for Azure Monitor for VMs, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*. 
+When a Log Analytics workspace is configured for Azure Monitor for VMs, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
 
 The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 

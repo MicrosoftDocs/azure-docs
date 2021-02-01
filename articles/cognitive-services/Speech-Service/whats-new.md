@@ -27,7 +27,7 @@ If you want to learn about updates to the Speech service, Speech SDK, Speech Dev
 
 ### New articles
 
-* [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md)
+* [Improve a model for Custom Speech](./how-to-custom-speech-evaluate-data.md)
 
 ### Updated articles
 
@@ -39,7 +39,7 @@ If you want to learn about updates to the Speech service, Speech SDK, Speech Dev
 * [Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)](./long-audio-api.md) - Updated with support for public neural voices, and associated parameters.
 * [Quickstart: Recognize speech from an audio file](./get-started-speech-to-text.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Recognize speech from a microphone](./get-started-speech-to-text.md) - Added Go and JavaScript instructions to documentation.
-* [Quickstart: Recognize speech stored in blob storage](quickstarts/from-blob.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Recognize speech stored in blob storage](./batch-transcription.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Quickstart: Setup development environment](quickstarts/setup-platform.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Synthesize speech into an audio file](./get-started-text-to-speech.md) - Added JavaScript instructions to documentation.

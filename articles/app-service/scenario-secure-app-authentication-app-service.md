@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-
+ms.custom: azureday1
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 

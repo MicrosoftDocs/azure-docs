@@ -5,18 +5,19 @@
  ms.service: postgresql
  ms.subservice: hyperscale-citus
  ms.topic: include
- ms.date: 09/12/2019
+ ms.date: 12/16/2020
  ms.author: jonels
  ms.custom: include file
 ---
 
+## Create a Hyperscale (Citus) server group
+
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Sign in to the Azure portal
+### Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an Azure Database for PostgreSQL - Hyperscale (Citus)
 
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
@@ -48,7 +49,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 10. The page will redirect to monitor deployment. When the live status changes from **Your deployment is underway** to **Your deployment is complete**, click the **Outputs** menu item on the left of the page.
 11. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
 
-## Connect to the database using psql
+### Connect to the database using psql
 
 When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 

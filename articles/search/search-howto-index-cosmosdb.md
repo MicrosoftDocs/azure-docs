@@ -21,13 +21,13 @@ ms.date: 07/11/2020
 > [REST API preview versions](search-api-preview.md) provide these features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]
-> Only Cosmos DB collections with an [indexing policy](/azure/cosmos-db/index-policy) set to [Consistent](/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
+> Only Cosmos DB collections with an [indexing policy](../cosmos-db/index-policy.md) set to [Consistent](../cosmos-db/index-policy.md#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
 
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](/azure/cosmos-db/index-overview) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/databases-containers-items.md#azure-cosmos-items) accessed through different protocols. 
+The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) accessed through different protocols. 
 
 + For [SQL API](../cosmos-db/sql-query-getting-started.md), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), or [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) to create the data source and indexer.
 
@@ -127,14 +127,14 @@ You can use the REST API to index Azure Cosmos DB data, following a three-part w
 > [!NOTE]
 > For indexing data from Cosmos DB Gremlin API or Cosmos DB Cassandra API you must first request access to the gated previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). Once your request is processed, you will receive instructions for how to use the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source.
 
-Earlier in this article it is mentioned that [Azure Cosmos DB indexing](/azure/cosmos-db/index-overview) and [Azure Cognitive Search indexing](search-what-is-an-index.md) indexing are distinct operations. For Cosmos DB indexing, by default all documents are automatically indexed except with the Cassandra API. If you turn off automatic indexing, documents can be accessed only through their self-links or by queries by using the document ID. Azure Cognitive Search indexing requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Cognitive Search. When signing up for the Cosmos DB Cassandra API indexer preview, you'll be given instructions on how set up Cosmos DB indexing.
+Earlier in this article it is mentioned that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) indexing are distinct operations. For Cosmos DB indexing, by default all documents are automatically indexed except with the Cassandra API. If you turn off automatic indexing, documents can be accessed only through their self-links or by queries by using the document ID. Azure Cognitive Search indexing requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Cognitive Search. When signing up for the Cosmos DB Cassandra API indexer preview, you'll be given instructions on how set up Cosmos DB indexing.
 
 > [!WARNING]
 > Azure Cosmos DB is the next generation of DocumentDB. Previously with API version **2017-11-11** you could use the `documentdb` syntax. This meant that you could specify your data source type as `cosmosdb` or `documentdb`. Starting with API version **2019-05-06** both the Azure Cognitive Search APIs and Portal only support the `cosmosdb` syntax as instructed in this article. This means that the data source type must `cosmosdb` if you would like to connect to a Cosmos DB endpoint.
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman or Visual Studio Code](search-get-started-rest.md) to send HTTP requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to send HTTP requests to Azure Cognitive Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 

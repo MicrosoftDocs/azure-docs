@@ -101,7 +101,7 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 
 - If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 - Use the right copy method:
-    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) for any transfer between two file shares.
+    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
     - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`

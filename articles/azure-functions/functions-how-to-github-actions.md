@@ -10,9 +10,9 @@ ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 
 # Continuous delivery by using GitHub Action
 
-Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your Azure function app. 
+Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
-In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your functions app project on GitHub. 
+In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project on GitHub. 
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
 
@@ -29,7 +29,7 @@ For an Azure Functions workflow, the file has three sections:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working function app hosted on Azure with a GitHub repository.   
-    - [Quickstart: Create a function in Azure using Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Quickstart: Create a function in Azure using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## Generate deployment credentials
 
@@ -182,6 +182,7 @@ The following example shows the part of the workflow that builds the function ap
 ---
 
 ## Deploy the function app
+
 Use the `Azure/functions-action` action to deploy your code to a function app. This action has three parameters:
 
 |Parameter |Explanation  |
@@ -197,7 +198,7 @@ The following example uses version 1 of the `functions-action` and a `publish pr
 Set up a .NET Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -212,7 +213,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -236,7 +237,7 @@ jobs:
 Set up a .NET Windows workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -251,7 +252,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -278,7 +279,7 @@ jobs:
 Set up a Java Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -294,7 +295,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -320,7 +321,7 @@ jobs:
 Set up a Java Windows workflow that uses a publish profile.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -336,7 +337,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -364,7 +365,7 @@ jobs:
 Set up a Node.JS Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -379,7 +380,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -406,7 +407,7 @@ jobs:
 Set up a Node.JS Windows workflow that uses a publish profile.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -421,7 +422,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -450,7 +451,7 @@ jobs:
 Set up a Python Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]
@@ -465,7 +466,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1

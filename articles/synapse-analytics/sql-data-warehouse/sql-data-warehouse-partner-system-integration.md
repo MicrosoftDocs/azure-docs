@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 This article highlights Microsoft system integration partner companies building solutions with Azure Synapse.
 
-## Our public preview launch partners
+## System Integration partners
 | Partner | Description | Website/Product link |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Bringing together 45,000+ dedicated professionals, the Accenture Microsoft Business Group—powered by Avanade—helps enterprises to thrive in the era of digital disruption.|[Partner page](https://www.accenture.com/us-en/services/microsoft-index)<br>|

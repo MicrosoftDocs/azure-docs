@@ -74,7 +74,9 @@
     items:
     - name: Azure Migrate support
       href: migrate-support-matrix.md
-    - name: Security baseline for Azure Migrate
+  - name: Security
+    items:
+    - name: Security baseline
       href: security-baseline.md
   - name: Discover
     items:
@@ -170,12 +172,12 @@
       href: how-to-migrate.md
     - name: Prepare machines for migration
       href: prepare-for-migration.md
+    - name: Prepare Windows 2003 servers for migration
+      href: prepare-windows-server-2003-migration.md
     - name: Migrate VMware VMs
       items:
       - name: Migrate VMware VMs to encrypted Azure VMs
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
-      - name: Prepare Windows 2003 servers for migration
-        href: prepare-windows-server-2003-migration.md
     - name: Scale migration
       items:
       - name: Automate migration of large number of VMs
@@ -188,6 +190,8 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
+    - name: Manage migration projects with Azure Lighthouse
+      href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: General

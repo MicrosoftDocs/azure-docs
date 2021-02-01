@@ -3,7 +3,7 @@ title: What are device templates in Azure IoT Central | Microsoft Docs
 description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and dashboards an operator uses.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -220,7 +220,7 @@ This example shows two properties (one read-only and one writable), a telemetry 
 
 - `@type` to specify the type of capability: `Telemetry`, `Property`, or `Command`.  In some cases, the type includes a semantic type to enable IoT Central to make some assumptions about how to handle the value.
 - `name` for the telemetry value.
-- `schema` to specify the data type for the telemetry or the property. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types, arrays, and maps are also supported.
+- `schema` to specify the data type for the telemetry or the property. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types and maps are also supported.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 

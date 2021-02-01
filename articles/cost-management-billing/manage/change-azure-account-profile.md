@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Change contact information for an Azure billing account

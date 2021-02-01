@@ -668,18 +668,18 @@ OriginalUrl.
 <xsl-transform>
     <parameter name="User-Agent">@(context.Request.Headers.GetValueOrDefault("User-Agent","non-specified"))</parameter>
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    	<xsl:output method="xml" indent="yes" />
-    	<xsl:param name="User-Agent" />
-    	<xsl:template match="* | @* | node()">
-    		<xsl:copy>
-    			<xsl:if test="self::* and not(parent::*)">
-    				<xsl:attribute name="User-Agent">
-    					<xsl:value-of select="$User-Agent" />
-    				</xsl:attribute>
-    			</xsl:if>
-    			<xsl:apply-templates select="* | @* | node()" />
-    		</xsl:copy>
-    	</xsl:template>
+        <xsl:output method="xml" indent="yes" />
+        <xsl:param name="User-Agent" />
+        <xsl:template match="* | @* | node()">
+            <xsl:copy>
+                <xsl:if test="self::* and not(parent::*)">
+                    <xsl:attribute name="User-Agent">
+                        <xsl:value-of select="$User-Agent" />
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="* | @* | node()" />
+            </xsl:copy>
+        </xsl:template>
     </xsl:stylesheet>
   </xsl-transform>
 ```
@@ -694,15 +694,15 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-      	<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    		<xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
-    		<!-- Copy all nodes directly-->
-    		<xsl:template match="node()| @*|*">
-    			<xsl:copy>
-    				<xsl:apply-templates select="@* | node()|*" />
-    			</xsl:copy>
-    		</xsl:template>
-      	</xsl:stylesheet>
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
+            <!-- Copy all nodes directly-->
+            <xsl:template match="node()| @*|*">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()|*" />
+                </xsl:copy>
+            </xsl:template>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>

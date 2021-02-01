@@ -1,16 +1,11 @@
 ---
-title: Azure portal overview | Microsoft Docs 
+title: Azure portal overview
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-
-ms.service: azure-portal
-manager:  mtillman
 ---
+
 # Azure portal overview
 
 This article introduces the Azure portal, identifies portal page elements, and helps you get familiar with the Azure portal management experience.

@@ -242,7 +242,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -368,7 +368,7 @@ You can also enable a just-in-time access to administrative accounts by using Az
 a secure, Azure-managed workstation (also known as a Privileged Access Workstation,
 or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -882,9 +882,9 @@ Note that Azure Marketplace virtual machine Images published by Microsoft are ma
 
 - [Create a Windows virtual machine in the Azure portal ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -914,7 +914,7 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 - [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
+- [Shared Image Gallery overview](../virtual-machines/shared-image-galleries.md)
 
 - [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 

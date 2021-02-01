@@ -68,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: /u-sql/
+        href: /u-sql
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators
@@ -79,8 +79,6 @@
         href: data-lake-analytics-u-sql-r-extensions.md
       - name: Cognitive extensions
         href: data-lake-analytics-u-sql-cognitive.md
-      - name: Programmability guide
-        href: data-lake-analytics-u-sql-programmability-guide.md
     - name: Visual Studio
       items:
       - name: Install
@@ -113,8 +111,32 @@
         href: data-lake-analytics-data-lake-tools-for-vscode.md
       - name: Custom code
         href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+      - name: Accessing resources
+        href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
       - name: Local run & debug
         href: data-lake-tools-for-vscode-local-run-and-debug.md
+    - name: Programmability guide
+      items:  
+      - name: Programmability guide overview
+        href: data-lake-analytics-u-sql-programmability-guide.md
+      - name: Programmability guide - UDT and UDAGG
+        href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+      - name: Programmability guide - UDO
+        items:
+        - name: User-defined objects overview
+          href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+        - name: Use user-defined extractor
+          href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+        - name: Use user-defined outputter
+          href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+        - name: Use user-defined processor
+          href: data-lake-analytics-u-sql-programmability-guide-processor.md
+        - name: Use user-defined applier
+          href: data-lake-analytics-u-sql-programmability-guide-applier.md
+        - name: Use user-defined combiner
+          href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+        - name: Use user-defined reducer
+          href: data-lake-analytics-u-sql-programmability-guide-reducer.md
   - name: Schedule U-SQL jobs
     items:
     - name: Schedule jobs using SSIS

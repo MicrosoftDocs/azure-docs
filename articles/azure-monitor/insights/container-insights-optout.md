@@ -14,7 +14,7 @@ After you enable monitoring of your AKS cluster, you can stop monitoring the clu
 
 ## Azure CLI
 
-Use the [az aks disable-addons](/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) command to disable Azure Monitor for containers. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
+Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Azure Monitor for containers. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -131,7 +131,7 @@ Execute the following command with Azure CLI on Linux to remove the solution and
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:

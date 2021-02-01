@@ -6,9 +6,10 @@ author: rolyon
 manager: daveba
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro

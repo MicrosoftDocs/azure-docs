@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Azure Toolkit for IntelliJ (Spark application)
-description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a serverless Apache Spark pool (preview).
+description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a serverless Apache Spark pool.
 services: synapse-analytics 
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.date: 04/15/2020
 
 # Tutorial: Create an Apache Spark application with IntelliJ using a Synapse workspace
 
-This tutorial shows you how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a serverless Apache Spark pool (preview) directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+This tutorial shows you how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a serverless Apache Spark pool directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 - Develop and submit a Scala Spark application on a Spark pool.
 - Access your Spark pools resources.
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 - [IntelliJ IDEA Community Version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure toolkit plugin 3.27.0-2019.2 – Install from [IntelliJ Plugin repository](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (Version 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Scala Plugin – Install from [IntelliJ Plugin repository](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
+- Scala Plugin – Install from [IntelliJ Plugin repository](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - The following prerequisite is only for Windows users:
 
   While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows.

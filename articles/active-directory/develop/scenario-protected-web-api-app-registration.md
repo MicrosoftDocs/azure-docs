@@ -24,7 +24,7 @@ For the common steps to register an app, see [Quickstart: Register an applicatio
 
 ## Accepted token version
 
-The Microsoft identity platform endpoint can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
+The Microsoft identity platform can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
 
 The token version your API may accept depends on your **Supported account types** selection when you create your web API application registration in the Azure portal.
 
@@ -41,7 +41,7 @@ After you create the application, you can determine or change the accepted token
 1. If you changed the token version, select **Save**.
 
 > [!NOTE]
-> The web API specifies which token version it accepts. When a client requests a token for your web API from the Microsoft identity platform (v2.0) endpoint, the client gets a token that indicates which token version the web API accepts.
+> The web API specifies which token version it accepts. When a client requests a token for your web API from the Microsoft identity platform, the client gets a token that indicates which token version the web API accepts.
 
 ## No redirect URI
 

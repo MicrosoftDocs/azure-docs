@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
 ---
 
@@ -71,8 +71,8 @@ To resolve this issue, double-check whether the following items are true:
 
 #### You see the message 'Your current account type is not supported'
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization's Azure AD directory.
-To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/enterprise-users/directory-self-service-signup.md), and it is not in your organization's Azure AD directory.
+To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 ## Identity verification by phone
 
@@ -134,19 +134,18 @@ Complete the Agreement.
 
 ## Other issues
 
-### Can't activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
+### Can't activate Azure benefit plan like Visual Studio, BizSpark, BizSparkPlus, or MPN
 
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
-- MSDN
-  - Verify your eligibility status on your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - If you can't verify your status, contact the [MSDN Subscriptions Customer Service Centers](/previous-versions/mappoint/aa493452(v=msdn.10)).
+- Visual Studio
+  - Verify your eligibility status on your [Visual Studio account page](https://my.visualstudio.com/Benefits).
+  - If you can't verify your status, contact [Visual Studio Subscription Support](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
   - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN
   - Sign in to the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for additional benefits.
   - If you can't verify your status, contact [MPN Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-
 
 ### Can't activate new Azure In Open subscription
 

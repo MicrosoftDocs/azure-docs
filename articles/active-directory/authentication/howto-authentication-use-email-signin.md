@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
 
@@ -33,6 +33,9 @@ This article shows you how to enable and use email as an alternate login ID. Thi
 
 > [!NOTE]
 > This feature is for cloud-authenticated Azure AD users only.
+
+> [!NOTE]
+> Currently, this feature is not supported on Azure AD joined Windows 10 devices for tenants with cloud authentication. This feature is not applicable to Hybrid Azure AD joined devices.
 
 ## Overview of Azure AD sign-in approaches
 

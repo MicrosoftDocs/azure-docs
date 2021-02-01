@@ -95,8 +95,8 @@ The files exported to Data will be used as a brand-new dataset and will not affe
 
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Improve your model](how-to-custom-speech-improve-accuracy.md)
-- [Deploy your model](how-to-custom-speech-deploy-model.md)
+- [Improve your model](./how-to-custom-speech-evaluate-data.md)
+- [Deploy your model](./how-to-custom-speech-train-model.md)
 
 ## Additional resources
 

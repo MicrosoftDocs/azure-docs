@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 01/21/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -113,9 +113,17 @@ For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
 
+## Service Principal authentication
+
+When specified as a *provider* data source, Azure Analysis Services supports [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory service principal authentication for Azure SQL Database and Azure Synapse data sources.
+
+`
+Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
+`
+
 ## OAuth credentials
 
-For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse (formerly SQL Data Warehouse), Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using Power Query.
+For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using Power Query.
 
 Direct Query mode is not supported with OAuth credentials.
 

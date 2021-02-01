@@ -37,7 +37,7 @@ There are various ways to migrate database workloads from one platform to anothe
 
 ## Provision an Azure Databricks cluster
 
-You can follow instructions to [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). However, please note Apache Spark 3.x is not currently supported for the Apache Cassandra Connector. You will need to provision a Databricks runtime with a supported v2.x version of Apache Spark. We recommend version 6.6 of Databricks runtime:
+You can follow instructions to [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). However, please note Apache Spark 3.x is not currently supported for the Apache Cassandra Connector. You will need to provision a Databricks runtime with a supported v2.x version of Apache Spark. We recommend selecting a version of the Databricks runtime which supports the latest version of Spark 2.x, with no later than Scala version 2.11:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks runtime":::
 
@@ -109,7 +109,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](https://docs.microsoft.com/azure/cosmos-db/request-units)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
 
 ## Next steps
 

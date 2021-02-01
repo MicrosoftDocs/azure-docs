@@ -113,8 +113,8 @@ Use `helm list` to list the deployment for your Windows service:
 
 ```cmd
 $ helm list --namespace dev
-NAME         	  REVISION	UPDATED                 	STATUS  	CHART         	APP VERSION	NAMESPACE
-windows-service	1       	Wed Jul 24 15:45:59 2019	DEPLOYED	mywebapi-0.1.0	1.0        	dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service	   1       	Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
 In the above example, the name of your deployment is *windows-service*. Update your Windows service with the new configuration using `helm upgrade`:

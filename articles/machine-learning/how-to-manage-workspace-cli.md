@@ -27,7 +27,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 ## Limitations
 
-* When creating a new workspace, you can either allow the workspace to create the Azure services it requires automatically or provide existing services. When providing existing services, these services must all be in the same Azure subscription as the workspace.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## Connect the CLI to your Azure subscription
 
@@ -74,6 +74,8 @@ The Azure Machine Learning workspace relies on the following Azure services or e
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
+
+Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
 ### Create a resource group
 

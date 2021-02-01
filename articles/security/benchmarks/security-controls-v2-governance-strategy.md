@@ -16,7 +16,7 @@ Governance and Strategy provides guidance for ensuring a coherent security strat
 
 ## GS-1: Define asset management and data protection strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
@@ -41,11 +41,11 @@ This strategy should include documented guidance, policy, and standards for the 
 - Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](security-controls-v2-asset-management.md)
 
@@ -59,7 +59,7 @@ For more information, see the following references:
 
 ## GS-2: Define enterprise segmentation strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-2 | 4, 9, 16 | AC, CA, SC |
 
@@ -83,7 +83,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ## GS-3: Define security posture management strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
@@ -99,7 +99,7 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 
 ## GS-4: Align organization roles, responsibilities, and accountabilities
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-4 | N/A | PL, PM |
 
@@ -119,7 +119,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 ## GS-5: Define network security strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
@@ -157,7 +157,7 @@ For more information, see the following references:
 
 ## GS-6: Define identity and privileged access strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
@@ -193,7 +193,7 @@ For more information, see the following references:
 
 ## GS-7: Define logging and threat response strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
@@ -234,7 +234,7 @@ For more information, see the following references:
 
 ## GS-8: Define backup and recovery strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-8 | 10 | CP |
 

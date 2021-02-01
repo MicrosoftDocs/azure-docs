@@ -337,46 +337,58 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 ## Monitor pipeline
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your Azure account.
-2. Click **Data factories** on the left menu (or) click **All services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
+
+1. Click **Data factories** on the left menu (or) click **All services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
    
     ![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. In the **Data factories** page, search for and find your data factory (AzureBlobToAzureSQLDatabaseDF). 
+
+1. In the **Data factories** page, search for and find your data factory (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Search for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Click your Azure data factory. You see the home page for the data factory.
+
+1. Click your Azure data factory. You see the home page for the data factory.
    
     ![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
-7. When a slice is in the **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL Database.
 
+1. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
+
+1. When a slice is in the **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL Database.
 
 For more information on how to use Azure portal blades to monitor pipeline and datasets you have created in this tutorial, see [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) .
 
 For more information on how to use the Monitor & Manage application to monitor your data pipelines, see [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md).
 
 ## Data Factory entities in the template
+
 ### Define data factory
-You define a data factory in the Resource Manager template as shown in the following sample:  
+
+You define a data factory in the Resource Manager template as shown in the following sample:
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 The dataFactoryName is defined as: 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-It is a unique string based on the resource group ID.  
+It is a unique string based on the resource group ID.
 
 ### Defining Data Factory entities
+
 The following Data Factory entities are defined in the JSON template: 
 
 1. [Azure Storage linked service](#azure-storage-linked-service)
@@ -386,6 +398,7 @@ The following Data Factory entities are defined in the JSON template:
 5. [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
+
 The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
 
 ```json
@@ -409,6 +422,7 @@ The AzureStorageLinkedService links your Azure storage account to the data facto
 The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStorageLinkedService and dataFactoryName defined in the template. 
 
 #### Azure SQL Database linked service
+
 AzureSqlLinkedService links your database in Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). You specify the logical SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
 
 ```json
@@ -420,11 +434,11 @@ AzureSqlLinkedService links your database in Azure SQL Database to the data fact
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

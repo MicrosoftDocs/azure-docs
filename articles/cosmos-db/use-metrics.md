@@ -71,7 +71,7 @@ After identifying which partition key is causing the skew in distribution, you m
 
 ## Compare data size against index size
 
-In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. Typically, the index size is a fraction of the data size. In the Metrics blade in the [Azure portal](https://portal.azure.com), the Storage tab showcases the breakdown of storage consumption based on data and index.
+In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. Typically, the index size is a fraction of the data size. To learn more, see the [Index size](index-policy.md#index-size) article. In the Metrics blade in the [Azure portal](https://portal.azure.com), the Storage tab showcases the breakdown of storage consumption based on data and index.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

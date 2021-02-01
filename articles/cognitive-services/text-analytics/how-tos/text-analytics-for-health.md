@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 01/21/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -22,8 +22,10 @@ Text Analytics for health is not intended or made available for use as a medical
 
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
-* The web-based API (asynchronous) 
-* A Docker container (synchronous)   
+* [The web-based API (asynchronous)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [A Docker container (synchronous)](#hosted-asynchronous-web-api-response)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Features
 
@@ -62,7 +64,7 @@ The meaning of medical content is highly affected by modifiers such as negation,
 
 ---
 
-See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities.
+See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### Supported languages and regions
 

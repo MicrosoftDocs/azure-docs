@@ -30,11 +30,8 @@ AKS clusters can currently be created using availability zones in the following 
 * East US 
 * East US 2
 * France Central
-* Germany West Central
 * Japan East
 * North Europe
-* South Africa North
-* South Central US
 * Southeast Asia
 * UK South
 * West Europe
@@ -203,4 +200,4 @@ This article detailed how to create an AKS cluster that uses availability zones.
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/

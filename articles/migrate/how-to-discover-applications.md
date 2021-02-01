@@ -1,7 +1,10 @@
 ---
-title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
+title: Discover apps on on-premises servers with Azure Migrate 
 description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
-ms.topic: article
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 06/10/2020
 ---
 
@@ -18,7 +21,7 @@ Discovering the inventory of apps, roles, and features running on on-premises ma
 ## Before you start
 
 - Make sure you've:
-    - [Created](how-to-add-tool-first-time.md) an Azure Migrate project.
+    - [Created](./create-manage-projects.md) an Azure Migrate project.
     - [Added](how-to-assess.md) the Azure Migrate:Server Assessment tool to a project.
 - Review [app-discovery support and requirements](migrate-support-matrix-vmware.md#vmware-requirements).
 - Make sure VMs where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.

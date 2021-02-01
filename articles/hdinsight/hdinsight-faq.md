@@ -4,7 +4,6 @@ description: Frequently asked questions about HDInsight
 keywords: frequently asked questions, faq
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
@@ -193,7 +192,8 @@ In scenarios in which you must control the schedule, you can use the following s
 
 1. Disable automatic execution using the following command:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  sudo `usr/local/bin/azsecd config -s clamav -d Disabled`
+  sudo service azsecd restart 
    
 1. Add a Cron job that runs the following command as root:
    

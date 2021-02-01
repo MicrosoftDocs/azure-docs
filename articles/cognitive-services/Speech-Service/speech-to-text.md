@@ -43,7 +43,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md). Customization options vary by language/locale, see [supported languages](./language-support.md) to verify support.
+In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](./custom-speech-overview.md). Customization options vary by language/locale, see [supported languages](./language-support.md) to verify support.
 
 ## Batch transcription
 

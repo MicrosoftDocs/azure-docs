@@ -63,7 +63,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -165,7 +165,7 @@ You can also enable  just-in-time access to administrative accounts using Azure 
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -307,7 +307,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy.
 
-- [For more information about tagging assets, see Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [For more information about tagging assets, see Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center monitoring**: Not applicable
 

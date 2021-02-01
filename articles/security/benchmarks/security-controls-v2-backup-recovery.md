@@ -16,7 +16,7 @@ Backup and Recovery covers controls to ensure that data and configuration backup
 
 ## BR-1: Ensure regular automated backups
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -46,7 +46,7 @@ For a higher level of protection, you can enable geo-redundant storage option to
 
 ## BR-2: Encrypt backup data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
@@ -76,7 +76,7 @@ Use Azure role-based access control in Azure Backup, Azure Key Vault, or other r
 
 ## BR-3: Validate all backups including customer-managed keys
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -96,7 +96,7 @@ Periodically perform data restoration of your backup. Ensure that you can restor
 
 ## BR-4: Mitigate risk of lost keys
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 

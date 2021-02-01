@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: makromer
 ---
 
@@ -15,9 +15,6 @@ ms.author: makromer
 The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](/common-data-model/) overview.
 
 In Azure Data Factory, users can transform data from CDM entities in both model.json and manifest form stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows. You can also sink data in CDM format using CDM entity references that will land your data in CSV or Parquet format in partitioned folders. 
-
-> [!NOTE]
-> Common Data Model (CDM) format connector for ADF data flows is currently available as a public preview.
 
 ## Mapping data flow properties
 
@@ -83,7 +80,6 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 2. Find the partitions.Location property 
 3. Change "blob.core.windows.net" to "dfs.core.windows.net"
 4. Fix any "%2F" encoding in the URL to "/"
- 
 
 ### CDM source data flow script example
 

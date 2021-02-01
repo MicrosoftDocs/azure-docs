@@ -71,4 +71,4 @@ To use the log analytics views, you need:
 ## Next steps
 
 * [How to analyze activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
-* [Get started with Azure Monitor logs in the Azure portal](../../azure-monitor/log-query/get-started-portal.md)
+* [Get started with Azure Monitor logs in the Azure portal](../../azure-monitor/log-query/log-analytics-tutorial.md)

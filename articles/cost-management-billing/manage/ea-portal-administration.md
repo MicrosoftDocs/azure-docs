@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Azure EA portal administration
@@ -277,13 +277,13 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](./understand-ea-roles.md#enterprise-user-roles).
 
 ## Add an Azure EA account
 
 The Azure EA account is an organizational unit in the Azure EA portal. It's used to administer subscriptions and it's also used for reporting. To access and use Azure services, you need to create an account or have one created for you.
 
-For more information about Azure accounts, see [Add an account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration#add-an-account).
+For more information about Azure accounts, see [Add an account](#add-an-account).
 
 ## Enterprise Dev/Test Offer
 
@@ -342,7 +342,7 @@ To add a subscription:
 
 New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
 
-- [Edit subscription details](https://account.azure.com/Subscriptions)
+- [Edit subscription details](https://portal.azure.com)
 - [Manage subscription services](https://portal.azure.com/#home)
 
 ## Delete subscription
@@ -356,7 +356,7 @@ To delete a subscription where you're the account owner:
 
 Only account administrators can cancel subscriptions.
 
-For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## Delete an account
 
