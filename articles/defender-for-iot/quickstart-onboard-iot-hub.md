@@ -44,7 +44,7 @@ To verify the toggle is set to **On**:
 
 1. Select **Create**.
 
-    :::image type="content" source="media/quickstart-onboard-iot-hub/create-iot-hub.png" alt-text="Select the create button from the top toolbar." lightbox="create-iot-hub-expanded.png":::
+    :::image type="content" source="media/quickstart-onboard-iot-hub/create-iot-hub.png" alt-text="Select the create button from the top toolbar." lightbox="media/quickstart-onboard-iot-hub/create-iot-hub-expanded.png":::
 
 1. Select the **Management** tab, and verify that **Defender for IoT** toggle is set to **On**.
 
