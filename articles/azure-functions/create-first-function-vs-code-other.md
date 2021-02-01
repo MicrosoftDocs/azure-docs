@@ -344,6 +344,8 @@ In this section, you create a function app and related resources in your Azure s
 
     A notification is displayed after your function app is created and the deployment package is applied. 
 
+    [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
+
 1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)

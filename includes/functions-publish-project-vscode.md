@@ -40,9 +40,8 @@ In this section, you create a function app and related resources in your Azure s
 
     A notification is displayed after your function app is created and the deployment package is applied. 
 
-    > [!TIP]
-    >  By default, the extension creates a [resource group](../articles/azure-resource-manager/management/overview.md), which is a logical container in which your function app and related resources run. It also creates a general [storage account](../articles/storage/common/storage-account-create.md), which is used to maintain state and other information about your functions. Both of these resources are created based on the function app name you provide, and in the same new resource group with the function app. If you want to either customize the names of these resources, or reuse existing resources, you need to instead [publish the project with advanced create options](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
-    
-1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+    [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
+
+4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     ![Create complete notification](media/functions-publish-project-vscode/function-create-notifications.png)
