@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Note that the free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/): We'll use this to edit code in your local development environment.
-- [Webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
+- [webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
 - [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and webpack.
 - [nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to handle version control.
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
@@ -103,9 +103,9 @@ Follow the same steps for the [Azure Functions](https://marketplace.visualstudio
 
 ### Install webpack
 
-[Webpack](https://webpack.js.org/) lets you bundle code into static files that you can deploy to Azure. It also has a development server, which we'll configure to use with the calling sample.
+[webpack](https://webpack.js.org/) lets you bundle code into static files that you can deploy to Azure. It also has a development server, which we'll configure to use with the calling sample.
 
-Type the following in your open terminal to install Webpack:
+Type the following in your open terminal to install webpack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -115,11 +115,11 @@ This tutorial was tested using the above specified versions. Specifying `-dev` t
 
 You'll see two new packages added to your `package.json` file as "devDependencies". The packages will be installed into the `./CallingApp/node_modules/` directory.
 
-:::image type="content" source="./media/step-one-pic-ten.png" alt-text="Webpack configuration":::
+:::image type="content" source="./media/step-one-pic-ten.png" alt-text="webpack configuration":::
 
 ### Configure the development server
 
-Running a static application (like your `index.html` file) from your browser uses the `file://` protocol. For your npm modules to work properly, we'll need the HTTP protocol by using Webpack as a local development server.
+Running a static application (like your `index.html` file) from your browser uses the `file://` protocol. For your npm modules to work properly, we'll need the HTTP protocol by using webpack as a local development server.
 
 We'll create two configurations: one for development and the other for production. Files prepared for production will be minified, meaning that we'll remove unused whitespace and characters. This is appropriate for production scenarios where latency should be minimized or where code should be obfuscated.
 
