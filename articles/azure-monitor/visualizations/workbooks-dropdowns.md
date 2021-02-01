@@ -39,7 +39,7 @@ The easiest way to specify a drop-down is by providing a static list in the para
 7. Choose 'Save' from the toolbar to create the parameter.
 8. The Environment parameter will be a drop-down with the three values.
 
-    ![Image showing the creation of a static drown down](./media/workbook-dropdowns/dropdown-create.png)
+    ![Image showing the creation of a static drown down](./media/workbooks-dropdowns/dropdown-create.png)
 
 ## Creating a static dropdown with groups of items
 
@@ -56,7 +56,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
 ]
 ```
 
-![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+![Image showing an example of a grouped dropdown](./media/workbooks-dropdowns/grouped-dropDown.png)
 
 
 ## Creating a dynamic drop-down parameter
@@ -80,7 +80,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
 2. Choose 'Save' from the toolbar to create the parameter.
 3. The RequestName parameter will be a drop-down the names of all requests in the app.
 
-    ![Image showing the creation of a dynamic drop-down](./media/workbook-dropdowns/dropdown-dynamic.png)
+    ![Image showing the creation of a dynamic drop-down](./media/workbooks-dropdowns/dropdown-dynamic.png)
 
 ## Referencing drop down parameter
 
@@ -104,7 +104,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
 
 4. Run query to see the results. Optionally, render it as a chart.
 
-    ![Image showing a drop-down referenced in KQL](./media/workbook-dropdowns/dropdown-reference.png)
+    ![Image showing a drop-down referenced in KQL](./media/workbooks-dropdowns/dropdown-reference.png)
 
 
 ## Parameter value, label, selection and group
@@ -121,7 +121,7 @@ dependencies
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
 
-![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+![Image showing a drop-down parameter using value, label, selection and group options](./media/workbooks-dropdowns/dropdown-more-options.png)
 
 
 ## Drop down parameter options
@@ -146,9 +146,9 @@ dependencies
 
 Here is an example for multi-select drop-down at work:
 
-![Image showing a multi-select drop-down parameter](./media/workbook-dropdowns/dropdown-multiselect.png)
+![Image showing a multi-select drop-down parameter](./media/workbooks-dropdowns/dropdown-multiselect.png)
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](workbooks-access-control.md) and share access to your workbook resources.
+* [Get started](../platform/workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
+* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.

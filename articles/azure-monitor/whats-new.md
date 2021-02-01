@@ -243,14 +243,14 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md) - Added sample for Azure storage account.
 
 ### Visualizations
-- [Azure Monitor workbook chart visualizations](platform/workbooks-chart-visualizations.md) - New article.
-- [Azure Monitor workbook composite bar renderer](platform/workbooks-composite-bar.md) - New article.
-- [Azure Monitor workbook graph visualizations](platform/workbooks-graph-visualizations.md) - New article.
-- [Azure Monitor workbook grid visualizations](platform/workbooks-grid-visualizations.md) - New article.
-- [Azure Monitor workbook honey comb visualizations](platform/workbooks-honey-comb.md) - New article.
-- [Azure Monitor workbook text visualizations](platform/workbooks-text-visualizations.md) - New article.
-- [Azure Monitor workbook tile visualizations](platform/workbooks-tile-visualizations.md) - New article.
-- [Azure Monitor workbook tree visualizations](platform/workbooks-tree-visualizations.md) - New article.
+- [Azure Monitor workbook chart visualizations](visualizations/workbooks-chart-visualizations.md) - New article.
+- [Azure Monitor workbook composite bar renderer](visualizations/workbooks-composite-bar.md) - New article.
+- [Azure Monitor workbook graph visualizations](visualizations/workbooks-graph-visualizations.md) - New article.
+- [Azure Monitor workbook grid visualizations](visualizations/workbooks-grid-visualizations.md) - New article.
+- [Azure Monitor workbook honey comb visualizations](visualizations/workbooks-honey-comb.md) - New article.
+- [Azure Monitor workbook text visualizations](visualizations/workbooks-text-visualizations.md) - New article.
+- [Azure Monitor workbook tile visualizations](visualizations/workbooks-tile-visualizations.md) - New article.
+- [Azure Monitor workbook tree visualizations](visualizations/workbooks-tree-visualizations.md) - New article.
 
 
 
@@ -314,8 +314,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Visualizations
 - [Azure Monitor Workbooks Overview](platform/workbooks-overview.md) - Added video.
-- [Move an Azure Workbook Template to another region](platform/workbook-templates-move-region.md) - New article.
-- [Move an Azure Workbook to another region](platform/workbooks-move-region.md) - New article.
+- [Move an Azure Workbook Template to another region](visualizations/workbook-templates-move-region.md) - New article.
+- [Move an Azure Workbook to another region](visualizations/workbooks-move-region.md) - New article.
 
 
 
@@ -451,7 +451,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 
 ### Visualizations
-- [Azure Monitor workbooks data sources](platform/workbooks-data-sources.md) - Added Alerts and Custom Endpoints section.
+- [Azure Monitor workbooks data sources](visualizations/workbooks-data-sources.md) - Added Alerts and Custom Endpoints section.
 - [Troubleshooting Azure Monitor workbook-based insights](insights/troubleshoot-workbooks.md) - New article.
 - [Upgrading your Log Analytics Dashboard visualizations](log-query/dashboard-upgrade.md) - New article.
 
@@ -542,9 +542,9 @@ New and updated articles from restructure and consolidation of platform log cont
 - [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md) - Added limitations section for unavailable metrics.
 
 ### Visualizations
-- [Azure Monitor Workbooks and Azure Resource Manager Templates](platform/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](visualizations/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
 - [Azure Monitor Workbooks Groups](platform/workbooks-groups.md) - New article.
-- [Azure Monitor Workbooks - Transform JSON data with JSONPath](platform/workbooks-jsonpath.md) - New article.
+- [Azure Monitor Workbooks - Transform JSON data with JSONPath](visualizations/workbooks-jsonpath.md) - New article.
 
 
 ## April 2020
@@ -594,7 +594,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Workbooks
 
-- [Azure Monitor Workbooks and Azure Resource Manager Templates](platform/workbooks-automate.md) - Added Resource Manager template for deploying a workbook template.
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](visualizations/workbooks-automate.md) - Added Resource Manager template for deploying a workbook template.
 
 ## March 2020
 

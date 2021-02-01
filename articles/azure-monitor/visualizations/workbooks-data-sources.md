@@ -24,17 +24,17 @@ Workbooks allow querying logs from the following sources:
 
 Workbook authors can use KQL queries that transform the underlying resource data to select a result set that can visualized as text, charts, or grids.
 
-![Screenshot of workbooks logs report interface](./media/workbooks-overview/logs.png)
+![Screenshot of workbooks logs report interface](./media/workbooks-data-sources/logs.png)
 
 Workbook authors can easily query across multiple resources creating a truly unified rich reporting experience.
 
 ## Metrics
 
-Azure resources emit [metrics](data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
+Azure resources emit [metrics](../platform/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
 
-![Screenshot of workbook metrics charts of cpu utilization](./media/workbooks-overview/metrics-graph.png)
+![Screenshot of workbook metrics charts of cpu utilization](./media/workbooks-data-sources/metrics-graph.png)
 
-![Screenshot of workbook metrics interface](./media/workbooks-overview/metrics.png)
+![Screenshot of workbook metrics interface](./media/workbooks-data-sources/metrics.png)
 
 ## Azure Resource Graph
 
@@ -42,7 +42,7 @@ Workbooks support querying for resources and their metadata using Azure Resource
 
 To make a query control use this data source, use the Query type drop-down to choose Azure Resource Graph and select the subscriptions to target. Use the Query control to add the ARG KQL-subset that selects an interesting resource subset.
 
-![Screenshot of Azure Resource Graph KQL query](./media/workbooks-overview/azure-resource-graph.png)
+![Screenshot of Azure Resource Graph KQL query](./media/workbooks-data-sources/azure-resource-graph.png)
 
 ## Azure Resource Manager
 
@@ -57,7 +57,7 @@ To make a query control use this data source, use the Data source drop-down to c
 
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
 
-![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
+![Screenshot of Kusto query window](./media/workbooks-data-sources/data-explorer.png)
 
 ## Workload health
 
@@ -65,7 +65,7 @@ Azure Monitor has functionality that proactively monitors the availability and p
 
 To make a query control use this data source, use the **Query type** drop-down to choose Workload Health and select subscription, resource group or VM resources to target. Use the health filter drop downs to select an interesting subset of health incidents for your analytic needs.
 
-![Screenshot of alerts query](./media/workbooks-overview/workload-health.png)
+![Screenshot of alerts query](./media/workbooks-data-sources/workload-health.png)
 
 ## Azure resource health
 
@@ -73,7 +73,7 @@ Workbooks support getting Azure resource health and combining it with other data
 
 To make a query control use this data source, use the **Query type** drop-down to choose Azure health and select the resources to target. Use the health filter drop downs to select an interesting subset of resource issues for your analytic needs.
 
-![Screenshot of alerts query that shows the health filter lists.](./media/workbooks-overview/resource-health.png)
+![Screenshot of alerts query that shows the health filter lists.](./media/workbooks-data-sources/resource-health.png)
 
 ## Change Analysis (preview)
 
@@ -142,6 +142,6 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](workbooks-access-control.md) and share access to your workbook resources.
+* [Get started](../platform/workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
+* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.
 * [Log Analytics query optimization tips](../log-query/query-optimization.md)
