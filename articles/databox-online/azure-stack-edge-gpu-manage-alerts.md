@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Manage alert notifications for Azure Stack Edge Pro resources
 
-This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.
+This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for events within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.
 
 ## About action rules
 
