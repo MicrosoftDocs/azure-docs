@@ -15,6 +15,18 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## January 2021
+
+### New articles
+- [How Azure Active Directory provisioning integrates with Workday](workday-integration-reference.md)
+
+### Updated articles
+- [Tutorial: Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md)
+- [How Azure Active Directory provisioning integrates with SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Application provisioning in quarantine status](application-provisioning-quarantine-status.md)
+
+
 ## December 2020
 
 ### Updated articles
