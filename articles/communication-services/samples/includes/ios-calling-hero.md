@@ -22,8 +22,8 @@ Once you configure your display name and devices, you can join the call. You'll 
 
 Components of the main calling screen:
 
-1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one). The gallery supports multiple participants and is updated when participants are added or removed to the call.
-2. **Action Bar**: This is where the primary call controls are located. These controls let you turn your video and microphone on/off, share your screen, and leave the call.
+- **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one). The gallery supports multiple participants and is updated when participants are added or removed to the call.
+- **Action Bar**: This is where the primary call controls are located. These controls let you turn your video and microphone on/off, share your screen, and leave the call.
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -52,22 +52,22 @@ Build and Run the sample in XCode.
 
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.  
 
-With additional configuration, this sample supports connecting to an **Azure Active Directory** (AAD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
+With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
    - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
 	- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 2. Go to your registered app overview page under Azure Active Directory App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
 
-:::image type="content" source="../media/calling/aadOverview.png" alt-text="AAD configuration on Azure Portal":::
+:::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
 3. Open `AppSettings.plist` in Xcode, add the following key values:
-   - `acsTokenFetchUrl`: the URL to request Azure Communication Services token 
-   - `isAADAuthEnabled`: a boolean value to indicate if the Azure Communication Services token authentication is required or not
-   - `aadClientId`: your Application (client) ID
-   - `aadTenantId`: your Directory (tenant) ID
-   - `aadRedirectURI`: the redirect URI should be in this format: `msauth.<app_bundle_id>://auth`
-   - `aadScopes`: an array of permission scopes requested from users for authorization. Add `<Application ID URI>/user_impersonation` to the array to grant access to authentication endpoint
+   - `acsTokenFetchUrl`: The URL to request Azure Communication Services token 
+   - `isAADAuthEnabled`: A boolean value to indicate if the Azure Communication Services token authentication is required or not
+   - `aadClientId`: Your Application (client) ID
+   - `aadTenantId`: Your Directory (tenant) ID
+   - `aadRedirectURI`: The redirect URI should be in this format: `msauth.<app_bundle_id>://auth`
+   - `aadScopes`: An array of permission scopes requested from users for authorization. Add `<Application ID URI>/user_impersonation` to the array to grant access to authentication endpoint
 
 ## Clean up resources
 
