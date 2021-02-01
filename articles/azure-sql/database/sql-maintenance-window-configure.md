@@ -16,7 +16,7 @@ ms.date: 01/26/2021
 
 Configure the [SQL maintenance window (Preview)](sql-maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during database creation or anytime after a database is created. 
 
-All databases are updated during the *default* maintenance window: 5PM to 8AM daily (local time of the Azure region the database is hosted in) to avoid peak business hours interruptions. If the default maintenance window is not the best time, select one of the other available maintenance windows:
+The *SQL_default* maintenance window is 5PM to 8AM daily (local time of the Azure region the database is hosted in) to avoid peak business hours interruptions. If the default maintenance window is not the best time, select one of the other available maintenance windows:
 
 * **SQL_Default** window, 5PM to 8AM local time Mon-Sunday 
 * **Weekday** window, 10PM to 6AM local time Monday to Thursday
