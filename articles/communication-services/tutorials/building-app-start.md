@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Build a web app for Azure Communication Services (Node.js)
+title: Tutorial - Prepare a web app for Azure Communication Services (Node.js)
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a baseline web application that supports Azure Communication Services
 author: nmurav
@@ -10,7 +10,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Tutorial: Build a web app for Azure Communication Services (Node.js)
+# Tutorial: Prepare a web app for Azure Communication Services (Node.js)
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
