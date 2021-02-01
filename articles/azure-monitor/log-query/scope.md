@@ -44,7 +44,7 @@ When the query scope is a Log Analytics workspace or an Application Insights app
 You can't use the following commands in a query when scoped to a resource since the query scope will already include any workspaces with data for that resource or set of resources:
 
 - [app](app-expression.md)
-- [workspace](workspace-expression.md)
+- [workspace](../logs/workspace-expression.md)
  
 
 ## Query scope limits
@@ -72,7 +72,7 @@ If you set a filter in the query that uses the standard time column as shown in 
 
 ![Filtered query](media/scope/query-filtered.png)
 
-If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or classic application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is a classic Application Insights application and you use **workspace**, then Log Analytics may not understand that the column used in the filter should determine the time filter.
+If you use the [workspace](../logs/workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or classic application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is a classic Application Insights application and you use **workspace**, then Log Analytics may not understand that the column used in the filter should determine the time filter.
 
 In the following example, the scope is set to a Log Analytics workspace.  The query uses **workspace** to retrieve data from another Log Analytics workspace. The time picker changes to **Set in query** because it sees a filter that uses the expected **TimeGenerated** column.
 

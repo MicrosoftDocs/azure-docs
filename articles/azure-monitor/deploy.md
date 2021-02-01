@@ -161,9 +161,9 @@ Insights and solutions will include their own workbooks and views for analyzing 
 
 
 ### Create workbooks
-[Workbooks](platform/workbooks-overview.md) in Azure Monitor allow you to create rich visual reports in the Azure portal. You can combine different sets of data from Azure Monitor Metrics and Azure Monitor Logs to create unified interactive experiences. You can access a gallery of workbooks in the **Workbooks** tab of the Azure Monitor menu. 
+[Workbooks](visualizations/workbooks-overview.md) in Azure Monitor allow you to create rich visual reports in the Azure portal. You can combine different sets of data from Azure Monitor Metrics and Azure Monitor Logs to create unified interactive experiences. You can access a gallery of workbooks in the **Workbooks** tab of the Azure Monitor menu. 
 
-See [Azure Monitor Workbooks](platform/workbooks-overview.md) for details on creating custom workbooks.
+See [Azure Monitor Workbooks](visualizations/workbooks-overview.md) for details on creating custom workbooks.
 
 ### Create dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure. See [Create and share dashboards of Log Analytics data](learn/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. 

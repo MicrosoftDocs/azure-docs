@@ -313,7 +313,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added regional requirement for diagnostic settings.
 
 ### Visualizations
-- [Azure Monitor Workbooks Overview](platform/workbooks-overview.md) - Added video.
+- [Azure Monitor Workbooks Overview](visualizations/workbooks-overview.md) - Added video.
 - [Move an Azure Workbook Template to another region](visualizations/workbook-templates-move-region.md) - New article.
 - [Move an Azure Workbook to another region](visualizations/workbooks-move-region.md) - New article.
 
@@ -711,12 +711,12 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 Multiple New articles for view designer to workbooks conversion guide.
 
-- [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) - New article.
-- [Azure Monitor view designer to workbooks conversion options](platform/view-designer-conversion-options.md) - New article.
-- [Azure Monitor view designer to workbooks tile conversions](platform/view-designer-conversion-tiles.md) - New article.
-- [Azure Monitor view designer to workbooks conversion summary and access](platform/view-designer-conversion-access.md) - New article.
-- [Azure Monitor view designer to workbooks conversion common tasks](platform/view-designer-conversion-tasks.md) - New article.
-- [Azure Monitor view designer to workbooks conversion examples](platform/view-designer-conversion-examples.md) - New article.
+- [Azure Monitor view designer to workbooks transition guide](visualizations/view-designer-conversion-overview.md) - New article.
+- [Azure Monitor view designer to workbooks conversion options](visualizations/view-designer-conversion-options.md) - New article.
+- [Azure Monitor view designer to workbooks tile conversions](visualizations/view-designer-conversion-tiles.md) - New article.
+- [Azure Monitor view designer to workbooks conversion summary and access](visualizations/view-designer-conversion-access.md) - New article.
+- [Azure Monitor view designer to workbooks conversion common tasks](visualizations/view-designer-conversion-tasks.md) - New article.
+- [Azure Monitor view designer to workbooks conversion examples](visualizations/view-designer-conversion-examples.md) - New article.
 
 ## January 2020
 

@@ -109,11 +109,11 @@ The Network Insights workbook allows you to take advantage of the latest capabil
 
 * Centralized console for monitoring and troubleshooting with both [metric](../insights/network-insights-overview.md#resource-health-and-metrics) and log data.
 
-* Flexible canvas to support creation of custom rich [visualizations](../platform/workbooks-overview.md#visualizations).
+* Flexible canvas to support creation of custom rich [visualizations](../visualizations/workbooks-overview.md#visualizations).
 
-* Ability to consume and [share workbook templates](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
+* Ability to consume and [share workbook templates](../visualizations/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
 
-To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../platform/workbooks-overview.md)
+To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../visualizations/workbooks-overview.md)
 
 ## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
 
@@ -125,7 +125,7 @@ To find more information about the capabilities of the new workbook solution che
 > [!NOTE]
 > All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.
 
-2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../platform/workbooks-overview.md#visualizations) based on metric & log data.
+2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../visualizations/workbooks-overview.md#visualizations) based on metric & log data.
 
 3. After you are able to see all your metric and log insights, to clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
 

@@ -124,4 +124,4 @@ For troubleshooting guidance, refer to the dedicated workbook-based insights [tr
 
 * Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualizations/workbooks-overview.md).

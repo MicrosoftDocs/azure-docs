@@ -62029,6 +62029,66 @@
       "source_path_from_root": "/articles/azure-monitor/platform/workbook-templates-move-region.md",
       "redirect_url": "/azure/azure-monitor/visualizations/workbook-templates-move-region",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-access.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-examples.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-examples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-options.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-overview.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-tasks.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-tasks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-tiles.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-tiles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-filters.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-filters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-parts.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-parts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/view-designer-tiles.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-tiles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-overview.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/workspace-expression.md",
+      "redirect_url": "/azure/azure-monitor/logs/workspace-expression",
+      "redirect_document_id": false
     }
   ]
 }

@@ -6,7 +6,7 @@ ms.date: 12/07/2020
 ---
 
 # Reports in Azure Monitor for containers
-Reports in Azure Monitor for containers are recommended out-of-the-box [Azure workbooks](../platform/workbooks-overview.md). This article describes the different reports that are available and how to access them.
+Reports in Azure Monitor for containers are recommended out-of-the-box [Azure workbooks](../visualizations/workbooks-overview.md). This article describes the different reports that are available and how to access them.
 
 ## Viewing reports
 From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports (preview)** page. 
@@ -14,7 +14,7 @@ From the **Azure Monitor** menu in the Azure portal, select **Containers**. Sele
 [![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## Create a custom workbook
-To create a custom workbook based on any of these workbooks, select the **View Workbooks** dropdown and then **Go to AKS Gallery** at the bottom of the dropdown. See [Azure Monitor Workbooks](../platform/workbooks-overview.md) for more information about workbooks and using workbook templates.
+To create a custom workbook based on any of these workbooks, select the **View Workbooks** dropdown and then **Go to AKS Gallery** at the bottom of the dropdown. See [Azure Monitor Workbooks](../visualizations/workbooks-overview.md) for more information about workbooks and using workbook templates.
 
 [![AKS gallery](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -73,4 +73,4 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 ## Next steps
 
-- See [Azure Monitor Workbooks](../platform/workbooks-overview.md) for details about workbooks in Azure Monitor.
+- See [Azure Monitor Workbooks](../visualizations/workbooks-overview.md) for details about workbooks in Azure Monitor.

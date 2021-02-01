@@ -29,7 +29,7 @@ There are two methods to query data that is stored in multiple workspace and app
 
 
 ## Querying across Log Analytics workspaces and from Application Insights
-To reference another workspace in your query, use the [*workspace*](./workspace-expression.md) identifier, and for an app from Application Insights, use the [*app*](./app-expression.md) identifier.  
+To reference another workspace in your query, use the [*workspace*](../logs/workspace-expression.md) identifier, and for an app from Application Insights, use the [*app*](./app-expression.md) identifier.  
 
 ### Identifying workspace resources
 The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of logs from the Update table on a workspace named *contosoretail-it*. 

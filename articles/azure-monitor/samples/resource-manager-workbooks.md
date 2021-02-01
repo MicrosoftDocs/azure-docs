@@ -105,4 +105,4 @@ The following sample creates a simple workbook.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](resource-manager-samples.md).
-* [Learn more about action groups](../platform/workbooks-overview.md).
+* [Learn more about action groups](../visualizations/workbooks-overview.md).
