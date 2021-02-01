@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
