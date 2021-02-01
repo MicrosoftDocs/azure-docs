@@ -18,7 +18,7 @@ This article contains supplementary reference information to help you migrate fr
 
 For more information on migrating from Studio (classic), see the [migration overview article](migrate-overview.md).
 
-In this article you learn about the following:
+In this article you learn about the following topics:
 - Studio (classic) and designer module mapping
 - How to import data from cloud sources to Azure Machine Learning
 - Execute R Script module migration
@@ -82,7 +82,7 @@ We recommend that you register datasets in Azure Machine Learning to enable adva
 > - Hive Query
 > - Azure Table
 > - Azure Cosmos DB
-> - On-premises SQL Database)
+> - On-premises SQL Database
 >
 > We recommend that users migrate their data to a supported storage services using Azure Data Factory.  
 
@@ -184,11 +184,11 @@ For more information, see the [Execute R Script designer module reference](../al
 
 ### Install R packages from the internet
 
-Azure Machine Learning designer lets you install packages directly from CRAN.
+Unlike Studio (classic), Azure Machine Learning designer lets you install packages directly from CRAN.
 
 Studio (classic) runs in a sandbox environment with no internet access. In Studio (classic), you have to upload scripts in a zip bundle to install more packages. 
 
-Use the following code to install CRAN packages:
+Use the following code to install CRAN packages in Azure Machine Learning designer's **Execute R Script** module:
 ```r
   if(!require(zoo)) { 
       install.packages("zoo",repos = "http://cran.us.r-project.org") 
