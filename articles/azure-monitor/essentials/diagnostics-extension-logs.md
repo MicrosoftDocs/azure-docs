@@ -59,7 +59,7 @@ In approximately 30 minutes, you are able to see data from the storage account i
 
 ## Next steps
 
-* [Collect logs and metrics for Azure services](./resource-logs.md#send-to-log-analytics-workspace) for supported Azure services.
+* [Collect logs and metrics for Azure services](../platform/resource-logs.md#send-to-log-analytics-workspace) for supported Azure services.
 * [Enable Solutions](../insights/solutions.md) to provide insight into the data.
 * [Use search queries](../log-query/log-query-overview.md) to analyze the data.
 

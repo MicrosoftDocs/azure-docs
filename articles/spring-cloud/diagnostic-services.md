@@ -126,7 +126,7 @@ To learn more about sending diagnostics information to a storage account, see [S
 1. To review application logs, search for an event hub called **insights-logs-applicationconsole**.
 1. To review application metrics, search for an event hub called **insights-metrics-pt1m**.
 
-To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
+To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](../azure-monitor/essentials/diagnostics-extension-stream-event-hubs.md).
 
 ## Analyze the logs
 

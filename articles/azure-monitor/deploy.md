@@ -107,7 +107,7 @@ See [Agent data sources in Azure Monitor](agents/agent-data-sources.md) for deta
 ### Diagnostic extension and Telegraf agent
 Azure Monitor for VMs uses the Log Analytics agent which sends performance data to a Log Analytics workspace but not to Azure Monitor Metrics. Sending this data to Metrics allows it to be analyzed with Metrics Explorer and used with metric alerts. This requires the diagnostic extension on Windows and the Telegraf agent on Linux.
 
-See [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
+See [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
 
 
 ## Monitor applications

@@ -101,7 +101,7 @@ To view VM Logs, you need to be granted with read permission to the workspaces t
 ## Metrics
 
 ### Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
-[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md).
+[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Alerts
 
@@ -199,7 +199,7 @@ View Designer is only available for users assigned with Contributor permissions 
 
 * [.NET app](app/asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
-* [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
+* [Azure diagnostics](essentials/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
 *I get no data from my server:*
@@ -300,7 +300,7 @@ From [client web pages](app/javascript.md):
 
 From other sources, if you configure them:
 
-* [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
+* [Azure diagnostics](essentials/diagnostics-extension-to-application-insights.md)
 * [Import to Analytics](platform/data-collector-api.md)
 * [Log Analytics](platform/data-collector-api.md)
 * [Logstash](platform/data-collector-api.md)

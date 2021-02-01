@@ -13,7 +13,7 @@ ms.subservice: metrics
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-With the Azure Monitor [Diagnostics extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
+With the Azure Monitor [Diagnostics extension](../essentials/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 

@@ -17,7 +17,7 @@ ms.date: 11/10/2020
 
 
 ## Alert rule types
-Azure Monitor has [different types of alert rules](../platform/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by Azure Monitor for VMs is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from Azure Monitor for VMs because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../platform/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
+Azure Monitor has [different types of alert rules](../platform/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by Azure Monitor for VMs is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from Azure Monitor for VMs because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../essentials/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
 
 There are two types of log alerts in Azure Monitor:
 
