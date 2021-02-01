@@ -102,7 +102,7 @@ Navigate to Alerts > Manage actions > Action rules (preview) > filter by the con
 
 ### Change the scope of a rule using Azure CLI
 
-1.	Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+1.	Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.	Update the rule scope directly ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [activity log alerts](/cli/azure/monitor/activity-log/alert/scope))
 3.	If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
 

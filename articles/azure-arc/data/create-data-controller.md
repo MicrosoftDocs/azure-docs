@@ -49,7 +49,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Data controller username** - Any username for the data controller administrator user.
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to create the data controller in.
-- **Connectivity mode** - The [connectivity mode](./connectivity.md) of your cluster. Currently only "indirect" is supported.
+- **Connectivity mode** - Connectivity mode determines the degree of connectivity from your Azure Arc enabled data services environment to Azure. Preview currently only supports indirectly connected and directly connected modes.  For information, see [connectivity mode](./connectivity.md). 
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).

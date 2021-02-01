@@ -1,11 +1,9 @@
 ---
-title: Enable Update Management using Azure Resource Manager template | Microsoft Docs
+title: Enable Update Management using Azure Resource Manager template
 description: This article tells how to use an Azure Resource Manager template to enable Update Management.
-ms.service:  automation
+services:  automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
 ---
 
@@ -24,7 +22,7 @@ The template does not automate enabling Update Management on one or more Azure o
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. Using this template successfully creates the link and deploys Update Management.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](../manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](../create-run-as-account.md).
 
 After you complete these steps, you need to [configure diagnostic settings](../automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 

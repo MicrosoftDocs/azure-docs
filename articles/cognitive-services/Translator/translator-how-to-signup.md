@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 01/25/2021
-ms.author: lajanuar
 ---
 # Create a Translator resource 
 

@@ -12,13 +12,9 @@ ms.reviewer: pimorano
 
 # Source control in Azure Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the Synapse service. However, this experience has the following limitations:
+By default, Azure Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
 
-- Synapse studio doesn't include a temporary storage for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
-
-- Synapse Studio isn't optimized for collaboration and version control.
-
-To provide source control capability, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
+This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
 > Azure Synapse Studio git integration is not available in the Azure Government Cloud.

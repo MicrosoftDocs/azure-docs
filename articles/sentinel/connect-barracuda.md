@@ -26,16 +26,20 @@ Barracuda Web Application Firewall (WAF) connector allows you to easily connect 
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Configure and connect Barracuda WAF
-Barracuda Web Application Firewall can integrate and export logs directly to Azure Sentinel via Log Analytics agent.
-1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
-    - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
-    - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.
-1. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog** and **barracuda_CL**.
 
+Barracuda Web Application Firewall can integrate and export logs directly to Azure Sentinel via Log Analytics agent.
+
+1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
+
+    - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
+
+    - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.
+
+1. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog** and **barracuda_CL**.
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 

@@ -80,7 +80,7 @@ Azure Maps also has many additional [open-source modules for the web SDK](open-s
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
-* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is also available for embedding the Web SDK into apps if preferred. For more information, see this [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) for more information. This package also includes TypeScript definitions.
+* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is also available for embedding the Web SDK into apps if preferred. For more information, see this [documentation](./how-to-use-map-control.md) for more information. This package also includes TypeScript definitions.
 * Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps there you can use the NPM module and point to any previous minor version release.
 
 > [!TIP]
@@ -90,7 +90,7 @@ The following are some of the key differences between the Bing Maps and Azure Ma
 * Both platforms use a similar tiling system for the base maps, however the tiles in Bing Maps are 256 pixels in dimension while the tiles in Azure Maps are 512 pixels in dimension. As such, to get the same map view in Azure Maps as Bing Maps, a zoom level used in Bing Maps needs to be subtracted by one in Azure Maps.
 * Coordinates in Bing Maps are referred to as `latitude, longitude` while Azure Maps uses `longitude, latitude`. This format aligns with the standard `[x, y]` that is followed by most GIS platforms.
 
-* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [atlas.data namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). There is also the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class that can be used to wrap GeoJSON objects and make them easy to update and maintain in a data bindable way.
+* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [atlas.data namespace](/javascript/api/azure-maps-control/atlas.data). There is also the [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) class that can be used to wrap GeoJSON objects and make them easy to update and maintain in a data bindable way.
 * Coordinates in Azure Maps are defined as Position objects that can be specified as a simple number array in the format `[longitude, latitude]` or `new atlas.data.Position(longitude, latitude)`.
 
 > [!TIP]

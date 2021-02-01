@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 01/21/2021
 ---
 
 # What's new in Language Understanding
@@ -16,6 +16,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 ### January 2021
 
 * The V3 prediction API now supports the [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction).
+* The regional portals (au.luis.ai and eu.luis.ai) have been consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to luis.ai.
 
 ### December 2020
 

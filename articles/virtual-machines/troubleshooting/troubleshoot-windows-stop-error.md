@@ -41,6 +41,9 @@ The operating system’s disk is either full, too fragmented, or the operating s
 
 ### Process Overview:
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM
 1. Free Up Space on the Disk
 1. Clean out bad memory from the BCD Store
