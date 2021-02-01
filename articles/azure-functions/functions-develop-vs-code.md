@@ -337,7 +337,7 @@ The following steps publish your project to a new function app created with adva
 
     A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
-### Get the URL of an HTTP triggered function in Azure
+### <a name="get-the-url-of-the-deployed-function"></a>Get the URL of an HTTP triggered function in Azure
 
 To call an HTTP-triggered function from a client, you need the URL of the function when it's deployed to your function app. This URL includes any required function keys. You can use the extension to get these URLs for your deployed functions. If you just want to run the remote function in Azure, use the [Execute function now functionality of the extension](#run-functions-in-azure).
 
