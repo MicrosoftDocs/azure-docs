@@ -592,7 +592,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "source_path_from_root": "/articles/active-directory-b2c/application-insights-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
       "redirect_document_id": true
     },
@@ -19305,6 +19305,21 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
       "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
       "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -61581,6 +61596,11 @@
     {
       "source_path": "articles/batch/batch-manage-account-basics.md",
       "redirect_url": "/azure/batch/accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-certificates.md",
+      "redirect_url": "/azure/batch/credential-access-key-vault",
       "redirect_document_id": false
     },
     {
