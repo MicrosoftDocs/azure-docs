@@ -266,9 +266,6 @@
       - name: Policy validation
         href: troubleshoot-custom-policies.md
         displayName: troubleshooting
-    - name: Usage analytics
-      href: analytics-with-application-insights.md
-      displayName: application insights, app insights
     - name: Reference
       items:
       - name: TrustFrameworkPolicy
@@ -321,8 +318,6 @@
           items:
           - name: About validation technical profiles
             href: validation-technical-profile.md
-          - name: Application Insights
-            href: application-insights-technical-profile.md
           - name: Azure Active Directory
             href: active-directory-technical-profile.md
           - name: Azure AD Multi-Factor Authentication
@@ -422,9 +417,6 @@
       displayName: migrate, b2clogin, owin
   - name: Automation
     items:
-    - name: Azure Monitor
-      href: azure-monitor.md
-      displayName: log, logs, logging, usage, events
     - name: Microsoft Graph API
       href: microsoft-graph-operations.md
       displayName: account, accounts, msgraph, ms graph, graph
@@ -434,14 +426,23 @@
     - name: Manage policies with PowerShell
       href: manage-custom-policies-powershell.md
       displayName: scripting, scripts, psh, custom policy
-  - name: Audit logs
-    href: view-audit-logs.md
   - name: Manage users - Azure portal
     href: manage-users-portal.md
     displayName: create users, add users, delete users
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
+  - name: Logs and monitoring
+    items:
+    - name: Audit logs
+      href: view-audit-logs.md
+      displayName: log, logs, logging, usage, events
+    - name: Azure Monitor
+      href: azure-monitor.md
+      displayName: log, logs, logging, usage, events
+    - name: Usage analytics
+      href: analytics-with-application-insights.md
+      displayName: application insights, app insights
   - name: Compliance
     items:
     - name: User access
