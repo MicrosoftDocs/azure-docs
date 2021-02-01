@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: victorh
 ---
 
@@ -53,4 +53,4 @@ If your CA certificate is valid, but you can’t access FQDNs or URLs under TLS 
 
 ## Next steps
 
-- [Learn more about Azure Firewall Premium features](premium-overview.md)
+- [Learn more about Azure Firewall Premium features](premium-features.md)

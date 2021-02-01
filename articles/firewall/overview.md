@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -21,9 +21,15 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network.  The service is fully integrated with Azure Monitor for logging and analytics.
 
+## Azure Firewall Premium Preview
+
+Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. 
+
 ## Features
 
-To learn about Azure Firewall features, see [Azure Firewall features](features.md).
+- To learn about Azure Firewall features, see [Azure Firewall features](features.md).
+
+- To learn about Azure Firewall Premium Preview features, see [What is Azure Firewall Premium Preview?](premium-overview.md)
 
 ## Pricing and SLA
 

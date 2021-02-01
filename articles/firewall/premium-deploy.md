@@ -23,7 +23,7 @@ ms.author: victorh
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
-For more information, see [What is Azure Firewall Premium Preview?](premium-overview.md)
+For more information, see [Azure Firewall Premium features](premium-features.md)
 
 You will deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
 - a worker subnet (10.0.10.0/24)

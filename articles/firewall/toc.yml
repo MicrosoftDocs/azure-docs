@@ -32,8 +32,8 @@
   items:
     - name: Azure Firewall features
       href: features.md
-    - name: Azure Firewall Premium
-      href: premium-overview.md
+    - name: Azure Firewall Premium features
+      href: premium-features.md
     - name: Azure Firewall Premium certificates
       href: premium-certificates.md
     - name: FQDN tags

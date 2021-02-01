@@ -1,15 +1,15 @@
 ---
-title: What is Azure Firewall Premium Preview?
+title: Azure Firewall Premium Preview features
 description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.author: victorh
 ---
 
-# What is Azure Firewall Premium Preview?
+# Azure Firewall Premium Preview features
 
 > [!IMPORTANT]
 > Azure Firewall Premium is currently in public preview.
