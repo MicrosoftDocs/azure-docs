@@ -592,7 +592,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "source_path_from_root": "/articles/active-directory-b2c/application-insights-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
       "redirect_document_id": true
     },
@@ -33632,6 +33632,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/ibm-db2-purescale-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-configure-firewall-settings.md",
       "redirect_url": "/azure/sql-database/sql-database-firewall-configure",
       "redirect_document_id": false
@@ -34775,6 +34785,11 @@
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
+      "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",

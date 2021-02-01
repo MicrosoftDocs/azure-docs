@@ -370,7 +370,7 @@ The following scenarios will expand on these scenarios.
 
 ## See also
 
-* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/monitor-tune-overview.md)
+* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview)
 * [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Transaction Locking and Row Versioning Guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)
