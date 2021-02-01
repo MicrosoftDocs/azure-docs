@@ -63,6 +63,9 @@ Event-based video recording refers to the process of recording video triggered b
 Alternatively, you can trigger recording only when an inferencing service detects that a specific event has occurred. In this tutorial, you'll use a video of a person walking and vehicles moving on a freeway and record video clips whenever a person is detected and whenever motion is detected.
 To record video clips with two different triggers, object detection and motion detection, to two different locations, your edge device and the cloud, you will need to use two signal gates.
 
+> [!NOTE]
+> [LVA 2.0](upgrading-lva-module.md) is required to complete this tutorial.
+
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Media graph":::
 
@@ -149,13 +152,13 @@ Read [this section](../../iot-edge/module-composition.md#declare-routes) on how 
 * objectCounterToIoTHub is used as a debug tool to help you see the output from objectCounter when you run this tutorial.
 
 > [!NOTE]
-> Check the desired properties for the objectCounter module, which are set up to look for objects that are tagged as "truck" with a confidence level of at least 50%.
+> Check the desired properties for the objectCounter module, which are set up to look for objects that are tagged as "person" with a confidence level of at least 70%.
 
 ## Generate and deploy the IoT Edge deployment manifest 
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
 
-To have the objectCounter module detecting a person instead of a truck, go to src/edge/deployment.objectCounter.template.json and edit the following at the end of the file:
+For the objectCounter module to detect a person instead of a truck, go to src/edge/deployment.objectCounter.template.json and edit the following at the end of the file:
 
 `"objectCounter": {
       "properties.desired": {
