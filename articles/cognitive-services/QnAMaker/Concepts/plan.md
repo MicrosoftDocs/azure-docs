@@ -89,7 +89,7 @@ You can now have knowledge bases in different languages within the same QnA Make
 
 ### Ingest data sources
 
-You can use one of the following ingested [data sources](../data-sources-and-content.md) to create a knowledge base:
+You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
