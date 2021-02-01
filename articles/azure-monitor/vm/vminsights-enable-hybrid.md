@@ -17,8 +17,8 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
-- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md).
+- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 
 ## Overview
@@ -33,7 +33,7 @@ Firewall requirements for the Log Analytics agent are provided in [Log Analytics
 ## Dependency agent
 
 >[!NOTE]
->The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
+>The following information described in this section is also applicable to the [Service Map solution](../insights/service-map.md).  
 
 You can download the Dependency agent from these locations:
 
@@ -154,7 +154,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free pricing tier of Log Analytics](./solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
+2. Are you on the [Free pricing tier of Log Analytics](../insights/solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 

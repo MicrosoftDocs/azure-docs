@@ -16,7 +16,7 @@ Azure Monitor helps you maximize the availability and performance of your applic
 Just a few examples of what you can do with Azure Monitor include:
 
 - Detect and diagnose issues across applications and dependencies with [Application Insights](app/app-insights-overview.md).
-- Correlate infrastructure issues with [Azure Monitor for VMs](insights/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
+- Correlate infrastructure issues with [Azure Monitor for VMs](vm/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](visualizations/workbooks-overview.md).
@@ -81,7 +81,7 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![Container Health](media/overview/container-insights.png)
 
 ### Azure Monitor for VMs
-[Azure Monitor for VMs](insights/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
+[Azure Monitor for VMs](vm/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
 
 
 ![VM Insights](media/overview/vm-insights.png)

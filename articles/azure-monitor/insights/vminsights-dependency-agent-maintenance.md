@@ -66,4 +66,4 @@ If the Dependency agent fails to start, check the logs for detailed error inform
 
 ## Next steps
 
-If you want to stop monitoring your VMs for a period of time or remove Azure Monitor for VMs entirely, see [Disable monitoring of your VMs in Azure Monitor for VMs](vminsights-optout.md).
+If you want to stop monitoring your VMs for a period of time or remove Azure Monitor for VMs entirely, see [Disable monitoring of your VMs in Azure Monitor for VMs](../vm/vminsights-optout.md).

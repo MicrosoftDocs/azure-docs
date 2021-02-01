@@ -61,7 +61,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Networking Analytics solution in Azure Monitor](insights/azure-networking-analytics.md) - Added information on Network Insights workbook.
 
 ### Virtual Machines
-- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md) - New version of dependency agent.
+- [Enable Azure Monitor for a hybrid environment](vm/vminsights-enable-hybrid.md) - New version of dependency agent.
 
 
 ### Visualizations
@@ -122,12 +122,12 @@ New and updated articles from restructure of log query content.
 
 New articles for Azure Monitor for VMs guest health (preview)
 
-- [Azure Monitor for VMs guest health (preview)](insights/vminsights-health-overview.md)
-- [Azure Monitor for VMs guest health alerts (preview)](insights/vminsights-health-alerts.md)
-- [Configure monitoring in Azure Monitor for VMs guest health (preview)](insights/vminsights-health-configure.md)
-- [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](insights/vminsights-health-configure-dcr.md)
-- [Enable Azure Monitor for VMs guest health (preview)](insights/vminsights-health-enable.md)
-- [Troubleshoot Azure Monitor for VMs guest health (preview)](insights/vminsights-health-troubleshoot.md)
+- [Azure Monitor for VMs guest health (preview)](vm/vminsights-health-overview.md)
+- [Azure Monitor for VMs guest health alerts (preview)](vm/vminsights-health-alerts.md)
+- [Configure monitoring in Azure Monitor for VMs guest health (preview)](vm/vminsights-health-configure.md)
+- [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](vm/vminsights-health-configure-dcr.md)
+- [Enable Azure Monitor for VMs guest health (preview)](vm/vminsights-health-enable.md)
+- [Troubleshoot Azure Monitor for VMs guest health (preview)](vm/vminsights-health-troubleshoot.md)
 
 
 
@@ -182,7 +182,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Azure Activity Log event schema](essentials/activity-log-schema.md) - Added description of severity levels.
 
 ### Virtual machines
-- [Change analysis in Azure Monitor for VMs](insights/vminsights-change-analysis.md) - New article.
+- [Change analysis in Azure Monitor for VMs](vm/vminsights-change-analysis.md) - New article.
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
 - [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
@@ -264,7 +264,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Agents
 - [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md) - New article.
-- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md) - Updated dependency agent version.
+- [Enable Azure Monitor for a hybrid environment](vm/vminsights-enable-hybrid.md) - Updated dependency agent version.
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added Azure Monitor agent and consolidated OS support table.
 
 
@@ -360,16 +360,16 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 New and updated articles from restructure of Azure Monitor for VMs content
 
-- [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
+- [What is Azure Monitor for VMs?](vm/vminsights-overview.md)
 - [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md)
 - [Connect Linux computers to Azure Monitor](agents/agent-linux.md)
-- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md)
-- [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](insights/vminsights-enable-portal.md)
-- [Enable Azure Monitor for VMs by using Azure Policy](./insights/vminsights-enable-policy.md)
+- [Enable Azure Monitor for a hybrid environment](vm/vminsights-enable-hybrid.md)
+- [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](vm/vminsights-enable-portal.md)
+- [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md)
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
-- [Enable Azure Monitor for VMs using PowerShell](insights/vminsights-enable-powershell.md)
-- [Enable Azure Monitor for VMs using Resource Manager templates](insights/vminsights-enable-resource-manager.md)
-- [Enable Azure Monitor for VMs with PowerShell or templates](./insights/vminsights-enable-powershell.md)
+- [Enable Azure Monitor for VMs using PowerShell](vm/vminsights-enable-powershell.md)
+- [Enable Azure Monitor for VMs using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
+- [Enable Azure Monitor for VMs with PowerShell or templates](./vm/vminsights-enable-powershell.md)
 
 
 ### Visualizations
@@ -445,9 +445,9 @@ New and updated articles from restructure and consolidation of platform log cont
 - [View Azure Activity log events in Azure Monitor](./essentials/activity-log.md#view-the-activity-log)
 
 ### Virtual machines
-- [Enable Azure Monitor for VMs in the Azure portal](./insights/vminsights-enable-portal.md) - Updated to include Azure Arc.
+- [Enable Azure Monitor for VMs in the Azure portal](./vm/vminsights-enable-portal.md) - Updated to include Azure Arc.
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated to include Azure Arc.
-- [What is Azure Monitor for VMs?](insights/vminsights-overview.md) - Updated to include Azure Arc.
+- [What is Azure Monitor for VMs?](vm/vminsights-overview.md) - Updated to include Azure Arc.
 
 
 ### Visualizations
@@ -539,7 +539,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Virtual machines
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
-- [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md) - Added limitations section for unavailable metrics.
+- [How to chart performance with Azure Monitor for VMs](vm/vminsights-performance.md) - Added limitations section for unavailable metrics.
 
 ### Visualizations
 - [Azure Monitor Workbooks and Azure Resource Manager Templates](visualizations/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
@@ -647,17 +647,17 @@ New and updated articles from restructure and consolidation of platform log cont
 
 - [Monitor Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) - New article.
 - [Quickstart: Monitor Azure virtual machines with Azure Monitor](learn/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
-- [Alerts from Azure Monitor for VMs](insights/vminsights-alerts.md) - New article.
+- [Alerts from Azure Monitor for VMs](vm/vminsights-alerts.md) - New article.
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
 
 General updates for general availability of Azure Monitor for VMs
 
-- [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
-- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) 
-- [Enable Azure Monitor for VMs by using Azure Policy](./insights/vminsights-enable-policy.md) 
-- [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md)
-- [How to Query Logs from Azure Monitor for VMs](insights/vminsights-log-search.md)
-- [View app dependencies with Azure Monitor for VMs](insights/vminsights-maps.md) 
+- [What is Azure Monitor for VMs?](vm/vminsights-overview.md)
+- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) 
+- [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md) 
+- [How to chart performance with Azure Monitor for VMs](vm/vminsights-performance.md)
+- [How to Query Logs from Azure Monitor for VMs](vm/vminsights-log-search.md)
+- [View app dependencies with Azure Monitor for VMs](vm/vminsights-maps.md) 
 
 ### Visualizations
 
@@ -691,7 +691,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 #### Azure Monitor for VMs
 
-- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Change to how performance data is stored.
+- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Change to how performance data is stored.
 
 #### Office 365
 
@@ -759,7 +759,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 #### Azure Monitor for VMs
 
-- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
+- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
 
 #### Office 365
 

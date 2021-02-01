@@ -18,8 +18,8 @@ If you're not familiar with Azure Policy, get a brief introduction at [Deploy Az
 > To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## Prerequisites
-- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
-- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md).
+- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 
 ## Azure Monitor for VMs initiative

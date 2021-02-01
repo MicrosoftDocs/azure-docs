@@ -10,7 +10,7 @@ ms.date: 03/10/2020
 ---
 
 # Quickstart: Monitor an Azure virtual machine with Azure Monitor
-[Azure Monitor](../overview.md) starts collecting data from Azure virtual machines the moment that they're created. In this quickstart, you'll take a brief walkthrough the data that's automatically collected for an Azure VM and how to view it in the Azure portal. You'll then enable [Azure Monitor for VMs](../insights/vminsights-overview.md) for your VM which will enable agents on the VM to collect and analyze data from the guest operating system including processes and their dependencies.
+[Azure Monitor](../overview.md) starts collecting data from Azure virtual machines the moment that they're created. In this quickstart, you'll take a brief walkthrough the data that's automatically collected for an Azure VM and how to view it in the Azure portal. You'll then enable [Azure Monitor for VMs](../vm/vminsights-overview.md) for your VM which will enable agents on the VM to collect and analyze data from the guest operating system including processes and their dependencies.
 
 This quickstart assumes you have an existing Azure virtual machine. If not you can create a [Windows VM](../../virtual-machines/windows/quick-create-portal.md) or create a [Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 

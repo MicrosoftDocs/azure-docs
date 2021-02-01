@@ -62184,6 +62184,106 @@
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-windows-install.md",
       "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-windows-install",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-alerts.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-change-analysis.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-change-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-hybrid.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-hybrid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-policy.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-portal.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-powershell.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-resource-manager.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-resource-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-ga-release-faq.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-ga-release-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-alerts.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-configure.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-configure-dcr.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-configure-dcr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-enable.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-enable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-overview.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-health-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-health-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-log-search.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-log-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-maps.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-optout.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-optout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-overview.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-performance.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-workbooks.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-workbooks",
+      "redirect_document_id": false
     }
   ]
 }
