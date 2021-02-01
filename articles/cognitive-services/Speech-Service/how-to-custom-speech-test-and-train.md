@@ -169,7 +169,7 @@ Use this table to ensure that your related data file for utterances is formatted
 
 Additionally, you'll want to account for the following restrictions:
 
-* Avoid repeating characters more than four times. For example: "aaaa" or "uuuu".
+* Avoid repeating characters, words, or groups of words more than three times. For example: "aaaa", "yeah yeah yeah yeah", or "that's it that's it that's it that's it". The Speech service might drop lines with too many repetitions.
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
 

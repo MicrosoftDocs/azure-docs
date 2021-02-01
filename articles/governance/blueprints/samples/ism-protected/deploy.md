@@ -1,7 +1,7 @@
 ---
 title: Deploy Australian Government ISM PROTECTED blueprint sample
 description: Deploy steps for the Australian Government ISM PROTECTED blueprint sample including blueprint artifact parameter details.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
 ---
 # Deploy the Australian Government ISM PROTECTED blueprint sample

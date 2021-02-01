@@ -290,7 +290,7 @@ Speech Services has REST APIs for [Speech-to-Text](rest-speech-to-text.md) and [
 Speech-to-Text has two REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when you're using it in the private-endpoint-enabled scenario.
 
 The Speech-to-Text REST APIs are:
-- [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md)
 - [Speech-to-Text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), which is used for online transcription 
 
 Usage of the Speech-to-Text REST API for short audio and the text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article. 

@@ -13,7 +13,6 @@ ms.author: cynthn
 
 This article describes how to tag a VM in Azure using PowerShell. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. If you want to tag a virtual machine using the Azure CLI, see [How to tag a virtual machine in Azure using the Azure CLI](tag-cli.md).
 
-
 Use the `Get-AzVM` cmdlet to view the current list of tags for your VM.
 
 ```azurepowershell-interactive
@@ -79,8 +78,7 @@ Environment   Production
 Location      MyLocation
 ```
 
-
-**Next steps**
+### Next steps
 
 - To learn more about tagging your Azure resources, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md) and [Using Tags to organize your Azure Resources](../azure-resource-manager/management/tag-resources.md).
-- To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md) and [Gain insights into your Microsoft Azure resource consumption](../cost-management-billing/manage/usage-rate-card-overview.md).
+- To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md).
