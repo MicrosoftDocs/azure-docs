@@ -20,8 +20,8 @@ You don't need this procedure to move a data disk to a new subscription. Instead
 This script demonstrates three operations:
 
 - Create a snapshot of an OS disk.
-- Move the snapshot to a different subscription
-- Create a virtual machine based on that snapshot
+- Move the snapshot to a different subscription.
+- Create a virtual machine based on that snapshot.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -43,6 +43,9 @@ vmName= Name of the current virtual machine
 
 destinationResourceGroup= Resource group for the new virtual machine, create if necessary
 destinationSubscription= Subscription for the new virtual machine
+
+# Set your current subscription for the source virtual machine
+az account set --subscription $sourceSubscription
 
 # Load variables about your virtual machine
 # osType = windows or linux
@@ -71,10 +74,6 @@ planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup --
 osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
     --query 'storageProfile.osDisk.name' --output tsv)
 
-
-# Set your current subscription for the source virtual machine
-az account set --subscription $sourceSubscription
-
 # Verify the terms for your market virtual machine
 az vm image terms show --offer $offer --plan '$plan' --publisher $publisher \
     --subscription $sourceSubscription
@@ -82,7 +81,7 @@ az vm image terms show --offer $offer --plan '$plan' --publisher $publisher \
 # Deallocate the virtual machine
 az vm deallocate --resource-group $sourceResourceGroup --name $vmName
 
-# Create a snapshot of the OS disk.
+# Create a snapshot of the OS disk
 az snapshot create --resource-group $sourceResourceGroup --name MigrationSnapshot \
     --source "/subscriptions/$sourceSubscription/resourceGroups/$sourceResourceGroup/providers/Microsoft.Compute/disks/$osDiskName"
 
@@ -98,12 +97,12 @@ az account set --subscription $destinationSubscription
 az vm image terms accept --offer $offer --plan '$plan' --publisher $publisher \
     --subscription $destinationSubscription
 
-# create disk from the snapshot 
+# Create disk from the snapshot 
 az disk create --resource-group $destinationResourceGroup --name DestinationDisk \
     --source "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/snapshots/MigrationSnapshot" \
     --os-type $osType
 
-# create virtual machine from disk
+# Create virtual machine from disk
 az vm create --resource-group $destinationResourceGroup --name $vmName \
     --plan-name $planName --plan-product $planProduct  --plan-publisher $planPublisher \
     --attach-os-disk "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/disks/DestinationDisk" \
