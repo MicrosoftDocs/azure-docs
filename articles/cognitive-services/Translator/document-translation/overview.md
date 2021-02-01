@@ -10,7 +10,7 @@ ms.date: 02/04/2021
 
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the [Azure Cognitive Services](../../what-are-cognitive-services.md) family of REST APIs. The Document Translation API enables the translation of whole documents from and to more than 70 languages, while preserving source document structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the [Azure Cognitive Services](../../what-are-cognitive-services.md) family of REST APIs. The Document Translation API enables translation of whole documents from and to more than 70 languages, while preserving source document structure and text format.
 
 ## Document Translation key features
 
@@ -24,9 +24,9 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 Document translation is a batch process that is accomplished with the following Azure portal resources:
 
-* A single-service Translator or multi-service Cognitive Services resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md).
-* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
-* Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You'll need one to upload your document files, folders, or  [translation memory file](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
+* A single-service [**Translator**](https://ms.portal.azure.com/#create/Microsoft) or multi-service [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md).
+* An [**Azure storage account**](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
+* Two [**Azure blob storage containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You'll need one to upload your document files, folders, or  [translation memory file](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
 
 ## Custom Document Translation
 
@@ -34,7 +34,7 @@ Custom Document Translation uses models via the [Custom Translation](../custom-t
 
 ## Supported file formats
 
-The following file types can be translated using the Document Translation API.
+The following file types can be translated using the Document Translation API:
 
 | File type| File extension|Description|
 |---|---|--|
