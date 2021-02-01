@@ -4,7 +4,7 @@ description: Learn how to manage user account provisioning for enterprise apps u
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to

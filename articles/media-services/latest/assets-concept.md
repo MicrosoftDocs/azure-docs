@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
-titleSuffix: Azure Media Services
+title: Assets in Azure Media Services
 description: Learn about what assets are and how they're used by Azure Media Services.
 services: media-services
 documentationcenter: ''
