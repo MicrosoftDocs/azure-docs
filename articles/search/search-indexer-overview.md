@@ -44,6 +44,8 @@ Indexers crawl data stores on Azure.
 + [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
+Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a trusted service identity. For more information about secure connections, see [Granting access via private endpoints](search-indexer-securing-resources.md#granting-access-via-private-endpoints) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+
 ## Stages of indexing
 
 On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
