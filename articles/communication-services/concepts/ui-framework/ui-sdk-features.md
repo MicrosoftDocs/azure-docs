@@ -10,9 +10,9 @@ ms.service: azure-communication-services
 
 ---
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
-
 # UI Framework capabilities
+
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 The Azure Communication Services UI Framework lets you build communication experiences using a set of reusable components. These components come in two flavors: **Base** components are the most basic building blocks of your UI experience, while combinations of these base components are called **composite** components.
 
@@ -20,8 +20,8 @@ The Azure Communication Services UI Framework lets you build communication exper
 
 | Composite               | Description                                               | Web   | Android | iOS   |
 |-------------------------|-----------------------------------------------------------|-------|---------|-------|
-| Group Calling Composite | Light-weight voice and video outbound calling experience for Azure Communication Services calling using Fluent UI design assets. Supports group calling using Azure Communication Services Group ID. The composite allows for one-to-one calling to be used by referencing an Azure Communication Services identity or a phone number for PSTN using a phone number procured through Azure.                                    | React | *Coming* | *Coming* |
-| Group Chat Composite    | Light-weight chat experience for Azure Communication Services using Fluent UI design assets. This experience concentrates on delivering a simple chat client that can connect to Azure Communication Services threads. It allows users to send messages and see received messages with typing indicators and read receipts. It scales from 1:1 to group chat scenarios. Supports a single chat thread.                         | React | *Coming* | *Coming* |
+| Group Calling Composite | Light-weight voice and video outbound calling experience for Azure Communication Services calling using Fluent UI design assets. Supports group calling using Azure Communication Services Group ID. The composite allows for one-to-one calling to be used by referencing an Azure Communication Services identity or a phone number for PSTN using a phone number procured through Azure.                                    | React |  |  |
+| Group Chat Composite    | Light-weight chat experience for Azure Communication Services using Fluent UI design assets. This experience concentrates on delivering a simple chat client that can connect to Azure Communication Services threads. It allows users to send messages and see received messages with typing indicators and read receipts. It scales from 1:1 to group chat scenarios. Supports a single chat thread.                         | React |  |  |
 
 ## UI Framework base components
 
@@ -40,14 +40,14 @@ The Azure Communication Services UI Framework lets you build communication exper
 
 ## UI Framework capabilities
 
-|                                                                     | Group Calling Composite | Group Chat Composite | Base Components |
+| Feature                                                             | Group Calling Composite | Group Chat Composite | Base Components |
 |---------------------------------------------------------------------|-------------------------|----------------------|-----------------|
-| Join Teams Meeting                                                  | *Coming*                |                      | *Coming* 
+| Join Teams Meeting                                                  |                         |                      |           
 | Join Teams Live Event                                               |                         |                      | 
 | Start VoIP call to Teams user                                       |                         |                      | 
-| Join a Teams Meeting Chat                                           |                         |  *Coming*            | *Coming*  
+| Join a Teams Meeting Chat                                           |                         |                      |            
 | Join Azure Communication Services call with Group Id                | ✔                      |                      | ✔
-| Start a VoIP call to one or more Azure communication Services users | *Coming*                |                      | *Coming* 
+| Start a VoIP call to one or more Azure communication Services users |                         |                      |           
 | Join an Azure Communication Services chat thread                    |                         | ✔                   | ✔
 | Mute/unmute call                                                    | ✔                       |                      | ✔
 | Video on/off on call                                                | ✔                       |                      | ✔
@@ -55,8 +55,8 @@ The Azure Communication Services UI Framework lets you build communication exper
 | Participant gallery                                                 | ✔                       |                      | ✔
 | Microphone management                                               | ✔                       |                      | ✔
 | Camera management                                                   | ✔                       |                      | ✔
-| Call Lobby                                                          | *Coming*                |                      | ✔
-| Send chat message                                                   |                         | ✔                   | *Coming*  
+| Call Lobby                                                          |                         |                      | ✔
+| Send chat message                                                   |                         | ✔                   |            
 | Receive chat message                                                |                         | ✔                   | ✔
 | Typing Indicators                                                   |                         | ✔                   | ✔
 | Read Receipt                                                        |                         | ✔                   | ✔
@@ -65,15 +65,15 @@ The Azure Communication Services UI Framework lets you build communication exper
 
 ## Customization support
 
-|                           | Themes     | Layout                                                              | Data Models |
+| Component Type            | Themes     | Layout                                                              | Data Models |
 |---------------------------|------------|---------------------------------------------------------------------|-------------|
-| Composite Components      | *Coming*   | N/A                                                                 | *Coming*    |
-| Base Components           | *Coming*   | Components can be organized in any layout. | *Coming*    |
+| Composite Component       |     N/A    | N/A                                                                 |     N/A     |
+| Base Component            |     N/A    | Layout of components can be modified using external styling         |     N/A     |
 
 
 ## Platform support
 
-|        | Windows            | macOS                | Ubuntu   | Linux    | Android  | iOS        |
+| SDK    | Windows            | macOS                | Ubuntu   | Linux    | Android  | iOS        |
 |--------|--------------------|----------------------|----------|----------|----------|------------|
 | UI SDK | Chrome\*, new Edge | Chrome\*, Safari\*\* | Chrome\* | Chrome\* | Chrome\* | Safari\*\* |
 

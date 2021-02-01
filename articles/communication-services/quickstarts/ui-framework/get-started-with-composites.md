@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure Communication Services UI Framework SDK composite components
+title: Get started with Azure Communication Services UI Framework SDK composite components
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to get started with UI Framework Composite Components
 author: ddematheu2
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework Composite Components
+# Quickstart: Get started with UI Framework Composite Components
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -20,8 +20,8 @@ Get started with Azure Communication Services by using the UI Framework to quick
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (Node 12 Recommended).
-- An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A User Access Token to instantiate the call composite. Learn how to [create and manage user access tokens](../../access-tokens.md).
+- An active Communication Services resource. [Create a Communication Services resource](./../create-communication-resource.md).
+- A User Access Token to instantiate the call composite. Learn how to [create and manage user access tokens](./../access-tokens.md).
 
 ## Setting up
 
@@ -29,7 +29,7 @@ UI Framework requires a React environment to be setup. Next we will do that. If 
 
 ### Set Up React App
 
-We will use the create-react-app template for this quickstart. For more information see: [Getting Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
+We will use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```console
 
@@ -39,7 +39,7 @@ cd my-app
 
 ```
 
-At the end of this process you should have a full application inside of the folder `my-app`. For this quickstart, we'll be modifying files inside of the `src` folder.
+At the end of this process, you should have a full application inside of the folder `my-app`. For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the package
 
@@ -78,9 +78,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Initialize Group Call and Group Chat Composite Components
 
-Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Composite Components for Group Chat and Calling. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do this, see: [create and manage user access tokens](../../access-tokens.md).
+Go to the `src` folder inside of `my-app` and look for the file `app.js`. Here we'll drop the following code to initialize our Composite Components for Group Chat and Calling. You can choose which one to use depending on the type of communication experience you're building. If needed, you can use both at the same time. To initialize the components, you'll need an access token retrieved from Azure Communication Services. For details on how to do get access tokens, see: [create and manage user access tokens](./../access-tokens.md).
 
-UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. See [Client Server Architecture](./../../concepts/client-and-server-architecture.md) for more information.
+UI Framework Components follow the same general architecture for the rest of the service. The components don't generate access tokens, group IDs, or thread IDs. These elements come from services that go through the proper steps to generate these IDs and pass them to the client application. For more information, see: [Client Server Architecture](./../../concepts/client-and-server-architecture.md).
 
 `App.js`
 ```javascript
@@ -142,7 +142,7 @@ export default App;
 
 ## Run quickstart
 
-To run the code above use the command:
+To run the code above, use the command:
 
 ```console
 
@@ -159,8 +159,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try UI Framework Base Components](./getting-started-with-components.md)
+> [Try UI Framework Base Components](./get-started-with-components.md)
 
-For more information, see the following:
+For more information, see the following resources:
 - [UI Framework Overview](../../concepts/ui-framework/ui-sdk-overview.md)
 - [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md)
