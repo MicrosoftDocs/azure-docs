@@ -41,13 +41,6 @@ Once the maintenance window selection is made, all planned maintenance updates w
 > [!Note]
 > In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
-### Supported service level objectives
-
-The SQL Maintenance Window feature is available on all Azure SQL Database and SQL Managed Instance SLOs except for:
-* Hyperscale 
-* Legacy Gen4 vCore
-* DTU S0 and S1 
-
 ### Cost
 
 SQL Maintenance Window is free of charge to all customers with [subscription types](/support/legal/offer-details/) Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
@@ -55,6 +48,13 @@ SQL Maintenance Window is free of charge to all customers with [subscription typ
 ## Notifications
 
 Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](advance-notifications.md).
+
+### Supported service level objectives
+
+The SQL Maintenance Window feature is available on all Azure SQL Database and SQL Managed Instance SLOs except for:
+* Hyperscale 
+* Legacy Gen4 vCore
+* DTU S0 and S1 
 
 ## Availability
 

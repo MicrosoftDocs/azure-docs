@@ -63,11 +63,15 @@ sections:
 
       - question: If I have selected a SQL Maintenance Window for a resource, and I downscale to a service tier where the SQL Maintenance Window feature is not supported, would the maintenance window schedule revert to default?
         answer: |
-          Yes.
+          Yes. Some service tiers only support the default SQL maintenance window.
       
       - question: Can I cancel or postpone a maintenance event? 
         answer: |
-          No.
+          No. Cancelling or postponing an upcoming maintenance window within 24 hours is not supported. 
+
+      - question: How long does it take to process a maintenance window schedule change?
+        answer: |
+          Changes made to the SQL maintenance window schedule may take up to 24 hours to take effect.
 
       - question: What happens if SQL maintenance fails?
         answer: |
