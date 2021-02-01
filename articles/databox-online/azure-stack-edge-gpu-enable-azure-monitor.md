@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/01/2021
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ Before you begin, you'll need:
 - You've completed **Configure compute** step as per the [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 
-## Create Log Analytics workspace.
+## Create Log Analytics workspace
 
 Take the following steps to create a log analytics workspace. A log analytics workspace is a logical storage unit where the log data is collected and stored.
 
@@ -237,3 +237,4 @@ Take the following steps to enable Container Insights on your workspace.
 ## Next steps
 
 - Learn how to [Monitor Kubernetes workloads via the Kubernetes Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Learn how to [Manage alerts](azure-stack-edge-gpu-manage-alerts.md). 

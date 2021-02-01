@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2019
+ms.date: 02/01/2021
 ms.author: alkohli
 ---
 # Monitor your Azure Stack Edge Pro
@@ -21,7 +21,6 @@ In this article, you learn how to:
 > * View device events and the corresponding alerts
 > * View hardware status of device components
 > * View capacity and transaction metrics for your device
-> * Configure and manage alerts
 
 ## View device events
 
@@ -73,10 +72,7 @@ A full list of the metrics is shown in the following table:
 |**Edge compute - memory usage**      |           |
 |**Edge compute - percentage CPU**    |         |
 
-## Manage alerts
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
-
 ## Next steps
 
 Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
+Learn how to [Manage alerts](azure-stack-edge-pro-manage-alerts.md).
