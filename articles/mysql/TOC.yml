@@ -23,10 +23,10 @@
       href: single-server-overview.md
     - name: Pricing Tiers
       items:
-     - name: Pricing tiers
-       href: concepts-pricing-tiers.md
-     - name: Prepay for reserved capacity
-       href: concept-reserved-pricing.md
+      - name: Pricing tiers
+        href: concepts-pricing-tiers.md
+      - name: Prepay for reserved capacity
+        href: concept-reserved-pricing.md
   - name: Quickstarts
     expanded: true
     items:
