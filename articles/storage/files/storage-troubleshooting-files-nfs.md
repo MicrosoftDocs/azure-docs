@@ -147,7 +147,7 @@ Verify that port 2049 is open on your client by running the following command: `
 
 ## ls (list files) shows incorrect/inconsistent results
 
-### Cause: Inconsistency between cached value and server file metadata value when the file handle is open
+### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
 You may notice that sometimes that the "list files" shows a non zero size as expected and in the very next request on lst files shows size 0 or a very old time stamp. This is a known issue that is happening due to inconsistent caching of file metadata values while the file is open. The permanent fix is being worked upon but in the meanwhile, one could use one of the following workaround. 
 
 #### Workaround 1: For fetching file size, use wc -c instead of ls -l
