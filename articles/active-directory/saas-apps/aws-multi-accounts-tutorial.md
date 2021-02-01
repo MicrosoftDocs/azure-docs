@@ -116,7 +116,8 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Role | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
     | SessionDuration | "provide a value from 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
-    <br>
+  
+  <br>
     
     a. Select **Add new claim** and then, on the **Manage user claims** pane, do the following:
 
@@ -178,7 +179,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
     ![Screenshot of the "Create role" button on the Roles pane.][16]
 
     > [!NOTE]
-    > The combined length of the role ARN (Amazon Resource Name) and the SAML provider ARN for a role being imported must be 240 or fewer characters.
+    > The combined length of the role Amazon Resource Name (ARN) and the SAML provider ARN for a role that's being imported must be 240 or fewer characters.
 
 1. On the **Create role** page, do the following:  
 
@@ -219,7 +220,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
     d. Create as many roles as you need, and map them to the identity provider.
 
     > [!NOTE]
-    > Similarly, you can create remaining other roles, such as `accountname-finance-admin`, `accountname-read-only-user`, `accountname-devops-user`, or `accountname-tpm-user`, each with a different policy attached to it. You can change these role policies later, according to the requirements for each AWS account. It's a good idea to keep the same policies for each role across the AWS accounts.
+    > Similarly, you can create other roles, such as *accountname-finance-admin*, *accountname-read-only-user*, *accountname-devops-user*, or *accountname-tpm-user*, each with a different policy attached to it. You can change these role policies later, according to the requirements for each AWS account. It's a good idea to keep the same policies for each role across the AWS accounts.
 
 1. Be sure to note the account ID for the AWS account either from the Amazon Elastic Compute Cloud (Amazon EC2) properties pane or the IAM dashboard, as shown in the following screenshot:
 
@@ -227,7 +228,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 1. Sign in to the Azure portal, and then go to **Groups**.
 
-1. Create new groups with the same name as that of IAM Roles you created earlier, and then note the value in the **Object Id** box of each of these new groups.
+1. Create new groups with the same name as that of the IAM roles you created earlier, and then note the value in the **Object Id** box of each of these new groups.
 
     ![Screenshot of the account details for a new group.](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
@@ -253,7 +254,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
       ![Screenshot of the "modify permissions" link on the Microsoft Graph Explorer Authentication pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. In the permissions list, if you don't already have the permissions shown in the following screenshot, select each one, and then select **Modify Permissions**. 
+    c. In the permissions list, if you don't already have the permissions that are shown in the following screenshot, select each one, and then select **Modify Permissions**. 
 
       ![Screenshot of the Microsoft Graph Explorer permissions list, with the appropriate permissions highlighted.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
@@ -266,7 +267,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
     ![Screenshot of the Microsoft Graph Explorer query "Request Body" pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. From the list of service principals fetched, get the one you need to modify. 
+    f. From the list of service principals, get the one you need to modify. 
     
     You can also search the application for all the listed service principals by selecting Ctrl+F. To get a specific service principal, include in the query the service principal object ID, which you copied earlier from the Azure AD Properties pane, as shown here:
 
@@ -280,7 +281,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
     h. You now need to generate new roles for your application. 
 
-    i. The following JSON code is an example of appRoles object. Create a similar object to add the roles you want for your application.
+    i. The following JSON code is an example of an appRoles object. Create a similar object to add the roles you want for your application.
 
     ```
     {
@@ -322,15 +323,15 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
     ```
 
     > [!Note]
-    > You can add new roles only after you've added *msiam_access* for the patch operation. You can also add as many roles as you want, depending on your organization's needs. Azure AD will send the *value* of these roles as the claim value in the SAML response.
+    > You can add new roles only after you've added *msiam_access* for the patch operation. You can also add as many roles as you want, depending on your organization's needs. Azure AD sends the *value* of these roles as the claim value in the SAML response.
 
-    j. Back in Microsoft Graph Explorer, change the method from **GET** to **PATCH**. Patch the service principal object with the roles you want by updating appRoles property, similar to the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role for your AWS application.
+    j. In Microsoft Graph Explorer, change the method from **GET** to **PATCH**. Patch the service principal object with the roles you want by updating the appRoles property, like the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role for your AWS application.
 
       ![Screenshot of the Microsoft Graph Explorer pane, with the method changed to PATCH.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. After the service principal is patched with more roles, you can assign users and groups to their respective roles. You do this in the Azure portal by going to the AWS application and then selecting the **Users and Groups** tab at the top.
 
-1. We recommend that you create a new group for every AWS role so that you can assign that particular role in that group. This one-to-one mapping means that one group is assigned to one role. You can then add the members who belong to that group.
+1. We recommend that you create a new group for every AWS role so that you can assign that particular role in the group. This one-to-one mapping means that one group is assigned to one role. You can then add the members who belong to that group.
 
 1. After you've created the groups, select the group and assign it to the application.
 
@@ -362,7 +363,7 @@ For more information about My Apps, see [Sign in and start apps from the My Apps
 
 ## Next steps
 
-After you configure AWS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 
