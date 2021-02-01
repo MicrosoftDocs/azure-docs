@@ -115,11 +115,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**.
 
-    ![Asana sso settings](./media/asana-tutorial/tutorial_asana_09.png)
+    ![Asana sso settings](./media/asana-tutorial/settings.png)
 
 2. On the **Organization settings** window, click **Administration**. Then, click **Members must log in via SAML** to enable the SSO configuration. The perform the following steps:
 
-    ![Configure Single Sign-On Organization settings](./media/asana-tutorial/tutorial_asana_10.png)  
+    ![Configure Single Sign-On Organization settings](./media/asana-tutorial/save.png)  
 
     a. In the **Sign-in page URL** textbox, paste the **Login URL**.
 
@@ -137,7 +137,7 @@ In this section, you create a user called Britta Simon in Asana.
 
 1. On **Asana**, go to the **Teams** section on the left panel. Click the plus sign button.
 
-    ![Creating an Azure AD test user](./media/asana-tutorial/tutorial_asana_12.png)
+    ![Creating an Azure AD test user](./media/asana-tutorial/teams.png)
 
 2. Type the email of the user like **britta.simon\@contoso.com** in the text box and then select **Invite**.
 
