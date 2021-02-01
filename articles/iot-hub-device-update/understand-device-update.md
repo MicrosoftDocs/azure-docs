@@ -10,6 +10,8 @@ ms.service: iot-hub
 
 # Device Update for IoT Hub Overview
 
+Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
+
 ## What is Device Update for IoT Hub
 
 Device Update for IoT Hub is a service that enables you to deploy over-the-air
@@ -26,8 +28,7 @@ provides reporting capabilities so you can always see the state of your devices.
 
 Device Update for IoT Hub integrates with the Azure IoT device SDK to enable your
 devices to receive updates. Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
-Device Update for IoT Hub also supports updating Azure IoT Edge devices. For Private
-Preview, a Device Update Agent will be provided for Ubuntu Server 18.04 amd64
+Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent will be provided for Ubuntu Server 18.04 amd64
 platform. Device Update for IoT Hub will also provide open-source code if you are not
 running one of the above platforms so you can port it to the distribution you
 are running.

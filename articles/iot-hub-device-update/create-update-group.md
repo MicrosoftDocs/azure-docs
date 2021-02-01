@@ -18,9 +18,9 @@ ms.service: iot-hub
 
 ## Add a tag to your devices  
 
-**NOTE**: Tags can only be successfully added to your device after it has been connected to Device Update
+Device Update for IoT Hub allows deploying an update to a group of IoT devices. To create a group, the first step is to add a tag to the target set of devices in IoT Hub. Tags can only be successfully added to your device after it has been connected to Device Update.
 
-Device Update for IoT Hub allows deploying an update to a group of IoT devices. To create a group, the first step is to add a tag to the target set of devices in IoT Hub. The below documentation describes how to add and update a tag.
+The below documentation describes how to add and update a tag.
 
 ### 1. Programmatically update Device Twin
 

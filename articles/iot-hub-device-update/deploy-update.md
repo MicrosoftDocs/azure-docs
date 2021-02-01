@@ -10,6 +10,8 @@ ms.service: iot-hub
 
 # Deploy Update
 
+Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
+
 ## Prerequisites
 
 * Access to an IoT Hub with Device Update for IoT Hub enabled.

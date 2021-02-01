@@ -78,8 +78,11 @@ IoT Hub a connection string will be generated for the device.
 ## Provision connection string on SD card
 
 1. Remove the SD card from the Raspberry Pi3, put it in your PC, and open it in
-   'File Explorer'. **NOTE**:  You may see multiple prompts that the card is
-   unformatted. **Cancel all of them (do not format the card)**
+   'File Explorer'.
+
+   > [!NOTE]
+   > You may see multiple prompts that the card is unformatted. **Cancel all of them (do not format the card)**.
+
 2. In the remaining window, verify you see a partition or disk called `adu`.
 3. **Optional**. In the `adu` partition directory, create the Device Update Configuration file "adu-conf.txt" and open it. [Learn more]() about configuring "adu-conf.txt".
 4. Paste your previously saved device connection string into the text file.
