@@ -82,7 +82,7 @@ All search parameter types are supported.
 | `_lastUpdated`          | Yes       | Yes       | Yes       |         |
 | `_tag`                  | Yes       | Yes       | Yes       |         |
 | `_list`                 | Yes       | Yes       | Yes       |         |
-| `_type`                 | Yes       | Yes       | Yes       |         |
+| `_type`                 | Yes       | Yes       | Yes       | Issue [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
 | `_text`                 | No        | No        | No        |         |
@@ -93,10 +93,10 @@ All search parameter types are supported.
 
 | Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Yes       | Yes       | Yes       |         |
+| `_elements`             | Yes       | Yes       | Yes       | Issue [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
 | `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
 | `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
-| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does [not include :iterate support](https://github.com/microsoft/fhir-server/issues/1313). Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_total`                | Partial   | Partial   | Partial   | `_total=none` and `_total=accurate`      |
 | `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated` is supported       |
