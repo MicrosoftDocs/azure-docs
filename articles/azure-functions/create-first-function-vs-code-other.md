@@ -332,7 +332,9 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select an Application Insights resource**: Choose `+ Create Application Insights resource`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
 
-    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
+    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.The extension shows the status of individual resources as they are being created in Azure in the notification area.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
 
 1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
 
