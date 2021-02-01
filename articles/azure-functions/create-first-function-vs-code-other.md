@@ -336,17 +336,13 @@ In this section, you create a function app and related resources in your Azure s
 
 1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
 
-    + A resource group, which is a logical container for related resources.
-    + A standard Azure Storage account, which maintains state and other information about your projects.
-    + A consumption plan, which defines the underlying host for your serverless function app. 
-    + A function app, which provides the environment for executing your function code. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources within the same hosting plan.
-    + An Application Insights instance connected to the function app, which tracks usage of your serverless function.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     A notification is displayed after your function app is created and the deployment package is applied. 
 
     [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
-1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
