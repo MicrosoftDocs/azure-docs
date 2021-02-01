@@ -18,7 +18,7 @@ ms.author: jgardner
 
 This article describes how to move Azure Workbook Template resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-There currently is no portal UI to create Workbook Template resources, the only current way to create them is [via Azure Resource Manager Template (ARM template) deployments](../platform/workbooks-automate.md). As such, the easiest way to move a template is to reuse the previous ARM template and update it to be deployed to the new region.
+There currently is no portal UI to create Workbook Template resources, the only current way to create them is [via Azure Resource Manager Template (ARM template) deployments](../visualizations/workbooks-automate.md). As such, the easiest way to move a template is to reuse the previous ARM template and update it to be deployed to the new region.
 
 ## Prerequisites
 

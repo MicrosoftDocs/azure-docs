@@ -61931,6 +61931,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-automate.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-automate",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-chart-visualizations.md",
       "redirect_url": "/azure/azure-monitor/visualizations/workbooks-chart-visualizations",
       "redirect_document_id": false
