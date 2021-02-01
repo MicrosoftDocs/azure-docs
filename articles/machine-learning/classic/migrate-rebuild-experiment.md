@@ -33,7 +33,7 @@ Rebuilding a pipeline is an iterative process, so it's important to check result
 
 There are multiple ways ingest data in Azure Machine Learning. This article will show you the simplest way to migrate a dataset from Studio (classic). Download the Studio (classic) dataset and using the data file to create a new dataset in Azure Machine Learning.
 
-To import data directly from cloud sources instead, see the [Migration reference](migrate-reference.md#import-data).
+To import data directly from cloud sources instead, see the [Migration reference](migrate-reference.md#import-data-from-cloud-sources).
 
 ### Download the dataset
 

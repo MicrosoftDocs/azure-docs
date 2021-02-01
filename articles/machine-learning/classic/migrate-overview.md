@@ -13,22 +13,8 @@ ms.date: 11/27/2020
 
 # Migrate to Azure Machine Learning from Studio (classic)
 
-In this article, you learn about:
-- The Studio (classic) retirement road map
-- How to migrate Studio (classic) assets to Azure Machine Learning
+In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning.
 
-
-## Retirement road map
-
-Azure Machine Learning Studio (classic) will retire on August 30, 2024. We encourage users to migrate to Azure Machine Learning for a modernized data science platform.
-
-To understand the benefits, see [ML Studio (classic) vs Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
-
- - **Current customers** can create new experiments and run existing Studio (classic) assets like experiments and web services until the retirement date.
-
-- **New resources** like Studio (classic) workspaces and web service plans cannot be created after November 31, 2021. If you plan to use a workspace or web service plan during the three-year deprecation period, you must create it before November 31, 2021.
-
-- **Free-tier workspaces** are unaffected by retirement and can continue to be created and used without SLA commitments.
 
 
 ## Migration overview

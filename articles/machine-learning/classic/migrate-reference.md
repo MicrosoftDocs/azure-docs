@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: zhanxia
-ms.author: zhanixa
+author: xiaoharper
+ms.author: zhanxia
 ms.date: 1/7/2021
 ---
 

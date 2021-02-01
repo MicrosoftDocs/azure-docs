@@ -19,20 +19,17 @@ In this article, you learn how to integrate client applications with Azure Machi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
-- An [Azure Machine Learning real-time endpoint or pipeline endpoint](migrate-rebuild-web-services.md).
+- An [Azure Machine Learning real-time endpoint or pipeline endpoint](migrate-rebuild-web-service.md).
 
 
 ## Consume a real-time endpoint 
 
-If your model is deployed as a **real-time endpoint**, you can find automatically generated sample code in C#, Python, and R:
+If your model is deployed as a **real-time endpoint**, you can find your REST endpoint and automatically generated sample code in C#, Python, and R:
 
 1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
 1. Go the **Endpoints** tab.
 1. Select your real-time endpoint.
 1. Select **Consume**.
-
-Here, you can find your REST endpoint and sample code to use in your applications.
-
 
 ![Screenshot showing real-time sample integration code](./media/migrate-to-AML/realtime-sample-code.png)  
 
@@ -46,13 +43,13 @@ Here, you can find your REST endpoint and sample code to use in your application
 
 ## Pipeline endpoint
 
-You can consume the pipeline endpoint for retraining or batch prediction purpose. There are two possible approaches to consume the pipeline endpoint - through REST call or through integration with Azure Data Factory.
+If your model is deployed as a **pipeline endpint**, there are two ways to consume the pipeline endpoint - through REST call or through integration with Azure Data Factory.
 
-**REST call**
+### Submit a REST call
 
-After publish the pipeline, there will be a swagger as the endpoint documentation. Check the swagger to learn how to call the endpoint.
+After publishing the pipeline, there will be a swagger as the endpoint documentation. Check the swagger to learn how to call the endpoint.
 ![Screenshot showing the swagger URI location for pipeline endpoints](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
 
-**Integrate with Azure Data Factory**
+### Use Azure Data FActory
 
-You can run your machine learning pipeline as a step in Azure Data Factory pipeline for batch prediction scenarios.Check [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md) to learn how. 
+You can run your machine learning pipeline as a step in an Azure Data Factory pipeline. For more information, see [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md).

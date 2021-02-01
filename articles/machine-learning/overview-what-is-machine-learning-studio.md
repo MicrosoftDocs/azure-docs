@@ -79,7 +79,7 @@ Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine le
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
-We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools.
+We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools. If you are an existing ML Studio (classic) user, consider [migrating to Azure Machine Learning](classic/migrate-overview.md).
 
 Here are some of the benefits of switching to Azure Machine Learning:
 
@@ -105,7 +105,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Automated model training and hyperparameter tuning |  Not supported | [Supported](concept-automated-ml.md). Code-first and no-code options. | 
 | Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
 | Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
-| Role Based Access Control (RBAC) | Only contributor and owner role | [Flexible role definition and RBAC control](../how-to-assign-roles.md) |
+| Role Based Access Control (RBAC) | Only contributor and owner role | [Flexible role definition and RBAC control](how-to-assign-roles.md) |
 
 ## Troubleshooting
 
