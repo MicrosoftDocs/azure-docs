@@ -10,16 +10,15 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service that enables the translation of whole documents from and to more than 70 languages available in the Translator service. In this article, you'll learn to use Document Translator via your programming language and HTTP REST API methods.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  It enables the translation of whole documents from and to more than 70 languages available in the Translator service. In this article, you'll learn to use Document Translator via your programming language and HTTP REST API methods.
 
 ## Prerequisites
 
 To get started, you'll need:
 
-1. An active Azure subscription.
-If you don't have one, you can [**create a free Azure account**](https://azure.microsoft.com/free/cognitive-services/).
-1. A Translator resource. You can [create your Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
-1. An Azure blob storage account. All access to Azure Storage takes place through a storage account. You can [create an Azure storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.
+1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
+1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft)  or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription. *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md##create-a-new-azure-cognitive-services-resource).
+1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account. 
 
 ## Create Azure blob storage containers
 
@@ -30,16 +29,16 @@ You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-b
 
 ### Source and target SAS access tokens
 
-Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token. The token can be assigned to your container or specific blobs.
+Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token as part of the query string.. The token can be assigned to your container or specific blobs.
 
-* You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob. 
-* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob  . *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
+* You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob.
+* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
 ## Create Shared Access Signature tokens in the Azure portal
 
-Your `sourceUrl` and `targetUrl`  must include a Shared Access Signature(SAS) token as part of the query string. You can create SAS tokens for your entire containers or designate specific blobs:
+You can create SAS tokens for your entire containers or specific blobs:
 
-### [Designate SAS access for containers](#tab/container)
+### [Create SAS access for containers](#tab/container)
 
 * Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
 
@@ -78,7 +77,7 @@ Your `sourceUrl` and `targetUrl`  must include a Shared Access Signature(SAS) to
   * Select your **Preferred routing tier**. The default value is Basic.
   * You'll have the option of creating one or two shared access keys.
 
-### [Designate SAS access for Blobs](#tab/blob)
+### [Create SAS access for blobs](#tab/blob)
 
 Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
 
@@ -95,6 +94,8 @@ Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as fol
 ---
 
 ### Keys and endpoints
+
+All requests to the Translator service require an **endpoint** URL and a read-only **key** for authenticating access.
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
@@ -115,13 +116,15 @@ The following headers are included with each Document Translator API request:
 |Ocp-Apim-Subscription-Region|**Required** if you're using the Cognitive Services resource. </br>**Optional** if you're using a Translator resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 |Content-Length|**Required**: the length of the request body.|
-|Authorization|**Required** for use with the Cognitive Services subscription if you are passing an authentication token. <br/>The value is  **Bearer token: Bearer**.|
+|Authorization|**Required** for use with the Cognitive Services subscription if you are passing an authentication token. <br/>The value is **Bearer token: Bearer**.|
 
 ## Submit a Document Translation request (POST)
 
+A batch document translation request is submitted to your translation service endpoint via a POST request.
+
 ### POST request properties
 
-* A batch document translation request is submitted to your translation service endpoint via a POST request. The request body is a JSON object named `inputs`.
+* The POST request body is a JSON object named `inputs`.
 * The `inputs` object contains both a `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
 * The `prefix` and `suffix` fields (if supplied) will be used to filter container subdirectories (folders).
 * A value for the  `glossaries`  field can be included and will be applied when the document is being translated.
@@ -245,9 +248,9 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Java source files live in src/main/**java**
+* Java source files (e.g., _sample.java_) live in src/main/**java**.
 
-* In your root directory (*sample-project*),  initialize your project with Gradle: 
+* In your root directory (*sample-project*),  initialize your project with Gradle:
 
 ```powershell
 gradle init --type basic
@@ -736,7 +739,7 @@ func main() {
 |Azure|Europe|api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|api-apc.cognitive.microsofttranslator.com|
 
-## GET Jobs 
+### GET Jobs
 
 #### Brief Overview
 
@@ -748,11 +751,12 @@ Retrieve a list and current status for all jobs in a document translation reques
 GET /batches/
 ```
 
-## GET Job Status
+### GET Job Status
 
 #### Brief overview
 
-Retrieve  the current status for a single job and a summary of all jobs in a document translation request.
+Get the current status for a single job and a summary of all jobs in a document translation request.
+<!-- markdownlint-disable MD024 -->
 
 #### HTTP request
 
@@ -760,7 +764,7 @@ Retrieve  the current status for a single job and a summary of all jobs in a doc
 GET /batches/{jobId}
 ```
 
-## DELETE Job
+### DELETE Job
 
 #### Brief overview
 
@@ -789,7 +793,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**summary**|List of overall status|
 ||&bullet; **total**—Total number of documents in the job.</br>&bullet; **failed**—Number of documents for which translation failed.</br>&bullet; **success**—Number of completed documents.</br>&bullet; **inProgress**—Number of documents in progress.</br>&bullet; **notYetStarted**—Number of documents pending translation.</br>&bullet; **canceled—Number of documents that have been canceled. |
 
-## GET documents
+### GET documents
 
 #### Brief overview
 
@@ -801,7 +805,7 @@ Retrieve the status of all documents in a document translation request.
 GET /batches/{jobId}/documents/
 ```
 
-## GET Document Status
+### GET Document Status
 
 #### Brief overview
 
@@ -828,7 +832,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**progress**| Progress of the request measured in decimals|
 |**id**|The `jobId`  you provided in the request|
 
-## GET Document Formats
+### GET Document Formats
 
 #### Brief overview
 
@@ -840,7 +844,7 @@ Retrieve a list of supported document formats.
 GET /documents/formats/
 ```
 
-## GET Glossary Formats
+### GET Glossary Formats
 
 #### Brief overview
 
@@ -858,12 +862,12 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 
 |Property|value|
 |---|---|
-|**format**|Format for the file, i.e., .txt, .docx., etc.|
+|**format**|Format for the file, e.g., .txt, .docx.|
 |**fileExtensions**| List of supported file extensions.|
 |**contentType**| List of supported content types.|
 |**versions**|List of supported content type versions.|
 
-## GET Storage Sources
+### GET Storage Sources
 
 #### Brief overview
 
@@ -883,7 +887,7 @@ GET /storagesources/
 
 ## Data Limits
 
-The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, you can divide the file contents into smaller blobs prior to using the APIs.
+The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, you can divide the file contents into smaller blobs prior to sending your API requests.
 
 |Attribute | Limit|
 |---|---|
@@ -893,7 +897,8 @@ The table below lists the limits for data that you can send to Document Translat
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-## See also
+## Learn more
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
+* [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
