@@ -148,4 +148,4 @@ sensorProvider.Stop();
 This article showed how to use the coarse relocalization API to get an estimate of your device position. To learn more about coarse relocalization, continue to the next guide.
 
 > [!div class="nextstepaction"]
-> [Coarse relocalization](../articles/spatial-anchors/concepts/coarse-reloc.md)
+> [Coarse relocalization](../concepts/coarse-reloc.md)
