@@ -54,7 +54,7 @@ There are changes that require special considerations when testing, from simple 
 | Scenario| Recommendation |
 |-|-|
 |Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
-|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new CA Policy and assign to test users.|
+|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
 |Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
 |Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
 |Changing of branding|Test in a separate test tenant.|

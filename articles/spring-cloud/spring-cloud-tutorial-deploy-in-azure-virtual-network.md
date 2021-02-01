@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial - Deploy Azure Spring Cloud in a virtual network"
+title:  "Deploy Azure Spring Cloud in a virtual network"
 description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
 author:  MikeDodaro
 ms.author: brendm
@@ -9,7 +9,7 @@ ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Deploy Azure Spring Cloud in a virtual network
+# Deploy Azure Spring Cloud in a virtual network
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -20,6 +20,9 @@ The deployment enables:
 * Isolation of Azure Spring Cloud apps and service runtime from the internet​ on your corporate network​.
 * Azure Spring Cloud interaction with systems in ​on-premises data centers ​or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
+
+> [!Note]
+> You can select your Azure virtual network only when you create a new Azure Spring Cloud service instance. You cannot change to use another virtual network after Azure Spring Cloud has been created.
 
 ## Prerequisites
 
@@ -72,6 +75,7 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
 ## Grant service permission to the virtual network
+Azure Spring Cloud requires **Owner** permission to your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
@@ -155,9 +159,9 @@ Those network resources are connected to your virtual network created in the pre
    > [!Important]
    > The resource groups are fully managed by the Azure Spring Cloud service. Do *not* manually delete or modify any resource inside.
 
-## Limitations
+## Using smaller subnet ranges
 
-A small subnet range saves IP addresses, but it brings limitations to the maximum number of app instances the Azure Spring Cloud instance can hold.
+This table shows the maximum number of app instances Azure Spring Cloud supports using smaller subnet ranges.
 
 | App subnet CIDR | Total IPs | Available IPs | Maximum app instances                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

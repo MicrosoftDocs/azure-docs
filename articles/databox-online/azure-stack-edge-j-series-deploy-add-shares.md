@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -38,7 +38,7 @@ Before you add shares to Azure Stack Edge Pro, make sure that:
 
 To create a share, do the following procedure:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Select **Cloud storage gateway**.
 
    ![Device online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -46,7 +46,7 @@ To create a share, do the following procedure:
 
    ![Add a share](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. In the **Add share** pane, do the following procedure:
+3. In the **Add share** pane, follow these steps:
 
     a. In the **Name** box, provide a unique name for your share.  
     The share name can have only letters, numerals, and hyphens. It must have between 3 to 63 characters and begin with a letter or a numeral. Hyphens must be preceded and followed by a letter or a numeral.

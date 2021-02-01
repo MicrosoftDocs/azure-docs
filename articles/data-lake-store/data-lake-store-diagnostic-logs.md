@@ -102,7 +102,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
         "callerIpAddress": "::ffff:1.1.1.1",
         "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
         "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
+        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"StoreIngressSize":0 ,"StoreEgressSize":4096,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z","QueryParameters":"api-version=<version>&op=<operationName>"}
     }
     ,
     . . . .
@@ -132,6 +132,9 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | ClientRequestId |String |The ID that uniquely identifies this request |
 | StartTime |String |The time at which the server received the request |
 | EndTime |String |The time at which the server sent a response |
+| StoreIngressSize |Long |Size in bytes ingressed to Data Lake Store |
+| StoreEgressSize |Long |Size in bytes egressed from Data Lake Store |
+| QueryParameters |String |Description: These are the http query parameters. Example 1: api-version=2014-01-01&op=getfilestatus Example 2: op=APPEND&append=true&syncFlag=DATA&filesessionid=bee3355a-4925-4435-bb4d-ceea52811aeb&leaseid=bee3355a-4925-4435-bb4d-ceea52811aeb&offset=28313319&api-version=2017-08-01 |
 
 ### Audit logs
 Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects

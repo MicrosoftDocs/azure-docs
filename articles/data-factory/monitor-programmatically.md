@@ -63,7 +63,7 @@ For a complete walkthrough of creating and monitoring a pipeline using .NET SDK,
     Console.ReadKey();
     ```
 
-For complete documentation on .NET SDK, see [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+For complete documentation on .NET SDK, see [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## Python
 For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md).
@@ -81,7 +81,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory?view=azure-python).
+For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory).
 
 ## REST API
 For a complete walkthrough of creating and monitoring a pipeline using REST API, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-rest-api.md).

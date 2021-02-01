@@ -167,11 +167,40 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+If the resource has required properties, those must also be returned by `Get-TargetResource`
+in parallel with the `reasons` class. If `reasons` isn't included, the service includes a
+"catch-all" behavior that compares the values input to `Get-TargetResource` and the values
+returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
+
 ### Configuration requirements
 
 The name of the custom configuration must be consistent everywhere. The name of the .zip file for
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
+
+### Policy requirements
+
+The policy definition `metadata` section must include two properties for the Guest Configuration
+service to automate provisioning and reporting of Guest Configuration assignments. The `category` property must
+be set to "Guest Configuration" and a section named `Guest Configuration` must contain information about the
+Guest Configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text automatically.
+See the step-by-step instructions on this page.
+
+The following example demonstrates the `metadata` section.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### Scaffolding a Guest Configuration project
 
@@ -301,6 +330,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 
 The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
+
+Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
+
+- **Path**: Location of the package to be published
+- **ResourceGroupName**: Name of the resource group where the storage account is located
+- **StorageAccountName**: Name of the storage account where the package should be published
+- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **Force**: Overwrite existing package in the storage account with the same name
+
+The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

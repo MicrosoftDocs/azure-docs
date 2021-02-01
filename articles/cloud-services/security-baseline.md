@@ -351,7 +351,7 @@ Review the differences between classic subscription administrative roles.
 
 **Guidance**: It is recommended to use a secure, Azure-managed workstation (also known as a Privileged Access Workstation) for administrative tasks, which require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 

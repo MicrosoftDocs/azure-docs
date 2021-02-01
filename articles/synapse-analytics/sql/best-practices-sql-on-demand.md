@@ -20,9 +20,9 @@ In this article, you'll find a collection of best practices for using serverless
 
 Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
 
-## Colocate your Azure storage account and serverless SQL pool
+## Colocate your storage and serverless SQL pool
 
-To minimize latency, colocate your Azure storage account and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
+To minimize latency, colocate your Azure storage account or CosmosDB analytic storage and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
 For optimal performance, if you access other storage accounts with serverless SQL pool, make sure they're in the same region. If they aren't in the same region, there will be increased latency for the data's network transfer between the remote region and the endpoint's region.
 
@@ -39,9 +39,9 @@ When throttling is detected, serverless SQL pool has built-in handling to resolv
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV and JSON to Parquet. Parquet is a columnar format. Because it's compressed, its file sizes are smaller than CSV or JSON files that contain the same data. Serverless SQL pool will need less time and fewer storage requests to read it.
+- Convert large CSV and JSON to Parquet. Parquet is a columnar format. Because it's compressed, its file sizes are smaller than CSV or JSON files that contain the same data. Serverless SQL pool is able to skip the columns and rows that are not needed in query if you are reading Parquet files. Serverless SQL pool will need less time and fewer storage requests to read it.
 - If a query targets a single large file, you'll benefit from splitting it into multiple smaller files.
-- Try to keep your CSV file size below 10 GB.
+- Try to keep your CSV file size between 100 MB and 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names. See [Use filename and filepath functions to target specific partitions](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
@@ -124,7 +124,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ## Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics will be automatically created for columns in Parquet files when needed. At this moment, statistics are not automatically created for columns in CSV files and you should create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics will be automatically created for columns in Parquet files when needed. At this moment, statistics are not automatically created for columns in CSV files and you should create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Use CETAS to enhance query performance and joins
 
