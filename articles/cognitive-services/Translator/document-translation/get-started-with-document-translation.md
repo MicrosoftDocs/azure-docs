@@ -25,16 +25,17 @@ If you don't have one, you can [**create a free Azure account**](https://azure.m
 
 You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account:
 
-1. **Source container**. The source container is where you'll upload your documents for translation. 
+1. **Source container**. The source container is where you'll upload your documents for translation.
 1. **Target container**. The target container is where your translated documents will be stored.  
-1. Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token. The token can be assigned to your container or specific blobs. Source containers are delegated **list** and **read-only** access. Source container blobs
 
 ### Source and target SAS access tokens
+
+Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token. The token can be assigned to your container or specific blobs.
 
 * You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob. 
 * You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob  . *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
-## Create Shared Access Signature tokens  in the Azure portal
+## Create Shared Access Signature tokens in the Azure portal
 
 Your `sourceUrl` and `targetUrl`  must include a Shared Access Signature(SAS) token as part of the query string. You can create SAS tokens for your entire containers or designate specific blobs:
 
