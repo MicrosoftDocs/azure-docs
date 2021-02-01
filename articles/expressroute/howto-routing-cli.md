@@ -97,8 +97,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 4. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
-   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
-   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
+   * A /30 or /126 subnet for the primary link. This must be a valid public IPv4 or IPv6 prefix owned by you and registered in an RIR / IRR.
+   * A /30 or /126 subnet for the secondary link. This must be a valid public IPv4 or IPv6 prefix owned by you and registered in an RIR / IRR.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
@@ -186,6 +186,11 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
+> [!IMPORTANT]
+> IPv6 support for private peering is currently in **Public Preview**. 
+> 
+> 
+
 ### To create Azure private peering
 
 1. Install the latest version of Azure CLI. You must use the latest version of the Azure Command-line Interface (CLI).* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
@@ -240,8 +245,10 @@ This section helps you create, get, update, and delete the Azure private peering
 
 4. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
-   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
-   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
+   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
    * **Optional -** An MD5 hash if you choose to use one.
@@ -250,12 +257,16 @@ This section helps you create, get, update, and delete the Azure private peering
 
    ```azurecli
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
+
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 3FFE:FFFF:0:CD30::/126 -g ExpressRouteResourceGroup --secondary-peer-subnet 3FFE:FFFF:0:CD30::4/126 --vlan-id 200 --peering-type AzurePrivatePeering --ip-version ipv6
    ```
 
    If you choose to use an MD5 hash, use the following example:
 
    ```azurecli
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+
+    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 3FFE:FFFF:0:CD30::/126 -g ExpressRouteResourceGroup --secondary-peer-subnet 3FFE:FFFF:0:CD30::4/126 --vlan-id 200 --peering-type AzurePrivatePeering --ip-version ipv6 --SharedKey "A1B2C3D4"
    ```
 
    > [!IMPORTANT]
