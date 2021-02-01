@@ -221,7 +221,7 @@ A new folder is created in the project. The folder contains a new function.json 
 
 ---
 
-## <a name="#add-input-and-output-bindings"></name>Connect to services
+## <a name="add-input-and-output-bindings"></name>Connect to services
 
 You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
