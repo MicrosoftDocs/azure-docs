@@ -32,6 +32,9 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
+> [!NOTE]
+> For more information, see the entire [Azure Monitor data reference](/azure/azure-monitor/reference/).
+>
 ## 3rd-party vendor data sources
 
 The following table lists supported third-party vendors and their Syslog or Common Event Format (CEF)-mapping documentation for various supported log types, which contain CEF field mappings and sample logs for each category type.

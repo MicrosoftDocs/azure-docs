@@ -241,8 +241,6 @@
       href: hunting-with-rest-api.md
     - name: Manage watchlists with REST-API
       href: watchlist-with-rest-api.md
-  - name: Azure Monitor data reference
-    href: /azure/azure-monitor/reference/
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
   - name: Network normalization schema

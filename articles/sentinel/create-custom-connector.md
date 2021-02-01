@@ -156,15 +156,14 @@ For examples of this method, see:
 
 You can use your custom connector's built-in parsing technique to extract the relevant information and populate the relevant fields in Azure Sentinel.
 
-FOr example, if you've used Logstash, use the [Grok](https://www.elastic.co/guide/logstash/current/plugins-filters-grok.html) filter plugin to parse your data. And if you've used the Log Analytics agent, use the  [Fluentd parsers](https://docs.fluentd.org/parser). 
+For example, if you've used Logstash, use the [Grok](https://www.elastic.co/guide/logstash/current/plugins-filters-grok.html) filter plugin to parse your data. And if you've used the Log Analytics agent, use the  [Fluentd parsers](https://docs.fluentd.org/parser). 
 
-Azure Sentinel also allows parsing at query time, which is more flexible and simplifies the import process. 
+Azure Sentinel also allows parsing at query time, which enables you to push data in at the original format, and then parse on demand, when needed. 
 
-Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed. Updating your parser will also apply to data that you've already ingested into Azure Sentinel.
+When you parse at query time, you don't need to know your data's exact structure when you create your custom connector, or even identify the information you need to extract. Instead, you can parse your data at any time, even during an investigation. 
 
-Parsing at query time also means that you don't need to know your data's exact structure when you create your custom connector, or even identify the information you need to extract. 
+Updating your parser also applies to data that you've already ingested into Azure Sentinel.
 
-Parsing at query time can be implemented at any stage, even during an investigation. 
  
 > [!TIP]
 > JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool. For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog).
@@ -175,10 +174,4 @@ Save your parsers as functions, and use those functions instead of Azure Sentine
 - [Data normalization in Azure Sentinel](normalization.md#parsers)
 - [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
 
-
 ## Next steps
-In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
-
-- [Use notebooks to run automated hunting campaigns](notebooks.md)
-- [Use bookmarks to save interesting information while hunting](bookmarks.md)
