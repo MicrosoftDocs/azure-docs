@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 01/19/2021
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -63,9 +63,12 @@ You can run an unsupported version of Python by building your own container imag
 App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
 
 1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like yarn, for example, `yarn install` and `yarn build`.)
+
 1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be present in the project's root folder. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install."
+
 1. If *manage.py* is found in the root of the repository (indicating a Django app), run *manage.py collectstatic*. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
-1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting. (Again, tThe script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
+
+1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting. (Again, the script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty. 
 
@@ -132,36 +135,29 @@ If your Django web app includes static front-end files, first follow the instruc
 
 For App Service, you then make the following modifications:
 
-1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the various Django variables for static files. For example:    
+1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the Django `STATIC_URL` and `STATIC_ROOT` variables. For example:    
 
     ```python
     STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
-    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` and `DJANGO_STATIC_ROOT` can be changed as necessary for your local and cloud environments. For example, if the build process for your static files places them in a folder named `django-static`, then you can set `DJANGO_STATIC_URL` to `/django-static/` to avoid using the default.
+
+1. If you have a pre-build script that generates static files in a different folder, include that folder in the Django `STATICFILES_DIRS` variable so that Django's `collectstatic` process finds them. For example, if you run `yarn build` in your front-end folder, and yarn generates a `build/static` folder containing static files, then include that folder as follows:
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
     STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
     ```
 
-    `DJANGO_STATIC_URL` and `DJANGO_STATIC_ROOT` can be changed as necessary for your local and cloud environments. For example, if your backend build process places static files in a folder named `django-static`, then you can set `DJANGO_STATIC_URL` to `/django-static/` to avoid using the default.
+    Here, `FRONTEND_DIR`, to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
 
-    Similarly, the `STATICFILES_DIRS` variable shown in this uses another variable, `FRONTEND_DIR`, to build a path to where the app's build script places static files. The `FRONTEND_DIR` variable could be set as followed:
+1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve it's own static files. Whitenoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
 
-    ```python
-    import os
-    
-    BACKEND_DIR = os.path.dirname(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    )
-    FRONTEND_DIR = os.path.abspath(os.path.join(BACKEND_DIR, '..', 'frontend'))
-    ```
-    
-    In this case, the app's frontend files are in the `frontend` folder. 
-
-1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a Django app to serve it's own static files.
-
-1. In your *settings.py* file, add the following lines for Whitenoise:
+1. In your *settings.py* file, add the following line for Whitenoise:
 
     ```python
-    # FRONTEND_DIR, 'build', and 'root' are apps-specific values
-    WHITENOISE_ROOT = os.path.join(FRONTEND_DIR, 'build', 'root')
     STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
     ```
 
@@ -178,8 +174,6 @@ For App Service, you then make the following modifications:
         # Other values follow
     ]
     ```
-
-1. In a [post-build script](#customize-build-automation), add the command, `python manage.py collectstatic --no-input`. 
 
 ## Container characteristics
 
