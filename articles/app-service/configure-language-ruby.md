@@ -62,7 +62,7 @@ When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](depl
 
 1. Check if a *Gemfile* exists.
 1. Run `bundle clean`. 
-1. Run `bundle install --path "vendor/bundle"`.
+1. Run `bundle config set --local path '"vendor/bundle"`.
 1. Run `bundle package` to package gems into vendor/cache folder.
 
 ### Use --without flag
