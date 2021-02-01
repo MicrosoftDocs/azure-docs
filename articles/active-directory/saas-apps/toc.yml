@@ -2128,7 +2128,7 @@
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
       - name: Iris Intranet
-        href: iris-intranet-provisioning-tutorial        
+        href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: iProva
