@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 02/01/2021
 ms.author: alkohli
 ---
 
@@ -17,15 +17,15 @@ This article details the changes needed for a docker-based IoT Edge module that 
 
 ## About IoT Edge implementation 
 
-The IoT Edge implementation is different on Azure Stack Edge Pro FPGA devices vs. that on Azure Stack Edge Pro GPU devices. For the GPU devices, Kubernetes is used as a hosting platform for IoT Edge. The IoT edge on FPGA devices uses a docker-based platform. The IoT Edge automatically translates the IoT Edge's docker-based application model to the Kubernetes native application model. However, some changes may still be needed as only a small subset of Kubernetes application model is supported.
+The IoT Edge implementation is different on Azure Stack Edge Pro FPGA devices vs. that on Azure Stack Edge Pro GPU devices. For the GPU devices, Kubernetes is used as a hosting platform for IoT Edge. The IoT edge on FPGA devices uses a docker-based platform. The IoT Edge's docker-based application model is automatically translated to the Kubernetes native application model. However, some changes may still be needed as only a small subset of Kubernetes application model is supported.
 
-If you are migrating your workloads from an FPGA device to a GPU device, you will need to make changes to existing IoT Edge modules for those to run successfully on the Kubernetes platform. You may need to specify your storage, networking, resource usage, and web proxy requirements differently.
+If you are migrating your workloads from an FPGA device to a GPU device, you will need to make changes to the existing IoT Edge modules for those to run successfully on the Kubernetes platform. You may need to specify your storage, networking, resource usage, and web proxy requirements differently. 
 
 ## Storage
 
 Consider the following information when specifying storage for the IoT Edge modules.
 
-- Storage for containers on Kubernetes is specified using volume mounts whereas storage on docker uses binding paths.
+- Storage for containers on Kubernetes is specified using volume mounts.
 - Deployment on Kubernetes can’t have binds for associating persistent storage or host paths.
     - For persistent storage, use `Mounts` with type `volume`.
     - For host paths, use `Mounts` with type `bind`.
@@ -155,8 +155,7 @@ To deploy modules on FPGA, use the container create options with Device Bindings
     ]
 }
 ```	
-    
-			
+
 	
 <!--Note: The IP address assigned to your FPGA module's service can be used to send inferencing requests from outside the cluster OR your ML module can be used along with DBE Simple Module Flow by passing files to the module using an input share.-->
 	
