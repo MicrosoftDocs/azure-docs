@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
 Your local development environment will be configured like this:
 
-:::image type="content" source="../media/step-one-pic-one.png" alt-text="Developer environment architecture":::
+:::image type="content" source="./media/step-one-pic-one.png" alt-text="Developer environment architecture":::
 
 
 ### Install Node.js, nvm and npm
@@ -63,7 +63,7 @@ nvm install 12.20.0
 nvm use 12.20.0
 ```
 
-:::image type="content" source="../media/step-one-pic-two.png" alt-text="Working with nvm to deploy Node.js":::
+:::image type="content" source="./media/step-one-pic-two.png" alt-text="Working with nvm to deploy Node.js":::
 
 ### Configure Visual Studio Code
 
@@ -73,15 +73,15 @@ You can download [Visual Studio Code](https://code.visualstudio.com/) on one of 
 
 Create a new folder to store your project files, like this: `C:\Users\Documents\ACS\CallingApp`. In Visual Studio Code, click "File", "Add Folder to Workspace" and add the folder to your workspace.
 
-:::image type="content" source="../media/step-one-pic-three.png" alt-text="Creating new workplace":::
+:::image type="content" source="./media/step-one-pic-three.png" alt-text="Creating new workplace":::
 
 Go to "Explorer" in Visual Studio Code on the left pane, and you'll see your "CallingApp" folder in the "Untitled" workspace.
 
-:::image type="content" source="../media/step-one-pic-four.png" alt-text="Explorer":::
+:::image type="content" source="./media/step-one-pic-four.png" alt-text="Explorer":::
 
 Feel free to update the name of your workspace. You can validate your Node.js version by right-clicking on your "CallingApp" folder and selecting "Open in Integrated Terminal".
 
-:::image type="content" source="../media/step-one-pic-five.png" alt-text="Opening a terminal":::
+:::image type="content" source="./media/step-one-pic-five.png" alt-text="Opening a terminal":::
 
 In the terminal, type the following command to validate the node.js version installed on the previous step:
 
@@ -89,13 +89,13 @@ In the terminal, type the following command to validate the node.js version inst
 node --version
 ```
 
-:::image type="content" source="../media/step-one-pic-six.png" alt-text="Validating Node.js version":::
+:::image type="content" source="./media/step-one-pic-six.png" alt-text="Validating Node.js version":::
 
 ### Install Azure Extensions for Visual Studio Code
 
 Install the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) either through the Visual Studio marketplace or with Visual Studio Code (View > Extensions > Azure Storage).
 
-:::image type="content" source="../media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
 
 Follow the same steps for the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions.
 
@@ -116,7 +116,7 @@ This tutorial was tested using the above specified versions. Specifying `-dev` t
 
 You'll see two new packages added to your `package.json` file as "devDependencies". The packages will be installed into the `./CallingApp/node_modules/` directory.
 
-:::image type="content" source="../media/step-one-pic-ten.png" alt-text="Webpack configuration":::
+:::image type="content" source="./media/step-one-pic-ten.png" alt-text="Webpack configuration":::
 
 ### Configure the development server
 
@@ -169,7 +169,7 @@ Development mode tells webpack not to minify the files and not produce optimized
 
 Source map options are listed [here](https://webpack.js.org/configuration/devtool/#root). Setting the source map makes it easier for you to debug through your browser.
 
-:::image type="content" source="../media/step-one-pic-11.png" alt-text="Configuring webpack":::
+:::image type="content" source="./media/step-one-pic-11.png" alt-text="Configuring webpack":::
 
 To run the development server, go to `package.json.js` and add the following code under scripts:
 
@@ -202,7 +202,7 @@ Your file now should look like this:
 
 You added the command that can be used from npm. 
 
-:::image type="content" source="../media/step-one-pic-12.png" alt-text="Modifying package-json.js":::
+:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifying package-json.js":::
 
 ### Testing the development server
 
@@ -229,7 +229,7 @@ Paste this into `index.html`:
 </body>
 </html>
 ```
-:::image type="content" source="../media/step-one-pic-13.png" alt-text="HTML file":::
+:::image type="content" source="./media/step-one-pic-13.png" alt-text="HTML file":::
 
 Add the following code to `app.js`:
 
@@ -245,11 +245,11 @@ html {
   }
 ```
 
- :::image type="content" source="../media/step-one-pic-14.png" alt-text="App.js file with JS code":::
+ :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js file with JS code":::
 
 When you open this page, you should see your message displayed with an alert and within your browser's console.
 
-:::image type="content" source="../media/step-one-pic-15.png" alt-text="App.css file":::
+:::image type="content" source="./media/step-one-pic-15.png" alt-text="App.css file":::
 
 Use the following terminal command to test your development configuration:
 
@@ -259,11 +259,11 @@ npm run build:dev
 
 The console will show you where the server is running. By default, it's `http://localhost:8080`. The build:dev command is the command we added to our `package-json.js` earlier.
 
- :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
+ :::image type="content" source="./media/step-one-pic-16.png" alt-text="Starting a development server":::
  
  Navigate to the address in your browser and you should see the page and alert, configured on previous steps.
  
-  :::image type="content" source="../media/step-one-pic-17.png" alt-text="Html page":::
+  :::image type="content" source="./media/step-one-pic-17.png" alt-text="Html page":::
   
  
 While the server is running, you can change the code, and the server and the HTML page will automatically reload. 
@@ -283,7 +283,7 @@ npm install @azure/communication-calling --save
 
 This action will add the Azure Communication Services common and calling packages as dependencies of your package. You'll see two new packages added to the `package.json` file. More information about the `npm install` command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-install).
 
-:::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Communication Services packages":::
+:::image type="content" source="./media/step-one-pic-nine.png" alt-text="Installing Azure Communication Services packages":::
 
 These packages are provided by the Azure Communication Services team and include the authentication and calling libraries. The "--save" command signals that our application depends on these packages for production use and will be included in the `dependencies` of our `package-json.js` file. When we build the application for production, the packages will be included in our production code.
 
@@ -300,7 +300,7 @@ npm init -y
 
 This command initializes a new npm package and adds `package.json` into the root folder of your project.
 
-:::image type="content" source="../media/step-one-pic-eight.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Installing Azure Storage Extension":::
 
 Additional documentation on the npm init command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-init)
 
@@ -355,7 +355,7 @@ Your file should look like this:
 }
 ```
 
- :::image type="content" source="../media/step-one-pic-20.png" alt-text="Configured files":::
+ :::image type="content" source="./media/step-one-pic-20.png" alt-text="Configured files":::
 
 
 In the terminal run:
@@ -366,7 +366,7 @@ npm run build:prod
 
 The command will create a `dist` folder and production-ready `app.js` static file in it. 
 
- :::image type="content" source="../media/step-one-pic-21.png" alt-text="Production build":::
+ :::image type="content" source="./media/step-one-pic-21.png" alt-text="Production build":::
  
  
 ### Deploy your app to Azure Storage
@@ -394,27 +394,27 @@ Save the file (Ctrl + S).
 
 Right-click and select deploy to Static Website via Azure Storage.
 
-:::image type="content" source="../media/step-one-pic-22.png" alt-text="Start deploying to Azure":::
+:::image type="content" source="./media/step-one-pic-22.png" alt-text="Start deploying to Azure":::
  
 In the `Select subscription` field, select "Sign in to Azure (or "Create a Free Azure Account" if you haven't created a subscription before)
  
-:::image type="content" source="../media/step-one-pic-23.png" alt-text="Sign in to Azure":::
+:::image type="content" source="./media/step-one-pic-23.png" alt-text="Sign in to Azure":::
  
 Select `Create new Storage Account` > `Advanced`:
 
- :::image type="content" source="../media/step-one-pic-24.png" alt-text="Creating the Storage Account Group":::
+ :::image type="content" source="./media/step-one-pic-24.png" alt-text="Creating the Storage Account Group":::
  
  Provide the name of the storage group:
  
- :::image type="content" source="../media/step-one-pic-25.png" alt-text="Adding a name for the account":::
+ :::image type="content" source="./media/step-one-pic-25.png" alt-text="Adding a name for the account":::
  
 Create a new resource group if needed:
  
-  :::image type="content" source="../media/step-one-pic-26.png" alt-text="Creating new group":::
+  :::image type="content" source="./media/step-one-pic-26.png" alt-text="Creating new group":::
   
   Answer "Yes" to Would you like to enable static website hosting?"
   
-  :::image type="content" source="../media/step-one-pic-27.png" alt-text="Selecting option to enable static website hosting":::
+  :::image type="content" source="./media/step-one-pic-27.png" alt-text="Selecting option to enable static website hosting":::
   
 Accept the default file name in "Enter the index document name," as we created the file `index.html`.
 
@@ -424,29 +424,29 @@ Select the location of the application. The location you select will define whic
 
 Azure Communication Services selects the Media Processor based on the application location.
 
-:::image type="content" source="../media/step-one-pic-28.png" alt-text="Select location":::
+:::image type="content" source="./media/step-one-pic-28.png" alt-text="Select location":::
   
 Wait until the resource and your website are created. 
  
 Click "Browse to website":
 
-:::image type="content" source="../media/step-one-pic-29.png" alt-text="Deployment completed":::
+:::image type="content" source="./media/step-one-pic-29.png" alt-text="Deployment completed":::
  
 From your browser's development tools, you can inspect the source and see our file, prepared for production.
  
-:::image type="content" source="../media/step-one-pic-30.png" alt-text="Website":::
+:::image type="content" source="./media/step-one-pic-30.png" alt-text="Website":::
 
 Go to the [Azure portal](https://portal.azure.com/#home), select your resource group, select the application you created, and navigate to `Settings` > `Static website`. You can see that static websites are enabled and note the primary endpoint, Index document, and Error path document files.
 
-:::image type="content" source="../media/step-one-pic-31.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-31.png" alt-text="Website settings":::
 
 Under "Blob service" select the "Containers" and you'll see two containers created, one for logs ($logs) and content of your website ($web)
 
-:::image type="content" source="../media/step-one-pic-32.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-32.png" alt-text="Website settings":::
 
 If you go to `$web` you'll see your files you created in Visual Studio and deployed to Azure. 
 
-:::image type="content" source="../media/step-one-pic-33.png" alt-text="Website settings":::
+:::image type="content" source="./media/step-one-pic-33.png" alt-text="Website settings":::
 
 You can redeploy the application from Visual Studio Code at any time.
 
