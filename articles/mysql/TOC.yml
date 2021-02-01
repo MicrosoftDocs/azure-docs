@@ -566,7 +566,7 @@
       - name: Migrate data with MySQL Workbench
         href: concepts-migrate-import-export.md
         displayName: import , migrate, export
-      - name: Minimal-downtime migration with DMS
+      - name: Minimal downtime migration with DMS
         href: howto-migrate-online.md
         displayName: migrate, dms, database migration service
       - name: Troubleshoot common errors
