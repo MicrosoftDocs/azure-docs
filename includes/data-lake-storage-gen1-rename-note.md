@@ -11,6 +11,6 @@
 ---
 
 > [!NOTE]
-> Starting December 1, 2020, creation of Azure Data Lake Storage Gen1 accounts will be blocked if you don't already have an Azure Data Lake Storage Gen1 account. For more information see the official announcement. We recommend Azure Data Lake Storage Gen2 for all your analytics needs. For more information, see the [product page](https://aka.ms/adlsgen2-product).
+> On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. To learn how, see [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md) 
 
 
