@@ -140,7 +140,7 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 
 :heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
 
-> ![TIP]
+> [!TIP]
 > Consider using [Microsoft managed migration (preview)](managed-migration-tool.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
 
 ### Incremental copy pattern

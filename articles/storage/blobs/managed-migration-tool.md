@@ -38,7 +38,7 @@ Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See
 
 ## Create a storage account with Gen2 capabilities
 
-The first step is to create a storage account to use with Gen2. Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. Gen2 capabilities are supported in the following types of storage accounts:
+Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. Gen2 capabilities are supported in the following types of storage accounts:
 
 - [General-purpose v2](../common/storage-account-create.md)
 - [BlockBlobStorage](storage-blob-create-account-block-blob.md)
@@ -64,31 +64,30 @@ The managed migration tool moves data and metadata (such as timestamps and ACLs)
 
 1. Navigate to your Data Lake Storage Gen1 account in the Azure portal.
 
-2. In the left menu for the account, scroll to the **ADLS Gen2 Migration** section, then select **Migration**.
+2. In the left menu for the account, scroll to the **Data Lake Storage Gen2** section, then select **Data Lake Storage Gen2**. Then, choose
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint1](./media/managed-migration-tool/migrate-button.png)
+   > ![Image Hint2](./media/managed-migration-tool/managed-migration-tool.png)
 
-   The **Microsoft Managed Gen1 to Gen2 Migration** wizard appears.
+3. In the **Storage account** drop-down list, choose your gen2 enabled account. 
 
-3. In the **Choose a Gen2 account for migration** page, choose a storage account that has the **Hierarchical namespace** feature enabled on it.
+4. Select the **Testing only** option. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't redirect the URL of your Gen1 account. Your Gen1 account remains active while you test your applications against Gen2.
 
-   > [!div class="mx-imgBorder"]
-   > ![Image Hint2](./media/managed-migration-tool/managed-migration-wizard-page-1.png)
-
-4. For the **Migration Mode** option, choose **Test Migration**. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't yet redirect the URL of your Gen1 account. That way your Gen1 account remains active while you test your applications against Gen2.
+5. Select the check box to give your consent, and then select the **Apply** button to begin the data migration.
 
 ## Test your applications
  
-Test your applications against your new account to ensure that they work as expected.
+After the data migration is complete, you can test your applications against your new account to ensure that they work as expected.
 
-1. To ensure that you encounter the least number of issues, make sure to update your Gen1 SDKs to the following versions.
+1. Update your Gen1 SDKs to the following versions.
 
    | Language | SDK version |
    |--|--|
    | **.NET** | [2.3.9](https://github.com/Azure/azure-data-lake-store-net/blob/master/CHANGELOG.md) |
    | **Java** | [1.1.21](https://github.com/Azure/azure-data-lake-store-java/blob/master/CHANGES.md) |
    | **Python** | [0.0 51](https://github.com/Azure/azure-data-lake-store-python/blob/master/HISTORY.rst) |
+
+   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer translates requests requests made by your application to requests formatted for your Gen2 enabled account. This *compatibility layer* runs on the server so there's nothing to install. This translation is what enables your application to continue using Gen1 APIs. 
 
 2. Review known issues with the Gen1 compatibility layer.
 

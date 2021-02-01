@@ -707,13 +707,13 @@
       href: create-data-lake-storage-account.md
     - name: Migrate
       items:
-      - name: Data Lake Storage Gen1
+      - name: Migrate from Data Lake Storage Gen1
         items:
         - name: Migrate from Gen1
           href: data-lake-storage-migrate-gen1-to-gen2.md
-        - name: Lift and shift with managed migration
+        - name: Microsoft managed migration
           href: managed-migration-tool.md
-      - name: HDFS stores
+      - name: Migrate HDFS stores
         items:
         - name: Migrate a store offline
           href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
