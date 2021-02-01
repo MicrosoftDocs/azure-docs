@@ -299,11 +299,11 @@
               displayName: restart
         - name: Move Servers between regions
           items:
-            - name: Azure portal
-            - href: howto-move-regions-portal.md
-            - displayName: move servers across regions
-   - name: Backup Restore
-     items:
+            - name: Using Azure portal
+              href: howto-move-regions-portal.md
+              displayName: move servers across regions
+  - name: Backup & Restore
+    items:
        - name: Backups
          href: concepts-backup.md
          displayName: backup, restore, backups, restores, georestore, geo-restore, outage
@@ -321,8 +321,8 @@
         - name: Restore a dropped server
           href: howto-restore-dropped-server.md
           displayName: restore server,dropped, recover
-   - name: Replication
-     items:
+  - name: Replication
+    items:
        - name: Data-in replication
          href: concepts-data-in-replication.md
          displayName: replication, read replica
@@ -451,8 +451,7 @@
     - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
     - name: Connect with private web app
-      href: flexible-server/tutorial-webapp-server-vnet.md
-    
+      href: flexible-server/tutorial-webapp-server-vnet.md 
   - name: Concepts
     items:
     - name: Servers
