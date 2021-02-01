@@ -78,7 +78,7 @@ Make sure that the server allows access to Azure services:
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## Create a table in Azure SQL Database
-Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ![Connect to Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -129,21 +129,21 @@ In this sample, we are using data from page views. To see the other data availab
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Screenshot shows the Stream analytics job page with the Create button highlighted.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![New stream analytics job](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Screenshot shows the Deployment succeeded message and Go to resource button.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### Add a new input
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Screenshot shows the Inputs page with the Add button selected.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Screenshot shows the New input window with Input alias, Source, and Storage account drop-down menu options selected.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 

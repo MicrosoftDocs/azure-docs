@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-voice-assistants
 ---
 

@@ -1,6 +1,6 @@
 ﻿---
 title: Troubleshoot deployments
-description: Learn how to monitor and troubleshoot Azure Resource Manager template deployments. Shows activity logs and deployment history.
+description: Learn how to monitor and troubleshoot Azure Resource Manager template (ARM template) deployments. Shows activity logs and deployment history.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Troubleshoot ARM template deployments
 
-Learn how to troubleshoot Azure Resource Manager (ARM) template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
+Learn how to troubleshoot Azure Resource Manager template (ARM template) deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
 
 There are two types of errors that are related to template deployment:
 
@@ -32,13 +32,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-- Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Create a problematic template
 
 Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
 
-1. From Visual Studio Code, select **File**>**Open File**.
+1. From Visual Studio Code, select **File** > **Open File**.
 2. In **File name**, paste the following URL:
 
     ```url
@@ -46,16 +46,16 @@ Open a template called [Create a standard storage account](https://azure.microso
     ```
 
 3. Select **Open** to open the file.
-4. Change the **apiVersion** line to the following line:
+4. Change the `apiVersion` line to the following line:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** is invalid element name. It is a validation error.
-    - The API version shall be "2018-07-01".  It is a deployment error.
+    - `apiVersion1` is an invalid element name. It is a validation error.
+    - The API version shall be `"2018-07-01"`.  It is a deployment error.
 
-5. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
+5. Select **File** > **Save As** to save the file as _azuredeploy.json_ to your local computer.
 
 ## Troubleshoot the validation error
 
@@ -63,13 +63,13 @@ Refer to the [Deploy the template](template-tutorial-create-multiple-instances.m
 
 You shall get an error from the shell similar to:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-The error message indicates the problem is with **apiVersion1**.
+The error message indicates the problem is with `apiVersion1`.
 
-Use Visual Studio Code to correct the problem by changing **apiVersion1** to **apiVersion**, and then save the template.
+Use Visual Studio Code to correct the problem by changing `apiVersion1` to `apiVersion`, and then save the template.
 
 ## Troubleshoot the deployment error
 
@@ -77,7 +77,7 @@ Refer to the [Deploy the template](template-tutorial-create-multiple-instances.m
 
 You shall get an error from the shell similar to:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",
@@ -91,14 +91,14 @@ The deployment error can be found from the Azure portal using the following proc
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the resource group by selecting **Resource groups** and then the resource group name. You shall see **1 Failed** under **Deployment**.
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Screenshot that highlights the failed deployment.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Select **Error details**.
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Screenshot that highlights the Error details link.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     The error message is the same as the one shown earlier:
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Screenshot that shows the error details.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 You can also find the error from the activity logs:
 

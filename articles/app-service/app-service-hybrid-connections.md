@@ -38,7 +38,7 @@ There are a number of benefits to the Hybrid Connections capability, including:
 - It normally does not require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
-- It is supported in GA for Windows apps and is in preview for Linux apps.
+- It is supported in GA for Windows native apps and is in preview for Linux apps. It is not supported for Windows container apps.
 
 ### Things you cannot do with Hybrid Connections ###
 
@@ -221,8 +221,8 @@ If you have a command line client for your endpoint, you can test connectivity f
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: https://portal.azure.com/
-[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[oldhc]: /azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

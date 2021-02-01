@@ -5,7 +5,7 @@ description: Use the Azure portal to manage authentication to configure a truste
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -22,11 +22,11 @@ The following guide is for background processes, timers, and jobs which are host
 
 ## Scenario: Shared key authentication
 
-After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use the primary key as the subscription key when you [use shared key authentication to call Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](https://aka.ms/amauth).
+After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use the primary key as the subscription key when you [use shared key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 ### Securely store shared key
 
-The primary and secondary key allow authorization to all APIs for the Maps account. Applications should store the keys in a secure store such as Azure Key Vault. The application must retrieve the shared key as a Azure Key Vault secret to avoid storing the shared key in plain text in application configuration. To understand how to configure an Azure Key Vault, see [Azure Key Vault developer guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide).
+The primary and secondary key allow authorization to all APIs for the Maps account. Applications should store the keys in a secure store such as Azure Key Vault. The application must retrieve the shared key as a Azure Key Vault secret to avoid storing the shared key in plain text in application configuration. To understand how to configure an Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 The following steps outline this process:
 
@@ -39,7 +39,7 @@ The following steps outline this process:
 7. Create Azure Maps REST API request with shared key.
 
 > [!Tip]
-> If the app is hosted in Azure environment, you should implement a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via managed identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> If the app is hosted in Azure environment, you should implement a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via managed identity](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 The daemon application is responsible for retrieving the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. Instead, we encourage direct Azure AD authentication to Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
 
@@ -57,7 +57,7 @@ Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is 
 
 When running on Azure resources, configure Azure managed identities to enable low cost, minimal credential management effort. 
 
-See [Overview of Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to enable the application access to a Managed Identity.
+See [Overview of Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) to enable the application access to a Managed Identity.
 
 Managed Identity benefits:
 
@@ -97,7 +97,7 @@ When running on a non-Azure environment Managed Identities are not available. Th
         > [!div class="mx-imgBorder"]
         > ![Create a client secret](./media/how-to-manage-authentication/app-keys.png)
 
-    * After you select **Add**, copy the secret and store it securely in a service such as Azure Key Vault. Review [Azure Key Vault Developer Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide) to securely store the certificate or secret. You'll use this secret to get tokens from Azure AD.
+    * After you select **Add**, copy the secret and store it securely in a service such as Azure Key Vault. Review [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md) to securely store the certificate or secret. You'll use this secret to get tokens from Azure AD.
 
         > [!div class="mx-imgBorder"]
         > ![Add a client secret](./media/how-to-manage-authentication/add-key.png)
@@ -115,20 +115,20 @@ You grant *Azure role-based access control (Azure RBAC)* by assigning either the
     > ![Grant access using Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the **Role assignments** tab, **Add** a role assignment. 
-    
+
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Select a built-in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal** or Managed Identity with **User assigned managed identity** / **System assigned Managed identity**. Select the principal. Then select **Save**.
 
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![How to add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. You can confirm the role assignment was applied on the role assignment tab.
 
 ## Request token with Managed Identity
 
-Once a managed identity is configured for the hosting resource, use Azure SDK or REST API to acquire a token for Azure Maps, see details on [Acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token). Following the guide, the expectation is that an access token will be returned which can be used on REST API requests.
+Once a managed identity is configured for the hosting resource, use Azure SDK or REST API to acquire a token for Azure Maps, see details on [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md). Following the guide, the expectation is that an access token will be returned which can be used on REST API requests.
 
 ## Request token with application registration
 
@@ -163,7 +163,7 @@ Response:
 }
 ```
 
-See [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios), for more detailed examples.
+See [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md), for more detailed examples.
 
 ## Next steps
 

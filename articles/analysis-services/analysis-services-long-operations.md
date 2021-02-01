@@ -45,5 +45,4 @@ By using read-only query replicas, while refreshes are being performed in batche
 [Asynchronous refresh with the REST API](analysis-services-async-refresh.md)  
 [Azure Analysis Services scale-out](analysis-services-scale-out.md)  
 [Analysis Services high availability](analysis-services-bcdr.md)  
-[Retry guidance for Azure services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
-
+[Retry guidance for Azure services](/azure/architecture/best-practices/retry-service-specific)

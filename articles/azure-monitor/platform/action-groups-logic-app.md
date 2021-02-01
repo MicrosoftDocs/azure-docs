@@ -102,7 +102,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams actions")
 
-12. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your Office 365 account. Choose the **Team ID** and **Channel ID** to send the message to.
+12. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your work or school account. Choose the **Team ID** and **Channel ID** to send the message to.
 
 13. Configure the message by using a combination of static text and references to the \<fields\> in the dynamic content. Copy and paste the following text into the **Message** field:
 
@@ -160,7 +160,7 @@ Azure Service Health entries are part of the activity log. The process for creat
                         "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
-                        "impactedServices": "[{"ImpactedRegions"}]",
+                        "impactedServices": "[{\"ImpactedRegions\"}]",
                         "defaultLanguageTitle": "...",
                         "defaultLanguageContent": "...",
                         "stage": "Active",

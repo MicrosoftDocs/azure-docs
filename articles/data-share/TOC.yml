@@ -1,6 +1,7 @@
 - name: Azure Data Share documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Data Share?
     href: overview.md
@@ -8,9 +9,9 @@
     href: supported-data-stores.md
 - name: Quickstarts
   items:
-  - name: Create data share - Azure portal
+  - name: Share data - Azure portal
     href: share-your-data-portal.md
-  - name: Create data share - ARM template
+  - name: Share data - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
@@ -18,10 +19,18 @@
   items:
     - name: Share data
       href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
     - name: Accept and receive data
       href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements
@@ -30,16 +39,19 @@
     href: concepts-pricing.md
 - name: Samples
   items:
-  - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?service=data-share/
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: How-to guides
   items:
-  - name: Monitor
-    href: how-to-monitor.md
-  - name: Troubleshoot
-    href: data-share-troubleshoot.md
+  - name: Share and receive data by source
+    items:
+    - name: Share from Azure Storage
+      href: how-to-share-from-storage.md
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
+      href: how-to-share-from-sql.md
+    - name: Share from Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
   - name: Add datasets
     href: how-to-add-datasets.md
   - name: Configure dataset mappings
@@ -50,27 +62,27 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
-  - name: Security
-    href: security.md
+  - name: Monitor
+    href: how-to-monitor.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Share Azure Data Explorer data
-    href: /azure/data-explorer/data-share
-    maintainContext: true
+  - name: Troubleshoot
+    href: data-share-troubleshoot.md
+
 - name: Reference
   items:
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0
+    href: /powershell/module/az.datashare/?view=azps-2.6.0
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+    href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
 - name: Resources
   items:
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-share.html
+    href: /answers/topics/azure-data-share.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog

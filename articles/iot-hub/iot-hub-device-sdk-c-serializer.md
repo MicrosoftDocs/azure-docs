@@ -23,7 +23,7 @@ Finally, the article revisits some topics covered in previous articles such as m
 
 Everything described in this article is based on the **serializer** SDK samples. If you want to follow along, see the **simplesample\_amqp** and **simplesample\_http** applications included in the Azure IoT device SDK for C.
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## The modeling language
 
@@ -668,4 +668,4 @@ This also concludes the three-part series on how to develop applications with th
 
 To learn more about developing for IoT Hub, see the [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To further explore the capabilities of IoT Hub, see [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+To further explore the capabilities of IoT Hub, see [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md).

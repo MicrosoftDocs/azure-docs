@@ -29,7 +29,7 @@ You can enable backup on your SQL Server VM from the **Backup** pane in the VM. 
     ![SQL Server backup view](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
-    >Don't see the banner? The banner is only displayed for those SQL Server VMs that are created using Azure Marketplace images. It is additionally displayed for the VMs that are protected with Azure VM Backup. For other images, you can configure backup as explained [here](backup-sql-server-database-azure-vms.md).
+    >Don't see the banner? The banner is only displayed for those SQL Server VMs that are created using Azure Marketplace images. It's additionally displayed for the VMs that are protected with Azure VM Backup. For other images, you can configure backup as explained [here](backup-sql-server-database-azure-vms.md).
 
 2. Enter the Recovery Services vault name. A vault is a logical entity to store and manage all your backups. If you create a new vault:
 

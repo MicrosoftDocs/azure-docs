@@ -17,7 +17,9 @@ ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Azure Media Services Community  
+# Azure Media Services Community
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS. You can also view new videos and podcasts, ask questions and give feedback.   
 
@@ -45,11 +47,11 @@ The following forums can be used for asking questions about current products and
 
 Currently, MSDN is Media Services team's primary community forum.
 
-[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
+[:::image type="icon" source="./media/media-services-community/msdn.png" border="false":::](/answers/topics/azure-media-services.html) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[:::image type="icon" source="./media/media-services-community/stack-overflow.png" border="false":::](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## Need help?
 

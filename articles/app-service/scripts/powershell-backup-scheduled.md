@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Create a scheduled backup'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to create a scheduled backup for an app.
 author: msangapu-msft
@@ -8,7 +8,7 @@ ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
 # Create a scheduled backup for a web app using PowerShell

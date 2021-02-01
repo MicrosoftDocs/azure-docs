@@ -19,16 +19,16 @@ The general strategy for upgrading a Service Fabric cluster node to use managed 
 This article will walk you through the steps of upgrading the primary node type of an example cluster to use managed disks, while avoiding any cluster downtime (see note below). The initial state of the example test cluster consists of one node type of [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes.
 
 > [!NOTE]
-> The limitations of a Basic SKU load balancer prevent an additional scale set from being added. We recommend using the Standard SKU load balancer instead. For more, see [a comparison of the two SKUs](/azure/load-balancer/skus).
+> The limitations of a Basic SKU load balancer prevent an additional scale set from being added. We recommend using the Standard SKU load balancer instead. For more, see [a comparison of the two SKUs](../load-balancer/skus.md).
 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.
 
-Here are the [templates and cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) for Azure Resource Manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
+Here are the [templates and cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) for Azure Resource Manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) the Azure Resource Manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) the Azure Resource Manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
@@ -367,6 +367,6 @@ Learn how to:
 
 See also:
 
-* [Sample: Upgrade cluster nodes to use Azure managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Sample: Upgrade cluster nodes to use Azure managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Vertical scaling considerations](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

@@ -94,7 +94,7 @@ To enable emitting the verbose orchestration replay events, the `LogReplayEvents
 ```
 
 > [!NOTE]
-> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../functions-monitoring.md#configure-sampling) explains how to configure this behavior.
+> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../configure-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 ### Single instance query
 
@@ -430,7 +430,7 @@ GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 Clients will get the following response:
 
-```http
+```json
 {
   "runtimeStatus": "Running",
   "input": null,

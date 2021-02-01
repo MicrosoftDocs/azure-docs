@@ -1,8 +1,8 @@
 ---
 title: Backup and restore - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how to restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
@@ -23,7 +23,7 @@ You make the choice between configuring your server for either locally redundant
 
 While creating a server through the Azure portal, the **Pricing Tier** window is where you select either **Locally Redundant** or **Geographically Redundant** backups for your server. This window is also where you select the **Backup Retention Period** - how long (in number of days) you want the server backups stored for.
 
-   ![Pricing Tier - Choose Backup Redundancy](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Pricing Tier - Choose Backup Redundancy":::
 
 For more information about setting these values during create, see the [Azure Database for PostgreSQL server quickstart](quickstart-create-server-database-portal.md).
 
@@ -32,7 +32,7 @@ The backup retention period of a server can be changed through the following ste
 2. Select your Azure Database for PostgreSQL server. This action opens the **Overview** page.
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
 In the screenshot below it has been increased to 34 days.
-![Backup retention period increased](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Backup retention period increased":::
 
 4. Click **OK** to confirm the change.
 
@@ -48,11 +48,11 @@ The following steps restore the sample server to a point-in-time:
 
 2. In the toolbar of the server's **Overview** page, select **Restore**.
 
-   ![Azure Database for PostgreSQL - Overview - Restore button](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL - Overview - Restore button":::
 
 3. Fill out the Restore form with the required information:
 
-   ![Azure Database for PostgreSQL - Restore information](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for PostgreSQL - Restore information":::
    - **Restore point**: Select the point-in-time you want to restore to.
    - **Target server**: Provide a name for the new server.
    - **Location**: You cannot select the region. By default it is same as the source server.
@@ -65,6 +65,8 @@ The following steps restore the sample server to a point-in-time:
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
 ## Geo restore
 
@@ -113,6 +115,8 @@ If you configured your server for geographically redundant backups, a new server
 The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
 
 ## Next steps

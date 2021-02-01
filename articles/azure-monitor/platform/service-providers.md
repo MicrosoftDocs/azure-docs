@@ -31,7 +31,7 @@ In this architecture, a workspace is deployed in the customer's tenant that is u
 
 There are two ways that service provider administrators can gain access to a Log Analytics workspace in a customer tenant:
 
-- A customer can add individual users from the service provider as [Azure Active Directory guest users (B2B)](../../active-directory/b2b/what-is-b2b.md). The service provider administrators will have to sign in to each customer's directory in the Azure portal to be able to access these workspaces. This also requires the customers to manage individual access for each service provider administrator.
+- A customer can add individual users from the service provider as [Azure Active Directory guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The service provider administrators will have to sign in to each customer's directory in the Azure portal to be able to access these workspaces. This also requires the customers to manage individual access for each service provider administrator.
 - For greater scalability and flexibility, service providers can use the [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md) capability of [Azure Lighthouse](../../lighthouse/overview.md) to access the customer’s tenant. With this method, the service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. These administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. Accessing your customers’ Log Analytics workspaces resources in this way reduces the work required on the customer side, and can make it easier to gather and analyze data across multiple customers managed by the same service provider via tools such as [Azure Monitor Workbooks](./workbooks-overview.md). For more info, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
 
 The advantages of the distributed architecture are:
@@ -77,7 +77,7 @@ There are two options to implement logs in a central location:
 
 ## Next steps
 
-* Automate creation and configuration of workspaces using [Resource Manager templates](template-workspace-configuration.md)
+* Automate creation and configuration of workspaces using [Resource Manager templates](../samples/resource-manager-workspace.md)
 
 * Automate creation of workspaces using [PowerShell](./powershell-workspace-configuration.md)
 

@@ -13,7 +13,7 @@ This article shows you how to create a logic app that leverages the common alert
 
 ## Overview
 
-The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](alerts-common-schema-definitions.md#essentials), and also describes how you can handle [alert type](alerts-common-schema-definitions.md#alert-context) specific logic.
+The [common alert schema](./alerts-common-schema.md) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](alerts-common-schema-definitions.md#essentials), and also describes how you can handle [alert type](alerts-common-schema-definitions.md#alert-context) specific logic.
 
 
 ## Prerequisites 
@@ -134,5 +134,4 @@ This article assumes that the reader is familiar with
 ## Next steps
 
 * [Learn more about action groups](./action-groups.md).
-* [Learn more about the common alert schema](https://aka.ms/commonAlertSchemaDocs).
-
+* [Learn more about the common alert schema](./alerts-common-schema.md).

@@ -10,7 +10,7 @@ ms.author: yegu
 ---
 # How the reservation discount is applied to Azure Cache for Redis
 
-After you buy an Azure Cache for Redis reserved capacity, the reservation discount is automatically applied to cache instances that match the attributes and quantity of the reservation. A reservation covers only the compute costs of your Azure Cache for Redis. You're charged for storage and networking at the normal rates. Reserved capacity is only available for [premium tier](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis) caches.
+After you buy an Azure Cache for Redis reserved capacity, the reservation discount is automatically applied to cache instances that match the attributes and quantity of the reservation. A reservation covers only the compute costs of your Azure Cache for Redis. You're charged for storage and networking at the normal rates. Reserved capacity is only available for [premium tier](../../azure-cache-for-redis/quickstart-create-redis.md) caches.
 
 ## How reservation discount is applied
 
@@ -34,7 +34,7 @@ For the rest of these examples, assume that the Azure Cache for Redis reserved c
 
 * **Example 4**: You run one 26 GB from 1 pm to 1:45 pm. You run another 26 GB cache from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](/azure/billing/billing-understand-reserved-instance-usage-ea).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
 ## Need help? Contact us
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

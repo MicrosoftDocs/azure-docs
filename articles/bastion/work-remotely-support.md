@@ -24,10 +24,10 @@ Azure Bastion plays a pivotal role in supporting remote work scenarios by allowi
 
 Specifically, Azure Bastion provides secure and seamless RDP/SSH connectivity to virtual machines within the Azure virtual network, directly in the Azure portal, without the use of a public IP address. For more information about the Azure Bastion architecture and key features, check out [What is Azure Bastion](bastion-overview.md).
 
-Azure Bastion is deployed per virtual network, meaning companies can configure and manage one Azure Bastion to quickly support remote user access to virtual machines within an Azure virtual network. For guidance on how to create and manage Azure Bastion, refer to [Create a bastion host](bastion-create-host-portal.md).
+Azure Bastion is deployed per virtual network, meaning companies can configure and manage one Azure Bastion to quickly support remote user access to virtual machines within an Azure virtual network. For guidance on how to create and manage Azure Bastion, refer to [Create a bastion host](./tutorial-create-host-portal.md).
 
 ## Next steps
 
-* Configure Azure Bastion using the [Azure portal](bastion-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md), or Azure CLI.
+* Configure Azure Bastion using the [Azure portal](./tutorial-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md), or Azure CLI.
 
 * Read the [Bastion FAQ](bastion-faq.md) for additional information.

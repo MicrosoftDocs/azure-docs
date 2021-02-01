@@ -92,7 +92,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 * The fifth decimal place is worth up to 1.1 m: it distinguishes trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 * The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can be featurized as follows, separating out region, location, and city information. You can also call a REST end point such as Bing Maps API available at [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) to get the region/district information.
+The location information can be featurized as follows, separating out region, location, and city information. You can also call a REST end point such as Bing Maps API available at [Find a Location by Point](/bingmaps/rest-services/locations/find-a-location-by-point) to get the region/district information.
 
 ```sql
 select 
@@ -111,7 +111,7 @@ These location-based features can be further used to generate additional count f
 
 > [!TIP]
 > You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). 
-> Another alternative is to insert data in the database using the [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx).
+> Another alternative is to insert data in the database using the [BCP utility](/sql/tools/bcp-utility).
 > 
 > 
 
@@ -147,5 +147,4 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

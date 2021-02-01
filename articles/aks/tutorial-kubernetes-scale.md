@@ -1,9 +1,9 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -19,7 +19,7 @@ If you've followed the tutorials, you have a working Kubernetes cluster in AKS a
 > * Manually scale Kubernetes pods that run your application
 > * Configure autoscaling pods that run the app front-end
 
-In additional tutorials, the Azure Vote application is updated to a new version.
+In later tutorials, the Azure Vote application is updated to a new version.
 
 ## Before you begin
 
@@ -37,7 +37,7 @@ kubectl get pods
 
 The following example output shows one front-end pod and one back-end pod:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -49,7 +49,7 @@ To manually change the number of pods in the *azure-vote-front* deployment, use 
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
+Run [kubectl get pods][kubectl-get] again to verify that AKS successfully creates the additional pods. After a minute or so, the pods are available in your cluster:
 
 ```console
 kubectl get pods
@@ -129,7 +129,7 @@ spec:
 
 Use `kubectl apply` to apply the autoscaler defined in the `azure-vote-hpa.yaml` manifest file.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -156,7 +156,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 When the cluster has successfully scaled, the output is similar to following example:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

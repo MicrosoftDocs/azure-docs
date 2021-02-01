@@ -28,7 +28,7 @@ In this article, you will learn how to parse CSV blobs with an Azure Cognitive S
 > Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
 
 ## Setting up CSV indexing
-To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) request:
+To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](/rest/api/searchservice/create-indexer) request:
 
 ```http
     {
@@ -93,5 +93,4 @@ Indexer:
 ```
 
 ## Help us make Azure Cognitive Search better
-If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
+If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).

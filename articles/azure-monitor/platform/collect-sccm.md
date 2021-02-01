@@ -5,12 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/28/2019
-
+ms.date: 11/30/2020
 ---
 
 # Connect Configuration Manager to Azure Monitor
 You can connect your Microsoft Endpoint Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
+
+> [!IMPORTANT]
+> Starting in Configuration Manager version 2010, this feature is deprecated.<!-- 8269855 --> For more information, see [Removed and deprecated features for Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## Prerequisites
 
@@ -131,7 +133,7 @@ After you have completed initial configuration to import device collections from
 4. Select **Computer Groups** and then select **SCCM**.  
 5. Select **Import Configuration Manager collection memberships** and then click **Save**.  
    
-    ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Screenshot of the Computer Groups advanced settings for S C C M containing the option for Import Configuration Manager collection memberships.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## View data from Configuration Manager
 
@@ -139,7 +141,7 @@ After you've added a Log Analytics connection to Configuration Manager and insta
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
 
-![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups02.png)
+![Screenshot of the Computer Groups advanced settings for S C C M showing the option for Import Configuration Manager collection memberships selected.](./media/collect-sccm/sccm-computer-groups02.png)
 
 When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../log-query/log-query-overview.md), you can perform further in-depth analysis the collection membership data.
 

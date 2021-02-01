@@ -3,7 +3,7 @@ title: Install Update 5.1 on StorSimple 8000 series device | Microsoft Docs
 description: Explains how to install StorSimple 8000 Series Update 5.1 on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 
 ms.assetid: 
 ms.service: storsimple
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
-ms.author: twooley
+ms.author: alkohli
 
 ---
 # Install Update 5.1 on your StorSimple device
@@ -56,15 +56,15 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
 2. Navigate to **Device settings** > **Device updates**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update-51/update2.png)
+    ![Screenshot of the Settings blade with the Device updates option called out.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
 
-    ![Click Device updates](./media/storsimple-8000-install-update-51/update3.png)
+    ![Screenshot of the Settings blade with the Device updates option called out and the Device updates blade with the New regular updates are available message called out.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update-51/update4.png)
+    ![Screenshot of the Device updates blade with the Install updates option called out and the Confirm regular updates with the Agree option and Install option called out.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. A set of prerequisite checks starts. These checks include:
    
@@ -76,17 +76,17 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
 7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
    
-    ![Update job creation](./media/storsimple-8000-install-update-51/update6.png)
+    ![Screenshot of the Notification that says, "Starting software updates job."](./media/storsimple-8000-install-update-51/update6.png)
    
     The update is then applied on your device.
 
 9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
 
-    ![Update job creation](./media/storsimple-8000-install-update-51/update8.png)
+    ![Screenshot of the Device updates blade with the Download and install of software updates in progress option called out and the Install updates blade.](./media/storsimple-8000-install-update-51/update8.png)
 
      You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
 
-     ![Update job creation](./media/storsimple-8000-install-update-51/update7.png)
+     ![Screenshot of the Settings blade with Jobs called out and the Jobs blade showing the progress of the update.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
 

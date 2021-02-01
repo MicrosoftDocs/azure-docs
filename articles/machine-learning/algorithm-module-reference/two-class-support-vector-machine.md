@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Support Vector Machine: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning to create a model that is based on the support vector machine algorithm. 
+description: Learn how to use the Two-Class Support Vector Machine module in Azure Machine Learning to create a binary classifier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # Two-Class Support Vector Machine module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a model that is based on the support vector machine algorithm. 
 

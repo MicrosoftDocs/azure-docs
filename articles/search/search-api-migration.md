@@ -8,41 +8,47 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/09/2020
 ---
 
-# Upgrade to the latest Azure Cognitive Search service REST API version
+# Upgrade to the latest REST API in Azure Cognitive Search
 
-If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2020-06-30.
+If you're using an earlier version of the [**Search REST API**](/rest/api/searchservice/), this article will help you upgrade your application to the newest generally available API version, **2020-06-30**.
 
-Version 2020-06-30 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
+Version 2020-06-30 includes an important new feature ([knowledge store](knowledge-store-concept-intro.md)), and introduces several minor behavior changes. As such, this version is mostly backward compatible so code changes should be minimal if you are upgrading from the previous version (2019-05-06).
 
 > [!NOTE]
-> An Azure Cognitive Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities.
+> A search service supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities. Over time, the most outdated versions of the REST API will be deprecated and [no longer supported](search-api-versions.md#unsupported-versions).
 
 <a name="UpgradeSteps"></a>
 
 ## How to upgrade
 
-When upgrading to new versions, you probably won't have to make any changes to your code, other than to change the version number. The only situations in which you may need to change code are when:
+When upgrading to a new version, you probably won't have to make many changes to your code, other than to change the version number. The only situations in which you may need to change code are when:
 
 * Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it does not understand.
 
-* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
 
 * Your code references an API version that predates 2019-05-06 and is subject to one or more of the breaking changes in that release. The section [Upgrade to 2019-05-06](#upgrade-to-2019-05-06) provides more detail. 
 
-If any of these situations apply to you, then you may need to change your code accordingly. Otherwise, no changes should be necessary unless you want to start using features added in the new version.
+If any of these situations apply to you, then you may need to change your code accordingly. Otherwise, no changes should be necessary, although you might want to start using features added in the new version.
 
 ## Upgrade to 2020-06-30
 
-Version 2020-06-30 is the new generally available release of the REST API. There are no breaking changes, but there are a few behavioral differences. 
+Version 2020-06-30 is the new generally available release of the REST API. There is one breaking change and several behavioral differences. 
 
 Features are now generally available in this API version include:
 
 * [Knowledge store](knowledge-store-concept-intro.md), persistent storage of enriched content created through skillsets, created for downstream analysis and processing through other applications. With this capability, an indexer-driven AI enrichment pipeline can populate a knowledge store in addition to a search index. If you used the preview version of this feature, it is equivalent to the generally available version. The only code change required is modifying the api-version.
 
-Behavior changes include the following:
+### Breaking change
+
+Existing code written against earlier API versions will break on api-version=2020-06-30 and later if code contains the following functionality:
+
+* Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the Edm.DateTimeOffset format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
+
+### Behavior changes
 
 * [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
@@ -59,7 +65,7 @@ Version 2019-05-06 is the previous generally available release of the REST API. 
 
 ### Breaking changes
 
-Existing code written against earlier API versions will break on api-version=2019-05-06 if code contains the following functionality:
+Existing code written against earlier API versions will break on api-version=2019-05-06 and later if code contains the following functionality:
 
 #### Indexer for Azure Cosmos DB - datasource is now "type": "cosmosdb"
 
@@ -142,4 +148,4 @@ You can update "flat" indexes to the new format with the following steps using A
 Review the Search REST API reference documentation. If you encounter problems, ask us for help on [Stack Overflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)
+> [Search service REST API Reference](/rest/api/searchservice/)

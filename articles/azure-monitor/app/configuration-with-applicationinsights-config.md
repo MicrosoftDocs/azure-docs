@@ -3,6 +3,7 @@ title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 ms.topic: conceptual
 ms.date: 05/22/2019
+ms.custom: devx-track-csharp
 
 ms.reviewer: olegan
 ---
@@ -89,7 +90,7 @@ Reports the [response time and result code](../../azure-monitor/app/asp-net.md) 
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### Microsoft.ApplicationInsights
-The Microsoft.ApplicationInsights package provides the [core API](/dotnet/api/microsoft.applicationinsights?view=azure-dotnet) of the SDK. The other Telemetry Modules use this, and you can also [use it to define your own telemetry](./api-custom-events-metrics.md).
+The Microsoft.ApplicationInsights package provides the [core API](/dotnet/api/microsoft.applicationinsights) of the SDK. The other Telemetry Modules use this, and you can also [use it to define your own telemetry](./api-custom-events-metrics.md).
 
 * No entry in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.

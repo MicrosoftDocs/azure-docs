@@ -19,6 +19,8 @@ ms.author: juliako
 ---
 # Encode an asset by using Media Encoder Standard in the Azure portal
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 > 

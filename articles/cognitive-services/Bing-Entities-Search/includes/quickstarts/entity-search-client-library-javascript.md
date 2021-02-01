@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 Use this quickstart to begin searching for entities with the Bing Entity Search client library for JavaScript. While Bing Entity Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
@@ -16,13 +16,10 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
-
-* The [Bing Entity Search SDK for Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
-
-To install the Bing Entity Search SDK:
-
-1. Run `npm install ms-rest-azure` in your development environment.
-2. Run `npm install @azure/cognitiveservices-entitysearch` in your development environment.
+* The [Bing Entity Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
+     *  To install, run `npm install @azure/cognitiveservices-entitysearch`
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client.
+     * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -32,7 +29,7 @@ To install the Bing Entity Search SDK:
 1. Create a new JavaScript file in your favorite IDE or editor, and add the following requirements.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     const EntitySearchAPIClient = require('@azure/cognitiveservices-entitysearch');
     ```
 

@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure PowerShell - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: quickstart
@@ -23,9 +23,9 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -44,7 +44,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription ID using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -53,9 +53,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ## Create a resource group
 
 Create an
-[Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+[Azure resource group](../azure-resource-manager/management/overview.md)
 using the
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -208,11 +208,11 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 1. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for
    the server, such as **mydemoserver**.
 
-   ![The "General" tab](./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="The General tab":::
 
 1. In the **Create - Server** dialog box, on the **Connection** tab, fill in the settings table.
 
-   ![The "Connection" tab](./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="The Connection tab":::
 
     pgAdmin parameter |Value|Description
     ---|---|---
@@ -240,7 +240,7 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 1. Select the **Owner** for the database from the list box. Choose your server admin login name,
    such as the example, **my admin**.
 
-   ![Create a database in pgAdmin](./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Create a database in pgAdmin":::
 
 1. Select **Save** to create a new blank database.
 

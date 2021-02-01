@@ -9,6 +9,7 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
+ms.custom: devx-track-csharp
 
 ---
 

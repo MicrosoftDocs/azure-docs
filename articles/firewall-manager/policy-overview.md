@@ -4,14 +4,14 @@ description: Learn about Azure Firewall Manager policies
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 11/24/2020
 ms.author: victorh
 ---
 
 # Azure Firewall Manager policy overview
 
-Firewall policy is an Azure resource that contains NAT, network, and application rule collections as well as Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
+Firewall Policy is an Azure resource that contains NAT, network, and application rule collections, and Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
 
 ![Azure Firewall Manager policy](media/policy-overview/policy-overview.png)
 

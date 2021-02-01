@@ -28,7 +28,7 @@ Applications that use the free trial plan don't have an associated Azure subscri
 
 ## View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./quick-deploy-iot-central.md) with some [connected devices](./tutorial-connect-device-nodejs.md).
+The following steps assume you have an [IoT Central application](./quick-deploy-iot-central.md) with some [connected devices](./tutorial-connect-device.md).
 
 To view IoT Central metrics in the portal:
 
@@ -43,7 +43,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ## IoT Central metrics
 
-For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
+For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 
@@ -57,4 +57,4 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).

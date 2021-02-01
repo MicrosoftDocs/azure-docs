@@ -24,7 +24,7 @@ The following table is a reference to the programmatic interfaces for both class
 | Deployment script type | Classic alerts | New metric alerts |
 | ---------------------- | -------------- | ----------------- |
 |REST API     | [microsoft.insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert)        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Reference](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager template | [For classic alerts](./alerts-enable-template.md)|[For new metric alerts](./alerts-metric-create-templates.md)|
 
@@ -70,7 +70,7 @@ If you're using logic apps with classic alerts, you must modify your logic-app c
 
 1. Use the template "Azure Monitor - Metrics Alert Handler". This template has an **HTTP request** trigger with the appropriate schema defined.
 
-    ![logic-app-template](media/alerts-migration/logic-app-template.png "Metric alert template")
+    ![Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.](media/alerts-migration/logic-app-template.png "Metric alert template")
 
 1. Add an action to host your processing logic.
 

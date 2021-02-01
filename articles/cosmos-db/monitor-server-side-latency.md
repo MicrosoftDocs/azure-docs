@@ -9,16 +9,17 @@ ms.date: 04/07/2020
 ---
 
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric is used to view the server-side latency of an operation. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
-If you see unusually large latency for point operations such as:
+You can monitor server-side latency if you see unusually high latency for point operation such as:
 
-* A get or set operation with partition key and ID in direct mode
+* A GET or a SET operation with partition key and ID in direct connectivity mode
 * A read or write operation or
 * A query
 
-You can look up the diagnostic log to see the size of data returned. If you see a sustained high latency for query operations, you can look up the diagnostic log for size of data returned, [throughput or RU/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) used, or the number of such operations in a given period. This way, you can debug the server-side latency issues.
+You can look up the diagnostic log to see the size of the data returned. If you see a sustained high latency for query operations, you should look up the diagnostic log for higher [throughput or RU/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) used. Server side latency shows the amount of time spent on the backend infrastructure before the data was returned to the client. It is important to look at this metric to rule out any backend latency issues.
 
 ## View the server-side latency metric
 

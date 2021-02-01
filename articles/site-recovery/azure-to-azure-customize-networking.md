@@ -2,12 +2,12 @@
 title: Customize networking configurations for a failover VM  | Microsoft Docs
 description: Provides an overview of customize networking configurations for a failover VM in the replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: rajanaki
+ms.author: sideeksh
 
 ---
 # Customize networking configurations of the target Azure VM
@@ -39,7 +39,7 @@ You can provide the following key resource configurations for the failover VM wh
 
      ![Customize the failover networking configurations](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Select a test failover virtual network. You can choose to leave it blank and select one at the time of test failover.
+4. Select a test failover virtual network.
 5. Failover network is Select **Edit** near the NIC you want to configure. In the next blade that opens, select the corresponding pre-created resources in the test failover and failover location.
 
     ![Edit the NIC configuration](media/azure-to-azure-customize-networking/nic-drilldown.png) 

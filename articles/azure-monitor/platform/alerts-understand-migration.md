@@ -248,10 +248,12 @@ As part of the migration, new metric alerts and new action groups will be create
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, an [Azure Policy](../../governance/policy/index.yml) assignment can prevent us from creating resources. Depending on the policy assignment, some or all rules could not be migrated. The policy assignments that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
 
-- Excluding the subscriptions, or resource groups for the duration of the migration process from the policy assignment. [Learn more about managing policies exclusion scope](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Excluding the subscriptions, resource groups, or individual resources for the duration of the migration process from the policy assignment. [Learn more about managing policy exclusion scopes](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Set the 'Enforcement Mode' to **Disabled** on the policy assignment. [Learn more about policy assignment's enforcementMode property](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Set a Azure Policy exemption (preview) on the subscriptions, resource groups, or individual resources to the policy assignment. [Learn more about the Azure Policy exemption structure](../../governance/policy/concepts/exemption-structure.md).
+- Removing or changing effect to 'disabled', 'audit', 'append', or 'modify' (which, for example, can solve issues relating to missing tags). [Learn more about managing policy effects](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 

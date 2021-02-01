@@ -1,5 +1,5 @@
 ---
-title: Scale compute for Synapse SQL pool (Azure portal)
+title: 'Quickstart: Scale compute for Synapse SQL pool (Azure portal)'
 description: You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal.
 services: synapse-analytics
 author: Antvgski
@@ -47,4 +47,4 @@ To change data warehouse units:
     ![Move Slider](./media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## Next steps
-To learn more about SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) tutorial. 
+To learn more about SQL pool, continue to the [Load data into SQL pool](./load-data-from-azure-blob-storage-using-copy.md) tutorial.

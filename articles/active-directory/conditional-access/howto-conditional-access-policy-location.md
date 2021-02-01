@@ -41,6 +41,8 @@ More information about the location condition in Conditional Access can be found
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, and select **All cloud apps**.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
@@ -55,6 +57,6 @@ More information about the location condition in Conditional Access can be found
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

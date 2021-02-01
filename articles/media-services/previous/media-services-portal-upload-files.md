@@ -17,7 +17,9 @@ ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Upload files to a Media Services account in the Azure portal 
+# Upload files to a Media Services account in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
@@ -26,7 +28,7 @@ ms.author: juliako
 > 
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. For the up-to-date upload files with portal, see [Use portal to upload, encode, and stream content](../latest/manage-assets-quickstart.md).<br/>Also, check out: [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. For the up-to-date upload files with portal, see [Use portal to upload, encode, and stream content](../latest/manage-assets-quickstart.md).<br/>Also, check out: [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Azure Media Services, you upload your digital files to an asset. The asset can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata for these files). After the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 

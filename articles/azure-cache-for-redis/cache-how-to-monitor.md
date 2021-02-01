@@ -18,7 +18,7 @@ Metrics for Azure Cache for Redis instances are collected using the Redis [INFO]
 
 To view cache metrics, [browse](cache-configure.md#configure-azure-cache-for-redis-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
 
-![Redis metrics](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Six graphs are shown. One of them is Cache Hits and Cache Misses past hour.](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## View pre-configured metrics charts
 
@@ -45,15 +45,15 @@ The **Pricing tier** displays the cache pricing tier, and can be used to [scale]
 
 To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
-![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics there is a list of metrics. Cache hits and Cache misses are selected.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy for your cache metrics. 
 
 To configure a storage account for your cache metrics:
 
@@ -124,7 +124,7 @@ To configure Alert rules for your cache, click **Alert rules** from the **Resour
 
 ![Monitoring](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-For more information about configuring and using Alerts, see [Overview of Alerts](../monitoring-and-diagnostics/insights-alerts-portal.md).
+For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## Activity Logs
 Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances. 

@@ -179,7 +179,7 @@ In addition to installing the Azure Database Migration Service hybrid worker via
 This script is intended for quick prototyping when the user already has all the necessary permissions in the environment. Note that in your production environment, the AdApp and Cert may have different requirements, so the script could fail.
 
 > [!IMPORTANT]
-> This script assumes that there is an existing instance of Azure Database Migration Service in hybrid mode and that the Azure account used has permissions to create AdApps in the tenant and to modify RBAC on the subscription.
+> This script assumes that there is an existing instance of Azure Database Migration Service in hybrid mode and that the Azure account used has permissions to create AdApps in the tenant and to modify Azure RBAC on the subscription.
 
 Fill in the parameters at the top of the script, and then run the script from an Administrator PowerShell instance.
 

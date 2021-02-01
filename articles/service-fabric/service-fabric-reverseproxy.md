@@ -6,6 +6,7 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
+ms.custom: devx-track-csharp
 ---
 # Reverse proxy in Azure Service Fabric
 Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
@@ -112,7 +113,7 @@ The Service Fabric reverse proxy attempts to resolve a service address again and
 
 However, replicas or service instances can share a host process and might also share a port when hosted by an http.sys-based web server, including:
 
-* [System.Net.HttpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
+* [System.Net.HttpListener](/dotnet/api/system.net.httplistener)
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 

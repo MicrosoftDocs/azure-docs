@@ -11,7 +11,7 @@ ms.author: keli19
 ms.date: 07/02/2020
 ---
 # Score Vowpal Wabbit Model
-This article describes how to use the **Score Vowpal Wabbit Model** module in Azure Machine Learning designer (preview), to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
+This article describes how to use the **Score Vowpal Wabbit Model** module in Azure Machine Learning designer, to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
 
 This module provides the latest version of the Vowpal Wabbit framework, version 8.8.1. Use this module to score data using a trained model saved in the VW version 8 format.  
 

@@ -123,6 +123,10 @@ You might reimage a server or create a new server with the same details (such as
 
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
+**Q: Can I install the Azure AD Connect health agent on Windows Server Core?**
+
+No.  Installation on Server Core is not supported.
+
 ## Health Agent registration and data freshness
 
 **Q: What are common reasons for the Health Agent registration failures and how do I troubleshoot issues?**
@@ -131,7 +135,7 @@ The health agent can fail to register due to the following possible reasons:
 
 * The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](how-to-connect-health-agent-install.md#requirements) for details.
 * Outbound communication is subjected to an TLS inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
-* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) to delegate access to other users.
+* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) to delegate access to other users.
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 
@@ -184,18 +188,19 @@ CheckForMS17-010
 
 **Q: Why does the PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i> show less sync errors in the result?**
 
-<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](./tshoot-connect-sync-errors.md).
 
 **Q: Why are my ADFS audits not being generated?**
 
-Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
+Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
 
 **Q: When will the agent certificate be automatic renewed before expiration?**
 The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
 
 
+
 ## Related links
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)

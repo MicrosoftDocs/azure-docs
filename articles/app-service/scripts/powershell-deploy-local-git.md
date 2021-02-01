@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Deploy from local Git repo'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code from a local Git repository.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a web app and deploy code from a local Git repository

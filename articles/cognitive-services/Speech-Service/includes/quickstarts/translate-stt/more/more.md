@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 ## Additional language and platform support

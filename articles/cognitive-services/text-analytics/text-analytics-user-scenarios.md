@@ -36,7 +36,7 @@ Use Key Phrase Extraction and Entity Recognition to process support requests sub
 
 ## Monitor your product's social media feeds​
 
-Monitor user product feedback on your product's twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases about features and feature requests, or address customer complaints  as they happen. See the example [Microsoft Flow template](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)​.
+Monitor user product feedback on your product's twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases about features and feature requests, or address customer complaints  as they happen. See the example [Microsoft Power Automate template](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)​.
 
 ![An image describing how to monitor your product and company feedback on social media using key phrase extraction](media/use-cases/social-feed.svg)
 
@@ -56,4 +56,4 @@ Group opinions related to specific aspects of a product or service in surveys, c
 ## Next steps
 
 * [What is the Text Analytics API?](overview.md)
-* [Send a request to the Text Analytics API using the client library](quickstarts/text-analytics-sdk.md)
+* [Send a request to the Text Analytics API using the client library](quickstarts/client-libraries-rest-api.md)

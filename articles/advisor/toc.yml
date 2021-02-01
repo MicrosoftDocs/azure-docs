@@ -13,6 +13,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: security-baseline.md
 - name: Tutorials
   items:
   - name: Get started with Advisor
@@ -41,6 +45,8 @@
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center

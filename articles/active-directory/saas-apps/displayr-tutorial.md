@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Displayr with Azure Active Direc
 * Enable your users to be automatically signed-in to Displayr with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -74,6 +74,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<YOURDOMAIN>.displayr.com`
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:`<YOURDOMAIN>.displayr.com`
+	
+	c. In the **Reply URL** text box, type `https://app.displayr.com/Login/ProcessSamlResponse`.
+	
+	d. Click **Save**.
 
 	>[!NOTE]
 	>These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
@@ -84,25 +88,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Displayr application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+   ![Screenshot that shows the "User Attributes" section with the "Edit" icon highlighted.](common/edit-attribute.png)
 
 1. In addition to above, Displayr application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+   a. Click **Add a group claim**.
 
-	![image](./media/displayr-tutorial/config04.png)
+      ![Screenshot that shows the "Group Claims (Preview) window with settings selected.](./media/displayr-tutorial/config05.png)
 
-	![image](./media/displayr-tutorial/config05.png)
+   b. Select **All Groups** from the radio list.
 
-	b. Select **All Groups** from the radio list.
+   c. Select **Source Attribute** of **Group ID**.
 
-	c. Select **Source Attribute** of **Group ID**.
+   d. Check **Customize the name of the group claim**.
 
-	d. Check **Customize the name of the group claim**.
+   e. Check **Emit groups as role claims**.
 
-	e. Check **Emit groups as role claims**.
-
-	f. Click **Save**.
+   f. Click **Save**.
 
 1. On the **Set-up Displayr** section, copy the appropriate URL(s) based on your requirement.
 
@@ -122,11 +124,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. Click on **Settings** then navigate to **Account**.
 
-	![Configuration](./media/displayr-tutorial/config01.png)
+	![Screenshot that shows the "Settings" icon and "Account" selected.](./media/displayr-tutorial/config01.png)
 
 5. Switch to **Settings** from the top menu and scroll down the page for clicking **Configure Single Sign On (SAML)**.
 
-	![Configuration](./media/displayr-tutorial/config02.png)
+	![Screenshot that shows the "Settings" tab selected and the "Configure Single Sign On (S A M L)" action selected.](./media/displayr-tutorial/config02.png)
 
 6. On the **Single Sign On (SAML)** page, perform the following steps:
 
@@ -186,11 +188,11 @@ To enable Azure AD users, sign in to Displayr, they must be provisioned into Dis
 
 2. Click on **Settings** then navigate to **Account**.
 
-	![Displayr Configuration](./media/displayr-tutorial/config01.png)
+	![Screenshot that shows the "Settings (cog)" icon with "Account" selected.](./media/displayr-tutorial/config01.png)
 
 3. Switch to **Settings** from the top menu and scroll down the page, until **Users** section then click on **New User**.
 
-	![Displayr Configuration](./media/displayr-tutorial/config07.png)
+	![Screenshot that shows the "Settings" tab with "Users" highlighted and the "New User" button selected.](./media/displayr-tutorial/config07.png)
 
 4. On the **New User** page, perform the following steps:
 
@@ -206,12 +208,12 @@ To enable Azure AD users, sign in to Displayr, they must be provisioned into Dis
 
 ### Test SSO
 
-When you select the Displayr tile in the Access Panel, you should be automatically signed in to the Displayr for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Displayr tile in the Access Panel, you should be automatically signed in to the Displayr for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -20,7 +20,7 @@ ms.author: apimpm
 
 API Management allows you to secure access to the back-end service of an API using client certificates. This guide shows how to manage certificates in the Azure API Management service instance in the Azure portal. It also explains how to configure an API to use a certificate to access a back-end service.
 
-For information about managing certificates using the API Management REST API, see <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API Certificate entity</a>.
+For information about managing certificates using the API Management REST API, see <a href="/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API Certificate entity</a>.
 
 ## <a name="prerequisites"> </a>Prerequisites
 
@@ -40,7 +40,7 @@ Follow the steps below to upload a new client certificate. If you have not creat
 1. Navigate to your Azure API Management service instance in the Azure portal.
 2. Select **Certificates** from the menu.
 3. Click the **+ Add** button.
-    ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+    ![Screenshot that highlights the + Add button.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Browse for the certificate, provide its ID and password.
 5. Click **Create**.
 
@@ -69,7 +69,7 @@ If the certificate is in use by an API, then a warning screen is displayed. To d
 
 2. In the **Design** tab, click on a pencil icon of the **Backend** section.
 3. Change the **Gateway credentials** to **Client cert** and select your certificate from the dropdown.
-    ![Enable client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Screenshot that shows where to change the gateway credentials and select your certificate.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
 4. Click **Save**.
 

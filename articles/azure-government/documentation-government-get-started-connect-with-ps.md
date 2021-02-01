@@ -10,7 +10,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/09/2018
+ms.date: 08/09/2018 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using PowerShell so I can start developing against Azure Government's secure isolated datacenters.
 ---
@@ -34,7 +35,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](/powershell/azure/).
 
 
 ## Specifying Azure Government as the *environment* to connect to
@@ -77,4 +78,4 @@ Get-AzureLocation # For classic deployment model
 This quickstart showed you how to use PowerShell to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](../index.yml).

@@ -87,7 +87,7 @@ az blockchain member create \
 | **protocol** | Blockchain protocol. Currently, *Quorum* protocol is supported.
 | **consortium** | Name of the consortium to join or create. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
 | **consortium-management-account-password** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
-| **sku** | Tier type. *Standard* or *Basic*. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. You should also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions. Changing the pricing tier between basic and standard after member creation is not supported.
+| **sku** | Tier type. *Standard* or *Basic*. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions. Changing the pricing tier between basic and standard after member creation is not supported.
 
 It takes about 10 minutes to create the blockchain member and supporting resources.
 

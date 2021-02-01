@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Samples - Use a custom VM image
-description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
+description: This Azure CLI script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 author: axayjo
 ms.author: akjosh
 ms.topic: sample

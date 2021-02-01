@@ -12,6 +12,9 @@ manager: philmea
 
 # OPC Vault architecture
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article gives an overview about the OPC Vault microservice and the OPC Vault IoT Edge module.
 
 OPC UA applications use application instance certificates to provide application level security. A secure connection is established by using asymmetric cryptography, for which the application certificates provide the public and private key pair. The certificates can be self-signed, or signed by a Certificate Authority (CA).

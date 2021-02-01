@@ -9,6 +9,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [uwp](./uwp.md)]

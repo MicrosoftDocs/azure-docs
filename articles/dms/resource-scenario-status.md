@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
 ---
 
@@ -76,13 +76,12 @@ The following table shows Azure Database Migration Service support for online mi
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
+|   | Azure DB for PostgreSQL - Single server | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Public preview |
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
-*Supported for PostgreSQL version 10 and later.
 
 ## Next steps
 

@@ -16,16 +16,16 @@ In this article, you'll learn how to find identity object IDs needed when config
 
 ## Find user object ID
 
-If you have a user with user name `myuser@consoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
+If you have a user with user name `myuser@contoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## Find service principal object ID

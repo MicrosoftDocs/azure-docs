@@ -1,6 +1,6 @@
 ---
 title: "Azure CLI: Add managed instance to failover group"  
-description: Azure CLI example script to create an Azure SQL Managed Instance, add it to a failover group, and test failover.  
+description: Learn how to create two managed instances, add them to a failover group, and then test the failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability

@@ -3,14 +3,14 @@ title: Translator Detect Method
 titleSuffix: Azure Cognitive Services
 description: Identify the language of a piece of text with the Azure Cognitive Services Translator Detect method.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Detect
@@ -45,7 +45,7 @@ Request headers include:
   <th>Description</th>
   <tr>
     <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
+    <td><em>Required request header</em>.<br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -63,7 +63,7 @@ Request headers include:
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. A sample request body looks like that:
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. The language auto-detection works better with longer input text. A sample request body looks like that:
 
 ```json
 [
@@ -74,7 +74,6 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The text value of an array element cannot exceed 10,000 characters including spaces.
 * The entire text included in the request cannot exceed 50,000 characters including spaces.
 
 ## Response body
@@ -166,7 +165,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors). 
 
 ## Examples
 

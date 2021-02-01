@@ -72,7 +72,7 @@ There are also two ways to check if updates are pending for a maintenance config
 
 You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Screenshot that shows the highlighted maintenance state.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## Apply updates
 
@@ -90,7 +90,7 @@ You can check on the progress of the updates for a configuration in **Maintenanc
 
 To delete a configuration, open the configuration details and click **Delete**.
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Screenshot that shows how to delete a configuration.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## Next steps

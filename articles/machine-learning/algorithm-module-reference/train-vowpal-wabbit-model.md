@@ -12,7 +12,7 @@ ms.date: 07/02/2020
 ---
 
 # Train Vowpal Wabbit Model
-This article describes how to use the **Train Vowpal Wabbit Model** module in Azure Machine Learning designer (preview), to create a machine learning model by using Vowpal Wabbit.  
+This article describes how to use the **Train Vowpal Wabbit Model** module in Azure Machine Learning designer, to create a machine learning model by using Vowpal Wabbit.  
 
 To use Vowpal Wabbit for machine learning, format your input according to Vowpal Wabbit requirements, and prepare the data in the required format. Use this module to specify Vowpal Wabbit command-line arguments. 
 
@@ -83,7 +83,7 @@ Vowpal Wabbit supports incremental training by adding new data to an existing mo
 2. Connect the previously trained model to the **Pre-trained Vowpal Wabbit Model** input port of the module.
 3. Connect the new training data to the **Training data** input port of the module.
 4. In the parameters pane of **Train Vowpal Wabbit Model**, specify the format of the new training data, and also the training data file name if the input dataset is a directory.
-5. Select the **Output readable model file ** and **Output inverted hash file** options if the corresponding files need to be saved in the run records.
+5. Select the **Output readable model file** and **Output inverted hash file** options if the corresponding files need to be saved in the run records.
 
 6. Submit the pipeline.  
 7. Select the module and select **Register dataset** under **Outputs+logs** tab in the right pane, to preserve the updated model in your Azure Machine Learning workspace.  If you don't specify a new name, the updated model overwrites the existing saved model.

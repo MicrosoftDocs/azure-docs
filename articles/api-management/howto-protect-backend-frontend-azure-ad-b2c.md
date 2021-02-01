@@ -6,7 +6,7 @@ services: api-management, azure-ad-b2c, app-service
 documentationcenter: ''
 author: WillEastbury
 manager: alberts
-editor: ''	
+editor: ''
 
 ms.service: api-management
 ms.workload: mobile
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
+ms.custom: fasttrack-new, devx-track-js
 ---
 
 # Protect SPA backend with OAuth 2.0, Azure Active Directory B2C and Azure API Management
@@ -396,7 +396,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey}, 					url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;

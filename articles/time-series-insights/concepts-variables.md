@@ -5,7 +5,7 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 01/22/2021
 ---
 
 # Time Series Model variables
@@ -29,7 +29,7 @@ The following table displays which properties are relevant for each variable kin
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
 | Variable value | Telemetry values used for computation coming from the device or sensors or transformed by using Time Series Expressions. Numeric kind variables must be of the type *Double*.|
 | Variable interpolation | Interpolation specifies how to reconstruct a signal by using existing data. *Step* and *Linear* interpolation options are available for numeric variables. |
-| Variable aggregation | Perform computations through the supported [aggregation functions for Numeric variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Variable aggregation | Perform computations through the supported [aggregation functions for Numeric variable kinds](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Variables conform to the following JSON example:
 
@@ -97,7 +97,7 @@ Variables conform to the following JSON example:
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
-| Variable aggregation | Perform computations through the supported [aggregation functions for Aggregate variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Variable aggregation | Perform computations through the supported [aggregation functions for Aggregate variable kinds](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Variables conform to the following JSON example:
 

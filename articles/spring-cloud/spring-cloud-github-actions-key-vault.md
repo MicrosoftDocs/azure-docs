@@ -5,22 +5,26 @@ author:  MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
 ---
 
 # Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  It has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strong box not a master key that can open all doors in a building. It's a way to get a key with another key, which is useful in a CICD workflow. 
 
 ## Generate Credential
 To generate a key to access the key vault, execute command below on your local machine:
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 The scope specified by the `--scopes` parameter limits the key access to the resource.  It can only access the strong box.
 
 With results:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -51,12 +55,12 @@ Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the
 ## Generate full-scope Azure Credential
 This is the master key to open all doors in the building. The procedure is similar to the previous step, but here we change the scope to generate the master key:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Again, results:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -76,7 +80,7 @@ Copy the entire JSON string.  Bo back to **Key Vault** dashboard. Open the **Sec
 ## Combine credentials in GitHub Actions
 Set the credentials used when the CICD pipeline executes:
 
-```
+```console
 on: [push]
 
 jobs:

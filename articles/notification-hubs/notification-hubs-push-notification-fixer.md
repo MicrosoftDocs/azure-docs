@@ -17,6 +17,7 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Diagnose dropped notifications in Azure Notification Hubs

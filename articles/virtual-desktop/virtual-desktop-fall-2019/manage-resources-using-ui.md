@@ -30,7 +30,7 @@ To following browsers are compatible with the management tool:
 
 Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
 
-- Have Azure Multi-Factor Authentication (MFA) disabled
+- Have Azure AD Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -92,7 +92,7 @@ After providing consent for the organization or for a specified user, you can ac
 
 Follow these instructions to launch the tool:
 
-1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select **Default Tenant Group**, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.

@@ -12,6 +12,9 @@ manager: philmea
 
 # Use the OPC Vault certificate management service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to register applications, and how to issue signed application certificates for your OPC UA devices.
 
 ## Prerequisites
@@ -57,7 +60,7 @@ Request (CSR). Alternatively, you can request a new key pair, which includes a n
 
 4. Fill in the form with a subject and the domain names. For the private key, choose PEM or PFX with password. Select **Generate New KeyPair** to create the certificate request.
 
-   ![Screenshot of View Certificate Request Details](media/howto-opc-vault-secure/approve-reject.png "Approve Certificate")
+   ![Screenshot that shows the View Certificate Request Details screen and the Generate New KeyPair button.](media/howto-opc-vault-secure/approve-reject.png "Approve Certificate")
 
 5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester roles should be assigned to different users. Select **Approve** or **Reject** to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault, until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations can take a few seconds to finish.
 
@@ -86,7 +89,7 @@ Now it depends on the OPC UA device how to apply the new key pair. Typically, th
 
 5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. Select **Approve** or **Reject** to start or cancel the actual signing operation. The resulting certificate with public key is signed by the CA. This operation can take a few seconds to finish.
 
-   ![Screenshot of View Certificate Request Details, with approval message at bottom](media/howto-opc-vault-secure/view-cert-csr.png "View Certificate")
+   ![Screenshot that shows the View Certificate Request Details and includes an approval message at bottom.](media/howto-opc-vault-secure/view-cert-csr.png "View Certificate")
 
 6. The resulting certificate (DER) can be downloaded from here as binary file. A base64 encoded version is also available, for example, to copy and paste the certificate to a command line or text entry. 
 10. After the certificate is downloaded and stored securely, you can select **Delete Certificate**.

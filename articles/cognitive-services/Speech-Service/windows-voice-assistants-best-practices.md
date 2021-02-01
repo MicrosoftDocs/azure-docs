@@ -64,7 +64,7 @@ Even if states change rapidly it is worth considering providing UX for states, s
 When the assistant app has focus, the customer intent is clearly to interact with the app, so all voice activation experiences should be handled by the main app view. This view may be resized by the customer. To help explain assistant shell interactions, the rest of this document uses the concrete example of a financial service assistant named Contoso. In this and subsequent diagrams, what the customer says will appear in cartoon speech bubbles on the left with assistant responses in cartoon bubbles on the right.
 
 **In-app view. Initial state when voice activation begins:**
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/initial_state.png)
+![Screenshot showing the Contoso finance assistant app open to it's default canvas. A cartoon speech bubble on the right says "Contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **In-app view. After successful voice activation, listening experience begins:**![Screenshot of voice assistant on Windows while voice assistant is listening](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -102,9 +102,9 @@ The assistant must implement the dismissal guidance in this section to make it e
 - If the app is &quot;in use&quot;, it may continue above lock. &quot;in use&quot; constitutes any input or output. For example, when streaming music or video the app may continue above lock. &quot;Follow on&quot; and other multiturn dialog steps are permitted to keep the app above lock.
 - **Implementation details on dismissing the application** can be found [in the above lock implementation guide](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Screenshot showing the above lock view of the Contoso finance assistant app.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Screenshot of a desktop showing the Windows lock screen.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### Privacy &amp; security considerations above lock
 
@@ -112,9 +112,9 @@ Many PCs are portable but not always within customer reach. They may be briefly 
 
 Therefore, assistants should follow the guidance in this section to help keep experience secure. Interaction above lock occurs when the Windows user is unauthenticated. This means that, in general, **input to the assistant should also be treated as unauthenticated**.
 
-- Assistants should **implement a skill whitelist to identify skills that are confirmed secure and safe** to be accessed above lock.
+- Assistants should **implement a skill allowed list to identify skills that are confirmed secure and safe** to be accessed above lock.
 - Speaker ID technologies can play a role in alleviating some risks, but Speaker ID is not a suitable replacement for Windows authentication.
-- The skill whitelist should consider three classes of actions or skills:
+- The skill allowed list should consider three classes of actions or skills:
 
 | **Action class** | **Description** | **Examples (not a complete list)** |
 | --- | --- | --- |
@@ -124,7 +124,7 @@ Therefore, assistants should follow the guidance in this section to help keep ex
 
 For the case of Contoso, general information around public stock information is safe without authentication. Customer-specific information such as number of shares owned is likely safe with Speaker ID. However, buying or selling stocks should never be allowed without Windows authentication.
 
-To further secure the experience, **weblinks, or other app-to-app launches will always be blocked by Windows until the customer signs in.** As a last resort mitigation, Microsoft reserves the right to remove an application from the whitelist of enabled assistants if a serious security issue is not addressed in a timely manner.
+To further secure the experience, **weblinks, or other app-to-app launches will always be blocked by Windows until the customer signs in.** As a last resort mitigation, Microsoft reserves the right to remove an application from the allowed list of enabled assistants if a serious security issue is not addressed in a timely manner.
 
 ## Design guidance for voice activation preview
 

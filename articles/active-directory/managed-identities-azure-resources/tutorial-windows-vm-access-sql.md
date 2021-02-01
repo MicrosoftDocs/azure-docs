@@ -1,9 +1,9 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure SQL Database - Windows - Azure AD
+title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows - Azure AD'
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL Database.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL
@@ -39,7 +39,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 ## Grant access
 
-To grant your VM access to a database in Azure SQL Database, you can use an existing [logical SQL server](../../azure-sql/database/logical-servers.md) or create a new one. To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
+To grant your VM access to a database in Azure SQL Database, you can use an existing [logical SQL server](../../azure-sql/database/logical-servers.md) or create a new one. To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](../../azure-sql/database/single-database-create-quickstart.md). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](/azure/sql-database/).
 
 There are two steps to granting your VM access to a database:
 
@@ -48,7 +48,7 @@ There are two steps to granting your VM access to a database:
 
 ### Enable Azure AD authentication
 
-**To [configure Azure AD authentication](/azure/sql-database/sql-database-aad-authentication-configure):**
+**To [configure Azure AD authentication](../../azure-sql/database/authentication-aad-configure.md):**
 
 1. In the Azure portal, select **SQL servers** from the left-hand navigation.
 2. Click the SQL server to be enabled for Azure AD authentication.
@@ -59,10 +59,10 @@ There are two steps to granting your VM access to a database:
 
 ### Create contained user
 
-This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
+This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
-- [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
 SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
 
@@ -203,4 +203,4 @@ Examine the value of `$DataSet.Tables[0]` to view the results of the query.
 In this tutorial, you learned how to use a system-assigned managed identity to access Azure SQL Database. To learn more about Azure SQL Database see:
 
 > [!div class="nextstepaction"]
-> [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)

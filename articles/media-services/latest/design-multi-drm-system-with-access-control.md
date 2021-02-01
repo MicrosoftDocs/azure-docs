@@ -1,23 +1,23 @@
 ---
-title: A multi-DRM content protection system - Azure Media Services v3
+title: A multi-DRM content protection system
 description: This articles gives detailed description of how to design a multi-DRM content protection system with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/21/2018
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-
 ---
-# Design of a multi-DRM content protection system with access control 
+# Design of a multi-DRM content protection system with access control
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Designing and building a Digital Rights Management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and a reference implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
 

@@ -1,7 +1,7 @@
 ---
 title: Calculate size of a blob container with PowerShell
 titleSuffix: Azure Storage
-description: Calculate the size of a container in Azure Blob storage by totaling the size of each of its blobs.
+description: Calculate the size of a container in Azure Blob Storage by totaling the size of each of its blobs.
 services: storage
 author: tamram
 
@@ -10,12 +10,13 @@ ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Calculate the size of a blob container with PowerShell
 
-This script calculates the size of a container in Azure Blob storage by totaling the size of the blobs in the container.
+This script calculates the size of a container in Azure Blob Storage by totaling the size of the blobs in the container.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

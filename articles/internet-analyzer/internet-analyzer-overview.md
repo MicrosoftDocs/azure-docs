@@ -87,7 +87,7 @@ To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft 
 
 When a user visits the Web application, the JavaScript client selects two endpoints to measure across all configured tests. For each endpoint, the client performs a _cold_ and _warm_ measurement. The _cold_ measurement incurs additional latency beside the pure network latency between the user and endpoint such as DNS resolution, TCP connection handshake, and SSL/TLS negotiation. The _warm_ measurement follows just after the _cold_ measurement completes and takes advantage of modern browsers' persistent TCP connection management to get an accurate measure of end-to-end latency. When supported by the user's browser, the W3C resource timing API is used for accurate measurement timing. Currently, only warm latency measurements are used for analysis.
 
-![architecture](./media/ia-overview/architecture.png)
+![Diagram shows an end user connecting to an application server with client embedded and to the two endpoints on the internet from several options. The user uploads measurements to Internet Analyzer.](./media/ia-overview/architecture.png)
 
 
 ## Scorecards 

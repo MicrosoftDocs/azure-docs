@@ -10,7 +10,7 @@ ms.author: sgilley
 ms.date: 10/14/2019
 ---
 
-If you used a compute instance or Notebook VM, stop the VM when you are not using it to reduce cost.
+If you used a compute instance or Notebook VM, stop the VM when you aren't using it to reduce cost.
 
 1. In your workspace, select **Compute**.
 

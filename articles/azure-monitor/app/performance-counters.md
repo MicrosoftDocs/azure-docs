@@ -3,6 +3,7 @@ title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
+ms.custom: devx-track-csharp
 
 ---
 
@@ -36,7 +37,7 @@ If the performance counter you want isn't included in the list of metrics, you c
 
     `Get-Counter -ListSet *`
 
-    (See [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1).)
+    (See [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter).)
 2. Open ApplicationInsights.config.
 
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then redeploy it to your servers.

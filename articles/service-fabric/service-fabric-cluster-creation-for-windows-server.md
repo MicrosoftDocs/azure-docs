@@ -1,11 +1,8 @@
 ---
 title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.author: dekapur
 ---
 # Create a standalone cluster running on Windows Server
 You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service. For more on the differences, see [Comparing Azure and standalone Service Fabric clusters](./service-fabric-deploy-anywhere.md).
@@ -114,7 +111,7 @@ The runtime package can be downloaded separately, from another machine connected
 *.\ClusterConfig.json* and *.\MicrosoftAzureServiceFabric.cab* are the paths to the cluster configuration and the runtime .cab file respectively.
 
 ### Step 2: Connect to the cluster
-Connect to the cluster to verify the cluster is running and available. The ServiceFabric PowerShell module is installed with the runtime.  You can connect to the cluster from one of the cluster nodes or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.
+Connect to the cluster to verify the cluster is running and available. The ServiceFabric PowerShell module is installed with the runtime.  You can connect to the cluster from one of the cluster nodes or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet establishes a connection to the cluster.
 
 To connect to an unsecure cluster, run the following PowerShell command:
 
@@ -127,7 +124,7 @@ For example:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table

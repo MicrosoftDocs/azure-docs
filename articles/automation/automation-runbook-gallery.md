@@ -3,12 +3,15 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft and the community in PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/20/2019
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 # Use runbooks and modules in PowerShell Gallery
 
-Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community. You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#use-python-runbooks) from the Script Center Gallery. You can also contribute to the community by sharing [scenarios that you develop](#add-a-powershell-runbook-to-the-gallery). 
+Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community. You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#use-python-runbooks) from the Azure Automation GitHub organization. You can also contribute to the community by sharing [scenarios that you develop](#add-a-powershell-runbook-to-the-gallery).
+
+> [!NOTE]
+> The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation) For more information, see [here](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## Runbooks in PowerShell Gallery
 
@@ -33,7 +36,7 @@ The list below contains a few runbooks that support common scenarios. For a full
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - Imports the latest version of all modules in an Automation account from PowerShell Gallery.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - Configures Azure Diagnostics and Log Analytics to receive Azure Automation logs containing job status and job streams.
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Copies a remote file from a Windows Azure virtual machine.
-   * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
+   * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
 
 ## Import a PowerShell runbook from the runbook gallery with the Azure portal
 
@@ -44,7 +47,7 @@ The list below contains a few runbooks that support common scenarios. For a full
 
    ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
 
-5. Click on **View source project** to view the item in the [TechNet Script Center](https://gallery.technet.microsoft.com/).
+5. Click on **View source project** to view the item in the [Azure Automation GitHub Organization](https://github.com/azureautomation).
 6. To import an item, click on it to view its details and then click **Import**.
 
    ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
@@ -88,10 +91,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
 ## Use Python runbooks
 
-Python Runbooks are available in the [Script Center gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). You can contribute Python runbooks to the Script Center gallery by clicking **Upload a contribution**. When you do, ensure that you add the tag `Python` when uploading your contribution.
-
-> [!NOTE]
-> To upload content to [Script Center](https://gallery.technet.microsoft.com/scriptcenter), you need a minimum of 100 points.
+Python Runbooks are available in the [Azure Automation GitHub organization](https://github.com/azureautomation). When you contribute to our GitHub repo, add the tag **(GitHub Topic) : Python3** when you upload your contribution.
 
 ## Request a runbook or module
 
@@ -102,4 +102,4 @@ You can send requests to [User Voice](https://feedback.azure.com/forums/246290-a
 * To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
-* * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

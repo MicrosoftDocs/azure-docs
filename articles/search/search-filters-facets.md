@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
+ms.custom: devx-track-csharp
 ---
 
 # How to build a facet filter in Azure Cognitive Search 
@@ -24,7 +25,9 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 
 Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
 
-  ![An image showing a search dialog with filtered search results grouped by business title. An arrow indicates the results are facets that are displayed in a facet navigation structure.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="filtered search results":::
+"An image showing a search dialog with filtered search results grouped by business title. An arrow indicates the results are facets that are displayed in a facet navigation structure"
+:::image-end:::
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Cognitive Search](search-faceted-navigation.md).
 
@@ -34,7 +37,7 @@ Facets can be calculated over single value fields as well as collections. Fields
 
 Faceting is enabled on a field-by-field basis when you create the index by setting the `facetable` attribute to `true`. You should generally also set the `filterable` attribute to `true` for such fields so that your search application can filter on those fields based on facets that the end user selects. 
 
-When creating an index using the REST API, any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation is marked as `facetable` by default:
+When creating an index using the REST API, any [field type](/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation is marked as `facetable` by default:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
@@ -73,11 +76,11 @@ Index attributes that control how a field is used are added to individual field 
 ```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Cognitive Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. The `filterable` and `facetable` attributes are explicitly added on `category`, `tags`, `parkingIncluded`, `smokingAllowed`, and `rating` fields. In practice, `filterable` and `facetable` would be enabled by default on these fields when using the REST API. When using the .NET SDK, these attributes must be enabled explicitly.
+> This index definition is copied from [Create an Azure Cognitive Search index using the REST API](./search-get-started-powershell.md). It is identical except for superficial differences in the field definitions. The `filterable` and `facetable` attributes are explicitly added on `category`, `tags`, `parkingIncluded`, `smokingAllowed`, and `rating` fields. In practice, `filterable` and `facetable` would be enabled by default on these fields when using the REST API. When using the .NET SDK, these attributes must be enabled explicitly.
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](./search-get-started-dotnet.md#1---create-an-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Add facet filters to a query
 
@@ -120,5 +123,5 @@ Although this is a common use case, it's not something the facet navigation stru
 ## See also
 
 + [Filters in Azure Cognitive Search](search-filters.md)
-+ [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Create Index REST API](/rest/api/searchservice/create-index)
++ [Search Documents REST API](/rest/api/searchservice/search-documents)

@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
 
@@ -32,9 +32,13 @@ The following software is required to build this tutorial.
   * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) - work with Azure Functions in VS Code
   * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - serve web pages locally for testing
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
+
 ## Sign into the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Create an Azure SignalR Service instance
 
@@ -60,7 +64,8 @@ You will build and test the Azure Functions app locally. The app will access a S
 1. After the instance is deployed, open it in the portal and locate its Settings page. Change the Service Mode setting to *Serverless*.
 
     ![SignalR Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
-
+    
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Initialize the function app
 
@@ -125,7 +130,7 @@ When running and debugging the Azure Functions runtime locally, application sett
 
 1. Save the file.
 
-    
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Create a function to authenticate users to SignalR Service
 
@@ -188,6 +193,8 @@ When the chat app first opens in the browser, it requires valid connection crede
     ```
 
     This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client will use this information to connect to the SignalR Service instance.
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Create a function to send chat messages
 
@@ -270,6 +277,8 @@ The web app also requires an HTTP API to send chat messages. You will create an 
 
 1. Save the file.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
+
 ## Create and run the chat client web user interface
 
 The chat application's UI is a simple single page application (SPA) created with the Vue JavaScript framework. It will be hosted separately from the function app. Locally, you will run the web interface using the Live Server VS Code extension.
@@ -287,6 +296,8 @@ The chat application's UI is a simple single page application (SPA) created with
 1. With **index.html** open, start Live Server by opening the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) and selecting **Live Server: Open with Live Server**. Live Server will open the application in a browser.
 
 1. The application opens. Enter a message in the chat box and press enter. Refresh the application to see new messages. Because no authentication was configured, all messages will be sent as "anonymous".
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Deploy to Azure and enable authentication
 
@@ -339,13 +350,13 @@ An Azure Storage account is required by a function app running in Azure. You wil
 
 ### Configure function app for authentication
 
-So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
+So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
 1. In VS Code, open **negotiate/function.json**.
 
-1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
+1. Insert a [binding expression](../azure-functions/functions-triggers-bindings.md) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 
     ```json
     {
@@ -414,11 +425,11 @@ App Service Authentication supports authentication with Azure Active Directory, 
 
 1. Follow the documentation for the login provider of your choice to complete the configuration.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Microsoft account](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Microsoft account](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### Update the web app
 
@@ -484,9 +495,13 @@ Congratulations! You have deployed a real-time, serverless chat app!
 
 ![Demo](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
+
 ## Clean up resources
 
 To clean up the resources created in this tutorial, delete the resource group using the Azure portal.
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Next steps
 
@@ -494,3 +509,5 @@ In this tutorial, you learned how to use Azure Functions with Azure SignalR Serv
 
 > [!div class="nextstepaction"]
 > [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsauth)

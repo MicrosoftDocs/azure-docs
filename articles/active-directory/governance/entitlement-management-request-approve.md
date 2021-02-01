@@ -18,7 +18,7 @@ ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resoruces.
+#Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resources.
 
 ---
 # Approve or deny access requests in Azure AD entitlement management
@@ -47,6 +47,22 @@ If you don't have the email, you can find the access requests pending your appro
 
 1. On the **Pending** tab, find the request.
 
+## View requestor's answers to questions (Preview)
+
+1. Navigate to the **Approvals** tab in My Access.
+
+1. Go to the request you'd like to approve and click **details**. You can also click **Approve** or **Deny** if you are ready to make a decision.
+
+1. Click on **Request details**.
+
+    ![My Access portal - Access request- Click request details](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. The information provided by the requestor will be at the bottom of the panel.
+
+    ![Screenshot shows the details for the request](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. Based on the information the requestor provided, you can then approve or deny the request. See the steps in Approve or deny request for guidance.
+
 ## Approve or deny request
 
 After you open an access request pending approval, you can see details that will help you make an approve or deny decision.
@@ -63,7 +79,7 @@ After you open an access request pending approval, you can see details that will
 
 1. If necessary, enter a reason.
 
-    ![My Access portal - Access request](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![Screenshot shows the page where you accept or deny request.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Click **Submit** to submit your decision.
 

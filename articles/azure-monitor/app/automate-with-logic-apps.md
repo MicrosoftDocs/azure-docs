@@ -49,7 +49,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
-![Application ID in the Azure portal](./media/automate-with-logic-apps/5apiaccess.png)
+![Screenshot shows the API Access page in the Azure portal with the Create API key button selected.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![Application ID in the Azure portal](./media/automate-with-logic-apps/6apikey.png)
 
@@ -99,7 +99,7 @@ When you create your own queries, verify that they are working properly in Analy
     
    d. Click the **Add new parameter** drop down and select Attachments and Is HTML.
 
-      ![Office 365 Outlook configuration](./media/automate-with-logic-apps/10emailbody.png)
+      ![Screenshot shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook configuration](./media/automate-with-logic-apps/11emailparameter.png)
 

@@ -48,7 +48,7 @@ If you are unable to use a configuration metadata document, you will need to gat
 This section will walk you through updating the configuration to include your new IDP. An example configuration follows.
 
 1. Within the `identityProviders` object, add an `openIdConnectProviders` object if one does not already exist.
-1. Within the `openIdConnectProviders` object, add a key for your new provider. This is a friendly name used to reference the provider in the rest of the configuration. For example, if you wanted to require all requests to be authenticated with this provider, you would set `globalValidation.unauthenticatedClientAction` to "RedirectToLoginPage" and set `globalValidation.unauthenticatedClientAction` to this same friendly name.
+1. Within the `openIdConnectProviders` object, add a key for your new provider. This is a friendly name used to reference the provider in the rest of the configuration. For example, if you wanted to require all requests to be authenticated with this provider, you would set `globalValidation.unauthenticatedClientAction` to "RedirectToLoginPage" and set `redirectToProvider` to this same friendly name.
 1. Assign an object to that key with a `registration` object within it, and optionally a `login` object:
     
     ```json

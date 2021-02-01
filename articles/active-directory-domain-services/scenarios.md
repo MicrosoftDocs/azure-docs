@@ -2,7 +2,7 @@
 title: Common deployment scenarios for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the common scenarios and use-cases for Azure Active Directory Domain Services to provide value and meet business needs.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Common use-cases and scenarios for Azure Active Directory Domain Services

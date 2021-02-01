@@ -3,8 +3,8 @@ title: Datasets
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -19,7 +19,7 @@ ms.date: 08/24/2020
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.

@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute CrossConnnections API development and integration'
 description: This article provides a detailed overview for ExpressRoute partners about the expressRouteCrossConnections resource type.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.author: mialdrid
+ms.author: duau
 
 ---
 
@@ -28,7 +28,7 @@ Benefits of moving to the expressRouteCrossConnections resource:
 
 * Any future enhancements for ExpressRoute partners will be made available on the ExpressRouteCrossConnection resource.
 
-* Partners can apply [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+* Partners can apply [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * The expressRouteCrossConnection resource exposes APIs that can be helpful in troubleshooting ExpressRoute connections. This includes ARP table, BGP Route Table Summary, and BGP Route Table details. This capability is not supported by classic deployment APIs.
 
@@ -49,7 +49,7 @@ The test peering locations: dummy devices and ports are not exposed to productio
 
 ### 2. Register the Dev_Provider subscription to access the expressRouteCrossConnections API
 
-In order to access the expressRouteCrossConnections API, the partner subscription needs to be enrolled in the **Microsoft.Network Resource Provider**. Follow the steps in the [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) article to complete the registration process.
+In order to access the expressRouteCrossConnections API, the partner subscription needs to be enrolled in the **Microsoft.Network Resource Provider**. Follow the steps in the [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) article to complete the registration process.
 
 ### 3. Set up authentication for Azure Resource Manager REST API calls
 
@@ -57,8 +57,8 @@ Most Azure services require client code to authenticate with Resource Manager, u
 
 The authentication process involves two main steps:
 
-1. [Register the client](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
-2. [Create the access request](https://docs.microsoft.com/rest/api/azure/#create-the-request).
+1. [Register the client](/rest/api/azure/#register-your-client-application-with-azure-ad).
+2. [Create the access request](/rest/api/azure/#create-the-request).
 
 ### 4. Provide Network Contributor permission to the client application
 
@@ -74,12 +74,12 @@ Once authentication has been successfully configured, you need to grant Network 
 
 ### 5. Develop
 
-Develop against the [expressRouteCrossConnections API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections).
+Develop against the [expressRouteCrossConnections API](/rest/api/expressroute/expressroutecrossconnections).
 
 ## REST API
 
-See [ExpressRoute CrossConnections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
+See [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
 
 ## Next steps
 
-For more information on all ExpressRoute REST APIs, see [ExpressRoute REST APIs](https://docs.microsoft.com/rest/api/expressroute/).
+For more information on all ExpressRoute REST APIs, see [ExpressRoute REST APIs](/rest/api/expressroute/).

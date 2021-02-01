@@ -67,7 +67,7 @@ There are a number of factors to take into consideration when deciding the numbe
     - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
     - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
 
-The process of scaling the resources allocated to a Service Bus namespace can be automated by using [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook.md).
+To learn how to configure a Service Bus namespace to automatically scale (increase or decrease messaging units), see [Automatically update messaging units](automate-update-messaging-units.md).
 
 > [!NOTE]
 > **Scaling** of the resources allocated to the namespace can be either preemptive or reactive.
@@ -91,10 +91,9 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 To learn more about Service Bus Messaging, see the following links:
 
-* [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Service Bus Messaging overview](service-bus-messaging-overview.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Automatically update messaging units](automate-update-messaging-units.md).
+- [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

@@ -81,7 +81,7 @@ Max length: 128
 
 ## Authenticated user id
 
-Authenticated user id. The opposite of anonymous user id, this field represents the user with a friendly name. Since its PII information it is not collected by default by most SDK.
+Authenticated user id. The opposite of anonymous user id, this field represents the user with a friendly name. This is only collected by default with the ASP.NET Framework SDK's [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs).  
 
 Max length: 1024
 
@@ -109,7 +109,7 @@ Max length: 256
 
 ## Internal: SDK version
 
-SDK version. See [this article](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
+SDK version. See [this article](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
 
 Max length: 64
 

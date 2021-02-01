@@ -2,7 +2,7 @@
 title: Resolve network security group alerts in Azure AD DS | Microsoft Docs
 description: Learn how to troubleshoot and resolve network security group configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
-ms.author: iainfou
+ms.date: 12/16/2020
+ms.author: justinha
 
 ---
 # Known issues: Network configuration alerts in Azure Active Directory Domain Services
@@ -36,12 +36,14 @@ The following default inbound and outbound security rules are applied to the net
 
 | Priority | Name | Port | Protocol | Source | Destination | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Any | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Allow |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Any | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Deny<sup>1</sup> |
 | 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
 | 65500    | DenyAllInBound | Any | Any | Any | Any | Deny |
+
+
+<sup>1</sup>Optional for debugging. Allow when required for advanced troubleshooting.
 
 > [!NOTE]
 > You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.

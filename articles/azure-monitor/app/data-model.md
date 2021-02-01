@@ -43,7 +43,7 @@ Application Insights telemetry model defines a way to [correlate](./correlation.
 
 Application Insights data model is a simple and basic yet powerful way to model your application telemetry. We strive to keep the model simple and slim to support essential scenarios and allow to extend the schema for advanced use.
 
-To report data model or schema problems and suggestions use GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) repository.
+[To report data model or schema problems and suggestions use our GitHub repository](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose).
 
 ## Next steps
 

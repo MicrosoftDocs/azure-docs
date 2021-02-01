@@ -31,7 +31,7 @@ When multi-select is enabled, the control adds a **Select all** option and check
 
 Descriptions can be included with multi-select enabled.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft.Common.DropDown multi-select with descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Screenshot that shows how descriptions can be included with multi-select enabled":::
 
 When filtering is enabled, the control includes a text box for adding the filtering value.
 

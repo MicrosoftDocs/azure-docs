@@ -93,7 +93,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
 
-   1. [Download Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspbian Stretch with Desktop](https://www.raspberrypi.org/software/) (the .zip file).
 
    2. Extract the Raspbian image to a folder on your computer.
 
@@ -148,7 +148,7 @@ For sensor pins, use the following wiring:
 | SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Green cable   |
 | CS (Pin 24F)             | SPI0 CS (Pin 24)       | Blue cable    |
 
-Click to view [Raspberry Pi 2 & 3 Pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
+Click to view [Raspberry Pi 2 & 3 Pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 

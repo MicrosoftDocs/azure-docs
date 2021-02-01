@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Samanage | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Samanage.
+title: 'Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage) | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and SolarWinds Service Desk (previously Samanage).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,21 +12,21 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Samanage
+# Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
 
-In this tutorial, you learn how to integrate Samanage with Azure Active Directory (Azure AD).
-Integrating Samanage with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate SolarWinds with Azure Active Directory (Azure AD).
+Integrating SolarWinds with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Samanage.
-* You can enable your users to be automatically signed-in to Samanage (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to SolarWinds.
+* You can enable your users to be automatically signed-in to SolarWinds (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with Samanage, you need the following items:
+To configure Azure AD integration with SolarWinds Service Desk (previously Samanage), you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Samanage single sign-on enabled subscription
@@ -35,15 +35,15 @@ To configure Azure AD integration with Samanage, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Samanage supports **SP** initiated SSO
+* SolarWinds supports **SP** initiated SSO
 
-## Adding Samanage from the gallery
+## Adding SolarWinds from the gallery
 
-To configure the integration of Samanage into Azure AD, you need to add Samanage from the gallery to your list of managed SaaS apps.
+To configure the integration of SolarWinds into Azure AD, you need to add SolarWinds from the gallery to your list of managed SaaS apps.
 
-**To add Samanage from the gallery, perform the following steps:**
+**To add SolarWinds from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -55,31 +55,31 @@ To configure the integration of Samanage into Azure AD, you need to add Samanage
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Samanage**, select **Samanage** from result panel then click **Add** button to add the application.
+4. In the search box, type **SolarWinds**, select **SolarWinds** from result panel then click **Add** button to add the application.
 
-	 ![Samanage in the results list](common/search-new-app.png)
+	 ![SolarWinds in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Samanage based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Samanage needs to be established.
+In this section, you configure and test Azure AD single sign-on with SolarWinds based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in SolarWinds needs to be established.
 
-To configure and test Azure AD single sign-on with Samanage, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with SolarWinds, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Samanage Single Sign-On](#configure-samanage-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure SolarWinds Service Desk Single Sign-On](#configure-solarwinds-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Samanage test user](#create-samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of user.
+5. **[Create SolarWinds Service Desk test user](#create-solarwinds-test-user)** - to have a counterpart of Britta Simon in SolarWinds Service Desk that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Samanage, perform the following steps:
+To configure Azure AD single sign-on with SolarWinds, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Samanage** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **SolarWinds** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Samanage, perform the following steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Samanage** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set up SolarWinds** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -118,9 +118,11 @@ To configure Azure AD single sign-on with Samanage, perform the following steps:
 
 	c. Logout URL
 
-### Configure Samanage Single Sign-On
+<a name="configure-solarwinds-single-sign-on"></a>
 
-1. In a different web browser window, log into your Samanage company site as an administrator.
+### Configure SolarWinds Service Desk Single Sign-On
+
+1. In a different web browser window, log into your SolarWinds company site as an administrator.
 
 2. Click **Dashboard** and select **Setup** in left navigation pane.
    
@@ -146,7 +148,7 @@ To configure Azure AD single sign-on with Samanage, perform the following steps:
  
     f. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
  
-    g. Click **Create users if they do not exist in Samanage**.
+    g. Click **Create users if they do not exist in SolarWinds**.
  
     h. Click **Update**.
 
@@ -177,15 +179,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Samanage.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to SolarWinds.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Samanage**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SolarWinds**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Samanage**.
-
-	![The Samanage link in the Applications list](common/all-applications.png)
+2. In the applications list, select **SolarWinds**.
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -201,14 +201,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Samanage test user
+### Create SolarWinds test user
 
-To enable Azure AD users to log in to Samanage, they must be provisioned into Samanage.  
-In the case of Samanage, provisioning is a manual task.
+To enable Azure AD users to log in to SolarWinds, they must be provisioned into SolarWinds.  
+In the case of SolarWinds, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log into your Samanage company site as an administrator.
+1. Log into your SolarWinds company site as an administrator.
 
 2. Click **Dashboard** and select **Setup** in left navigation pan.
    
@@ -227,19 +227,18 @@ In the case of Samanage, provisioning is a manual task.
     ![Create User](./media/samanage-tutorial/tutorial_samanage_008.png "Create User")
    
    >[!NOTE]
-   >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Samanage user account creation tools or APIs provided by Samanage to provision Azure Active Directory user accounts.
+   >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other SolarWinds user account creation tools or APIs provided by SolarWinds to provision Azure Active Directory user accounts.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Samanage tile in the Access Panel, you should be automatically signed in to the Samanage for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SolarWinds tile in the Access Panel, you should be automatically signed in to the SolarWinds for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

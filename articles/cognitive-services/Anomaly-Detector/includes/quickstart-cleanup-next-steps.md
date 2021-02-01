@@ -2,12 +2,12 @@
 title: Next steps for Anomaly Detector quickstarts
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 11/19/2019
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ## Clean up resources

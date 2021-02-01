@@ -545,12 +545,12 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 
     ![Enable remote connections](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
-    See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps.
+    See [Configure the remote access Server Configuration Option](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) for detailed steps.
 2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
     ![Enable TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
-    See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol.
+    See [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) for details and alternate ways of enabling TCP/IP protocol.
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
 4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port**(default is **1433**).
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.

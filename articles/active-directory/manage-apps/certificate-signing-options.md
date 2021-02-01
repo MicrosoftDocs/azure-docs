@@ -4,7 +4,7 @@ description: Learn how to use advanced certificate signing options in the SAML t
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -70,5 +70,5 @@ Next, change the certificate signing options in the SAML token for that applicat
 
 ## Next steps
 
-* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](./configure-saml-single-sign-on.md)
+* [Troubleshoot SAML-based single sign-on](./debug-saml-sso-issues.md)

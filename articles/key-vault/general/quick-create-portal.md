@@ -7,10 +7,10 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -63,8 +63,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a Key Vault using the Azure portal. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
+- Review the [Azure Key Vault security overview](security-overview.md)
 - See the [Azure Key Vault developer's guide](developers-guide.md)
-- Review [Azure Key Vault best practices](best-practices.md)

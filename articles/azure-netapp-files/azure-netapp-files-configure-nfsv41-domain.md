@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
 ---
 # Configure NFSv4.1 default domain for Azure NetApp Files
@@ -21,11 +21,11 @@ NFSv4 introduces the concept of an authentication domain. Azure NetApp Files cur
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain`. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root`.  
+As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
 ## Steps 
 
@@ -49,7 +49,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 The following example shows the resulting user/group change: 
 
-![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
@@ -59,7 +59,7 @@ Azure NetApp Files supports local users (users created locally on a host) who ha
 
 In the following example, `Host1` has three existing test user accounts (`testuser01`, `testuser02`, `testuser03`): 
 
-![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Screenshot that shows that Host1 has three existing test user accounts.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
 On `Host2`, note that the test user accounts have not been created, but the same volume is mounted on both hosts:
 

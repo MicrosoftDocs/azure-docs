@@ -12,6 +12,9 @@ manager: philmea
 
 # What is industrial IoT (IIoT)
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 IIoT is the Industrial Internet of Things. IIoT enhances industrial efficiencies through the application of IoT in the manufacturing industry. 
 
 ## Improve industrial efficiencies
@@ -45,5 +48,4 @@ OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can 
 
 Now that you've had an introduction to industrial IoT and its components, here is the suggested next step:
 
-> [!div class="nextstepaction"]
-> [What is OPC Twin](overview-opc-twin.md)
+[What is OPC Twin](overview-opc-twin.md)

@@ -10,7 +10,7 @@ ms.date: 04/16/2020
 ---
 # Publish an integrated solution
 
-This article explains the overall process and requirements for publishing an integrated solution to the commercial marketplace. In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Microsoft AppSource or Azure Marketplace as a [consulting service](./consulting-services.md).
+This article explains the overall process and requirements for publishing an integrated solution to the commercial marketplace. In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Microsoft AppSource or Azure Marketplace as a [consulting service](./plan-consulting-service-offer.md).
 
 Integrated solutions aim to address a specific customer need or scenario. Providers begin by understanding the industry challenge or pain points. They then integrate two or more best-of-breed technologies to create a unified and repeatable deployment experience for customers. Providers get customers up and running rapidly. They offer a single point of contact to the customer, providing relevant customization, consulting, and solution support. The outcome is an integrated solution, including technology and services.
 
@@ -26,18 +26,17 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 ## Eligibility criteria
 
 * Participating partners must have an MPN ID.
-* Participating services providers should be co-sell ready.
-* Participating software vendors should be IP co-sell ready.
+* Participating services providers should be [co-sell ready](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Participating software vendors should be [IP co-sell ready](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * At least one participating partner must have Gold Competency in one of the following areas:
-
-    * Application Development
-    * Application Integration
-    * Application Lifecycle Management
-    * Cloud Platform
-    * Data Analytics
-    * Datacenter
-    * Data Platform
-    * DevOps
+    - Application Development
+    - Application Integration
+    - Application Lifecycle Management
+    - Cloud Platform
+    - Data Analytics
+    - Datacenter
+    - Data Platform
+    - DevOps
 
 * The solution must include at least two partner organizations, bringing together IP and services for a complete customer solution and experience.
 * The partner IP must be built on Azure, Dynamics 365, or Power Platform.
@@ -46,7 +45,7 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 
 ## Submit a nomination
 
-Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
 ## Develop an integrated solution
 
@@ -98,7 +97,7 @@ After your nomination is approved, use the linked program resources to develop y
 
 ## Publish your integrated solution
 
-After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](./consulting-services.md). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
+After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](./plan-consulting-service-offer.md). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
 
 Although five service types are available for consulting-service offers, an integrated solution must be either a proof of concept or a full implementation.
 
@@ -108,4 +107,4 @@ When your solution is live in Microsoft AppSource or Azure Marketplace, you'll w
 
 ## Next steps
 
-For information about purchasing an integrated solution in the marketplace, see [Integrated solutions](./integrated-solutions.md).
+- [Integrated solutions nomination form](https://aka.ms/AA5qicu)

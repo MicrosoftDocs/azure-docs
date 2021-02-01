@@ -27,9 +27,9 @@ Follow these steps to create demo certificates for testing your IoT Edge scenari
 1. [Set up scripts](#set-up-scripts) for certificate generation on your device.
 2. [Create the root CA certificate](#create-root-ca-certificate) that you use to sign all the other certificates for your scenario.
 3. Generate the certificates you need for the scenario you want to test:
-   * [Create IoT Edge device identity certificates](#create-iot-edge-device-identity-certificates) to test automatic provisioning with the IoT Hub Device Provisioning Service.
-   * [Create IoT Edge device CA certificates](#create-iot-edge-device-ca-certificates) to test production scenarios or gateway scenarios.
-   * [Create downstream device certificates](#create-downstream-device-certificates) to test authenticating downstream devices to IoT Hub in a gateway scenario.
+   * [Create IoT Edge device identity certificates](#create-iot-edge-device-identity-certificates) for automatic provisioning with the IoT Hub Device Provisioning Service.
+   * [Create IoT Edge device CA certificates](#create-iot-edge-device-ca-certificates) for IoT Edge devices in gateway scenarios.
+   * [Create downstream device certificates](#create-downstream-device-certificates) for authenticating downstream devices in a gateway scenario.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To create demo certificates on a Windows device, you need to install OpenSSL and
 #### Install OpenSSL
 
 Install OpenSSL for Windows on the machine that you're using to generate the certificates.
-If you already have OpenSSL installed on your Windows device, you may skip this step, but ensure that openssl.exe is available in your PATH environment variable.
+If you already have OpenSSL installed on your Windows device, ensure that openssl.exe is available in your PATH environment variable.
 
 There are several ways to install OpenSSL, including the following options:
 
@@ -178,7 +178,7 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
 ## Create IoT Edge device identity certificates
 
-Device identity certificates are used to provision IoT Edge devices through the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
+Device identity certificates are used to provision IoT Edge devices through the Azure IoT Hub Device Provisioning Service (DPS).
 
 Device identity certificates go in the **Provisioning** section of the config.yaml file on the IoT Edge device.
 
@@ -242,8 +242,6 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 The name passed to the **New-CACertsEdgeDevice** command should not be the same as the hostname parameter in config.yaml, or the device's ID in IoT Hub.
-The script helps you avoid any issues by appending a ".ca" string to the certificate name to prevent the name collision in case a user sets up IoT Edge using the same name in both places.
-However, it's good practice to avoid using the same name.
 
 ### Linux
 
@@ -252,7 +250,7 @@ However, it's good practice to avoid using the same name.
 2. Create the IoT Edge device CA certificate and private key with the following command. Provide a name for the CA certificate.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    This script command creates several certificate and key files. The following certificate and key pair needs to be copied over to an IoT Edge device and referenced in the config.yaml file:
@@ -260,9 +258,7 @@ However, it's good practice to avoid using the same name.
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-The name passed to the **create_edge_device_certificate** command should not be the same as the hostname parameter in config.yaml, or the device's ID in IoT Hub.
-The script helps you avoid any issues by appending a ".ca" string to the certificate name to prevent the name collision in case a user sets up IoT Edge using the same name in both places.
-However, it's good practice to avoid using the same name.
+The name passed to the **create_edge_device_ca_certificate** command should not be the same as the hostname parameter in config.yaml, or the device's ID in IoT Hub.
 
 ## Create downstream device certificates
 

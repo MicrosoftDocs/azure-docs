@@ -23,7 +23,7 @@ This article describes an error that you may experience when you try to connect 
 
 ## Symptoms
 
-You cannot connect to an Azure VM by using the remote desktop protocol (RDP). The connection gets stuck on the "Configuring Remote" section, or you receive the following error message:
+You can't connect to an Azure VM by using the remote desktop protocol (RDP). The connection gets stuck on the **Configuring Remote** section, or you receive the following error message:
 
 - RDP internal error
 - An internal error has occurred
@@ -32,22 +32,26 @@ You cannot connect to an Azure VM by using the remote desktop protocol (RDP). Th
 
 ## Cause
 
-This issue may occur for the following reasons:
+This issue might occur for the following reasons:
 
-- The local RSA encryption keys cannot be accessed.
+- The virtual machine might have been attacked.
+- The local RSA encryption keys can't be accessed.
 - TLS protocol is disabled.
 - The certificate is corrupted or expired.
 
 ## Solution
 
-Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+To troubleshoot this issue, complete the steps in the following sections. Before you begin, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+### Check RDP security
 
+First, check to see whether the network security group for RDP port 3389 is unsecured (open). If it's unsecured and it shows \* as the source IP address for inbound, restrict the RDP port to a specifc user's IP address, and then test RDP access. If this fails, complete the steps in the next section.
 
 ### Use Serial control
 
-Connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+
+To begin, connect to the [Serial Console and open a PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, go to the [repair the VM offline](#repair-the-vm-offline) section.
 
 #### Step: 1 Check the RDP port
@@ -90,7 +94,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
+    3. [Update the network security group for the new port](../../virtual-network/network-security-groups-overview.md) in the Azure portal RDP port.
 
 #### Step 2: Set correct permissions on the RDP self-signed certificate
 

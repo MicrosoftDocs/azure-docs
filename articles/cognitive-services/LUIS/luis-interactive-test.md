@@ -1,6 +1,8 @@
 ---
 title: Test app in LUIS portal
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
 ---
@@ -112,7 +114,7 @@ If you have several LUIS endpoints, use the **Additional Settings** link on the 
 
 
 ## Batch testing
-See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
+See batch testing [concepts](./luis-how-to-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## Next steps
 

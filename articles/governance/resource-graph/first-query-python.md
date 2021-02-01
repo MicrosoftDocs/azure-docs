@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Python query"
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
-ms.date: 07/15/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
 ---
@@ -115,8 +115,8 @@ Resource Graph query. The query returns the first five Azure resources with the 
    ```
 
    > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query multiple
-   > times is likely to yield a different set of resources per request.
+   > As this query example does not provide a sort modifier such as `order by`, running this query
+   > multiple times is likely to yield a different set of resources per request.
 
 1. Update the call to `getresources` and change the query to `order by` the **Name** property:
 

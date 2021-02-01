@@ -1,9 +1,6 @@
 ---
 title: 'Infrastructure: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -104,7 +101,7 @@ For more information, see the following articles:
 
 ## Customize HDInsight configs using Bootstrap
 
-Changes to configs in the config files such as `core-site.xml`, `hive-site.xml` and `oozie-env.xml` can be made using Bootstrap. The following script is an example using the PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Changes to configs in the config files such as `core-site.xml`, `hive-site.xml` and `oozie-env.xml` can be made using Bootstrap. The following script is an example using the PowerShell [AZ module](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration

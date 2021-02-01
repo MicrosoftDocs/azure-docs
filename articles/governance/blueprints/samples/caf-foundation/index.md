@@ -1,7 +1,7 @@
 ---
 title: CAF Foundation blueprint sample overview
 description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Foundation blueprint sample.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
@@ -17,7 +17,9 @@ be used by organizations to put in place the foundation controls necessary to ma
 estate. This sample will deploy and enforce resources, policies, and templates that will allow an
 organization to confidently get started with Azure.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="CAF Foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, image describes what gets installed as part of C A F guidance for creating a foundation to get started with Azure." border="false":::
+   Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint.  It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Azure Security Center standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.     
+:::image-end:::
 
 This implementation incorporates several Azure services used to provide a secure, fully monitored,
 enterprise-ready foundation. This environment is composed of:
@@ -27,19 +29,20 @@ enterprise-ready foundation. This environment is composed of:
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your secure deployment in to
   [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard
+- Deploy [Azure Security Center](../../../../security-center/security-center-introduction.md) (standard
   version) provides threat protection for your migrated workloads
-- The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
-  - Tagging (CostCenter) applied to resources groups
-  - Append resources in resource group with the CostCenter Tag
-  - Allowed Azure Region for Resources and Resource Groups
-  - Allowed Storage Account SKUs (choose while deploying)
-  - Allowed Azure VM SKUs (choose while deploying)
-  - Require Network Watcher to be deployed 
-  - Require Azure Storage Account Secure transfer Encryption
-  - Deny resource types (choose while deploying)  
-- Initiatives
-  - Enable Monitoring in Azure Security Center (100+ policy definitions)
+- The blueprint also defines and deploys [Azure Policy](../../../policy/overview.md) definitions:
+  - Policy definitions:
+    - Tagging (CostCenter) applied to resources groups
+    - Append resources in resource group with the CostCenter Tag
+    - Allowed Azure Region for Resources and Resource Groups
+    - Allowed Storage Account SKUs (choose while deploying)
+    - Allowed Azure VM SKUs (choose while deploying)
+    - Require Network Watcher to be deployed 
+    - Require Azure Storage Account Secure transfer Encryption
+    - Deny resource types (choose while deploying)  
+  - Policy initiatives:
+    - Enable Monitoring in Azure Security Center (100+ policy definitions)
 
 All these elements abide to the proven practices published in the
 [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).

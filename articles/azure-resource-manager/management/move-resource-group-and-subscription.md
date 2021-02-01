@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 07/15/2020 
+ms.date: 09/15/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,8 +14,6 @@ Both the source group and the target group are locked during the move operation.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
-If you are using Azure Stack Hub, you cannot move resources between groups.
-
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
@@ -24,12 +22,17 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
 
+   * If you're using Azure Stack Hub, you can't move resources between groups.
    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+
+1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
+
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Add or remove Azure role assignments](../../role-based-access-control/role-assignments-portal.md).
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -91,7 +94,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
-   If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be consolidated into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
+   If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be combined into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
 
    For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
 
@@ -162,23 +165,37 @@ While the operation is still running, you continue to receive the 202 status cod
 
 ## Use the portal
 
-To move resources, select the resource group with those resources, and then select the **Move** button.
+To move resources, select the resource group that contains those resources.
 
-![move resources](./media/move-resource-group-and-subscription/select-move.png)
+When you view the resource group, the move option is disabled.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move option disabled":::
+
+To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually. After selecting resources, the move option is enabled.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="select resources":::
+
+Select the **Move** button.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="move options":::
+
+This button gives you three options:
+
+* Move to a new resource group.
+* Move to a new subscription.
+* Move to a new region. To change regions, see [Move resources across regions (from resource group)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
 
 Select whether you're moving the resources to a new resource group or a new subscription.
 
-Select the resources to move and the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected the edit subscription icon in the previous step, you must also select the destination subscription.
+Select the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected to move to a new subscription, you must also select the destination subscription.
 
-![select destination](./media/move-resource-group-and-subscription/select-destination.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="select destination":::
 
-In **Notifications**, you see that the move operation is running.
+After validating that the resources can be moved, you see a notification that the move operation is running.
 
-![show move status](./media/move-resource-group-and-subscription/show-status.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notification":::
 
 When it has completed, you're notified of the result.
-
-![show move result](./media/move-resource-group-and-subscription/show-result.png)
 
 If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
 
@@ -198,7 +215,7 @@ If you get an error, see [Troubleshoot moving Azure resources to new resource gr
 
 ## Use Azure CLI
 
-To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -233,15 +250,15 @@ If you get an error, see [Troubleshoot moving Azure resources to new resource gr
 
 **Question: My resource move operation, which usually takes a few minutes, has been running for almost an hour. Is there something wrong?**
 
-Moving a resource is a complex operation that has different phases. It can involve more than just the resource provider of the resource you're trying to move. Because of the dependencies between resource providers, Azure Resource Manager allows 4 hours for the operation to complete. This time period gives resource providers a chance to recover from transient issues. If your move request is within the 4-hour period, the operation keeps trying to complete and may still succeed. The source and destination resource groups are locked during this time to avoid consistency issues.
+Moving a resource is a complex operation that has different phases. It can involve more than just the resource provider of the resource you're trying to move. Because of the dependencies between resource providers, Azure Resource Manager allows 4 hours for the operation to complete. This time period gives resource providers a chance to recover from transient issues. If your move request is within the four-hour period, the operation keeps trying to complete and may still succeed. The source and destination resource groups are locked during this time to avoid consistency issues.
 
-**Question: Why is my resource group locked for 4 hours during resource move?**
+**Question: Why is my resource group locked for four hours during resource move?**
 
-The 4-hour window is the maximum time allowed for resource move. To prevent modifications on the resources being moved, both the source and destination resource groups are locked for the duration of the resource move.
+A move request is allowed a maximum of four hours to complete. To prevent modifications on the resources being moved, both the source and destination resource groups are locked for the duration of the resource move.
 
-There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire 4-hour window when a resource provider fails either phase. During the allowed time, Resource Manager retries the failed step.
+There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire four hours when a resource provider fails either phase. During the allowed time, Resource Manager retries the failed step.
 
-If a resource can't be moved within the 4-hour window, Resource Manager unlocks both resource groups. Resources that were successfully moved are in the destination resource group. Resources that failed to move are left the source resource group.
+If a resource can't be moved within four hours, Resource Manager unlocks both resource groups. Resources that were successfully moved are in the destination resource group. Resources that failed to move are left the source resource group.
 
 **Question: What are the implications of the source and destination resource groups being locked during the resource move?**
 

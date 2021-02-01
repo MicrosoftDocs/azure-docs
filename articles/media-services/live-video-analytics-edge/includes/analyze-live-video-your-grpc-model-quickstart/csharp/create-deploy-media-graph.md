@@ -18,12 +18,55 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
  
     * Change the link to the graph topology:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
     * `"name"` : `"InferencingWithGrpcExtension"`
-    
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>Expand this and check out how the MediaGraphGrpcExtension node is implemented in the topology</summary>
+> <pre><code>
+> {
+> 	"@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+> 	"name": "grpcExtension",
+> 	"endpoint": {
+> 		"@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+> 		"url": "${grpcExtensionAddress}",
+> 		"credentials": {
+> 			"@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+> 			"username": "${grpcExtensionUserName}",
+> 			"password": "${grpcExtensionPassword}"
+> 		}
+> 	},
+> 	"dataTransfer": {
+> 		"mode": "sharedMemory",
+> 		"SharedMemorySizeMiB": "5"
+> 	},
+> 	"image": {
+> 		"scale": {
+> 			"mode": "${imageScaleMode}",
+> 			"width": "${frameWidth}",
+> 			"height": "${frameHeight}"
+> 		},
+> 		"format": {
+> 			"@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+> 			"encoding": "${imageEncoding}",
+> 			"quality": "${imageQuality}"
+> 		}
+> 	},
+> 	"inputs": [
+> 		{
+> 			"nodeName": "motionDetection"
+> 		}
+> 	]
+> }          
+> </code></pre>
+> </details>    
+> </p>
+
 ### Generate and deploy the IoT Edge deployment manifest
 
 1. Right-click the *src/edge/* *deployment.grpcyolov3icpu.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
@@ -36,6 +79,13 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     ![IoT Hub connection string](../../../media/quickstarts/iot-hub-connection-string-grpc.png)
+
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Right-click *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json* and select **Create Deployment for Single Device**.
 
     ![create deployment single device](../../../media/quickstarts/create-deployment-single-device-grpc.png)
@@ -46,7 +96,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
 
         > [!NOTE]
-        > If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+        > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
 
         ```
         mkdir /home/lvaadmin/samples
@@ -60,9 +110,18 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 ### Prepare to monitor events
 
-Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+
+   ![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### Run the sample program
 
@@ -73,7 +132,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -92,7 +151,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

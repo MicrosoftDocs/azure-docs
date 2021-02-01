@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -60,7 +60,7 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](../hybrid/reference-connect-device-disappearance.md).
 
 
 See below on how these actions can be rectified.
@@ -142,6 +142,12 @@ See below on how these actions can be rectified.
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
 
 ---
+
+### Q: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
+
+**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because accout limit is reached". 
+
+---
 ## Azure AD join FAQ
 
 ### Q: How do I unjoin an Azure AD joined device locally on the device?
@@ -197,7 +203,7 @@ Evaluate the Conditional Access policy rules. Make sure the device meets the cri
 
 ---
 
-### Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?
+### Q: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
@@ -314,7 +320,7 @@ Enable the following registry to block your users from adding additional work ac
 **A:** Take the following steps:
 
 1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
-1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Define a Conditional Access policy for macOS devices](../conditional-access/overview.md) 
 
 **Remarks:**
 

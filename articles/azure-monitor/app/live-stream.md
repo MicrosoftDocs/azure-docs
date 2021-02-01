@@ -32,6 +32,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
    * [ASP.NET Core](./asp-net-core.md)- Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
    * [.NET Applications - Enable using code](#enable-livemetrics-using-code-for-any-net-application).
+    * [Java](./java-in-process-agent.md) - Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
@@ -145,7 +146,7 @@ As with metrics, you can specify any arbitrary criteria to any of the Applicatio
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
-![Sampled live failures](./media/live-stream/sample-telemetry.png)
+![Screenshot shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
 
 ## Filter by server instance
 

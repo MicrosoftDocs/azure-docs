@@ -17,8 +17,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Template references
 
-- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces) 
-- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces/datasources)
+- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces
+) 
+- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## Create a Log Analytics workspace
 The following sample creates a new empty Log Analytics workspace.
@@ -605,7 +606,7 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
 
 ### Notes
 
-- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) with **-Kind** set to **CustomLog**.
+- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
   
 ### Template file
@@ -693,7 +694,6 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {

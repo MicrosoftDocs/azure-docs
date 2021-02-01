@@ -279,7 +279,7 @@ and return to your integration account.
 2.	You can also view your agreements in your integration account overview. 
 On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	![Screenshot that shows the Agreements tile.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Connector reference
 

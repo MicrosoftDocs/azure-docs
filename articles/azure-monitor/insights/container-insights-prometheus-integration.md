@@ -137,7 +137,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
            ```
@@ -254,7 +254,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
            ```
@@ -342,7 +342,7 @@ InsightsMetrics
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Screenshot shows the log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 

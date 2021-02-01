@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Upgrade to Azure Search .NET SDK version 3
@@ -21,7 +22,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-If you're using version 2.0-preview or older of the [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 3.
+If you're using version 2.0-preview or older of the [Azure Search .NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 3.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 

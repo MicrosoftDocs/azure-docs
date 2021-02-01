@@ -1,5 +1,5 @@
 ---
-title: Configuring Azure File Sync
+title: Configure Azure File Sync
 description: Configure Azure File Sync. A common text block, shared across migration docs.
 author: fauhse
 ms.service: storage
