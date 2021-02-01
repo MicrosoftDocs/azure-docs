@@ -3,7 +3,7 @@ title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, 5 or 6) audit scope a given service has reached.
 author: Jain-Garima  
 ms.author: gjain
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: article
 ms.service: azure-government
 ms.reviewer: rochiou
@@ -60,7 +60,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;&ast;** |  |
 | [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) |  |  |  | :heavy_check_mark: |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -195,7 +195,9 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Windows 10 IoT Core Services](https://azure.microsoft.com/services/windows-10-iot-core/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
-**&ast;** FedRAMP high certification covers Datacenter Infrastructure Services & Databox Pod and Disk Service which are the online software components supporting Data Box hardware appliance. 
+**&ast;** FedRAMP high certification covers Datacenter Infrastructure Services & Databox Pod and Disk Service which are the online software components supporting Data Box hardware appliance.
+
+**&ast;&ast;** FedRAMP High certification for Azure Databricks is applicable for limited regions in Azure Commercial. To configure Azure Databricks for FedRAMP High use, please reach out to your Microsoft or Databricks Representative.
 
 ## Azure Government services by audit scope
 | _Last Updated: January 2021_ |
