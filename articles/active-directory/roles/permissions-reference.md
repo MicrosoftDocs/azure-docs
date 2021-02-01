@@ -326,7 +326,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 
 ### [Password Administrator](#password-administrator-permissions)
 
-Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
+Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Password Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
 
 ### [Power BI Administrator](#power-bi-service-administrator-permissions)
 
