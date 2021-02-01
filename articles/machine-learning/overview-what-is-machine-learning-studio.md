@@ -71,9 +71,9 @@ Even if you're an experienced developer, the studio can simplify how you manage 
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is scheduled to retire on February 29th, 2024. For more information on retirement, see the [Studio (classic) migration guide](classic/migrate-step-by-step-guidance.md).
+Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. 
 
-ML Studio (classic) is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+**ML Studio (classic)** is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
 
 **Azure Machine Learning** is a separate, and modernized, service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
