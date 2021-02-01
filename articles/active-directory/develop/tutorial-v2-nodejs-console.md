@@ -17,7 +17,7 @@ ms.author: v-doeris
 # Tutorial: Call Microsoft Graph API in a Node.js console app
 
 
-In this tutorial, you build a console app that calls Microsoft Graph API using its own identity. The console app you build uses the Microsoft Authentication Library (MSAL) for Node.
+In this tutorial, you build a console app that calls Microsoft Graph API using its own identity. The console app you build uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 Follow the steps in this tutorial to:
 
@@ -49,11 +49,11 @@ Use the following settings for your app registration:
 
 Create a folder to host your application, for example *NodeConsoleApp*.
 
-1. First, change to your project directory in your terminal and then run the following `npm` commands:
+1. First, change to your project directory in your terminal and then run the following NPM commands:
 
 ```console
     npm init -y
-    npm install dotenv yargs axios @azure/msal-node
+    npm install --save dotenv yargs axios @azure/msal-node
 ```
 
 2. Next, create a folder named *bin*. Then, inside this folder, create file named *index.js* and add the following code:
@@ -103,7 +103,7 @@ Create a folder to host your application, for example *NodeConsoleApp*.
     main();
 ```
 
-This file references two other node modules: *auth.js* which contains an implementation of MSAL Node for acquiring access tokens, and *fetch.js* which contains a method for making an HTTP request to Microsoft Graph API with an the access token. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
+This file references two other node modules: *auth.js* which contains an implementation of MSAL Node for acquiring access tokens, and *fetch.js* which contains a method for making an HTTP request to Microsoft Graph API with an access token. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
 
 ```
 NodeConsoleApp/
@@ -169,7 +169,7 @@ Inside the *bin* folder, create another file named *auth.js* and add the followi
     };
 ```
 
-In the code snippet above, we first create a configuration object (*msalConfig*) and pass it to initialize an MSAL `ConfidentialClientApplication`. Then we create a method for acquiring tokens via **client credentials** and finally expose this module to be accessed by. The configuration parameters in this module are drawn from an environment file, which we will create in the next step.
+In the code snippet above, we first create a configuration object (*msalConfig*) and pass it to initialize an MSAL [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md). Then we create a method for acquiring tokens via **client credentials** and finally expose this module to be accessed by *main.js*. The configuration parameters in this module are drawn from an environment file, which we will create in the next step.
 
 ## Add app registration details
 
@@ -237,7 +237,7 @@ Inside the *bin* folder, create another file named *fetch.js* and add the follow
     };
 ```
 
-Here, the `callApi()` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API *users* endpoint which displays the users in the tenant where this app is registered.
+Here, the `callApi` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API [users endpoint](https://docs.microsoft.com/graph/api/user-list) which displays the users in the tenant where this app is registered.
 
 ## Test the app
 
