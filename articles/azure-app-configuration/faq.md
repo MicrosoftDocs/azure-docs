@@ -100,7 +100,7 @@ You can't downgrade a store from the Standard tier to the Free tier. You can cre
 
 ## Are there any limits on the number of requests made to App Configuration?
 
-Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
+In App Configuration, when reading key-values, data will be paginated and each request can read up to 100 key-values. When writing key-values, each request can create or update one key-value. This is supported through the REST API, App Configuration SDKs, and configuration providers. Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
 
 When a store reaches its limit, it will return HTTP status code 429 for all requests made until the time period expires. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
 
