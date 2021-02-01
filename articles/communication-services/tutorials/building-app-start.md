@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Note that the free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/): We'll use this to edit code in your local development environment.
 - [Webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
-- [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and Webpack.
+- [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and webpack.
 - [nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to handle version control.
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
