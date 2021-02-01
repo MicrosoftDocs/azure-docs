@@ -1,11 +1,11 @@
 ---
-title: 2 signal gate event-based video recording to your edge devices's file system and the cloud - Azure
+title: Two signal gate event-based video recording to your edge devices's file system and the cloud - Azure
 description: In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to record an event-based video recording to the cloud and play it back from the cloud.
 ms.topic: tutorial
 ms.date: 1/29/2021
 
 ---
-# Tutorial: 2 signal gate event-based video recording to your edge device's file system and the cloud.
+# Tutorial: Two signal gate event-based video recording to your edge device's file system and the cloud.
 
 In this tutorial, you’ll learn how use Azure Live Video Analytics on Azure IoT Edge to selectively record portions of a live video source to your edge device’s file system and Azure Media Services in the cloud.
 
