@@ -235,7 +235,6 @@
         - name: Concepts
           href: concepts-audit-logs.md
           displayName: monitor, alerts, audit log
-           - name: Audit logs
         - name: Configuring Audit Logs using Azure portal
           href: howto-configure-audit-logs-portal.md
           displayName: debug, audit log
