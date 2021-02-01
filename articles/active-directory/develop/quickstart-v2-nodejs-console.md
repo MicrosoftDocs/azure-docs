@@ -19,10 +19,7 @@ ms.author: v-doeris
 
 In this quickstart, you download and run a code sample that demonstrates how a Node.js console application can get an access token using the app's identity to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample demonstrates how an unattended job or Windows service can run with an application identity, instead of a user's identity.
 
-This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the client credentials grant.
-
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [client credentials grant](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
 
 ## Prerequisites
 
@@ -86,8 +83,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > [!div renderon="docs"]
 > #### Step 3: Configure your Node.js project
 >
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Edit **.env** and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
+> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
+> 1. Edit *.env* and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
 >
 >    ```json
 >    "TENANT_ID": "Enter_the_Tenant_Id_Here",
@@ -165,7 +162,7 @@ You should see on the console output some JSON fragment representing a list of u
  You can install MSAL Node by running the following npm command.
 
 ```console
-npm install @azure/msal-node
+npm install @azure/msal-node --save
 ```
 
 ### MSAL initialization
@@ -199,7 +196,7 @@ For more information, please see the [reference documentation for `ConfidentialC
 
 ### Requesting tokens
 
-To request a token using app's identity, use `AcquireTokenForClient` method:
+To request a token using app's identity, use `acquireTokenByClientCredential` method:
 
 ```javascript
 const tokenRequest = {
@@ -217,7 +214,12 @@ const tokeResponse = await cca.acquireTokenByClientCredential(tokenRequest);
 
 ## Next steps
 
-To learn more about daemon applications, see the scenario landing page
+To learn more about daemon/console app development with MSAL Node, see the tutorial:
+
+> [!div class="nextstepaction"]
+> [Daemon application that calls web APIs](tutorial-v2-nodejs-console.md)
+
+To learn more about daemon applications in general, see the scenario landing page:
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-daemon-overview.md)
