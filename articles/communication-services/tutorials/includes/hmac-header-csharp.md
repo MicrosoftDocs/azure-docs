@@ -1,7 +1,7 @@
 ---
 title: Sign an HTTP request C#
 description: This is the C# version of singing an HTTP request for Communication Services.
-author: apistrak
+author: alexandra142
 manager: soricos
 services: azure-communication-services
 

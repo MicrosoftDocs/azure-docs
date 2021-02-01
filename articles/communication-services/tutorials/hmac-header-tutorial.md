@@ -2,7 +2,7 @@
 title: How to Sign an HTTP request C#
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to Sign an HTTP request  Communication services via C#
-author: apistrak
+author: alexandra142
 manager: soricos
 services: azure-communication-services
 
