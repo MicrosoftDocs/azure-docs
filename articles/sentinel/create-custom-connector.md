@@ -28,32 +28,21 @@ If you are unable to connect your data source to Azure Sentinel using any of the
 
 If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
 
-The Log Analytics agent is based on [Fluentd](https://www.fluentd.org/), and can use any [Fluentd input plugin](https://www.fluentd.org/plugins/all#input-output) bundled with the agent to collect events and then forward them to an Azure Sentinel workspace.
-
 - For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
 
-    For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
-
-- For more information about other collection roles supported by the Log Analytics agent, see the [Azure Sentinel Agent: Collecting from servers and workstations, on-prem and in the cloud
-](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-agent-collecting-from-servers-and-workstations-on/ba-p/811760) blog.
-
-## Use Fluentd or Fluent Bit with the Log Analytics agent
-
-If the Log Analytics agent is not flexible enough for your data source, you may want to use [Fluentd](https://www.fluentd.org/) directly or its lighter sibling, [Fluent Bit](https://docs.fluentbit.io/manual/) to create your custom connector.
-
-For more information, see [Fluent Bit plug-in for Azure Sentinel](https://docs.fluentbit.io/manual/pipeline/outputs/azure).
+- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
  
 ## Use Logstash to create your connector
 
-If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use the [Logstash output plug-in for Azure Sentinel](connect-logstash.md) to create your custom connector.
+If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use Logstash with the [Logstash output plug-in for Azure Sentinel](connect-logstash.md) to create your custom connector.
 
-The Logstash plugin enables you to use any Logstash input plugin, and configure Azure Sentinel as the output for a Logstash pipeline.
+You can use any Logstash input and filtering plugins and configure Azure Sentinel as the output for a Logstash pipeline. Logstash's large library of plug-ins enables input from sources such as Event Hubs, Apache Kafka, Files, Databases, and Cloud services. Use filtering plug-ins to parse events, filter unnecessary events, obfuscate values, and more.
 
-Sample use cases for the Logstash plug-in include:
+For an example of using Logstash as a custom connector, see [Collecting AWS CloudWatch data](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (*Ingest S3 Logs to Azure Sentinel via Logstash*).
 
-- [Collecting AWS CloudWatch data](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767). See *Ingest S3 Logs to Azure Sentinel via Logstash*.
-- [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
-
+> [!TIP]
+> Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
+> 
 
 ## Using Logic Apps to create your connector
 
