@@ -84,7 +84,7 @@ Then, select **OK** to save the values and create the gateway subnet.
     | Public IP address name | Provide a name for the public IP address. |
 
 > [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku**.
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **SKU**.
 > 
 > 
 

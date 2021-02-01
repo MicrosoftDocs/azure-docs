@@ -73,8 +73,12 @@ Configure routing domains. If your connectivity provider manages Layer 3 configu
 
 Enable private peering to connect to VMs and cloud services deployed within the Azure virtual network.
 
-* Peering subnet for path 1 (/30)
-* Peering subnet for path 2 (/30)
+* IPv4 subnets:
+    * Peering subnet for path 1 (/30)
+    * Peering subnet for path 2 (/30)
+* IPv6 subnets (optional):
+    * Peering subnet for path 1 (/126)
+    * Peering subnet for path 2 (/126)
 * VLAN ID for peering
 * ASN for peering
 * ExpressRoute ASN = 12076
@@ -84,8 +88,12 @@ Enable private peering to connect to VMs and cloud services deployed within the 
 
 Enable this to access Microsoft online services, such as Microsoft 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
-* Peering subnet for path 1 (/30) - must be public IP
-* Peering subnet for path 2 (/30) - must be public IP
+* IPv4 subnets:
+    * Peering subnet for path 1 (/30) - must be public IP
+    * Peering subnet for path 2 (/30) - must be public IP
+* IPv6 subnets (optional):
+    * Peering subnet for path 1 (/126) - must be public IP
+    * Peering subnet for path 2 (/126) - must be public IP
 * VLAN ID for peering
 * ASN for peering
 * Advertised prefixes - must be public IP prefixes
