@@ -96,6 +96,8 @@ Create an Azure Sentinel playbook to use a Logic App as a serverless, custom con
 For examples of how you can create a custom connector for Azure Sentinel using Logic Apps, see:
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
+- [Sending enriched Azure Sentinel alerts to 3rd party SIEM and ticketing systems](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976) (blog)
+- [Ingesting AlienVault OTX threat indicators into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
 - [Sending Proofpoint TAP logs to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
 
 
@@ -155,7 +157,8 @@ Use Azure Functions to create a serverless, custom connector using the API conne
 
 For examples of this method, see:
 
-- [Ingesting XML, CSV, or other formats of data](https://docs.microsoft.com/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (GitHub)
 - [Universal logging for LISA app](https://microsoft.github.io/techcasestudies/azure%20functions/2017/05/15/LisaApp.html) (Technical Case Studies)
 
