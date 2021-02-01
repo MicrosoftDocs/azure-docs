@@ -138,7 +138,7 @@
               href: restorable-mongodb-resources-list.md
             - name: Restorable MongoDB collections - List
               href: restorable-mongodb-collections-list.md
-            - name: Restorable MongoDb databases - List
+            - name: Restorable MongoDB databases - List
               href: restorable-mongodb-databases-list.md
         - name: Compliance
           href: compliance.md
