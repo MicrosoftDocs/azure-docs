@@ -38,7 +38,7 @@ A blob data source definition looks similar to the example below:
 }
 ```
 
-The `"credentials"` property can be a connection string, as shown in the above example, or one of the alternative approaches described in the next section. The `"container"` property provides the location of content within Azure Storage. For more information about data source definitions, see [Create Data Source (REST)](/rest/api/searchservice/create-data-source).
+The `"credentials"` property can be a connection string, as shown in the above example, or one of the alternative approaches described in the next section. The `"container"` property provides the location of content within Azure Storage, and `"query"` is used to specify a subfolder in the container. For more information about data source definitions, see [Create Data Source (REST)](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 
@@ -71,7 +71,7 @@ The SAS should have the list and read permissions on the container. For more inf
 
 ## Index definitions
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience. The following example creates a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). The searchable **`content`** field is used to store the text extracted from blobs:
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience. The following example creates a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -87,17 +87,23 @@ api-key: [admin key]
 }
 ```
 
+Index definitions require one field in the `"fields"` collection to act as the document key. Index definitions should also include fields for content and metadata.
+
+A **`content`** field is used to store the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, no field mappings required.
+
+You could also add fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties. For more information about indexes, see [Create an index](search-what-is-an-index.md).
+
 <a name="DocumentKeys"></a>
 
 ### Defining document keys and field mappings
 
 In a search index, the document key uniquely identifies each document. The field you choose must be of type `Edm.String`. For blob content, the best candidates for a document key are metadata properties on the blob.
 
-+ **`metadata_storage_name`** - this might be a convenient candidate, but only if names are unique across the container and folders. If you're indexing from multiple containers, the name must be unique in the search index after all content has been indexed. 
++ **`metadata_storage_name`** - this property is a candidate, but only if names are unique across all containers and folders you are indexing. Regardless of blob location, the end result is that the document key (name) must be unique in the search index after all content has been indexed. 
 
-  Another consideration is that the name might contain characters that are invalid in document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
+  Another potential issue about the storage name is that it might contain characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
 
-+ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you have the option of encoding the keys using the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction).
++ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
 
 + A third option is to add a custom metadata property to the blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed.
 
@@ -170,15 +176,6 @@ api-key: [admin key]
 }
 ```
 
-<!-- ### Using blob metadata to control how blobs are indexed
-
-The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
-
-| Property name | Property value | Explanation |
-| ------------- | -------------- | ----------- |
-| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. | -->
-
 <a name="how-azure-search-indexes-blobs"></a>
 
 ### Indexing blob content
@@ -192,11 +189,13 @@ The textual content of the document is extracted into a string field named `cont
   > [!NOTE]
   > Azure Cognitive Search limits how much text it extracts depending on the pricing tier. The current [service limits](search-limits-quotas-capacity.md#indexer-limits) are 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. A warning is included in the indexer status response for truncated documents.  
 
+<a name="indexing-blob-metadata"></a>
+
 ### Indexing blob metadata
 
 Indexers can also index blob metadata. First, any user-specified metadata properties can be extracted verbatim. To receive the values, you must define field in the search index of type `Edm.String`, with same name as the metadata key of the blob. For example, if a blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
 
-Second, standard blob metadata properties can be extracted into the fields listed below. If you're using the **Import data** wizard for blob indexing, the wizard will automatically generate the corresponding fields in the index schema. For programmatic solutions, you must define any fields you want to use in the index schema:
+Second, standard blob metadata properties can be extracted into the fields listed below. The blob indexer automatically creates internal field mappings for these blob metadata properties. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the indexer.
 
   + **metadata_storage_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
@@ -218,11 +217,11 @@ It's important to point out that you don't need to define fields for all of the 
 
 <a name="WhichBlobsAreIndexed"></a>
 
-## Index by file type
+## How to control which blobs are indexed
 
-You can control which blobs are indexed, and which are skipped, by the blob's file type.
+You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
 
-### Include blobs having specific file extensions
+### Include specific file extensions
 
 Use `indexedFileNameExtensions` to provide a comma-separated list of file extensions to index (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
 
@@ -237,7 +236,7 @@ api-key: [admin key]
 }
 ```
 
-### Exclude blobs having specific file extensions
+### Exclude specific file extensions
 
 Use `excludedFileNameExtensions` to provide a comma-separated list of file extensions to skip (again, with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
 
@@ -254,9 +253,18 @@ api-key: [admin key]
 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, the indexer first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is in both lists, it will be excluded from indexing.
 
+### Add "skip" metadata the blob
+
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this properties, it will skip the blob or its content in the indexing run.
+
+| Property name | Property value | Explanation |
+| ------------- | -------------- | ----------- |
+| `AzureSearch_Skip` |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| `AzureSearch_SkipContent` |`"true"` |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
+
 ## Index large datasets
 
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up:
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). Here's how you can set this up:
 
 + Partition your data into multiple blob containers or virtual folders
 

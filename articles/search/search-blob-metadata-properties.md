@@ -13,7 +13,7 @@ ms.date: 02/03/2021
 
 # Content metadata properties used in blob indexing in Azure Cognitive Search
 
-Blobs can contain various content, and many of those content types have metadata properties that can be useful in blob indexing. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that specific to a document format.
+Blobs can contain various content, and many of those content types have metadata properties that can be useful in blob indexing. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that are specific to a document format.
 
 ## Supported document formats
 
