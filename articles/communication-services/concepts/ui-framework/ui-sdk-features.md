@@ -1,5 +1,5 @@
 ---
-title: UI Framework capabilities
+title: Azure Communication Services UI Framework capabilities
 titleSuffix: An Azure Communication Services conceptual document
 description: Learn about UI Framework capabilities
 author: ddematheu2
