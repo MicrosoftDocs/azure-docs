@@ -13,30 +13,55 @@ ms.date: 11/27/2020
 
 # Migrate to Azure Machine Learning from Studio (classic)
 
-In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning.
+In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources to Azure Machine Learning, you must manually rebuild your experiments.
+
+Azure Machine Learning combines no-code and code-first approaches to create an inclusive data science platform. Train, deploy, automate, manage, and track ML models.
 
 
+## Recommended approach
 
-## Migration overview
+To migrate to Azure Machine Learning, we recommend the following approach:
 
-At this time, to migrate resources from Studio (classic) to Azure Machine Learning, you must manually rebuild your experiments.
+> [!div class="checklist"]
+> * Step 1: Assess readiness
+> * Step 2: Prepare to migrate
+> * Step 3: Rebuild experiments and web services
+> * Step 4: Integrate client apps
 
-To rebuild your Studio (classic) experiments and web services, you must:
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+## Step 1: Assess readiness
+1. Learn about the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
+1. [Compare the capabilities](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) of Azure Machine Learning and Studio (classic).
+1. Azure Machine Learning supports code-first development, in addition to the drag-and-drop designer. If you're interested, see [MLOps: Model management, deployment, and monitoring](../concept-model-management-and-deployment.md).
 
-1. [Rebuild the training experiment using drag-and-drop modules](migrate-rebuild-experiment.md).
-    - Recreate the dataset in Azure Machine Learning.
-    - Use the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping) to select replacement modules.
-        
-1. [Rebuild the web service](migrate-rebuild-web-service.md).
+## Step 2: Prepare to migrate
 
-1. [Integrate the web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+1. Identify data sets that you want to migrate:
+    
+    Go your Studio (classic) workspace and take the opportunity to clean up data sets that you no longer use, and identify datasets you want to migrate.
 
+1. Determine the impact that a migration will have on your business.
+    
+    For example, can you afford any downtime while the migration takes place?
+
+1. Create a migration plan.
+
+## Step 3: Rebuild experiments and web services
+
+1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace) to migrate your Studio (classic) experiments to.
+1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md) with drag-and-drop modules.
+1. Use the designer to rebuild your [web services](migrate-rebuild-web-service.md).
+
+> [!NOTE]
+> Azure Machine Learning also supports code-first workflows for [training](../how-to-setup-training-targets.md) and [deployment](../how-to-deploy-and-where.md).
+
+## Step 4: Integrate client apps
+
+1. Cut over any client applications to your new [Azure Machine Learning endpoints](migreate-rebuild-integrate-with-client-app.md).
 
 ## Example migration
 
-See a basic experiment migration to compare some of the differences between Studio (classic) and Azure Machine Learning. We use the Automobile price prediction sample included in both services.
+The following basic experiment migration highlights some of the differences between Studio (classic) and Azure Machine Learning.
 
 ### Datasets
 
@@ -72,7 +97,7 @@ In Azure Machine Learning, **real-time endpoints** are used for real-time predic
 
 ## Next steps
 
-See detailed steps on how to migrate from Studio (classic) to Azure Machine Learning:
+In this article, you learned the recommended plan for  detailed steps on how to migrate from Studio (classic) to Azure Machine Learning:
 
 1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
 1. [Rebuild the training pipeline](migrate-rebuild-experiment.md).
