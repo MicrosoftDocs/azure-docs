@@ -154,7 +154,7 @@ You may notice that sometimes that the "list files" shows a non zero size as exp
 Using wc -c will always fetch the latest value from the server and thus will not have any inconsistency.
 
 #### Workaround 2: Use "noac" mount flag
-Remount the file system using the "noac" flag on mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations when using this workaround.
+Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
