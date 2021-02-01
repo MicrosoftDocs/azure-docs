@@ -49,7 +49,7 @@ For more information, see [Fluent Bit plug-in for Azure Sentinel](https://docs.f
 
 If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use the [Logstash output plug-in for Azure Sentinel](connect-logstash.md) to create your custom connector.
 
-The Logstash plugin enables you to leverage any Logstash input plugin, and configure Azure Sentinel as the output for a Logstash pipeline.
+The Logstash plugin enables you to use any Logstash input plugin, and configure Azure Sentinel as the output for a Logstash pipeline.
 
 Sample use cases for the Logstash plug-in include:
 
@@ -69,7 +69,7 @@ Create an Azure Sentinel playbook to use a Logic App as a serverless, custom con
 
 1. **Use one of the following triggers to start your playbook**:
 
-    - **A recurring task**. For example, schedule your Logic App to retrieve data from specific files, databases, or external APIs on a regular basis. For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence). 
+    - **A recurring task**. For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence). 
     - **On-demand triggering**. Run your Logic App on-demand for manual data collection and testing. For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).
     - **HTTP/S endpoint**. Recommended for streaming, and if the source system can initiate the data transfer. For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).
 
@@ -124,9 +124,9 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 |**WorkspaceKey**     |   The primary or secondary key for the Azure Sentinel workspace where you'll be storing your data. [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
 |**LogTypeName**     |    The name of the custom log table where you want to store the data. A suffix of **_CL** will automatically be added to the end of your table name.  |
 |**AddComputerName**     |   When this parameter exists, the script adds the current computer name to every log record, in a field named **Computer**.      |
-|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, as well as adheres to resource-centric, role-based access control.       |
-|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds an additional field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
-|**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds an additional field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
+|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
+|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
+|**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
 |     |         |
 
 ### Find your workspace ID and key
@@ -146,16 +146,16 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 
 For more information, see the [Log Analytics Data collector API](/azure/azure-monitor/platform/data-collector-api), especially the following examples:
 
-- [C#](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
+- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
  
 ## Use Azure Functions to create your custom connector
 
-For an additional serverless option, you can use Azure Functions to implement a connector using the API connector and any language, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
+Use Azure Functions to create a serverless, custom connector using the API connector and any language, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
 For examples of this method, see:
 
-- [Ingesting XML, CSV, or other formats of data](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Ingesting XML, CSV, or other formats of data](https://docs.microsoft.com/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (GitHub)
 - [Universal logging for LISA app](https://microsoft.github.io/techcasestudies/azure%20functions/2017/05/15/LisaApp.html) (Technical Case Studies)
 
@@ -174,7 +174,7 @@ When you parse at query time, you don't need to know your data's exact structure
 
 Updating your parser also applies to data that you've already ingested into Azure Sentinel.
 
-Save your parsers as functions, and use those functions instead of Azure Sentinel tables in any query, including hunting an detection queries. For more information, see:
+Save your parsers as functions, and use those functions instead of Azure Sentinel tables in any query, including hunting and detection queries. For more information, see:
 
 - [Data normalization in Azure Sentinel](normalization.md#parsers)
 - [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
