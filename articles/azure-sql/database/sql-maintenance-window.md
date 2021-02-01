@@ -30,7 +30,7 @@ SQL Maintenance Window can be configured using the Azure portal PowerShell, 
 
 ### Gain more predictability with SQL maintenance window
 
-By default, all SQL Azure databases and Managed Instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional SQL Maintenance Window slots:
+By default, all SQL Azure databases and Managed Instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the Azure region that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional SQL Maintenance Window slots:
 
 * **Default** window, 5PM to 8AM local time Mon-Sunday 
 * Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in** 

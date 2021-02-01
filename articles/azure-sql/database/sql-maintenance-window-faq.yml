@@ -23,7 +23,11 @@ sections:
 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
-          The default window remains 5PM to 8AM local time, Monday - Sunday.
+          The default window remains 5PM to 8AM local time, Monday - Sunday. 
+
+      - question: Users work in a different time zone than the Azure data center. Which time zone is local?
+        answer: |
+          Local time is determined by the Azure region that hosts the resource, such as the Azure SQL Database. 
 
       - question: Can I choose a specific time/day for the SQL Maintenance Window?
         answer: |
