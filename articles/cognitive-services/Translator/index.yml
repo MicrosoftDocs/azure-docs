@@ -26,8 +26,10 @@ landingContent:
         links:
           - text: Translator
             url: translator-info-overview.md
+          - text: Document Translation
+            url:  document-translation/overview.md  
           - text: Custom Translator
-            url: translator-info-overview.md
+            url: custom-translator/overview.md
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
           - text: Compliance
