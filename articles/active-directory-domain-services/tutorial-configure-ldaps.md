@@ -211,6 +211,12 @@ It takes a few minutes to enable secure LDAP for your managed domain. If the sec
 
 Some common reasons for failure are if the domain name is incorrect, the encryption algorithm for the certificate isn't *TripleDES-SHA1*, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
 
+## Change an expiring certificate
+
+1. Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](#create-a-certificate-for-secure-ldap).
+1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Azure portal, select **Secure LDAP**, and then select **Change Certificate**.
+1. Distribute the certificate to any clients that connect by using secure LDAP. 
+
 ## Lock down secure LDAP access over the internet
 
 When you enable secure LDAP access over the internet to your managed domain, it creates a security threat. The managed domain is reachable from the internet on TCP port 636. It's recommended to restrict access to the managed domain to specific known IP addresses for your environment. An Azure network security group rule can be used to limit access to secure LDAP.
@@ -285,12 +291,6 @@ If you added a DNS entry to the local hosts file of your computer to test connec
 1. On your local machine, open *Notepad* as an administrator
 1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
-
-## Change Expiring Certificate
-
-1. Create a replacement secure LDAP certificate by following the steps to create a certificate for secure LDAP above.
-1. Apply the replacement certificate to Azure AD DS by choosing **Secure LDAP** on the left-hand side of the Azure AD DS protal and choosing **Change Certificate**.
-1. Distribute the certificate to any clients that connect using secure LDAP.
 
 ## Next steps
 
