@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor view designer to workbooks tile conversions
-description: 
+description: Details for converting tiles to workbooks when transitioning from views in Azure Monitor.
 author: austonli
 ms.author: aul
 

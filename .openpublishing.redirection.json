@@ -62081,11 +62081,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/insights/wire-data.md",
-      "redirect_url": "/azure/azure-monitor/insights/wire-data",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-overview.md",
       "redirect_url": "/azure/azure-monitor/visualizations/workbooks-overview",
       "redirect_document_id": false
