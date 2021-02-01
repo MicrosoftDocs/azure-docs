@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -29,6 +29,10 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 ## How container soft delete works
 
 When you enable container soft delete, you can specify a retention period for deleted containers that is between 1 and 365 days. The default retention period is 7 days. During the retention period, you can recover a deleted container by calling the **Undelete Container** operation.
+
+The following diagram shows how a deleted container can be restored when container soft delete is enabled:
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted container may be restored":::
 
 When you restore a container, you can restore it to its original name if that name has not been reused. If the original container name has been used, then you can restore the container with a new name.
 
