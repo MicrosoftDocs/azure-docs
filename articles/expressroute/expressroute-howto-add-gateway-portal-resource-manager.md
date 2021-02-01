@@ -44,6 +44,11 @@ The steps for this task use a VNet based on the values in the following configur
 
 You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 
+> [!IMPORTANT]
+> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines described [here](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## Create the gateway subnet
 
 1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
@@ -53,7 +58,11 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     ![Add the gateway subnet](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Add the gateway subnet")
 
 
-4. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements. We recommend creating a gateway subnet with a /27 or larger (/26, /25, etc.). Then, click **OK** to save the values and create the gateway subnet.
+4. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements. We recommend creating a gateway subnet with a /27 or larger (/26, /25, etc.). 
+
+If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, click **Add IP6 address space** and input **IPv6 address range** values.
+
+Then, click **OK** to save the values and create the gateway subnet.
 
     ![Adding the subnet](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Adding the subnet")
 
@@ -65,7 +74,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     ![Create virtual network gateway blade fields](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Create virtual network gateway blade fields")
 3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
 4. **Gateway type**: Select **ExpressRoute**.
-5. **SKU**: Select the gateway SKU from the dropdown.
+5. **SKU**: Select the gateway SKU from the dropdown. If you are planning to use IPv6-based private peering, select an AZ SKU.
 6. **Location**: Adjust the **Location** field to point to the location where your virtual network is located. If the location is not pointing to the region where your virtual network resides, the virtual network doesn't appear in the 'Choose a virtual network' dropdown.
 7. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
 9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned. Click **OK** to save your changes to this blade.
