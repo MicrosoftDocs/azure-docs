@@ -20,13 +20,25 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ## January 2021
 
+### New articles
+
+- [Logging in MSAL for Android](msal-logging-android.md)
+- [Logging in MSAL.NET](msal-logging-dotnet.md)
+- [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+- [Logging in MSAL for Java](msal-logging-java.md)
+- [Logging in MSAL.js](msal-logging-js.md)
+- [Logging in MSAL for Python](msal-logging-python.md)
+
 ### Updated articles
 
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+- [Application model](application-model.md)
 - [Authentication vs. authorization](authentication-vs-authorization.md)
 - [How to: Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
 - [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
 - [Configurable token lifetimes in Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
 - [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
 
 ## December 2020
