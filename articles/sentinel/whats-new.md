@@ -27,7 +27,7 @@ Some of the features listed below are currently in PREVIEW. The [Azure Preview S
 
 ## January 2021
 
-- [New Az.SecurityInsights PowerShell module (Public preview)](#new-azsecurityinsights-powershell-module-public-preview)
+- [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
 - [Improved incident comments](#improved-incident-comments)
 - [Dedicated Log Analytics clusters](#dedicated-log-analytics-clusters)
@@ -35,7 +35,7 @@ Some of the features listed below are currently in PREVIEW. The [Azure Preview S
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-### New Az.SecurityInsights PowerShell module (Public preview)
+### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
 
