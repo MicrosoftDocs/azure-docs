@@ -39,4 +39,4 @@ Access to the spatial analysis public preview is subject to Microsoft's sole dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Spatial Analysis Container](intro-to-spatial-analysis-public-preview.md)
+> [Get started with Spatial Analysis Container](spatial-analysis-container.md)
