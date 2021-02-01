@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **Server** tab.
 
-   ![Server](./media/airwatch-tutorial/server.png "Server")
+   ![Server](./media/airwatch-tutorial/directory.png "Server")
 
 1. Perform the following steps on the **LDAP** section:
 
