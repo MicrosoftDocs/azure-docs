@@ -570,14 +570,6 @@ productDirectory:
         - containers
       url: container-instances/index.yml
     # Card
-    - title: Linux Virtual Machines
-      summary: Provision virtual machines for Ubuntu, Red Hat, and more
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      azureCategories:
-        - featured
-        - compute
-      url: virtual-machines/linux/index.yml
-    # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
       imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
@@ -600,6 +592,14 @@ productDirectory:
         - compute
         - web
       url: static-web-apps/index.yml
+    # Card
+    - title: Virtual Machines
+      summary: Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+      azureCategories:
+        - featured
+        - compute
+      url: virtual-machines/index.yml
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
@@ -625,14 +625,6 @@ productDirectory:
         - compute
         - windows-virtual-desktop
       url: virtual-desktop/index.yml
-    # Card
-    - title: Windows Virtual Machines
-      summary: Provision Windows virtual machines in seconds
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      azureCategories:
-        - featured
-        - compute
-      url: virtual-machines/windows/index.yml
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
