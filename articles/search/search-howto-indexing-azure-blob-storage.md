@@ -64,12 +64,10 @@ The SAS should have the list and read permissions on containers and objects (blo
 **Container shared access signature**: 
 `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }`
 
-The SAS should have the list and read permissions on the container. 
-
-For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md).
+The SAS should have the list and read permissions on the container. For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
 ## Index definitions
 
