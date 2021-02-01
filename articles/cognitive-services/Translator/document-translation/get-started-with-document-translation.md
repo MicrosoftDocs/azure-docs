@@ -10,14 +10,14 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  It enables the translation of whole documents from and to more than 70 languages available in the Translator service. In this article, you'll learn to use Document Translator via your programming language and HTTP REST API methods.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents from and to more than 70 languages while preserving source document structure and text formatting. Here, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
 
 ## Prerequisites
 
 To get started, you'll need:
 
 1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
-1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft)  or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription. *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md##create-a-new-azure-cognitive-services-resource).
+1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft)  or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription. *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account. 
 
 ## Create Azure blob storage containers
@@ -99,7 +99,7 @@ All requests to the Translator service require an **endpoint** URL and a read-on
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your key and endpoint in a convenient location, such as *Microsoft Notepad*.
+1. Copy and paste your subscription key and resource endpoint in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste them into the code below to connect your application to the Document Translation service.
 
 >[!NOTE]
@@ -112,7 +112,7 @@ The following headers are included with each Document Translator API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure secret key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
 |Ocp-Apim-Subscription-Region|**Required** if you're using the Cognitive Services resource. </br>**Optional** if you're using a Translator resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 |Content-Length|**Required**: the length of the request body.|
@@ -173,7 +173,7 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 ```http
 POST YOUR-ENDPOINT-QUERY-STRING/batches
 Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-RESOURCE-KEY
+Ocp-Apim-Subscription-Key: YOUR-SUBSCRIPTION-KEY
 Content-Type: application/json
 Content-Length: YOUR-CONTENT-LENGTH
 
@@ -220,14 +220,14 @@ Content-Length: YOUR-CONTENT-LENGTH
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
 * Copy pasted the code below into your project.
-* Set your endpoint. subscription key, and container URL values.
+* Set your endpoint, subscription key, and container URL values.
 * Run the program.
 
 ### [Python](#tab/python)  
 
 * Create a new project.
 * Copy and paste the code from one of the samples into your project.
-* Set your endpoint. subscription key, and container URL values.
+* Set your endpoint, subscription key, and container URL values.
 * Run the program. For example: `python translate.py`.
   
 ### [Java](#tab/java)
@@ -287,7 +287,7 @@ gradle run
 
 * Create a new Go project.
 * Add the code provided below.
-* Set your endpoint. subscription key, and container URL values.
+* Set your endpoint, subscription key, and container URL values.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
 * Build the file, for example: 'go build example-code.go'.
@@ -310,7 +310,7 @@ gradle run
 > For the **C#**, **Node.js**, **Python**, **Java**, and **Go** code samples, below, you will need to update the following fields:  
 >
 >> 1. endpoint
->> 1. resourceKey
+>> 1. subscriptionKey
 >> 1. sourceURL
 >> 1. targetURL
 >
@@ -335,7 +335,7 @@ gradle run
 
         private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT";
 
-        private static readonly string resourceKey = "YOUR-RESOURCE-KEY";
+        private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
 
         // Add your location, also known as region. The default is global.
         // This is required if using a Cognitive Services resource.
@@ -355,7 +355,7 @@ gradle run
                 // Create the request
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", resourceKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 request.Content = content;
                 request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
@@ -386,7 +386,7 @@ gradle run
 const axios = require('axios').default;
 
 let endpoint = "https://YOUR-RESOURCE-ENDPOINT";
-let resourceKey = "YOUR-RESOURCE-KEY";
+let subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
@@ -414,7 +414,7 @@ let config = {
   baseURL: endpoint,
   url: '/batches', 
   headers: {
-    'Ocp-Apim-Subscription-Key': resourceKey,
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-Type': 'application/json'
     //'Ocp-Apim-Subscription-Region': location,
   },
@@ -441,7 +441,7 @@ import requests
 path ='/batches/'
 endpoint = "https://YOUR-RESOURCE-ENDPOINT"
 constructed_url = endpoint + path
-resourceKey =  'YOUR-RESOURCE-KEY'
+subscriptionKey =  'YOUR-SUBSCRIPTION-KEY'
 
 payload= {
     "inputs": [
@@ -466,7 +466,7 @@ payload= {
     ]
 }
 headers = {
-  'Ocp-Apim-Subscription-Key': resourceKey,
+  'Ocp-Apim-Subscription-Key': subscriptionKey,
   'Content-Type': 'application/json'
 }
 
@@ -484,7 +484,7 @@ import java.util.*;
 import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
-    String resourceKey = "'YOUR-RESOURCE-KEY'";
+    String subscriptionKey = "'YOUR-SUBSCRIPTION-KEY'";
     String url = "https://YOUR-RESOURCE-ENDPOINT/batches";
 
     OkHttpClient client = new OkHttpClient();
@@ -494,7 +494,7 @@ public class DocumentTranslation {
         RequestBody body = RequestBody.create(mediaType,  "{ \"inputs\": [ {  \"source\": { \"sourceUrl\": \"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\", \"storageSource\": \"AzureBlob\",  \"language\": \"en\", \"filter\":{ \"prefix\": \"Demo_1/\" }  },  \"targets\": [ { \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\": \"AzureBlob\", \"category\": \"general\",  \"language\": \"es\" }  ] } ]}");
         Request request = new Request.Builder()
                 .url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", resourceKey)
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -527,13 +527,13 @@ import (
 
 func main() {
 url := "https://YOUR-RESOURCE-ENDPOINT/batches"
-resourceKey := "YOUR-RESOURCE-KEY"
+subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
 method := "POST"
 
 var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
-req.Header.Add("Ocp-Apim-Subscription-Key", resourceKey)
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -585,7 +585,7 @@ class Program
 
     private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
 
-    private static readonly string resourceKey = "YOUR-RESOURCE-KEY";
+    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
 
     //// Add your location, also known as region. The default is global.
     //// This is required if using a Cognitive Services resource.
@@ -596,7 +596,7 @@ class Program
 
         using HttpClient client = new HttpClient();
 
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "endpoint");
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "subscriptionKey");
         HttpResponseMessage response = await client.GetAsync("endpoint");
         var content = await client.GetStringAsync("endpoint");
         Console.WriteLine(response.StatusCode);
@@ -612,14 +612,14 @@ class Program
 
 const axios = require('axios');
 
-let resourceKey = "YOUR-RESOURCE-KEY";
+let subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
 let endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
 
 let config = {
   method: 'get',
-  url: 'resourceKey',
+  url: 'subscriptionKey',
   headers: { 
-    'Ocp-Apim-Subscription-Key': 'endpoint'
+    'Ocp-Apim-Subscription-Key': 'subscriptionKey'
   }
 };
 
@@ -652,13 +652,13 @@ public class DocumentTranslator {
 
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
-String resourceKey = "YOUR-RESOURCE-KEY";
+String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
 String endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
 
 Request request = new Request.Builder()
   .url(endpoint)
   .method("GET", null)
-  .addHeader("Ocp-Apim-Subscription-Key", resourceKey)
+  .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
   .build();
 Response response = client.newCall(request).execute();
 
@@ -671,11 +671,11 @@ Response response = client.newCall(request).execute();
 import requests
 
 url = 'https://YOUR-RESOURCE-ENDPOINT/batches'
-resourceKey =  'YOUR-RESOURCE-KEY'
+subscriptionKey =  'YOUR-SUBSCRIPTION-KEY'
 
 payload={}
 headers = {
-  'Ocp-Apim-Subscription-Key': 'resourceKey'
+  'Ocp-Apim-Subscription-Key': 'subscriptionKey'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
@@ -697,7 +697,7 @@ import (
 func main() {
 
   url := "YOUR-SERVICE-ENDPOINT/batches"
-  resourceKey := "YOUR-RESOURCE-KEY"
+  subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
   method := "GET"
 
   client := &http.Client {
@@ -708,7 +708,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", resourceKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
   res, err := client.Do(req)
   if err != nil {
