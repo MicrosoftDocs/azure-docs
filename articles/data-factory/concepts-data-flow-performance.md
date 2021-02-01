@@ -240,7 +240,7 @@ If a column corresponds to how you wish to output the data, you can select **As 
 
 When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
-**Batch size:** Calculate the rough row size of your data, and make sure that object size * batch size is less than 2MB. If it is, increase the batch size to get better throughput.
+**Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
 **Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 

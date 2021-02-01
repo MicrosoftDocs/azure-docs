@@ -292,7 +292,7 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 **Batch size**: An integer that represents how many objects are being written to Cosmos DB collection in each batch. Usually, starting with the default batch size is sufficient. To further tune this value, note:
 
-- Cosmos DB limits single request's size to 2MB. The formula is "Request Size = Single Document Size * Batch Size". If you hit error saying "Request size is too large.", reduce the batch size value.
+- Cosmos DB limits single request's size to 2MB. The formula is "Request Size = Single Document Size * Batch Size". If you hit error saying "Request size is too large", reduce the batch size value.
 - The larger the batch size, the better throughput ADF can achieve, while make sure you allocate enough RUs to empower your workload.
 
 **Partition key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
