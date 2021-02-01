@@ -16,7 +16,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 To get started, you'll need:
 
-1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
+1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft)  or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription. *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account. 
 
