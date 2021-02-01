@@ -16,13 +16,13 @@ ms.author: aahi
 # Using ranking to display entity search results  
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer that specifies how you must display search results returned by the Bing Entity Search API. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
+Each entity search response includes a [RankingResponse](/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer that specifies how you must display search results returned by the Bing Entity Search API. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
   
-Within each group, the [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides two ways to identify the result within an answer.  
+Within each group, the [Items](/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides two ways to identify the result within an answer.  
  
 
 |Field | Description  |
@@ -30,13 +30,13 @@ Within each group, the [Items](https://docs.microsoft.com/rest/api/cognitiveserv
 |`answerType` and `resultIndex` | `answerType` identifies the answer (either Entity or Place) and `resultIndex` identifies a result within that answer (for example, an entity). The index starts at 0.|
 |`value`    | `value` Contains an ID that matches the ID of either an answer or a result within the answer. Either the answer or the results contain the ID but not both. |
   
-Using the `answerType` and `resultIndex` is a two-step process. First, use `answerType` to identify the answer that contains the results to display. Then use `resultIndex` to index into that answer's results to get the result to display. (The `answerType` value is the name of the field in the [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object.) If you're supposed to display all the answer's results together, the ranking response item doesn't include the `resultIndex` field.
+Using the `answerType` and `resultIndex` is a two-step process. First, use `answerType` to identify the answer that contains the results to display. Then use `resultIndex` to index into that answer's results to get the result to display. (The `answerType` value is the name of the field in the [SearchResponse](/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object.) If you're supposed to display all the answer's results together, the ranking response item doesn't include the `resultIndex` field.
 
 Using the ID requires you to match the ranking ID with the ID of an answer or one of its results. If an answer object includes an `id` field, display all the answer's results together. For example, if the `Entities` object includes the `id` field, display all the entities articles together. If the `Entities` object does not include the `id` field, then each entity contains an `id` field and the ranking response mixes the entities with the Places results.  
   
 ## Ranking response example
 
-The following shows an example [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
+The following shows an example [RankingResponse](/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
   
 ```json
 {

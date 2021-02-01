@@ -1,6 +1,6 @@
 ---
 title: Use stored procedures
-description: Tips for implementing stored procedures in Synapse SQL for developing solutions.
+description: Tips for implementing stored procedures using Synapse SQL in Azure Synapse Analytics for solution development.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Use stored procedures in Synapse SQL
+# Stored procedures using Synapse SQL in Azure Synapse Analytics
 
 Synapse SQL provisioned and serverless pools enable you to place complex data processing logic into SQL stored procedures. Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, and facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 In this article you will find some tips for implementing stored procedures in Synapse SQL pool for developing solutions.
@@ -22,7 +22,7 @@ In this article you will find some tips for implementing stored procedures in Sy
 Synapse SQL supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution. In this article, you will learn about the features that you can place in stored procedures.
 
 > [!NOTE]
-> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. In the examples in these articles are used generic features that are available both in serverless and provisioned surface area. See additional [limitations in provisioned and serverless Synapse SQL pools](#limitations) at the end of this article.
+> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. The examples in these articles use generic features that are available both in serverless and dedicated surface area. See additional [limitations in provisioned and serverless Synapse SQL pools](#limitations) at the end of this article.
 
 To maintain the scale and performance of SQL pool, there are also some features and functionality that have behavioral differences and others that aren't supported.
 

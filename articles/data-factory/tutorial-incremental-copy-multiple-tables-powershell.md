@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy multiple tables using PowerShell
-description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
+description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -17,7 +17,7 @@ ms.date: 06/10/2020
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.    
+In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.    
 
 You perform the following steps in this tutorial:
 
@@ -162,8 +162,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -361,7 +361,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -394,7 +394,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -769,7 +769,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
    Here is the sample output: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>

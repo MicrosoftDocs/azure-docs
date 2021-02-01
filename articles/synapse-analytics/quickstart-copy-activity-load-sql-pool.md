@@ -1,6 +1,6 @@
 ---
-title: A quickstart to load data into SQL pool using Copy activity
-description: Use Azure Synapse Analytics to load data into SQL pool
+title: "Quickstart: to load data into dedicated SQL pool using the copy activity"
+description: Use the pipeline copy activity in Azure Synapse Analytics to load data into dedicated SQL pool.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -12,11 +12,11 @@ ms.custom: seo-lt-2019
 ms.date: 11/02/2020
 ---
 
-# Quickstart: Load data into SQL pool using Copy activity
+# Quickstart: Load data into dedicated SQL pool using the copy activity
 
-Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
+Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A dedicated SQL pool offers T-SQL based compute and storage capabilities. After creating a dedicated SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
 
-In this quickstart, you learn how to *load data from Azure SQL Database into Azure Synapse Analytics*. You can follow similar steps to copy data from other types of data stores. And the similar flow applies to data copy between other source and sink as well.
+In this quickstart, you learn how to *load data from Azure SQL Database into Azure Synapse Analytics*. You can follow similar steps to copy data from other types of data stores. This similar flow applies to data copy for other sources and sinks as well.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ In this quickstart, you learn how to *load data from Azure SQL Database into Azu
 * Azure Synapse workspace: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
 * Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Or you can use other data stores by following similar steps.
 * Azure storage account: Azure Storage is used as the *staging* area in the copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
-* Azure Synapse Analytics: You use a SQL pool as a sink data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](quickstart-create-sql-pool-portal.md) for steps to create one.
+* Azure Synapse Analytics: You use a dedicated SQL pool as a sink data store. If you don't have an Azure Synapse Analytics instance, see [Create a dedicated SQL pool](quickstart-create-sql-pool-portal.md) for steps to create one.
 
 ### Navigate to the Synapse Studio
 
-After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
+After your Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). On the top of the Overview section, select **Launch Synapse Studio**.
+* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "adftest2020" as an example. It will automatically navigate you to the Synapse Studio home page.
@@ -39,7 +39,7 @@ In this quickstart, we use the workspace named "adftest2020" as an example. It w
 
 ## Create linked services
 
-In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create following two kinds of linked services: Azure SQL Database and Azure Data Lake Storage Gen2 linked services.
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create following two kinds of linked services: Azure SQL Database and Azure Data Lake Storage Gen2 (ADLS Gen2) linked services.
 
 1. On the Synapse Studio home page, select the **Manage** tab in the left navigation.
 1. Under External connections, select Linked services.
@@ -61,7 +61,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
  
 ## Create a pipeline
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from Azure SQL Database into a SQL pool.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from Azure SQL Database into a dedicated SQL pool.
 
 1. Go to the **Integrate** tab. Select on the plus icon next to the pipelines header and select Pipeline.
 
@@ -78,8 +78,8 @@ A pipeline contains the logical flow for an execution of a set of activities. In
 
    ![Set up source dataset properties](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. Select **OK** when finished.
-1. Select on the copy activity and go to the Sink tab. Select **New** to create a new sink dataset.
-1. Select **SQL Analytics pool** as your data store and select **Continue**.
+1. Select the copy activity and go to the Sink tab. Select **New** to create a new sink dataset.
+1. Select **Azure Synapse dedicated SQL pool** as your data store and select **Continue**.
 1. In the  **Set properties** pane, select the SQL Analytics pool you created in earlier step. If you're writing to an existing table, under *Table name* select it from the dropdown. Otherwise, check "Edit" and enter in your new table name. Select **OK** when finished.
 1. For Sink dataset settings, enable **Auto create table** in the Table option field.
 
@@ -117,7 +117,7 @@ In this section, you manually trigger the pipeline published in the previous ste
    ![Activity details](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
 1. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
-1. Verify your data is correctly written in the SQL pool.
+1. Verify your data is correctly written in the dedicated SQL pool.
 
 
 ## Next steps
@@ -125,6 +125,6 @@ In this section, you manually trigger the pipeline published in the previous ste
 Advance to the following article to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Connector overview](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Connector overview](../data-factory/connector-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Copy activity](../data-factory/copy-activity-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

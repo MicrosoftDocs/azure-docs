@@ -4,6 +4,7 @@ description: Learn how to connect to GitHub and import the notebooks from a GitH
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 

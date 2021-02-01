@@ -278,6 +278,8 @@
       href: /rest/api/hdinsightspark/
     - name: Resource Manager template
       href: /azure/templates/microsoft.hdinsight/allversions
+    - name: Azure Policy built-ins
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Releases
@@ -355,6 +357,8 @@
           href: ./spark/optimize-cluster-configuration.md
       - name: Migrate to Spark 2.3 or 2.4
         href: ./spark/migrate-versions.md
+      - name: Update .NET for Apache Spark to 1.0
+        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools
@@ -419,9 +423,9 @@
         href: ./spark/apache-spark-improve-performance-iocache.md
       - name: Use notebooks with Apache Spark
         items: 
-        - name: Use a local Jupyter notebook
+        - name: Use a local Jupyter Notebook
           href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-        - name: Jupyter notebook kernels
+        - name: Jupyter Notebook kernels
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
@@ -437,7 +441,7 @@
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
-      - name: Can't create Jupyter notebook
+      - name: Can't create Jupyter Notebook
         href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
@@ -688,6 +692,10 @@
     items:
     - name: Use Apache HBase in HDInsight
       href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+  - name: Concepts
+    items:
+      - name: Optimize for advisor recommendations
+        href: ./hbase/apache-hbase-advisor.md
   - name: How-to guides
     items:
     - name: Develop

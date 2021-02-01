@@ -5,7 +5,7 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
 ---
@@ -35,6 +35,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Maximum timeout for pipeline activity runs | 7 days | 7 days |
 | Bytes per object for pipeline objects<sup>3</sup> | 200 KB | 200 KB |
 | Bytes per object for dataset and linked service objects<sup>3</sup> | 100 KB | 2,000 KB |
+| Bytes per payload for each activity run<sup>4</sup> | 896 KB | 896 KB |
 | Data Integration Units<sup>1</sup> per copy activity run | 256 | 256 |
 | Write API calls | 1,200/h | 1,200/h<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. |
 | Read API calls | 12,500/h | 12,500/h<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. |
@@ -55,6 +56,8 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Region group 3 | Canada Central, East Asia, France Central, Korea Central, UK South |
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Data Factory. Data Factory is designed to scale to handle petabytes of data.
+
+<sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Data Factory. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
 
 ### Version 1
 

@@ -76,9 +76,14 @@ You can upgrade and downgrade to and from any tier. Upgrading or downgrading can
 ## Downtime during scaling up and down
 If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
 
+## Compute isolation
+If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, please [create a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+
+
 
 ## Next steps
 
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 - [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
-- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Plan and manage costs for API Management](plan-manage-costs.md)
+- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

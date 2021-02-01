@@ -4,8 +4,8 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 08/25/2020
 ---
 
@@ -50,7 +50,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
+    You can use [Azure Storage Explorer](https://www.storageexplorer.com) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
 ## (Optional) Use Power Automate to get lead notifications
 

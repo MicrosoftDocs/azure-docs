@@ -1,11 +1,11 @@
 ---
 title: Compute and storage options - Azure Database for MySQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 1/28/2021
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
@@ -65,6 +65,9 @@ The detailed specifications of the available server types are as follows:
 | Standard_E64ds_v4    | 64     | 504               |
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+
+>[!NOTE]
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## Storage
 

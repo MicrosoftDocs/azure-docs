@@ -479,5 +479,5 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/) for more information.
+* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../index.yml) for more information.
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

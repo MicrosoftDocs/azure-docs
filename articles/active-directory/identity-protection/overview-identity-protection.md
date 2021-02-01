@@ -6,14 +6,14 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 ms.collection: M365-identity-device-management
 ---
@@ -47,17 +47,20 @@ Identity Protection identifies risks in the following classifications:
 
 | Risk detection type | Description |
 | --- | --- |
-| Atypical travel | Sign in from an atypical location based on the user's recent sign-ins. |
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). |
-| Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
+| Atypical travel | Sign in from an atypical location based on the user's recent sign-ins. |
 | Malware linked IP address | Sign in from a malware linked IP address. |
+| Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
 | Leaked Credentials | Indicates that the user's valid credentials have been leaked. |
 | Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified, brute-force manner. |
 | Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern. |
+| New country | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Activity from anonymous IP address | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Suspicious inbox forwarding | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
 
-The risk signals can trigger remediation efforts such as requiring users to: perform Azure Multi-Factor Authentication, reset their password using self-service password reset, or blocking until an administrator takes action.
+The risk signals can trigger remediation efforts such as requiring users to: perform Azure AD Multi-Factor Authentication, reset their password using self-service password reset, or blocking until an administrator takes action.
 
 ## Risk investigation
 

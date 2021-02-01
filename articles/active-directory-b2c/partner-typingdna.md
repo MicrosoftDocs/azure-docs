@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C with the TypingDNA  APP. By using TypingDNA App, Azure AD B2C customers can comply with [Payment Services Directive 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) transaction requirements through keystroke dynamics and strong customer authentication. Find more about TypingDNA [here](https://www.typingdna.com/).
 
- Azure AD B2C uses TypingDNA's technologies to capture the users typing characteristics and have them recorded and analyzed for familiarity on each authentication. This adds a layer of protection related to the riskiness of an authentication and  evaluates the risk levels. Azure AD B2C can invoke other mechanisms to provide further confidence the user is who they claim to be by invoking Azure MFA, forcing email verification, or any other custom logic for your scenario.
+ Azure AD B2C uses TypingDNA's technologies to capture the users typing characteristics and have them recorded and analyzed for familiarity on each authentication. This adds a layer of protection related to the riskiness of an authentication and  evaluates the risk levels. Azure AD B2C can invoke other mechanisms to provide further confidence the user is who they claim to be by invoking Azure AD MFA, forcing email verification, or any other custom logic for your scenario.
 
 >[!NOTE]
 > This sample policy is based on [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) starter pack.
@@ -32,7 +32,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 2. When the user submits the page, the TypingDNA library will compute the typing characteristic of the user. After that, insert the information into a hidden text field which Azure AD B2C has rendered. This field is hidden with CSS.  
 
-    The [sample contains HTML files](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) with the JavaScript and CSS modifications, and is referenced by the `api.selfasserted.tdnasignin` and `api.selfasserted.tdnasignup` content definitions. Refer to [hosting the page content](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) to host your HTML files.
+    The [sample contains HTML files](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) with the JavaScript and CSS modifications, and is referenced by the `api.selfasserted.tdnasignin` and `api.selfasserted.tdnasignup` content definitions. Refer to [hosting the page content](./customize-ui-with-html.md#hosting-the-page-content) to host your HTML files.
 
 3. Azure AD B2C now has the typing pattern within the claim bag when the user submits their credentials. It must call an API (yours) to pass this data to the TypingDNA REST API endpoint. This API is included in the [sample (typingDNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. The middle layer API then passes the typing pattern data to TypingDNA REST API. At sign-up, the [check user endpoint](https://api.typingdna.com/index.html#api-API_Services-GetUser) is called to confirm the user didn't exist and then the [save pattern](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) endpoint is called to save the user's first typing pattern.
@@ -109,7 +109,7 @@ These thresholds should be adjusted on your use case.
 
 - After your API has evaluated the `net_score`, it should return a boolean claim to B2C - `promptMFA`.
 
-- The `promptMFA` claim is used within a pre-condition to conditionally execute Azure MFA.
+- The `promptMFA` claim is used within a pre-condition to conditionally execute Azure AD MFA.
 
 ```xml
 
@@ -156,7 +156,7 @@ These thresholds should be adjusted on your use case.
 
 1. Host the [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) at your hosting provider of choice
 2. Replace all instances of `apiKey` and `apiSecret` in [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) solution with the credentials from your TypingDNA dashboard
-3. Host the HTML files at your provider of choice following the CORS requirements [here](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
+3. Host the HTML files at your provider of choice following the CORS requirements [here](./customize-ui-with-html.md#3-configure-cors)
 4. Replace the LoadURI elements for the `api.selfasserted.tdnasignup` and `api.selfasserted.tdnasignin` content definitions in the `TrustFrameworkExtensions.xml` file to the URI of your hosted HTML files respectively.
 5. Create a B2C policy key under identity experience framework in the Azure AD blade in the **Azure portal**. Use the `Generate` option and name this key `tdnaHashedId`.
 6. Replace the TenantId's in the policy files
@@ -190,6 +190,6 @@ These thresholds should be adjusted on your use case.
 
 For additional information, review the following articles:
 
-- [Custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in AAD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in AAD B2C](./custom-policy-get-started.md?tabs=applications)

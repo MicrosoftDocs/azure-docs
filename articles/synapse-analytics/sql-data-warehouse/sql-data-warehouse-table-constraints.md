@@ -1,38 +1,38 @@
 ---
 title: Primary, foreign, and unique keys  
-description: Table constraints support in Synapse SQL pool in Azure Synapse Analytics
+description: Table constraints support using dedicated SQL pool in Azure Synapse Analytics
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 09/05/2019
-ms.author: xiaoyul
+ms.author: emtehran 
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Primary key, foreign key, and unique key in Synapse SQL pool
+# Primary key, foreign key, and unique key using dedicated SQL pool in Azure Synapse Analytics
 
-Learn about table constraints in Synapse SQL pool, including primary key, foreign key, and unique key.
+Learn about table constraints in dedicated SQL pool, including primary key, foreign key, and unique key.
 
 ## Table constraints
 
-Synapse SQL pool supports these table constraints: 
+Dedicated SQL pool supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
 - UNIQUE constraint is only supported with NOT ENFORCED is used.
 
-For syntax, check [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+For syntax, check [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-FOREIGN KEY constraint is not supported in Synapse SQL pool.  
+FOREIGN KEY constraint is not supported in dedicated SQL pool.  
 
 
 ## Remarks
 
-Having primary key and/or unique key allows Synapse SQL pool engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique.
+Having primary key and/or unique key allows dedicated SQL pool engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique.
 
-After creating a table with primary key or unique constraint in Synapse SQL pool, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
+After creating a table with primary key or unique constraint in dedicated SQL pool, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
 
 ```sql
  -- Create table t1
@@ -159,12 +159,13 @@ a1          total
 
 ## Examples
 
-Create a Synapse SQL pool table with a primary key: 
+Create a dedicated SQL pool table with a primary key: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Create a Synapse SQL pool table with a unique constraint:
+
+Create a dedicated SQL pool table with a unique constraint:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -172,4 +173,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## Next steps
 
-After creating the tables for your Synapse SQL pool, the next step is to load data into the table. For a loading tutorial, see [Loading data to Synapse SQL pool](load-data-wideworldimportersdw.md).
+After creating the tables for your dedicated SQL pool, the next step is to load data into the table. For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md).

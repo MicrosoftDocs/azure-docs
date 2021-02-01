@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
-ms.custom: contperfq4 
+ms.custom: contperf-fy20q4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
@@ -75,7 +75,7 @@ One or more experiments can be created in your workspace to track and analyze in
     > [!div class="mx-imgBorder"]
     > ![Create an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
-1. Name your experiment "MNIST" and press **Enter** to create the new experiment. 
+1. Name your experiment "Tutorial-VSCode-MNIST" and press **Enter** to create the new experiment. 
 
 Like workspaces, a request is sent to Azure to create an experiment with the provided configurations. After a few minutes, the new experiment appears in the *Experiments* node of your workspace. 
 
@@ -94,7 +94,7 @@ To create a compute target:
     > ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Select **Azure Machine Learning Compute (AmlCompute)**. Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute that can be used with other users in your workspace.
-1. Choose a VM size. Select **Standard_F2s_v2** from the list of options. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Choose a VM size. Select **Standard_F2s_v2** from the list of options. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md).
 1. Name your compute "TeamWkspc-com" and press **Enter** to create your compute.
 
     A file appears in VS Code with content similar to the one below:
@@ -411,4 +411,3 @@ At this point, a request is sent to Azure to deploy your web service. This proce
 
 * For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
 * For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

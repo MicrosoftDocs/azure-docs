@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics compatibility levels
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
@@ -28,17 +28,17 @@ When you create a new Stream Analytics job, it's a best practice to create it by
 
 ## Set the compatibility level
 
-You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](./stream-analytics-quick-create-portal.md).
+You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 To update the compatibility level of the job in the Azure portal:
 
 1. Use the [Azure portal](https://portal.azure.com) to locate to your Stream Analytics job.
-2. **Stop** the job before updating the compatibility level. You can’t update the compatibility level if your job is in a running state.
+2. **Stop** the job before updating the compatibility level. You can't update the compatibility level if your job is in a running state.
 3. Under the **Configure** heading, select **Compatibility level**.
 4. Choose the compatibility level value that you want.
 5. Select **Save** at the bottom of the page.
 
-![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 When you update the compatibility level, the T-compiler validates the job with the syntax that corresponds to the selected compatibility level.
 
@@ -78,7 +78,7 @@ The upsert behavior is *insert or replace*.
 
 ### DateTimeOffset when writing to SQL output
 
-**Previous levels:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
+**Previous levels:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) types were adjusted to UTC.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
 

@@ -3,6 +3,7 @@ title: Migrate from the change feed processor library to the Azure Cosmos DB .NE
 description: Learn how to migrate your application from using the change feed processor library to the Azure Cosmos DB SDK V3
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran

@@ -29,37 +29,41 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
 
-1. From the Azure portal menu, select **Create a resource**.  
+1. From the Azure portal menu, select **Azure Active Directory**.  
 
-    ![Azure Active Directory Create resoure page](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory - Overview page - Create a tenant](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Search for and select **Azure Active Directory**.
+1. Select **Create a tenant**.
 
-    The **Create directory** page appears.
+1. On the Basics tab, select the type of tenant you want to create, either **Azure Active Directory** or **Azure Active Directory (B2C)**.
 
-    ![Azure Active Directory Create page](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Select **Next: Configuration** to move on to the Configuration tab.
 
-1.  On the **Create directory** page, enter the following information:
+    <kbd>![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  On the Configuration tab, enter the following information:
     
-    - Type _Contoso_ into the **Organization name** box.
+    - Type _Contoso Organization_ into the **Organization name** box.
 
-    - Type _Contoso_ into the **Initial domain name** box.
+    - Type _Contosoorg_ into the **Initial domain name** box.
 
     - Leave the _United States_ option in the **Country or region** box.
 
-1. Select **Create**.
+1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **create**.
+
+    <kbd>![Azure Active Directory - Review and create tenant page](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Clean up resources
 If you're not going to continue to use this application, you can delete the tenant using the following steps:
 
-- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure Portal, and switching to the target directory if needed.
+- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal, and switching to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
     The tenant and its associated information is deleted.
 
-    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## Next steps
 - Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)

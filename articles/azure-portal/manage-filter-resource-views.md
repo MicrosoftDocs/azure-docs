@@ -1,12 +1,8 @@
 ---
 title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: how-to
-ms.author: mblythe
 ms.date: 09/11/2020
-
 ---
 
 # View and filter Azure resource information

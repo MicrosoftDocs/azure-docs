@@ -202,7 +202,7 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 #### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. 
+You can use the portal, or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. 
 
 Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
@@ -262,6 +262,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## Next steps
-- For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-scenarios.md).
+- For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-vs-authorization.md).
 - For more information about user single sign-on, see [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
 - Visit the [Microsoft identity platform](../develop/v2-overview.md) for an overview of all developer-related content.

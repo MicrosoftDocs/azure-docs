@@ -63,7 +63,7 @@ landingContent:
           - text: Manage with Azure portal
             url: windows/manage-sql-vm-portal.md
           - text: Register with SQL VM resource provider
-            url: windows/sql-vm-resource-provider-register.md
+            url: windows/sql-agent-extension-manually-register-single-vm.md
           - text: Automated patching
             url: windows/automated-patching.md 
           - text: Change license type 

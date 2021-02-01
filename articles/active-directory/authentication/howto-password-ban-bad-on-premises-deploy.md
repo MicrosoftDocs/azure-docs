@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -96,7 +96,7 @@ The following core requirements apply:
 
 The following requirements apply to the Azure AD Password Protection DC agent:
 
-* All machines where the Azure AD Password Protection DC agent software will be installed must run Windows Server 2012 or later.
+* All machines where the Azure AD Password Protection DC agent software will be installed must run Windows Server 2012 or later, including Windows Server Core editions.
     * The Active Directory domain or forest doesn't need to be at Windows Server 2012 domain functional level (DFL) or forest functional level (FFL). As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there's no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that run the Azure AD Password Protection DC agent must have .NET 4.5 installed.
 * Any Active Directory domain that runs the Azure AD Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
@@ -113,7 +113,7 @@ The following requirements apply to the Azure AD Password Protection DC agent:
 
 The following requirements apply to the Azure AD Password Protection proxy service:
 
-* All machines where the Azure AD Password Protection proxy service will be installed must run Windows Server 2012 R2 or later.
+* All machines where the Azure AD Password Protection proxy service will be installed must run Windows Server 2012 R2 or later, including Windows Server Core editions.
 
     > [!NOTE]
     > The Azure AD Password Protection proxy service deployment is a mandatory requirement for deploying Azure AD Password Protection even though the domain controller may have outbound direct internet connectivity.
@@ -198,7 +198,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
 
     After this command succeeds once for a Azure AD Password Protection proxy service, additional invocations of it succeed, but are unnecessary.
 
-    The `Register-AzureADPasswordProtectionProxy` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode doesn't.
+    The `Register-AzureADPasswordProtectionProxy` cmdlet supports the following three authentication modes. The first two modes support Azure AD Multi-Factor Authentication but the third mode doesn't.
 
     > [!TIP]
     > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
@@ -228,7 +228,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
+        > This mode fails if Azure AD Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >
@@ -249,7 +249,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
     
     This step is run once per forest.
 
-    The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode doesn't.
+    The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes. The first two modes support Azure AD Multi-Factor Authentication but the third mode doesn't.
 
     > [!TIP]
     > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
@@ -279,7 +279,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
+        > This mode fails if Azure AD Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >

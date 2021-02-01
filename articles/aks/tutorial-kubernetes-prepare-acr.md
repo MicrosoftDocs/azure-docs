@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 
 ms.custom: mvc, devx-track-azurecli
 
@@ -20,7 +20,7 @@ Azure Container Registry (ACR) is a private registry for container images. A pri
 > * Upload the image to ACR
 > * View images in your registry
 
-In additional tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
+In later tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
 
 ## Before you begin
 
@@ -58,12 +58,12 @@ The command returns a *Login Succeeded* message once completed.
 
 To see a list of your current local images, use the [docker images][docker-images] command:
 
-```azurecli
+```console
 $ docker images
 ```
-The above command output shows list of your current local images:
+The above command's output shows list of your current local images:
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -120,7 +120,7 @@ az acr repository list --name <acrName> --output table
 
 The following example output lists the *azure-vote-front* image as available in the registry:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -134,7 +134,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 The following example output shows the *v1* image tagged in a previous step:
 
-```
+```output
 Result
 --------
 v1

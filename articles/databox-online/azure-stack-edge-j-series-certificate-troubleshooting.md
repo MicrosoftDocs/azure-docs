@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/20/2020
 ms.author: alkohli
 ---
 
@@ -42,6 +42,7 @@ The following table shows common certificate errors and detailed information abo
 | CertificateManagement_MissingServerOid | Certificate with subject name {0} does not have server authentication OID. Check your certificate properties and if needed, bring in a new certificate.|
 | CertificateManagement_NameMismatch | Certificate type mismatch. Expected scope: {0}, found {1}. Upload appropriate certificate.|
 | CertificateManagement_NoPrivateKeyPresent | Certificate with subject name {0} has no private key present. Upload a .pfx certificate with private key.|
+| CertificateManagement_NoRSACryptoPrivateKey | The private key for certificate with subject name {​​​​​​​0}​​​​​​​ is not accessible. Make sure that you are using a supported certificate. Only the Microsoft RSA/Schannel Cryptographic Provider is supported. |
 | CertificateManagement_NotSelfSignedCertificate | Certificate with subject name {0} is not self signed. Root certificates should be self signed |
 | CertificateManagement_NotSupportedOnVirtualAppliance | This operation is not supported on the virtual device. This error indicates that signing will only occur with Data Box Gateway running in Tactical Cloud Appliance. This error occurs while managing the device through Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Certificate with subject name {0} is self signed. Upload a certificate which is properly signed.|
@@ -53,6 +54,7 @@ The following table shows common certificate errors and detailed information abo
 | CertificateImportFailure | Certificate with thumbprint {0} was not imported on node {1}. If the problem persists, contact Microsoft Support. |
 | CertificateApplyFailure | Certificate with thumbprint {0} was not applied on node {1}. If the problem persists, contact Microsoft Support.|
 | NodeNotReachable | Could not validate certificate on {0}. Check the system hardware and software health.|
+
 
 ## Next steps
 

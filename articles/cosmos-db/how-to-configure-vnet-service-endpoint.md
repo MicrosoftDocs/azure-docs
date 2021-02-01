@@ -318,7 +318,7 @@ At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
-You can enable both the virtual network service endpoint and an IP access control policy (aka firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
+You can enable both the virtual network service endpoint and an IP access control policy (also known as firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
 
 ### How do I limit access to subnet within a virtual network? 
 
@@ -332,7 +332,7 @@ When IP firewall or virtual network access rules are added, only requests from a
 
 Once service endpoint for Azure Cosmos DB is enabled on a subnet, the source of the traffic reaching the account switches from public IP to virtual network and subnet. If your Azure Cosmos account has IP-based firewall only, traffic from service enabled subnet would no longer match the IP firewall rules and therefore be rejected. Go over the steps to seamlessly migrate from IP-based firewall to virtual network-based access control.
 
-### Are additional RBAC permissions needed for Azure Cosmos accounts with VNET service endpoints?
+### Are additional Azure RBAC permissions needed for Azure Cosmos accounts with VNET service endpoints?
 
 After you add the VNet service endpoints to an Azure Cosmos account, to make any changes to the account settings, you need access to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` action for all the VNETs configured on your Azure Cosmos account. This permission is required because the authorization process validates access to resources (such as database and virtual network resources) before evaluating any properties.
  

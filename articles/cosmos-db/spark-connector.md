@@ -3,6 +3,7 @@ title: Connect Apache Spark to Azure Cosmos DB
 description: Learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
@@ -26,7 +27,9 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 > This connector supports the core (SQL) API of Azure Cosmos DB.
 > For Cosmos DB for MongoDB API, use the [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/master/).
 > For Cosmos DB Cassandra API, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
->
+
+> [!IMPORTANT]
+> The Azure Cosmos DB Spark connector is not currently supported on [serverless](serverless.md) accounts. This will be addressed as the serverless offer becomes generally available.
 
 ## Quickstart
 

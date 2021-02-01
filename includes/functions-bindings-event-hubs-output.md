@@ -230,7 +230,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-In the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ---
 
@@ -271,15 +271,15 @@ There are two options for outputting an Event Hub message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hub message.
 
-- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
 
 # [Java](#tab/java)
 
-There are two options for outputting an Event Hub message from a function by using the [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
+There are two options for outputting an Event Hub message from a function by using the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hub message.
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hub message.
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hub message.
 
 ---
 
@@ -287,4 +287,4 @@ There are two options for outputting an Event Hub message from a function by usi
 
 | Binding | Reference |
 |---|---|
-| Event Hub | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Event Hub | [Operations Guide](/rest/api/eventhub/publisher-policy-operations) |

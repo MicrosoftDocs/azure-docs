@@ -4,6 +4,7 @@ description: Learn how to upgrade your existing .NET application from the v2 SDK
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/23/2020
 ---

@@ -58,7 +58,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 
 Depending on your organization needs, you may want to enable secure outbound Internet access for your end users. In cases where the list of allowed destinations is well-defined (for example, [Microsoft 365 access](/microsoft-365/enterprise/microsoft-365-ip-web-service)) you can use Azure Firewall application and network rules to configure the required access. This routes end-user traffic directly to the Internet for best performance.
 
-If you want to filter outbound user Internet traffic using an existing on-premises secure web gateway, you can configure web browsers or other applications running on the Windows Virtual Desktop host pool with an explicit proxy configuration. For example, see [How to use Microsoft Edge command-line options to configure proxy settings](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). These proxy settings only influence your end-user Internet access, allowing the Windows Virtual Desktop platform outbound traffic directly via Azure Firewall.
+If you want to filter outbound user Internet traffic using an existing on-premises secure web gateway, you can configure web browsers or other applications running on the Windows Virtual Desktop host pool with an explicit proxy configuration. For example, see [How to use Microsoft Edge command-line options to configure proxy settings](/deployedge/edge-learnmore-cmdline-options-proxy-settings). These proxy settings only influence your end-user Internet access, allowing the Windows Virtual Desktop platform outbound traffic directly via Azure Firewall.
 
 ## Additional considerations
 

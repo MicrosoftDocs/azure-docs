@@ -47,7 +47,7 @@ These blobs are separated using a prefix of *container/virtual folder/blob name*
 Blob index tags are key-value attributes that can be applied to new or existing objects within your storage account. You can specify index tags during the upload process using [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) operations and the optional `x-ms-tags` header. If you already have blobs in your storage account, call [Set Blob Tags](/rest/api/storageservices/set-blob-tags) passing a formatted XML document with the index tags in the body of the request.
 
 > [!IMPORTANT]
-> Setting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
+> Setting blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
 
@@ -83,7 +83,7 @@ The following limits apply to blob index tags:
 Blob index tags are stored as a subresource alongside the blob data and can be retrieved independently from the underlying blob data content. Blob index tags for a single blob can be retrieved with the [Get Blob Tags](/rest/api/storageservices/get-blob-tags) operation. The [List Blobs](/rest/api/storageservices/list-blobs) operation with the `include:tags` parameter will also return all blobs within a container along with their blob index tags.
 
 > [!IMPORTANT]
-> Getting and listing blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
+> Getting and listing blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` permission can perform this operation.
 
@@ -96,7 +96,7 @@ The indexing engine exposes your key-value attributes into a multi-dimensional i
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 
 > [!IMPORTANT]
-> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
+> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permission can perform this operation.
 
@@ -231,7 +231,7 @@ Callers using an [Azure AD identity](../common/storage-auth-aad.md) may be grant
 | [Get Blob Tags](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. The [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) is only granted permissions for `Find Blobs by Tags` and `Get Blob Tags` operations.
+Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. The [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) is only granted permissions for `Find Blobs by Tags` and `Get Blob Tags` operations.
 
 ### SAS permissions
 
@@ -323,6 +323,7 @@ This section describes known issues and conditions in the public preview of blob
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
 - Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
+- There is no API to determine if index tags are indexed.
 - Account failover isn't supported. The blob index may not update properly after failover.
 - Lifecycle management only supports equality checks with blob index match.
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.

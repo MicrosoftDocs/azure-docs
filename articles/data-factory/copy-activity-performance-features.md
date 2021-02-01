@@ -121,7 +121,7 @@ When you specify a value for the `parallelCopies` property, take the load increa
 
 When you copy data from a source data store to a sink data store, you might choose to use Azure Blob storage or Azure Data Lake Storage Gen2 as an interim staging store. Staging is especially useful in the following cases:
 
-- **You want to ingest data from various data stores into Azure Synapse Analytics (formerly SQL Data Warehouse) via PolyBase, copy data from/to Snowflake, or ingest data from Amazon Redshift/HDFS performantly.** Learn more details from:
+- **You want to ingest data from various data stores into Azure Synapse Analytics via PolyBase, copy data from/to Snowflake, or ingest data from Amazon Redshift/HDFS performantly.** Learn more details from:
   - [Use PolyBase to load data into Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
   - [Snowflake connector](connector-snowflake.md)
   - [Amazon Redshift connector](connector-amazon-redshift.md)

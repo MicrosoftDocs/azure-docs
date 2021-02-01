@@ -4,6 +4,7 @@ description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB u
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019

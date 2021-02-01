@@ -1,6 +1,6 @@
 ---
-title: Clouds and regions in which Azure Media Services v3 is available
-description: This article talks about the URLs used for endpoints and code for regions.  
+title: Clouds and regions for Azure Media Services v3
+description: This article talks about the URLs used for endpoints and code for regions.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -58,6 +58,9 @@ The following endpoints are important to know when connecting to Media Services 
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 ### Azure Germany
+
+> [!NOTE]
+> The Azure Germany endpoints only apply to the Sovereign clouds in Germany.
 
 | Service | Endpoint |
 | ------- | -------- |

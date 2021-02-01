@@ -3,6 +3,7 @@ title: Resource Manager templates for Azure Cosmos DB Table API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Table API. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown

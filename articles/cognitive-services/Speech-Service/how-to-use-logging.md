@@ -63,7 +63,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permission for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
 
 ### Android
 

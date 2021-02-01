@@ -12,7 +12,7 @@ Before you begin, make sure that:
 
 * The subscription you use for Data Box service is one of the following types:
   * Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-  * Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+  * Cloud Solution Provider (CSP). Learn more about [Azure CSP program](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
   * Microsoft Partner Network (MPN). Learn more about [Microsoft Partner Network](https://partner.microsoft.com/commercial#).
 

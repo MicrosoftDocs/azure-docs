@@ -19,37 +19,35 @@ For more information about compatible versions of Application Insights, see [Dep
 
 ## Supported features
 
-| Azure Functions                   	| V1            	| V2 & V3 	| 
-|-----------------------------------	|---------------	|------------------	|
+| Azure Functions                   | V1            | V2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Automatic  collection of**        |               	|                  	|           	
-| &bull; Requests                     | Yes           	| Yes              	| 
-| &bull; Exceptions                   | Yes           	| Yes              	| 
-| &bull; Performance Counters         | Yes             | Yes               |
-| &bull; Dependencies           	    |               	|                  	|           	
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               	| Yes              	| 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               	| Yes              	| 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               	| Yes              	| 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               	| Yes              	| 
+| **Automatic  collection of**        |               |                  |
+| &bull; Requests                     | Yes           | Yes              |
+| &bull; Exceptions                   | Yes           | Yes              |
+| &bull; Performance Counters         | Yes           | Yes              |
+| &bull; Dependencies                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Yes              |
 | | | | 
-| **Supported features**             	|               	|                  	|           	
-| &bull; QuickPulse/LiveMetrics       | Yes           	| Yes              	| 
-| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel|               	| Yes              	| 
-| &bull; Sampling                     | Yes           	| Yes              	| 
-| &bull; Heartbeats                   |   	            | Yes              	| 
+| **Supported features**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel |               | Yes | 
+| &bull; Sampling                     | Yes           | Yes              | 
+| &bull; Heartbeats                   | | Yes              | 
+| | | |
+| **Correlation**                    |               |                  |
+| &bull; ServiceBus                  |               | Yes              |
+| &bull; EventHub                    |               | Yes              |
 | | | | 
-| **Correlation**                    	|               	|                  	|           	
-| &bull; ServiceBus                  	|               	| Yes              	| 
-| &bull; EventHub                    	|               	| Yes              	| 
-| | | | 
-| **Configurable**                  	|               	|                  	|           
-| &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
-
+| **Configurable**                  |               |                  |           
+| &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           |               | Yes                 | 
 
 ## Performance Counters
 
 Automatic collection of Performance Counters only work Windows machines.
-
 
 ## Live Metrics & Secure Control Channel
 

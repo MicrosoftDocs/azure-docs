@@ -2,6 +2,7 @@
 title: Whitepapers that describe Azure Cosmos DB concepts
 description: Get the list of whitepapers for Azure Cosmos DB, these whitepapers describe the concepts in depth.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual

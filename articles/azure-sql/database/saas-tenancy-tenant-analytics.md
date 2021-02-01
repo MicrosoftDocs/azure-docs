@@ -38,7 +38,7 @@ Multi-tenant SaaS applications typically have a vast amount of tenant data store
 
 Accessing data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across potentially thousands of databases. One way to tame the complexity and to minimize the impact of analytics queries on transactional data is to extract data into a purpose designed analytics database or data warehouse.
 
-This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL pool. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
+This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a dedicated SQL pool. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
 
 Next, the aggregated data is transformed into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables.  For Wingtip Tickets:
 
@@ -49,7 +49,7 @@ Together the central fact and dimension tables enable efficient analytical proce
  
 ![architectureOverView](./media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Finally, the analytics store is queried using **PowerBI** to highlight insights into tenant behavior and their use of the Wingtip Tickets application. You run queries that:
+Finally, the analytics store is queried using **Power BI** to highlight insights into tenant behavior and their use of the Wingtip Tickets application. You run queries that:
  
 - Show the relative popularity of each venue
 - Highlight patterns in ticket sales for different events
