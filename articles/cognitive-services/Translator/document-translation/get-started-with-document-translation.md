@@ -1,6 +1,6 @@
 ---
 title: Get started with Document Translation
-description: How to create a document translation service using C#, Go, Java, Node.js, or Python progamming languages and platforms
+description: How to create a document translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
@@ -32,7 +32,7 @@ You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-b
 ### Source and target SAS access tokens
 
 * You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob. 
-* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specfic target blob  . *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
+* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob  . *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
 
 ## Create Shared Access Signature tokens  in the Azure portal
 
