@@ -66,15 +66,17 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
-   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
+       * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
    * **Optional -** Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * **Optional -** An MD5 hash if you choose to use one.
-3. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
+1. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
 
    [![Select the Microsoft peering row](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Select the Microsoft peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
 4. Configure Microsoft peering. **Save** the configuration once you have specified all parameters. The following image shows an example configuration:
@@ -116,6 +118,11 @@ You can remove your peering configuration by clicking the delete icon, as shown 
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
+> [!IMPORTANT]
+> IPv6 support for private peering is currently in **Public Preview**. 
+> 
+> 
+
 ### To create Azure private peering
 
 1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing. 
@@ -132,8 +139,10 @@ This section helps you create, get, update, and delete the Azure private peering
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
-   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering except for the number from 65515 to 65520, inclusively.
    * You must advertise the routes from your on-premises Edge router to Azure via BGP when you set up the private peering.
