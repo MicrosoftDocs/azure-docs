@@ -147,6 +147,7 @@ After you verify that data is same on both the source and the target, you can cu
 ## Migration recommendations
 
 To speed up migration to Azure SQL Database, you should consider the following recommendations:
+
 |  | Resource contention | Recommendation |
 |--|--|--|
 | **Source (typically on premises)** |Primary bottleneck during migration in source is DATA I/O and latency on DATA file which needs to be monitored carefully.  |Based on DATA IO and DATA file latency and depending on whether it’s a virtual machine or physical server, you will have to engage storage admin and explore options to mitigate the bottleneck. |
