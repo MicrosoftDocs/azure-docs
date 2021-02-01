@@ -356,13 +356,33 @@ To call an HTTP-triggered function, you need the URL of the function when it's d
 
 The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
-## Run functions locally
+## Run functions
 
-The Azure Functions extension lets you run a Functions project on your local development computer. The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings-file).
+The Azure Functions extension lets you run individual functions, either in your project on your local development computer or in Azure. 
 
-### Configure the project to run locally
+For HTTP trigger functions, the extension calls the HTTP endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The message body of the request sent to the function depends on the type of trigger. When a trigger requires test data, you are prompted to enter data in a specific JSON format.
 
-To run your Functions project locally, you must meet [additional requirements](#run-local-requirements).
+### Run functions in Azure
+
+To execute a function in Azure from Visual Studio Code. 
+
+1. In the command pallet, enter **Azure Functions: Execute function now** and choose your Azure subscription. 
+
+1. Choose your function app in Azure from the list. If you don't see your function app, make sure you are signed in to the correct subscription. 
+
+1. Choose the function you want to run from the list and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error. 
+
+1. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.
+ 
+You can also run your function from the **Azure: Functions** area by right-clicking (Ctrl-clicking on Mac) the function you want to run from your function app in you Azure subscription and choosing **Execute Function Now...**.
+
+When running functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+
+### Run functions locally
+
+The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings-file). To run your Functions project locally, you must meet [additional requirements](#run-local-requirements).
+
+#### Configure the project to run locally
 
 The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. So you need to set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
 
@@ -378,24 +398,19 @@ To set the storage account connection string:
 
 For more information, see [Local settings file](#local-settings-file).
 
-### Debugging functions locally  
+#### Debug functions locally  
 
 To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This is the same as running the `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
 
 When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. When the project is running in debug mode, breakpoints are hit in Visual Studio Code, as expected. 
 
-1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the function you want to run and choose **Execute Function Now...**.
+1. In the command pallet, enter **Azure Functions: Execute function now** and choose **Local project**. 
 
-    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
-
-1. For an HTTP-triggered function, you would need to submit a request message body with any required values. Press Enter to send this request message to your function.  
+1. Choose the function you want to run in your project and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error. 
 
 1. When the function runs locally and after the response is received, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
 
-For HTTP trigger functions, the extension calls the endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The request sent to the function depends on the type of function. 
-
-Local execution of functions doesn't require using keys. When running functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
-
+Running functions locally doesn't require using keys. 
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
