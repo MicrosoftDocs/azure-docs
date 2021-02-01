@@ -62,7 +62,6 @@ NFS is only available on storage accounts with the following configuration:
 
 - Tier - Premium
 - Account Kind - FileStorage
-- Redundancy - LRS
 - Regions - [List of supported regions](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### Solution
@@ -145,6 +144,17 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 #### Solution
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
+
+## ls (list files) shows incorrect/inconsistent results
+
+### Cause: Inconsistency between cached value and server file metadata value when the file handle is open
+You may notice that sometimes that the "list files" shows a non zero size as expected and in the very next request on lst files shows size 0 or a very old time stamp. This is a known issue that is happening due to inconsistent caching of file metadata values while the file is open. The permanent fix is being worked upon but in the meanwhile, one could use one of the following workaround. 
+
+#### Workaround 1: For fetching file size, use wc -c instead of ls -l
+Using wc -c will always fetch the latest value from the server and thus will not have any inconsistency.
+
+#### Workaround 2: Use "noac" mount flag
+Remount the file system using the "noac" flag on mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations when using this workaround.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
