@@ -239,7 +239,7 @@ The `msg` parameter is an `ICollector<T>` type, which represents a collection of
 
  Messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=csharp). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
 
 # [Java](#tab/java)
 
@@ -253,7 +253,7 @@ The `msg` parameter is an `OutputBinding<T>` type, where is `T` is a string that
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=java). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=java). 
 
 # [JavaScript](#tab/nodejs)
 
@@ -265,7 +265,7 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=javascript). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript). 
 
 # [PowerShell](#tab/powershell)
 
@@ -275,7 +275,7 @@ To learn more, see the [Queue storage output binding reference article](function
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=powershell). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=powershell). 
 
 # [Python](#tab/python)
 
@@ -291,7 +291,7 @@ The following code adds string data from the request to the output queue:
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md&tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md&tabs=python). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python). 
 
 ---
 
