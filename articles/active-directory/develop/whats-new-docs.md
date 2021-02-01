@@ -22,7 +22,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md)
 - [Logging in MSAL for Android](msal-logging-android.md)
 - [Logging in MSAL.NET](msal-logging-dotnet.md)
 - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
