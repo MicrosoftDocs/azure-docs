@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -33,13 +33,15 @@ Azure Storage includes data protection features that enable you to prevent accid
 
 | If your scenario requires... | Then configure these data protection features... |
 |-|-|
-| My scenario requires complete coverage, regardless of cost | Container soft delete, blob versioning, point-in-time restore |
-| I need to balance coverage with costs | Container soft delete, blob versioning  |
-|  |  |
+| My scenario requires complete coverage, regardless of cost |  |
+| I need to balance coverage with costs |   |
 
 ## Recover data that has been overwritten
 
-
+| If your scenario requires... | Then configure these data protection features... |
+|-|-|
+| My scenario requires complete coverage, regardless of cost |  |
+| I need to balance coverage with costs |   |
 
 ## Restore data to a previous point in time
 
@@ -47,9 +49,9 @@ Azure Storage includes data protection features that enable you to prevent accid
 ## Prevent all updates and deletes
 
 
-### Data protection features
+## Azure Storage data protection features
 
-## Soft delete
+### Soft delete
 
 Soft delete protects your blob data from accidental or malicious deletion or from corruption by maintaining the deleted data for a period of time after it has been deleted. If needed, you can restore the deleted data during that interval. Soft delete is available for both [containers](#container-soft-delete) and [blobs](#blob-soft-delete).
 
@@ -89,7 +91,7 @@ After the retention period has expired, the blob is permanently deleted.
 
 [Soft delete for blobs](soft-delete-blob-overview.md)
 
-## Blob versioning
+### Blob versioning
 
 When blob versioning is enabled for a storage account, Azure Storage automatically stores the previous version of a blob each time it is modified or deleted. If a blob is erroneously modified or deleted, you can restore an earlier version to recover your data.
 
@@ -106,7 +108,7 @@ Microsoft recommends using blob versioning together with soft delete for superio
 
 For more information about blob versioning, see [Blob versioning](versioning-overview.md).
 
-## Blob snapshots
+### Blob snapshots
 
 A blob snapshot is a copy of a blob taken at a given point in time by your application code. Blob snapshots are similar to blob versions, except that they are manually generated. Versions are created automatically on every blob write or delete operation after versioning is enabled for the storage account.
 
@@ -116,7 +118,7 @@ To create a blob snapshot, call the [Snapshot Blob](/rest/api/storageservices/sn
 
 For more information about blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
-## Point-in-time restore
+### Point-in-time restore
 
 When point-in-time restore is enabled for your storage account, you can restore block blobs to an earlier state within a specified retention period. Point-in-time restore is useful in scenarios where a user or application accidentally or maliciously deletes or updates data, or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
 
@@ -134,7 +136,7 @@ Point-in-time restore requires that the following data protection features are a
 
 For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
-## Change feed
+### Change feed
 
 The blob change feed provides transaction logs of all write and delete operations on blobs and blob metadata in your storage account. The change feed provides an ordered, guaranteed, durable, immutable, read-only log of these changes. Your applications can consume the change feed to track changes to blob data. 
 
@@ -144,7 +146,7 @@ The following diagram shows how point-in-time restore works.
 
 Microsoft recommends enabling change feed so that you can track all write operations to your blob data.
 
-## Immutable blob storage
+### Immutable blob storage
 
 Immutable blob storage stores business-critical data in a Write Once, Read Many (WORM) state. In this state, blobs in a protected container cannot be deleted or modified. Azure Storage provides two types of immutability policies:
 
