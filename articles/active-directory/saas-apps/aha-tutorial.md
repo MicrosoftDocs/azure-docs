@@ -129,23 +129,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the menu on the top, click **Settings**.
 
-    ![Settings](./media/aha-tutorial/IC798950.png "Settings")
+    ![Settings](./media/aha-tutorial/setting.png "Settings")
 
 5. Click **Account**.
 
-    ![Profile](./media/aha-tutorial/IC798951.png "Profile")
+    ![Profile](./media/aha-tutorial/account.png "Profile")
 
 6. Click **Security and single sign-on**.
 
-    ![Screenshot that highlights the Security and single sign-on menu option.](./media/aha-tutorial/IC798952.png "Security and single sign-on")
+    ![Screenshot that highlights the Security and single sign-on menu option.](./media/aha-tutorial/security.png "Security and single sign-on")
 
 7. In **Single Sign-On** section, as **Identity Provider**, select **SAML2.0**.
 
-    ![Security and single sign-on](./media/aha-tutorial/IC798953.png "Security and single sign-on")
+    ![Security and single sign-on](./media/aha-tutorial/saml.png "Security and single sign-on")
 
 8. On the **Single Sign-On** configuration page, perform the following steps:
 
-    ![Single Sign-On](./media/aha-tutorial/IC798954.png "Single Sign-On")
+    ![Single Sign-On](./media/aha-tutorial/sso.png "Single Sign-On")
 
     a. In the **Name** textbox, type a name for your configuration.
 

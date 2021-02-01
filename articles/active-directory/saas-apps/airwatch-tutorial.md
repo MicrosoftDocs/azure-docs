@@ -142,19 +142,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the settings page. Select **Settings > Enterprise Integration > Directory Services**.
 
-   ![Settings](./media/airwatch-tutorial/ic791921.png "Settings")
+   ![Settings](./media/airwatch-tutorial/services.png "Settings")
 
 1. Click the **User** tab, in the **Base DN** textbox, type your domain name, and then click **Save**.
 
-   ![Screenshot that highlights the Base DN text box.](./media/airwatch-tutorial/ic791922.png "User")
+   ![Screenshot that highlights the Base DN text box.](./media/airwatch-tutorial/user.png "User")
 
 1. Click the **Server** tab.
 
-   ![Server](./media/airwatch-tutorial/ic791923.png "Server")
+   ![Server](./media/airwatch-tutorial/server.png "Server")
 
 1. Perform the following steps on the **LDAP** section:
 
-	![Screenshot that shows the changes you need to make to the LDAP section.](./media/airwatch-tutorial/ic791924.png "LDAP")   
+	![Screenshot that shows the changes you need to make to the LDAP section.](./media/airwatch-tutorial/ldap.png "LDAP")   
 
     a. As **Directory Type**, select **None**.
 
@@ -162,7 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **SAML 2.0** section, to upload the downloaded certificate, click **Upload**.
 
-    ![Upload](./media/airwatch-tutorial/ic791932.png "Upload")
+    ![Upload](./media/airwatch-tutorial/uploads.png "Upload")
 
 1. In the **Request** section, perform the following steps:
 
@@ -180,11 +180,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **User** tab again.
 
-    ![User](./media/airwatch-tutorial/ic791926.png "User")
+    ![User](./media/airwatch-tutorial/users.png "User")
 
 1. In the **Attribute** section, perform the following steps:
 
-    ![Attribute](./media/airwatch-tutorial/ic791927.png "Attribute")
+    ![Attribute](./media/airwatch-tutorial/attributes.png "Attribute")
 
     a. In the **Object Identifier** textbox, type `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
@@ -210,15 +210,15 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 
 2. In the navigation pane on the left side, click **Accounts**, and then click **Users**.
   
-   ![Users](./media/airwatch-tutorial/ic791929.png "Users")
+   ![Users](./media/airwatch-tutorial/accounts.png "Users")
 
 3. In the **Users** menu, click **List View**, and then click **Add > Add User**.
   
-   ![Screenshot that highlights the Add and Add User buttons.](./media/airwatch-tutorial/ic791930.png "Add User")
+   ![Screenshot that highlights the Add and Add User buttons.](./media/airwatch-tutorial/add.png "Add User")
 
 4. On the **Add / Edit User** dialog, perform the following steps:
 
-   ![Add User](./media/airwatch-tutorial/ic791931.png "Add User")
+   ![Add User](./media/airwatch-tutorial/save.png "Add User")
 
    a. Type the **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Email Address** of a valid Azure Active Directory account you want to provision into the related textboxes.
 

@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Administration**.
 
-	![Screenshot that highlights Administration in the navigation panel.](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+	![Screenshot that highlights Administration in the navigation panel.](./media/adaptivesuite-tutorial/administration.png "Admin")
 
 3. In the **Users and Roles** section, click **SAML SSO Settings**.
 
-	![Manage SAML SSO Settings](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
+	![Manage SAML SSO Settings](./media/adaptivesuite-tutorial/settings.png "Manage SAML SSO Settings")
 
 4. On the **SAML SSO Settings** page, perform the following steps:
 
@@ -161,15 +161,15 @@ To enable Azure AD users to sign in to Adaptive Insights, they must be provision
 
 2. Go to **Administration**.
 
-   ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+   ![Admin](./media/adaptivesuite-tutorial/administration.png "Admin")
 
 3. In the **Users and Roles** section, click **Users**.
 
-   ![Add User](./media/adaptivesuite-tutorial/IC805648.png "Add User")
+   ![Add User](./media/adaptivesuite-tutorial/users.png "Add User")
 
 4. In the **New User** section, perform the following steps:
 
-   ![Submit](./media/adaptivesuite-tutorial/IC805649.png "Submit")
+   ![Submit](./media/adaptivesuite-tutorial/new.png "Submit")
 
    a. Type the **Name**, **Username**, **Email**, **Password** of a valid Azure Active Directory user you want to provision into the related textboxes.
 

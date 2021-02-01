@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the SAML menu, select **Account Settings** > **SAML Settings**.
 
-    ![Screenshot of Adobe Sign SAML Settings page](./media/adobe-echosign-tutorial/ic789520.png "Account")
+    ![Screenshot of Adobe Sign SAML Settings page](./media/adobe-echosign-tutorial/settings.png "Account")
 
 1. In the **SAML Settings** section, perform the following steps:
 
-    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
+    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/saml1.png "SAML Settings")
 
    ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/saml.png "SAML Settings")
 
@@ -175,11 +175,11 @@ To enable Azure AD users to sign in to Adobe Sign, they must be provisioned into
 
 2. In the menu on the top, select **Account**. Then, in the left pane, select **Users & Groups** > **Create a new user**.
 
-    ![Screenshot of Adobe Sign company site, with Account, Users &Groups, and Create a new user highlighted](./media/adobe-echosign-tutorial/ic789524.png "Account")
+    ![Screenshot of Adobe Sign company site, with Account, Users &Groups, and Create a new user highlighted](./media/adobe-echosign-tutorial/account.png "Account")
 
 3. In the **Create New User** section, perform the following steps:
 
-    ![Screenshot of Create New User section](./media/adobe-echosign-tutorial/ic789525.png "Create User")
+    ![Screenshot of Create New User section](./media/adobe-echosign-tutorial/user.png "Create User")
 
     a. Type the **Email Address**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision into the related text boxes.
 
