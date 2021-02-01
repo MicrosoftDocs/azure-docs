@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Enable CAPTCHA
 
-In the previous tutorial [Self-host the portal](dev-portal-self-host-portal.md), you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
+In the previous tutorial [Self-host the portal](dev-portal-self-host-portal.md#configure-json-files-static-website-and-cors-settings), you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
 
 To enable the CAPTCHA in your self-hosted portal:
 
@@ -31,7 +31,7 @@ To enable the CAPTCHA in your self-hosted portal:
     |  | `"useHipCaptcha": true` | Change the value to `true` |
     | `config.runtime.json` | `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
 
-1. Run the portal's publishing step.
+1. Publish the portal.
 
 1. Upload and host the newly published portal.
 
