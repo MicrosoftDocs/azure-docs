@@ -82,7 +82,7 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. To create a service principal, use the following command via the `az cli`.
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
