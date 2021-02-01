@@ -271,7 +271,7 @@ Before proceeding further with authentication, register your application on **Az
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select **Authentication**.
-1. In the **Implicit grant** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**.
 
 > ### Set a redirect URL for Node.js

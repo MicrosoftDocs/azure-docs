@@ -19307,6 +19307,21 @@
       "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
       "redirect_url": "/azure/governance/management-groups/create",
       "redirect_document_id": false
