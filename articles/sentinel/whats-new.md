@@ -57,7 +57,7 @@ Azure Sentinel now supports dedicated Log Analytics clusters as a deployment opt
 
 Dedicated clusters enable you to use features like customer-managed keys, lockbox, double encryption, and faster cross-workspace queries when you have multiple workspaces on the same cluster.
 
-For more information, see [Azure Monitor logs dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/logs-dedicated-clusters).
+For more information, see [Azure Monitor logs dedicated clusters](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters).
 
 ### Logic apps managed identities
 
@@ -84,7 +84,7 @@ For more information, see [Define the rule query logic and configure settings](t
 
 ## December 2020
 
-- [SolarWinds post-compromise hunting workbook](solarwinds-post-compromise-hunting-workbook)
+- [SolarWinds post-compromise hunting workbook](#solarwinds-post-compromise-hunting-workbook)
 - [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
 - [Log Analytics agent improvements](#log-analytics-agent-improvements)
 
