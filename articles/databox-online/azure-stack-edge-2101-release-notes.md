@@ -12,7 +12,7 @@ ms.author: alkohli
 
 # Azure Stack Edge Pro with FPGA 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
+The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with a built-in Field Programmable Gate Array (FPGA).
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.  
 
@@ -27,7 +27,7 @@ This release corresponds to software version:
 
 This release contains the following bug fix:
 
-- **Upload issue** - This release fixes an upload problem, where upload restarts caused by a failure can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures sufficient opportunity for upload completion before restarting upload for a given file.
+- **Upload issue** - This release fixes an upload problem, where upload restarts caused by a failure can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large relative to available bandwidth - particularly, but not limited to, when bandwidth throttling is active. This change ensures sufficient opportunity for upload completion before restarting upload for a given file.
 
 This release also contains the following updates:
 
