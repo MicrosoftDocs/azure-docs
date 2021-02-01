@@ -82,7 +82,7 @@ In AWS, assign the value of the **user name** in Azure AD as the value of the AW
 To configure and test Azure AD single sign-on with AWS, do the following:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-1. **[Configure AWS SSO](#configure-aws-sso)** to configure the single sign-on settings on application side.
+1. **[Configure AWS SSO](#configure-aws-sso)** to configure SSO settings on the application side.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ### Configure Azure AD SSO
