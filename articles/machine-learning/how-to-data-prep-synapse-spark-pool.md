@@ -13,7 +13,7 @@ ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml
 
 
-# Customer intent: As a data scientist, I want to prepare my data and to train my machine learning models from a single notebook 
+# Customer intent: As a data scientist, I want to prepare my data at scale and to train my machine learning models from a single notebook.
 ---
 
 # Connect Spark pools for data preparation with Azure Synapse (preview)
@@ -259,7 +259,7 @@ When you're ready to consume your prepared data for model training, connect to y
 The following code,
 
 * Creates and registers an ADLS Gen 2 datastore to connect to the Azure Data Lake Storage Generation 2 container that contains the prepared data. 
-* Creates a [TabularDataset](how-to-create-register-datasets.md##tabulardataset), `nyc_green`, that references the prepared data's file location in the ADLS Gen 2 directory. 
+* Creates a [TabularDataset](how-to-create-register-datasets.md#tabulardataset), `nyc_green`, that references the prepared data's file location in the ADLS Gen 2 directory. 
 * Registers the `nyc_green` dataset to the machine learning workspace, `ws`. Registering the dataset allows for the `nyc_green` dataset to be referenced and reused in training scripts and machine learning experiments within the `ws` workspace.
 
 ```python
