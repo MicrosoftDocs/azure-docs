@@ -16,7 +16,7 @@ ms.author: v-doeris
 
 # Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app
 
-In this tutorial, you build an Electron desktop application that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The desktop app you build uses the Microsoft Authentication Library (MSAL) for Node.
+In this tutorial, you build an Electron desktop application that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The desktop app you build uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 Follow the steps in this tutorial to:
 
@@ -41,7 +41,7 @@ First, complete the steps in [Register an application with the Microsoft identit
 Use the following settings for your app registration:
 
 - Name: `ElectronDesktopApp` (suggested)
-- Supported account types: **Accounts in this organizational directory only**
+- Supported account types: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 - Platform type: **Mobile and desktop applications**
 - Redirect URI: `msal://redirect`
 
@@ -218,7 +218,7 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
     });
 ```
 
-In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate authProvider for handling sign-in, sign-out and token acquisition, and call Microsoft Graph API.
+In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate *authProvider* class for handling sign-in, sign-out and token acquisition, and call Microsoft Graph API.
 
 3. In the same folder (*App*), create another file named *renderer.js* and add the following code:
 
@@ -381,7 +381,7 @@ ElectronDesktopApp/
 
 ## Add authentication logic to your app
 
-In *App* folder, create a file named *AuthProvider.js*. This will contain an authentication provider class that will handle login, logout, token acquisition, account selection and related authentication tasks using MSAL Node. It first initializesAdd the following code there:
+In *App* folder, create a file named *AuthProvider.js*. This will contain an authentication provider class that will handle login, logout, token acquisition, account selection and related authentication tasks using MSAL Node. Add the following code there:
 
 ```JavaScript
     const { PublicClientApplication, LogLevel, CryptoProvider } = require('@azure/msal-node');
