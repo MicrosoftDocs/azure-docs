@@ -76,25 +76,6 @@ When configuration backup is turned on and connectivity to Azure is interrupted:
 
 When connectivity is restored, each self-hosted gateway affected by the outage will automatically reconnect with its associated API Management service and download all configuration updates that occurred while the gateway was "offline".
 
-## Using a custom CA
-
-When installed in its default configuration, the self-hosted gateway doesn't support validating server and client certificates using CA root certificates uploaded to an API Management instance. 
- 
-### Workaround 
- 
-As a workaround when running the gateway using the default self-hosted gateway image, you may configure the PKI IP address to point to the localhost address (127.0.0.1) instead of the API Management instance. This causes the CRL validation to fail quickly when the gateway attempts to validate the client certificate. To configure the gateway, add a DNS entry for the API Management instance to resolve to the localhost in the `/etc/hosts` file in the container. Add this entry during gateway deployment:
- 
-* For Docker deployment - add the `--add-host <hostname>:127.0.0.1` parameter to the `docker run` command. For more information, see [Add entries to container hosts file](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
- 
-* For Kubernetes deployment - Add a `hostAliases` specification to the `myGateway.yaml` configuration file. For more information, see [Adding entries to Pod /etc/hosts with Host Aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
-
-### Update self-hosted gateway image
-
-To add support for a custom CA in the self-hosted gateway, you may build a custom gateway image that adds a CA certificate as a trusted certificate. Create a Dockerfile that specifies the existing self-hosted gateway image as a base image, and add layers that install the CA certificate as a .crt file and run `update-ca-certificates` in the container. 
-
-For information about building Docker images, see the [Docker documentation](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
-
-
 ## Next steps
 
 -   [Read a whitepaper for additional background on this topic](https://aka.ms/hybrid-and-multi-cloud-api-management)
