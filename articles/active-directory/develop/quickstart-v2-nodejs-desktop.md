@@ -15,14 +15,11 @@ ms.author: v-doeris
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
-# Quickstart: Acquire a token and call Microsoft Graph API from an Electron desktop app
+# Quickstart: Acquire an access token and call Microsoft Graph API from an Electron desktop app
 
-In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and get an access token to call the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and acquire access tokens to call the Microsoft Graph API.
 
-This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow (w/ PKCE).
-
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [authorization code flow (w/ PKCE)](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 
 ## Prerequisites
 
@@ -85,8 +82,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
 >
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Edit **.env** and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
+> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
+> 1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
 >
 >    ```json
 >    "TENANT_ID": "Enter_the_Tenant_Id_Here",
@@ -125,15 +122,15 @@ You should see application's UI with a **Sign in** button.
 
 [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. For more information on how to use MSAL Node with desktop apps, see [this article](scenario-desktop-overview.md).
 
- You can install MSAL Node by running the following npm command.
+You can install MSAL Node by running the following npm command.
 
 ```console
-npm install @azure/msal-node
+npm install @azure/msal-node --save
 ```
 
 ### MSAL initialization
 
-You can add the reference for MSAL by adding the following code:
+You can add the reference for MSAL Node by adding the following code:
 
 ```javascript
 const { PublicClientApplication } = require('@azure/msal-node');
@@ -251,7 +248,12 @@ In the first leg of authorization code flow with PKCE, prepare and send an autho
 
 ## Next steps
 
-To learn more about desktop applications, see the scenario landing page
+To learn more about Electron desktop app development with MSAL Node , see the tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
+
+To learn more about desktop applications in general, see the scenario landing page:
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-desktop-overview.md)
