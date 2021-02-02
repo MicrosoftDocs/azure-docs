@@ -1,6 +1,6 @@
 ---
 title: Microsoft managed migration (Azure Data Lake Storage Gen1 to Gen2)
-description: Use an automation tool to migrate Azure Data Lake Storage from Gen1 to Gen2.
+description: Microsoft managed migration eases your migration from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. 
 author: normesta
 ms.topic: how-to
 ms.author: normesta
@@ -47,7 +47,7 @@ Create one of these types of storage accounts and make sure to use the following
 
 | Setting | Value |
 |--|--|
-| **Location** (region) | The same region used by the Data Lake Storage Gen1 account. |
+| **Location** | The same region used by the Data Lake Storage Gen1 account. |
 | **Replication** | LRS or ZRS |
 | **Minimum TLS version** | 1.0 |
 | **NFS v3** | Disabled |
@@ -85,13 +85,15 @@ After the data migration is complete, you can test your applications against you
    | **Java** | [1.1.21](https://github.com/Azure/azure-data-lake-store-java/blob/master/CHANGES.md) |
    | **Python** | [0.0 51](https://github.com/Azure/azure-data-lake-store-python/blob/master/HISTORY.rst) |
 
-   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer is what enables your application to continue using Gen1 APIs. It runs on the server so there's nothing to install. Just make sure to review the list of known issues with this feature before you begin using it. To review that list, see the [Known issues with the Gen1 compatibility layer](#known-issues) section of this article.
+   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer is what enables your application to continue using Gen1 APIs. 
 
 3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
 
    For example, if your Gen1 account is named `mygen1account` and your Gen2 account is named `mygen2account`, you would replace any instances of the string `mygen1account.azuredatalakestore.net` with `mygen2account.dfs.core.windows.net`.
 
-4. Test your applications. When you've completed your testing, you can complete the migration.
+4. Review the list of known issues with the compatibility layer. see the [Known issues with the Gen1 compatibility layer](#known-issues) section of this article.
+
+5. Test your applications. When you've completed your testing, you can complete the migration.
 
 ## Complete the migration
 
@@ -101,7 +103,7 @@ To complete the migration, run the managed migration tool again. Make sure to se
 
 ### Known issues with the Gen1 compatibility layer
 
-Before you begin testing your applications, you might have to make some slight modifications based on the following known issues.
+The compatibility layer runs on the server so there's nothing to install. However, there are some issues that are worth reviewing before you begin testing your applications. This section describes those issues.
 
 ##### ListStatus API option to ListBefore an entry
 
@@ -109,7 +111,7 @@ With Gen1, you could use the query parameter `ListBefore` to reverse list entrie
 
 ##### ListStatus API to be used with continuation token 
 
-The `ListStatus` API returns a continuation token if there are more records. Clients need to use a continuation token for next page of a list result. `ListStatus` takes a `listSize` query parameter as a page size, which is set to 4K by default. But in Gen2, there's no guarantee that all all records requested by the client will be returned. Therefore, the client has to rely on the existence of the continuation token in the response to figure out if there are more records. Some older versions of the Gen1 SDKs had a hard dependency on the number of records returned in place of continuation token. This is a breaking experience in the compatibility layer. Any client that has similar logic needs to be fixed to avoid getting incomplete results. 
+The `ListStatus` API returns a continuation token if there are more records. Clients need to use a continuation token for next page of a list result. `ListStatus` takes a `listSize` query parameter as a page size, which is set to 4K by default. But in Gen2, there's no guarantee that all all records requested by the client will be returned. Therefore, the client has to rely on the existence of the continuation token in the  response to figure out if there are more records. Some older versions of the Gen1 SDKs had a hard dependency on the number of records returned in place of continuation token. This is a breaking experience in the compatibility layer. Any client that has similar logic needs to be fixed to avoid getting incomplete results. 
 
 ##### Unsupported characters in file and directory names
 
@@ -143,25 +145,22 @@ In Gen1, the server-side implementation of `GetContentSummary` had performan
 
 ##### Token audience for authentication  
 
-Gen1 clients send two types of token audiences.  
+Gen1 clients send the following two types of token audiences.  
 
-https://datalake.azure.net  
-
-https://management.azure.com/  
+- https://datalake.azure.net  
+- https://management.azure.com/  
 
 When using the compatibility layer, we recommend that clients use only the `https://datalake.azure.net` token audience. The `https://management.azure.com/` audience has security implications. Though based on priority, it's possible to allow the `https://management.azure.com/` audience  through DC settings of a stamp, but it's not recommended.  
 
 ##### User identification as SuperUser  
 
-Users can be tagged as superusers based on their Azure role. – Mentioned in “RBAC User Role Significance row of “ACL  related Deviations” table below. Other than that, when account is accessed using SAS token or account key too, the user will be identified as superuser.
+Users can be tagged as superusers based upon their Azure role, a SAS token, or account key. 
 
 ##### Ownership info displayed as $superuser  
 
-[Assigning the owning group for a new file or directory](data-lake-storage-access-control.md#assigning-the-owning-group-for-a-new-file-or-directory)
+The root directory "/" is created when a Data Lake Storage Gen2 container is created. If the container was created by a user that is authorized with Azure Active Directory (Azure AD), the owning group is set to the user who created the container. If the container is created by using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to $superuser.
 
-The root directory "/" is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to $superuser.”  
-
-Note: Refer Appendix 3 for ACL related deviations across ADLS Gen1, Gen1Compatibility layer & Gen2 
+For more information, see [Assigning the owning group for a new file or directory](data-lake-storage-access-control.md#assigning-the-owning-group-for-a-new-file-or-directory)  .
 
 ## Next steps
 
