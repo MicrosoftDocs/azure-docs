@@ -269,6 +269,16 @@ Before you create the data controller on Azure Red Hat OpenShift, you will need 
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
+   > [!NOTE]
+   > RedHat OpenShift 4.5 or greater, changes how to apply the SCC to the service account.
+   > Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`. 
+   > 
+   > If you are using RedHat OpenShift 4.5 or greater, run: 
+   >
+   >```console
+   >oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
+   >```
+
 #### Create custom deployment profile
 
 Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
