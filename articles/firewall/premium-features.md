@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.author: victorh
 ---
 
@@ -83,7 +83,7 @@ Azure Firewall Premium Preview has the following known issues:
 |Untrusted Certificates|Users may connect from time to time to servers with untrusted certificates. Azure Firewall will drop the connection as if the server terminated the connection.|None
 |Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall re-negotiates a connection with the server and has no access to the private key of the client certificates.|None|
 |QUIC/HTTP3|QUIC is the new major version of HTTP. It is a UDP based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection will not be supported.|Configure passing UDP 80/443 as network rules.|
-|Secure Hub and forced tunneling not supported|Currently the Firewall Premium SKU is not supported in Secure Hub deployments and forced tunnel configurations.|Fix scheduled for GA.|
+|Secure Hub and forced tunneling not supported in Premium|Currently the Firewall Premium SKU is not supported in Secure Hub deployments and forced tunnel configurations.|Fix scheduled for GA.|
 Untrusted customer signed certificates|Customer signed certificates are not trusted by the firewall once received from an intranet based web server.|Fix scheduled for GA.
 |Wrong source and destination IP addresses in Alerts for IDPS with TLS inspection.|When you enable TLS inspection and IDPS issues a new alert, the displayed source/destination IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
 |Wrong source IP address in Alerts with IDPS for HTTP (without TLS inspection).|When plain text HTTP traffic is in use, and IDPS issues a new alert, and the destination is public a IP address, the displayed source IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
