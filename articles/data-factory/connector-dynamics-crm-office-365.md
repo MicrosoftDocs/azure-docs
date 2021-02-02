@@ -15,6 +15,7 @@ ms.date: 02/02/2021
 ---
 
 # Copy data from and to Dynamics 365 (Common Data Service) or Dynamics CRM by using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use a copy activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
