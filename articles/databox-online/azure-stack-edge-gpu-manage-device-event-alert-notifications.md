@@ -33,37 +33,37 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 1. Go to the Azure Stack Edge device in the Azure portal, and then go to **Monitoring > Alerts**. Select **Manage actions**.
 
-   ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-alerts/action-rules-open-view-01.png)
+   ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)
 
 2. Select **Action rules (preview)**, and then select **+ New action rule**.
 
-   ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-alerts/action-rules-open-view-02.png)
+   ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02.png)
 
 3. On the **Create action rule** screen, use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.
 
    1. Choose **Select** by **Scope**.
 
-      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-scope-01.png)
+      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)
 
    2. Select the **Subscription** for the action rule, optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
 
       The **Resource** area lists the available resources based on your selections.
   
-      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-scope-02.png)
+      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)
 
    3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources. Then select **Done**.
 
-      ![Sample settings for an action rule scope](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-scope-03.png)
+      ![Sample settings for an action rule scope](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-03.png)
 
       The **Create action rule** screen shows the selected scope.
 
-      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-scope-04.png)
+      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-device-event-alert=notifications/new-action-rule-scope-04.png)
 
 4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
 
    1. Select **Add** to open the **Add filters** pane.
 
-      ![Option for adding filters to an action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-filter-01.png)
+      ![Option for adding filters to an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-filter-01.png)
 
    2. Under **Filters**, add each filter you want to apply. For each filter, select the filter type, **Operator**, and **Value**.
    
@@ -73,11 +73,11 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       When you finish adding filters, select **Done**.
    
-      ![Sample filter for an action rule](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-filter-02.png)
+      ![Sample filter for an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-filter-02.png)
 
 5. On the **Create action rule** screen, select **Action group** to create a rule that sends notifications. Then, by **Actions**, choose **Select**.
 
-   ![Action group option for creating an action rule that sends notifications](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-action-group-01.png)
+   ![Action group option for creating an action rule that sends notifications](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-01.png)
 
    > [!NOTE]
    > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
@@ -86,7 +86,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
    If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
 
-   ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-action-group-02.png)
+   ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-02.png)
 
 7. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
 
@@ -94,13 +94,13 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 10. When you finish your settings, select **Create**.
 
-    ![Completed settings for an action rule that will send alert notifications](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-completed-settings.png)
+    ![Completed settings for an action rule that will send alert notifications](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-completed-settings.png)
 
     The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus is **All** resource groups.
 
 11. To see your new action rule, select the resource group for the rule.
 
-    ![Action rules screen with the new rule displayed](media/azure-stack-edge-gpu-manage-alerts/new-action-rule-displayed.png)
+    ![Action rules screen with the new rule displayed](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-displayed.png)
 
 
 ## View notifications
@@ -113,7 +113,7 @@ It might take a few minutes to receive notifications after an alert is triggered
 
 The email notification will look similar to this one.
 
-![Sample email notification for an action rule](media/azure-stack-edge-gpu-manage-alerts/sample-action-rule-email-notification.png)
+![Sample email notification for an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/sample-action-rule-email-notification.png)
 
 
 ## Next steps

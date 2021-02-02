@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.author: alkohli
 ---
 # Monitor your Azure Stack Edge Pro
@@ -75,4 +75,4 @@ A full list of the metrics is shown in the following table:
 ## Next steps
 
 Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
-Learn how to [Manage alerts](azure-stack-edge-gpu-manage-alerts.md).
+Learn how to [Manage alerts](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
