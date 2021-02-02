@@ -30,6 +30,37 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + Improved performance 
   + Improved speed and kernel reliability
   
+  
+ ## 2021-02-08
+
+### Azure Machine Learning SDK for Python v1.21.0
++ **Bug fixes and improvements**
+  + **automl-client-core-nativeclient**
+    + Fixed a bug where classical forecasting models (e.g. AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
+  + **azureml-automl-core**
+    + Fixed bug where an extra pip dependency was added to the conda yml file for vision models.
+  + **azureml-automl-runtime**
+    + Fixed a bug where classical forecasting models (e.g. AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
+  + **azureml-core**
+    + Adding support for Token Authentication by audience.
+    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+  + **azureml-parallel-run**
+    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
+    + Add widget ParallelRunStepDetails to visualize status of a ParallelRunStep.
+  + **azureml-pipeline-core**
+    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
+  + **azureml-pipeline-steps**
+    + CommandStep now GA and no longer experimental.
+    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
+    + Fixed whitespace handling in AutoMLStep name.
+  + **azureml-train-core**
+    + HyperDrive runs invoked from a ScriptRun will now be considered a child run.
+    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+  + **azureml-widgets**
+    + Add widget ParallelRunStepDetails to visualize status of a ParallelRunStep.
+    + Allows hyperdrive users to see an additional axis on the parallel coordinates chart that shows the metric value corresponding to each set of hyperparameters for each child run.
+
+
  ## 2021-01-25
 
 ### Azure Machine Learning SDK for Python v1.21.0
