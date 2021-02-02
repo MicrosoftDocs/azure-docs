@@ -1,13 +1,13 @@
 ---
 title: Link your partner ID to track your impact on delegated resources
 description: Learn how to associate your partner ID to receive partner earned credit (PEC) on customer resources you manage through Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 01/28/2021
 ms.topic: how-to
 ---
 
 # Link your partner ID to track your impact on delegated resources 
 
-If you're a member of the [Microsoft Partner Network](https://partner.microsoft.com/), you can link your partner ID with the credentials used to manage delegated customer resources. Partner Admin Link (PAL) enables Microsoft to identify and recognize partners who drive Azure customer success. This link also allows [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partners to receive [partner earned credit for managed services (PEC)](/partner-center/partner-earned-credit) for customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started).
+If you're a member of the [Microsoft Partner Network](https://partner.microsoft.com/), you can link your partner ID with the credentials used to manage delegated customer resources, allowing Microsoft to identify and recognize partners who drive Azure customer success. This link also allows [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partners to receive [partner earned credit for managed services (PEC)](/partner-center/partner-earned-credit) for customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started).
 
 If you [onboard customers with Managed Service offers in Azure Marketplace](publish-managed-services-offers.md), linking happens automatically using the MPN ID associated with the Partner Center account used to publish the offers. No further action is needed in order to track your impact for these customers.
 
@@ -25,7 +25,7 @@ For simplicity, we recommend creating a service principal account in your tenant
 
 By following these steps, every customer tenant you manage will be associated with your partner ID. The Provider Automation Account does not need to authenticate or perform any actions in the customer tenant.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram showing the PAL process with Azure Lighthouse.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram showing the partner ID linking process with Azure Lighthouse.":::
 
 ## Add your partner ID to previously onboarded customers
 
@@ -37,7 +37,9 @@ Once the account has been [linked to your Associated MPN ID](../../cost-manageme
 
 You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC. Remember that PEC only applies to CSP customers who have signed the MCA and are under the Azure plan.
 
-If you have followed the steps above, and do not see the association, open a support request in the Azure portal.
+If you have followed the steps above, and do not see the expected association, open a support request in the Azure portal.
+
+You can also use the [Partner Center SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) and filter on `rateOfPartnerEarnedCredit` to automate PEC verification for a subscription.
 
 ## Next steps
 

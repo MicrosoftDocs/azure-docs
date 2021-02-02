@@ -1,6 +1,9 @@
 ---
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
 ---
@@ -26,11 +29,21 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 
 ## Physical server requirements
 
-| **Support**                | **Details**               
-| :-------------------       | :------------------- |
-| **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** Use a domain account for domain-joined machines, and a local account for machines that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. <br/> Alternately, ensure the required capabilities are set using the following commands. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (if /usr/sbin/fdisk is not present) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
-| **Operating system** | All Windows and Linux operating systems can be assessed for migration. |
+**Physical server deployment:** The physical server can be standalone, or deployed in a cluster.
+
+**Operating system:** All Windows and Linux operating systems can be assessed for migration.
+
+**Permissions:**
+- For Windows servers, use a domain account for domain-joined machines, and a local account for machines that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+- For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
+
+**Command** | **Purpose**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
+chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+
 
 
 ## Azure Migrate appliance requirements
@@ -49,7 +62,7 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
-**Physical servers** | **Windows:** Inbound connection on WinRM port 5985 (HTTP) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
+**Physical servers** | **Windows:** Inbound connection on WinRM port 5985 (HTTP) or 5986 (HTTPS) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
 
 ## Agent-based dependency analysis requirements
 

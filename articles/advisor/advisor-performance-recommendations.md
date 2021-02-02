@@ -103,7 +103,7 @@ Advisor detects whether you can increase load performance and throughput by incr
 
 ## Co-locate the storage account in the same region to minimize latency when loading
 
-Advisor detects whether you're loading from a region that's different from your SQL pool. Consider loading from a storage account that's in the same region as your SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
+Advisor detects whether you're loading from a region that's different from your dedicated SQL pool. Consider loading from a storage account that's in the same region as your dedicated SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
 
 ## Use a supported Kubernetes version
 
@@ -141,7 +141,7 @@ Advisor detects Azure Cosmos DB accounts that have traffic from a region that is
 
 ## Configure your Azure Cosmos DB indexing policy by using custom included or excluded paths
 
-Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](/azure/cosmos-db/index-policy)
+Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](../cosmos-db/index-policy.md)
 
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 
@@ -171,6 +171,11 @@ We have determined that your VMs are located in a region different or far from w
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 Learn more about [Immersive reader SDK](../cognitive-services/immersive-reader/index.yml).
 
+## Improve VM performance by changing the maximum session limit
+
+Advisor detects that you have a host pool that has depth first set as the load balancing algorithm, and that host pool's max session limit is greater than or equal to 999999. Depth first load balancing uses the max session limit to determine the maximum number of users that can have concurrent sessions on a single session host. If the max session limit is too high, all user sessions will be directed to the same session host, and this will cause performance and reliability issues. Therefore, when setting a host pool to have depth first load balancing, you must set an appropriate max session limit according to the configuration of your deployment and capacity of your VMs. 
+
+To learn more about load balancing in Windows Virtual Desktop, see [Configure the Windows Virtual Desktop load-balancing method](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## How to access performance recommendations in Advisor
 

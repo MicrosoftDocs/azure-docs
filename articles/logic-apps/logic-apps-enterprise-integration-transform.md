@@ -94,17 +94,17 @@ The transform action also supports maps or transforms with reference to external
     <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
   </msxsl:script>
   <xsl:template match="data">
-	 <circles>
-		<xsl:for-each select="circle">
-			<circle>
-				<xsl:copy-of select="node()"/>
-					<circumference>
-						<xsl:value-of select="user:circumference(radius)"/>
-					</circumference>
-			</circle>
-		</xsl:for-each>
-	 </circles>
-	</xsl:template>
+   <circles>
+    <xsl:for-each select="circle">
+      <circle>
+        <xsl:copy-of select="node()"/>
+          <circumference>
+            <xsl:value-of select="user:circumference(radius)"/>
+          </circumference>
+      </circle>
+    </xsl:for-each>
+   </circles>
+  </xsl:template>
     </xsl:stylesheet>
   ```
 

@@ -4,7 +4,7 @@ description: Troubleshoot common problems faced when signing in to first-party M
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -58,7 +58,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure the user’s account is **enabled** for sign-ins. [Check a user’s account status](#problems-with-the-users-account)
 
-  * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](../authentication/tutorial-enable-sspr.md)
 
   * Make sure **Multi-Factor Authentication** is not blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
@@ -174,9 +174,9 @@ To reset a user’s password, follow these steps:
 
 To enable self-service password reset, follow the deployment steps below:
 
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
 
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status
 
@@ -503,26 +503,25 @@ Application access can be blocked because the proper permissions consent operati
 
 -   For any Open ID Connect-enabled application that requests permissions, navigating to the application’s sign in screen performs a user level consent to the application for the signed-in user.
 
--   If you wish to do this programmatically, see [Requesting individual user consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   If you wish to do this programmatically, see [Requesting individual user consent](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### Perform administrator-level consent operation for any application
 
 -   For **only applications developed using the V1 application model**, you can force this administrator level consent to occur by adding “**?prompt=admin\_consent**” to the end of an application’s sign in URL.
 
--   For **any application developed using the V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   For **any application developed using the V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a single-tenant application
 
 -   For **single-tenant applications** that request permissions (like those you are developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** pane.
 
--   For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a multi-tenant application
 
 -   For **multi-tenant applications** that request permissions (like an application a third party, or Microsoft, develops), you can perform an **administrative-level consent** operation. Sign in as a Global Administrator and clicking on the **Grant permissions** button under the **Enterprise Applications -&gt; All Applications -&gt; Select an App -&gt; Permissions** pane (available soon).
 
--   You can also enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   You can also enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## Next steps
-[Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

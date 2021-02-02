@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Before you begin
 
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.16` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
+The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.16` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
 Make sure that you have read the [Istio Performance and Scalability](https://istio.io/docs/concepts/performance-and-scalability/) documentation to understand the additional resource requirements for running Istio in your AKS cluster. The core and memory requirements will vary based on your specific workload. Choose an appropriate number of nodes and VM size to cater for your setup.
 

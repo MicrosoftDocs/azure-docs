@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Debug Rendering
   href: debug-rendering.md
+- name: Fresnel effect
+  href: fresnel-effect.md
 - name: Hierarchical state override
   href: override-hierarchical-state.md
 - name: Camera
@@ -18,6 +20,8 @@
   href: color-materials.md
 - name: Outline rendering
   href: outlines.md
+- name: Shell rendering
+  href: shell-effect.md
 - name: Single-sided rendering
   href: single-sided-rendering.md
 - name: Spatial queries

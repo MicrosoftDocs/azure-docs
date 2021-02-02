@@ -3,7 +3,7 @@ title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
 ---
 
@@ -45,6 +45,8 @@ Install the latest 2.x version of the Durable Functions bindings extension in yo
 
 Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
 
+Python support in Durable Functions requires Durable Functions 2.x.
+
 To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 2.x (`[2.*, 3.0.0)`).
 
 ```json
@@ -56,6 +58,9 @@ To update the extension bundle version in your project, open host.json and updat
     }
 }
 ```
+
+> [!NOTE]
+> If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
 
 #### .NET
 

@@ -3,8 +3,8 @@ title: Datasets
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

@@ -4,7 +4,6 @@ description: This article describes Azure Cosmos DB resource model which include
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
@@ -12,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB resource model
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, you should initially create an Azure Cosmos account in your Azure subscription and databases, containers, items under it. This article describes the Azure Cosmos DB resource model and different entities in the resource model hierarchy.
 

@@ -81,4 +81,4 @@ In the Azure portal, you can then enter the composite key as follows:
 
 * Read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored.
 
-* Plan your [Azure Time Series Insights Gen2 environment](./time-series-insights-update-plan.md).
+* Plan your [Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md).

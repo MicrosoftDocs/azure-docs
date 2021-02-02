@@ -100,7 +100,7 @@ The resource troubleshooting log files are stored in a storage account after res
 > [!NOTE]
 > In some cases, only a subset of the logs files is written to storage.
 
-For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
+For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 ### ConnectionStats.txt
 
@@ -202,6 +202,11 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## Considerations 
+* Only one troubleshoot operation can be run at a time per subscription. To run another troubleshoot operation, wait for the previous one to complete. Triggering more operations while a previous one hasn't completed will cause subsequent operations to fail. 
+* CLI Bug: If you are using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
+
 
 ## Next steps
 

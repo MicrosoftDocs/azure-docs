@@ -51,4 +51,4 @@ Currently, you can choose from 6 available government-only datacenter regions.
 This quickstart showed you how to use portal to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](../index.yml).

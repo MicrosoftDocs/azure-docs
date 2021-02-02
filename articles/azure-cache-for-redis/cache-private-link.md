@@ -95,7 +95,6 @@ To create a cache instance, follow these steps.
 
 1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence.
 
-
 1. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 
 1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
@@ -108,8 +107,8 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
     
 > [!IMPORTANT]
 > 
-> There is a `publicNetworkAccess` flag which is `Enabled` by default. 
-> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+> There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -201,7 +200,44 @@ To create a private endpoint, follow these steps.
 
 13. After the green **Validation passed** message appears, select **Create**.
 
+## FAQ
+
+### Why can't I connect to a private endpoint?
+If your cache is already a VNet injected cache, private endpoints cannot be used with your cache instance. If your cache instance is using an unsupported feature (listed below), you won't be able to connect to your private endpoint instance. In addition, cache instances need to be created after July 27th to use private endpoints.
+
+### What features are not supported with private endpoints?
+Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall rules and zone redundancy. 
+
+### How can I change my private endpoint to be disabled or enabled from public network access?
+There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
+
+```http
+PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### Are network security groups (NSG) enabled for private endpoints?
+No, they are disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR. 
+
+Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used
+
+### Can I use firewall rules with private endpoints?
+No, this is a current limitation of private endpoints. The private endpoint will not work properly if firewall rules are configured on the cache.
+
+### How can I connect to a clustered cache?
+`publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.
+
+### Since my private endpoint instance is not in my VNet, how is it associated with my VNet?
+It is only linked to your VNet. Since it is not in your VNet, NSG rules do not need to be modified for dependent endpoints.
+
+### How can I migrate my VNet injected cache to a private endpoint cache?
+You will need to delete your VNet injected cache and create a new cache instance with a private endpoint.
 
 ## Next steps
 
-To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).
+* To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).
+* To compare various network isolation options for your cache instance, see [Azure Cache for Redis network isolation options documentation](cache-network-isolation.md).

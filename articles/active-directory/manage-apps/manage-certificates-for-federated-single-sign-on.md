@@ -4,7 +4,7 @@ description: Learn how to customize the expiration date for your federation cert
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -106,4 +106,4 @@ If a certificate is about to expire, you can renew it using a procedure that res
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Application management with Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
-- [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)

@@ -114,7 +114,7 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 ## Data source privacy and authentication
 
 > [!NOTE]
-> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/power-bi/desktop-privacy-levels) for more information.
+> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](/power-bi/desktop-privacy-levels) for more information.
 
 You may get a warning message when you attempt to run the query since it utilizes an external data source.
 

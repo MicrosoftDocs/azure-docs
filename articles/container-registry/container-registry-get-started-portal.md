@@ -3,7 +3,7 @@ title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: "seodec18, mvc"
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
@@ -39,7 +39,7 @@ Take note of the registry name and the value of the **Login server**. You use th
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. (Specify only the registry name when logging in with the Azure CLI. Don't include the 'azurecr.io' domain suffix.)
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. Specify only the registry name when logging in with the Azure CLI. Don't use the login server name, which includes a domain suffix like `azurecr.io`.
 
 ```azurecli
 az acr login --name <registry-name>

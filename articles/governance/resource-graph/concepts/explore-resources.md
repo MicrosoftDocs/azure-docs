@@ -1,7 +1,7 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ---
 # Explore your Azure resources with Resource Graph
@@ -183,12 +183,6 @@ Resources
 | where disk.storageAccountType == 'Premium_LRS'
 | project disk.id
 ```
-
-> [!NOTE]
-> Another way to get the SKU would have been by using the **aliases** property
-> **Microsoft.Compute/virtualMachines/sku.name**. See the
-> [Show aliases](../samples/starter.md#show-aliases) and
-> [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,7 +32,7 @@ Additional information about licensing can be found on the following pages:
 * [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B licensing guidance](../external-identities/licensing-guidance.md)
+* [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md)
 
 ## Phase 1: Build a foundation of security
 
@@ -54,7 +54,7 @@ In this phase, administrators enable baseline security features to create a more
 | [Deploy Azure AD Multi-Factor Authentication using Conditional Access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using Conditional Access policies. | Azure AD Premium P1 |
 | [Enable Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
 | [Use risk detections to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
-| [Enable combined registration for self-service password reset and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
+| [Enable combined registration for self-service password reset and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure AD Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
 
 ## Phase 2: Import users, enable synchronization, and manage devices
 
@@ -67,7 +67,7 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. | Azure AD Premium P1 |
 | [Implement Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Enable monitoring of key health statistics for your Azure AD Connect servers, AD FS servers, and domain controllers. | Azure AD Premium P1 |
 | [Assign licenses to users by group membership in Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
-| [Create a plan for guest user access](../external-identities/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD B2B licensing guidance](../external-identities/licensing-guidance.md) |
+| [Create a plan for guest user access](../external-identities/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md) |
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
 | [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
 | [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |

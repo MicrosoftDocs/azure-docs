@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
@@ -71,11 +71,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     > [!NOTE]
     > The credentials for all the shares for managed disks are identical.
 
-    ![Get share credentials](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Connect and copy, Get share credentials](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. From the Access share and copy data dialog box, copy the **Username** and the **Password** for the share. Click **OK**.
+2. From the **Access share and copy data** dialog box, copy the **Username** and the **Password** for the share. Click **OK**.
     
-    ![Get share credentials 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Connect and copy, Copy share credentials](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. To access the shares associated with your resource (*mydbmdrg1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -95,26 +95,26 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     C: \>
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>\<ShareName>`. Click **OK** to open File Explorer.
+5. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>\<ShareName>`. Click **OK** to open File Explorer.
     
     ![Connect to share via File Explorer](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     You should now see the following precreated folders within each share.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Connect to share via File Explorer, folders for a share](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### Connect to Data Box via NFS
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
-1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**.
+1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to the **Connect and copy** page. Under **NFS settings**, click **NFS client access**.
 
     ![Configure NFS client access](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
-    ![Configure NFS client access 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Configure NFS client IP address](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution.
 

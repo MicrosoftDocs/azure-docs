@@ -1,9 +1,9 @@
 ---
-author: kaysabelle
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 09/29/2020
-ms.author: kacruz
+ms.date: 12/18/20
+ms.author: parkerra
 ---
 ```json
 {
@@ -17,9 +17,9 @@ ms.author: kacruz
     }
   ],
   "dependencies": {
-    "com.microsoft.azure.spatial-anchors-sdk.windows": "2.6.0",
-    "com.microsoft.azure.spatial-anchors-sdk.android": "2.6.0",
-    "com.microsoft.azure.spatial-anchors-sdk.ios": "2.6.0",
+    "com.microsoft.azure.spatial-anchors-sdk.windows": "2.7.0",
+    "com.microsoft.azure.spatial-anchors-sdk.android": "2.7.0",
+    "com.microsoft.azure.spatial-anchors-sdk.ios": "2.7.0",
   }
 }
 ```

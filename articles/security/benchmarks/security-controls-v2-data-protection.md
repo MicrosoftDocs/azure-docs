@@ -16,7 +16,7 @@ Data Protection covers control of data protection at rest, in transit, and via a
 
 ## DP-1: Discovery, classify and label sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
@@ -28,7 +28,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 - [Tag sensitive information using Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [How to implement Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [How to implement Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Responsibility**: Shared
 
@@ -42,17 +42,17 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 ## DP-2: Protect sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
-Protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases). 
+Protect sensitive data by restricting access using Azure role-based access control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases). 
 
 To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
-- [Azure Role Based Access Control (RBAC)](../../role-based-access-control/overview.md)
+- [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 
@@ -68,7 +68,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ## DP-3: Monitor for unauthorized transfer of sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-3 | 13.3 | AC-4, SI-4 |
 
@@ -82,7 +82,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 - [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Enable Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsibility**: Shared
 
@@ -96,7 +96,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 ## DP-4: Encrypt sensitive information in transit
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
@@ -126,7 +126,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 ## DP-5: Encrypt sensitive data at rest
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-5 | 14.8 | SC-28, SC-12 |
 
@@ -136,7 +136,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 - [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [How to configure customer managed encryption keys](../../storage/common/storage-encryption-keys-portal.md)
+- [How to configure customer managed encryption keys](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Encryption model and key management table](../fundamentals/encryption-models.md)
 
@@ -153,4 +153,3 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Data Security](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

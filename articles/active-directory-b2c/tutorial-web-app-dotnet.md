@@ -41,7 +41,7 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 
 ### Add a redirect URI (reply URL)
 
-To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -73,7 +73,7 @@ Next, create a client secret for the registered web application. The web applica
 
 ## Configure the sample
 
-In this tutorial, you configure a sample that you can download from GitHub. The sample uses ASP.NET to provide a simple to-do list. The sample uses [Microsoft OWIN middleware components](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/). [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample from GitHub. Make sure that you extract the sample file in a folder where the total character length of the path is less than 260.
+In this tutorial, you configure a sample that you can download from GitHub. The sample uses ASP.NET to provide a simple to-do list. The sample uses [Microsoft OWIN middleware components](/aspnet/aspnet/overview/owin-and-katana/). [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample from GitHub. Make sure that you extract the sample file in a folder where the total character length of the path is less than 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git

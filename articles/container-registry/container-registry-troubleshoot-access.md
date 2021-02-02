@@ -36,6 +36,8 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
+If you're experiencing problems using the registry wih Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+
 > [!NOTE]
 > Some network connectivity symptoms can also occur when there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
 
@@ -98,7 +100,7 @@ Related links:
 
 ### Configure service access
 
-Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
+Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
 
 * Azure DevOps Services 
 * Azure Container Instances

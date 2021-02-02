@@ -165,4 +165,4 @@ az group delete -g myResourceGroup
 
 ## Next steps
 
-[Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+[Azure Key Vault REST API](/rest/api/keyvault/)

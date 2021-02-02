@@ -110,7 +110,7 @@ If you  haven't already created a VM snapshot as described previously, do so.
 
 ### Create a new Ubuntu Data Science Virtual Machine
 
-Create a new Ubuntu Data Science Virtual Machine using the [Azure portal](https://portal.azure.com) or an [ARM template](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager). 
+Create a new Ubuntu Data Science Virtual Machine using the [Azure portal](https://portal.azure.com) or an [ARM template](./dsvm-tutorial-resource-manager.md). 
 
 ### Recreate user account(s) on your new Data Science Virtual Machine
 
@@ -118,7 +118,7 @@ Since you'll just be copying data from your old computer, you'll need to recreat
 
 Linux is flexible enough to allow you to customize directories and paths on your new installation to follow your old machine. In general, though, it's easier to use the modern Ubuntu's preferred layout and modify your user environment and scripts to adapt.
 
-For more information, see [Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+For more information, see [Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)](./dsvm-ubuntu-intro.md).
 
 ### Mount the disk of the snapshotted VM as a data disk on your new Data Science Virtual Machine
 
@@ -157,7 +157,7 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
     
 4. Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
-For more information, see [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
+For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## Connect and confirm version upgrade
 
@@ -177,5 +177,5 @@ The change of version is also shown in the Azure portal.
 
 ## Next steps
 
-- [Data science with an Ubuntu Data Science Machine in Azure](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [What tools are included on the Azure Data Science Virtual Machine?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Data science with an Ubuntu Data Science Machine in Azure](./linux-dsvm-walkthrough.md)
+- [What tools are included on the Azure Data Science Virtual Machine?](./tools-included.md)

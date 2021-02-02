@@ -39,7 +39,7 @@ The first solution is to verify that your Azure user has the _**Azure Digital Tw
 Note that this role is different from...
 * the former name for this role during preview, *Azure Digital Twins Owner (Preview)* (the role is the same, but the name has changed)
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management during preview.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management.
 
 #### Check current setup
 
@@ -49,7 +49,7 @@ Note that this role is different from...
 
 If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
 
-If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"

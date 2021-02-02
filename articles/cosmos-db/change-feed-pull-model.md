@@ -4,13 +4,15 @@ description: Learn how to use the Azure Cosmos DB change feed pull model to read
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 01/04/2021
 ms.reviewer: sngun
 ---
 
 # Change feed pull model in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can already do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
@@ -45,7 +47,7 @@ Here's some key differences between the change feed processor and pull model:
 | Support level | Generally available | Preview |
 
 > [!NOTE]
-> Unlike when reading using the change feed processor, you must explicitly handle cases where there no are no new changes. 
+> Unlike when reading using the change feed processor, you must explicitly handle cases where there are no new changes. 
 
 ## Consuming an entire container's changes
 
@@ -108,7 +110,8 @@ while (iteratorForThePartitionKey.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -150,7 +153,8 @@ while (iteratorA.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -171,7 +175,8 @@ while (iteratorB.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -198,7 +203,8 @@ while (iterator.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
    }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }   

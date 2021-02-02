@@ -43,9 +43,23 @@ For example, release_20190318_adl_3394512_2 means the second version of the buil
 
 There are two possible runtime version issues that you may encounter:
 
-1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, please contact Microsoft Support to report this breaking behavior (in case it has not been documented yet) and submit your jobs against the older runtime version.
+1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, contact Microsoft Support to report this breaking behavior (in case it has not been documented yet) and submit your jobs against the older runtime version.
 
-2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, please upgrade your scripts to run with the current default runtime. If you need additional time, please contact Microsoft Support
+2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, upgrade your scripts to run with the current default runtime. If you need additional time, contact Microsoft Support
+
+## Known issues
+
+* Referencing Newtonsoft.Json file version 12.0.3 or onwards in a USQL script will cause the following compilation failure:
+
+    *"We are sorry; jobs running in your Data Lake Analytics account will likely run more slowly or fail to complete. An unexpected problem is preventing us from automatically restoring this functionality to your Azure Data Lake Analytics account. Azure Data Lake engineers have been contacted to investigate."*  
+
+    Where the call stack will contain:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solution**: Please use Newtonsoft.Json file v12.0.2 or lower.
+
 
 ## See also
 

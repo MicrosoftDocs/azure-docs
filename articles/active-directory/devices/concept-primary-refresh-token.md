@@ -81,7 +81,7 @@ A PRT is renewed in two different methods:
 * **Azure AD CloudAP plugin every 4 hours**: The CloudAP plugin renews the PRT every 4 hours during Windows sign in. If the user does not have internet connection during that time, CloudAP plugin will renew the PRT after the device is connected to the internet.
 * **Azure AD WAM plugin during app token requests**: The WAM plugin enables SSO on Windows 10 devices by enabling silent token requests for applications. The WAM plugin can renew the PRT during these token requests in two different ways:
    * An app requests WAM for an access token silently but there’s no refresh token available for that app. In this case, WAM uses the PRT to request a token for the app and gets back a new PRT in the response.
-   * An app requests WAM for an access token but the PRT is invalid or Azure AD requires additional authorization (for example, Azure Multi-Factor Authentication). In this scenario, WAM initiates an interactive logon requiring the user to reauthenticate or provide additional verification and a new PRT is issued on successful authentication.
+   * An app requests WAM for an access token but the PRT is invalid or Azure AD requires additional authorization (for example, Azure AD Multi-Factor Authentication). In this scenario, WAM initiates an interactive logon requiring the user to reauthenticate or provide additional verification and a new PRT is issued on successful authentication.
 
 In an ADFS environment, direct line of sight to the domain controller isn't required to renew the PRT. PRT renewal requires only /adfs/services/trust/2005/usernamemixed and
 /adfs/services/trust/13/usernamemixed endpoints enabled on proxy by using WS-Trust protocol.

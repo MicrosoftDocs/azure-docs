@@ -467,6 +467,10 @@ In the preceding GeoJSON response, the equipment has exited the main site geofen
 
 You can also [Send email notifications using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) and check [Supported Events Handlers in Event Grid](../event-grid/event-handlers.md) using Azure Maps.
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

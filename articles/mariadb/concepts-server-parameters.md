@@ -1,8 +1,8 @@
 ---
 title: Server parameters - Azure Database for MariaDB
 description: This topic provides guidelines for configuring server parameters in Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
@@ -153,7 +153,7 @@ The query cache is enabled by default in MariaDB with the `have_query_cache` par
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|

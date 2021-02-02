@@ -175,7 +175,7 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
 # [Container-based local cluster](#tab/localclusteroneboxcontainer)
 
-Start a container-based [one box Service Fabric cluster](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) cluster.
 
 1. Install Moby to be able to deploy Docker containers.
     ```bash

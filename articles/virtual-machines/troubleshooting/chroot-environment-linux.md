@@ -31,7 +31,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -50,17 +50,17 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -68,16 +68,16 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -98,7 +98,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -117,17 +117,17 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -135,16 +135,16 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -168,7 +168,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -187,9 +187,9 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following command to activate the logical volume group:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Use the `lsblk` command to retrieve the lvm names:
@@ -218,23 +218,23 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -242,22 +242,22 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -281,7 +281,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -300,9 +300,9 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following command to activate the logical volume group:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Use the `lsblk` command to retrieve the lvm names:
@@ -330,22 +330,22 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -353,21 +353,21 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -388,7 +388,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -407,18 +407,18 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -426,17 +426,17 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -457,7 +457,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
    1. Access your VM as the root user using the following command:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses **dmesg** to filter on **SCSI** disks:
 
@@ -476,18 +476,18 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to access the chroot environment:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Troubleshoot the chroot environment.
@@ -495,17 +495,17 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the following commands to exit the chroot environment:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

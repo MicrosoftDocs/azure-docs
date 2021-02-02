@@ -32,7 +32,7 @@ For more information:
 
 - Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
 - Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
-- Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
+- Review the [Azure SQL Database documentation](/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -105,13 +105,13 @@ This approach takes advantage of features that are available only in the Premium
 To export from the source instance and import to the destination instance:
 
 1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
-1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
+1. [Export data from the source cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
 
    > [!NOTE]
    > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
-1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
+1. [Import data to the destination cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 1. Reconfigure your application to use the target Azure Cache for Redis instance.
 
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
@@ -123,11 +123,11 @@ For this approach, you must modify your application. The application needs to wr
 
 For more information:
 
-- Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
+- Review the [overview of Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
 
 ## PostgreSQL and MySQL
 
-For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](../postgresql/index.yml) and [MySQL](../mysql/index.yml).
 
 ![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 

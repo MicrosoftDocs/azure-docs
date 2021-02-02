@@ -2,7 +2,7 @@
 title: Log alerts from Azure Monitor for containers | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/05/2021
 
 ---
 
@@ -206,11 +206,11 @@ KubeNodeInventory
 The following query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -220,13 +220,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterName
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,

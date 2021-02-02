@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -148,4 +148,4 @@ In this tutorial, you enabled Azure AD self-service password reset for a selecte
 > * Test the SSPR process as a user
 
 > [!div class="nextstepaction"]
-> [Enable Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Enable Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

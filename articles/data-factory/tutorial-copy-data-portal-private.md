@@ -6,12 +6,11 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
 ---
 
@@ -55,17 +54,17 @@ Now, prepare your blob storage and SQL database for the tutorial by performing t
 
 Use the following SQL script to create the **dbo.emp** table in your SQL database:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
@@ -103,7 +102,8 @@ In this step, you create an Azure integration runtime and enable Data Factory Ma
 1. In the Data Factory portal, go to **Manage** and select **New** to create a new Azure integration runtime.
 
    ![Screenshot that shows creating a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Choose to create an **Azure** integration runtime.
+1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
+1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
    ![Screenshot that shows a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. Under **Virtual network configuration (Preview)**, select **Enable**.
