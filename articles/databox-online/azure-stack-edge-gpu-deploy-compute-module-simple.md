@@ -119,19 +119,19 @@ To verify that the module is running and processing data as expected, do the fol
 
 1. In File Explorer, connect to both the Edge local and Edge shares you created previously. See the steps 
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-1.png) 
+    ![Connect to Edge local and Edge cloud shares](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-1.png) 
  
 1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-2.png) 
+    ![File copied to Edge local share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-2.png) 
  
    The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-3.png)  
+    ![File moved to Edge cloud share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-3.png)  
 
    The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer or Azure Storage in portal.
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-4.png)
+    ![Verify data in storage account](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-4.png)
  
 You have completed the validation process.
 
