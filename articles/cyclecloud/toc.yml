@@ -201,6 +201,8 @@
   items:
   - name: Get Azure CycleCloud
     href: https://azure.microsoft.com/features/azure-cyclecloud/
+  - name: CycleCloud Packages
+    href: packages.md
   - name: CycleCloud Cluster Templates
     href: download-cluster-templates.md
   - name: CycleCloud Community GitHub
