@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 
 ms.author: mimart
 author: msmimart
@@ -18,22 +18,20 @@ ms.collection: M365-identity-device-management
 
 # Reset redemption status for a guest user
 
-When guest user redeems your invitation for B2B collaboration, their consent status changes from pending to an accepted status. There may be cases where you want to a guest user to be able to re-redeem their invitation, for example if they want to use a different identity provider  again change the guest user's conset status back to  the consent pages are no longer presented to the guest.You can now reset the invitation status of an Azure Active Directory B2B guest user. This allows the B2B user to re-redeem their invitation using a different identity provider, a different account, or an account that has been re-created. Prior to this feature was available it would be common to delete and recreate a B2B user when they had issues logging in, but this would mean that the user would no longer have access to anything shared with their old B2B user object.  
+After a guest user has redeemed your invitation for B2B collaboration, there might be instances where you'll need to update their user object or sign-in information, for example when:
 
-Using this feature can solve a variety of common user issues:
+- The user has changed the identity provider they want to use to sign in.
+- The account for the user in their home tenant was deleted and re-created
+- The user has moved to a different company, but they still need the same access to your resources.
+- The user’s responsibilities are being passed along to another user.
 
-- Account in home tenant was deleted and recreated.
-- Change the identity provider used to redeem the account (ex: OTP to MSA, MSA to Google fed, Direct fed to AAD).
-- If a user changes companies but needs to maintain the same access.
-- If a user’s responsibilities needs to be passed onto another individual.
+To manage these scenarios previously, you would have had to delete the guest user’s account in your directory and re-create or reinvite them. Now you can reset their redemption status instead. The user object and object ID remains the same. Just the UPN will change to the new email you use to reinvite them.
 
-When you reset the redemption status on a user, you select the user you want to reset and choose the email you want them to re-redeem with. This email needs to be the original one that the user was invited with or needs to be added to the `otherMails` property on the user.
-
-Note that when a reset happens the object Id of the user does not change but the UPN of the user will change to the email you are inviting.  
+You can reset a guest user's redemption status by either using PowerShell or the Microsoft Graph API. When you reset a user's redemption status, you select the user you want to reset and choose the email you want them to use when re-redeeming your invitation. This email must be the original email you used to invite them, or it must be added to the `otherMails` property in the the user's object in your directory. After you reset the user's redemption status, the object ID remains the same, but the UPN changes to the email address you use to invite the user.
 
 ## Powershell
 
-```
+```powershell  
 Uninstall-Module AzureADPreview 
 Install-Module AzureADPreview 
 Connect-AzureAD 
@@ -44,7 +42,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## Microsoft Graph API
 
-```
+```json
 POST https://graph.microsoft.com/beta/invitations  
 Authorization: Bearer eyJ0eX...  
 ContentType: application/json  
@@ -69,6 +67,7 @@ ContentType: application/json
 }, 
 "resetRedemption": true 
 }
+```
 
 ## Next steps
 
