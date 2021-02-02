@@ -84,4 +84,4 @@ Now that you have learned how to change the default values of the configuration,
 > [Pull IIoT data into ADX](tutorial-iiot-data-adx.md)
 
 > [!div class="nextstepaction"]
-> [Visualize and analyze the data using Time Series Insights](tutorial-iiot-visualize-data-tsi.md)
+> [Visualize and analyze the data using Time Series Insights](tutorial-visualize-data-time-series-insights.md)

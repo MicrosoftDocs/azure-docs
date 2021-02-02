@@ -88,4 +88,4 @@ References:
 Now that you have deployed the IIoT Platform, you can learn how to customize configuration of the components:
 
 > [!div class="nextstepaction"]
-> [Customize the configuration of the components](tutorial-iiot-configure-iiot-components.md)
+> [Customize the configuration of the components](tutorial-configure-industrial-iot-components.md)

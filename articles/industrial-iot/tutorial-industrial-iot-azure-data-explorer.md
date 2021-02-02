@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 If we look at the message format from the Event Hub (as defined by the class Microsoft.Azure.IIoT.OpcUa.Subscriber.Models.MonitoredItemMessageModel), we can see a hint to the structure that we need for the ADX table schema.
 
-![Structure](media/tutorial-iiot-data-adx/iiot-in-adx-pic-1.png)
+![Structure](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-1.png)
 
 Below are the steps that we'll need to make the data available in the ADX cluster and to query the data effectively.  
 1. Create an ADX cluster. If you don't have an ADX cluster provisioned with the IIoT platform already, or if you would like to use a different cluster then follow the steps [here](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal#create-a-cluster). 
@@ -48,7 +48,7 @@ We also need to add a json ingestion mapping to instruct the cluster to put the 
 6. Use the instructions [here](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub) to connect the Event Hub to the ADX cluster and start ingesting the data into our staging table. We only need to create the connection as we already have an Event Hub provisioned by the IIoT platform.  
 7. Once the connection is verified, data will start flowing to our table and after a short delay we can start examining the data in our table. Use the following query in the ADX web interface to look at a data sample of 10 rows. We can see here how the data in the payload resembles the MonitoredItemMessageModel class mentioned earlier.
 
-![Query](media/tutorial-iiot-data-adx/iiot-in-adx-pic-2.png)
+![Query](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-2.png)
 
 8. Let us now run some analytics on this data by parsing the Dynamic data in the ‘payload’ column directly. In this example, we'll compute the average of the telemetry identified by the “DisplayName”: “PositiveTrendData”, over time windows of 10 minutes, on all the records ingested since a specific time point (defined by  the variable min_t)
 let min_t = datetime(2020-10-23);
@@ -59,7 +59,7 @@ iiot_stage
  
 Since our ‘payload’ column contains a dynamic data type, we need to carry out data conversion at query time so that our calculations are carried out on the correct data types.
 
-![Payload Timestamp](media/tutorial-iiot-data-adx/iiot-in-adx-pic-3.png)
+![Payload Timestamp](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-3.png)
 
 As we mentioned earlier, ingesting the OPC UA data into a staging table with one ‘Dynamic’ column gives us flexibility. However, having to run data type conversions at query time can result in delays in executing the queries particularly if the data volume is large and if there are many concurrent queries. At this stage, we can create another table with the data types already determined, so that we avoid the query-time data type conversions.
  
@@ -106,17 +106,17 @@ For more information on mapping data types in ADX, see [here](https://docs.micro
 
 As soon as the above query is executed, data will start flowing and populating the destination table ‘iiot_parsed’. We can look at the data in ‘iiot_parsed as follows’.
 
-![Parsed Table](media/tutorial-iiot-data-adx/iiot-in-adx-pic-4.png)
+![Parsed Table](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-4.png)
 
 12. Let us look now at how we can repeat the analytics that we did in a previous step; compute the average of the telemetry identified by “DisplayName”: “PositiveTrendData”, over time windows of 10 minutes, on all the records ingested since a specific time point (defined by  the variable min_t). As we now have the values of the ‘PositveTrendData’ tag stored in a column of double data type, we expect an improvement in the query performance.
 
-![Repeat analytics](media/tutorial-iiot-data-adx/iiot-in-adx-pic-5.png)
+![Repeat analytics](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-5.png)
 
 13. Let us finally compare the query performance in both cases. We can find the time taken to execute the query using the ‘Stats’ in the ADX UI (which can be located above the query results).  
 
-![Query performance 1](media/tutorial-iiot-data-adx/iiot-in-adx-pic-6.png)
+![Query performance 1](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-6.png)
 
-![Query performance 2](media/tutorial-iiot-data-adx/iiot-in-adx-pic-7.png)
+![Query performance 2](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-7.png)
 
 We can see that the query that uses the parsed table is roughly twice as fast as that for the staging table. In this example, we have a small dataset and there are no concurrent queries running so the effect on the query execution time it isn't great, however for a realistic workload there would be a large impact on the performance. This is why it's important to consider separating the different data types into different columns.
 
@@ -127,7 +127,7 @@ We can see that the query that uses the parsed table is roughly twice as fast as
 Now that you have learned how to change the default values of the configuration, you can 
 
 > [!div class="nextstepaction"]
-> [Configure Industrial IoT components](tutorial-iiot-configure-iiot-components.md)
+> [Configure Industrial IoT components](tutorial-configure-industrial-iot-components.md)
 
 > [!div class="nextstepaction"]
-> [Visualize and analyze the data using Time Series Insights](tutorial-iiot-visualize-data-tsi.md)
+> [Visualize and analyze the data using Time Series Insights](tutorial-visualize-data-time-series-insights.md)

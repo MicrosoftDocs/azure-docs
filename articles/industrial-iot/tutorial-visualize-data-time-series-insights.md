@@ -32,20 +32,20 @@ The Time Series Insights explorer is a web app you can use to visualize your tel
 
 Before using the Time Series Insights explorer, you must grant access to the TSI data to the users entitled to visualize the data. Note that on a fresh deployment no data access policies are set by default, therefore nobody can see the data. The data access policies need to be set in the Azure portal, in the Time Series Insights Environment deployed in the IIoT's platform deployed resource group, as follows:
 
-   ![Time Series Insights Explorer 1](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-data-access-1.png)
+   ![Time Series Insights Explorer 1](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-data-access-1.png)
 
 Select the Data Access Policies:
 
-   ![Time Series Insights Explorer 2](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-data-access-2.png)
+   ![Time Series Insights Explorer 2](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-data-access-2.png)
 
 Assign the required users:
 
-   ![Time Series Insights Explorer 3](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-data-access-3.png)
+   ![Time Series Insights Explorer 3](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-data-access-3.png)
 
 
 In the TSI Explorer, please note the Unassigned Time Series Instances. A TSI Instance corresponds to the time/value series for a specific data-point originated from a published node in an OPC server. The TSI Instance, respectively the OPC UA Data point, is uniquely identified by the EndpointId, SubscriptionId, and NodeId. The TSI instances models are automatically detected and display in the explorer based on the telemetry data ingested from the IIoT platform telemetry processor's event hub.
 
-   ![Time Series Insights Explorer 4](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-0.png)
+   ![Time Series Insights Explorer 4](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-0.png)
 
 The telemetry data can be visualized in the chart by right-clicking the TSI instance and selecting the Value. The time frame to be used in chart can be adjusted from the upper right corner. Value of multiple instances can be visualized on the same time basis selection.
 
@@ -59,27 +59,27 @@ For detailed information on TSI models see [Time Series Model in Azure Time Seri
 
 1. Step 1 - In the model tab of the Explorer, define a new hierarchy for the telemetry data ingested. A hierarchy is the logical tree structure meant to enable the user to insert the meta-information required for a more intuitive navigation through the TSI instances. a user can create/delete/modify hierarchy templates that can be later on instantiated for the various TSI instances.
 
-   ![Step 1](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-1.png)
+   ![Step 1](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-1.png)
 
 2. Step 2 - define a new type for the values. In our example, we only handle numeric data-types
 
-   ![Step 2](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-2.png)
+   ![Step 2](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-2.png)
 
 3. Step 3 - select the new TSI instance that requires to be categorized in the previously defined hierarchy
 
-   ![Step 3](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-3.png)
+   ![Step 3](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-3.png)
 
 4. Step 4 - fill in the instances properties - name, description, data value, as well as the hierarchy fields in order to match the logical structure 
 
-   ![Step 4](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-4.png)
+   ![Step 4](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-4.png)
 
 5. Step 5 - repeat step 5 for all uncategorized TSI instances
 
-   ![Step 5](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-5.png)
+   ![Step 5](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-5.png)
 
 6. Step 6 - back in the TSI Explorer's main page, walk through the categorized instances hierarchy and select the values for the data-points to be analyzed
 
-   ![Step6](media/tutorial-iiot-visualize-data-tsi/tutorial-tsi-step-6.png)
+   ![Step6](media/tutorial-iiot-visualize-data-tsi/tutorial-time-series-insights-step-6.png)
 
 ## Connect Time Series Insights to Power BI
 

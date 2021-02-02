@@ -22,13 +22,13 @@
   - name: IIoT Platform tutorials (orchestrated mode)
     items:
     - name: Deploy IIoT Platform
-      href: tutorial-iiot-deploy-iiot-platform.md
+      href: tutorial-deploy-industrial-iot-platform.md
     - name: Configure IIoT components
-      href: tutorial-iiot-configure-iiot-components.md
+      href: tutorial-configure-industrial-iot-components.md
     - name: Pull IIoT data into ADX
-      href: tutorial-iiot-data-adx.md
+      href: tutorial-industrial-iot-azure-data-explorer.md
     - name: Visualize and analyze the data using Time Series Insights
-      href: tutorial-iiot-visualize-data-tsi.md
+      href: tutorial-visualize-data-time-series-insights.md
 - name: Reference
   items:
     - name: Command-line Arguments
