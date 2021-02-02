@@ -59,7 +59,7 @@ To check the tenant:
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
-### Create an Azure AD tenant
+### Create a new Azure AD tenant
 
 If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md). Or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. 
 
