@@ -66,7 +66,7 @@ cluster = Cluster.builder()
         .build();
 ```
 
-If the local DC does not match the contact point DC, you may experience a very intermittent error: `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)`. 
+If the value for `withLocalDc()` does not match the contact point datacenter, you may experience a very intermittent error: `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)`. 
 
 ### Solution 
 Implement [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/package/src/main/java/com/microsoft/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java) (you may need to upgrade datastax minor version to make it work):
