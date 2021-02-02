@@ -11,11 +11,11 @@ ms.devlang: csharp
 ms.custom: mvc
 ---
 
-# Quickstart: Create and provision a simulated X.509 device using C# device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show you how to use device code from the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to provision an X.509 device. In this article you will run device sample code on your development machine to connect to an IoT Hub using the Device Provisioning Service.
+These steps show you how to use device code from the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to provision an X.509 device. In this article, you will run device sample code on your development machine to connect to an IoT Hub using the Device Provisioning Service.
 
 If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
@@ -48,13 +48,13 @@ This article will demonstrate individual enrollments.
 
 ## Create a self-signed X.509 device certificate
 
-In this section you, will create a self-signed X.509 test certificate using `iothubx509device1` as the subject common name. It is important to keep in mind the following:
+In this section you, will create a self-signed X.509 test certificate using `iothubx509device1` as the subject common name. It is important to keep in mind the following points:
 
 * Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is one year.
 * The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
-You will use sample code from the [Provisioning Device Client Sample - X.509 Attestation](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the device.
+You will use sample code from the [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the device.
 
 
 1. In a PowerShell prompt, change directories to the project directory for the X.509 device provisioning sample.
@@ -101,7 +101,7 @@ You will use sample code from the [Provisioning Device Client Sample - X.509 Att
 3. In the **Add Enrollment** panel, enter the following information:
    - Select **X.509** as the identity attestation *Mechanism*.
    - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **certificate.cer** created in the previous steps.
-   - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This will also be the name used for the registration ID for the individual enrollment entry. 
+   - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry. 
    - Optionally, you may provide the following information:
        - Select an IoT hub linked with your provisioning service.
        - Update the **Initial device twin state** with the desired initial configuration for the device.
