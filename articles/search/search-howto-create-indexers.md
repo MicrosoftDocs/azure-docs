@@ -151,7 +151,7 @@ Given that indexers don't fix data problems, other forms of data cleansing or ma
 
 ## Know your index
 
-Recall that indexers pass off the search documents to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly effect how strings are indexed (only strings are analyzed and tokenized). Depending on analyzer assignments, indexed strings might be different from what you passed in. You can evaluate the effects of analyzers using [Analyze Text (REST)](/rest/api/searchservice/test-analyzer). For more information about analyzers, see [Analyzers for text processing](search-analyzers.md).
+Recall that indexers pass off the search documents to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly affect how strings are indexed (only strings are analyzed and tokenized). Depending on analyzer assignments, indexed strings might be different from what you passed in. You can evaluate the effects of analyzers using [Analyze Text (REST)](/rest/api/searchservice/test-analyzer). For more information about analyzers, see [Analyzers for text processing](search-analyzers.md).
 
 In terms of how indexers interact with an index, an indexer only checks field names and types. There is no validation step that ensures incoming content is correct for the corresponding search field in the index. As a verification step, you can run queries on the populated index that return entire documents or selected fields. For more information about querying the contents of an index, see [Create a basic query](search-query-create.md).
 

@@ -92,7 +92,7 @@ In general, an application that uses modern authentication will call an endpoint
 
 ### Cache tokens
 
-Apps should properly cache tokens received from Microsoft Identity. When your app receives tokens, the HTTP response that contains the tokens also contains an "expires_in" property that tells the application how long to cache, and reuse, the token. In it important that applications use the "expires_in" property to determine the lifespan of the token. Application must never attempt to decode an API access token.
+Apps should properly cache tokens received from Microsoft Identity. When your app receives tokens, the HTTP response that contains the tokens also contains an "expires_in" property that tells the application how long to cache, and reuse, the token. It is important that applications use the "expires_in" property to determine the lifespan of the token. Application must never attempt to decode an API access token.
 
 ![An application making a call to Microsoft identity, but the call goes through a token cache on the device running the application](media/resilience-client-app/token-cache.png)
 

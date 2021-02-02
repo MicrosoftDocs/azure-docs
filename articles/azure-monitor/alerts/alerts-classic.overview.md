@@ -91,5 +91,5 @@ Get information about alert rules and configuring them by using:
 * Configure [Activity Log Alerts via Resource Manager](../platform/alerts-activity-log.md)
 * Review the [activity log alert webhook schema](activity-log-alerts-webhook.md)
 * Learn more about [Action groups](../platform/action-groups.md)
-* Configure [newer Alerts](../platform/alerts-metric.md)
+* Configure [newer Alerts](alerts-metric.md)
 
