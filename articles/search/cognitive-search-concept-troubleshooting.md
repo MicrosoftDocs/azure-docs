@@ -104,7 +104,7 @@ For portal-based indexing (as described in the quickstart), choosing the "run on
 
 ## Tip 8: Increase indexing throughput
 
-For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datas ource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
+For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple data source and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
 
 ## See also
 
