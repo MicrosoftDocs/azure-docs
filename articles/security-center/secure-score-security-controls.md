@@ -50,7 +50,7 @@ You can find your overall secure score, as well as your score per subscription, 
 
 ### Get your secure score from the portal
 
-Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
 
 To recap, your secure score is shown in the following locations in Security Center's portal pages.
 
@@ -58,9 +58,14 @@ To recap, your secure score is shown in the following locations in Security Cent
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
 
-- In the dedicated **Secure score** page:
+- In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Security Center's secure score page":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Security Center's secure score page":::
+
+    > [!NOTE]
+    > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
 
 - At the top of the **Recommendations** page:
 
@@ -121,7 +126,7 @@ The dashboard contains the following two reports to help you analyze your securi
 - **Resources Summary** - provides summarized data regarding your resources’ health.
 - **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time PowerBI dashboard for tracking your secure score over time and investigating changes":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time Power BI dashboard for tracking your secure score over time and investigating changes":::
 
 
 

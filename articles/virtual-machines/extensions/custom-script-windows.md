@@ -243,8 +243,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.10" `
-    -Settings $settings    `
-    -ProtectedSettings $protectedSettings `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings;
 ```
 
 ### Running scripts from a local share
@@ -283,7 +283,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## Virtual Machine Scale Sets
 
-To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
 
 ## Classic VMs
 

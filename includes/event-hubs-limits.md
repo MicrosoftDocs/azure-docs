@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -26,7 +26,8 @@ The following limits are common across all tiers.
 | Number of non-epoch receivers per consumer group |- |5 |
 | Number of authorization rules per namespace | Subsequent requests for authorization rule creation are rejected.|12 |
 | Number of calls to the GetRuntimeInformation method |  - | 50 per second | 
-| Number of virtual network (VNet) and IP Config rules | - | 128 | 
+| Number of virtual networks (VNet) | - | 128 | 
+| Number of IP Config rules | - | 128 | 
 
 
 ### Basic vs. standard tiers

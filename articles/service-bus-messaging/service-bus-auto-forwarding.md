@@ -2,13 +2,16 @@
 title: Auto-forwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
 ---
 
 # Chaining Service Bus entities with autoforwarding
 
 The Service Bus *autoforwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When autoforwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It is still possible to send a message to the destination entity directly.
+
+> [!NOTE]
+> The basic tier of Service Bus doesn't support the autoforwarding feature. The standard and premium tiers support the feature. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Using autoforwarding
 
