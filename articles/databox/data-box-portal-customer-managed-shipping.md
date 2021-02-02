@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ---
 
@@ -20,12 +20,14 @@ This article describes self-managed shipping tasks to order, pick up, and drop-o
 Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-deploy-ordered.md). Self-managed shipping is only available in the following regions:
 
 * US Government
+* United Kingdom
 * Western Europe
 * Japan
 * Singapore
 * South Korea
 * India
 * South Africa
+* Australia
 
 ## Use self-managed shipping
 
