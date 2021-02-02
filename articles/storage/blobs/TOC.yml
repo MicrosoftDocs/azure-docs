@@ -637,7 +637,7 @@
       href: data-lake-storage-introduction.md
   - name: Tutorials
     items:
-    - name: All tutorials for Data Lake Storage Gen2
+    - name: All tutorials
       href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Databricks & Spark
       href: data-lake-storage-use-databricks-spark.md
@@ -729,10 +729,6 @@
         href: data-lake-storage-use-hdfs-data-lake-storage.md
       - name: Set ACLs recursively
         href: recursive-access-control-lists.md
-    - name: Query
-      items:
-      - name: Filter data with query acceleration
-        href: data-lake-storage-query-acceleration-how-to.md
     - name: Transfer
       items:
       - name: AzCopy
@@ -761,6 +757,10 @@
       items:
       - name: Integrate with Azure services
         href: data-lake-storage-integrate-with-services-how-to.md
+    - name: Query
+      items:
+      - name: Filter data with query acceleration
+        href: data-lake-storage-query-acceleration-how-to.md
     - name: Optimize
       items:
       - name: Optimize performance
