@@ -242,7 +242,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 
 ### [Helpdesk Administrator](#helpdesk-administrator-permissions)
 
-Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
+Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -253,7 +253,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
-Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (now in public preview)](administrative-units.md).
+Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
 
 This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). The "Helpdesk Administrator" name in Azure AD now matches its name in Azure AD PowerShell and the Microsoft Graph API.
 
@@ -476,8 +476,8 @@ Users with this role can create users, and manage all aspects of users with some
 | --- | --- |
 | Create users and groups<br/>Create and manage user views<br/>Manage Office support tickets<br/>Update password expiration policies |  |
 | Manage licenses<br/>Manage all user properties except User Principal Name | Applies to all users, including all admins |
-| Delete and restore<br/>Disable and enable<br/>Invalidate refresh Tokens<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Directory Readers</li><li>Groups Administrator</li><li>Guest</li><li>Guest Inviter</li><li>Helpdesk Administrator</li><li>Message Center Reader</li><li>Password Administrator</li><li>Reports Reader</li><li>Restricted guest</li><li>User with no role</li><li>User Administrator</li><li>Usage Summary Reports Reader</li></ul> |
-| Reset password | For a list of the roles that a User Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions). |
+| Delete and restore<br/>Disable and enable<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Helpdesk Administrator</li><li>User with no role</li><li>User Administrator</li></ul> |
+| Invalidate refresh Tokens<br/>Reset password | For a list of the roles that a User Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -2040,9 +2040,9 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](permission
 
 ## Password reset permissions
 
-Column headings represent the roles that can reset passwords. Table rows contain the roles for which they can reset passwords.
+Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
 
-Roles | Authentication Admin | Helpdesk Admin | Password Admin | User Admin | Privileged Authentication Admin | Global Admin
+Password can be reset | Authentication Admin | Helpdesk Admin | Password Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------
 Authentication Admin | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
