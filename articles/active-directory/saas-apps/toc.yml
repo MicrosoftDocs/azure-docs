@@ -359,6 +359,8 @@
         href: newsignature-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
+      - name: CloudKnox Permissions Management Platform
+        href: cloudknox-permissions-management-platform-tutorial.md
       - name: Cloudmore
         href: cloudmore-tutorial.md
       - name: CloudPassage
@@ -1076,6 +1078,8 @@
         href: manabipocket-tutorial.md
       - name: Mapbox
         href: mapbox-tutorial.md
+      - name: Maptician
+        href: maptician-tutorial.md 
       - name: Marketo
         href: marketo-tutorial.md
       - name: Maxient Conduct Manager Software
@@ -1226,6 +1230,8 @@
         href: officespace-tutorial.md
       - name: Oktopost SAML
         href: oktopost-saml-tutorial.md
+      - name: Olfeo SAAS
+        href: olfeo-saas-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
       - name: OneDesk
@@ -1302,6 +1308,8 @@
         href: pegasystems-tutorial.md
       - name: Pendo
         href: pendo-tutorial.md
+      - name: Penji
+        href: penji-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart
@@ -1508,6 +1516,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsung Knox and Business Services
+        href: samsung-knox-and-business-services-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
@@ -1594,6 +1604,8 @@
         href: shucchonavi-tutorial.md
       - name: Shutterstock
         href: shutterstock-tutorial.md
+      - name: Sigma Computing
+        href: sigma-computing-tutorial.md
       - name: Signagelive
         href: signagelive-tutorial.md
       - name: SignalFx
@@ -2027,6 +2039,8 @@
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Asana
         href: asana-provisioning-tutorial.md
+      - name: Atea
+        href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
@@ -2107,14 +2121,18 @@
         href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: HelloID
+        href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Ideo
+        href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
-      - name: Ideo
-        href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: iProva
@@ -2177,12 +2195,14 @@
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
         href: playvox-provisioning-tutorial.md
-      - name: Promapp
-        href: promapp-provisioning-tutorial.md
+      - name: Preciate
+        href: preciate-provisioning-tutorial.md
       - name: PrinterLogic SaaS
         href: printer-logic-saas-provisioning-tutorial.md
       - name: Priority Matrix
         href: priority-matrix-provisioning-tutorial.md
+      - name: Promapp
+        href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
