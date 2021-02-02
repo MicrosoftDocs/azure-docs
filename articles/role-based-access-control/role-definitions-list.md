@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 02/02/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -29,6 +29,8 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
+#### [Current](#tab/current/)
+
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
 1. Click the specific resource.
@@ -41,6 +43,23 @@ Follow these steps to list all roles in the Azure portal.
 
    ![Roles list](./media/role-definitions-list/roles-list.png)
 
+#### [Preview](#tab/preview/)
+
+Preview experience
+
+1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Roles** tab to see a list of all the built-in and custom roles.
+
+   You can see the number of users and groups that are assigned to each role at the current scope.
+
+   ![Preview Roles list](./media/role-definitions-list/roles-list.png)
+
+---
 ## Azure PowerShell
 
 ### List all roles
