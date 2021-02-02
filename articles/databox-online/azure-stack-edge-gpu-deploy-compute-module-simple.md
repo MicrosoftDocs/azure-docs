@@ -1,6 +1,6 @@
 ---
 title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro with GPU | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge Pro GPU device and use it to transform data before sending to Azure.
+description: Learn how to run a compute workload using a pre-created IoT Edge module on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -50,9 +50,6 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     1. In your Azure Stack Edge resource, go to **Cloud storage gateway > Shares**.
     2. From the command bar, select **+ Add share**.
-
-        ![Add share tile](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-share-1.png) 
-
     3. On the **Add share** blade, provide the share name and select the share type.
     4. To mount the Edge share, select the check box for **Use the share with Edge compute**.
     5. Select the **Storage account**, **Storage service**, an existing user, and then select **Create**.
