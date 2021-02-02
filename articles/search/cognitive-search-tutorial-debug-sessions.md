@@ -14,11 +14,11 @@ ms.date: 02/02/2021
 
 # Tutorial: Debug a skillset using Debug Sessions
 
-Skillsets are a collection of coordinated actions that analyze or transform content, where the output of one skill becomes the input of another. When inputs depend on upstream outputs, mistakes in field associations can result in missed operations and data.
+Skillsets coordinate a series of actions that analyze or transform content, where the output of one skill becomes the input of another. When inputs depend on outputs, mistakes in skillset definitions and field associations can result in missed operations and data.
 
 **Debug sessions** in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
 
-In this article, you'll use **Debug sessions** to 1) find missing inputs, and 2) output field mapping failures. This tutorial is all-inclusive. It provides data for you to index (clinical trials data), a Postman collection that creates objects, and instructions for using **Debug sessions** to find and fix problems in the skillset.
+In this article, you'll use **Debug sessions** to find and fix 1) a missing input, and 2) output field mappings. The tutorial is all-inclusive. It provides data for you to index (clinical trials data), a Postman collection that creates objects, and instructions for using **Debug sessions** to find and fix problems in the skillset.
 
 > [!Important]
 > Debug sessions is a preview feature provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
