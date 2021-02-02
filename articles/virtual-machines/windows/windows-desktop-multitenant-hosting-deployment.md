@@ -11,15 +11,30 @@ ms.custom: rybaker, chmimckitt
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later)
+
+For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> This article shows you to implement the licensing benefit for Windows 10 Pro Desktop images on Azure Marketplace.
-> - For Windows 7, 8.1, 10 Enterprise (x64) images on Azure Marketplace for MSDN Subscriptions, please refer to [Windows client in Azure for dev/test scenarios](client-images.md)
+> - If using Windows 7, 8.1 and 10 images on Azure Marketplace for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
 > - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
 
+## Subscription Licenses that qualify for Multitenant Hosting Rights
+
+Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide), you can confirm if a user has been assigned a Windows 10 supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
+
+-	Microsoft 365 E3/E5 
+-	Microsoft 365 F3 
+-	Microsoft 365 A3/A5 
+-	Windows 10 Enterprise E3/E5
+-	Windows 10 Education A3/A5 
+-	Windows VDA E3/E5
+
+If you do not have one of these subscription licenses, they can be purchased through the [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx), your [Cloud Service Provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+
+
 ## Deploying Windows 10 Image from Azure Marketplace 
-For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`.
+For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
 
 ```powershell
 Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
@@ -106,49 +121,6 @@ LicenseType              :
 
 ## Additional Information about joining Azure AD
 Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
-
-## Frequently asked questions about multitenant hosting rights
-
-### Qualify for Multi-tenant hosting rights 
-Virtualizing Windows 10 on Azure requires a Windows 10 per user license. These licenses not available directly within Azure. If you do not have one of these licenses/subscriptions, they must be purchased the [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx), [Cloud Service Providers](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or [Microsoft.com](https://www.microsoft.com/microsoft-365?rtc=1)  before you can virtualize Windows 10.
-
-Eligible Subscriptions that qualify for multitenant hosting rights are:
-
--	Microsoft 365 E3/E5 
--	Microsoft 365 F3 
--	Microsoft 365 A3/A5 
--	Windows 10 Enterprise E3/E5
--	Windows 10 Education A3/A5 
--	Windows VDA E3/E5
-
-### How can I confirm I have an eligible subscription? 
-Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide), you can confirm if your user has been assigned a Windows 10-supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
-
-### What Windows 10 images are covered under multitenant hosting? 
-Any Windows 10 version Creators Update (1809) or later.
-
-### Does multitenant hosting rights also apply to Windows 7 and Windows 8.1?
-No. Multitenant hosting rights are for Windows 10 only, Creators update or later.
-
-Windows 7 and 8.1 do have a separate Windows Virtual Desktop entitlement, which entitle users to access Windows Virtual Desktop virtual machines in any OS offered by Windows Virtual Desktop. Because Windows Virtual Desktop offers Windows 7 and Windows 8.1 images, users can access Win 7 or Win 10 via the WVD experience.
-
-
-### If I don’t have an applicable subscription to be eligible for multitenant hosting, how can I deploy Windows 10 images in Azure? 
-
-Users must purchase an eligible subscription license available through partners listed above.
-
-### Do I qualify for Multi-tenant hosting rights if I have a Visual Studio or MSDN platform Subscription? 
-
-Visual Studio and MSDN platform subscriptions have a distinct entitlement and may run Windows 7 and Windows 10 for dev/ test purposes. However, this does not qualify for multitenant hosting rights. 
-
-Terms:
-
-*10.3 Windows Virtual Desktop for Development and Test
-Users licensed with Visual Studio subscriptions and MSDN Platforms with active SA (“Authorized Users”) may access Windows Virtual Desktop (WVD) Windows 7, Windows 10, and Windows Server virtual machines for development and test purposes. Customer’s end users may also access WVD Windows 7, Windows 10, and Windows Server virtual machines initiated by Authorized Users to perform acceptance tests or provide feedback.*
-
-
-
-
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)
