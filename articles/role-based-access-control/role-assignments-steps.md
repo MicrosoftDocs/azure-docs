@@ -26,7 +26,7 @@ You first need to determine who needs access. You can assign a role to a user, g
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
 - Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
-## Step 2: Find the appropriate role
+## Step 2: Select the appropriate role
 
 Permissions are grouped together into a *role definition*. It's typically just called a *role*. You can select from a list of several built-in roles. If the built-in roles don't meet the specific needs of your organization, you can create your own custom roles.
 

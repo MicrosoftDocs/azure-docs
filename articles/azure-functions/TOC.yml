@@ -248,7 +248,7 @@
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-first-azure-function.md
+                  href: functions-create-function-app-portal.md
                 - name: Command line
                   href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Timer trigger
               href: functions-create-scheduled-function.md
-        - name: Add bindings
+        - name: Connect to services
           items:
-            - name: How to add a binding
+            - name: How to connect to services
+              displayName: bindings,integrate
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Add bindings
+        - name: Connect to services
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -413,8 +414,6 @@
           href: ./functions-create-vnet.md
         - name: Create an Open API 2.0 definition
           href: ./functions-openapi-definition.md
-        - name: Export to PowerApps and Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint

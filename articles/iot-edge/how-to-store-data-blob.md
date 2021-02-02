@@ -190,7 +190,7 @@ The following quickstart samples use languages that are also supported by IoT Ed
 
 ## Connect to your local storage with Azure Storage Explorer
 
-You can use [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) to connect to your local storage account.
+You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
 
 1. Download and install Azure Storage Explorer
 

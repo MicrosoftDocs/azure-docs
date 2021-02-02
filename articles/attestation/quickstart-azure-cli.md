@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set up Azure Attestation with Azure CLI
 
-Get started with Azure Attestation by using Azure CLI to set up attestation.
+Get started with [Azure Attestation by using Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
 ## Get started
 
@@ -60,7 +60,7 @@ Get started with Azure Attestation by using Azure CLI to set up attestation.
 
 Here are commands you can use to create and manage the attestation provider:
 
-1. Run the [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) command to create an attestation provider:
+1. Run the [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) command to create an attestation provider without policy signing requirement:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -123,7 +123,7 @@ To set policy in JWT format for a given kind of attestation type using file path
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## Next steps

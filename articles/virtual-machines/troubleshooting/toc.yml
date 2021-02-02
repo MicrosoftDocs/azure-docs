@@ -152,7 +152,7 @@
     - name: Troubleshoot a general error
       href: troubleshoot-rdp-general-error.md
     - name: Troubleshoot authentication errors
-      href: troubleshoot-authentication-error-rdp-vm.md
+      href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - name: Troubleshoot Azure VM RDP connection issues by Event ID
       href: event-id-troubleshoot-vm-rdp-connecton.md
     - name: Troubleshoot RDP error in VM because of static IP
