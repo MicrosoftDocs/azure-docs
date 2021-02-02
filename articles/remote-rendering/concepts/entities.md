@@ -105,6 +105,7 @@ Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
 ObjectMetadata metaData = await metaDataQuery;
 ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
 System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp

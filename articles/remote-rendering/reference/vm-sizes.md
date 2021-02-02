@@ -81,7 +81,7 @@ Accordingly, it is possible to write an application that targets the `standard` 
 
 There are two ways to determine the number of polygons of a model or scene that contribute to the budget limit of the `standard` configuration size:
 * On the model conversion side, retrieve the [conversion output json file](../how-tos/conversion/get-information.md), and check the `numFaces` entry in the [*inputStatistics* section](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* If your application is dealing with dynamic content, the number of rendered polygons can be queried dynamically during runtime. Use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the `polygonsRendered` member in the `FrameStatistics` struct. The `polygonsRendered` field will be set to `bad` when the renderer hits the polygon limitation. The checkerboard background is always faded in with some delay to ensure user action can be taken after this asynchronous query. User action can for instance be hiding or deleting model instances.
+* If your application is dealing with dynamic content, the number of rendered polygons can be queried dynamically during runtime. Use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the `polygonsRendered` member in the `FrameStatistics` struct. The `PolygonsRendered` field will be set to `bad` when the renderer hits the polygon limitation. The checkerboard background is always faded in with some delay to ensure user action can be taken after this asynchronous query. User action can for instance be hiding or deleting model instances.
 
 ## Pricing
 

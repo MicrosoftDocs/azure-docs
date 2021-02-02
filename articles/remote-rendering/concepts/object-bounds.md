@@ -14,7 +14,7 @@ Object bounds represent the volume that an [entity](entities.md) and its childre
 
 ## Querying object bounds
 
-The local AABB of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
+The local axis aligned bounding box of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
 
 It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
 
@@ -28,6 +28,7 @@ public async void GetBounds(Entity entity)
 
     Double3 aabbMin = result.Min;
     Double3 aabbMax = result.Max;
+    // ...
 }
 ```
 

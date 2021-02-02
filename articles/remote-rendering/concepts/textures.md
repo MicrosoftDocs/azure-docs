@@ -59,7 +59,7 @@ void LoadMyTexture(ApiHandle<RenderingSession> session, std::string storageConta
 }
 ```
 
-Note that in case of using its SAS variant only the loading function/parameter differs
+Note that in case of using its SAS variant only the loading function/parameter differs.
 
 Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 

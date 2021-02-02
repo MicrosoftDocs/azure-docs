@@ -130,7 +130,7 @@ class HolographicAppMain
 
 A good place to do the actual implementation is the constructor of class `HolographicAppMain`. We have to do three types of initialization there:
 1. The one-time initialization of the Remote Rendering system
-1. Front-end creation
+1. Client creation (authentication)
 1. Session creation
 
 We do all of that sequentially in the constructor. However, in real use cases it might be appropriate to do these steps separately.
@@ -247,7 +247,7 @@ HolographicAppMain::~HolographicAppMain()
 
 In Remote Rendering, key functions to create a session and to load a model are asynchronous functions. To account for this, we need a simple state machine that essentially transitions through the following states automatically:
 
-*Initialization -> Session creation -> Session starting -> model loading (with progress)*
+*Initialization -> Session creation -> Session starting -> Model loading (with progress)*
 
 Accordingly, as a next step, we add a bit of state machine handling to the class. We declare our own enum `AppConnectionStatus` for the various states that our application can be in. It is similar to `RR::ConnectionStatus`, but has an additional state for failed connection.
 
@@ -556,7 +556,7 @@ The last thing to do is invoking the rendering of the remote content. We have to
         
         // ...
 
-        // Exiting check to test for valid camera:
+        // Existing check to test for valid camera:
         bool cameraActive = pCameraResources->AttachViewProjectionBuffer(m_deviceResources);
 
 

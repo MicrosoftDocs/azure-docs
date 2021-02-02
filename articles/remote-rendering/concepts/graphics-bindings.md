@@ -253,9 +253,9 @@ Each frame, the **Render loop update** from the previous section requires you to
 ```cs
 public struct SimulationUpdateParameters
 {
-        public int FrameId;
-        public StereoMatrix4x4 ViewTransform;
-        public StereoCameraFov FieldOfView;
+    public int FrameId;
+    public StereoMatrix4x4 ViewTransform;
+    public StereoCameraFov FieldOfView;
 };
 
 public struct SimulationUpdateResult

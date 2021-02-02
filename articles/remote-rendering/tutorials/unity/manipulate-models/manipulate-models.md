@@ -47,8 +47,6 @@ The bounds of a model are defined by the box that contains the entire model - ju
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
 
-        private BoundsQueryAsync remoteBoundsQuery = null;
-
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
         public override RemoteBoundsState CurrentBoundsState
@@ -89,14 +87,8 @@ The bounds of a model are defined by the box that contains the entire model - ju
             }
         }
 
-        // Create a query using the model entity
+        // Create an async query using the model entity
         async private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
         {
             //Implement me
         }

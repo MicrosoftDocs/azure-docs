@@ -46,7 +46,8 @@ SessionConfiguration accountInfo = new SessionConfiguration();
 RemoteRenderingClient client = new RemoteRenderingClient(accountInfo);
 
 // start a session
-RenderingSession session = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationOptions(RenderingSessionVmSize.Standard, 0, 30));
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationOptions(RenderingSessionVmSize.Standard, 0, 30));
+RenderingSession session = result.Session;
 
 // let RemoteManagerUnity know about the session we want to use
 RemoteManagerUnity.CurrentSession = session;
