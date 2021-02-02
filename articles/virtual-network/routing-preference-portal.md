@@ -38,6 +38,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **Routing preference**, select **Internet**.
 
       ![Create a public ip address](./media/routing-preference-portal/pip-new.png)
+1. In the **IPv4 IP Address Configuration** section, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter *RoutingPreferenceResourceGroup*, then select **OK**. |
+    | Location | Select **East US**.|
+    | Availability zone | Keep the default value - **Zone-redundant**. |
+1. Select **Create**.
 
     > [!NOTE]
     > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
@@ -49,4 +58,4 @@ You can associate the above created public IP address with a [Windows](../virtua
 - [Configure routing preference for a VM](tutorial-routing-preference-virtual-machine-portal.md).
 - [Configure routing preference for a public IP address using the PowerShell](routing-preference-powershell.md).
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
-- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+1. Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
