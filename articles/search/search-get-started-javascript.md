@@ -82,7 +82,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as our service name and api key.
+4. Install `dotenv`, which is used to import the environment variables such as our service name and API key.
     ```cmd
     npm install dotenv
     ```
