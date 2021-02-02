@@ -21,7 +21,7 @@ Active Visual Studio subscribers (people who have acquired a Visual Studio subsc
 
 For your convenience, certain Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](#eligible-offers). Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
-## Eligible offers and images
+## Eligible offers and client images
 The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Gallery. The Windows client images are only visible to the following offers. Visual Studio subscribers who need to run Windows client in a different offer type require you to [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and [then upload to Azure](upload-generalized-managed.md).
 
 | Offer Name | Offer Number | Available client images | 
