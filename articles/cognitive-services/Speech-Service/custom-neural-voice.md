@@ -78,6 +78,10 @@ or a [web portal](https://speech.microsoft.com/audiocontentcreation).
 | Persona       | A persona describes who you want this voice to be. A good persona design will inform all voice creation whether it’s choosing an available voice model already created, or starting from scratch by casting and recording a new voice talent.                                                                                                |
 | Script        | A script is a text file that contains the utterances to be spoken by your voice talent. (The term "*utterances*" encompasses both full sentences and shorter phrases.)                                                                                                                                                                                                                               |
 
+## Responsible use of AI
+
+To learn how to use Custom Neural Voice responsibly, see the [transparency note](https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice). Microsoft’s transparency notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment.
+
 ## Next steps
 
 * [Get started with Custom Voice](how-to-custom-voice.md)
