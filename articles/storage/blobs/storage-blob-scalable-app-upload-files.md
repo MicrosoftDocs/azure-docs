@@ -57,7 +57,7 @@ Type `dotnet run` to run the application. The first time you run `dotnet` it pop
 dotnet run
 ```
 
-The application creates five randomly named containers and begins uploading the files in the staging directory to the storage account. The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
+The application creates five randomly named containers and begins uploading the files in the staging directory to the storage account.
 
 The `UploadFilesAsync` method is shown in the following example:
 
@@ -66,6 +66,8 @@ The `UploadFilesAsync` method is shown in the following example:
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
 
 # [.NET v11](#tab/dotnet11)
+
+The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
 
 ```csharp
 private static async Task UploadFilesAsync()
