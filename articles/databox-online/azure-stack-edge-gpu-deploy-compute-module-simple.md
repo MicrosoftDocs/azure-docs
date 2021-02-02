@@ -12,11 +12,11 @@ ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Run a compute workload with IoT Edge module on Azure Stack Edge Pro
+# Tutorial: Run a compute workload with IoT Edge module on Azure Stack Edge Pro GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to run a compute workload using an IoT Edge module on your Azure Stack Edge Pro device. After you configure the compute, the device will transform the data before sending it to Azure.
+This tutorial describes how to run a compute workload using an IoT Edge module on your Azure Stack Edge Pro GPU device. After you configure the compute, the device will transform the data before sending it to Azure.
 
 This procedure can take around 10 to 15 minutes to complete.
 
@@ -32,9 +32,10 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro GPU device, make sure that:
 
 - You've activated your Azure Stack Edge Pro device as described in [Activate your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+- You have an IoT Edge module that you can run on your data. In this tutorial, we used a `filemove2` module that moves data from Edge local share on your device to Edge share from where the data goes to Azure Storage account.
 
 
 ## Configure compute
