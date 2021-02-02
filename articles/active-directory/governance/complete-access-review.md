@@ -51,7 +51,7 @@ You can track the progress as the reviewers complete their reviews.
 
     The Results page provides more information on each user under review in the instance, including the ability to Stop, Reset and Download results.
 
-    ![Review of All company group](./media/complete-access-review/all-company-group-results.png)
+    ![Review guest access across Microsoft 365 groups](./media/complete-access-review/all-company-group-results.png)
 
 
     If you are viewing an access review that reviews guest access across Microsoft 365 groups (Preview), the Overview blade lists each group in the review. 
