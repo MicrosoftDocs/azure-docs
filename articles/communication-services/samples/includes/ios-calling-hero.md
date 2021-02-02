@@ -41,7 +41,7 @@ The group calling sample can be run locally using XCode. Developers can either u
 ### Before running the sample for the first time
 
 1. Install dependencies by running `pod install`.
-2. Open `CallingSampleApp.xcworkspace` in XCode.
+2. Open `ACSCall.xcworkspace ` in XCode.
 3. Update `AppSettings.plist`. Set the value for the `acsTokenFetchUrl` key to be the URL for your Authentication Endpoint.
 
 ### Run sample
