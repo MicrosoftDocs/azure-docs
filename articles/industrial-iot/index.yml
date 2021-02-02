@@ -1,0 +1,26 @@
+### YamlMime:Landing
+
+title: Azure Industrial IoT Platform documentation
+summary: The Azure Industrial IoT Platform is a Microsoft suite of modules and services that are deployed on Azure. 
+
+metadata:
+  description: Learn about the 
+  ms.service: industrial-iot #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: philmea #Required; your GitHub user alias, with correct capitalization.
+  ms.author: philmea #Required; microsoft alias of author; optional team alias.
+  ms.date: 12/7/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Industrial IoT Platform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Industrial IoT (IIoT) Platform?
+            url: overview-what-is-industrial-iot-platform.md
+
