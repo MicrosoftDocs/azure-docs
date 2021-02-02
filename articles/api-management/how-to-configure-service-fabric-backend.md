@@ -1,6 +1,6 @@
 ---
-title: Set up Service Fabric backend in API Management | Microsoft Docs
-description: How to create a Service Fabric service backend in API Management using the Azure portal
+title: Set up Service Fabric backend in Azure API Management | Microsoft Docs
+description: How to create a Service Fabric service backend in Azure API Management using the Azure portal
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -51,7 +51,7 @@ For steps to add a certificate to your API Management instance, see [How to secu
 
 ### Add Service Fabric backend
 
-1. In the [Azure portal](https://management.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Backends** > **+ Add**.
 1. Enter a backend name and an optional description
 1. In **Type**, select **Service Fabric**.
