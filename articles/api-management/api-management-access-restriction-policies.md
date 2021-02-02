@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/01/2021
 ms.author: apimpm
 ---
 
@@ -158,13 +158,16 @@ For more information and examples of this policy, see [Advanced request throttli
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="variable name"
+                   total-calls-header-name="header name" total-calls-variable-name="variablename"/> 
 
 ```
 
 ### Example
 
-In the following example, the rate limit is keyed by the caller IP address.
+In the following example, the rate limit is keyed by the caller IP address, and remaining calls after the policy is triggered are truned in the variable `remainingCallsPerIP`.
 
 ```xml
 <policies>
@@ -173,7 +176,8 @@ In the following example, the rate limit is keyed by the caller IP address.
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -195,6 +199,12 @@ In the following example, the rate limit is keyed by the caller IP address.
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`).        | No       | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets.                                              | Yes      | N/A     |
+| retry-after-header-name    | The name of a response header that contains the retry-after period in seconds returned when the policy is triggered. |  No | N/A  |
+| retry-after-variable-name    | The name of a variable that contains the retry-after period in seconds returned when the policy is triggered. |  No | N/A  |
+| remaining-calls-header-name    | The name of a response header that contains the number of remaining calls returned when the poilcy is triggered. |  No | N/A  |
+| remaining-calls-variable-name    | The name of a variable that contains the number of remaining calls returned when the policy is triggered. |  No | N/A  |
+| total-calls-header-name    | The name of a response that contains the total number of calls made. |  No | N/A  |
+| total-calls-variable-name    | The name of a variable that contains the total number of calls made. |  No | N/A  |
 
 ### Usage
 
