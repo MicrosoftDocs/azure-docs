@@ -3,7 +3,6 @@ title: Azure Service Fabric application resource model
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
 ms.date: 10/21/2019
-ms.custom: sfrev
 ---
 
 # Service Fabric application resource model
@@ -86,6 +85,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 >
 >
 
+
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
@@ -133,6 +133,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## Upgrade the Service Fabric application by using Resource Manager
 
+
+> [!IMPORTANT]
+> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+
+
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
 * A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
@@ -161,13 +166,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
 
 To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
+1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

@@ -74,7 +74,7 @@ landingContent:
           - text: Java
             url: service-bus-java-how-to-use-queues.md
           - text: Node.js
-            url: service-bus-nodejs-how-to-use-queues-new-package.md
+            url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
             url: service-bus-python-how-to-use-queues.md
           - text: PHP
@@ -91,7 +91,7 @@ landingContent:
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
           - text: Node.js
-            url: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+            url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
             url: service-bus-python-how-to-use-topics-subscriptions.md
           - text: PHP

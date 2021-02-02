@@ -4,8 +4,8 @@ description: Deploy an agent performing automatic refresh of Key Vault secrets o
 services: virtual-machines-windows
 author: msmbaldwin
 tags: keyvault
-
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
@@ -31,10 +31,26 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 - PEM
 
 ## Prerequisities
-  - Key Vault instance with certificate. See [Create a Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS must have assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-  - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-cli).
-
+  - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
+  - VM must have assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md)
+  - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
+  -  VMSS should have the following identity setting:
+  ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+- AKV extension should have this setting:
+  `
+                  "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
@@ -93,7 +109,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
-| requiredInitialSync | true | boolean |
+| requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
@@ -106,7 +122,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and in case of virtual machine scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
  > [!NOTE]
-> The VM extension would require system or user managed identity to be assigned to authenticate to Key vault.  See [How to authenticate to Key Vault and assign a Key Vault access policy.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> The VM extension would require system or user managed identity to be assigned to authenticate to Key vault.  See [How to authenticate to Key Vault and assign a Key Vault access policy.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
 
 ```json
@@ -135,6 +151,17 @@ The JSON configuration for a virtual machine extension must be nested inside the
     }
 ```
 
+### Extension Dependency Ordering
+The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates install before they start, then enabling this setting will allow those extension to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
+
+To turn this on set the following:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> [Note] Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 
 ## Azure PowerShell deployment
 > [!WARNING]

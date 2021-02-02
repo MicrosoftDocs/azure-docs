@@ -26,7 +26,6 @@ In this three-part tutorial, you'll create a machine learning model to predict i
 5. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
 6. Set up the environment to debug, run, and test IoT Edge solution by installing [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
 7. Install Docker.
-8. Download the [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) file that will be utilized in the tutorial. 
 
 ## Deploy Azure resources using PowerShell Script
 

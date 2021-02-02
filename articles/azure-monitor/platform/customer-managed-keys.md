@@ -1,52 +1,53 @@
 ---
 title: Azure Monitor customer-managed key
-description: Information and steps to configure Customer-Managed Key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
+description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
+ms.date: 01/10/2021
 
 ---
 
 # Azure Monitor customer-managed key 
 
-This article provides background information and steps to configure customer-Managed Keys for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. When you specify a customer-managed key, that key is used to protect and control access to your data and once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key. Customer-managed keys offer greater flexibility to manage access controls.
 
 We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
 ## Customer-managed key overview
 
-[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage encryption at rest, while you have various options to closely manage encryption or encryption keys.
+[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage encryption at rest, while you have various options to closely manage encryption and encryption keys.
 
-Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md) and used by storage for data encryption. Key can be either [software or hardware-HSM protected](../../key-vault/general/overview.md). Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md), which gives you the control to revoke the access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
 
-The customer-Managed Key capability is delivered on dedicated Log Analytics clusters. It allows you to protect your data with [Lockbox](#customer-lockbox-preview) control and gives you the control to revoke the access to your data at any time. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-Managed Key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-Managed Key in the first half of 2021.
+Customer-managed key is delivered on [dedicated clusters](../log-query/logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
-The [Log Analytics clusters pricing model](./manage-cost-storage.md#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
+Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the first half of 2021.
+
+Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
+
+## How Customer-managed key works in Azure Monitor
+
+Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-managed key protection on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+
+After the Customer-managed key configuration, new ingested data to workspaces linked to your dedicated cluster gets encrypted with your key. You can unlink workspaces from the cluster at any time. New data then gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
 
 > [!IMPORTANT]
-> Due to temporary capacity constraints, we require you pre-register to before creating a cluster. Use your contacts into Microsoft, or open support request to register your subscriptions IDs.
+> Customer-managed key capability is regional. Your Azure Key Vault, cluster and linked Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
 
-## How Customer-Managed Key works in Azure Monitor
-
-Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault. System-assigned managed identity can only be associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level -- This dictates that the capability is delivered on a dedicated Log Analytics cluster. To support Customer-Managed Key on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
-
-After configuration, any data ingested to workspaces linked to your dedicated cluster gets encrypted with your key in Key Vault. You can unlink workspaces from the cluster at any time. New data then gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
-
-
-![Customer-Managed Key overview](media/customer-managed-keys/cmk-overview.png)
+![Customer-managed key overview](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Log Analytics *Cluster* resource having managed identity with permissions to Key Vault -- The identity is propagated to the underlay dedicated Log Analytics cluster storage
 3. Dedicated Log Analytics cluster
 4. Workspaces linked to *Cluster* resource 
 
-## Encryption keys operation
+### Encryption keys operation
 
 There are 3 types of keys involved in Storage data encryption:
 
-- **KEK** - Key Encryption Key (your Customer-Managed Key)
+- **KEK** - Key Encryption Key (your Customer-managed key)
 - **AEK** - Account Encryption Key
 - **DEK** - Data Encryption Key
 
@@ -58,96 +59,48 @@ The following rules apply:
 - Your KEK never leaves your Key Vault and in the case of an HSM key, it never leaves the hardware.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
-## Customer-Managed Key provisioning procedure
+### Customer-Managed key provisioning steps
 
-1. Register your subscription to allow cluster creation
 1. Creating Azure Key Vault and storing key
 1. Creating cluster
 1. Granting permissions to your Key Vault
+1. Updating cluster with key identifier details
 1. Linking Log Analytics workspaces
 
-Customer-Managed Key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) or [REST](https://docs.microsoft.com/rest/api/loganalytics/) requests.
+Customer-managed key configuration isn't supported in Azure portal currently and provisioning can be performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
 ### Asynchronous operations and status check
 
-Some of the configuration steps run asynchronously because they can't be completed quickly. When using REST requests in configuration, the response initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+Some of the configuration steps run asynchronously because they can't be completed quickly. The `status` in response can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' with error code.
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+# [PowerShell](#tab/powershell)
+
+N/A
+
+# [REST](#tab/rest)
+
+When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Then you can check the status of the asynchronous operation by sending a GET request to the *Azure-AsyncOperation* header value:
+You can check the status of the asynchronous operation by sending a GET request to the endpoint in *Azure-AsyncOperation* header:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-The response contains information about the operation and its *Status*. It can be one of the followings:
+---
 
-Operation is in progress
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-Key identifier update operation is in progress
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Cluster delete is in progress -- When you delete a cluster that has linked workspaces, unlinking operation is performed for each of the workspaces asynchronously and the operation can take a while.
-This isn’t relevant when you delete a cluster with no linked workspace -- In this case the cluster is deleted immediately.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operation is completed
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operation failed
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
-
-### Allowing subscription
-
-> [!IMPORTANT]
-> Customer-Managed Key capability is regional. Your Azure Key Vault, cluster and linked Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
-
-### Storing encryption key (KEK)
+## Storing encryption key (KEK)
 
 Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
@@ -158,48 +111,82 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
 - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
-### Create cluster
+## Create cluster
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
+- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+  
+  Identity settings in cluster for System-assigned managed identity
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the *resource ID* of your identity.
+
+  Identity settings in cluster for User-assigned managed identity
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> Copy and save the response since you will need the details in next steps.
+> You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
-### Grant Key Vault permissions
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
-Create access policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay Azure Monitor Storage for data encryption. Open your Key Vault in Azure portal and click "Access Policies" then "+ Add Access Policy" to create a policy with these settings:
+## Grant Key Vault permissions
 
-- Key permissions: select 'Get', 'Wrap Key' and 'Unwrap Key' permissions.
-- Select principal: enter the cluster name or principal-id value that returned in the response in the previous step.
+Create access policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay Azure Monitor storage. Open your Key Vault in Azure portal and click *"Access Policies"* then *"+ Add Access Policy"* to create a policy with these settings:
+
+- Key permissions: select *'Get'*, *'Wrap Key'* and *'Unwrap Key'*.
+- Select principal: depending on the identity type used in the cluster (system or user assigned managed identity) enter either cluster name or cluster principal ID for system assigned managed identity or the user assigned managed identity name.
 
 ![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
-### Update cluster with Key identifier details
+## Update cluster with key identifier details
 
-All operations on the cluster require the Microsoft.OperationalInsights/clusters/write action permission. This permission could be granted via the Owner or Contributor that contains the */write action or via the Log Analytics Contributor role that contains the Microsoft.OperationalInsights/* action.
+All operations on the cluster require the `Microsoft.OperationalInsights/clusters/write` action permission. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action.
 
 This step updates Azure Monitor Storage with the key and version to be used for data encryption. When updated, your new key is being used to wrap and unwrap the Storage key (AEK).
 
-Select the current version of your key in Azure Key Vault to get the Key identifier details.
+Select the current version of your key in Azure Key Vault to get the key identifier details.
 
 ![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
-Update KeyVaultProperties in cluster with Key Identifier details.
+Update KeyVaultProperties in cluster with key identifier details.
 
 The operation is asynchronous and can take a while to complete.
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# [PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# [REST](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -219,12 +206,12 @@ Content-type: application/json
 
 **Response**
 
-It takes the propagation of the Key identifier a few minutes to complete. You can check the update state in two ways:
+It takes the propagation of the key a few minutes to complete. You can check the update state in two ways:
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
+2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
-A response to GET request should look like this when Key identifier update is complete:
-200 OK and header
+A response to GET request should look like this when the key update is complete:
+202 (Accepted) and header
 ```json
 {
   "identity": {
@@ -254,44 +241,43 @@ A response to GET request should look like this when Key identifier update is co
 }
 ```
 
-### Link workspace to cluster
+---
 
-You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include these actions:
-
-- In workspace: Microsoft.OperationalInsights/workspaces/write
-- In cluster: Microsoft.OperationalInsights/clusters/write
+## Link workspace to cluster
 
 > [!IMPORTANT]
 > This step should be performed only after the completion of the Log Analytics cluster provisioning. If you link workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
-This operation is asynchronous and can a while to complete.
+You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## Key revocation
 
-You can revoke access to data by disabling your key, or deleting the cluster's access policy in your Key Vault. The Log Analytics cluster storage will always respect changes in key permissions within an hour or sooner and Storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data is inaccessible and queries to these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. 
+> [!IMPORTANT]
+> - The recommended way to revoke access to your data is by disabling your key, or deleting access policy in your Key Vault.
+> - Setting the cluster's `identity` `type` to "None" also revokes access to your data, but this approach isn't recommended since you can't revert the revocation when restating the `identity` in the cluster without opening support request.
 
-Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible as well.
+The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible.
 
-Storage periodically polls your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query resume within 30 minutes.
+The cluster's storage periodically checks your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query are resumed within 30 minutes.
 
 ## Key rotation
 
-Customer-Managed Key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. Follow the instructions in "Update cluster with Key identifier details" step. If you don't update the new key identifier details in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
+Customer-managed key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you don't update the new key version in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## Customer-Managed Key for queries
+## Customer-managed key for saved queries
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-Managed Key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
-> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-Managed Key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
+> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
 When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
-**Considerations before setting Customer-Managed Key for queries**
+**Considerations before setting Customer-managed key for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
 * Make sure to create your Storage Account in the same region as your Log Analytics workspace is located
 * The *saves searches* in storage is considered as service artifacts and their format may change
@@ -304,15 +290,25 @@ When you Bring Your Own Storage (BYOS) and link it to your workspace, the servic
 
 Link a storage account for *Query* to your workspace -- *saved-searches* queries are saved in your storage account. 
 
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# [PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# [REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -330,21 +326,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 After the configuration, any new *saved search* query will be saved in your storage.
 
 **Configure BYOS for log-alerts queries**
 
 Link a storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
 
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# [PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# [REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -362,198 +370,38 @@ Content-type: application/json
 }
 ```
 
+---
+
 After the configuration, any new alert query will be saved in your storage.
 
 ## Customer Lockbox (preview)
+
 Lockbox gives you the control to approve or reject Microsoft engineer request to access your data during a support request.
 
 In Azure Monitor, you have this control on data in workspaces linked to your Log Analytics dedicated cluster. The Lockbox control applies to data stored in a Log Analytics dedicated cluster where it’s kept isolated in the cluster’s storage accounts under your Lockbox protected subscription.  
 
 Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
-## Customer-Managed Key operations
+## Customer-Managed key operations
 
-- **Get all clusters in a resource group**
-  
-  ```azurecli
-  az monitor log-analytics cluster list --resource-group "resource-group-name"
-  ```
+Customer-Managed key is provided on dedicated cluster and these operations are referred in [dedicated cluster article](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
 
-  ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
-  ```
-
-  ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
-
-  **Response**
-  
-  ```json
-  {
-    "value": [
-      {
-        "identity": {
-          "type": "SystemAssigned",
-          "tenantId": "tenant-id",
-          "principalId": "principal-Id"
-        },
-        "sku": {
-          "name": "capacityReservation",
-          "capacity": 1000,
-          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-          },
-        "properties": {
-           "keyVaultProperties": {
-              "keyVaultUri": "https://key-vault-name.vault.azure.net",
-              "keyName": "key-name",
-              "keyVersion": "current-version"
-              },
-          "provisioningState": "Succeeded",
-          "billingType": "cluster",
-          "clusterId": "cluster-id"
-        },
-        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-        "name": "cluster-name",
-        "type": "Microsoft.OperationalInsights/clusters",
-        "location": "region-name"
-      }
-    ]
-  }
-  ```
-
-- **Get all clusters in a subscription**
-
-  ```azurecli
-  az monitor log-analytics cluster list
-  ```
-
-  ```powershell
-  Get-AzOperationalInsightsCluster
-  ```
-
-  ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
-    
-  **Response**
-    
-  The same response as for 'cluster in a resource group', but in subscription scope.
-
-- **Update *capacity reservation* in cluster**
-
-  When the data volume to your linked workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update cluster](#update-cluster-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1000 to 3000 GB per day and in steps of 100. For level higher than 3000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body but should include the sku:
-
-  ```azurecli
-  az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
-  ```
-
-  ```powershell
-  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
-  ```
-
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
-
-  {
-    "sku": {
-      "name": "capacityReservation",
-      "Capacity": daily-ingestion-gigabyte
-    }
-  }
-  ```
-
-- **Update *billingType* in cluster**
-
-  The *billingType* property determines the billing attribution for the cluster and its data:
-  - *cluster* (default) -- The billing is attributed to the subscription hosting your Cluster resource
-  - *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
-  
-  Follow the [update cluster](#update-cluster-with-key-identifier-details) and provide your new billingType value. Note that you don’t have to provide the full REST request body and should include the *billingType*:
-
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
-
-  {
-    "properties": {
-      "billingType": "cluster",
-      }  
-  }
-  ``` 
-
-- **Unlink workspace**
-
-  You need 'write' permissions on the workspace and cluster to perform this operation. You can unlink a workspace from your cluster at any time. New ingested data after the unlink operation is stored in Log Analytics storage and encrypted with Microsoft key. You can query you data that was ingested to your workspace before and after the unlink seamlessly as long as the cluster is provisioned and configured with valid Key Vault key.
-
-  This operation is is asynchronous and can a while to complete.
-
-  ```azurecli
-  az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
-  ```
-
-  ```powershell
-  Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
-  ```
-
-  ```rest
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
-
-  - **Check workspace link status**
-  
-  Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*. A linked workspace will have the *clusterResourceId* property.
-
-  ```azurecli
-  az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
-  ```
-
-  ```powershell
-  Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
-  ```
-
-- **Delete your cluster**
-
-  You need 'write' permissions on the cluster to perform this operation. A soft-delete operation is performed to allow the recovery of your cluster including its data within 14 days, whether the deletion was accidental or intentional. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, the cluster name is released and your cluster and its data are permanently deleted and are non-recoverable. Any linked workspace gets unlinked from the cluster on delete operation. New ingested data is stored in Log Analytics storage and encrypted with Microsoft key. 
-  
-  The unlink operation is asynchronous and can take up to 90 minutes to complete.
-
-  ```azurecli
-  az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
-  ```
- 
-  ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
-  ```
-
-  ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
-  
-- **Recover your cluster and your data** 
-  
-  A cluster that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got unlinked from the cluster deletion, you need to re-link your workspaces after the cluster's recovery. The recovery operation is currently performed manually by the product group. Use your Microsoft channel or open support request for recovery of deleted cluster.
+- Get all clusters in resource group  
+- Get all clusters in subscription
+- Update *capacity reservation* in cluster
+- Update *billingType* in cluster
+- Unlink a workspace from cluster
+- Delete cluster
 
 ## Limitations and constraints
 
-- Customer-Managed Key is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
-
 - The max number of cluster per region and subscription is 2
 
-- The maximum of linked workspaces to cluster is 1000
+- The maximum number of workspaces that can be linked to a cluster is 1000
 
 - You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to 2 in a period of 30 days.
 
-- Workspace link to cluster should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
-
-- Customer-Managed Key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-Managed Key configuration seamlessly.
+- Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
 - The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
   - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
@@ -561,9 +409,17 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
 - Cluster move to another resource group or subscription isn't supported currently.
 
-- Your Azure Key Vault, cluster and linked workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
+- Your Azure Key Vault, cluster and workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
-- Workspace link to cluster will fail if it is linked to another cluster.
+- Lockbox isn't available in China currently. 
+
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - Double encryption setting can not be changed after the cluster has been created.
+
+  - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
+
+  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is  in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 ## Troubleshooting
 
@@ -572,18 +428,20 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
     
   - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
     
-  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-Managed Key.
+  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-managed key.
 
   - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
+
+- If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
+
+- If you get conflict error when creating a cluster – It may be that you have deleted your cluster in the last 14 days and it’s in a soft-delete period. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+
+- Workspace link to cluster will fail if it is linked to another cluster.
 
 - If you create a cluster and specify the KeyVaultProperties immediately, the operation may fail since the
     access policy can't be defined until system identity is assigned to the cluster.
 
 - If you update existing cluster with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
-
-- If you get conflict error when creating a cluster – It may be that you have deleted your cluster in the last 14 days and it’s in a soft-delete period. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
-
-- If you update your cluster while an operation is in progress, the operation will fail.
 
 - If you fail to deploy your cluster, verify that your Azure Key Vault, cluster and linked Log Analytics workspaces are in the same region. The can be in different subscriptions.
 
@@ -593,11 +451,9 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
   2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
 
-- For support and help related to customer managed key, use your contacts into Microsoft.
-
 - Error messages
   
-  Cluster Create:
+  **Cluster Create**
   -  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
   -  400 -- The body of the request is null or in bad format.
   -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
@@ -610,25 +466,29 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
   -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
 
-  Cluster Update
+  **Cluster Update**
   -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
-  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
-  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](#grant-key-vault-permissions) in Key Vault.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
   -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
 
-  Cluster Get:
+  **Cluster Get**
     -  404 -- Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
 
-  Cluster Delete
+  **Cluster Delete**
     -  409 -- Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
 
-  Workspace link:
+  **Workspace link**
   -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
   -  409 -- Workspace link or unlink operation in process.
   -  400 -- Cluster not found, the cluster you specified doesn’t exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
 
-  Workspace unlink:
+  **Workspace unlink**
   -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
   -  409 -- Workspace link or unlink operation in process.
+## Next steps
+
+- Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)

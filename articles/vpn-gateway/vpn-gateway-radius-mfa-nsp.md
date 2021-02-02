@@ -45,9 +45,9 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 
  
-### Step 2 Configure the NPS for Azure MFA
+### Step 2 Configure the NPS for Azure AD MFA
 
-1. On the NPS server, [install the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
+1. On the NPS server, [install the NPS extension for Azure AD MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Open the NPS console, right-click **RADIUS Clients**, and then select **New**. Create the RADIUS client by specifying the following settings:
 
     - **Friendly Name**: Type any name.
@@ -77,5 +77,5 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 ## Next steps
 
-- [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
-- [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
+- [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
+- [Integrate your existing NPS infrastructure with Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

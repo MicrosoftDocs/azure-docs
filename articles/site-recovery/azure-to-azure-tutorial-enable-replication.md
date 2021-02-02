@@ -51,7 +51,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 ### Verify target settings
 
-During discovery recovery, when you fail over from the source region, VMs are created in the target region. 
+During disaster recovery, when you fail over from the source region, VMs are created in the target region. 
 
 Check that your subscription has enough resources in the target region. You need to be able to create VMs with sizes that match VMs in the source region. When you set up disaster recovery, Site Recovery picks the same size (or the closest possible size) for the target VM.
 
@@ -74,7 +74,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	            | Allows data to be written from the VM to the cache storage account in the source region. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |

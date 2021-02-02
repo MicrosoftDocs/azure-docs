@@ -1,6 +1,6 @@
 ---
 title: Azure Data Encryption-at-Rest - Azure Security
-description: This article provides an overview of Azure data encryption at-rest, the overall capabilities, and general considerations.
+description: This article provides an overview of Azure Data Encryption at-rest, the overall capabilities, and general considerations.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -17,7 +17,7 @@ ms.date: 08/13/2020
 ms.author: mbaldwin
 
 ---
-# Azure data encryption at rest
+# Azure Data Encryption at rest
 
 Microsoft Azure includes tools to safeguard data according to your company's security and compliance needs. This paper focuses on:
 
@@ -29,7 +29,7 @@ Encryption at Rest is a common security requirement. In Azure, organizations can
 
 ## What is encryption at rest?
 
-Encryption at Rest is the encoding (encryption) of data when it is persisted. The Encryption at Rest designs in Azure use symmetric encryption to encrypt and decrypt large amounts of data quickly according to a simple conceptual model:
+Encryption is the secure encoding of data used to protect confidentiality of data. The Encryption at Rest designs in Azure use symmetric encryption to encrypt and decrypt large amounts of data quickly according to a simple conceptual model:
 
 - A symmetric encryption key is used to encrypt data as it is written to storage.
 - The same encryption key is used to decrypt that data as it is readied for use in memory.

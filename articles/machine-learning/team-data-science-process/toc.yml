@@ -64,10 +64,6 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with Azure Synapse Analytics
     href: walkthroughs-sql-data-warehouse.md
-- name: Utilities & tools
-  items:
-  - name: Data exploration & modeling utils (GitHub)
-    href: https://github.com/Azure/Azure-TDSP-Utilities
 - name: Training
   items:
   - name: For data scientists
@@ -80,23 +76,23 @@
     href: environment-setup.md
     items:
     - name: Azure storage accounts
-      href: ../../storage/common/storage-account-create.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+      href: ../../storage/common/storage-account-create.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Platforms and tools
       href: platforms-and-tools.md
     - name: R and Python on HDInsight clusters
       items:
       - name: Introduction to Spark on HDInsight
-        href: ../../hdinsight/spark/apache-spark-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../../hdinsight/spark/apache-spark-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Create an Apache Spark cluster in Azure HDInsight
-        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: PySpark kernels for Jupyter Notebook
-        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: R Server on HDInsight
-        href: ../../hdinsight/r-server/r-server-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Get started using R Server on HDInsight
-        href: ../../hdinsight/r-server/r-server-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Machine Learning Studio (classic) workspace
-      href: ../classic/create-workspace.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+      href: ../classic/create-workspace.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
   - name: Analyze business needs
     items:
     - name: Identify your scenario
@@ -117,7 +113,7 @@
         - name: Use AzCopy
           href: ../../storage/common/storage-use-azcopy-v10.md
         - name: Use Python
-          href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+          href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
         - name: Use SSIS
           href: move-data-to-azure-blob-using-ssis.md
       - name: Move to SQL on a VM
@@ -138,7 +134,7 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Explore Azure Blob storage
+        - name: Explore Azure Blob Storage
           href: explore-data-blob.md
         - name: Explore SQL on a VM
           href: explore-data-sql-server.md
@@ -148,7 +144,7 @@
         items:
         - name: Overview
           href: sample-data.md
-        - name: Use blob storage
+        - name: Use Blob Storage
           href: sample-data-blob.md
         - name: Use SQL Server
           href: sample-data-sql-server.md
@@ -185,9 +181,9 @@
     - name: Create and train models
       items:
       - name: Choose algorithms
-        href: ../how-to-select-algorithms.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../how-to-select-algorithms.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Algorithm cheat sheet
-        href: ../algorithm-cheat-sheet.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+        href: ../algorithm-cheat-sheet.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
   - name: Deploy models in production
     href: deploy-models-in-production.md
 - name: Related

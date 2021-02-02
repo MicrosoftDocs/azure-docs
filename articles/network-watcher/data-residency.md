@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ms.author: damendo
 
 
@@ -29,4 +29,4 @@ In Azure, the feature that enables storing customer data in a single region is c
 
 ## Next steps
 
-* Read an overview of [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
+* Read an overview of [Network Watcher](./network-watcher-monitoring-overview.md).

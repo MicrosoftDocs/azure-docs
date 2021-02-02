@@ -13,8 +13,8 @@ Enabling monitoring on your .NET based web applications running on [Azure virtua
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
 
 > [!IMPORTANT]
-> Azure Application Insights Agent for .NET is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> Azure Application Insights Agent for ASP.NET applications running on **Azure VMs and VMSS** is currently in public preview. For monitoring your ASP.Net applications running **on-premises**, use the [Azure Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md), which is generally available and fully supported.
+> The preview version for Azure VMs and VMSS is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Enable Application Insights
@@ -45,7 +45,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
 > Before installing the Application Insights Agent, you'll need a connection string. [Create a new Application Insights Resource](./create-new-resource.md) or copy the connection string from an existing application insights resource.
 
 > [!NOTE]
-> New to powershell? Check out the [Get Started Guide](/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> New to powershell? Check out the [Get Started Guide](/powershell/azure/get-started-azureps).
 
 Install or update the Application Insights Agent as an extension for Azure virtual machines
 ```powershell

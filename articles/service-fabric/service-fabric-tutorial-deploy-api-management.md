@@ -4,7 +4,7 @@ description: Learn how to quickly get started with Azure API Management and rout
 
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Integrate API Management with Service Fabric in Azure
 
@@ -239,9 +239,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$temp
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
-az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+az deployment group create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
 
-az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
+az deployment group create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
 ```
 
 ## Test it

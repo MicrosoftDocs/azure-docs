@@ -20,6 +20,8 @@ Active Learning is supported in runtime version 4.4.0 and above. If your knowled
 
 ## Turn on active learning for alternate questions
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
 1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
@@ -38,6 +40,12 @@ Active learning is off by default. Turn it on to see suggested questions. After 
     > The exact version on the preceding image is shown as an example only. Your version may be different.
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
+    
+# [QnA Maker managed (preview release)](#tab/v2)
+
+By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+---
 
 ## Review suggested alternate questions
 

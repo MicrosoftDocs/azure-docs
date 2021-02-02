@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this guide, you must have the following resources.
 * A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
+   - [Create a key vault with the Azure CLI](../general/quick-create-cli.md)
+   - [Create a key vault with Azure PowerShell](../general/quick-create-powershell.md)
+   - [Create a key vault with the Azure portal](../general/quick-create-portal.md).
 *	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
 *	Administrator level permissions in your accounts.
 
@@ -105,7 +105,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
@@ -125,13 +125,16 @@ If the certificate issued is in 'disabled' status in the Azure portal, proceed t
 
  ![Certificate operation](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
+Error message 'Please perform a merge to complete this certificate request.'
+   You would need to merge the CSR signed by the CA to complete this request. Learn more [here](./create-certificate-signing-request.md)
+
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Frequently asked questions
 
 - Can I generate a digicert wildcard certificate through KeyVault? 
    Yes. It would depend upon how you have configured your digicert account.
-- How can I create **OV-SSL or EV-SSL** certificate with DigiCert?? 
+- How can I create **OV-SSL or EV-SSL** certificate with DigiCert? 
    Key vault supports creating OV and EV SSL certificates. When creating a certificate, click on Advanced Policy Configuration, then specify the Certificate type. Values supported are : OV-SSL, EV-SSL
    
    You would be able to create this type of certificate in key vault if your Digicert account allows. For this type of certificate, the validation is performed by DigiCert and their support team would be able to best help you with the solution, if validation fails. You can add additional information when creating a certificate by defining them in subjectName.

@@ -86,15 +86,11 @@ Combining API Management provisioned in an internal Vnet with the Application Ga
 
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-Enable Azure DDoS Protection Standard on the Vnet associated with your API Management deployment to protect from distributed denial of service (DDoS) attacks.
-
 Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
 * [How to integrate API Management in an internal VNET with Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Understand Azure Application Gateway](../application-gateway/index.yml)
-
-* [How to configure Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -180,8 +176,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
-- DDoS Protection Standard should be enabled
+**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. 
 
 You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
@@ -297,7 +292,7 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate with Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -377,7 +372,7 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Azure Security Center monitoring**: Yes
 
@@ -442,7 +437,7 @@ Alternatively, the sign-in/sign-up process can be further customized through del
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -502,7 +497,7 @@ Administrators can create custom groups or leverage external groups in associate
 
 * [How to manage user accounts in Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuse)
+* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md)
 
@@ -610,7 +605,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Management plane calls are made through Azure Resource Manager over TLS. A valid JSON web token (JWT) is required. Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
 
-* [Understand data protection in Azure API Management](./api-management-security-controls.md#data-protection)
+* [Understand data protection in Azure API Management](#data-protection)
 
 * [Manage TLS settings in Azure API Management](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -660,7 +655,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Sensitive data such as certificates, keys, and secret named values are encrypted with service-managed, per service instance keys. All encryption keys are per service instance and are service managed.
 
-* [Understand data protection/encryption at rest with Azure API Management](./api-management-security-controls.md#data-protection)
+* [Understand data protection/encryption at rest with Azure API Management](#data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -688,7 +683,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 Underlying platform scanned and patched by Microsoft. Review security controls available to reduce service configuration related vulnerabilities.
 
-* [Understanding security controls available to Azure API Management](./api-management-security-controls.md)
+* [Understanding security controls available to Azure API Management]()
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -724,7 +719,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 Underlying platform scanned and patched by Microsoft. Customer to review security controls available to them to reduce service configuration related vulnerabilities.
 
-* [Understanding security controls available to Azure API Management](./api-management-security-controls.md)
+* [Understanding security controls available to Azure API Management]()
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -928,8 +923,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [Azure Repos Documentation](/azure/devops/repos/index)
 
-* [Understand the Azure API Management DevOps Resource Kit](./api-management-security-controls.md#configuration-management)
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -967,8 +960,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 **Guidance**: Use the Azure API Management DevOps Resource Kit to perform configuration management for Azure API Management.
 
 In addition, define and implement standard security configurations for your Azure API Management services with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of Azure API Management instances. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
-
-* [Understand the Azure API Management DevOps Resource Kit](./api-management-security-controls.md#configuration-management)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

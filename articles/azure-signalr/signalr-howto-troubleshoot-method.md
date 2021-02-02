@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
@@ -12,7 +12,7 @@ ms.author: yajin1
 
 This guidance introduces several ways to help do self-diagnosis to find the root cause directly or narrow down the issue. The self-diagnosis result is also useful when reporting it to us for further investigation.
 
-First, you need to check from the Azure portal which [ServiceMode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) is the Azure SignalR Service (also known as **ASRS**) configured to.
+First, you need to check from the Azure portal which [ServiceMode](./concept-service-mode.md) is the Azure SignalR Service (also known as **ASRS**) configured to.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="ServiceMode":::
 
@@ -23,6 +23,8 @@ First, you need to check from the Azure portal which [ServiceMode](https://docs.
 * For `Classic` mode, refer to [classic mode troubleshooting](#classic_mode_tsg)
 
 <a name="default_mode_tsg"></a>
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Default mode troubleshooting
 
@@ -44,13 +46,13 @@ There are several ways that can help you narrow down the issue.
 
 ### How to view the traffic and narrow down the issue
 
-Capturing the on-going traffic is the most straight-forward way to narrow down the issue. You can capture the [Network traces](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) using the options described below:
+Capturing the on-going traffic is the most straight-forward way to narrow down the issue. You can capture the [Network traces](/aspnet/core/signalr/diagnostics#network-traces) using the options described below:
 
-* [Collect a network trace with Fiddler](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
+* [Collect a network trace with Fiddler](/aspnet/core/signalr/diagnostics#network-traces)
 
-* [Collect a network trace with tcpdump](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
+* [Collect a network trace with tcpdump](/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
 
-* [Collect a network trace in the browser](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
+* [Collect a network trace in the browser](/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
 
 <a name="view_traffic_client"></a>
 
@@ -58,7 +60,7 @@ Capturing the on-going traffic is the most straight-forward way to narrow down t
 
 For a SignalR persistent connection, it first `/negotiate` to your hosted app server and then redirected to the Azure SignalR service and then establishes the real persistent connection to Azure SignalR service. Refer to [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md) for the detailed steps.
 
-With the client-side network trace in hand, check which request fails with what status code and what response, and look for solutions inside [Troubleshooting Guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+With the client-side network trace in hand, check which request fails with what status code and what response, and look for solutions inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
 
 #### Server requests
 
@@ -66,8 +68,9 @@ SignalR *Server* maintains the *Server Connection* between *Server* and *Service
 
 *Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintainance. As long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
 
-View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### How to add logs
 
@@ -81,18 +84,18 @@ Client side logging experience is exactly the same as when using self-hosted Sig
 
 ##### Enable client-side logging for `ASP.NET Core SignalR`
 
-* [JavaScript client logging](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#javascript-client-logging)
+* [JavaScript client logging](/aspnet/core/signalr/diagnostics#javascript-client-logging)
 
-* [.NET client logging](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#net-client-logging)
+* [.NET client logging](/aspnet/core/signalr/diagnostics#net-client-logging)
 
 
 ##### Enable client-side logging for `ASP.NET SignalR`
 
-* [.NET client](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [.NET client](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Enabling tracing in Windows Phone 8 clients](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Enabling tracing in Windows Phone 8 clients](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
-* [Enabling tracing in the JavaScript client](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
+* [Enabling tracing in the JavaScript client](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
 <a name="add_logs_server"></a>
 
@@ -100,7 +103,7 @@ Client side logging experience is exactly the same as when using self-hosted Sig
 
 ##### Enable server-side logging for `ASP.NET Core SignalR`
 
-Server-side logging for `ASP.NET Core SignalR` integrates with the `ILogger` based [logging](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the `ASP.NET Core` framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
+Server-side logging for `ASP.NET Core SignalR` integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) provided in the `ASP.NET Core` framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
@@ -157,9 +160,11 @@ Check if there are any abnormal warning/error logs recorded.
 
 #### How to enable logs inside Azure SignalR service
 
-You can also [enable diagnostic logs](https://docs.microsoft.com/azure/azure-signalr/signalr-tutorial-diagnostic-logs) for Azure SignalR service, these logs provide detailed information of every connection connected to the Azure SignalR service.
+You can also [enable diagnostic logs](./signalr-howto-diagnostic-logs.md) for Azure SignalR service, these logs provide detailed information of every connection connected to the Azure SignalR service.
 
 <a name="serverless_mode_tsg"></a>
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Serverless mode troubleshooting
 
@@ -169,11 +174,15 @@ To diagnose connectivity issues in `Serverless` mode, the most straight forward 
 
 <a name="classic_mode_tsg"></a>
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## Classic mode troubleshooting
 
 `Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, [abort these client connections](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) and let the clients restart can help.
 
 Troubleshooting `classic` mode connectivity and message delivery issues are similar to [troubleshooting default mode issues](#default_mode_tsg).
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Service health
 
@@ -189,7 +198,9 @@ You can check the health api for service health.
     * Or restart instance.
     * If all above options do not work, contact us by adding new support request in Azure portal.
 
-More about [disaster recovery](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-disaster-recovery).
+More about [disaster recovery](./signalr-concept-disaster-recovery.md).
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Next steps
 

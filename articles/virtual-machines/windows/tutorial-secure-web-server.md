@@ -77,7 +77,7 @@ Add-AzKeyVaultCertificate `
 
 
 ## Create a virtual machine
-Set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -174,4 +174,4 @@ In this tutorial, you secured an IIS web server with a TLS/SSL certificate store
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./powershell-samples.md)
+> [Windows virtual machine script samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)

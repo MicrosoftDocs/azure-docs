@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 11/17/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal

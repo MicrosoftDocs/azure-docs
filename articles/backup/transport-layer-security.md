@@ -40,7 +40,7 @@ The following registry keys ensure that the TLS 1.2 protocol is enabled at the S
 
 ### Configuring .NET Framework
 
-The following registry keys configure .NET Framework to support strong cryptography. You can read more about [configuring .NET Framework here](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+The following registry keys configure .NET Framework to support strong cryptography. You can read more about [configuring .NET Framework here](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -60,7 +60,7 @@ TLS 1.2 is more secure than previous cryptographic protocols such as SSL 2.0, SS
 
 ### What determines the encryption protocol used?
 
-The highest protocol version supported by both the client and server is negotiated to establish the encrypted conversation. For more information on the TLS handshake protocol, see [Establishing a Secure Session by using TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+The highest protocol version supported by both the client and server is negotiated to establish the encrypted conversation. For more information on the TLS handshake protocol, see [Establishing a Secure Session by using TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### What is the impact of not enabling TLS 1.2?
 
@@ -72,6 +72,6 @@ For improved security from protocol downgrade attacks, Azure Backup is beginning
 
 ## Additional resources
 
-- [Transport Layer Security Protocol](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Ensuring support for TLS 1.2 across deployed operating systems](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [Transport layer security (TLS) best practices with the .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [Transport Layer Security Protocol](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Ensuring support for TLS 1.2 across deployed operating systems](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [Transport layer security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls)

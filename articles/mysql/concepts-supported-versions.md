@@ -40,7 +40,7 @@ Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/
 ## Managing updates and upgrades
 The service automatically manages patching for bug fix version updates. For example, 5.7.20 to 5.7.21.  
 
-Currently, minor and major version upgrades aren't supported. For example, upgrading from MySQL 5.6 to MySQL 5.7 isn't supported. If you'd like to upgrade from 5.6 to 5.7, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+Major version upgrade is currently supported by service for upgrades from MySQL v5.6 to v5.7. For more details, refer [how to perform major version upgrades](how-to-major-version-upgrade.md). If you'd like to upgrade from 5.7 to 8.0, we recommend you perform [dump and restore](./concepts-migrate-dump-restore.md) to a server that was created with the new engine version.
 
 ## Next steps
 

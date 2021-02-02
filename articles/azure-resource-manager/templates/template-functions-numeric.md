@@ -1,12 +1,12 @@
 ---
 title: Template functions - numeric
-description: Describes the functions to use in an Azure Resource Manager template to work with numbers.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 11/18/2020
 ---
 # Numeric functions for ARM templates
 
-Resource Manager provides the following functions for working with integers in your Azure Resource Manager (ARM) template:
+Resource Manager provides the following functions for working with integers in your Azure Resource Manager template (ARM template):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -19,11 +19,13 @@ Resource Manager provides the following functions for working with integers in y
 * [mul](#mul)
 * [sub](#sub)
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## add
 
 `add(operand1, operand2)`
 
-Returns the sum of the two provided integers.
+Returns the sum of the two provided integers. The `add` function is not supported in Bicep. Use the `+` operator instead.
 
 ### Parameters
 
@@ -40,36 +42,49 @@ An integer that contains the sum of the parameters.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) adds two parameters.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to add"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to add"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to add"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "addResult": {
-            "type": "int",
-            "value": "[add(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to add"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "addResult": {
+      "type": "int",
+      "value": "[add(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output addResult int = first + second
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -107,36 +122,45 @@ For more information about using copy, see:
 
 The following example shows a copy loop and the index value included in the name.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageCount": {
-            "type": "int",
-            "defaultValue": 2
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": "[parameters('storageCount')]"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": "[parameters('storageCount')]"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+> [!NOTE]
+> Loops and `copyIndex` are not implemented yet in Bicep.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
 
 ### Return value
 
@@ -146,7 +170,7 @@ An integer representing the current index of the iteration.
 
 `div(operand1, operand2)`
 
-Returns the integer division of the two provided integers.
+Returns the integer division of the two provided integers. The `div` function is not supported in Bicep. Use the `/` operator instead.
 
 ### Parameters
 
@@ -163,36 +187,49 @@ An integer representing the division.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) divides one parameter by another parameter.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 8,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 8,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "divResult": {
-            "type": "int",
-            "value": "[div(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "divResult": {
+      "type": "int",
+      "value": "[div(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param first int = 8
+param second int = 3
+
+output addResult int = first / second
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -204,7 +241,7 @@ The output from the preceding example with the default values is:
 
 `float(arg1)`
 
-Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App.
+Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App. The `float` function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
 
 ### Parameters
 
@@ -220,19 +257,28 @@ A floating point number.
 
 The following example shows how to use float to pass parameters to a Logic App:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "type": "Microsoft.Logic/workflows",
-    "properties": {
-        ...
-        "parameters": {
-            "custom1": {
-                "value": "[float('3.0')]"
-            },
-            "custom2": {
-                "value": "[float(3)]"
-            },
+  "type": "Microsoft.Logic/workflows",
+  "properties": {
+    ...
+    "parameters": {
+      "custom1": {
+        "value": "[float('3.0')]"
+      },
+      "custom2": {
+        "value": "[float(3)]"
+      },
 ```
+
+# [Bicep](#tab/bicep)
+
+> [!NOTE]
+> The `float` function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
+
+---
 
 ## int
 
@@ -254,26 +300,38 @@ An integer of the converted value.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) converts the user-provided parameter value to integer.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToConvert": {
-            "type": "string",
-            "defaultValue": "4"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "intResult": {
-            "type": "int",
-            "value": "[int(parameters('stringToConvert'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "4"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intResult": {
+      "type": "int",
+      "value": "[int(parameters('stringToConvert'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param stringToConvert string = '4'
+
+output inResult int = int(stringToConvert)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -301,29 +359,48 @@ An integer representing the maximum value from the collection.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) shows how to use max with an array and a list of integers:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[max(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[max(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = max(arrayToTest)
+output intOutput int = max(0,3,2,5,4)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -352,29 +429,48 @@ An integer representing minimum value from the collection.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) shows how to use min with an array and a list of integers:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = min(arrayToTest)
+output intOutput int = min(0,3,2,5,4)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -387,7 +483,7 @@ The output from the preceding example with the default values is:
 
 `mod(operand1, operand2)`
 
-Returns the remainder of the integer division using the two provided integers.
+Returns the remainder of the integer division using the two provided integers. The `mod` function is not supported in Bicep. Use the `%` operator instead.
 
 ### Parameters
 
@@ -404,36 +500,49 @@ An integer representing the remainder.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) returns the remainder of dividing one parameter by another parameter.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "modResult": {
-            "type": "int",
-            "value": "[mod(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "modResult": {
+      "type": "int",
+      "value": "[mod(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output modResult int = first % second
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -445,7 +554,7 @@ The output from the preceding example with the default values is:
 
 `mul(operand1, operand2)`
 
-Returns the multiplication of the two provided integers.
+Returns the multiplication of the two provided integers. The `mul` function is not supported in Bicep. Use the `*` operator instead.
 
 ### Parameters
 
@@ -462,36 +571,49 @@ An integer representing the multiplication.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) multiplies one parameter by another parameter.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to multiply"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to multiply"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to multiply"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "mulResult": {
-            "type": "int",
-            "value": "[mul(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to multiply"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "mulResult": {
+      "type": "int",
+      "value": "[mul(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output mulResult int = first * second
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -503,7 +625,7 @@ The output from the preceding example with the default values is:
 
 `sub(operand1, operand2)`
 
-Returns the subtraction of the two provided integers.
+Returns the subtraction of the two provided integers. The `sub` function is not supported in Bicep. Use the `-` operator instead.
 
 ### Parameters
 
@@ -520,36 +642,49 @@ An integer representing the subtraction.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) subtracts one parameter from another parameter.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer subtracted from"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer to subtract"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer subtracted from"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "subResult": {
-            "type": "int",
-            "value": "[sub(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer to subtract"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "subResult": {
+      "type": "int",
+      "value": "[sub(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output subResult int = first - second
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -559,5 +694,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).

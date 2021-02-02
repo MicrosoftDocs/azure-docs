@@ -1,18 +1,18 @@
 ﻿---
-title: Azure App Configuration REST API - Key-Value
-description: Reference pages for working with key-values using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+title: Azure App Configuration REST API - key-value
+description: Reference pages for working with key-values by using the Azure App Configuration REST API
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Key-Values
+# Key-values
 
-api-version: 1.0
+A key-value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label, use "\0" (URL encoded as ``%00``). See details for each operation.
 
-A Key-value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label use "\0" (url encoded as ``%00``). See details for each operation.
+This article applies to API version 1.0.
 
 ## Operations
 
@@ -40,10 +40,10 @@ A Key-value is a resource identified by unique combination of `key` + `label`. `
 }
 ```
 
-## Get Key-Value
+## Get key-value
 
-**Required:** ``{key}``, ``{api-version}``  
-*Optional:* ``label`` - If omitted it implies a key-value without a label
+Required: ``{key}``, ``{api-version}``  
+Optional: ``label`` (If omitted, it implies a key-value without a label.)
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -80,9 +80,9 @@ If the key doesn't exist, the following response is returned:
 HTTP/1.1 404 Not Found
 ```
 
-## Get (Conditionally)
+## Get (conditionally)
 
-To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. See [Section 14.24 and 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. For more information, see [sections 14.24 and 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 The following request retrieves the key-value only if the current representation doesn't match the specified `etag`:
 
@@ -104,12 +104,10 @@ or
 HTTP/1.1 200 OK
 ```
 
-## List Key-Values
+## List key-values
 
-See **Filtering** for additional options
-
-*Optional:* ``key`` - if not specified it implies **any** key.
-*Optional:* ``label`` - if not specified it implies **any** label.
+Optional: ``key`` (If not specified, it implies any key.)
+Optional: ``label`` (If not specified, it implies any label.)
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -122,10 +120,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+For additional options, see the "Filtering" section later in this article.
+
 ## Pagination
 
-The result is paginated if the number of items returned exceeds the response limit. Follow the optional `Link` response headers and use `rel="next"` for navigation.
-Alternatively the content provides a next link in form of the `@nextLink` property. The linked uri includes the `api-version` argument.
+The result is paginated if the number of items returned exceeds the response limit. Follow the optional `Link` response headers, and use `rel="next"` for navigation.
+Alternatively, the content provides a next link in form of the `@nextLink` property. The linked URI includes the `api-version` argument.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -159,14 +159,14 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 ### Supported filters
 
-|Key Filter|Effect|
+|Key filter|Effect|
 |--|--|
 |`key` is omitted or `key=*`|Matches **any** key|
 |`key=abc`|Matches a key named **abc**|
 |`key=abc*`|Matches keys names that start with **abc**|
 |`key=abc,xyz`|Matches keys names **abc** or **xyz** (limited to 5 CSV)|
 
-|Label Filter|Effect|
+|Label filter|Effect|
 |--|--|
 |`label` is omitted or `label=*`|Matches **any** label|
 |`label=%00`|Matches KV without label|
@@ -178,9 +178,9 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 `*`, `\`, `,`
 
-If a reserved character is part of the value, then it must be escaped using `\{Reserved Character}`. Non-reserved characters can also be escaped.
+If a reserved character is part of the value, then it must be escaped by using `\{Reserved Character}`. Non-reserved characters can also be escaped.
 
-***Filter Validation***
+***Filter validation***
 
 In the case of a filter validation error, the response is HTTP `400` with error details:
 
@@ -207,7 +207,7 @@ Content-Type: application/problem+json; charset=utf-8
     GET /kv?api-version={api-version}
     ```
 
-- Key name starts with **abc** and include all labels
+- Key name starts with **abc** and includes all labels
 
     ```http
     GET /kv?key=abc*&label=*&api-version={api-version}
@@ -221,15 +221,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## Request specific fields
 
-Use the optional `$select` query string parameter and provide comma separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
+Use the optional `$select` query string parameter and provide a comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
 
 ```http
 GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 ```
 
-## Time-Based Access
+## Time-based access
 
-Obtain a representation of the result as it was at a past time. See section [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Pagination is still supported as defined above.
+Obtain a representation of the result as it was at a past time. For more information, see section [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Pagination is still supported as defined earlier in this article.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -253,10 +253,10 @@ Link: <{relative uri}>; rel="original"
 }
 ```
 
-## Set Key
+## Set key
 
-- **Required:** ``{key}``
-- *Optional:* ``label`` - if not specified or label=%00 it implies KV without label.
+- Required: ``{key}``
+- Optional: ``label`` (If not specified, or label=%00, it implies key-value without a label.)
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -315,12 +315,12 @@ Content-Type: application/problem+json; charset="utf-8"
 }
 ```
 
-## Set Key (Conditionally)
+## Set key (conditionally)
 
 To prevent race conditions, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation.
-If `If-Match` or `If-None-Match` are omitted, the operation will be unconditional.
+If `If-Match` or `If-None-Match` are omitted, the operation is unconditional.
 
-The following response updates the value only if the current representation matches the specified `etag`
+The following response updates the value only if the current representation matches the specified `etag`:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -328,7 +328,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-The following response updates the value only if the current representation *doesn't* match the specified `etag`
+The following response updates the value only if the current representation doesn't match the specified `etag`:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -344,7 +344,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-The following request adds the value only if a representation *doesn't* already exist:
+The following request adds the value only if a representation doesn't already exist:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -368,8 +368,8 @@ HTTP/1.1 412 PreconditionFailed
 
 ## Delete
 
-- **Required:** `{key}`, `{api-version}`
-- *Optional:* `{label}` - if not specified or label=%00 it implies KV without label.
+- Required: `{key}`, `{api-version}`
+- Optional: `{label}` (If not specified, or label=%00, it implies key-value without a label.)
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -390,6 +390,6 @@ or
 HTTP/1.1 204 No Content
 ```
 
-## Delete Key (Conditionally)
+## Delete key (conditionally)
 
-Similar to **Set Key (Conditionally)**
+This is similar to the "Set key (conditionally)" section earlier in this article.

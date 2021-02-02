@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
+ms.date: 01/06/2021
 ---
 
 # How to create a virtual machine using an approved base
@@ -47,7 +47,6 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 8. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created, the status of Virtual Machine changes to **Running**.
-
 
 ## Configure the VM
 

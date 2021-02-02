@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
 ---
 
@@ -16,7 +16,11 @@ ms.author: victorh
 To learn more about supported scenarios and best practice guidelines, see [What are security partner providers?](trusted-security-partners.md)
 
 
-Integrated third-party Security as a service (SECaaS) partners are now available in all Azure public cloud regions. **Zscaler** integration will be generally available July 3, 2020. **Check Point** is a supported SECaaS partner and will be in preview on July 3, 2020. **iboss** integration will be generally available on July 31, 2020.
+Integrated third-party Security as a service (SECaaS) partners are now available: 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## Deploy a third-party security provider in a new hub
 
@@ -76,8 +80,8 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 1. Follow your partner provided instructions to complete the setup. This includes submitting AAD information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (preview): Configure Microsoft Azure Virtual WAN integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (preview): Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 

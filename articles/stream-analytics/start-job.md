@@ -1,9 +1,8 @@
 ---
 title: How to start an Azure Stream Analytics job
 description: This article describes how to start a Stream Analytics job from Azure portal, PowerShell, and Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019 

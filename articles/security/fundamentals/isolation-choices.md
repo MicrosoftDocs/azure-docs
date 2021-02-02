@@ -87,7 +87,7 @@ Some other capabilities for Azure Active Directory include:
 
 - Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 

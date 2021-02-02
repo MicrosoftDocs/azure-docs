@@ -150,10 +150,6 @@ The Text Analytics containers send billing information to Azure, using a _Text A
 
 For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
 
-<!--blogs/samples/video course -->
-
-[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
@@ -162,7 +158,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection (preview)*
-   * *Text Analytics for Health (preview)*
+   * *Text Analytics for health (preview)*
 * Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.

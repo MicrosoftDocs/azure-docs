@@ -5,7 +5,7 @@ keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: how-to
 author: VanMSFT

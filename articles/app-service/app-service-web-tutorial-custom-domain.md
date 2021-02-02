@@ -96,7 +96,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 ![Screenshot that shows the ID in the Custom Domain Verification ID box.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Adding domain verification IDs to your custom domain can prevent dangling DNS entries and help to avoid subdomain takeovers. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
+> Adding domain verification IDs to your custom domain can prevent dangling DNS entries and help to avoid subdomain takeovers. For custom domains you previously configured without this verification ID, you should protect them from the same risk by adding the verification ID to your DNS record. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 ## Map your domain
 
@@ -202,7 +202,7 @@ To map an A record to an app, usually to the root domain, create two records:
 > | Record type | Host | Value |
 > | - | - | - |
 > | A | `www` | IP address from [Copy the app's IP address](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [The verification ID you got earlier](#get-a-domain-verification-id) |
 >
 
 After the records are added, the DNS records page looks like the following example:

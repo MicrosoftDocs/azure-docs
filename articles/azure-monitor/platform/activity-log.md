@@ -52,24 +52,25 @@ You can also access Activity log events using the following methods.
 - Use log queries to perform complex analysis and gain deep insights on Activity Log entries.
 - Use log alerts with Activity entries allowing for more complex alerting logic.
 - Store Activity log entries for longer than 90 days.
-- No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
+- No data ingestion charges for Activity log data stored in a Log Analytics workspace.
+- No data retention charges till 90 days for Activity log data stored in a Log Analytics workspace.
 
 [Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
 
-Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
+Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 
 For example, to view a count of Activity log records for each category, use the following query.
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 To retrieve all records in the administrative category, use the following query.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -273,6 +274,7 @@ The columns in the following table have been deprecated in the updated schema. T
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
+| Category          | CategoryValue          |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -64,7 +64,6 @@ To see which users and groups are consuming licenses, select a product. Under **
 
 Consider the following example. A user has a license for Office 365 Enterprise *E1* assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise *E3* product assigned to it. The E3 product contains service plans that can't overlap with the plans that are included in E1, so the group license assignment fails with the “Conflicting service plans” error. In this example, the conflicting service plans are:
 
-- SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 - Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
 To solve this conflict, you need to disable two of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
@@ -175,8 +174,8 @@ For example, after you resolve duplicate proxy address problem for an affected u
 To learn more about other scenarios for license management through groups, see the following:
 
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 * [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory group-based licensing additional scenarios](./licensing-group-advanced.md)
 * [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

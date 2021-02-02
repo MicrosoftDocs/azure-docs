@@ -15,7 +15,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -39,7 +39,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-administration</artifactId>
-    <version>1.0.0-beta.2</version> 
+    <version>1.0.0-beta.3</version> 
 </dependency>
 ```
 
@@ -93,12 +93,22 @@ HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .endpoint(endpoint)
-    .credential(new CommunicationClientCredential(accessKey))
+    .accessKey(accessKey)
     .httpClient(httpClient)
     .buildClient();
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) that is provided by `azure-core`.
+
+You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key. 
+```java
+// Your can find your connection string from your resource in the Azure Portal
+String connectionString = "<connection_string>";
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .connectionString(connectionString)
+    .httpClient(httpClient)
+    .buildClient();
+```
 
 ## Create an identity
 
@@ -119,8 +129,7 @@ List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
 CommunicationUserToken response = communicationIdentityClient.issueToken(identity, scopes);
 OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
-String identityId = response.getUser().getId();
-System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + identityId + ": " + token);
+System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresOn + ": " + token);
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresAt` response property indicates the lifetime of the access token.
@@ -141,7 +150,7 @@ In some cases, you may explicitly revoke access tokens. For example, when an app
 
 ```java  
 communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
-System.out.println("\nRevoked access tokens for the user with ID: " + identity.getId());
+System.out.println("\nSuccessfully revoked all access tokens for identity with ID: " + identity.getId());
 ```
 
 ## Delete an identity
@@ -150,7 +159,7 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```java
 communicationIdentityClient.deleteUser(identity);
-System.out.println("\nSuccessfully deleted the identity with ID: " + identity.getId());
+System.out.println("\nDeleted the identity with ID: " + identity.getId());
 ```
 
 ## Run the code

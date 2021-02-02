@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Database for MySQL Flexible Server using Azure CLI

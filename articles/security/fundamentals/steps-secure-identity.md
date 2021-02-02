@@ -43,7 +43,7 @@ The recommendations in this document are aligned with the [Identity Secure Score
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) for all administrators in your organization using [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/plan-conditional-access.md). If you haven't implemented MFA, do it now! It's that important.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) for all administrators in your organization using [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/plan-conditional-access.md). If you haven't implemented MFA, do it now! It's that important.
 
 All set? Let's get started on the checklist.
 
@@ -54,9 +54,9 @@ Most enterprise security breaches originate with an account compromised with one
 
 ### Make sure your organization uses strong authentication
 
-Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-To easily enable the basic level of identity security, you can use the one-click enablement with [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Security defaults enforce Azure MFA for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
+To easily enable the basic level of identity security, you can use the one-click enablement with [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Security defaults enforce Azure AD MFA for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
 
 ### Start banning commonly attacked passwords and turn off traditional complexity, and expiration rules.
 
@@ -76,7 +76,7 @@ You can use [PowerShell to prevent passwords from expiring](../../active-directo
 
 If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
 
-* The [Users with leaked credentials](../../active-directory/identity-protection/overview-identity-protection.md) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
+* The [Users with leaked credentials](../../active-directory/identity-protection/overview-identity-protection.md) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) or have cloud-only identities!
 * In the event of an on-premises outage (for example, in a ransomware attack) you can switch over to using [cloud authentication using password hash sync](../../active-directory/hybrid/choose-ad-authn.md). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Microsoft 365. In this case, IT staff won't need to resort to personal email accounts to share data until the on-premises outage is resolved.
 
 Learn more about how [password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) works.

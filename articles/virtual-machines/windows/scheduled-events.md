@@ -51,6 +51,7 @@ Scheduled events are delivered to:
 - Standalone Virtual Machines.
 - All the VMs in a cloud service.
 - All the VMs in an availability set.
+- All the VMs in an availability zone.
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]

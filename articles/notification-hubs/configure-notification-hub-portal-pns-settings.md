@@ -104,6 +104,8 @@ Get Azure CLI references for other platforms with the [az notification-hub crede
 
 For more information about sending notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
+---
+
 ## Windows Push Notification Service
 
 To set up Windows Push Notification Service (WNS):

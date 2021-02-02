@@ -4,7 +4,7 @@ description: Create and publish an Azure Durable Function in Python using Visual
 author: anthonychu
 
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
 ---
 
@@ -36,7 +36,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press F1 (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Create function](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -56,18 +56,33 @@ Visual Studio Code installs the Azure Functions Core Tools, if needed. It also c
 
 A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
+## Update Azure Functions extension bundles version
+
+Python Azure Functions require version 2.x of [Azure Functions extension bundles](../functions-bindings-register.md#access-extensions-in-non-net-languages). Extension bundles are configured in *host.json*.
+
+1. Open *host.json* in the project. Update the extension bundle `version` to `[2.*, 3.0.0)`. This specifies a version range that is greater than or equal to 2.0, and less than 3.0.
+
+    ```json
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+    ```
+
+1. VS Code must be reloaded before the updated extension bundle version is reflected. In the command palette, run search for the *Developer: Reload Window* command and run it.
+
 ## Install azure-functions-durable from PyPI
 
 When you created the project, the Azure Functions VS Code extension automatically created a virtual environment with your selected Python version. You will activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
 
-1. Open `requirements.txt` in the editor and change its content to the following:
+1. Open *requirements.txt* in the editor and change its content to the following:
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable>=1.0.0b12
     ```
 
-1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
+1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl+Shift+`</kbd>).
 
 1. In the integrated terminal, activate the virtual environment in the current folder:
 
@@ -199,7 +214,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, press <kbd>Shift+F5</kbd> in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 

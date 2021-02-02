@@ -37,6 +37,9 @@ The error is due to a BCD flag *displaybootmenu* in the Windows Boot Manager. Wh
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 Process Overview:
 
 1. Configure for Faster Boot Time using Serial Console.

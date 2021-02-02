@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -79,20 +79,21 @@ First, create the resource group to contain the resources for this tutorial:
 Now, create the VNet:
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
-7. For **Resource group**, select **FW-Hybrid-Test**.
+1. Select **Create**.
+1. For **Resource group**, select **FW-Hybrid-Test**.
 1. For **Name**, type **VNet-hub**.
-2. Select **Next: IP Addresses**.
-3. For **IPv4 Address space**, type **10.5.0.0/16**.
-6. Under **Subnet name**, select **default**.
-7. for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-8. For **Address range**, type **10.5.0.0/26**. 
-9. Select **Save**.
-10. Select **Review + create**.
-11. Select **Create**.
+1. Select **Next: IP Addresses**.
+1. For **IPv4 Address space**, delete the default address and type **10.5.0.0/16**.
+1. Under **Subnet name**, select **Add subnet**.
+1. For **Subnet name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Subnet address range**, type **10.5.0.0/26**. 
+1. Select **Add**.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ## Create the spoke virtual network
 
@@ -102,11 +103,11 @@ Now, create the VNet:
 1. For **Name**, type **VNet-Spoke**.
 2. For **Region**, select **(US) East US**.
 3. Select **Next: IP Addresses**.
-4. For **IPv4 address space**, type **10.6.0.0/16**.
-6. Under **Subnet name**, select **default**.
-7. for **Name** type **SN-Workload**.
-8. For **Address range**, type **10.6.0.0/24**. 
-9. Select **Save**.
+4. For **IPv4 address space**, delete the default address and type **10.6.0.0/16**.
+6. Under **Subnet name**, select **Add subnet**.
+7. For **Subnet name** type **SN-Workload**.
+8. For **Subnet address range**, type **10.6.0.0/24**. 
+9. Select **Add**.
 10. Select **Review + create**.
 11. Select **Create**.
 
@@ -118,11 +119,11 @@ Now, create the VNet:
 1. For **Name**, type **VNet-OnPrem**.
 2. For **Region**, select **(US) East US**.
 3. Select **Next : IP Addresses**
-4. For **IPv4 address space**, type **192.168.0.0/16**.
-5. Under **Subnet name**, select **default**.
-7. for **Name** type **SN-Corp**.
-8. For **Address range**, type **192.168.1.0/24**. 
-9. Select **Save**.
+4. For **IPv4 address space**, delete the default address and type **192.168.0.0/16**.
+5. Under **Subnet name**, select **Add subnet**.
+7. For **Subnet name** type **SN-Corp**.
+8. For **Subnet address range**, type **192.168.1.0/24**. 
+9. Select **Add**.
 10. Select **Review + create**.
 11. Select **Create**.
 
@@ -267,21 +268,31 @@ Now peer the hub and spoke virtual networks.
 1. Open the **FW-Hybrid-Test** resource group and select the **VNet-hub** virtual network.
 2. In the left column, select **Peerings**.
 3. Select **Add**.
-4. For **Name**, type **HubtoSpoke**.
-5. For the **Virtual network**, select **VNet-spoke**
-6. For the name of the peering from VNetSpoke to VNet-hub, type **SpoketoHub**.
-7. Select **Allow gateway transit**.
-8. Select **OK**.
+4. Under **This virtual network**:
+ 
+   
+   |Setting name  |Value  |
+   |---------|---------|
+   |Peering link name| HubtoSpoke|
+   |Traffic to remote virtual network|   Allow (default)      |
+   |Traffic forwarded from remote virtual network    |   Allow (default)      |
+   |Virtual network gateway     |  Use this virtual network's gateway       |
+    
+5. Under **Remote virtual network**:
 
-### Configure additional settings for the SpoketoHub peering
+   |Setting name  |Value  |
+   |---------|---------|
+   |Peering link name | SpoketoHub|
+   |Virtual network deployment model| Resource manager|
+   |Subscription|\<your subscription\>|
+   |Virtual network| VNet-Spoke
+   |Traffic to remote virtual network     |   Allow (default)      |
+   |Traffic forwarded from remote virtual network    |   Allow (default)      |
+   |Virtual network gateway     |  Use the remote virtual network's gateway       |
 
-You'll need to enable the **Allow forwarded traffic** on the SpoketoHub peering.
+5. Select **Add**.
 
-1. Open the **FW-Hybrid-Test** resource group and select the **VNet-Spoke** virtual network.
-2. In the left column, select **Peerings**.
-3. Select the **SpoketoHub** peering.
-4. Under **Allow forwarded traffic from VNet-hub to VNet-Spoke**, select **Enabled**.
-5. Select **Save**.
+   :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Vnet peering":::
 
 ## Create the routes
 

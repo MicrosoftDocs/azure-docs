@@ -162,8 +162,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -361,7 +361,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -394,7 +394,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -769,7 +769,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
    Here is the sample output: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>

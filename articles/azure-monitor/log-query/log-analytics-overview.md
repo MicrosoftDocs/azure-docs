@@ -14,7 +14,7 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 
 > [!TIP]
-> This article provides a description of Log Analytics and each of its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](get-started-portal.md).
+> This article provides a description of Log Analytics and each of its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
 
 
@@ -88,5 +88,5 @@ Displays the results as one of multiple available chart types. You can specify t
 If you're already familiar with the Azure Data Explorer Web UI, then Log Analytics should look familiar. That's because it's built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL). Log Analytics adds features specific to Azure Monitor such as filtering by time range and the ability to create an alert rule from a query. Both tools included an explorer that lets you scan through the structure of available tables, but the Azure Data Explorer Web UI primarily works with tables in Azure Data Explorer databases while Log Analytics works with tables in a Log Analytics workspace. 
 
 ## Next steps
-- Walk through a [tutorial on using Log Analytics in the Azure portal](get-started-portal.md).
+- Walk through a [tutorial on using Log Analytics in the Azure portal](./log-analytics-tutorial.md).
 - Walk through a [tutorial on writing queries](get-started-queries.md).

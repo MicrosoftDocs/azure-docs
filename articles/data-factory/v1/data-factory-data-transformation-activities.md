@@ -3,8 +3,8 @@ title: 'Data Transformation: Process & transform data '
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -60,7 +60,7 @@ Over time, the predictive models in the Studio (classic) scoring experiments nee
 See [Use Azure Machine Learning Studio (classic) activities](data-factory-azure-ml-batch-execution-activity.md) for details about these Studio (classic) activities. 
 
 ## Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure Activity](data-factory-stored-proc-activity.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure Activity](data-factory-stored-proc-activity.md) article for details.  
 
 ## Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 

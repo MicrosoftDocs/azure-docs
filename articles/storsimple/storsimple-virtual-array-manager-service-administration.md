@@ -29,7 +29,7 @@ After reading this article, you will know how to:
 * Administer your StorSimple Virtual Array via the StorSimple Device Manager service
 
 > [!NOTE]
-> To view the management options available for the StorSimple 8000 series device, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+> To view the management options available for the StorSimple 8000 series device, go to [Use the StorSimple Manager service to administer your StorSimple device](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -73,4 +73,3 @@ For more information about each workflow, click the appropriate procedure in the
 
 ## Next steps
 For information about the web UI and how to use it, go to [Use the StorSimple web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

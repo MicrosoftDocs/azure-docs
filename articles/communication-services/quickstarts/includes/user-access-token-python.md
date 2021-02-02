@@ -80,7 +80,7 @@ Use the `issue_token` method to issue an access token for already existing Commu
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.issue_token(user, ["voip"])
+token_result = client.issue_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)

@@ -7,9 +7,9 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -44,7 +44,7 @@ To verify that the module is ready to use, use the following command:
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
 > The Azure AD PowerShell cmdlets does not work with the new Powershell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows PowerShell 5.x Module to be used for Azure AD powershell operations. 
@@ -332,7 +332,7 @@ Microsoft 365 group writeback is a public preview feature of Azure Active Direct
 
 ## Next steps
 
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2).
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
