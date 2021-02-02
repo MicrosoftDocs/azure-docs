@@ -20,7 +20,7 @@ ms.author: Zhchia
 
 # Tutorial: Configure Atea for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Atea and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Atea](https://www.atea.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works and frequently asked questions please see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Atea and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Atea](https://www.atea.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works and frequently asked questions refer [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -44,11 +44,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Atea support team](mailto:servicedesk@atea.dk).These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Atea's application in the Azure portal.
+To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Atea support team](mailto:servicedesk@atea.dk).These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Atea's application in Azure portal.
 
 ## Step 3. Add Atea from the Azure AD application gallery
 
-Add Atea from the Azure AD application gallery to start managing provisioning to Atea. If you have previously setup Atea for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add Atea from the Azure AD application gallery to start managing provisioning to Atea. If you have previously setup Atea for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -61,7 +61,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Atea 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Atea based on user and group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Atea in Azure AD:
 
@@ -85,7 +85,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
  	 ![Atea authorize](media/atea-provisioning-tutorial/provisioning-authorize.png)
 
-6. On the Atea's login dialog, sign in to your Atea's tenant and verify your identity.
+6. On the Atea's log in dialog, sign in to your Atea's tenant and verify your identity.
        
       ![Atea login dialog](media/atea-provisioning-tutorial/atea-login.png)
 
@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Atea**.
 
-11. Review the user attributes that are synchronized from Azure AD to Atea in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atea for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the Atea API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Azure AD to Atea in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atea for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you'll need to ensure that the Atea API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
       |Attribute|Type|Supported for filtering|
       |---|---|---|
@@ -121,21 +121,21 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Atea by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and groups that you would like to provision to Atea by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+15. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-* Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-* Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+* Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully.
+* Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it's to completion.
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Additional resources

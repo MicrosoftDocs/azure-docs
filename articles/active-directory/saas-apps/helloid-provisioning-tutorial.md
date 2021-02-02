@@ -48,19 +48,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign in to your HelloID administrator dashboard.
 
-	![HelloID admin sign in](media/helloid-provisioning-tutorial/helloid-admin-signin.png)
+	![HelloID admin sign in](media/helloid-provisioning-tutorial/admin-sign-in.png)
 
 2. Go to **Directory** > **Azure AD**.
 
-	![Directory > Azure AD](media/helloid-provisioning-tutorial/helloid-directory-azuread.png)
+	![Directory > Azure AD](media/helloid-provisioning-tutorial/directory-azure-ad.png)
 
 3. Select the **New Secret** button. 
 
-	![New Secret button](media/helloid-provisioning-tutorial/helloid-newsecret-button.png)
+	![New Secret button](media/helloid-provisioning-tutorial/new-secret.png)
 
 4. The **URL** and **Secret** fields are automatically populated. Copy and save the URL and Secret. These value will be entered in the **Tenant URL** * and **Secret Token** * field in the Provisioning tab of your HelloID application in the Azure portal.
 
-	![URL and secret generated](media/helloid-provisioning-tutorial/helloid-urlandsecret-generated.png)
+	![URL and secret generated](media/helloid-provisioning-tutorial/url-secret.png)
 
 ## Step 3. Add HelloID from the Azure AD application gallery
 
