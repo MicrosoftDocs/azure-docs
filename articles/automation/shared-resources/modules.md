@@ -29,7 +29,7 @@ When Automation executes runbook and DSC compilation jobs, it loads the modules 
 
 The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
 
-These modules are also known as "global modules". In the Azure portal,  the "Global module" property will be "true" when viewing a module that's imported when the account is created.
+The default modules are also known as "global modules". In the Azure portal,  the "Global module" property will be "true" when viewing a module that was imported when the account was created.
 
 Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 
