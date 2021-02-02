@@ -33,7 +33,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   
  ## 2021-02-08
 
-### Azure Machine Learning SDK for Python v1.21.0
+### Azure Machine Learning SDK for Python v1.22.0
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + Fixed a bug where classical forecasting models (e.g. AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
