@@ -135,7 +135,7 @@ An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls 
 
 ## Throttling limits
 
-Service operations, search query and indexing requests are throttled as the system approaches peak capacity. Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs and service operations API have static request rate limits. 
+API requests are throttled as the system approaches peak capacity. Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs and service operations API have static request rate limits. 
 
 Static rate request limits for operations related to an index:
 
