@@ -25,7 +25,7 @@ After the template machine is created, start the machine and connect to it to co
  
 1. Prepare the template machine for nested virtualization.
 2. Install GNS3.
-3. Create GNS3 VM.
+3. Create nested GNS3 VM in Hyper-V.
 4. Configure GNS3 to use Windows Hyper-V VM.
 5. Add appropriate appliances.
 6. Publish template.
@@ -48,7 +48,7 @@ Eventually you'll reach the GNS3 VM selection. Make sure to select the **Hyper-V
 ### Create GNS3 VM
 Once the setup has completed, a zip file **"GNS3.VM.Hyper-V.2.2.17.zip"** is downloaded to the same folder as the installation file, containing the drives and the PowerShell script to create the Hyper-V vm.
 - **Extract all** on the GNS3.VM.Hyper-V.2.2.17.zip.  This action will extract out the drives and the PowerShell script to create the VM.
-- **Run with PowerShell** on the "create-vm.ps1" PowerShell script.
+- **Run with PowerShell** on the "create-vm.ps1" PowerShell script by right clicking on the file.
 - An Execution Policy Change request may show up. Enter "Y" to execute the script.
 
 ![PSExecutionPolicy](./media/class-type-networking-gns3/powershell-executionpolicy-change.png)
