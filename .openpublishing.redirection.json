@@ -8097,37 +8097,37 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/quick-alerts-classic-metric-portal.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/alert-metric.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric-create-templates",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-metric-alerts-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric-logs",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-logs",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric-near-real-time",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-near-real-time",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/alert-metric-overview.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-metric-overview",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-overview",
       "redirect_document_id": true
     },
     {
@@ -61823,6 +61823,9 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch/batch-certificates.md",
       "redirect_url": "/azure/batch/credential-access-key-vault",
       "redirect_document_id": false
