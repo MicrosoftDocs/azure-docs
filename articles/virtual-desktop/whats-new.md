@@ -32,7 +32,7 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 ## FSLogix updates
 
-Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new.md).
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
 ## January 2021
 
