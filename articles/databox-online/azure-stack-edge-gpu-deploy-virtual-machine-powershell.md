@@ -38,7 +38,7 @@ This subscription contains all the resources that are created required for VM cr
 
 This subscription is used to deploy the VMs.
 
-1.  To list this subscription, type:
+1.  To list this subscription, enter:
 
     ```powershell
     Get-AzureRmSubscription
@@ -172,9 +172,9 @@ key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
 
-## Add blob URI to the host file
+## Add the blob URI to the host file
 
-You already added the blob URI in the hosts file for the client that you're using to connect to Blob Storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
+You already added the blob URI in the hosts file for the client that you're using to connect to Azure Blob Storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
@@ -342,7 +342,7 @@ $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId
 $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
-The sample output of these commands is shown below:
+Here's the sample output of these commands:
 
 ```powershell
 PS C:\Users\Administrator> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
@@ -443,13 +443,13 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
 
-### Connect to Linux VM
+### Connect to a Linux VM
 
 Follow these steps to connect to a Linux VM.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-### Connect to Windows VM
+### Connect to a Windows VM
 
 Follow these steps to connect to a Windows VM.
 
@@ -462,7 +462,7 @@ Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-When prompted, provide the password that you used when creating the VM.
+When you're prompted, provide the password that you used when creating the VM.
 
 If you need to provide the SSH key, use this command:
 
