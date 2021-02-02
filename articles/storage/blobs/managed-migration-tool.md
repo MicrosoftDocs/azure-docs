@@ -14,9 +14,7 @@ ms.subservice: data-lake-storage-gen2
 
 You can migrate to Gen2 more easily by using *Microsoft managed migration*; a data migration tool and API compatibility layer. 
 
-Managed migration reduces the number of steps required by you to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. 
-
-You won't have to point workloads to your Gen2 enabled account because requests are redirected to Gen2. Applications can continue using Gen1 APIs because a server-side compatibility layer translates requests from Gen1 to Gen2.
+Managed migration reduces the number of steps required to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. For one, you won't have to point your workloads to Gen2 because requests are redirected automatically. Also, your applications can continue using Gen1 APIs because they are compatible with Gen2. 
 
 > [!NOTE]
 > Microsoft managed migration is in public preview, and is available in the (need list of regions) regions. To enroll in the preview, see [this form](https://www.microsoft.com).  
