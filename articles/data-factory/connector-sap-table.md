@@ -97,7 +97,7 @@ The following properties are supported for the SAP BW Open Hub linked service:
 | `sncQop` | The SNC Quality of Protection level to apply.<br/>Applies when `sncMode` is On. <br/>Allowed values are `1` (Authentication), `2` (Integrity), `3` (Privacy), `8` (Default), `9` (Maximum). | No |
 | `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. A self-hosted integration runtime is required, as mentioned earlier in [Prerequisites](#prerequisites). |Yes |
 
-**Example 1: Connect to an SAP application server**
+### Example 1: Connect to an SAP application server
 
 ```json
 {
