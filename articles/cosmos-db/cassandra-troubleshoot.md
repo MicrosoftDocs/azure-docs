@@ -48,9 +48,9 @@ Connection drops or times out unexpectedly.
 ### Solution 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
 
-## Error with load balancing policy
+## Error with load-balancing policy
 
-If you have implemented a load balancing policy in v3.x of the Java Datastax driver, with code similar to the below:
+If you have implemented a load-balancing policy in v3.x of the Java Datastax driver, with code similar to the below:
 
 ```java
 cluster = Cluster.builder()
@@ -79,7 +79,7 @@ LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder(
 When running `select count(*) from table` or similar for a large number of rows, the server times out.
 
 ### Solution 
-If using a local CQLSH client you can try to change the `--connect-timeout` or `--request-timeout` settings (see more details [here](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)). If this is not sufficient and count still times out, you can get a count of records from the Azure Cosmos DB backend telemetry by going to metrics tab in Azure portal, selecting the metric `document count`, then adding a filter for the database or collection (the analogue of table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
+If using a local CQLSH client you can try to change the `--connect-timeout` or `--request-timeout` settings (see more details [here](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)). If this is not sufficient and count still times out, you can get a count of records from the Azure Cosmos DB backend telemetry by going to metrics tab in Azure portal, selecting the metric `document count`, then adding a filter for the database or collection (the analog of table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
 
 :::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics view":::
 
