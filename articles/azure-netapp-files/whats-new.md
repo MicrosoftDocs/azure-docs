@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## January 2021
+## February 2021
 
 * [LDAP over TLS](configure-ldap-over-tls.md) (Preview)    
 
