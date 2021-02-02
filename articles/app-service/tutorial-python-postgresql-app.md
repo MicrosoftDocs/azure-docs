@@ -231,7 +231,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     source /antenv/bin/activate
 
     # Install requirements
-    pip instal -r requirements.txt
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
