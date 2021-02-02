@@ -111,6 +111,8 @@
     - name: Managed identities and media services
       displayName: content protection
       href: concept-managed-identities.md
+    - name: Trusted storage
+      href: concept-trusted-storage.md
     - name: Customer managed keys
       href: concept-use-customer-managed-keys-byok.md
   - name: Assets
@@ -459,7 +461,8 @@
     displayName: forums, twitter, feedback
     href: media-services-community.md
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+    displayName: azure updates
+    href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Videos
