@@ -1,17 +1,17 @@
 ---
-title: Use Jupyter Notebook with Microsoft offerings
-description: Quickly export a Jupyter Notebook project.
+title: Use a Jupyter Notebook with Microsoft offerings
+description: Learn about how Jupyter Notebooks can be used with Microsoft offerings.
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 02/01/2021
 ---
 
-# Use Jupyter Notebook with Microsoft offerings
+# Use a Jupyter Notebook with Microsoft offerings
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you will import Jupyter notebooks projects for use in other Jupyter Notebook solutions. 
+In this quickstart, you will learn how to import a Jupyter Notebook for use in assorted Microsoft offerings. 
 
-If you have existing Jupyter notebooks or want to start a new project, you can use them with many of Microsoft's offerings. Some options described in the sections below include: 
+If you have existing Jupyter Notebooks or want to start a new project, you can use them with many of Microsoft's offerings. Some options described in the sections below include: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
 - [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
