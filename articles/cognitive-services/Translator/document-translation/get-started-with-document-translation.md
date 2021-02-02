@@ -47,7 +47,7 @@ You can create SAS tokens for your entire containers or specific blobs:
 
 |Source container|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Both containers|Target container|
 |---|---|--|
-|&#120783;. Choose your **source** container by selecting the adjacent box.||&#120783;. Choose your **target** container by selecting the adjacent box.|
+|&#120783;. Choose your **source** container by selecting the adjacent check box.||&#120783;. Choose your **target** container by selecting the adjacent check box.|
 ||&#120784;. From the left rail menu under **Settings**, select **shared access signature**.||
 ||&#120785;.  In the main window, make the following selections:||
 ||&#120786;. **Allowed services** → select **Blob** and **File** (clear the Queue and Table|| check boxes).
