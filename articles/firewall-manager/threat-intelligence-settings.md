@@ -18,22 +18,34 @@ If you've configured threat intelligence-based filtering, the associated rules a
 :::image type="content" source="media/threat-intelligence-settings/threat-intelligence-policy.png" alt-text="Threat intelligence policy":::
 
 ## Threat intelligence Mode
+Threat intelligence can be configured in the following modes. By default, threat intelligence-based filtering is enabled in alert mode.
 
-You can choose to log only an alert when a rule is triggered, or you can choose alert and deny mode.
+Mode |Description  |
+|---------|---------|
+|`Off`     | The Threat Intelligence feature will not be enabled for your firewall |
+|`Alert only`     | You will receive high confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains |
+|`Alert and deny`     | Traffic will be blocked and you will receive high confidence alerts when traffic attempting to go through your firewall to or from known malicious IP addresses and domains is detected. |
 
-By default, threat intelligence-based filtering is enabled in alert mode.
+> [!NOTE]
+> Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or stricter mode than the parent policy.
+
 
 ## Allowed list addresses
 
-You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.
+Threat intelligence may trigger false positives and block traffic that actually is valid. You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.  
 
+   ![Allow list addresses](media/threat-intelligence-settings/allow-list.png)
 
+The allow list can be updated with multiple entries at the same time by uploading a CSV file. The CSV can only contain IP Addresses and ranges, no headings are allowed.
+
+> [!NOTE]
+> Threat intelligence allow list addresses are inherited from parent policies to child policies. Any IP address or range added to a parent policy will apply for all child policies as well.
 
 ## Logs
 
-The following log excerpt shows a triggered rule:
+The following log excerpt shows a triggered rule for outbound traffic to a malicious site:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",
