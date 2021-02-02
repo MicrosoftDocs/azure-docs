@@ -34,7 +34,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Kubernetes workload protection recommendations will soon be released for General Availability (GA)
 
-**Estimated date for change:** January 2021
+**Estimated date for change:** February 2021
 
 The Kubernetes workload protection recommendations described in [Protect your Kubernetes workloads](kubernetes-workload-protections.md) are currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy, and isn't included in the calculations of your secure score.
 
@@ -79,7 +79,7 @@ Learn more about these recommendations in the [security recommendations referenc
 
 **Estimated date for change:** Q2 2021
 
-The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be deprecated and replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
+The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
 
 - The recommendation will no longer affect your secure score
 - The security control ("Apply data classification") will no longer affect your secure score

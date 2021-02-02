@@ -17,6 +17,7 @@ This article discusses how to set up a staging deployment by using the blue-gree
 
 ## Prerequisites
 
+* Azure Spring Cloud instance with *Standard* **Pricing tier**.
 * A running application.  See [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md).
 * Azure CLI [asc extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
@@ -73,7 +74,7 @@ View deployed apps using the following procedures.
 1. In the Azure CLI, create a new deployment, and give it the staging deployment name "green."
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
     ```
 
 1. After the CLI deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **Deployments** tab on the left.
@@ -108,11 +109,11 @@ To verify that the green staging development is working:
 
    [ ![Deployments set staging deployment](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Return to the **Deployment management** page.  Your `green` deployment deployment status should show *Up*. This is now the running production build.
+1. Return to the **Deployment management** page. Set the `green` deployment to `production`. When the setting finishes, your `green` deployment status should show *Up*. This is now the running production build.
 
    [ ![Deployments set staging deployment result](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
-1. Copy and paste the URL into a new browser window, and the new application page should be displayed with your changes.
+1. The URL of the app should display your changes.
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.

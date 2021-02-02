@@ -31,7 +31,7 @@ You have two ways to connect data factory to Azure Purview:
 3. Once connected, you should be able to see the name of the Purview account in the tab **Purview account**. 
 4. You can use the Search bar at the top center of Azure Data Factory portal to search for data. 
 
-If you see warning in Azure Data Factor portal after you register Azure Purview account to Data Factory, follow below steps to fix the issue:
+If you see warning in Azure Data Factory portal after you register Azure Purview account to Data Factory, follow below steps to fix the issue:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 
