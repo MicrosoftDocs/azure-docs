@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -64,15 +64,9 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. These actions apply only to users who are non-administrators or who are assigned one or more of the following roles:
+Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. Whether an Authentication Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that an Authentication Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
 
-* Authentication Administrator
-* Directory Readers
-* Guest Inviter
-* Message Center Reader
-* Reports Reader
-
-The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission can force re-registration and multi-factor authentication for all users.
+The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission can force re-registration and multi-factor authentication for all users.
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -248,14 +242,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 
 ### [Helpdesk Administrator](#helpdesk-administrator-permissions)
 
-Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Helpdesk administrators can reset passwords and invalidate refresh tokens of other users who are non-administrators or assigned the following roles only:
-
-* Directory Readers
-* Guest Inviter
-* Helpdesk Administrator
-* Message Center Reader
-* Password Administrator
-* Reports Reader
+Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -266,7 +253,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
-Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (now in public preview)](administrative-units.md).
+Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
 
 This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). The "Helpdesk Administrator" name in Azure AD now matches its name in Azure AD PowerShell and the Microsoft Graph API.
 
@@ -339,11 +326,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 
 ### [Password Administrator](#password-administrator-permissions)
 
-Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Password administrators can reset passwords of other users who are non-administrators or members of the following roles only:
-
-* Directory Readers
-* Guest Inviter
-* Password Administrator
+Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Password Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
 
 ### [Power BI Administrator](#power-bi-service-administrator-permissions)
 
@@ -366,13 +349,7 @@ Users with this role can register printers and manage printer status in the Micr
 
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for all users, including Global Administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. The [Authentication administrator](#authentication-administrator) role can force re-registration and MFA for only non-admins and users assigned to the following Azure AD roles:
-
-* Authentication Administrator
-* Directory Readers
-* Guest Inviter
-* Message Center Reader
-* Reports Reader
+Users with this role can set or reset non-password credentials for all users, including Global Administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users.
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
@@ -495,11 +472,12 @@ Users with this role can access tenant level aggregated data and associated insi
 
 Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
-| **Permission** | **Can do** |
+| User Administrator permission | Notes |
 | --- | --- |
-|General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets<p>Update password expiration policies|
-| <p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
-| Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Groups Administrator<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Password Administrator<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>|
+| Create users and groups<br/>Create and manage user views<br/>Manage Office support tickets<br/>Update password expiration policies |  |
+| Manage licenses<br/>Manage all user properties except User Principal Name | Applies to all users, including all admins |
+| Delete and restore<br/>Disable and enable<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Helpdesk Administrator</li><li>User with no role</li><li>User Administrator</li></ul> |
+| Invalidate refresh Tokens<br/>Reset password | For a list of the roles that a User Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -510,7 +488,7 @@ Users with this role can create users, and manage all aspects of users with some
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
-## Role Permissions
+## Role permissions
 
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outside of Azure Active Directory.
 
@@ -567,6 +545,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Application Developer permissions
 
@@ -642,6 +621,7 @@ Can manage all aspects of the Azure Information Protection service.
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### B2C IEF Keyset Administrator permissions
 
@@ -720,6 +700,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Cloud Device Administrator permissions
 
@@ -2059,6 +2040,31 @@ Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2
 Restricted Guest User | Not shown because it can't be used | NA
 User | Not shown because it can't be used | NA
 Workplace Device Join | Deprecated | [Deprecated roles documentation](permissions-reference.md#deprecated-roles)
+
+## Password reset permissions
+
+Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
+
+Password can be reset | Authentication Admin | Helpdesk Admin | Password Admin | User Admin | Privileged Authentication Admin | Global Admin
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Authentication Admin | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Global Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Groups Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Helpdesk Admin | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Message Center Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Privileged Authentication Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Reports Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Restricted Guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User (no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usage Summary Reports Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
 
 ## Next steps
 
