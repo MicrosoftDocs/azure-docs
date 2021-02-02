@@ -144,7 +144,7 @@ To use Azure Policy to enable monitoring for virtual machine scale sets, assign 
 
 ![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for virtual machine scale sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in [Configure Log Analytics workspace for Azure Monitor for VMs](platform/vminsights-configure-workspace.md).
+Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md).
 
 ![Select workspace](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
