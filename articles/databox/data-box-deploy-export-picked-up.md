@@ -226,5 +226,3 @@ Advance to the next article to learn how to manage your Data Box.
 
 > [!div class="nextstepaction"]
 > [Manage Data Box via Azure portal](./data-box-portal-admin.md)
-
-
