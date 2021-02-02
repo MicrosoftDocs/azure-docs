@@ -25,14 +25,6 @@ Type `spx` to see help for the Speech CLI.
 > As an alternative to NuGet, you can download and extract the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), 
 > find and extract your platform from the `spx-zips` directory, and add the `spx` path to your system **PATH** variable.
 
-### Run the Speech CLI
-
-1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI.  
-2. Type `spx` to see help commands for the Speech CLI.
-
-> [!NOTE]
-> Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
-> If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
 
 ### Font limitations
 

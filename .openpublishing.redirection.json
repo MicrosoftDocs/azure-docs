@@ -47,7 +47,7 @@
     },
     {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
-      "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
       "redirect_document_id": false
     },
     {
@@ -591,7 +591,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "source_path_from_root": "/articles/active-directory-b2c/application-insights-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
       "redirect_document_id": true
     },
@@ -19306,6 +19306,21 @@
       "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+        "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
       "redirect_url": "/azure/governance/management-groups/create",
       "redirect_document_id": false
@@ -33631,6 +33646,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/ibm-db2-purescale-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
+      "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-configure-firewall-settings.md",
       "redirect_url": "/azure/sql-database/sql-database-firewall-configure",
       "redirect_document_id": false
@@ -34774,6 +34799,11 @@
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
+      "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
@@ -42002,7 +42032,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest",
+      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
       "redirect_document_id": false
     },
     {
@@ -42157,17 +42187,17 @@
     },
     {
       "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
-      "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_url": "/dotnet/api/overview/azure/hdinsight",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md",
-      "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_url": "/dotnet/api/overview/azure/hdinsight",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md",
-      "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_url": "/dotnet/api/overview/azure/hdinsight",
       "redirect_document_id": false
     },
     {
@@ -45062,17 +45092,17 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-explore-prepare-data.md",
-      "redirect_url": "/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py",
+      "redirect_url": "/python/api/azureml-core/azureml.core.dataset.dataset",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-manage-dataset-definitions.md",
-      "redirect_url": "/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+      "redirect_url": "/python/api/azureml-core/azureml.core.dataset",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-create-dataset-snapshots.md",
-      "redirect_url": "/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py",
+      "redirect_url": "/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot",
       "redirect_document_id": false
     },
     {
@@ -46357,17 +46387,17 @@
     },
     {
       "source_path_from_root": "/articles/data-share/azure-cli-references-for-data-share.md",
-      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
+      "redirect_url": "/cli/azure/azure-cli-reference-for-data-share",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/general/service-to-service-authentication.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/service-to-service-authentication.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
       "redirect_document_id": false
     },
     {
@@ -61793,11 +61823,18 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+      "source_path": "articles/batch/batch-certificates.md",
+      "redirect_url": "/azure/batch/credential-access-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/view-master-logs.md",
-      "redirect_url": "https://docs.microsoft.com/azure/aks/view-control-plane-logs",
+      "redirect_url": "/azure/aks/view-control-plane-logs",
       "redirect_document_id": false
     },
     {
