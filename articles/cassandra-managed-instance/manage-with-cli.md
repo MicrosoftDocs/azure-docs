@@ -211,7 +211,7 @@ az cassandra-mi scale-datacenter \
     --dataCenterName $dataCenterName \
     --dataCenterLocation $dataCenterLocation \
     --delegatedSubnetId $delegatedSubnetId \
-    --nodeCount 9 
+    --nodeCount 13 
 ```
 
 ## Next steps
