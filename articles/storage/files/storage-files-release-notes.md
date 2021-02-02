@@ -47,9 +47,28 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ## Agent version 11.2.0.0
 The following release notes are for version 11.2.0.0 of the Azure File Sync agent released February 2, 2021. These notes are in addition to the release notes listed for version 11.1.0.0.
 
-Issue fixed in this release:  
-- Add list of issues fixed.
+### Improvements and issues that are fixed 
+- If a sync session is cancelled due to a high number of per-item errors, sync may go through reconciliation when a new session starts if the Azure File Sync service determines a custom sync session is needed to correct the per-item errors.
+- Registering a server using the Register-AzStorageSyncServer cmdlet may fail with "Unhandled Exception" error.
+- New server PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allow list, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.
 
+	- To add a server endpoint path that’s allowed, run the following PowerShell commands on the server:
+
+	```powershell
+	Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+	Add-StorageSyncAllowedServerEndpointPath -Path <path>
+	```  
+
+	- To get the list of supported paths, run the following PowerShell command:
+	
+	```powershell
+	Get-StorageSyncAllowedServerEndpointPath
+	```  	
+	- To remove a path, run the following PowerShell command:
+	
+	```powershell
+	Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+	```  
 ## Agent version 11.1.0.0
 The following release notes are for version 11.1.0.0 of the Azure File Sync agent (released November 4, 2020).
 
