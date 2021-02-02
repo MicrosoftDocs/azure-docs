@@ -48,7 +48,7 @@ Connection drops or times out unexpectedly.
 ### Solution 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
 
-## Error with Load Balancing Policy
+## Error with load balancing policy
 
 If you have implemented a load balancing policy in v3.x of the Java Datastax driver, with code similar to the below:
 
@@ -149,4 +149,3 @@ datastax-java-driver {
 
 - Learn about the [supported features](cassandra-support.md) in Azure Cosmos DB Cassandra API.
 - Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](cassandra-migrate-cosmos-db-databricks.md)
-
