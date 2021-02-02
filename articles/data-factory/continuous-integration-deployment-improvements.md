@@ -69,28 +69,36 @@ In current CI/CD flow, the UX is the intermediary to create the ARM template, th
 ## Package overview
 
 There are two commands currently available in the package:
- 
-* **Export ARM template**: Run npm run start export <rootFolder> <factoryId> [outputFolder] to export the ARM template using the resources of a given folder. This command runs a validation check as well prior to generating the ARM template. Below is an example:
+- Export ARM template
+- Validate
 
-    ```
-    npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
-    ```
+### Export ARM template
 
-    - RootFolder is a mandatory field that represents where the Data Factory resources are located.
-    - FactoryId is a mandatory field that represents the Data factory resource ID in the format: "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>".
-    - OutputFolder is an optional parameter that specifies the relative path to save the generated ARM template.
+Run npm run start export <rootFolder> <factoryId> [outputFolder] to export the ARM template using the resources of a given folder. This command runs a validation check as well prior to generating the ARM template. Below is an example:
+
+```
+npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
+```
+
+- RootFolder is a mandatory field that represents where the Data Factory resources are located.
+- FactoryId is a mandatory field that represents the Data factory resource ID in the format: "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>".
+- OutputFolder is an optional parameter that specifies the relative path to save the generated ARM template.
  
-    > [!NOTE]
-    > The ARM template generated is not published to the `Live` version of the factory. Deployment should be done using a CI/CD pipeline. 
+> [!NOTE]
+> The ARM template generated is not published to the `Live` version of the factory. Deployment should be done using a CI/CD pipeline. 
  
-* **Validate**: Run npm run start validate <rootFolder> <factoryId> to validate all the resources of a given folder. Below is an example:
+
+### Validate
+
+Run npm run start validate <rootFolder> <factoryId> to validate all the resources of a given folder. Below is an example:
     
-    ```
-    npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
-    ```
+```
+npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
+```
 
-    - RootFolder is a mandatory field that represents where the Data Factory resources are located.
-    - FactoryId is a mandatory field that represents the Data factory resource ID in the format: "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>".
+- RootFolder is a mandatory field that represents where the Data Factory resources are located.
+- FactoryId is a mandatory field that represents the Data factory resource ID in the format: "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>".
+
 
 ## Create an Azure pipeline
 
