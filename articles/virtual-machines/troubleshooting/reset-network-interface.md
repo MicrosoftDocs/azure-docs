@@ -26,7 +26,7 @@ This article shows how to reset the network interface for Azure Windows VM to re
 
 ## Reset network interface
 
-### For VMs deployed in Resource group model
+### For VMs that were deployed in Resource group model
 
 1.	Go to the [Azure portal](https://ms.portal.azure.com).
 2.	Select the affected Virtual Machine.
