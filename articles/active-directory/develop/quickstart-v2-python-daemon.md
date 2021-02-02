@@ -89,7 +89,7 @@ To run this sample, you need:
 > #### Step 3: Configure your Python project
 >
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Navigate to the sub folder **1-Call-MsGraph-WithSecret"**.
+> 1. Navigate to the sub folder **1-Call-MsGraph-WithSecret**.
 > 1. Edit **parameters.json** and replace the values of the fields `authority`, `client_id`, and `secret` with the following snippet:
 >
 >    ```json
