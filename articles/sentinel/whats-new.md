@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ---
 
 # What's new in Azure Sentinel
@@ -96,28 +96,8 @@ For more information, see [Define the rule query logic and configure settings](t
 
 ## December 2020
 
-- [SolarWinds post-compromise hunting workbook](#solarwinds-post-compromise-hunting-workbook)
 - [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
 - [Log Analytics agent improvements](#log-analytics-agent-improvements)
-
-### SolarWinds post-compromise hunting workbook
-
-Azure Sentinel now provides a workbook specifically for customers who suspect they may have been compromised by the SolarWinds attack, also known as Solorigate.
-
-In the Azure Sentinel **Threat management** area, navigate to the **SolarWinds Post Compromise Hunting** workbook to query logs and display data that may indicate suspicious activity.
-
-Data displayed by the SolarWinds Post Compromise Hunting workbook includeS:
-
-- **Suspicious sign-in events**, such as where an attacker has used SAML tokens that were minted by stolen AD FS key material in order to access your environment.
-
-- **Applications or accounts with new permissions**, key credentials, and access patterns that may indicate compromise.
-
-- **Suspicious lateral movements inside your environment**, which is a common element of many attacks, including Solorigate.
-
-For more information, see [Hunt for threats with Azure Sentinel](hunting.md) and the [SolarWinds Post-Compromise Hunting with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095) blog.
-
-> [!NOTE]
-> The SolarWinds Post Compromise Hunting workbook is part of the swift action taken by Microsoft in response to the SolarWinds attack. For more information, see the [Microsoft Security Reponse Center](https://msrc-blog.microsoft.com/2020/12/21/december-21st-2020-solorigate-resource-center/).
 
 ### 80 new built-in hunting queries
  
