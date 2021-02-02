@@ -127,7 +127,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### PA-1: Protect and limit highly privileged users
 
 **Guidance**: Azure Firewall Manager uses Azure Active Directory (Azure AD) for identity and access. The most critical built-in roles are Azure AD are Global Administrator and the Privileged Role Administrator as users assigned to these two roles can delegate administrator roles:
-- Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
+- Global Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
 You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.

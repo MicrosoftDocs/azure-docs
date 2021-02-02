@@ -1114,7 +1114,7 @@ Exceptions thrown when the Storage Client Library runs an EGT typically include 
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
 #### Managing concurrency
-By default, Table storage implements optimistic concurrency checks at the level of individual entities for insert, merge, and delete operations, although it's possible for a client to force Table storage to bypass these checks. For more information, see [Managing concurrency in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+By default, Table storage implements optimistic concurrency checks at the level of individual entities for insert, merge, and delete operations, although it's possible for a client to force Table storage to bypass these checks. For more information, see [Managing concurrency in Microsoft Azure Storage](../storage/blobs/concurrency-manage.md).  
 
 #### Merge or replace
 The `Replace` method of the `TableOperation` class always replaces the complete entity in Table storage. If you don't include a property in the request when that property exists in the stored entity, the request removes that property from the stored entity. Unless you want to remove a property explicitly from a stored entity, you must include every property in the request.  

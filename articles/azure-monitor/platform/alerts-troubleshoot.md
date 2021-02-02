@@ -239,7 +239,7 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
 ## Next steps

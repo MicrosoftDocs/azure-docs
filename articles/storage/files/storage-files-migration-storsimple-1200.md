@@ -229,5 +229,5 @@ Migration content:
 Azure File Sync content:
 
 * [AFS overview](./storage-sync-files-planning.md)
-* [AFS deployment guide](storage-files-deployment-guide.md)
+* [AFS deployment guide](./storage-how-to-create-file-share.md)
 * [AFS troubleshooting](storage-sync-files-troubleshoot.md)
