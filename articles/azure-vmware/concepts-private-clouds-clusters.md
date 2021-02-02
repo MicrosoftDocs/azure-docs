@@ -61,7 +61,10 @@ Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.
 
 ## Next steps
 
-The next step is to learn [networking and interconnectivity concepts](concepts-networking.md).
+Now that you've covered these Azure VMware Solution private cloud concepts, you may want to learn about: 
+
+- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md).
+- [Azure VMware Solution storage concepts](concepts-storage.md).
 
 <!-- LINKS - internal -->
 

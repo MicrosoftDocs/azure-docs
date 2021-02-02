@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # Azure TLS certificate changes  
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements and will be revoked on February 15, 2021.
 
 ## When will this change happen?
 
