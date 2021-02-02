@@ -5,7 +5,7 @@ description: Learn best practices and recommendations for managing applications 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 editor: ''
 ms.assetid: 
 ms.service: active-directory
