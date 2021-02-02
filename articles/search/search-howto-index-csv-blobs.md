@@ -92,8 +92,4 @@ api-key: [admin key]
 }
 ```
 
-## Next steps
 
-+ []()
-+ []()
-+ []()
