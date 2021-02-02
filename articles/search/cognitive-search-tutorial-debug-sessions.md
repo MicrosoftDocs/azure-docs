@@ -85,7 +85,7 @@ You will need the [Postman collection](https://github.com/Azure-Samples/azure-se
 1. Enter the `storageConnectionString` from the keys page of your Azure Storage account.
 1. Enter the `containerName` for the container you created in the storage account, and then click **Update**.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="edit variables in Postman":::
+   :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="edit variables in Postman":::
 
 The collection contains four different REST calls that are used to create objects used in this tutorial.
 
@@ -112,11 +112,11 @@ Another way to investigate errors and warnings is through the Azure portal.
 1. Notice that while the indexer job succeeded overall, there were 57 warnings.
 1. Click **Success** to view the warnings (if there were mostly errors, the detail link would be **Failed**). You'll see a long list of every warning emitted by the indexer.
 
-> :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="view warnings":::
+   :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="view warnings":::
 
 ## Start your debug session
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
+:::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
 
 1. From the search overview page, click the **Debug sessions** tab.
 1. Select **+ New Debug Session**.
@@ -139,7 +139,7 @@ Any issues reported by the indexer can be found in the adjacent **Errors/Warning
 
 Notice that the **Errors/Warnings** tab will provide a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can click on a warning message and see the details of this warning.
 
-1. Select **Errors/Warnings** to review the notifications. You should see three:
+Select **Errors/Warnings** to review the notifications. You should see three:
 
    + "Could not map output field 'locations' to search index. Check the 'outputFieldMappings' property of your indexer.
 Missing value '/document/merged_content/locations'."
@@ -154,7 +154,7 @@ Optional skill input is missing. Name: 'languageCode', Source: '/document/langua
 
 Because all three notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to outputFieldMapping issues.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="New debug session started":::
+ :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="New debug session started":::
 
 <!-- + The Skill Graph provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are side by side in the graph are executed in parallel. Color coding of skills in the graph indicate the types of skills that are being executed in the skillset. In the example, the green skills are text and the red skill is vision. Clicking on an individual skill in the graph will display the details of that instance of the skill in the right pane of the session window. The skill settings, a JSON editor, execution details, and errors/warnings are all available for review and editing.
 
@@ -171,7 +171,7 @@ In the **Errors/Warnings** tab, there is an error for an operation labeled `Enri
 1. Select the **</>** symbol at the beginning of the line and open the Expression Evaluator.
 1. Click the **Evaluate** button to confirm that this expression is resulting in an error. It will confirm that the "languageCode" property is not a valid input.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Expression Evaluator":::
+   :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Expression Evaluator":::
 
 There are two ways to research this error in the session. The first is to look at where the input is coming from - what skill in the hierarchy is supposed to produce this result? The Executions tab in the skill details pane should display the source of the input. If there is no source, this indicates a field mapping error.
 
@@ -179,7 +179,7 @@ There are two ways to research this error in the session. The first is to look a
 1. Look at the INPUTS and find "languageCode". There is no source for this input listed. 
 1. Switch the left pane to display the Enriched Data Structure. There is no mapped path corresponding to "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Enriched Data Structure":::
+   :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Enriched Data Structure":::
 
 There is a mapped path for "language." So, there is a typo in the skill settings. To fix this expression in the #1 skill with the expression '/document/language' will need to be updated.
 
@@ -195,11 +195,11 @@ Once the debug session execution completes, click the Errors/Warnings tab and it
 
 ## Fix missing skill output values
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
+:::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
 
 There are missing output values from a skill. To identify the skill with the error go to the Enriched Data Structure, find the value name and look at its Originating Source. In the case of the missing organizations and locations values, they are outputs from skill #1. Opening the Expression Evaluator </> for each path, will display the expressions listed as '/document/content/organizations' and '/document/content/locations', respectively.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Expression evaluator organizations entity":::
+:::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Expression evaluator organizations entity":::
 
 The output for these entities is empty and it should not be empty. What are the inputs producing this result?
 
@@ -207,14 +207,14 @@ The output for these entities is empty and it should not be empty. What are the 
 1. Select **Executions** tab in the right skill details pane.
 1. Open the Expression Evaluator **</>** for the INPUT "text."
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input for text skill":::
+   :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input for text skill":::
 
 The displayed result for this input doesn’t look like a text input. It looks like an image that is surrounded by new lines. The lack of text means that no entities can be identified. Looking at the hierarchy of the skillset displays the content is first processed by the #6 (OCR) skill and then passed to the #5 (Merge) skill. 
 
 1. Select the #5 (Merge) skill in the **Skill Graph**.
 1. Select the **Executions** tab in the right skill details pane and open the Expression Evaluator **</>** for the OUTPUTS "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output for Merge skill":::
+   :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output for Merge skill":::
 
 Here the text is paired with the image. Looking at the expression '/document/merged_content' the error in the "organizations" and "locations" paths for the #1 skill is visible. Instead of using '/document/content' it should use '/document/merged_content' for the "text" inputs.
 
@@ -234,7 +234,7 @@ After the indexer has finished running, the errors are still there. Go back to s
 1. Navigate the **Skill Settings** to find "outputs."
 1. Open the Expression Evaluator **</>** for the "organizations" entity.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output for organizations entity":::
+   :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output for organizations entity":::
 
 Evaluating the result of the expression gives the correct result. The skill is working to identify the correct value for the entity, "organizations." However, the output mapping in the entity's path is still throwing an error. In comparing the output path in the skill to the output path in the error, the skill that is parenting the outputs, organizations and locations under the /document/content node. While the output field mapping is expecting the results to be parented under the /document/merged_content node. In the previous step, the input changed from '/document/content' to '/document/merged_content'. The context in the skill settings needs to be changed in order to ensure the output is generated with the right context.
 
@@ -245,7 +245,7 @@ Evaluating the result of the expression gives the correct result. The skill is w
 1. Click **Save** in the right, skill details pane.
 1. Click **Run** in the sessions window menu. This will kick off another execution of the skillset using the document.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Context correction in skill setting":::
+   :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Context correction in skill setting":::
 
 All of the errors have been resolved.
 
