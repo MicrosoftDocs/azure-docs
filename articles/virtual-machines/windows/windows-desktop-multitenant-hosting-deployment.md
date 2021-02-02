@@ -21,7 +21,7 @@ For more information, please see [Multitenant Hosting for Windows 10](https://ww
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
-Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide), you can confirm if a user has been assigned a Windows 10 supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
+Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true), you can confirm if a user has been assigned a Windows 10 supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
 
 -	Microsoft 365 E3/E5 
 -	Microsoft 365 F3 
