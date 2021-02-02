@@ -237,4 +237,4 @@ Take the following steps to enable Container Insights on your workspace.
 ## Next steps
 
 - Learn how to [Monitor Kubernetes workloads via the Kubernetes Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
-- Learn how to [Manage alerts](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 
+- Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

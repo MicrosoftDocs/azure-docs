@@ -75,4 +75,4 @@ A full list of the metrics is shown in the following table:
 ## Next steps
 
 Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
-Learn how to [Manage alerts](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
