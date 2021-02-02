@@ -36,7 +36,7 @@ Registering your application establishes a trust relationship between your app a
 Follow these steps to create the app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, in the top menu, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name. You can change it later.
@@ -49,14 +49,14 @@ Follow these steps to create the app registration:
     | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a *multi-tenant* application that can also support users who have personal *Microsoft accounts*. |
     | **Personal Microsoft accounts** | Select this option if you're building an application only for users who have personal Microsoft accounts. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts. |
 
-1. Don't enter anything for **Redirect URI (optional)**, you'll configure one in the next section.
+1. Don't enter anything for **Redirect URI (optional)**. You'll configure a redirect URI in the next section.
 1. Select **Register** to complete the initial app registration.
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
 
 When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
-Your application's code, or more typically an authentication library used in your application, also uses the client ID as part of validating the security tokens it receives from the identity platform.
+Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
 :::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing an app registration's Overview pane.":::
 
@@ -70,11 +70,11 @@ You add and modify redirect URIs for your registered applications by configuring
 
 ### Configure platform settings
 
-Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms like mobile and desktop, you can select from redirect URIs generated for you when you configure their other settings.
+Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms, like mobile and desktop, you can select from redirect URIs generated for you when you configure their other settings.
 
 To configure application settings based on the platform or device you're targeting:
 
-1. In **App registrations** in the Azure portal, select your application.
+1. In the Azure portal, in **App registrations**, select your application.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
 1. Under **Configure platforms**, select the tile for your application type (platform) to configure its settings.
@@ -100,11 +100,11 @@ Credentials are used by [confidential client applications](msal-client-applicati
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of the Azure portal, showing the Certificates and secrets pane in an App registration.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of the Azure portal, showing the Certificates and secrets pane in an app registration.":::
 
 ### Add a certificate
 
-Sometimes called a *public key*, a certificate is the recommended credential type. It provides more assurance than a client secret. For more details about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md).
+Sometimes called a *public key*, a certificate is the recommended credential type. It provides more assurance than a client secret. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md).
 
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Certificates & secrets** > **Upload certificate**.
@@ -113,7 +113,7 @@ Sometimes called a *public key*, a certificate is the recommended credential typ
 
 ### Add a client secret
 
-The client secret is also known as an *application password*. It's a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use. It's often used during development, but it's considered less secure than a certificate. You should use certificates in your applications running in production. 
+The client secret is also known as an *application password*. It's a string value your app can use in place of a certificate to identity itself. The client secret is the easier of the two credential types to use. It's often used during development, but it's considered less secure than a certificate. Use certificates in your applications that are running in production. 
 
 For more information about application security recommendations, see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security).
 
@@ -129,7 +129,7 @@ For more information about application security recommendations, see [Microsoft 
 
 ## Next steps
 
-Client applications typically need to access resources in a web API. In addition to protecting your client application by using the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
+Client applications typically need to access resources in a web API. You can protect your client application by using the Microsoft identity platform. You can also use the platform for authorizing scoped, permissions-based access to your web API.
 
 Go to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
