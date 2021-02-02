@@ -64,6 +64,7 @@ The schema defined above would be represented using the JSON payload below. Note
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen@testuser.com",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
