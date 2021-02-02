@@ -930,6 +930,7 @@
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
+          "articles/hdinsight/optimize-hbase-ambari.md",
           "articles/mariadb/concepts-certificate-rotation.md",
           "articles/mariadb/concepts-read-replicas.md",
           "articles/mariadb/howto-create-users.md",
