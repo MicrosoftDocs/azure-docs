@@ -14,6 +14,10 @@ ms.author: mbaldwin
 
 Follow the below steps to manage an attestation provider using Azure portal.
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Attestation provider
 
 ### Create an attestation provider
