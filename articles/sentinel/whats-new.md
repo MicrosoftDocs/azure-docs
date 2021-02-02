@@ -65,7 +65,7 @@ For more information, see [Automatically create incidents from Microsoft securit
 Azure Sentinel now supports dedicated Log Analytics clusters as a deployment option. We recommend considering a dedicated cluster if you:
 
 - **Ingest over 1 Tb per day** into your Azure Sentinel workspace
-- **Have multiple Azure Sentinel workspaces** in your Azure enrolment
+- **Have multiple Azure Sentinel workspaces** in your Azure enrollment
 
 Dedicated clusters enable you to use features like customer-managed keys, lockbox, double encryption, and faster cross-workspace queries when you have multiple workspaces on the same cluster.
 
