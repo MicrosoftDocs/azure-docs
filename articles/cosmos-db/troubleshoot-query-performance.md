@@ -211,7 +211,7 @@ Following are some common system functions that don't use the index and must loa
 
 For some system functions that use indexes, you can improve query execution by adding an `ORDER BY` clause to the query. 
 
-More specifically, any system function whose RU charge increases as the cardinality of the property increases may benefit from having `ORDER BY` in the query. These queries use the index by scanning all indexed terms, so having the query results sorted can make the query more efficient.
+More specifically, any system function whose RU charge increases as the cardinality of the property increases may benefit from having `ORDER BY` in the query. These queries do an index scan, so having the query results sorted can make the query more efficient.
 
 This optimization can improve execution for the following system functions:
 

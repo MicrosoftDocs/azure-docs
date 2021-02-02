@@ -181,20 +181,24 @@ If a query has filters on two or more properties, it may be helpful to create a 
 For example, consider the following query which has both an equality and range filter:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-This query will be more efficient, taking less time and consuming fewer RU's, if it is able to leverage a composite index on (name ASC, age ASC).
+This query will be more efficient, taking less time and consuming fewer RU's, if it is able to leverage a composite index on `(name ASC, age ASC)`.
 
 Queries with multiple range filters can also be optimized with a composite index. However, each individual composite index can only optimize a single range filter. Range filters include `>`, `<`, `<=`, `>=`, and `!=`. The range filter should be defined last in the composite index.
 
 Consider the following query with an equality filter and two range filters:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-This query will be more efficient with a composite index on (name ASC, age ASC) and (name ASC, _ts ASC). However, the query would not utilize a composite index on (age ASC, name ASC) because the properties with equality filters must be defined first in the composite index. Two separate composite indexes are required instead of a single composite index on (name ASC, age ASC, _ts ASC) since each composite index can only optimize a single range filter
+This query will be more efficient with a composite index on `(name ASC, age ASC)` and `(name ASC, _ts ASC)`. However, the query would not utilize a composite index on `(age ASC, name ASC)` because the properties with equality filters must be defined first in the composite index. Two separate composite indexes are required instead of a single composite index on `(name ASC, age ASC, _ts ASC)` since each composite index can only optimize a single range filter.
 
 The following considerations are used when creating composite indexes for queries with filters on multiple properties
 
@@ -221,21 +225,27 @@ Consider the following examples where a composite index is defined on properties
 
 If a query filters on one or more properties and has different properties in the ORDER BY clause, it may be helpful to add the properties in the filter to the `ORDER BY` clause.
 
-For example, by adding the properties in the filter to the ORDER BY clause, the following query could be rewritten to leverage a composite index:
+For example, by adding the properties in the filter to the `ORDER BY` clause, the following query could be rewritten to leverage a composite index:
 
 Query using range index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Query using composite index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-The same query optimizations can be generalized for any ORDER BY queries with filters, keeping in mind that individual composite indexes can only support, at most, one range filter.
+The same query optimizations can be generalized for any `ORDER BY` queries with filters, keeping in mind that individual composite indexes can only support, at most, one range filter.
 
 Query using range index:
 
@@ -255,7 +265,7 @@ WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901
 ORDER BY c.name, c.age, c.timestamp
 ```
 
-In addition, you can optimize queries with system functions and ORDER BY:
+In addition, you can use composite indexes to optimize queries with system functions and ORDER BY:
 
 Query using range index:
 
@@ -279,8 +289,8 @@ The following considerations are used when creating composite indexes to optimiz
 
 * If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
 * If the query filters on properties, these should be included first in the `ORDER BY` clause.
-* If the query filters on multiple properties, the equality filters must be the first properties in the `ORDER BY` clause
-* If the query filters on multiple properties, you can have a maximum of one range filter or system function utilized per composite index
+* If the query filters on multiple properties, the equality filters must be the first properties in the `ORDER BY` clause.
+* If the query filters on multiple properties, you can have a maximum of one range filter or system function utilized per composite index. The property used in the range filter or system function should be defined last in the composite index.
 * All considerations for creating composite indexes for `ORDER BY` queries with multiple properties as well as queries with filters on multiple properties still apply.
 
 
