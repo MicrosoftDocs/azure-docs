@@ -80,7 +80,7 @@ In this example, you create a policy that requires users to authenticate more fr
 
 ## Create token lifetime policies for refresh and session tokens
 > [!IMPORTANT]
-> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  Refresh and session token lifetime configuration that was defined before January 30, 2021 is now set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  Refresh and session token lifetime configuration that was defined before January 30, 2021 is now set to the [default configuration](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
 > Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
