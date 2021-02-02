@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 02/02/2021
 
 ms.author: justinha
 author: justinha
@@ -48,7 +48,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> Make sure you include the header row in your CSV file.
+> Make sure you include the header row in your CSV file. If a UPN has a single quote, escape it with another single quote. For example, if the UPN is my’user@domain.com, change it to my’’user@domain.com when uploading the file.
 
 Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
 
