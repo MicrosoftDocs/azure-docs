@@ -10,13 +10,13 @@ Before you can deploy VMs on your Azure Stack Edge device, you must configure yo
 
 Make sure that the following steps can be used to access the device from your client. (You have done this configuration when connecting to Azure Resource Manager. You're now just verifying that the configuration was successful.) 
 
-1. Verify that Azure Resource Manager communication is working. Type:     
+1. Verify that Azure Resource Manager communication is working. Enter:     
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
-1. Call local device APIs to authenticate. Type: 
+1. Call local device APIs to authenticate. Enter: 
 
     `login-AzureRMAccount -EnvironmentName <Environment Name>`
 
