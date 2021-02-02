@@ -24,7 +24,7 @@ To address the challenge of mapping large numbers of data assets to a single log
 
 Azure Purview supports detecting resource sets in Azure Blob Storage, ADLS Gen1, and ADLS Gen2.
 
-Azure Purview automatically detects resource sets when scanning . This feature looks at all of the data that's ingested via scanning and compares it to a set of defined patterns.
+Azure Purview automatically detects resource sets when scanning. This feature looks at all of the data that's ingested via scanning and compares it to a set of defined patterns.
 
 For example, suppose you scan a data source whose URL is `https://myaccount.blob.core.windows.net/mycontainer/machinesets/23/foo.parquet`. Azure Purview looks at the path segments and determines if they match any built-in patterns. It has built-in patterns for GUIDs, numbers, date formats, localization codes (for example, en-us), and so on. In this case, the number pattern matches *23*. Azure Purview assumes that this file is part of a resource set named `https://myaccount.blob.core.windows.net/mycontainer/machinesets/{N}/foo.parquet`.
 
@@ -38,7 +38,7 @@ Using this strategy, Azure Purview would map the following resources to the same
 
 ## File types that Azure Purview will not detect as resource sets
 
-Purview intentionally doesn't try to classify most document file types like Word, Excel or PDF as Resource Sets. The exception are CSV files since that is a common partitioned file format.
+Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
 
 ## How Azure Purview scans resource sets
 
@@ -82,8 +82,8 @@ Display name: "my partitioned data"
 
 ### Example 3
 
-Qualified name: https://myblob.blob.core.windows.net/sample-data/mydata{N}.csv
-Display name: "mydata"
+Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Display name: "data"
 
 ## Known Issues with resource sets
 
