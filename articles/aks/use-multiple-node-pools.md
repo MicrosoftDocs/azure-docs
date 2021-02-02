@@ -126,11 +126,10 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 #### Limitations
 
 * All subnets assigned to nodepools must belong to the same virtual network.
-* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
-* Assignment of a unique subnet per node pool is limited to Azure CNI during preview. 
-* Using network policies with a unique subnet per node pool is not supported during preview.
+* System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
 * If you expand your VNET after creating the cluster you must reconcile your cluster (perform any managed clster operation but agentpool operations don't count) before adding a subnet outside the original cidr. AKS will error out on this now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
 * Calico has not been thoroughly veted. At the very least in azure cni with calico 3.8  it does not create a IPPool per agent pool. 
+* Using network policies with a unique subnet per node pool is not supported during preview.
 * Kube-proxy expects a single contiguous cidr and uses it this for three optmizations. See this [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) and --cluster-cidr [here](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for details. In azure cni your first agentpool's subnet will be given to kube-proxy. 
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
