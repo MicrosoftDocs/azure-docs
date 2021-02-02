@@ -131,7 +131,7 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 
@@ -142,7 +142,7 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 After you've enabled monitoring, you might need to wait several minutes before you can view the performance metrics for the VM.
 
-![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/insights/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## View VM performance metrics
 
