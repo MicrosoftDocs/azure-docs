@@ -26,7 +26,7 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 ## Prerequisites
 
-* An Azure account that has an active subscription. If you don't have an account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
@@ -106,29 +106,32 @@ You can add both certificates and client secrets (a string) as credentials to yo
 
 Sometimes called a *public key*, a certificate is the recommended credential type. It provides more assurance than a client secret. For more details about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md).
 
-1. In **App registrations** in the Azure portal, select your application.
+1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Certificates & secrets** > **Upload certificate**.
-1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
+1. Select the file you want to upload. It must be one of the following file types: *.cer*, *.pem*, *.crt*.
 1. Select **Add**.
 
 ### Add a client secret
 
-The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production. For more information on application security recommendations, please see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security)
+The client secret is also known as an *application password*. It's a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use. It's often used during development, but it's considered less secure than a certificate. You should use certificates in your applications running in production. 
 
-1. Select your application in **App registrations** in the Azure portal.
+For more information about application security recommendations, see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security).
+
+1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Certificates & secrets** >  **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
 1. Select **Add**.
-1. **Record the secret's value** for use in your client application code - it's *never displayed again* after you leave this page.
+1. *Record the secret's value* for use in your client application code. This secret value is *never displayed again* after you leave this page.
 
-**Note:** The ID generated along with the secret's value is the ID of the secret, which is different than Application ID.
+> [!Note]
+> The ID generated along with the secret's value is the ID of the secret. It's different from the application ID.
 
 ## Next steps
 
-Client applications typically need to access resources in a web API. In addition to protecting your client application with the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
+Client applications typically need to access resources in a web API. In addition to protecting your client application by using the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
 
-Move on to the next quickstart in the series to create another app registration for your web API and expose its scopes.
+Go to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
 > [!div class="nextstepaction"]
 > [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
