@@ -2339,7 +2339,7 @@ guid('<format>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
+| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
 |||||
 
 | Return value | Type | Description |
@@ -4177,7 +4177,7 @@ And return these results:
 
 ### ticks
 
-Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')
