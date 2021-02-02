@@ -84,9 +84,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. They can be found inside your TravelPerk account > Company Settings > Integrations > Single Sign On . If you need further help, please visit TravelPerk's helpcenter [here](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-)
+	> These values are not real. Update these values with the actual Sign on URL, Reply URL, and Identifier. The values can be found inside your TravelPerk account: go to **Company Settings** > **Integrations** > **Single Sign On**. For assistance, visit the [TravelPerk helpcenter](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-).
 
-1. Your TravelPerk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **emailaddress** is mapped with **user.mail**. TravelPerk application expects **emailaddress** to be mapped with **user.userprincipalname**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping. To choose what attribute you want to change just click on it and it will open a new edit modal.
+1. Your TravelPerk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. In the default mapping, **emailaddress** is mapped with **user.mail**. However, TravelPerk application expects **emailaddress** to be mapped with **user.userprincipalname**. For TravelPerk, you must edit the attribute mapping: click the **Edit** icon, and then change the attribute mapping. To edit an attribute, just click the attribute and an edit modal opens.
 
 	![image](common/default-attributes.png)
 
