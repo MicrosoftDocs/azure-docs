@@ -115,7 +115,7 @@ Navigate to the Queue storage in the portal, and notice that Event Grid sent tho
 > [!NOTE]
 > If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
 > 
-> It's because, when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**. However Event Grid sends messages to a storage queue in a plain text format.
+> The reason is that when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**, but Event Grid sends messages to a storage queue in a plain text format. Currently, it's not possible to configure the queue trigger for Azure Functions to accept plain text. 
 
 
 ## Clean up resources
