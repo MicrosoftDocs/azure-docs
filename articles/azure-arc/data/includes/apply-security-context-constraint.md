@@ -11,8 +11,9 @@ This section explains how to apply a security context constraint (SCC). For the 
 
 1. Download the custom security context constraint (SCC). Use one of the following: 
    - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - [Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml)
    - `curl`
+   
       The following command downloads arc-data-scc.yaml:
 
       ```console
