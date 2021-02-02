@@ -443,13 +443,13 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
 
-### Connect to a Linux VM
+### Connect to Linux VM
 
 Follow these steps to connect to a Linux VM.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-### Connect to a Windows VM
+### Connect to Windows VM
 
 Follow these steps to connect to a Windows VM.
 
