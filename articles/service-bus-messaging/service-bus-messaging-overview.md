@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 01/28/2021
 ---
 
 # What is Azure Service Bus?
@@ -27,7 +27,7 @@ Some common messaging scenarios are:
     2. Post results of processing to one or more different queues.
     3. Move the input message from the original queue. 
     
-    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
+    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
 
 If you're familiar with other message brokers like Apache ActiveMQ, Service Bus concepts are similar to what you know. As Service Bus is a platform-as-a-service (PaaS) offering, a key difference is that you don't need to worry about the following actions. Azure takes care of those chores for you. 
@@ -148,12 +148,12 @@ features with AMQP 1.0 clients directly.
 
 Service Bus fully integrates with many Microsoft and Azure services, for instance:
 
-* [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Power Platform](https://powerplatform.microsoft.com/)
-* [Dynamics 365](https://dynamics.microsoft.com)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Event Grid](service-bus-to-event-grid-integration-example.md)
+* [Logic Apps](../connectors/connectors-create-api-servicebus.md)
+* [Azure Functions](../azure-functions/functions-bindings-service-bus.md)
+* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 
 ## Next steps
 

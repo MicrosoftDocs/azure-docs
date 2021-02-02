@@ -8,11 +8,11 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/03/2021
 ---
 # Create a basic search index in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
+A search index stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
 Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
