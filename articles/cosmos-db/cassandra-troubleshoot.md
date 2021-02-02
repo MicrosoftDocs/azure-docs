@@ -22,7 +22,7 @@ This is a top-level wrapper exception with a large number of possible causes and
 ### Solution
 Some popular causes and solutions are as follows: 
 - Idle timeout of Azure LoadBalancers: This may also manifest as `ClosedConnectionException`. To resolve this, set keep alive setting in driver (see [below](#enable-keep-alive-for-java-driver)) and increase keep-alive settings in operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). 
-- Client application resource exhaustion: ensure that client machines have sufficient resources to complete the request. 
+- **Client application resource exhaustion:** ensure that client machines have sufficient resources to complete the request. 
 
 ## Cannot connect to host
 You may see this error: `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
