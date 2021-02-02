@@ -51,7 +51,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -61,9 +61,8 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
-
 ```
 
 ## Object model
@@ -78,7 +77,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client. 
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common client library to pass the token to your chat client. 
 
 When adding the import statements, be sure to only add imports from the com.azure.communication.chat and com.azure.communication.chat.models namespaces, and not from the com.azure.communication.chat.implementation namespace. In the App.java file that was generated via Maven, you can use the following code to begin with:
 
@@ -107,8 +106,8 @@ public class App
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
 
-        // Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
-        CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+        // Create a CommunicationTokenCredential with the given access token, which is only valid until the token is valid
+        CommunicationTokenCredential userCredential = new CommunicationTokenCredential(userAccessToken);
 
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
@@ -127,28 +126,28 @@ Use the `createChatThread` method to create a chat thread.
 `createChatThreadOptions` is used to describe the thread request.
 
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `members` to list the thread members to be added to the thread. `ChatThreadMember` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
+- Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
-The response `chatThreadClient` is used to perform operations on the created chat thread: adding members to the chat thread, sending a message, deleting a message, etc.
+The response `chatThreadClient` is used to perform operations on the created chat thread: adding participants to the chat thread, sending a message, deleting a message, etc.
 It contains a `chatThreadId` property which is the unique ID of the chat thread. The property is accessible by the public method .getChatThreadId().
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(firstUser)
-    .setDisplayName("Member Display Name 1");
+    .setDisplayName("Participant Display Name 1");
     
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(secondUser)
-    .setDisplayName("Member Display Name 2");
+    .setDisplayName("Participant Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
-    .setMembers(members);
+    .setParticipants(participants);
 ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
 String chatThreadId = chatThreadClient.getChatThreadId();
 ```
@@ -159,7 +158,7 @@ Use the `sendMessage` method to send a message to the thread you just created, i
 `sendChatMessageOptions` is used to describe the chat message request.
 
 - Use `content` to provide the chat message content.
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have a UI indicator for the recipient user in your app, to bring attention to the message or execute custom business logic.
+- Use `type` to specify the chat message content type, TEXT or HTML.
 - Use `senderDisplayName` to specify the display name of the sender.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
@@ -167,7 +166,7 @@ The response `sendChatMessageResult` contains an `id`, which is the unique ID of
 ```Java
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Message content")
-    .setPriority(ChatMessagePriority.NORMAL)
+    .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name");
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
@@ -177,7 +176,7 @@ String chatMessageId = sendChatMessageResult.getId();
 
 ## Get a chat thread client
 
-The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc.
+The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc.
 `chatThreadId` is the unique ID of the existing chat thread.
 
 ```Java
@@ -203,7 +202,7 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.getType()`. These types are:
 
-- `Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread participant.
 
 - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
@@ -213,44 +212,44 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Add a user as member to the chat thread
+## Add a user as participant to the chat thread
 
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. You'll need to start by getting a new access token and identity for that user. Before calling addMembers method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. You'll need to start by getting a new access token and identity for that user. Before calling addParticipants method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
-Use `addMembers` method to add thread members to the thread identified by threadId.
+Use `addParticipants` method to add participants to the thread identified by threadId.
 
-- Use `members` to list the members to be added to the chat thread.
-- `user`, required, is the CommunicationUser you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
-- `display_name`, optional, is the display name for the thread member.
-- `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to the required date.
+- Use `listParticipants` to list the participants to be added to the chat thread.
+- `user`, required, is the CommunicationUserIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
+- `display_name`, optional, is the display name for the thread participant.
+- `share_history_time`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(user1)
     .setDisplayName("Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(user2)
     .setDisplayName("Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
-AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembersOptions()
-    .setMembers(members);
-chatThreadClient.addMembers(addChatThreadMembersOptions);
+AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
+    .setParticipants(participants);
+chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
 ## Remove user from a chat thread
 
-Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the user identities of the members you have added.
+Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the user identities of the participants you have added.
 
-Use `removeMember`, where `user` is the CommunicationUser you've created.
+Use `removeParticipant`, where `user` is the CommunicationUserIdentifier you've created.
 
 ```Java
-chatThreadClient.removeMember(user);
+chatThreadClient.removeParticipant(user);
 ```
 
 ## Run the code
