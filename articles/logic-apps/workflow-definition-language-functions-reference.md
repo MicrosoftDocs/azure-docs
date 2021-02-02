@@ -601,10 +601,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 This example adds 10 days to the specified timestamp:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-25T00:00:0000000Z"`
+And returns this result: `"2018-03-25T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -614,7 +614,7 @@ This example subtracts five days from the specified timestamp:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-10T00:00:0000000Z"`
+And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -646,7 +646,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"
 
 *Example 2*
 
@@ -656,7 +656,7 @@ This example subtracts five hours from the specified timestamp:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
