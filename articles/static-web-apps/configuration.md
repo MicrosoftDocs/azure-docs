@@ -256,7 +256,7 @@ The following example configuration demonstrates how to override an error code.
     ],
     "navigationFallback": {
       "rewrite": "index.html",
-      "exclude": ["/images/*", "/css/*"]
+      "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
     },
     "responseOverrides": {
         "400" : {
