@@ -296,7 +296,7 @@ Currently SAP Table connector only supports one single table with the default fu
 
 - [Write a custom function module](#create-custom-function-module), which can take a query as OPTIONS and apply your own logic to retrieve the data.
 - For the "Custom function module", enter the name of your custom function module.
-- For the "RFC table options", specify the table join statement to feed into your function module as OPTIONS, such as "<TABLE1> INNER JOIN <TABLE2> ON COLUMN0".
+- For the "RFC table options", specify the table join statement to feed into your function module as OPTIONS, such as "`<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0".
 
 Below is an example:
 
