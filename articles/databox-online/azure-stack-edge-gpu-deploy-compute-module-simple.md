@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/21/2021
+ms.date: 02/01/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -48,7 +48,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 1. To add an Edge share on the device, do the following steps:
 
-    1. In your Azure Stack Edge resource, go to **IoT Edge > Shares**.
+    1. In your Azure Stack Edge resource, go to **Cloud storage gateway > Shares**.
     2. From the command bar, select **+ Add share**.
 
         ![Add share tile](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-share-1.png) 
@@ -59,11 +59,6 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
         ![Add an Edge share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-1.png) 
 
-    If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
-
-    `rsync <source file path> < destination file path>`
-
-    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -74,8 +69,13 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     ![Add an Edge local share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-2.png)
 
-  
-3. Go to **IoT Edge > Shares** to see the updated list of shares.
+    If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
+
+    `rsync <source file path> < destination file path>`
+
+    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
+ 
+3. Go to **Cloud storage gateway > Shares** to see the updated list of shares.
 
     ![Updated list of shares](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-3.png) 
  
@@ -89,7 +89,8 @@ In this section, you add a custom module to the IoT Edge device that you created
 To add a module, do the following steps:
 
 1. Go to **IoT Edge > Modules**. From the command bar, select **+ Add module**. 
-2. In the **Configure and add module** blade, input the following values:
+
+2. In the **Add module** blade, input the following values:
 
     
     |Field  |Value  |
@@ -105,7 +106,7 @@ To add a module, do the following steps:
 
     ![Add and configure module](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-1.png)
 
-3. Select **Add**. The module gets added. The **IoT Edge > Overview** page updates to indicate that the module is deployed.
+3. Select **Add**. The module gets added. The **IoT Edge > Modules** page updates to indicate that the module is deployed.
 
     ![Module deployed](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-2.png)
 
