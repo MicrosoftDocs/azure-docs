@@ -10,6 +10,6 @@
  ms.custom: include file
 ---
 > [!IMPORTANT]
-> When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your Virtual Network gateway(VPN, Express Route gateway) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../articles/virtual-network/security-overview.md)
+> When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your Virtual Network gateway(VPN, Express Route gateway) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../articles/virtual-network/network-security-groups-overview.md)
 > 
-> 
+>

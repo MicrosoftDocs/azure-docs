@@ -17,7 +17,7 @@ HTTP headers allow a client and server to pass additional information with a req
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and back-end pools. And it allows you to add conditions to ensure that the specified headers are rewritten only when certain conditions are met.
 
-Application Gateway also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
+Application Gateway also supports several [server variables](#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
 
 > [!NOTE]
 >
@@ -163,5 +163,5 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 To learn how to rewrite HTTP headers, see:
 
-- [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Rewrite HTTP headers using Azure portal](./rewrite-http-headers-portal.md)
 - [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

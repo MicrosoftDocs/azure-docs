@@ -10,7 +10,7 @@ ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
 This article introduces a PowerShell script which creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
 
@@ -18,14 +18,14 @@ This article introduces a PowerShell script which creates a Standard Load Balanc
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that no [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) will not be provided by the Standard Internal Load Balancer.
+* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that no [outbound connection](./load-balancer-outbound-connections.md) will not be provided by the Standard Internal Load Balancer.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly created Standard Load Balancer.
 * Seamlessly move the private IPs from Basic Load Balancer to the newly created Standard Load Balancer.
 * Seamlessly move the VMs from backend pool of the Basic Load Balancer to the backend pool of the Standard Load Balancer
 
 ### Caveats\Limitations
 
-* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
+* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](./load-balancer-outbound-connections.md) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
 * The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
@@ -96,10 +96,6 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
 Yes it migrates traffic. If you would like to migrate traffic personally, use [this script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) which does not move VMs for you.
-
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
 
 ## Next steps
 

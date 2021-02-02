@@ -190,7 +190,7 @@ The Azure Blockchain Service RPC endpoint address is required to connect to a bl
 You can use the Ethereum account's private key to authenticate when sending a transaction to the blockchain. Your Ethereum account's public and private keys are generated from a 12-word mnemonic. The Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get the endpoint address by using the development kit extension.
 
 1. In Visual Studio Code, open the command palette (F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. Select **Blockchain: Retrieve private key**.
 1. Select the mnemonic you saved when connecting to the consortium member.
 
     ![Command palette with an option to select the mnemonic](./media/ethereum-logic-app/private-key.png)

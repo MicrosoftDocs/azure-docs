@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -38,7 +38,7 @@ Before you add shares to Azure Stack Edge Pro, make sure that:
 
 To create a share, do the following procedure:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Select **Cloud storage gateway**.
 
    ![Device online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -46,7 +46,7 @@ To create a share, do the following procedure:
 
    ![Add a share](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. In the **Add share** pane, do the following procedure:
+3. In the **Add share** pane, follow these steps:
 
     a. In the **Name** box, provide a unique name for your share.  
     The share name can have only letters, numerals, and hyphens. It must have between 3 to 63 characters and begin with a letter or a numeral. Hyphens must be preceded and followed by a letter or a numeral.
@@ -61,14 +61,13 @@ To create a share, do the following procedure:
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
 
    > [!IMPORTANT]
-   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Create a new blob container or use an existing one from the dropdown list. If creating a blob container, provide a container name. If a container doesn't already exist, it's created in the storage account with the newly created share name.
    
     f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
      
-    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
-    If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
+    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. Modification of share-level permissions is currently not supported. If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
     
         ![Add SMB share](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    
@@ -193,5 +192,3 @@ To learn how to transform your data by using Azure Stack Edge Pro, advance to th
 
 > [!div class="nextstepaction"]
 > [Transform data with Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

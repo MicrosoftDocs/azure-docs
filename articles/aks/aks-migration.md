@@ -127,7 +127,7 @@ If your application can host multiple replicas that point to the same file share
 * Point your live traffic to your new AKS cluster.
 * Disconnect the old cluster.
 
-If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
+If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](/cli/azure/storage/file/copy) commands to migrate your data.
 
 
 #### Migrating persistent volumes
@@ -154,7 +154,7 @@ Some open-source tools can help you create managed disks and migrate volumes bet
 
 ### Deployment of your cluster configuration
 
-We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
+We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 

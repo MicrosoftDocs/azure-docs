@@ -3,6 +3,7 @@ title: Use built-in notebook commands and features in Azure Cosmos DB C# noteboo
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in C# notebooks.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
@@ -11,6 +12,7 @@ ms.custom: devx-track-python, devx-track-csharp
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB C# notebooks (preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in C# notebooks.
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -31,7 +31,7 @@ The Face service provides several different facial analysis functions which are 
 The Face service detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes, such as head pose, gender, age, emotion, facial hair, and glasses.
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). However, if you want to do further operations with face data, you should use this service instead.
+> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further operations with face data, you should use this service instead.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ After you create and train a database, you can do identification against the gro
 
 For more information about person identification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
-## Containers
+## Deploy on premises using Docker containers
 
-[Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces by installing a standardized Docker container closer to your data.
+[Use the Face container (preview)](face-how-to-install-containers.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Sample apps
 

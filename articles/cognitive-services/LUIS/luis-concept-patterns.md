@@ -44,7 +44,7 @@ A pattern is primarily meant to help the prediction of intents and roles. The _p
 Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
 
 ## Patterns use entity roles
-If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities.
+If two or more entities in a pattern are contextually related, patterns use entity [roles](./luis-concept-entity-types.md) to extract contextual information about entities.
 
 ## Prediction scores with and without patterns
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.

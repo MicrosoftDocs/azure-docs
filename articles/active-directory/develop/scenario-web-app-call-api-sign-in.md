@@ -1,5 +1,6 @@
 ---
-title: Remove accounts from the token cache on sign-out - Microsoft identity platform | Azure
+title: Remove accounts from the token cache on sign-out | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Remove accounts from the token cache on global sign-out
@@ -47,22 +48,22 @@ The Python sample doesn't remove accounts from the cache on global sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore).
 
 # [ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java)
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python)
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python).
 
 ---

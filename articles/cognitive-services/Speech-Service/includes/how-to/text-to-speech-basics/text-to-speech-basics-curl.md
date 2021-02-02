@@ -21,7 +21,7 @@ At a command prompt, run the following command. You will need to insert the foll
 - Your Speech service region.
 
 You might also wish to change the following values.
-- The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](../../../rest-text-to-speech.md#audio-outputs).
 - The output voice. To get a list of voices available for your Speech endpoint, see the next section.
 - The output file. In this example, we direct the response from the server into a file named `output.wav`.
 

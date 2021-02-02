@@ -56,7 +56,7 @@ Azure Update Management in Azure Automation manages operating system updates for
 
 2. **Log Analytics workspace** enables log collection and performance counter collection using the Log Analytics agent or extensions. To create your Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/update-mgmt-enable-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
+3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
  
 4. Once you've added VMs to Azure Update Management, you can [Deploy updates on VMs and review results](../automation/update-management/deploy-updates.md). 
 
@@ -76,13 +76,13 @@ Azure Security Center does not require deployment. For more information, see a l
 
 Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms.
 
-- See [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md) to enable Azure Arc enabled servers for multiple Windows or Linux VMs.
+- For information on enabling Azure Arc enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
 ### Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
 You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. 
 
-- See [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+- For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ### Deploy the Log Analytics agent
 

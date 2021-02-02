@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with JavaScript"
 description: In this quickstart, you use JavaScript to create a management group to organize your resources into a resource hierarchy.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---
@@ -85,7 +85,7 @@ wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/ins
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName

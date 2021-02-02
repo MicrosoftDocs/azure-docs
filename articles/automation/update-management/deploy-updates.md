@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ---
 
@@ -112,7 +112,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 To learn how to create an update deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create).
 
-You can use a sample runbook to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+You can use a sample runbook to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group).
 
 ## Check deployment status
 
@@ -141,4 +141,5 @@ Select **Errors** to see detailed information about any errors from the deployme
 
 ## Next steps
 
-To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).

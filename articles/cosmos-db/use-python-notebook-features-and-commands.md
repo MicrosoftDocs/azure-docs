@@ -3,6 +3,7 @@ title: Use built-in notebook commands and features in Azure Cosmos DB Python not
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in Python notebooks.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
@@ -10,6 +11,7 @@ ms.author: dech
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in Python notebooks.
 
@@ -119,6 +121,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 With the output statistics, you can calculate the effective RU/s used to upload the items. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
+
+You can save files (such as CSV or JSON files) to the local notebook workspace. We recommend that you add a cell in your notebook to save files. You can view these files from the integrated terminal in the notebook environment. You can use the "ls" command to view the saved files. However, these files are removed if you reset the workspace. So, it's best to use persistent storage such as GitHub or a storage account instead of the local workspace.
 
 ## Run another notebook in current notebook 
 You can use the ``%%run`` magic command to run another notebook in your workspace from your current notebook. Use the syntax:

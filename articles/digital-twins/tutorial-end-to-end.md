@@ -28,7 +28,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Set up Cloud Shell session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -49,12 +49,10 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
-
-The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.
 
 ### Instantiate the pre-created twin graph
 
@@ -92,10 +90,7 @@ Query
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
-> ```sql
-> SELECT *
-> FROM DIGITALTWINS
-> ``` 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -123,50 +118,9 @@ This will open the NuGet Package Manager. Select the *Updates* tab and if there 
 
 ### Publish the app
 
-Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, from the *Solution Explorer* pane, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, locate the _**SampleFunctionsApp**_ project in the *Solution Explorer* pane.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
-
-In the *Publish* page that follows, leave the default target selection of **Azure** and hit *Next*. 
-
-For a specific target, choose **Azure Function App (Windows)** and hit *Next*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publish Azure function in Visual Studio: specific target":::
-
-On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
-
-Select your instance's resource group and hit *+ Create a new Azure Function...*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publish Azure function in Visual Studio: Functions instance (before function app)":::
-
-In the *Function App (Windows) - Create new* window, fill in the fields as follows:
-* **Name** is the name of the consumption plan that Azure will use to host your Azure Functions app. This will also become the name of the function app that holds your actual function. You can choose your own unique value or leave the default suggestion.
-* Make sure the **Subscription** matches the subscription you want to use 
-* Make sure the **Resource group** to the resource group you want to use
-* Leave the **Plan type** as *Consumption*
-* Select the **Location** that matches the location of your resource group
-* Create a new **Azure Storage** resource using the *New...* link. Set the location to match your resource group, use the other default values, and hit "Ok".
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publish Azure function in Visual Studio: Function App (Windows) - Create new":::
-
-Then, select **Create**.
-
-This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Hit *Finish*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publish Azure function in Visual Studio: Functions instance (after function app)":::
-
-On the *Publish* pane that opens back in the main Visual Studio window, check that all the information looks correct and select **Publish**.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publish Azure function in Visual Studio: publish":::
-
-> [!NOTE]
-> If you see a popup like this: 
-> :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
-> Select **Attempt to retrieve credentials from Azure** and **Save**.
->
-> If you see a warning to *Upgrade Functions version on Azure* or that *Your version of the functions runtime does not match the version running in Azure*:
->
-> Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### Assign permissions to the function app
 
@@ -174,11 +128,13 @@ To enable the function app to access Azure Digital Twins, the next step is to co
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
+In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance. Fill in the placeholders with the details of your resources (remember that your Azure Digital Twins instance URL is its host name preceded by *https://*).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+The output is the list of settings for the Azure Function, which should now contain an entry called *ADT_SERVICE_URL*.
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
@@ -289,8 +245,8 @@ In a new Visual Studio window, open (from the downloaded solution folder) _Devic
 From the *Solution Explorer* pane in this new Visual Studio window, select _DeviceSimulator/**AzureIoTHub.cs**_ to open it in the editing window. Change the following connection string values to the values you gathered above:
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 Save the file.
@@ -332,7 +288,7 @@ To do this, you'll use the *ProcessDTRoutedData* Azure function to update a *Roo
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="An excerpt from the full building scenario graphic highlighting arrow C, the elements after Azure Digital Twins: the Event Grid and second Azure function":::
 
 Here are the actions you will complete to set up this data flow:
-1. Create an Azure Digital Twins endpoint that connects the instance to Event Grid
+1. Create an Event Grid endpoint in Azure Digital Twins that connects the instance to Event Grid
 2. Set up a route within Azure Digital Twins to send twin property change events to the endpoint
 3. Deploy an Azure Functions app that listens (through [Event Grid](../event-grid/overview.md)) on the endpoint, and updates other twins accordingly
 4. Run the simulated device and query Azure Digital Twins to see the live results
@@ -357,7 +313,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 The output from this command is information about the event grid topic you've created.
 
-Next, create an Azure Digital Twins endpoint pointing to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
+Next, create an Event Grid endpoint in Azure Digital Twins, which will connect your instance to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -375,11 +331,11 @@ Look for the `provisioningState` field in the output, and check that the value i
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
-Save the names that you gave to your event grid topic and your Azure Digital Twins endpoint. You will use them later.
+Save the names that you gave to your event grid topic and your Event Grid endpoint in Azure Digital Twins. You will use them later.
 
 ### Set up route
 
-Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
+Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

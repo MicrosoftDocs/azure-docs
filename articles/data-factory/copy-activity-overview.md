@@ -249,7 +249,7 @@ This feature is supported when copying data from any source into the following s
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (formerly SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Create sink tables](media/copy-activity-overview/create-sink-table.png)
@@ -257,6 +257,13 @@ This feature is supported when copying data from any source into the following s
 ## Fault tolerance
 
 By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+
+## Data consistency verification
+
+When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
+
+## Session log
+You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session log in copy activity](copy-activity-log.md) for details.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

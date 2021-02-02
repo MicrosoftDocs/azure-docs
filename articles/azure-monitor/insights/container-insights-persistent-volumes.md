@@ -7,7 +7,7 @@ ms.date: 10/20/2020
 
 # Configure PV monitoring with Azure Monitor for containers
 
-Starting with agent version *ciprod10052020*, Azure monitor for containers integrated agent now supports monitoring PV (persistent volume) usage.
+Starting with agent version *ciprod10052020*, Azure Monitor for containers integrated agent now supports monitoring PV (persistent volume) usage.
 
 ## PV metrics
 
@@ -25,4 +25,4 @@ Azure Monitor for containers includes pre-configured charts for this metric in a
 
 ## Next steps
 
-- Learn more about collected PV metrics [here](https://aka.ms/ci/pvconfig).
+- Learn more about collected PV metrics [here](./container-insights-agent-config.md).

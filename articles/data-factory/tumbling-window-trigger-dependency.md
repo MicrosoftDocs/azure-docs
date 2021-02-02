@@ -51,22 +51,22 @@ A tumbling window trigger with a dependency has the following properties:
                 "count": <<int - optional, default: 0>>,
                 "intervalInSeconds": <<int>>,
             },
-			"dependsOn": [
-				{
-					"type": "TumblingWindowTriggerDependencyReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan – optional>>,
-					"referenceTrigger": {
-						"referenceName": "MyTumblingWindowDependency1",
-						"type": "TriggerReference"
-					}
-				},
-				{
-					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan>>
-				}
-			]
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         }
     }
 }
@@ -92,34 +92,34 @@ In scenarios where the trigger shouldn't proceed to the next window until the pr
 
 ```json
 {
-	"name": "DemoSelfDependency",
-	"properties": {
-		"runtimeState": "Started",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "Demo",
-				"type": "PipelineReference"
-			}
-		},
-		"type": "TumblingWindowTrigger",
-		"typeProperties": {
-			"frequency": "Hour",
-			"interval": 1,
-			"startTime": "2018-10-04T00:00:00Z",
-			"delay": "00:01:00",
-			"maxConcurrency": 50,
-			"retryPolicy": {
-				"intervalInSeconds": 30
-			},
-			"dependsOn": [
-				{
-					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": "01:00:00",
-					"offset": "-01:00:00"
-				}
-			]
-		}
-	}
+    "name": "DemoSelfDependency",
+    "properties": {
+        "runtimeState": "Started",
+        "pipeline": {
+            "pipelineReference": {
+                "referenceName": "Demo",
+                "type": "PipelineReference"
+            }
+        },
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+            "frequency": "Hour",
+            "interval": 1,
+            "startTime": "2018-10-04T00:00:00Z",
+            "delay": "00:01:00",
+            "maxConcurrency": 50,
+            "retryPolicy": {
+                "intervalInSeconds": 30
+            },
+            "dependsOn": [
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": "01:00:00",
+                    "offset": "-01:00:00"
+                }
+            ]
+        }
+    }
 }
 ```
 ## Usage scenarios and examples

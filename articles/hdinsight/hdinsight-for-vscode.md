@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight for Visual Studio Code
 description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code. Use the tools to create and submit queries and scripts.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
@@ -206,6 +203,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    ![pyspark installed successfully](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
+
 7. From the menu bar, navigate to **View** > **Command Palette...** or use the **Shift + Ctrl + P** keyboard shortcut, and enter **Python: Select Interpreter to start Jupyter Server**.
 
    ![select interpreter to start jupyter server](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
@@ -216,7 +214,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
     
 9. From the menu bar, navigate to **View** > **Command Palette...** or use the **Shift + Ctrl + P** keyboard shortcut, and enter **Developer: Reload Window**.
 
-   ![reload window](./media/hdinsight-for-vscode/reload-window.png)
+    ![reload window](./media/hdinsight-for-vscode/reload-window.png)
 
 10. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
@@ -261,7 +259,8 @@ The tool also supports the **Spark SQL** query:
 
 
 > [!NOTE]
-> Ms-python >=2020.5.78807 version is not supported on this extention  is a [known issue](#known-issues).
+>
+> ["Ms-python >=2020.5.78807 version is not supported on this extension"](#issues-changed) has been resolved. Please update the **ms-python** to the **latest version** now.
 
 ## Submit PySpark batch job
 
@@ -482,13 +481,10 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
-## Known Issues
+## Issues Changed
 
-### ms-python >=2020.5.78807 version is not supported on this extention 
+For this issue "ms-python >=2020.5.78807 version is not supported on this extension" has been resolved, please update the **ms-python** to the **latest version** now.
 
-"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
-
-![known issues](./media/hdinsight-for-vscode/known-issue.png)
 
 ## Next steps
 

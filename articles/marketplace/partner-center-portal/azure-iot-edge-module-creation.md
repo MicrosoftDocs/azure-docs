@@ -45,10 +45,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is a draft - Delete draft offer
 - If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
-- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing)
+- If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -414,7 +414,7 @@ You'll provide the following information on the **Image repository details** tab
 
 1. Admin user
 
-<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az-acr-credential-show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
 
@@ -425,6 +425,9 @@ You'll provide the following information on the **Image repository details** tab
 3. Password
 
 **Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](../../container-registry/container-registry-repositories.md). After the name is set, it can't be changed. Use a unique name for each offer in your account.
+
+> [!NOTE]
+> We don't support Encrypted Azure Container Registry for Edge Module Certification. Azure Container Registry should be created without Encryption enabled.
 
 ### Image tags for new versions of your offer
 
@@ -487,4 +490,4 @@ We'll send you an email to let you know when a preview version of the offer is a
 
 ## Next steps
 
-- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)

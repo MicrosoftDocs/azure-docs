@@ -106,15 +106,14 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
     b. Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Search for "Application Insights"](./media/cloudservices/04-ai-nuget.png)
-
 1. To configure the SDK to send data to the Application Insights resource:
 
     a. In a suitable startup function, set the instrumentation key from the configuration setting in the *.cscfg* file:
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. Repeat "step a" for each role in your app. See the examples:
@@ -187,7 +186,7 @@ To view performance counters and counts of events, open [Metrics Explorer](../pl
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
-To search across the various trace logs that are sent by Azure Diagnostics, use [Search](./diagnostic-search.md) or an [Analytics query](../log-query/get-started-portal.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.
+To search across the various trace logs that are sent by Azure Diagnostics, use [Search](./diagnostic-search.md) or an [Analytics query](../log-query/log-analytics-tutorial.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.
 
 ![Azure Diagnostics search](./media/cloudservices/25-wad.png)
 

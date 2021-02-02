@@ -50,7 +50,7 @@ LUIS uses three kinds of keys:
 | Starter   | Lets you test your LUIS application using text only   |
 | Endpoint  | Authorizes access to a particular LUIS app            |
 
-For this guide, you need the endpoint key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this guide, you need the endpoint key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
 When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
@@ -196,4 +196,4 @@ Look for the code from this article in the **samples/csharp/sharedcontent/consol
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Recognize speech from a microphone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Quickstart: Recognize speech from a microphone](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

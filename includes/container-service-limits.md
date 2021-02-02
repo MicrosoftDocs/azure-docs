@@ -2,18 +2,18 @@
 title: include file
 description: include file
 services: container-service
-author: dlepow
+author: mlearned
 
 ms.service: container-service
 ms.topic: include
 ms.date: 11/22/2019
-ms.author: danlep
+ms.author: mlearned
 ms.custom: include file
 ---
 
 | Resource | Limit |
 | --- | :--- |
-| Maximum clusters per subscription | 100 |
+| Maximum clusters per subscription | 1000 |
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |
 | Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 1000 (100 nodes per [node pool][node-pool]) |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
@@ -24,7 +24,7 @@ ms.custom: include file
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
-[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
 [node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->

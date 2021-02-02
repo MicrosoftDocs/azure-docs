@@ -68,7 +68,7 @@ In order to create a gateway resource in Azure, you must register the local inst
 
 1.  Select **Register a new gateway on this computer**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Screenshot that highlights the Register a new gateway on this computer option.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
 

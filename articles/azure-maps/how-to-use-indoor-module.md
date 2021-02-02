@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Maps Indoor Maps module
+title: Use the Azure Maps Indoor Maps module with Microsoft Creator services (Preview)
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
@@ -13,12 +13,17 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator.
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services (Preview) 
 
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Create a Creator resource](how-to-manage-creator.md)
+2. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
  You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
@@ -244,7 +249,7 @@ Read about the APIs that are related to the *Azure Maps Indoor* module:
 > [Drawing package requirements](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator for indoor maps](creator-indoor-maps.md)
+> [Creator (Preview) for indoor maps](creator-indoor-maps.md)
 
 Learn more about how to add more data to your map:
 

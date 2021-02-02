@@ -13,6 +13,7 @@ ms.custom: devx-track-js
 ---
 
 # Tutorial: Build a Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -468,7 +469,7 @@ After your application succeeds locally, you can deploy it to Azure by using the
 3. Deploy the application by pushing it to the remote.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. In a few seconds, your web application is published and launched in a browser.

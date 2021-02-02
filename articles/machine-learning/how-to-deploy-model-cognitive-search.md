@@ -1,7 +1,7 @@
 ---
 title: Deploy a model for use with Cognitive Search
 titleSuffix: Azure Machine Learning
-description: This article teaches you how to use Azure Machine Learning to deploy a model for use with Azure Cognitive Search. Cognitive Search can use models deployed by Azure Machine Learning as a custom skill to enrich the search experience.
+description: Learn how to use Azure Machine Learning to deploy a model for use with Cognitive Search. The model is used as a custom skill to enrich the search experience.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -41,7 +41,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
@@ -247,7 +247,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-For more information, see the reference documentation for [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+For more information, see the reference documentation for [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## Deploy the model
 
@@ -272,7 +272,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-For more information, see the reference documentation for [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+For more information, see the reference documentation for [Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## Issue a sample query to your service
 

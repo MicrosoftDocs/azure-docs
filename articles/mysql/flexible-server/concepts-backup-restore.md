@@ -1,8 +1,8 @@
 ---
 title: Backup and restore in Azure Database for MySQL Flexible Server
 description: Learn about the concepts of backup and restore with Azure Database for MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020

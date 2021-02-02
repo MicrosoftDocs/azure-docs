@@ -4,11 +4,11 @@ description: You use Azure Cost Management + Billing features to conduct billing
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # What is Azure Cost Management + Billing?
@@ -38,11 +38,11 @@ A billing account is created when you sign up to use Azure. You use your billing
 
 The Azure portal currently supports the following types of billing accounts:
 
-- **Microsoft Online Services Program**: An individual billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an Azure Free Account, account with pay-as-you-go rates or as a Visual studio subscriber.
+- **Microsoft Online Services Program**: An individual billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](./manage/create-free-services.md), account with pay-as-you-go rates or as a Visual studio subscriber.
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an Enterprise Agreement (EA) to use Azure.
 
-- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an account with pay-as-you-go rates or upgrade their Azure Free Account may have a billing account for a Microsoft Customer Agreement as well.
+- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an account with pay-as-you-go rates or upgrade their [Azure Free Account](./manage/create-free-services.md) may have a billing account for a Microsoft Customer Agreement as well.
 
 ### Scopes for billing accounts
 A scope is a node in a billing account that you use to view and manage billing. It's where you manage billing data, payments, invoices, and conduct general account management.
@@ -103,7 +103,7 @@ Cloudyn is an Azure service related to Cost Management that is being deprecated 
 Azure has other tools that aren't a part of the Azure Cost Management + Billing feature set. However, they play an important role in the cost management process. To learn more about these tools, see the following links.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) - Use this tool to estimate your up-front cloud costs.
-- [Azure Migrate](/azure/migrate/migrate-services-overview) - Assess your current datacenter workload for insights about what's needed from an Azure replacement solution.
+- [Azure Migrate](../migrate/migrate-services-overview.md) - Assess your current datacenter workload for insights about what's needed from an Azure replacement solution.
 - [Azure Advisor](../advisor/advisor-overview.md) - Identify unused VMs and receive recommendations about Azure reserved instance purchases.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) - Use your current on-premises Windows Server or SQL Server licenses for VMs in Azure to save.
 

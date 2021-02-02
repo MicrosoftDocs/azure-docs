@@ -45,7 +45,7 @@ To onboard a management group and all its subscriptions:
     The remediation task will then enable Security Center, for free, on the non-compliant subscriptions.
 
 > [!IMPORTANT]
-> The policy definition will only enable Security Center on **existing** subscriptions. To register newly created subscriptions, To register newly created subscriptions, open the compliance tab, select the relevant non-compliant subscriptions, and create a remediation task.Repeat this step when you have one or more new subscriptions you want to monitor with Security Center.
+> The policy definition will only enable Security Center on **existing** subscriptions. To register newly created subscriptions, open the compliance tab, select the relevant non-compliant subscriptions, and create a remediation task.Repeat this step when you have one or more new subscriptions you want to monitor with Security Center.
 
 ## Optional modifications
 
@@ -94,4 +94,4 @@ There are a variety of ways you might choose to modify the Azure Policy definiti
 Now that you've onboarded an entire management group, enable the advanced protections of Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)

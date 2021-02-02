@@ -196,6 +196,6 @@ Date: Thu, 16 Oct 2014 22:49:21 GMT
 
 ## Next steps
 
-* [Azure Internal Load Balancer overview](load-balancer-internal-overview.md)
+* [Azure Load Balancer overview](load-balancer-overview.md)
 * [Get started with configuring an internet-facing load balancer](quickstart-load-balancer-standard-public-powershell.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
