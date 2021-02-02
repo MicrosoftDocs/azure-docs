@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/15/2021
+ms.date: 02/01/2021
 ms.author: b-juche
 ---
 
@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## January 2021
+## February 2021
 
 * SMB3 Protocol Encryption (Preview)
 
