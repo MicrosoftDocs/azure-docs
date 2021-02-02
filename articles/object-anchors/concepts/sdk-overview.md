@@ -49,6 +49,10 @@ Expected maximum angle in degrees between up direction of an object instance and
 
 This parameter provides additional constraint on the up direction of an estimated pose. For example, if an object is up-right, this parameter can be 0. **Object Anchors** is not supposed to detect objects that are different from the model. If a model is up-right, then it won't detect an instance laid side-down. A new model would be used for side-down layout. Same rule applies for articulation.
 
+#### MaxScaleChange
+
+Maximum object scale change (within 0 ~ 1) with respect to SpatialMapping. The estimated scale is applied on a transformed object vertices centered at origin and axis-aligned. Note that the estimated scales may not be the actual scale between a CAD model and its physical representation, but just some values that allow the app to render an object model close to SpatialMapping on the physical object.
+
 #### SearchAreas
 
 An array of spatial bounds where to find object(s).
@@ -102,6 +106,9 @@ var observer = new ObjectObserver();
 
 byte[] modelAsBytes; // Load a model into a byte array. Model could be a file, an embedded resource, or a network stream.
 var model = await observer.LoadObjectModelAsync(modelAsBytes);
+
+// Note that after a model is load, its vertices and normals are transformed into a centered coordinate system for the 
+// ease of computing the object pose. The rigid transform can be retrieved through OriginToCenterTransform property.
 ```
 
 The application creates a query to detect instances of that model within a space.
@@ -114,6 +121,7 @@ var searchAreaAsBox = ObjectSearchArea.FromOrientedBox(coordinateSystem, default
 var query = new ObjectQuery(model);
 query.MinSurfaceCoverage = 0.2f;
 query.ExpectedMaxVerticalOrientationInDegrees = 1.5f;
+query.MaxScaleChange = 0.1f;
 query.SearchAreas.Add(searchAreaAsBox);
 
 // Detection could take long, run in a background thread.
@@ -150,6 +158,8 @@ var InstanceChangedHandler = new Windows.Foundation.TypedEventHandler<ObjectInst
     if (state.HasValue)
     {
         // Process latest state via state.Value.
+        // An object pose includes scale, rotation and translation, applied in the same order
+        // to the object model in the centered coordinate system.
     }
     else
     {
@@ -169,7 +179,7 @@ const uint maxSessionSizeInMegaBytes = uint.MaxValue;
 // Recording starts on the creation of a diagnostics session.
 var diagnostics = new ObjectDiagnosticsSession(observer, maxSessionSizeInMegaBytes);
 
-// Wait for **observer** do some job.
+// Wait for observer do some job.
 
 // Application can report some **pseudo ground-truth** pose for an instance acquired from other means.
 diagnostics.ReportActualInstanceLocation(instance, coordinateSystem, Vector3.Zero, Quaternion.Identity);

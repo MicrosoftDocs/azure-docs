@@ -116,6 +116,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 * Provide tight search areas to ideally cover the full object to improve detection speed and accuracy;
 * Default `ObjectQuery.MinSurfaceCoverage` from object model usually is good, otherwise use a smaller value to get a quicker detection;
 * Use a small value for `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` if object is expected to be up-right.
+* An app should always try use `1:1` object model for detection, and the estimated scale should be close to 1 ideally within 1% error. So an app could set `ObjectQuery.MaxScaleChange` to `0` or `0.1` to disable or enable scale estimation, and qualatively evaluate the instance pose.
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
