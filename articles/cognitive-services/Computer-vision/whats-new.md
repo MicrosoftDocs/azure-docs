@@ -25,6 +25,12 @@ A new version of the [spatial analysis container](spatial-analysis-container.md)
 * [Spatial analysis operations](spatial-analysis-operations.md) can be now configured to detect if a person is wearing a protective face covering such as a mask. 
     * A mask classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
     * The attributes `face_mask` and `face_noMask` will be returned as metadata with confidence score for each person detected in the video stream
+* The *personcrossingpolygon* operation has been extended to allow the calculation of the dwell time a person spends in a zone. You can set the `type` parameter in the Zone configuration for the operation to `zonedwelltime` and a new event of type *personZoneDwellTimeEvent* will include the `durationMs` field populated with the number of milliseconds that the person spent in the zone.
+* **Breaking change**: The *personZoneEvent* event has been renamed to *personZoneEnterExitEvent*. This event is raised by the *personcrossingpolygon* operation when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed.
+* Video URL can be provided as "Private Parameter/obfuscated" in all operations. Obfuscation is optional now and it will only work if `KEY` and `IV` are provided as environment variables.
+* Calibration is enabled by default for all operations. Set the `do_calibration: false` to disable it.
+* Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details
+* Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details.
 
 
 ## October 2020

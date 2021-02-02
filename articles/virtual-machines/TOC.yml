@@ -1472,30 +1472,11 @@
   - name: Custom data
     href: custom-data.md
   - name: Ansible
-    items:
-    - name: Install and configure
-      href: /azure/developer/ansible/install-on-linux-vm
-    - name: Create a Linux VM
-      href: /azure/developer/ansible/vm-configure
-    - name: Manage a Linux VM
-      href: /azure/developer/ansible/vm-manage
+    href: https://docs.microsoft.com/azure/developer/ansible/
   - name: Terraform
-    items:
-    - name: Install and configure
-      href: /azure/developer/terraform/install-configure
-    - name: Create a complete VM
-      href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
+    href: https://docs.microsoft.com/azure/developer/terraform/
   - name: Jenkins
-    href: /azure/developer/jenkins/overview
-    items:
-    - name: Create a Jenkins server
-      href: /azure/developer/jenkins/configure-on-linux-vm
-    - name: Scale with VM agents
-      href: /azure/developer/jenkins/scale-deployments-using-vm-agents
-    - name: Publish artifacts to Storage
-      href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
-    - name: Secure Jenkins
-      href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+    href: https://docs.microsoft.com/en-us/azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Troubleshoot

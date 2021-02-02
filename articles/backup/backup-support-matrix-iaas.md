@@ -145,6 +145,7 @@ Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs]
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
 [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supported
+Windows Storage Spaces configuration of standalone Azure VMs | Supported 
 
 ## VM storage support
 
