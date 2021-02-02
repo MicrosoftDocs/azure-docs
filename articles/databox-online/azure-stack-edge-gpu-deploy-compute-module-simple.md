@@ -106,35 +106,32 @@ To add a module, do the following steps:
 
     ![Add and configure module](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-1.png)
 
-3. Select **Add**. The module gets added. The **IoT Edge > Modules** page updates to indicate that the module is deployed.
+3. Select **Add**. The module gets added. The **IoT Edge > Modules** page updates to indicate that the module is deployed. The runtime status of the module you added should be *running*.
 
     ![Module deployed](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-2.png)
 
 ### Verify data transform and transfer
 
-The final step is to ensure that the module is connected and running as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
+The final step is to ensure that the module is running and processing data as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
 
-To verify that the module is running, do the following:
+To verify that the module is running and processing data as expected, do the following:
 
-1. Select the **Add module** tile. This takes you to the **Modules** blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be *running*.
 
-    ![View deployed module](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-3.png)
- 
-1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
+1. In File Explorer, connect to both the Edge local and Edge shares you created previously. See the steps 
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-2.png) 
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-1.png) 
  
 1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-3.png) 
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-2.png) 
  
    The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-4.png)  
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-3.png)  
 
-   The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer.
+   The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer or Azure Storage in portal.
 
-    <!--![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-5.png)-->
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-4.png)
  
 You have completed the validation process.
 
