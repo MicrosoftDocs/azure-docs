@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V11.2 Release - [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | February 2, 2021 | Supported |
+| V11.2 Release - [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | February 2, 2021 | Supported - Flighting |
 | V11.1 Release - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |
@@ -50,7 +50,7 @@ The following release notes are for version 11.2.0.0 of the Azure File Sync agen
 ### Improvements and issues that are fixed 
 - If a sync session is cancelled due to a high number of per-item errors, sync may go through reconciliation when a new session starts if the Azure File Sync service determines a custom sync session is needed to correct the per-item errors.
 - Registering a server using the Register-AzStorageSyncServer cmdlet may fail with "Unhandled Exception" error.
-- New server PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allow list, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.
+- New PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allow list, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.    
 
 	- To add a server endpoint path that’s allowed, run the following PowerShell commands on the server:
 
