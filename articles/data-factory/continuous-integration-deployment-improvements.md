@@ -10,7 +10,7 @@ ms.author: abnarain
 ms.reviewer: maghan
 manager: weetok
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -174,3 +174,9 @@ Follow the below steps to get started:
 
 4.	Enter in your YAML code. We recommend taking the YAML file and using it as a starting point.
 5.	Save and run. If using the YAML, it will get triggered every time the "main" branch is updated.
+
+## Next steps
+
+Learn more information about continuous integration and delivery in Data Factory: 
+
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md).
