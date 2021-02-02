@@ -71,9 +71,9 @@ To prevent downtime or loss of functionality, ensure that your clusters are runn
 The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
 
 > [!Note]
-> **Azure Service Fabric clusters running on version 6.5, have to perform multiple upgrades to avoid loss of functionality to the cluster**. 
->   -   1. Upgrade to 7.0.466 and 
->   -   2. Then finally upgrade to latest complaint versions in 7.0* release (7.0.478)  or any of the higher versions listed below.
+> **Azure Service Fabric clusters running on version 6.5, have to perform multiple upgrades at the same time before infrastucuture change to avoid loss of functionality to the cluster**. 
+>   -   1. Upgrade to 7.0.466. **Clusters running the Windows OS that has the Windows Containers Feature enabled CANNOT be on this intermediate version. They need to perform  steps #2.i.e Upgrade to be on safer and compliant verion to avoid service disruptions**
+>   -   2. And Then finally upgrade to latest complaint versions in 7.0* release (7.0.478)  or any of the higher versions listed below.
 
 
 > [!Note]
