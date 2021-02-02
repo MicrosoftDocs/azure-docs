@@ -28,7 +28,7 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 To run this sample, you need:
 
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater
-- [Maven](https://maven.apache.org/).
+- [Maven](https://maven.apache.org/)
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
@@ -62,9 +62,9 @@ To run this sample, you need:
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### Download and configure your quickstart app
+> ### Download and configure the quickstart app
 >
-> #### Step 1: Configure your application in Azure portal
+> #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
@@ -72,7 +72,7 @@ To run this sample, you need:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download your Java project
+#### Step 2: Download the Java project
 
 > [!div renderon="docs"]
 > [Download the Java daemon project](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
@@ -86,9 +86,9 @@ To run this sample, you need:
 
 
 > [!div renderon="docs"]
-> #### Step 3: Configure your Java project
+> #### Step 3: Configure the Java project
 >
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
+> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:\Azure-Samples*.
 > 1. Navigate to the sub folder **msal-client-credential-secret**.
 > 1. Edit **src\main\resources\application.properties** and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
 >
@@ -116,7 +116,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 ##### Global tenant administrator
 
 > [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+> If you are a global tenant administrator, go to **API Permissions** page in **Application Registration** in Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
@@ -160,7 +160,7 @@ After running, the application should display the list of users in the configure
 
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **msal-client-credential-certificate**
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **msal-client-credential-certificate**.
 
 ## More information
 
