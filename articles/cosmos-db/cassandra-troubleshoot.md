@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common errors in Azure Cosmos DB Cassandra API
-description: This doc discusses the ways to troubleshoot common issues found in Azure Cosmos DB Cassandra API
+description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB Cassandra API
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
