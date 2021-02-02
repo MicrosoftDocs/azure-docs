@@ -24,17 +24,13 @@ Normally, you don't need to worry about the deployment token. Some reasons you m
 
 ## Reset a deployment token
 
-1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+1. Click on **Manage deployment token** link on the _Overview_ page of your Azure Static Web App resource.
 
-1. Search for and select **Static Web Apps**
+    :::image type="content" source="./media/deployment-token-management/manage-deployment-token-button.png" alt-text="Managing deployment token":::
 
-1. On the _Static Web Apps_ page, select the name of your app.
+1. Click on the **Reset token** button.
 
-1. Click on **Manage deployment token** in the menu.
-
-1. Click on the **Reset token** button
-
-    :::image type="content" source="./media/deployment-token-management/manage-deployment-token.png" alt-text="Managing deployment token":::
+    :::image type="content" source="./media/deployment-token-management/manage-deployment-token.png" alt-text="Resetting deployment token":::
 
 1. After displaying a new token in the _Deployment token_ field, copy the token by clicking **Copy to clipboard** icon.
 
