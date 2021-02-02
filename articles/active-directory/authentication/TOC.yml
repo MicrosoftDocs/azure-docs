@@ -30,6 +30,8 @@
       href: concept-authentication-oath-tokens.md
     - name: Passwordless
       href: concept-authentication-passwordless.md
+    - name: FIDO2 compatibility
+      href: fido2-compatibility.md
     - name: Phone options
       href: concept-authentication-phone-options.md
     - name: Security questions
