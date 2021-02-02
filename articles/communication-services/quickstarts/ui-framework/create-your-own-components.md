@@ -116,9 +116,9 @@ Once initialized, this provider lets you build your own layout using UI Framewor
 
 ## Create a custom component using mappers
 
-We will start by creating a new file called `customComponent.js` where we will create the component. We will start by importing the UI Framework components we will need. Here, we will use out of the box html and react to create a fully custom component for a simple chat thread. Using the `connectFuncsToContext` method, we will use the `MapToChatMessageProps` mapper to map props to  `SimpleChatThread` custom components. These props will give us access to the chat messages being sent and received to populate them onto our simple thread.
+We will start by creating a new file called `SimpleChatThread.js` where we will create the component. We will start by importing the UI Framework components we will need. Here, we will use out of the box html and react to create a fully custom component for a simple chat thread. Using the `connectFuncsToContext` method, we will use the `MapToChatMessageProps` mapper to map props to  `SimpleChatThread` custom components. These props will give us access to the chat messages being sent and received to populate them onto our simple thread.
 
-`customComponent.js`
+`SimpleChatThread.js`
 ```javascript
 
 import {connectFuncsToContext, MapToChatMessageProps} from "@azure/acs-ui-sdk"
@@ -145,7 +145,7 @@ Now that we have our custom component ready, we will import it and add it to our
 ```javascript
 
 import {CallingProvider, ChatProvider} from "@azure/acs-ui-sdk"
-import SimpleChatThread from "./customComponents"
+import SimpleChatThread from "./SimpleChatThread"
 
 function App(props) {
 

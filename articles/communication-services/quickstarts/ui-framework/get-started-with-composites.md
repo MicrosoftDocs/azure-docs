@@ -94,7 +94,7 @@ function App(){
 
     return(
         {/* Example styling provided, developers can provide their own styling to position and resize components */}
-        <div style={{height: "30rem", width="50rem"}}>
+        <div style={{height: "35rem", width="50rem"}}>
             <GroupCall
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
@@ -106,8 +106,9 @@ function App(){
             />
         </div>
 
-            {/*Note: Make sure that the userId associated to the token has been added to the provided threadId*/}
-        <div style={{height: "30rem", width="20rem"}}>
+        {/*Note: Make sure that the userId associated to the token has been added to the provided threadId*/}
+        {/* Example styling provided, developers can provide their own styling to position and resize components */}
+        <div style={{height: "35rem", width="30rem"}}>
             <GroupChat 
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service

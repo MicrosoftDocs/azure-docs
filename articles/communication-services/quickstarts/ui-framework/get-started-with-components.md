@@ -150,9 +150,9 @@ Once initialized, this provider lets you build your own layout using UI Framewor
 
 ## Build UI Framework Calling Component Experiences
 
-For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `callingComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`. You can add extra layout and styling around the components. 
+For Calling, we'll use the `MediaGallery` and `MediaControls` Components. For more information about them, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `CallingComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`. You can add extra layout and styling around the components. 
 
-`callingComponents.js`
+`CallingComponents.js`
 ```javascript
 
 import {MediaGallery, MediaControls, MapToCallConfigurationProps, connectFuncsToContext} from "@azure/acs-ui-sdk"
@@ -162,7 +162,7 @@ function CallingComponents(props) {
   if (props.isCallInitialized) {props.joinCall()}
 
   return (
-    <div >
+    <div style = {{height: '40rem', width: '30rem'}}>
         <MediaGallery/>
         <MediaControls/>
     </div>
@@ -177,9 +177,9 @@ At the bottom of this file, we exported the calling components using the  `conne
 
 ## Build UI Framework Chat Component Experiences
 
-For Chat, we will use the `ChatThread` and `SendBox` components. For more information about these components, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `chatComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`.
+For Chat, we will use the `ChatThread` and `SendBox` components. For more information about these components, see [UI Framework Capabilities](./../../concepts/ui-framework/ui-sdk-features.md). To start, in the `src` folder, create a new file called `ChatComponents.js`. Here we'll initialize a function component that will hold our base components to then import in `app.js`.
 
-`chatComponents.js`
+`ChatComponents.js`
 ```javascript
 
 import {ChatThread, SendBox} from '@azure/acs-ui-sdk'
@@ -187,7 +187,7 @@ import {ChatThread, SendBox} from '@azure/acs-ui-sdk'
 function ChatComponents() {
 
   return (
-    <div >
+    <div style = {{height: '40rem', width: '30rem'}}>
         <ChatThread />
         <SendBox />
     </div >
@@ -205,8 +205,8 @@ Back in the `app.js` file, we will now add the components to the `CallingProvide
 `App.js`
 ```javascript
 
-import ChatComponents from './chatComponents';
-import CallingComponents from './callingComponents';
+import ChatComponents from './ChatComponents';
+import CallingComponents from './CallingComponents';
 
 <Provider ... >
     <CallingProvider .... >
