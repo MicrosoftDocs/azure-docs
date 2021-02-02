@@ -472,7 +472,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Unauthorized programming alerts":::
 
 > [!NOTE]
-> You can also view basic programming information in the Device Properties window and Device Inventory. See [Device Programming Information: Additional Locations](#device-programming-information-additional-locations) for details.
+> You can also view basic programming information in the Device Properties window and Device Inventory.
 
 ### Working in the programming timeline window
 
