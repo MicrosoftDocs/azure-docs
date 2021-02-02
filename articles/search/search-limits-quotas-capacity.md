@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/02/2021
 ---
 
 # Service limits in Azure Cognitive Search
@@ -135,7 +135,7 @@ An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls 
 
 ## Throttling limits
 
-Search query and indexing requests are throttled as the system approaches peak capacity. Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs have static request rate limits. 
+API requests are throttled as the system approaches peak capacity. Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs and service operations API have static request rate limits. 
 
 Static rate request limits for operations related to an index:
 
@@ -144,6 +144,10 @@ Static rate request limits for operations related to an index:
 + Create Index (POST /indexes): 12 per minute per search unit
 + Create or Update Index (PUT /indexes/myindex): 6 per second per search unit
 + Delete Index (DELETE /indexes/myindex): 12 per minute per search unit 
+
+Static rate request limits for operations related to a service:
+
++ Service Statistics (GET /servicestats): 4 per second per search unit
 
 ## API request limits
 * Maximum of 16 MB per request <sup>1</sup>
