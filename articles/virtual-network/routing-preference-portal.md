@@ -34,7 +34,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. Select **Create a resource**.
 3. In the search box, type *Public IP address*.
 3. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
-3. In the **Routing preference** options, select **Internet**.
+1. For SKU, select **Standard**.
+1. For **Routing preference**, select **Internet**.
 
       ![Create a public ip address](./media/routing-preference-portal/pip-new.png)
 
