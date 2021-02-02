@@ -103,6 +103,8 @@ The runtime provides the `customDimensions.LogLevel` and `customDimensions.Categ
 
 ## Query scale controller logs
 
+_This feature is in preview._
+
 After enabling both [scale controller logging](configure-monitoring.md#configure-scale-controller-logs) and [Application Insights integration](configure-monitoring.md#enable-application-insights-integration), you can use the Application Insights log search to query for the emitted scale controller logs. Scale controller logs are saved in the `traces` collection under the **ScaleControllerLogs** category.
 
 The following query can be used to search for all scale controller logs for the current function app within the specified time period:
