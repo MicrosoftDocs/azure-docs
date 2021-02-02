@@ -81,7 +81,7 @@ at/appcertstoretype |The own application cert store type (allowed: Directory, X5
 Now that you have learned how to change the default values of the configuration, you can 
 
 > [!div class="nextstepaction"]
-> [Pull IIoT data into ADX](tutorial-iiot-data-adx.md)
+> [Pull IIoT data into ADX](tutorial-industrial-iot-azure-data-explorer.md)
 
 > [!div class="nextstepaction"]
 > [Visualize and analyze the data using Time Series Insights](tutorial-visualize-data-time-series-insights.md)
