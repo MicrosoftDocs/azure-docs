@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 01/07/2021
+ms.date: 02/01/2021
 ms.topic: how-to
 ---
 
@@ -44,7 +44,7 @@ After you've deployed your policies, data will be logged in the Log Analytics wo
 
 You can view [alerts](../../azure-monitor/platform/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
 
-TO refresh alerts automatically across multiple customers, use an [Azure Resource Graph](../../governance/resource-graph/overview.md) query to filter for alerts. You can pin the query to your dashboard and select all of the appropriate customers and subscriptions.
+To refresh alerts automatically across multiple customers, use an [Azure Resource Graph](../../governance/resource-graph/overview.md) query to filter for alerts. You can pin the query to your dashboard and select all of the appropriate customers and subscriptions.
 
 The following example query will display severity 0 and 1 alerts, refreshing every 60 minutes.
 
