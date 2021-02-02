@@ -14,9 +14,9 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
-1. [Microsoft Q&A question page for Azure Storage](/answers/products/azure?product=storage).
-2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+- [Microsoft Q&A question page for Azure Storage](/answers/products/azure?product=storage).
+- [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+- Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
