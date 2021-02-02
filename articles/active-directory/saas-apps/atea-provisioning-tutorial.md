@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Atea support team](mailto:servicedesk@atea.dk).These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Atea's application in Azure portal.
+To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Atea support team](mailto:servicedesk@atea.dk). These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Atea's application in Azure portal.
 
 ## Step 3. Add Atea from the Azure AD application gallery
 
@@ -52,7 +52,7 @@ Add Atea from the Azure AD application gallery to start managing provisioning to
 
 ## Step 4. Define who will be in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 * When assigning users and groups to Atea, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add other roles. 
 
@@ -61,7 +61,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Atea 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Atea based on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Atea, based on user and group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Atea in Azure AD:
 
@@ -93,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
         
       ![Atea test connection](media/atea-provisioning-tutorial/test-connection.png)
 
-8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications. And then select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
@@ -121,7 +121,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and groups that you would like to provision to Atea by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and groups that you would like to provision to Atea by choosing the relevant value in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -129,7 +129,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
