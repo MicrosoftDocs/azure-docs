@@ -42,7 +42,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 - [Automation account authentication overview](../automation/automation-security-overview.md)
 - [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
 - [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Azure Security Center
-- [Enable Azure Monitor for VMs overview](../azure-monitor/insights/vminsights-enable-overview.md)
+- [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Update Management overview](../automation/update-management/overview.md)
 
@@ -98,7 +98,7 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
 
 - Collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/platform/data-platform.md).
 
-- To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/insights/vminsights-configure-workspace.md).
+- To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/vm/vminsights-configure-workspace.md).
 
 - You can create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can also set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email. To create such rules, see:
     - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).

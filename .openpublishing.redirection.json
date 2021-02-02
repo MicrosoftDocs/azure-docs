@@ -19306,19 +19306,19 @@
       "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -62323,6 +62323,51 @@
     {
       "source_path_from_root": "/articles/azure-monitor/insights/vminsights-workbooks.md",
       "redirect_url": "/azure/azure-monitor/vm/vminsights-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/monitor-vm-azure.md",
+      "redirect_url": "/azure/azure-monitor/vm/monitor-vm-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-collect-linux-computer.md",
+      "redirect_url": "/azure/azure-monitor/vm/quick-collect-linux-computer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-monitor-azure-vm.md",
+      "redirect_url": "/azure/azure-monitor/vm/quick-monitor-azure-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-vminsights.md",
+      "redirect_url": "/azure/azure-monitor/vm/resource-manager-vminsights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/service-map.md",
+      "redirect_url": "/azure/azure-monitor/vm/service-map",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/service-map-scom.md",
+      "redirect_url": "/azure/azure-monitor/vm/service-map-scom",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-configure-workspace.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-configure-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-dependency-agent-maintenance.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-overview.md",
+      "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-overview",
       "redirect_document_id": false
     }
   ]

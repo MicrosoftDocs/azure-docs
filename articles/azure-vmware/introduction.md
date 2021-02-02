@@ -48,7 +48,7 @@ In your private cloud, you can:
 - [Create and run new queries](../azure-monitor/platform/data-platform-logs.md#log-queries).
 - Run the same queries you usually run on your VMs.
 
-Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## Next steps
 

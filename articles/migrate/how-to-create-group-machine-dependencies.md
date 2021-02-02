@@ -29,7 +29,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
-    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
     - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
     - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
@@ -55,7 +55,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 On each machine you want to analyze, install the agents.
 
 > [!NOTE]
-> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/insights/service-map-scom.md#prerequisites) integration guidance.
+> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/vm/service-map-scom.md#prerequisites) integration guidance.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. For each machine you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
@@ -103,7 +103,7 @@ To install the MMA on a Linux machine:
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
-- [Learn more](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
+- [Learn more](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
 
 ## Create a group using dependency visualization
@@ -144,7 +144,7 @@ After creating the group, we recommend that you install agents on all the machin
 
 You can query dependency data captured by Service Map in the Log Analytics workspace associated with the Azure Migrate project. Log Analytics is used to write and run Azure Monitor log queries.
 
-- [Learn how to](../azure-monitor/insights/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
+- [Learn how to](../azure-monitor/vm/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
 - [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Run a query for dependency data as follows:
@@ -160,8 +160,8 @@ Run a query for dependency data as follows:
 Here are a few sample queries that you can use to extract dependency data.
 
 - You can modify the queries to extract your preferred data points.
-- [Review](../azure-monitor/insights/service-map.md#log-analytics-records) a complete list of dependency data records.
-- [Review](../azure-monitor/insights/service-map.md#sample-log-searches) additional sample queries.
+- [Review](../azure-monitor/vm/service-map.md#log-analytics-records) a complete list of dependency data records.
+- [Review](../azure-monitor/vm/service-map.md#sample-log-searches) additional sample queries.
 
 #### Sample: Review inbound connections
 
@@ -169,7 +169,7 @@ Review inbound connections for a set of VMs.
 
 - The records in the table for connection metrics (VMConnection) don't represent individual physical network connections.
 - Multiple physical network connections are grouped into a logical connection.
-- [Learn more](../azure-monitor/insights/service-map.md#connections) about how physical network connection data is aggregated in VMConnection.
+- [Learn more](../azure-monitor/vm/service-map.md#connections) about how physical network connection data is aggregated in VMConnection.
 
 ```
 // the machines of interest

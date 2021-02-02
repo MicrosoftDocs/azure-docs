@@ -185,4 +185,4 @@ You can use these additional security features to further secure your Azure Moni
 ## Next steps
 * Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../learn/quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../learn/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../learn/quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../vm/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../learn/quick-collect-windows-computer.md)

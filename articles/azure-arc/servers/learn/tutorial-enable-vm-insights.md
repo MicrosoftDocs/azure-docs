@@ -17,7 +17,7 @@ This tutorial shows you how to configure and collect data from your Linux or Win
 
 * VM extension functionality is available only in the list of [supported regions](../overview.md#supported-regions).
 
-* See [Supported operating systems](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the servers operating system you're enabling is supported by Azure Monitor for VMs.
+* See [Supported operating systems](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) to ensure that the servers operating system you're enabling is supported by Azure Monitor for VMs.
 
 * Review firewall requirements for the Log Analytics agent provided in the [Log Analytics agent overview](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 

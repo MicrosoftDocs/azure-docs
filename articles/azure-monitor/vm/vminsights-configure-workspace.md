@@ -96,4 +96,4 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 ## Next steps
 - See [Onboard agents to Azure Monitor for VMs](vminsights-enable-overview.md) to connect agents to Azure Monitor for VMs.
-- See [Targeting monitoring solutions in Azure Monitor (Preview)](solution-targeting.md) to limit the amount of data sent from a solution to the workspace.
+- See [Targeting monitoring solutions in Azure Monitor (Preview)](../insights/solution-targeting.md) to limit the amount of data sent from a solution to the workspace.

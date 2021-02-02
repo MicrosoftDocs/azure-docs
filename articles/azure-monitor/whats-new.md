@@ -118,7 +118,7 @@ New and updated articles from restructure of log query content.
 
 ### Virtual machines
 
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added supported regions.
 
 New articles for Azure Monitor for VMs guest health (preview)
 
@@ -183,7 +183,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Virtual machines
 - [Change analysis in Azure Monitor for VMs](vm/vminsights-change-analysis.md) - New article.
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added supported regions.
 - [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
 
@@ -269,7 +269,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 #### New and updated articles from restructure of agent content
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md)
 - [Install Log Analytics agent on Linux computers](agents/agent-linux.md)
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
 - [Log Analytics agent overview](agents/log-analytics-agent.md)
@@ -361,12 +361,12 @@ New articles for Azure Monitor for VMs guest health (preview)
 New and updated articles from restructure of Azure Monitor for VMs content
 
 - [What is Azure Monitor for VMs?](vm/vminsights-overview.md)
-- [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md)
+- [Configure Log Analytics workspace for Azure Monitor for VMs](vm/vminsights-configure-workspace.md)
 - [Connect Linux computers to Azure Monitor](agents/agent-linux.md)
 - [Enable Azure Monitor for a hybrid environment](vm/vminsights-enable-hybrid.md)
 - [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](vm/vminsights-enable-portal.md)
 - [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md)
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md)
 - [Enable Azure Monitor for VMs using PowerShell](vm/vminsights-enable-powershell.md)
 - [Enable Azure Monitor for VMs using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
 - [Enable Azure Monitor for VMs with PowerShell or templates](./vm/vminsights-enable-powershell.md)
@@ -446,7 +446,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Virtual machines
 - [Enable Azure Monitor for VMs in the Azure portal](./vm/vminsights-enable-portal.md) - Updated to include Azure Arc.
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated to include Azure Arc.
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Updated to include Azure Arc.
 - [What is Azure Monitor for VMs?](vm/vminsights-overview.md) - Updated to include Azure Arc.
 
 
@@ -474,7 +474,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for action groups](samples/resource-manager-action-groups.md)
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
 - [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)
-- [Resource Manager template samples for Azure Monitor for VMs](samples/resource-manager-vminsights.md)
+- [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](samples/resource-manager-workspace.md)
 - [Resource Manager template samples for log queries](samples/resource-manager-log-queries.md)
@@ -538,7 +538,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 
 ### Virtual machines
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
 - [How to chart performance with Azure Monitor for VMs](vm/vminsights-performance.md) - Added limitations section for unavailable metrics.
 
 ### Visualizations
@@ -645,10 +645,10 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Virtual machines
 
-- [Monitor Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) - New article.
-- [Quickstart: Monitor Azure virtual machines with Azure Monitor](learn/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
+- [Monitor Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md) - New article.
+- [Quickstart: Monitor Azure virtual machines with Azure Monitor](vm/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
 - [Alerts from Azure Monitor for VMs](vm/vminsights-alerts.md) - New article.
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
+- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Updated agent download links.
 
 General updates for general availability of Azure Monitor for VMs
 

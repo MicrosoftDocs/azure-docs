@@ -18,7 +18,7 @@ For more detailed descriptions of monitoring data collected from Azure resources
 
 
 ## Complete the Monitor an Azure resource quickstart.
-Complete [Monitor an Azure resource with Azure Monitor](quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
+Complete [Monitor an Azure resource with Azure Monitor](../learn/quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
 
 
 ## Enable Azure Monitor for VMs
