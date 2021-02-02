@@ -39,6 +39,10 @@ To protect privileged accounts from malicious cyber-attacks, you can use Azure A
 
 For more information, see [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
 
+## Assign Roles to Groups, not Users
+
+Users should never be assigned roles directly, because it would make roles assignments less manageable. Moreover, assigning the roles to Groups helps to never hit the limit of 2000 role assignments per subscription. For more information, see [Azure role assignments limit](https://docs.microsoft.com/en-us/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). 
+
 ## Next steps
 
 - [Troubleshoot Azure RBAC](troubleshooting.md)
