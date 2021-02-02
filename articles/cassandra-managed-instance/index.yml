@@ -41,7 +41,7 @@ landingContent:
           - text: Modernize your existing applications with a Cassandra managed instance in the cloud
             url: https://tbc 
 
-  # Card
+  # Card 
   - title: Use Azure Managed Instance for Apache Cassandra
     linkLists:
       - linkListType: quickstart
