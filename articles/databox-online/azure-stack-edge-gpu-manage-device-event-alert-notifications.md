@@ -1,18 +1,18 @@
 ---
-title: Manage alert notifications for your Azure Stack Edge Pro resources | Microsoft Docs 
-description: Describes how to use the Azure portal to manage alerts for your Azure Stack Edge Pro resources.
+title: Manage device event alert notifications for your Azure Stack Edge Pro resources | Microsoft Docs 
+description: Describes how to use the Azure portal to manage alerts for device events on your Azure Stack Edge Pro resources.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.author: alkohli
 ---
-# Manage alert notifications for Azure Stack Edge Pro resources
+# Manage device event alert notifications on Azure Stack Edge Pro resources
 
-This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.  
+This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.  
 
 ## About action rules
 
