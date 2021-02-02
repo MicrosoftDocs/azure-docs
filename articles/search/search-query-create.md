@@ -19,7 +19,7 @@ If you are building a query for the first time, this article describes the tools
 
 A query is a read-only request against the docs collection of a single search index. It specifies a 'queryType' and a query expression though the 'search' parameter. The query expression could have search terms, a quote-enclosed phrase, and operators.
 
-A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following examples show a query request with a variety of parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md).
+A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following examples show a query request with a subset of theavailable parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -32,7 +32,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-## Choose a query client
+## Choose a client
 
 You'll need a tool or API to create a query, like Azure portal or Postman, or code that instantiates a query client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
@@ -70,7 +70,7 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 | JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
 | Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query.py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
 
-## Choose a queryType: simple | full
+## Choose a query type: simple | full
 
 If your query is full text search, a query parser will be used to process any text that's passed as search terms and phrases.
 
@@ -94,7 +94,7 @@ Search is fundamentally a user-driven exercise, where terms or phrases are colle
 
 ## Know your field attributes
 
-If you previously reviewed the [fundamentals of a query request](search-query-overview.md), you might remember that the parameters on the query request depend on how fields are attributed in an index. For example, to be used in a query, filter, or sort order, a field must be *searchable*, *filterable*, and *sortable*. Similarly, only fields marked as *retrievable* can appear in results. As you begin to specify the `search`, `filter`, and `orderby` parameters in your request, be sure to check attributes as you go to avoid unexpected results.
+If you previously reviewed [query types and composition](search-query-overview.md), you might remember that the parameters on the query request depend on how fields are attributed in an index. For example, to be used in a query, filter, or sort order, a field must be *searchable*, *filterable*, and *sortable*. Similarly, only fields marked as *retrievable* can appear in results. As you begin to specify the `search`, `filter`, and `orderby` parameters in your request, be sure to check attributes as you go to avoid unexpected results.
 
 In the portal screenshot below of the [hotels sample index](search-get-started-portal.md), only the last two fields "LastRenovationDate" and "Rating" can be used in an `"$orderby"` only clause.
 
@@ -104,7 +104,7 @@ For a description of field attributes, see [Create Index (REST API)](/rest/api/s
 
 ## Know your tokens
 
-During indexing, the query engine uses an analyzer to perform text analysis on strings, maximizing the potential for matching at query time. At a minimum, strings are lower-cased, but might also undergo lemmatization and stop word removal. Larger strings or compound words are typically broken up by whitespace, hyphens, or dashes, and indexed as separate tokens. 
+During indexing, the search engine uses an analyzer to perform text analysis on strings, maximizing the potential for matching at query time. At a minimum, strings are lower-cased, but might also undergo lemmatization and stop word removal. Larger strings or compound words are typically broken up by whitespace, hyphens, or dashes, and indexed as separate tokens. 
 
 The point to take away here is that what you think your index contains, and what's actually in it, can be different. If queries do not return expected results, you can inspect the tokens created by the analyzer through the [Analyze Text (REST API)](/rest/api/searchservice/test-analyzer). For more information about tokenization and the impact on queries, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
