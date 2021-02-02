@@ -6,9 +6,9 @@ ms.date: 12/09/2020
 ms.author: alkohli
 ---
 
-The VM size determines the amount of compute resources like CPU, GPU, and memory that are made available to the VM. Virtual machines should be created using a VM size appropriate for the workload. Even though all machines will be running on the same hardware, machine sizes have different limits for disk access, which can help you manage overall disk access across your VMs. If a workload increases, an existing virtual machine can also be resized.
+The VM size determines the amount of compute resources (like CPU, GPU, and memory) that are made available to the VM. You should create virtual machines by using a VM size appropriate for the workload. Even though all machines will be running on the same hardware, machine sizes have different limits for disk access. This can help you manage overall disk access across your VMs. If a workload increases, you can also resize an existing virtual machine.
 
-The following VMs are supported for creation on Azure Stack Edge device.
+The following VMs are supported for creation on your Azure Stack Edge device.
 
 ### Dv2-series
 |Size     |vCPU     |Memory (GiB) | Resource disk size (GiB)  | OS disk size (GiB) | Max data disks | Max NICs |
@@ -35,7 +35,7 @@ The following VMs are supported for creation on Azure Stack Edge device.
 |**Standard_DS13_v2**|8   |56  |112|32000 |1000 |16 |8 |
 
 
-For more information, go to [Dv2 series on General Purpose VM sizes](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### NCasT4_v3-series (Preview)
 
@@ -46,7 +46,7 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1000|1 |16  |8 |
 
-For more information, go to [NCasT4_v3-series on GPU optimized VM sizes](../articles/virtual-machines/nct4-v3-series.md).
+For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
 
 ### F-series
 
@@ -65,5 +65,5 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | Standard_F8s | 8 | 16 |32 |1000| 32 |  8 |
 | Standard_F16s | 16 | 32 |64 |1000| 64 |  8 |
 
-For more information, go to [Fsv2-series on Compute optimized VM sizes](../articles/virtual-machines/fsv2-series.md).
+For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
 
