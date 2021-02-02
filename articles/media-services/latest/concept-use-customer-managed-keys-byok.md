@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 1/28/2020
 ---
 
 # Bring your own key (customer-managed keys) with Media Services
@@ -31,6 +31,12 @@ You can specify a key name and key version, or just a key name. When you use onl
 
 > [!WARNING]
 > Media Services monitors access to the customer key. If the customer key becomes inaccessible (for example, the key has been deleted or the Key Vault has been deleted or the access grant has been removed), Media Services will transition the account to the Customer Key Inaccessible State (effectively disabling the account). However, the account can be deleted in this state. The only supported operations are account GET, LIST and DELETE; all other requests (encoding, streaming, and so on) will fail until access to the account key is restored.
+
+## Double encryption
+
+Media Services supports double encryption.  To learn more about double encryption, see [Azure double encryption](../../security/fundamentals/double-encryption.md).
+
+Double encryption is enabled automatically on the Media Services account. However, you need to configure the customer managed key and double encryption on your storage account separately.
 
 ## Tutorials
 

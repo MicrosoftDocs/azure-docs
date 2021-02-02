@@ -8,7 +8,7 @@ ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ---
 
 # Azure Active Directory application management: What's new
