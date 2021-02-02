@@ -27,6 +27,9 @@ You can manage both services by using the Azure portal and the Azure CLI, and bo
 
 Unlike migrating data _offline_ by [copying static information to Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during _online_ migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
 
+
+> [!VIDEO https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKRrmcYPxEho%26feature%3Dyoutu.be&data=04%7C01%7Cnormesta%40microsoft.com%7Cc2ac0ab7c27f426b6fc808d8c79b1926%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478816241835538%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=W7AgL5OF%2FlgYx39eD4d3Y2HrUT341EkyhdZsL0%2Bn0ys%3D&reserved=0]
+
 ## Key features of WANdisco LiveData Platform for Azure
 
 [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication.  
