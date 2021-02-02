@@ -151,7 +151,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
-## Spark application comparison
+## Compare Apache Spark applications
 Click on **Compare applications** button and choose an application to compare performance, users can intuitively see the difference between the two applications.
 
 ![compare applications](./media/how-to-monitor-spark-applications/compare-applications.png)
@@ -162,7 +162,7 @@ Click on **Compare applications** button and choose an application to compare pe
 
 3. Click on **Choose application** button to open **Choose comparison application** page.
 
-4. In Choose comparison application page, users can choose an application from the current application list or enter the application URL. Then, click **OK** button. 
+4. When choosing the comparison application, users needs to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
 
    ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
 
