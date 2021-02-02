@@ -22,9 +22,9 @@ Threat intelligence can be configured in the following modes. By default, threat
 
 Mode |Description  |
 |---------|---------|
-|`Off`     | The Threat Intelligence feature will not be enabled for your firewall |
+|`Off`     | The Threat Intelligence feature is not enabled for your firewall |
 |`Alert only`     | You will receive high confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains |
-|`Alert and deny`     | Traffic will be blocked and you will receive high confidence alerts when traffic attempting to go through your firewall to or from known malicious IP addresses and domains is detected. |
+|`Alert and deny`     | Traffic is blocked and you will receive high confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
 
 > [!NOTE]
 > Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or stricter mode than the parent policy.
