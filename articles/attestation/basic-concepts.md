@@ -7,6 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 
 # Basic Concepts
