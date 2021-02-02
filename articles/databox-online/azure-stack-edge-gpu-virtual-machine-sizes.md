@@ -1,6 +1,6 @@
 ---
-title: Supported virtual machine sizes on your Azure Stack Edge 
-description: Describes the supported sizes for virtual machines (VMs) on an Azure Stack Edge Pro device templates.
+title: Supported virtual machine sizes on Azure Stack Edge 
+description: Describes the supported sizes for virtual machines (VMs) on an Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs.
 ---
 
-# VM sizes and types for your Azure Stack Edge Pro 
+# VM sizes and types for Azure Stack Edge Pro 
 
 This article describes the supported sizes for the virtual machines running on your Azure Stack Edge Pro devices. Use this article before you deploy virtual machines on your Azure Stack Edge Pro devices.
 
@@ -23,7 +23,7 @@ This article describes the supported sizes for the virtual machines running on y
 
 ## Unsupported VM operations and cmdlets
 
-Scale sets, availability sets, snapshots aren't supported.
+Scale sets, availability sets, and snapshots aren't supported.
 
 ## Next steps
 
