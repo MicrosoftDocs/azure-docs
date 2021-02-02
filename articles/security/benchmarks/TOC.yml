@@ -234,5 +234,5 @@
     href: ../../virtual-desktop/security-baseline.md
 - name: Resources
   items:
-  - name: ASB V2 to CIS Microsoft Azure Foundations Benchmark mapping
-    href: asbv2_cis_microsoft_azure_foundations_benchmark_mapping.md
+  - name: Mapping between ASB and CIS Benchmark
+    href: asbv2-cis-benchmark-mapping.md
