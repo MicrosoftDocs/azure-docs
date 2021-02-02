@@ -162,7 +162,7 @@ function CallingComponents(props) {
   if (props.isCallInitialized) {props.joinCall()}
 
   return (
-    <div style = {{height: '40rem', width: '30rem'}}>
+    <div style = {{height: '35rem', width: '30rem', float: 'left'}}>
         <MediaGallery/>
         <MediaControls/>
     </div>
@@ -187,7 +187,7 @@ import {ChatThread, SendBox} from '@azure/acs-ui-sdk'
 function ChatComponents() {
 
   return (
-    <div style = {{height: '40rem', width: '30rem'}}>
+    <div style = {{height: '35rem', width: '30rem', float: 'left'}}>
         <ChatThread />
         <SendBox />
     </div >

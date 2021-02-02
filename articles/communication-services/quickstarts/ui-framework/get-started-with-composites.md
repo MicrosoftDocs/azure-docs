@@ -92,9 +92,9 @@ import {GroupCall, GroupChat} from "@azure/acs-ui-sdk"
 
 function App(){
 
-    return(
+    return(<>
         {/* Example styling provided, developers can provide their own styling to position and resize components */}
-        <div style={{height: "35rem", width="50rem"}}>
+        <div style={{height: "35rem", width: "50rem", float: "left"}}>
             <GroupCall
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
@@ -108,14 +108,14 @@ function App(){
 
         {/*Note: Make sure that the userId associated to the token has been added to the provided threadId*/}
         {/* Example styling provided, developers can provide their own styling to position and resize components */}
-        <div style={{height: "35rem", width="30rem"}}>
+        <div style={{height: "35rem", width: "30rem", float: "left"}}>
             <GroupChat 
                 displayName={DISPLAY_NAME} //Required, Display name for the user entering the call
                 token={TOKEN} // Required, Azure Communication Services access token retrieved from authentication service
                 threadId={THREADID} //Required, Id for group chat thread that will be joined.
                 endpointUrl={ENDPOINT_URL} //Required, URL for Azure endpoint being used for Azure Communication Services
-                onRenderAvatar = { () => {
-                    //Optional, ???
+                onRenderAvatar = { (acsId) => {
+                    //Optional, function to override the avatar image on the chat thread. Function receives one parameters for the Azure Communication Services Identity. Must return a React element.
                 }}
                 refreshToken = { () => {
                     //Optional, function to refresh the access token in case it expires
@@ -126,7 +126,7 @@ function App(){
                 }}
             />
         </div>
-    );
+    </>);
 }
 
 export default App;
