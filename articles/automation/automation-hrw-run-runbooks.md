@@ -326,4 +326,4 @@ To help troubleshoot issues with your runbooks running on a hybrid runbook worke
 
 * If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, see [PowerShell Docs](/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

@@ -81,7 +81,7 @@ To enable your MSAL.js application for sovereign clouds:
 1. On the **Overview** page, note down the **Application (client) ID** value for later use.
     This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). 
 1. Under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
+1. Under **Implicit grant and hybrid flows**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
 1. Select **Save**.
 
 ### Step 2:  Set up your web server or project

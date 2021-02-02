@@ -2,7 +2,7 @@
 title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/27/2021
 ---
 
 # Automatically purge images from an Azure container registry

@@ -20,7 +20,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically supports copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector becomes available, you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities

@@ -181,7 +181,7 @@ To create a new Event Grid subscription, do the following:
 
 ## Azure CLI instructions
 
-First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](/cli/azure/install-azure-cli?view=azure-cli-latest). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](/cli/azure/install-azure-cli). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 Execute the following code:
 

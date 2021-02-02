@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/19/2021
 ---
 
 # Azure Time Series Insights Gen2 Event Sources
@@ -40,7 +40,7 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
-- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources.md#production-workloads) below for suggested alert conditions. 
+- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources.md#production-workloads) below for suggested alert conditions.
 
 - Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
@@ -50,14 +50,14 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 ## Production workloads
 
-In addition to the best practices above, we recommend that you implement the following for business critical workloads. 
+In addition to the best practices above, we recommend that you implement the following for business critical workloads.
 
 - Increase your IoT Hub or Event Hub data retention time to the maximum of 7 days.
 
-- Create environment alerts in the Azure portal. Alerts based on platform [metrics](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
+- Create environment alerts in the Azure portal. Alerts based on platform [metrics](./how-to-monitor-tsi-reference.md#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
 
-     - IngressReceivedMessagesTimeLag is greater than 5 minutes
-     - IngressReceivedBytes is 0
+  - IngressReceivedMessagesTimeLag is greater than 5 minutes
+  - IngressReceivedBytes is 0
 - Keep your ingestion load balanced between your IoT Hub or Event Hub partitions.
 
 ### Historical Data Ingestion

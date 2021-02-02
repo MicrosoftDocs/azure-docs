@@ -64,7 +64,7 @@ Whichever you enact for your organization and scenarios you'll need to:
 
 * **Control access to applications, data, and content**. This can be accomplished through a variety of methods, depending on your versions of [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Reduce the attack surface**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [data loss prevention (DLP),](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) and [encryption capabilities](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduce the attack surface.
+* **Reduce the attack surface**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [data loss prevention (DLP),](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) and [encryption capabilities](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduce the attack surface.
 
 * **Regularly review activity and audit log to confirm compliance**. IT can delegate access decisions to business owners through entitlement management while access reviews provide a way to periodically confirm continued access. Automated data classification with sensitivity labels helps to automate encryption of sensitive content making it easy for employee end users to comply.
 
@@ -91,4 +91,4 @@ See the following articles on securing external access to resources. We recommen
 9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
  
 
-​ 
+​
