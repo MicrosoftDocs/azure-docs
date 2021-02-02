@@ -29,7 +29,7 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
-If you are interested in viewing an updated roles experience, check out the **Roles (preview)** tab, which is currently in public preview. The **Roles (preview)** displays the same list of roles as the Roles tab with some additional features. You can use either Roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
+If you are interested in viewing an updated roles experience, check out the **Roles (preview)** tab, which is currently in public preview. The **Roles (preview)** tab displays the same list of roles as the **Roles** tab with some additional features. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
 
 #### [Roles](#tab/roles/)
 
