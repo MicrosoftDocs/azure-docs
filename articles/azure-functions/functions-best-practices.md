@@ -72,7 +72,7 @@ Each function that you create has a memory footprint. While this footprint is us
 If you run multiple function apps in a single Premium plan or dedicated (App Service) plan, these apps are all scaled together. If you have one function app that has a much higher memory requirement than the others, it uses a disproportionate amount of memory resources on each instance to which the app is deployed. Because this could leave less memory available for the other apps on each instance, you might want to run a high-memory-using function app like this in its own separate hosting plan.
 
 > [!NOTE]
-> When using the [Consumption plan](./functions-scale.md), it doesn't matter if you create multiple function apps in the same plan, since Azure Functions scales each function app independently in a Consumption plan.
+> When using the [Consumption plan](./functions-scale.md), we recommend you always put each app in its own plan, since apps are scaled independently anyway.
 
 Consider whether you want to group functions with different load profiles. For example, if you have a function that processes many thousands of queue messages, and another that is only called occasionally but has high memory requirements, you might want to deploy them in separate function apps so they get their own sets of resources and they scale independently of each other.
 
