@@ -57,7 +57,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       The **Create action rule** screen shows the selected scope.
 
-      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-device-event-alert=notifications/new-action-rule-scope-04.png)
+      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04.png)
 
 4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
 
