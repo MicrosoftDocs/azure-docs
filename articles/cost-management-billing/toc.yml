@@ -124,7 +124,7 @@
       href: manage/ea-portal-get-started.md
     - name: Transfer subscriptions
       items:
-      - name: Azure subscription tranfer
+      - name: Azure subscription transfers
         href: manage/subscription-transfer.md
       - name: About transferring subscriptions
         href: understand/subscription-transfer.md
