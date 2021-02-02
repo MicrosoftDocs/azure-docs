@@ -139,25 +139,6 @@ To enable KMSI for your user flow:
 
    ![Enable keep me signed in session](media/session-behavior/enable-keep-me-signed-in.png)
 
-### Update the display label for KMSI
-
-To change the default label for the KMSI option, see [language customization](language-customization.md).  You can override the `remember_me` ElementId to change the value that is displayed. Download the defaults and use the following format:
-
-```
-    { 
-      "ElementType": "UxElement", 
-      "ElementId": null, 
-      "StringId": "remember_me", 
-      "Override": true, 
-      "Value": "Keep me signed in" 
-    }, 
-```
-
-Set the values as follows:
-
-- **Override** value ‘true’ overrides the default value 
-- **Value** is the value that's shown to the user. 
-
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
