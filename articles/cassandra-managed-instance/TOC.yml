@@ -19,4 +19,4 @@
     - name: Manage Resources
       items:
         - name: Azure CLI
-        - href: manage-with-cli.md
+          href: manage-with-cli.md
