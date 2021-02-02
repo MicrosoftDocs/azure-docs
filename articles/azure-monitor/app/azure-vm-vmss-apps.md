@@ -55,7 +55,7 @@ To monitor .Net Core applications, use the [SDK](https://docs.microsoft.com/azur
 
 #### Java 
 
-If you need additional custom telemetry for Java applications, see what [is available](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), add [custom dimentsions](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions), or use [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+If you need additional custom telemetry for Java applications, see what [is available](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), add [custom dimensions](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions), or use [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
 
 #### Node.js
 
