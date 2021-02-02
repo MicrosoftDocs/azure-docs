@@ -4124,7 +4124,7 @@ This example subtracts one day from this timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-01T00:00:00:0000000Z"`
+And returns this result: `"2018-01-01T00:00:00.0000000Z"`
 
 *Example 2*
 
