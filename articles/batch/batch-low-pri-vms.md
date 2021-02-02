@@ -39,7 +39,7 @@ Azure Batch provides several capabilities that make it easy to consume and benef
 
 ## Considerations and use cases
 
-Many Batch workloads are a good fit for low-priority VMs. Consider using them whens jobs are broken into many parallel tasks, or when you have many jobs that are scaled out and distributed across many VMs.
+Many Batch workloads are a good fit for low-priority VMs. Consider using them when jobs are broken into many parallel tasks, or when you have many jobs that are scaled out and distributed across many VMs.
 
 Some examples of batch processing use cases well suited to use low-priority VMs are:
 
