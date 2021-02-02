@@ -56,15 +56,15 @@ A device must authenticate with your hub before it can exchange any data with th
 
 Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
 
-![IoT Devices tool](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT Devices tool":::
 
 To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
 
-![Add new device](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Add new device":::
 
 To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
 
-![Retrieve device connection string](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Retrieve device connection string}":::
 
 To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
