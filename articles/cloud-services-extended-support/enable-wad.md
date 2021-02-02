@@ -26,7 +26,7 @@ $extensionProfile = @{extension = @($rdpExtension, $wadExtension)}
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 # Add WAD extension to existing Cloud Service extension object
-$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $wadExtension
+$cloudService.ExtensionProfile = $cloudService.ExtensionProfile + $wadExtension
 
 # Update Cloud Service
 $cloudService | Update-AzCloudService
