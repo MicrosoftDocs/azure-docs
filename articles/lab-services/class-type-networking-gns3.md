@@ -51,7 +51,7 @@ Once the setup has completed, a zip file **"GNS3.VM.Hyper-V.2.2.17.zip"** is dow
 - **Run with PowerShell** on the "create-vm.ps1" PowerShell script by right clicking on the file.
 - An Execution Policy Change request may show up. Enter "Y" to execute the script.
 
-![PSExecutionPolicy](./media/class-type-networking-gns3/powershell-executionpolicy-change.png)
+![PSExecutionPolicy](./media/class-type-networking-gns3/powershell-execution-policy-change.png)
 
 - Once the script has completed, you can confirm the VM "GNS3 VM" has been created in the Hyper-V Manager.
 
@@ -59,7 +59,7 @@ Once the setup has completed, a zip file **"GNS3.VM.Hyper-V.2.2.17.zip"** is dow
 Now that GNS3 is installed and the GNS3 VM is added, start up GNS3 to link the two together.  The [GNS3 Setup wizard will start automatically.](https://docs.gns3.com/docs/getting-started/setup-wizard-gns3-vm#local-gns3-vm-setup-wizard).  
 - Use the **Run appliances from virtual machine.** option.  Use the defaults for the rest of the wizard until you hit the **VMware vmrun tool cannot be found.** error.
 
-![VMWareError](./media/class-type-networking-gns3/gns3-vmware-vmruntool-not-found.png)
+![VMWareError](./media/class-type-networking-gns3/gns3-vmware-vmrun-tool-not-found.png)
 
 - Choose **Ok**, and **Cancel** out of the wizard.
 - To complete the connection to the Hyper-V vm, open the **Edit** -> **Preferences** -> **GNS3 VM** and select **Enable the GNS3 VM** and select the **Hyper-V** option.
