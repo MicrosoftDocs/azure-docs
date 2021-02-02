@@ -1,0 +1,67 @@
+- name: Device Update for IoT Hub Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Device Update for IoT Hub?
+    href: understand-device-update.md
+- name: Quickstarts
+  expanded: true
+  items:
+- name: Tutorials
+  items:
+- name: Concepts
+  items:
+  - name: Overview of device update
+    href: understand-device-update.md
+  - name: Device update compliance
+    href: device-update-compliance.md
+  - name: How device update uses Plug and Play
+    href: device-update-plug-and-play.md
+  - name: Device update networking requirements
+    href: device-update-networking.md
+- name: How-to guides
+  items:
+  - name: Device update user roles and access
+    href: device-update-control-access.md
+  - name: Create a device update account
+    href: create-device-update-account.md
+  - name: Create a device update group
+    href: create-update-group.md
+  - name: Deploy a device update
+    href: deploy-update.md
+  - name: Use device update on Raspberry Pi
+    href: device-update-raspberry-pi.md
+  - name: Use device update on the simulator
+    href: device-update-simulator.md
+  - name: Use device update ubuntu agent
+    href: device-update-ubuntu-agent.md
+  - name: Import an update
+    href: import-update.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot device updates
+      href: troubleshoot-device-update.md
+- name: Reference
+  items:
+- name: Resources
+  items:
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: ./index.yml
+    - name: IoT Hub Device Provisioning Service
+      href: ../iot-dps/index.yml
+    - name: IoT Central
+      href: /microsoft-iot-central/
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ../iot-accelerators/index.yml
+    - name: IoT Plug and Play
+      href: ../iot-pnp/index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
+    - name: Time Series Insights
+      href: ../time-series-insights/index.yml
