@@ -126,11 +126,10 @@ az cassandra-mi patch cluster \
 The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra datacenters, including:
 
 * [Create a datacenter](#create-a-datacenter)
-* [Delete a datacenter](#delete-a-hybrid-cluster)
-* [Get hybrid cluster details](#get-hybrid-cluster-details)
-* [List hybrid clusters by resource group](#list-hybrid-clusters-by-resource-group)
-* [List hybrid clusters by subscription id](#list-hybrid-clusters-by-subscription-id)
-* [Patch hybrid cluster](#list-hybrid-clusters-by-subscription-id)
+* [Delete a datacenter](#delete-a-datacenter)
+* [Get datacenter details](#get-datacenter-details)
+* [Get datacenters in a cluster](#get-datacenters-in-a-cluster)
+* [Scale a datacenter](#scale-a-datacenter)
 
 ### Create a datacenter
 
