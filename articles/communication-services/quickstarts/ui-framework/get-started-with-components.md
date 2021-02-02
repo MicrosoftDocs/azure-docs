@@ -99,7 +99,8 @@ We'll use a Fluent UI theme to enhance the look and feel of the application:
 ```javascript
 
 import {CallingProvider, ChatProvider} from "@azure/acs-ui-sdk"
-import { Provider, mergeThemes, teamsTheme } from '@fluentui/react-northstar';
+import { mergeThemes, teamsTheme } from '@fluentui/react-northstar';
+import { Provider } from '@fluentui/react-northstar/dist/commonjs/components/Provider/Provider';
 import { svgIconStyles } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconStyles';
 import { svgIconVariables } from '@fluentui/react-northstar/dist/es/themes/teams/components/SvgIcon/svgIconVariables';
 import * as siteVariables from '@fluentui/react-northstar/dist/es/themes/teams/siteVariables';
