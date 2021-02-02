@@ -36,6 +36,8 @@ To complete this configuration, you need the following resources:
  - A SharePoint 2013 farm or newer. The Sharepoint farm must be [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
  - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
  - A [custom, verified domain](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) in the Azure AD tenant.
+   The verified domain must match the SharePoint URL suffix.
+ - An SSL certificate is required. See the details in [custom domain publishing](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
  - On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin). 
  - For B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
  - An Application Proxy connector installed and running on a machine within the corporate domain.
@@ -51,8 +53,8 @@ To complete this configuration, you need the following resources:
 
 Find the following values that you configured when you [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
 
- - Internal URL: https://\<YourSharePointSiteURL>/ 
- - External URL: https://\<YourSharePointSiteURL>/
+ - Internal URL: https://\<TheRootOfYourSharePointSiteURL>/ 
+ - External URL: https://\<TheRootOfYourSharePointSiteURL>/
 
 > [!NOTE]
 > The values match the Sign on URL under the SAML Based Application configuration in Step 1.
@@ -61,7 +63,7 @@ Find the following values that you configured when you [integrated with Azure AD
 
 In this step, you create an application in your Azure AD tenant that uses Application Proxy. You set the external URL and specify the internal URL, both of which are used later in SharePoint.
 
- 1. Create the app in your Azure AD tenant that uses Application Proxy. For step-by-step instructions, see [Add an on-premises app to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad).
+ 1. Create a new Azure AD Application Proxy application with custom domain. For step-by-step instructions, see [Custom domains in Azure AD Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
 
     - Internal URL: https://portal.contoso.com/
     - External URL: https://portal.contoso.com/
