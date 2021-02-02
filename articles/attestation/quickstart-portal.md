@@ -168,5 +168,5 @@ a.	Verify the certificates count and certs downloaded.
 
 ## Next steps
 
-In this quickstart, you created an attestation resource using CLI, and validated the deployment. To learn more about Azure Attestation, see [Overview of Azure Attestation](overview.md).
+In this quickstart, you created an attestation resource using Azure portal, and validated the deployment. To learn more about Azure Attestation, see [Overview of Azure Attestation](overview.md).
 
