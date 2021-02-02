@@ -168,5 +168,6 @@ a.	Verify the certificates count and certs downloaded.
 
 ## Next steps
 
-In this quickstart, you created an attestation resource using Azure portal, and validated the deployment. To learn more about Azure Attestation, see [Overview of Azure Attestation](overview.md).
+- [How to author and sign an attestation policy](author-sign-policy.md)
+- [Attest an SGX enclave using code samples](/samples/browse/?expanded=azure&terms=attestation)
 
