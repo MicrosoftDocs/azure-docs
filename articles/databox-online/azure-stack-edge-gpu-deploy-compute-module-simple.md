@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro with GPU | Microsoft Docs
+title: Use an IoT Edge module to deploy compute workload on Azure Stack Edge Pro with GPU | Microsoft Docs
 description: Learn how to run a compute workload using a pre-created IoT Edge module on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
