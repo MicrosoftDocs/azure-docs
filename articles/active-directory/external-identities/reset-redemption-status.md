@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Reset redemption status for a guest user
 
-You can now reset the invitation status of an Azure Active Directory B2B guest user. This allows the B2B user to re-redeem their invitation using a different identity provider, a different account, or an account that has been recreated. Before this feature was available it would be common to delete and recreate a B2B user when they had issues logging in, but this would mean that the user would no longer have access to anything shared with their old B2B user object.  
+When guest user redeems your invitation for B2B collaboration, their consent status changes from pending to an accepted status. There may be cases where you want to a guest user to be able to re-redeem their invitation, for example if they want to use a different identity provider  again change the guest user's conset status back to  the consent pages are no longer presented to the guest.You can now reset the invitation status of an Azure Active Directory B2B guest user. This allows the B2B user to re-redeem their invitation using a different identity provider, a different account, or an account that has been re-created. Prior to this feature was available it would be common to delete and recreate a B2B user when they had issues logging in, but this would mean that the user would no longer have access to anything shared with their old B2B user object.  
 
 Using this feature can solve a variety of common user issues:
 
