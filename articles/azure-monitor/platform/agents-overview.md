@@ -170,7 +170,7 @@ The following tables list the operating systems that are supported by the Azure 
 | SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X | X |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X | X |   |
+| Ubuntu 20.04 LTS                                         |   | X | X | X |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14.04 LTS                                         |   | X |   | X |
