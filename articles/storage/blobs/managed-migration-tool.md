@@ -85,9 +85,7 @@ After the data migration is complete, you can test your applications against you
    | **Java** | [1.1.21](https://github.com/Azure/azure-data-lake-store-java/blob/master/CHANGES.md) |
    | **Python** | [0.0 51](https://github.com/Azure/azure-data-lake-store-python/blob/master/HISTORY.rst) |
 
-   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer translates requests requests made by your application to requests formatted for your Gen2 enabled account. This *compatibility layer* runs on the server so there's nothing to install. This translation is what enables your application to continue using Gen1 APIs. 
-
-2. Review known issues with the Gen1 compatibility layer.
+   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer is what enables your application to continue using Gen1 APIs. It runs on the server so there's nothing to install. Just make sure to review the list of known issues with this feature before you begin using it. To review that list, see the [Known issues with the Gen1 compatibility layer](#known-issues) section of this article.
 
 3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
 
@@ -97,7 +95,9 @@ After the data migration is complete, you can test your applications against you
 
 ## Complete the migration
 
-To complete the migration, run the managed migration tool again. Make sure to choose **Complete Migration** this time. When the migration is complete all Gen1 requests will be redirected to your Gen2 enabled account. as time permits, you can move applications and workloads over to Gen2. For guidance, see [Migrate data, workloads, and applications](data-lake-storage-migrate-gen1-to-gen2.md#step-3-migrate-data-workloads-and-applications).
+To complete the migration, run the managed migration tool again. Make sure to select the **Complete migration** option this time. When the migration is complete all Gen1 requests will be redirected to your Gen2 enabled account. As time permits, you can move applications and workloads over to Gen2. For guidance, see [Migrate data, workloads, and applications](data-lake-storage-migrate-gen1-to-gen2.md#step-3-migrate-data-workloads-and-applications).
+
+<a id="known-issues"></a>
 
 ### Known issues with the Gen1 compatibility layer
 
