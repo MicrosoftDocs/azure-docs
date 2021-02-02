@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,11 +23,11 @@ Azure AD terms of use policies provide a simple method that organizations can us
 
 ## Overview videos
 
-The following video provides a quick overview of terms of use policies.
+The following video provides a quick overview of ToU policies.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-For additional videos, see:
+For more videos, see:
 - [How to deploy a terms of use policy in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [How to roll out a terms of use policy in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -180,7 +180,7 @@ To get started with Azure AD audit logs, use the following procedure:
 
 ## What terms of use looks like for users
 
-Once a terms of use policy is created and enforced, users, who are in scope, will see the following screen during sign-in.
+Once a ToU policy is created and enforced, users, who are in scope, will see the following screen during sign-in.
 
 ![Example terms of use that appears when a user signs in](./media/terms-of-use/user-tou.png)
 
@@ -188,7 +188,7 @@ Users can view the terms of use policy and, if necessary, use buttons to zoom in
 
 ![View of terms of use with zoom buttons](./media/terms-of-use/zoom-buttons.png)
 
-The following screen shows how terms of use policy looks on mobile devices.
+The following screen shows how a ToU policy looks on mobile devices.
 
 ![Example terms of use that appears when a user signs in on a mobile device](./media/terms-of-use/mobile-tou.png)
 
@@ -223,7 +223,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
     - (Preview) You can **update an existing terms of use** document
     - You can add a language to an existing ToU
 
-   If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new terms of use policy.
+   If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new ToU policy.
 
     ![Edit showing different language options ](./media/terms-of-use/edit-terms-use.png)
 
@@ -246,7 +246,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 7.	Once you have uploaded your new pdf and decided on reaccept, click Add at the bottom of the pane.
 8.	You will now see the most recent version under the Document column.
 
-## View previous versions of a terms of use
+## View previous versions of a ToU
 
 1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
 2.	Select the terms of use policy for which you want to view a version history.
@@ -263,12 +263,12 @@ You can edit some details of terms of use policies, but you can't modify an exis
 2.	To see who has currently accepted the ToU click on the number under the **Accepted** column for the ToU you want.
 3.	By default, the next page will show you the current state of each users acceptance to the ToU
 4.	If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
-5.	Alternatively, you can select a specific version from the **Version**  drop down to see who has accepted that specific version.
+5.	Alternatively, you can select a specific version from the **Version**  drop-down to see who has accepted that specific version.
 
 
-## Add a terms of use language
+## Add a ToU language
 
-The following procedure describes how to add a terms of use language.
+The following procedure describes how to add a ToU language.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 1. Select the terms of use policy you want to edit.
@@ -341,9 +341,13 @@ You can delete old terms of use policies using the following procedure.
 
    You should no longer see your terms of use policy.
 
-## Deleted users and active terms of use
+## User acceptance record deletion
 
-By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. One a user has been permanently deleted, subsequent data about that user will be removed from the active terms of use policy. Audit information about deleted users remains in the audit log.
+User acceptance records are deleted:
+
+- When the admin explicitly deletes the ToU. When this happens all the acceptance records associated with that specific ToU are also deleted.
+- When the tenant loses its Azure Active Directory Premium license.
+- When the tenant is deleted.
 
 ## Policy changes
 

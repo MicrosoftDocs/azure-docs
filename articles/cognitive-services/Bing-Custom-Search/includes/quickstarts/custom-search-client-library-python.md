@@ -15,7 +15,7 @@ Get started with the Bing Custom Search client library for Python. Follow these 
 Use the Bing Custom Search client library for Python to:
 * Find search results on the web, from your Bing Custom Search instance.
 
-[Reference documentation](/python/api/azure-cognitiveservices-search-customsearch/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Reference documentation](/python/api/azure-cognitiveservices-search-customsearch/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 
 ## Prerequisites

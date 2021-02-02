@@ -122,3 +122,4 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)
