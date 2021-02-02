@@ -55,8 +55,6 @@ If you are interested in viewing an updated roles experience, check out the **Ro
 
 1. Click the **Roles (preview)** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at the current scope.
-
    ![Preview Roles list](./media/role-definitions-list/roles-list.png)
 
 1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
