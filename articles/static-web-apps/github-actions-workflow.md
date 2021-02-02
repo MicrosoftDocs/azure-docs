@@ -192,9 +192,9 @@ jobs:
 
 ## Monorepo support
 
-A monorepo is a repository that contains code for multiple applications. By default a workflow file tracks all the files in a repository, but you can configure multiple workflow files in a repository to support a monorepo.
+A monorepo is a repository that contains code for multiple applications. By default a workflow file tracks all the files in a repository, but you can configure multiple workflow files in a repository to support a monorepo. In the context of Azure Static Web Apps, each static site will have it's own configuration file.
 
-For a monorepo repo, you can specify specific paths in the `push` and `pull_request` section for the workflow file to track.
+To support a monorepo with multiple static web apps, you can specify specific paths in the `push` and `pull_request` section for the workflow file to track a specific application.
 
 The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond-08f780f0f.yml_.
 
