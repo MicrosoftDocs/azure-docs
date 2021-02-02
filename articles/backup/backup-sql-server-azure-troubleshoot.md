@@ -213,7 +213,7 @@ Check for one or more of the following symptoms before you trigger the re-regist
 
   - Lack of permission to perform backup-related operations on the VM.
   - Shutdown of the VM, so backups can't take place.
-  - Network issues.
+  - [Network issues](#usererrorvminternetconnectivityissue)
 
    ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
 
