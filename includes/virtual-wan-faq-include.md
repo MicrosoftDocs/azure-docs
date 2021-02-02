@@ -136,6 +136,10 @@ Up to 1,000 connections are supported per virtual hub. Each connection consists 
 
 A connection from a branch or VPN device into Azure Virtual WAN is nothing but a VPN connection that connects virtually the VPN Site and the Azure VPN Gateway in a virtual hub.
 
+### What happens if the on-premise VPN device only has 1 tunnel to a Azure Virtual WAN VPN gateway?
+
+An Azure Virtual WAN connection comprises of 2 tunnels. A Virtual WAN VPN gateway is deployed in Virtual Hub in active-active mode which implies that there are separate tunnels from on-premise devices terminating on separate isntances - this is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.)  the gateway instance were to be taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. Also to keep in mind is that BGP session will not move across instances.
+
 ### Can the on-premises VPN device connect to multiple Hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
