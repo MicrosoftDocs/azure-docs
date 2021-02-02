@@ -40,7 +40,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
-    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
+    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you use Azure File Syncs [cloud tiering](../filesync/file-sync-cloud-tiering.md) feature.
     However, when you copy your files from the larger NAS space to the smaller Windows Server volume in a later phase, you will need to work in batches:
 
     1. Move a set of files that fits onto the disk
@@ -51,7 +51,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 
 The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. We recommend going with a higher performance configuration if you have any concerns.
 
-[Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
+[Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](../filesync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > The previously linked article presents a table with a range for server memory (RAM). You can orient towards the smaller number for your server but expect that initial sync can take significantly more time.
@@ -100,7 +100,7 @@ Run the first local copy to your Windows Server target folder:
 
 The following RoboCopy command will copy files from your NAS storage to your Windows Server target folder. The Windows Server will sync it to the Azure file share(s). 
 
-If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](../filesync/file-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 It is possible, that RoboCopy moves files faster than you can sync to the cloud and tier locally, thus running out of local disk space. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few.
 
 ```console
@@ -221,6 +221,6 @@ Check the link in the following section for troubleshooting Azure File Sync issu
 
 There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
-* [AFS overview](./storage-sync-files-planning.md)
-* [AFS deployment guide](./storage-how-to-create-file-share.md)
-* [AFS troubleshooting](storage-sync-files-troubleshoot.md)
+* [Azure File Sync overview](../filesync/file-sync-planning.md)
+* [Deploy Azure File Sync](../filesync/file-sync-deployment-guide.md)
+* [Azure File Sync troubleshooting](../filesync/file-sync-troubleshoot.md)

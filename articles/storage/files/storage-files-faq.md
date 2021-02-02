@@ -85,7 +85,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-region-availability"></a>
   **What regions are supported for Azure File Sync?**  
-    The list of available regions can be found on the [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) section of the Azure File Sync planning guide. We will continuously add support for additional regions, including non-Public regions.
+    The list of available regions can be found on the [Region availability](../filesync/file-sync-planning.md#azure-file-sync-region-availability) section of the Azure File Sync planning guide. We will continuously add support for additional regions, including non-Public regions.
 
 * <a id="cross-domain-sync"></a>
   **Can I have domain-joined and non-domain-joined servers in the same sync group?**  
@@ -114,30 +114,30 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-force-tiering).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-effective-vfs).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
-  See [Files skipped](storage-sync-files-planning.md#files-skipped).
+  See [Files skipped](../filesync/file-sync-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
@@ -153,7 +153,7 @@ This article answers common questions about Azure Files features and functionali
     
 * <a id="afs-resource-move"></a>
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../filesync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -461,4 +461,4 @@ This article answers common questions about Azure Files features and functionali
 ## See also
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Troubleshoot Azure File Sync](../filesync/file-sync-troubleshoot.md)

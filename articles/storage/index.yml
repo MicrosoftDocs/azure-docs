@@ -100,11 +100,11 @@ additionalContent:
         # Card
         - title: Expand on-premises file share to the cloud
           links:
-          - url: ./files/storage-sync-files-planning.md
+          - url: ./filesync/file-sync-planning.md
             text: Sync Azure file shares with Windows file server (Azure FileSync)
-          - url: ./files/storage-sync-files-deployment-guide.md
+          - url: ./filesync/file-sync-deployment-guide.md
             text: Deploy Azure File Sync
-          - url: ./files/index.yml
+          - url: ./filesync/index.yml
             text: See more >
         # Card
         - title: Online data transfer (on-premises to Azure)

@@ -65,7 +65,7 @@ Since the Azure File Sync agent runs on a Windows Server machine that connects t
 
 For Azure File Sync, performance is critical in two stages:
 
-1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
+1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../filesync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
@@ -118,4 +118,4 @@ As a general guide for your deployment, you should keep a few things in mind:
 ## See also
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Planning for an Azure File Sync deployment](../filesync/file-sync-planning.md)
