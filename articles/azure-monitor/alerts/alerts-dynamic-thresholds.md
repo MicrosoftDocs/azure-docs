@@ -25,7 +25,7 @@ We would love to hear your feedback, keep it coming at <azurealertsfeedback@micr
 
 ## How to configure alerts rules with Dynamic Thresholds?
 
-Alerts with Dynamic Thresholds can be configured through Metric Alerts in Azure Monitor. [Learn more about how to configure Metric Alerts](../platform/alerts-metric.md).
+Alerts with Dynamic Thresholds can be configured through Metric Alerts in Azure Monitor. [Learn more about how to configure Metric Alerts](alerts-metric.md).
 
 ## How are the thresholds calculated?
 

@@ -19,7 +19,7 @@ The [common alert schema](./alerts-common-schema.md) provides a standardized and
 ## Prerequisites 
 
 This article assumes that the reader is familiar with 
-* Setting up alert rules ([metric](../platform/alerts-metric.md), [log](../platform/alerts-log.md), [activity log](../platform/alerts-activity-log.md))
+* Setting up alert rules ([metric](../alerts/alerts-metric.md), [log](../platform/alerts-log.md), [activity log](../platform/alerts-activity-log.md))
 * Setting up [action groups](../platform/action-groups.md)
 * Enabling the [common alert schema](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) from within action groups
 

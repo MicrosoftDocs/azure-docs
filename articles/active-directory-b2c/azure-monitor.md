@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
+ms.date: 01/29/2021
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -27,6 +27,10 @@ You can route log events to:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 In this article, you learn how to transfer the logs to an Azure Log Analytics workspace. Then you can create a dashboard or create alerts that are based on Azure AD B2C users' activities.
+
+> [!IMPORTANT]
+> When you plan to transfer Azure AD B2C logs to different monitoring solutions, or repository, consider the following. Azure AD B2C logs contain personal data. Such data should be processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing, using appropriate technical or organizational measures.
+
 
 ## Deployment overview
 

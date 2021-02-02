@@ -329,6 +329,8 @@
         href: agents/data-sources-linux-applications.md
       - name: IIS logs
         href: agents/data-sources-iis-logs.md
+      - name: Event Tracing for Windows data
+        href: platform/data-sources-event-tracing-windows.md
       - name: Custom logs
         href: agents/data-sources-custom-logs.md
       - name: Custom fields
@@ -1436,16 +1438,4 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
-
-
-
-
-
-
-
-
-
-
-
-
 

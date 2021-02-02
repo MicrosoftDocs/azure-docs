@@ -379,7 +379,7 @@ To register your application and add the app's registration information to your 
 1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Redirect URI**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
-1. In the **Implicit Grant** section, select **ID tokens**, and then select **Save**.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml

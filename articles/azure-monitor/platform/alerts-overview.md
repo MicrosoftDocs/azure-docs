@@ -130,7 +130,7 @@ Here's how to create a new alert rule:
 
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you're guided through defining the logic of the alert rule automatically.  
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](./alerts-metric.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../alerts/alerts-metric.md).
 
 Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../overview.md). 
 
