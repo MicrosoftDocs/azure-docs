@@ -59,7 +59,7 @@ Keep in mind the following when planning your use of low-priority VMs:
 - Occasionally VMs may not be available or are preempted, which results in reduced capacity for jobs and may lead to task interruption and reruns.
 - Tasks with shorter execution times tend to work best with low-priority VMs. Jobs with longer tasks may be impacted more if interrupted. If long-running tasks implement checkpointing to save progress as they execute, this impact may be reduced. 
 - Long-running MPI jobs that utilize multiple VMs are not well suited to use low-priority VMs, because one preempted VM can lead to the whole job having to run again.
-- Low-priority nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#network-security-groups-specifying-subnet-rules) are configured incorrectly.
+- Low-priority nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#network-security-groups-specifying-subnet-level-rules) are configured incorrectly.
 
 ## Create and manage pools with low-priority VMs
 
