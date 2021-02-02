@@ -27,7 +27,7 @@ represent brands, personify machines, and allow users to interact with
 applications conversationally in a natural way.
 
 > [!NOTE]
-> The Custom Neural Voice feature requires registration, and access to it is limited based upon Microsoft’s eligibility and use criteria. Customers who wish to use this feature are required to register their use cases through the [intake form](http://aka.ms/customneural).
+> The Custom Neural Voice feature requires registration, and access to it is limited based upon Microsoft’s eligibility and use criteria. Customers who wish to use this feature are required to register their use cases through the [intake form](https://aka.ms/customneural).
 
 ## The basics of Custom Neural Voice
 

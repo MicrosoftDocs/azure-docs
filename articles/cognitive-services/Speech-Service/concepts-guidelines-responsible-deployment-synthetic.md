@@ -53,7 +53,6 @@ Individuals with speech disorders desire to make updates to their synthetic voic
 ## Reference docs
 
 * [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)
 
