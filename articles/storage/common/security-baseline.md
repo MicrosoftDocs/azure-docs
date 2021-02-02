@@ -1,80 +1,60 @@
 ---
-title: Azure security baseline for Azure Storage
-description: The Azure Storage security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
+title: Azure Security Baseline for Azure Storage
+description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
-ms.service: storage
+ms.service: security
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
-# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
-
 ---
 
-# Azure security baseline for Azure Storage
+# Azure Security Baseline for Azure Storage
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../../security/benchmarks/overview-v1.md) to Azure Storage. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Azure Storage. **Controls** not applicable to Azure Storage have been excluded.
+The Azure Security Baseline for Azure Storage contains recommendations that will help you improve the security posture of your deployment.
 
- 
-To see how Azure Storage completely maps to the Azure
-Security Benchmark, see the [full Azure Storage security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+For more information, see [Azure Security Baselines overview](../../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](../../security/benchmarks/security-control-network-security.md).*
+*For more information, see [Security Control: Network Security](../../security/benchmarks/security-control-network-security.md).*
 
-### 1.1: Protect Azure resources within virtual networks
+### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3713).
-
-**Guidance**: Configure your storage account's firewall by restricting access to clients from specific public IP address ranges, select virtual networks, or specific Azure resources.  You can also configure Private Endpoints so traffic to the storage service from your enterprise travels exclusively over private networks.
+**Guidance**: Configure your Storage Account's Firewall by restricting access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You can also configure Private Endpoints so traffic to the storage service from your enterprise travels exclusively over private networks.
 
 Note: Classic storage accounts do not support firewalls and virtual networks.
 
-- [How to configure the Azure Storage Firewall](storage-network-security.md#change-the-default-network-access-rule)
+- [How to configure the Azure Storage Firewall](./storage-network-security.md#change-the-default-network-access-rule)
 
-- [How to configure Private Endpoints for Azure Storage](storage-private-endpoints.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3714).
-
-**Guidance**: Azure Storage provides a layered security model. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges or from a list of subnets in an Azure Virtual Network. You can use Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Also, enable network security group flow logs for virtual networks or subnet configured for the Storage accounts via Storage account firewall and send logs into a Storage Account for traffic audit. 
-
-Note that if you have Private Endpoints attached to your storage account, you can not configure a network security group rules for subnets. 
-
-- [Configure Azure Storage firewalls and virtual networks](storage-network-security.md) 
-
-- [How to Enable NSG Flow Logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
-
-- [Understanding Network Security provided by Azure Security Center](../../security-center/security-center-network-recommendations.md) 
-
-- [Understanding Private Endpoints for Azure Storage](storage-private-endpoints.md#known-issues)
+- [How to configure Private Endpoints for Azure Storage](./storage-private-endpoints.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 1.3: Protect critical web applications
+### 1.2: Monitor and log Vnet, Subnet, and NIC configuration and traffic
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3715).
+**Guidance**: Azure Storage provides a layered security model. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges or from a list of subnets in an Azure Virtual Network (VNet). You can use Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Also, enable NSG flow logs for virtual networks / subnet configured for the Storage accounts via Storage account firewall and send logs into a Storage Account for traffic audit. 
+
+Note that if you have Private Endpoints attached to your storage account, you can't configure Network Security Group (NSG) rules for subnets. 
+
+- [Configure Azure Storage firewalls and virtual networks](./storage-network-security.md)
+
+- [How to Enable NSG Flow Logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+
+- [Understanding Network Security provided by Azure Security Center](../../security-center/security-center-network-recommendations.md)
+
+- [Understanding Private Endpoints for Azure Storage](./storage-private-endpoints.md#known-issues)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
+
+### 1.3: Protect Critical Web Applications
 
 **Guidance**: Not applicable; recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -82,14 +62,11 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known-malicious IP addresses
+### 1.4: Deny Communications with Known Malicious IP Addresses
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3716).
+**Guidance**: Enable Advanced Threat Protection for your Azure Storage account. Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Azure Security Center integrated alerts are based on activities for which network communication was associated with an IP address that was successfully resolved, whether or not the IP address is a known risky IP address (for example, a known cryptominer) or an IP address that is not recognized previously as risky. Security alerts are triggered when anomalies in activity occur. 
 
-**Guidance**: Enable Azure Defender for Storage for your Azure Storage account. Azure Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts.  Azure Security Center integrated alerts are based on activities for which network communication was associated with an IP address that was successfully resolved, whether or not the IP address is a known risky IP address (for example, a known cryptominer) or an IP address that is not recognized previously as risky. Security alerts are triggered when anomalies in activity occur. 
-
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md) 
+- [How to enable Advanced Threat Protection](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 - [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
@@ -97,36 +74,27 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Responsibility**: Customer
 
-### 1.5: Record network packets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3717).
+### 1.5: Record Network Packets and Flow Logs
 
 **Guidance**: Network Watcher packet capture allows you to create capture sessions to track traffic between Storage account and a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communication, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time. 
 
-- [ Manage packet captures with Azure Network Watcher using the portal](../../network-watcher/network-watcher-packet-capture-manage-portal.md)
+- [Manage packet captures with Azure Network Watcher using the portal](../../network-watcher/network-watcher-packet-capture-manage-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy Network Based Intrusion Detection/Intrusion Prevention Systems
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3718).
+**Guidance**: Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 
-**Guidance**: Azure Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
-
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Configure advanced threat protection for Azure Storage](./azure-defender-storage-configure.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 1.7: Manage traffic to web applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3719).
+### 1.7: Manage traffic to your web applications
 
 **Guidance**: Not applicable; recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -136,10 +104,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3720).
-
-**Guidance**: For resource in Virtual Networks that need access to your Storage account, use Virtual Network Service tags for the configured Virtual Network to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (such as Storage) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
+**Guidance**: For resource in Virtual Networks that need access to your Storage account, use Virtual Network Service Tags for the configured Virtual network to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., Storage) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
 
 When network access needs to be scoped to specific Storage Accounts, use Virtual Network service endpoint policies.
 
@@ -149,22 +114,20 @@ When network access needs to be scoped to specific Storage Accounts, use Virtual
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Customer
+**Responsibility**: Service
 
-### 1.9: Maintain standard security configurations for network devices
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3721).
+### 1.9: Maintain Standard Security Configurations for Network Devices
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Storage Account with Azure Policy. Use Azure Policy aliases in the "Microsoft.Storage" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Storage account resources. 
 
-You may also make use of built-in policy definitions related to Storage account, such as: Storage Accounts should use a virtual network service endpoint 
+You may also make use of built-in policy definitions related to Storage account, such as: 
+Storage Accounts should use a virtual network service endpoint 
 
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for Storage](../../governance/policy/samples/built-in-policies.md#storage) 
+- [Azure Policy samples for Storage](../../governance/policy/samples/built-in-policies.md#storage)
 
-- [Azure Policy samples for Network](../../governance/policy/samples/built-in-policies.md#network) 
+- [Azure Policy samples for Network](../../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -172,31 +135,23 @@ You may also make use of built-in policy definitions related to Storage account,
 
 **Responsibility**: Customer
 
-### 1.10: Document traffic configuration rules
+### 1.10: Document Traffic Configuration Rules
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3722).
+**Guidance**: Use tags for network security groups (NSG) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network. Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources. You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
 
-**Guidance**: Use tags for network security groups and other resources related to network security and traffic flow. Tagging lets you associate built-in and custom name-value pairs with a given network resource, helping  you to organize network resources and to relate Azure resources back to your network design.
+- [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources. 
+- [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
-Network security groups support tags, but individual security rules do not. Security rules do have a **Description** field that you can use to store some of the information you would normally put in a tag.
-
-- [How to create and use resource tags](../../azure-resource-manager/management/tag-resources.md)
-
-- [How to filter network traffic with a network security group](../../virtual-network/tutorial-filter-network-traffic.md)
+- [How to create an NSG with a Security Config](../../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 1.11: Use automated tools to monitor network resource configurations and detect changes
+### 1.11: Use Automated Tools to Monitor Network Resource Configurations and Detect Changes
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3723).
-
-**Guidance**: Use Azure Policy to log configuration changes for network resources.  Create alerts within Azure Monitor that will trigger when changes to critical network resources take place. 
+**Guidance**: Use Azure Policy to log configuration changes for network resources. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place. 
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -208,15 +163,9 @@ Network security groups support tags, but individual security rules do not. Secu
 
 ## Logging and Monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../../security/benchmarks/security-control-logging-monitoring.md).*
+*For more information, see [Security Control: Logging and Monitoring](../../security/benchmarks/security-control-logging-monitoring.md).*
 
-### 2.1: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3724).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+### 2.1: Use Approved Time Synchronization resource
 
 **Guidance**: Not applicable; Microsoft maintains time sources for Azure Storage accounts.
 
@@ -224,10 +173,7 @@ Network security groups support tags, but individual security rules do not. Secu
 
 **Responsibility**: Microsoft
 
-### 2.2: Configure central security log management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3725).
+### 2.2: Configure Central Security Log Management
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by endpoints devices, network resources, and other security systems. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds.
 
@@ -237,26 +183,17 @@ Network security groups support tags, but individual security rules do not. Secu
 
 **Responsibility**: Customer
 
-### 2.3: Enable audit logging for Azure resources
+### 2.3: Enable audit logging for Azure Resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3726).
+**Guidance**: Azure Storage Analytics provides logs for blobs, queues, and tables. You can use the Azure portal to configure which logs are recorded for your account. 
 
-**Guidance**: Azure Storage Analytics provides logs for blobs, queues, and tables. You can use the Azure portal to configure which logs are recorded for your account.  
-
-- [How to configure monitoring for your Azure Storage account](/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
+- [How to configure monitoring for your Azure Storage account](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 2.4: Collect security logs from operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3727).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 2.4: Collect Security Logs from Operating Systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -264,14 +201,11 @@ Network security groups support tags, but individual security rules do not. Secu
 
 **Responsibility**: Not applicable
 
-### 2.5: Configure security log storage retention
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3728).
+### 2.5: Configure Security Log Storage Retention
 
 **Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements. 
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging) 
+- [How to configure retention policy for Azure Storage account logs](./storage-monitor-storage-account.md#configure-logging)
 
 - [Change the data retention period in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -279,62 +213,49 @@ Network security groups support tags, but individual security rules do not. Secu
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review logs
+### 2.6: Monitor and Review Logs
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3729).
+**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at `http://accountname.blob.core.windows.net/$logs` (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
 
-**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at `http://accountname.blob.core.windows.net/$logs (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
+Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 
-Also, Enable Azure Defender for Storage for your storage account. Azure Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
+- [Log and review data](./storage-analytics-logging.md#how-logs-are-stored)
 
-- [Log and review data](storage-analytics-logging.md#how-logs-are-stored) 
-
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md?tabs=azure-portal)
+- [How to enable Advanced Threat Protection](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 2.7: Enable alerts for anomalous activities
+### 2.7: Enable Alerts for Anomalous Activity
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3730).
+**Guidance**: In Azure Security Center, enable Advanced Threat Protection for Storage account. Enable Diagnostic Settings for the Storage account and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. 
 
-**Guidance**: In Azure Security Center, enable Azure Defender for Storage account. Enable Diagnostic Settings for the Storage account and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. 
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
-
-- [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
+- [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
 - [How to alert on log analytics log data](../../azure-monitor/learn/tutorial-response.md)
- 
 
-- [Azure Storage analytics logging](storage-analytics-logging.md)
+- [Azure Storage analytics logging](./storage-analytics-logging.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 2.8: Centralize anti-malware logging
+### 2.8: Centralize Anti-malware Logging
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3731).
+**Guidance**: Use Azure Security center and enable threat protection for Azure Storage for detecting malware uploads to Azure Storage using hash reputation analysis and suspicious access from an active Tor exit node (an anonymizing proxy). 
 
-**Guidance**: Use Azure Security center and enable Azure Defender for Storage for detecting malware uploads to Azure Storage using hash reputation analysis and suspicious access from an active Tor exit node (an anonymizing proxy). 
-
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md)
+- [Configure advanced threat protection for Azure Storage](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 2.9: Enable DNS query logging
+### 2.9: Enable DNS Query Logging
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3732).
-
-**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations.  Currently this does not support Azure Storage accounts however you can use third party dns logging solution. 
+**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Storage accounts however you can use third party dns logging solution. 
 
 - [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](../../azure-monitor/insights/dns-analytics.md)
 
@@ -342,13 +263,7 @@ Also, Enable Azure Defender for Storage for your storage account. Azure Defender
 
 **Responsibility**: Customer
 
-### 2.10: Enable command-line audit logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3733).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 2.10: Enable Command-line Audit Logging
 
 **Guidance**: Not applicable; benchmark is intended for compute resources.
 
@@ -358,14 +273,11 @@ Also, Enable Azure Defender for Storage for your storage account. Azure Defender
 
 ## Identity and Access Control
 
-*For more information, see the [Azure Security Benchmark: Identity and Access Control](../../security/benchmarks/security-control-identity-access-control.md).*
+*For more information, see [Security Control: Identity and Access Control](../../security/benchmarks/security-control-identity-access-control.md).*
 
-### 3.1: Maintain an inventory of administrative accounts
+### 3.1: Maintain Inventory of Administrative Accounts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3734).
-
-**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. 
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -375,63 +287,51 @@ Also, Enable Azure Defender for Storage for your storage account. Azure Defender
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
+### 3.2: Change Default Passwords where Applicable
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3735).
+**Guidance**: Azure Storage accounts nor Azure Active Directory have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (Azure RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
 
-**Guidance**: Azure Storage accounts nor Azure Active Directory (Azure AD) have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (Azure RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+- [Authorizing access to data in Azure Storage](./storage-auth.md)
 
-- [Authorizing access to data in Azure Storage](storage-auth.md)
-
-- [Understanding security principals and access control for Azure Storage account](storage-introduction.md)
+- [Understanding security principals and access control for Azure Storage account](./storage-introduction.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.3: Use dedicated administrative accounts
+### 3.3: Use Dedicated Administrative Accounts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3736).
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts that have access to your Storage account. Use Azure Security Center Identity and access management to monitor the number of administrative accounts. 
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts that have access to your Storage account. Use Azure Security Center Identity and access management to monitor the number of administrative accounts.
-
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure ARM.
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure ARM. 
 
 - [Understand Azure Security Center Identity and Access](../../security-center/security-center-identity-access.md)
 
-- [Privileged Identity Management Overview](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management Overview](../../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.4: Use Azure Active Directory single sign-on (SSO)
+### 3.4: Use Azure Active Directory Single Sign-On (SSO)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3737).
-
-**Guidance**: Wherever possible, use Azure Active Directory (Azure AD) SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations. 
 
 - [Understanding SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [Authorizing access to data in Azure Storage](storage-auth.md)
+- [Authorizing access to data in Azure Storage](./storage-auth.md)
 
-- [Authorize access to blobs and queues using Azure AD](storage-auth.md-aad)
+- [Authorize access to blobs and queues using Azure Active Directory](./storage-auth-aad.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
+### 3.5: Use Multifactor Authentication for all Azure Active Directory based access.
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3738).
+**Guidance**: Enable Azure Active Directory Multifactor Authentication and follow Azure Security Center Identity and access management recommendations to help protect your Storage account resources. 
 
-**Guidance**: Enable Azure Active Directory (Azure AD) multifactor authentication and follow Azure Security Center Identity and access management recommendations to help protect your Storage account resources.
-
-- [How to enable multifactor authentication in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [How to monitor identity and access within Azure Security Center](../../security-center/security-center-identity-access.md)
 
@@ -439,29 +339,23 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Responsibility**: Customer
 
-### 3.6: Use secure, Azure-managed workstations for administrative tasks
+### 3.6: Use Dedicated Machines (Privileged Access Workstations) for all Administrative Tasks
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3739).
+**Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Storage account resources. 
 
-**Guidance**: Use PAWs (privileged access workstations) with multifactor authentication configured to log into and configure Storage account resources. 
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Learn about Privileged Access Workstations](/security/compass/privileged-access-devices)
-
-- [How to enable multifactor authentication in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activities from administrative accounts
+### 3.7: Log and Alert on Suspicious Activity from Administrative Accounts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3740).
+**Guidance**: Send Azure Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups. Enable Advanced Threat Protection for Azure Storage account to generate alerts for suspicious activity. Additionally, use Azure AD Risk Detections to view alerts and reports on risky user behavior. 
 
-**Guidance**: Send Azure Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups. Enable Azure Defender for Storage account to generate alerts for suspicious activity. Additionally, use Azure Active Directory (Azure AD) Risk Detections to view alerts and reports on risky user behavior.
-
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md)
+- [How to setup Advanced Threat Protection for Azure Storage account](./azure-defender-storage-configure.md)
 
 - [Understand Azure AD risk detections](../../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -471,10 +365,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Responsibility**: Customer
 
-### 3.8: Manage Azure resources from only approved locations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3741).
+### 3.8: Manage Azure Resource from only Approved Locations
 
 **Guidance**: Use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions. 
 
@@ -486,31 +377,25 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.9: Use Azure Active Directory
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3742).
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources in a storage account.  Use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation shared access signatures (SAS) when possible for superior security.
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources in a storage account.   Use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation shared access signatures (SAS) when possible for superior security.
+- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
+- [Use the Azure Storage resource provider to access management resources](./authorization-resource-provider.md)
 
-- [Use the Azure Storage resource provider to access management resources](authorization-resource-provider.md)
+- [How to configure access to Azure Blob and Queue data with Azure RBAC in Azure portal](./storage-auth-aad-rbac-portal.md)
 
-- [How to configure access to  Azure Blob and Queue data with Azure RBAC in Azure portal](storage-auth.md-aad-rbac-portal)
+- [Authorizing access to data in Azure Storage](./storage-auth.md)
 
-- [Authorizing access to data in Azure Storage](storage-auth.md)
-
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](./storage-sas-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.10: Regularly review and reconcile user access
+### 3.10: Regularly Review and Reconcile User Access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3743).
-
-**Guidance**: Review the Azure Active Directory (Azure AD) logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Storage account resources, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access. 
+**Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Storage account resources, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access.  
 
 You can also use shared access signature (SAS) to provide secure delegated access to resources in your storage account without compromising the security of your data. You can control what resources the client may access, what permissions they have on those resources, and how long the SAS is valid, among other parameters.
 
@@ -518,49 +403,41 @@ Also, review anonymous read access to containers and blobs. By default, a contai
 
 One effective way to reduce the risk of unsuspected user account access is to limit the duration of access that you grant to users. Time-limited SAS URIs are one effective way to automatically expire user access to a Storage account. Additionally, rotating Storage Account Keys on a frequent basis is a way to ensure that unexpected access via Storage Account keys is of limited duration.
 
-- [Understand Azure AD Reporting](/azure/active-directory/reports-monitoring/) 
+- [Understand Azure AD Reporting](../../active-directory/reports-monitoring/index.yml)
 
-- [How to view and change access at the Azure Storage account level](storage-auth.md-aad-rbac-portal)
+- [How to view and change access at the Azure Storage account level](./storage-auth-aad-rbac-portal.md)
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](./storage-sas-overview.md)
 
 - [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md)
 
-- [Monitor a storage account in the Azure portal](/azure/storage/common/storage-monitor-storage-account)
+- [Monitor a storage account in the Azure portal](./storage-monitor-storage-account.md)
 
-- [Manage storage account access keys](storage-account-keys-manage.md)
+- [Manage storage account access keys](./storage-account-keys-manage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.11: Monitor attempts to access deactivated credentials
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3744).
+### 3.11: Monitor Attempts to Access Deactivated Accounts
 
 **Guidance**: Use Storage Analytics to logs detailed information about successful and failed requests to a storage service. All logs are stored in block blobs in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account.
 
-Create Diagnostic Settings for Azure Active Directory (Azure AD) user accounts, sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
+Create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace. To monitor authentication failures against Azure Storage Accounts, you can create alerts to notify you when certain thresholds have been reached for storage resource metrics. Additionally, use Azure Monitor to alert on anonymous access for Storage accounts using anonymous authentication condition.
 
-To monitor authentication failures against Azure Storage Accounts, you can create alerts to notify you when certain thresholds have been reached for storage resource metrics. Additionally, use Azure Monitor to alert on anonymous access for Storage accounts using anonymous authentication condition.
+- [Azure Storage analytics logging](./storage-analytics-logging.md)
 
-- [Azure Storage analytics logging](storage-analytics-logging.md)
+- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
-
-- [How to configure metrics alerts for Azure Storage Accounts](/azure/storage/common/storage-monitor-storage-account)
+- [How to configure metrics alerts for Azure Storage Accounts](./storage-monitor-storage-account.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account sign-in behavior deviation
+### 3.12: Alert on Account Login Behavior Deviation
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3745).
-
-**Guidance**: Use Azure Active Directory (Azure AD)'s Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your Storage account resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
+**Guidance**: Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your Storage account resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses. 
 
 - [How to view Azure AD risky sign-ins](../../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -574,9 +451,6 @@ To monitor authentication failures against Azure Storage Accounts, you can creat
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3746).
-
 **Guidance**: In support scenarios where Microsoft needs to access customer data, Customer Lockbox (Preview for Storage account) provides an interface for customers to review and approve or reject customer data access requests. Microsoft will not require, nor request access to your organization's secrets stored within Storage account.
 
 - [Understand Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md)
@@ -587,12 +461,9 @@ To monitor authentication failures against Azure Storage Accounts, you can creat
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](../../security/benchmarks/security-control-data-protection.md).*
+*For more information, see [Security Control: Data Protection](../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3747).
 
 **Guidance**: Use tags to assist in tracking Storage account resources that store or process sensitive information. 
 
@@ -604,12 +475,7 @@ To monitor authentication failures against Azure Storage Accounts, you can creat
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3748).
-
-**Guidance**: Implement isolation using separate subscriptions, management groups, and storage accounts for individual security domains such as environment, and data sensitivity.  You can restrict your Storage Account to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can control access to Azure Storage via Azure RBAC (Azure RBAC).
-
-You can also configure Private Endpoints to improve security as traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+**Guidance**: Implement isolation using separate subscriptions, management groups, and storage accounts for individual security domains such as environment, data sensitivity.  You can restrict your Storage Account to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can control access to Azure Storage via Azure RBAC. You can also configure Private Endpoints to improve security as traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. 
 
 - [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
@@ -617,7 +483,7 @@ You can also configure Private Endpoints to improve security as traffic between 
 
 - [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
-- [Configure Azure Storage firewalls and virtual networks](storage-network-security.md)
+- [Configure Azure Storage firewalls and virtual networks](./storage-network-security.md)
 
 - [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
@@ -625,12 +491,9 @@ You can also configure Private Endpoints to improve security as traffic between 
 
 **Responsibility**: Customer
 
-### 4.3: Monitor and block unauthorized transfer of sensitive information
+### 4.3: Monitor and block unauthorized transfer of sensitive information.
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3749).
-
-**Guidance**: For Storage account resources storing or processing sensitive information, mark the resources as sensitive using Tags. To reduce the risk of data loss via exfiltration, restrict outbound network traffic for Azure Storage accounts using Azure Firewall.  
+**Guidance**: For Storage account resources storing or processing sensitive information, mark the resources as sensitive using Tags. To reduce the risk of data loss via exfiltration, restrict outbound network traffic for Azure Storage accounts using Azure Firewall. 
 
 Additionally, use Virtual network service endpoint policies to filter egress virtual network traffic to Azure Storage accounts over service endpoint, and allow data exfiltration to only specific Azure Storage accounts.
 
@@ -646,12 +509,9 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.4: Encrypt all sensitive information in transit
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3750).
+**Guidance**: You can enforce the use of HTTPS by enabling Secure transfer required for the storage account. Connections using HTTP will be refused once this is enabled. Additionally, use Azure Security Center and Azure Policy to enforce Secure transfer for your storage account.
 
-**Guidance**: You can enforce the use of HTTPS by enabling Secure transfer required for the storage account. Connections using HTTP will be refused once this is enabled.  Additionally, use Azure Security Center and Azure Policy to enforce Secure transfer for your storage account.
-
-- [How to require secure transfer in Azure Storage](storage-require-secure-transfer.md)
+- [How to require secure transfer in Azure Storage](./storage-require-secure-transfer.md)
 
 - [Azure security policies monitored by Security Center](../../security-center/policy-reference.md)
 
@@ -661,9 +521,6 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3751).
-
 **Guidance**: Data identification features are not yet available for Azure Storage account and related resources. Implement third-party solution if required for compliance purposes. 
 
 - [Understand customer data protection in Azure](../../security/fundamentals/protection-customer-data.md)
@@ -672,34 +529,25 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3752).
+**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure role-based access control (Azure RBAC). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data. 
 
-**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure role-based access control (Azure RBAC). Azure Storage defines a set of Azure built-in RBAC roles that encompass common sets of permissions used to access blob or queue data.
+- [How to assign Azure roles for Azure Storage account](./storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal)
 
-- [How to assign Azure RBAC roles for Azure Storage account](storage-auth.md-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
+- [Use the Azure Storage resource provider to access management resources](./authorization-resource-provider.md)
 
-- [Use the Azure Storage resource provider to access management resources](authorization-resource-provider.md)
+- [How to configure access to Azure Blob and Queue data with Azure RBAC in Azure portal](./storage-auth-aad-rbac-portal.md)
 
-- [How to configure access to Azure Blob and Queue data with Azure RBAC in Azure portal](storage-auth.md-aad-rbac-portal)
+- [How to create and configure an AAD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-
-- [Authorizing access to data in Azure Storage](storage-auth.md)
+- [Authorizing access to data in Azure Storage](./storage-auth.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 4.7: Use host-based data loss prevention to enforce access control
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3753).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 4.7: Use host-based Data Loss Prevention to enforce access control
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -707,14 +555,11 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Not applicable
 
-### 4.8: Encrypt sensitive information at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3754).
+### 4.8: Encrypt Sensitive Information at Rest
 
 **Guidance**: Azure Storage encryption is enabled for all storage accounts and cannot be disabled. Azure Storage automatically encrypts your data when it is persisted to the cloud. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. Azure Storage encryption enables you to secure your data at rest without having to modify code or add code to any applications. 
 
-- [Understanding Azure Storage encryption at rest](storage-service-encryption.md)
+- [Understanding Azure Storage encryption at rest](./storage-service-encryption.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -722,16 +567,13 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3755).
+**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Storage account resources. You can also enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). Additionally, use Azure Monitor to alert on anonymous access for Storage accounts using anonymous authentication condition.
 
-**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Storage account resources.  You can also enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS).  Additionally, use Azure Monitor to alert on anonymous access for Storage accounts using anonymous authentication condition.
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
 
-- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md) 
+- [Azure Storage analytics logging](./storage-analytics-logging.md)
 
-- [Azure Storage analytics logging](storage-analytics-logging.md)
-
-- [How to configure metrics alerts for Azure Storage Accounts](/azure/storage/common/storage-monitor-storage-account)
+- [How to configure metrics alerts for Azure Storage Accounts](./storage-monitor-storage-account.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -739,14 +581,11 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ## Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability Management](../../security/benchmarks/security-control-vulnerability-management.md).*
+*For more information, see [Security Control: Vulnerability Management](../../security/benchmarks/security-control-vulnerability-management.md).*
 
-### 5.1: Run automated vulnerability scanning tools
+### 5.1: Run Automated Vulnerability Scanning Tools
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3756).
-
-**Guidance**: Follow recommendations from Azure Security Center to continuously audit and monitor the configuration of your storage accounts.  
+**Guidance**: Follow recommendations from Azure Security Center to continuously audit and monitor the configuration of your storage accounts. 
 
 - [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
 
@@ -754,13 +593,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Customer
 
-### 5.2: Deploy automated operating system patch management solution
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3757).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 5.2: Deploy Automated Operating System Patch Management Solution
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -768,13 +601,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Not applicable
 
-### 5.3: Deploy automated patch management solution for third-party software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3758).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 5.3: Deploy Automated Third Party Software Patch Management Solution
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -782,10 +609,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Not applicable
 
-### 5.4: Compare back-to-back vulnerability scans
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3759).
+### 5.4: Compare Back-to-back Vulnerability Scans
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Storage accounts.
 
@@ -793,14 +617,11 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Customer
 
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3760).
+### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities.
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center. 
 
-- [Understand Azure Security Center Secure Score](/azure/security-center/security-center-secure-score)
+- [Understand Azure Security Center Secure Score](../../security-center/secure-score-security-controls.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -808,14 +629,11 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ## Inventory and Asset Management
 
-*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../../security/benchmarks/security-control-inventory-asset-management.md).*
+*For more information, see [Security Control: Inventory and Asset Management](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### 6.1: Use automated asset discovery solution
+### 6.1: Use Azure Asset Discovery
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3761).
-
-**Guidance**: Use Azure Resource Graph to query and discover all resources (including Storage accounts) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query and discover all resources (including Storage accounts) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions. 
 
 - [How to create queries with Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -827,10 +645,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Customer
 
-### 6.2: Maintain asset metadata
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3762).
+### 6.2: Maintain Asset Metadata
 
 **Guidance**: Apply tags to Storage account resources giving metadata to logically organize them into a taxonomy. 
 
@@ -840,52 +655,43 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Customer
 
-### 6.3: Delete unauthorized Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3763).
+### 6.3: Delete Unauthorized Azure Resources
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Storage accounts and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner. 
 
-Also, use Azure Defender for Storage to detect unauthorized Azure Resources. 
+Also, use Advanced Threat Protection for Azure Storage to detect unauthorized Azure Resources. 
 
-- [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md) 
+- [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
 - [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md)
+- [Configure advanced threat protection for Azure Storage](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.4: Define and maintain inventory of approved Azure resources
+### 6.4: Maintain inventory of approved Azure resources and software titles.
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3764).
+**Guidance**: You will need to create an inventory of approved Azure resources as per your organizational needs. 
 
-**Guidance**: You will need to create an inventory of approved Azure resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.5: Monitor for unapproved Azure resources
+### 6.5: Monitor for Unapproved Azure Resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3765).
-
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
  - Not allowed resource types 
-
  - Allowed resource types 
 
-In addition, use the Azure Resource Graph to query for and discover resources within the subscriptions. This can help in high security based environments, such as those with Storage accounts. 
+In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts. 
 
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [How to create queries with Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -893,13 +699,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 **Responsibility**: Customer
 
-### 6.6: Monitor for unapproved software applications within compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3766).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 6.6: Monitor for Unapproved Software Applications within Compute Resources
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -907,10 +707,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 **Responsibility**: Not applicable
 
-### 6.7: Remove unapproved Azure resources and software applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3767).
+### 6.7: Remove Unapproved Azure Resources and Software Applications
 
 **Guidance**: Customer may prevent resource creation or usage with Azure Policy as required by the customer's company policies. 
 
@@ -922,45 +719,28 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 ### 6.8: Use only approved applications
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3768).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
-### 6.9: Use only approved Azure services
+### 6.9: Use only approved Azure Services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3769).
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
-
-- Not allowed resource types
-- Allowed resource types
-
-Additional information is available at the referenced links.
+- Not allowed resource types 
+- Allowed resource types 
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.10: Maintain an inventory of approved software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3770).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 6.10: Implement approved application list
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -968,10 +748,7 @@ Additional information is available at the referenced links.
 
 **Responsibility**: Not applicable
 
-### 6.11: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3771).
+### 6.11: Limit Users' Ability to interact with Azure Resource Manager via Scripts
 
 **Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as those with Storage accounts. 
 
@@ -981,13 +758,7 @@ Additional information is available at the referenced links.
 
 **Responsibility**: Customer
 
-### 6.12: Limit users' ability to execute scripts within compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3772).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 6.12: Limit Users' Ability to Execute Scripts within Compute Resources
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -995,13 +766,7 @@ Additional information is available at the referenced links.
 
 **Responsibility**: Not applicable
 
-### 6.13: Physically or logically segregate high risk applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3773).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 6.13: Physically or Logically Segregate High Risk Applications
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -1011,23 +776,20 @@ Additional information is available at the referenced links.
 
 ## Secure Configuration
 
-*For more information, see the [Azure Security Benchmark: Secure Configuration](../../security/benchmarks/security-control-secure-configuration.md).*
+*For more information, see [Security Control: Secure Configuration](../../security/benchmarks/security-control-secure-configuration.md).*
 
-### 7.1: Establish secure configurations for all Azure resources
+### 7.1: Establish Secure Configurations for all Azure Resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3774).
+**Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as: 
 
-**Guidance**: Use Azure Policy aliases in the **Microsoft.Storage** namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as:
+Audit unrestricted network access to storage accounts  
+Deploy Advanced Threat Protection on Storage Accounts  
+Storage accounts should be migrated to new Azure Resource Manager resources  
+Secure transfer to storage accounts should be enabled  
 
-- Audit unrestricted network access to storage accounts
-- Deploy Azure Defender for Storage
-- Storage accounts should be migrated to new Azure Resource Manager resources
-- Secure transfer to storage accounts should be enabled
+Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 
-Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts.
-
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -1035,13 +797,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Customer
 
-### 7.2: Establish secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3775).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 7.2: Establish Secure Configurations for your Operating System
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1049,14 +805,11 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Not applicable
 
-### 7.3: Maintain secure Azure resource configurations
+### 7.3: Maintain Secure Configurations for all Azure Resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3776).
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Storage account resources. 
 
-**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your storage account resources. 
-
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Understanding Azure Policy Effects](../../governance/policy/concepts/effects.md)
 
@@ -1064,13 +817,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Customer
 
-### 7.4: Maintain secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3777).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 7.4: Maintain Secure Configurations for Operating Systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1078,12 +825,9 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Not applicable
 
-### 7.5: Securely store configuration of Azure resources
+### 7.5: Securely Store Configuration of Azure Resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3778).
-
-**Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Azure AD if integrated with TFS.
+**Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 - [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
@@ -1093,13 +837,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Customer
 
-### 7.6: Securely store custom operating system images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3779).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 7.6: Securely Store Custom Operating System Images
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1107,26 +845,17 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Not applicable
 
-### 7.7: Deploy configuration management tools for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3780).
+### 7.7: Deploy System Configuration Management Tools
 
 **Guidance**: Leverage Azure Policy to alert, audit, and enforce system configurations for Storage account. Additionally, develop a process and pipeline for managing policy exceptions. 
 
-- [ How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 7.8: Deploy configuration management tools for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3781).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 7.8: Deploy System Configuration Management Tools for Operating Systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1134,10 +863,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Not applicable
 
-### 7.9: Implement automated configuration monitoring for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3782).
+### 7.9: Implement Automated Configuration Monitoring for Azure Services
 
 **Guidance**: Leverage Azure Security Center to perform baseline scans for your Azure Storage account resources. 
 
@@ -1147,13 +873,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Customer
 
-### 7.10: Implement automated configuration monitoring for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3783).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+### 7.10: Implement Automated Configuration Monitoring for Operating Systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1161,33 +881,25 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Responsibility**: Not applicable
 
-### 7.11: Manage Azure secrets securely
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3784).
+### 7.11: Securely manage Azure secrets
 
 **Guidance**: Azure Storage automatically encrypts your data when it is persisted it to the cloud. You can use Microsoft-managed keys for the encryption of the storage account, or can manage encryption with their own keys. If you are using customer-provided keys, you can leverage Azure Key Vault to securely store the keys. 
 
-Additionally, rotate Storage Account Keys on a frequent basis to limit the impact of  loss or disclosure of Storage Account keys.
+Additionally, rotate Storage Account Keys on a frequent basis to limit the impact of loss or disclosure of Storage Account keys.
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Azure Storage encryption for data at rest](./storage-service-encryption.md)
 
-- [Manage storage account access keys](storage-account-keys-manage.md)
+- [Manage storage account access keys](./storage-account-keys-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 7.12: Manage identities securely and automatically
+### 7.12: Securely and automatically manage identities
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3785).
+**Guidance**: Authorize access to blobs and queues within Azure Storage Accounts with Azure Active Directory and Managed Identities. Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
 
-**Guidance**: Authorize access to blobs and queues within Azure Storage Accounts with Azure Active Directory (Azure AD) and Managed Identities. Azure Blob and Queue storage support Azure AD authentication with managed identities for Azure resources. 
-
-Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure Virtual Machines r, function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
-
-- [How to grant access to Azure blob and queue data using a managed identity](storage-auth.md-aad-rbac-portal)
+- [How to grant access to Azure blob and queue data using a managed identity](./storage-auth-aad-rbac-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1195,12 +907,9 @@ Managed identities for Azure resources can authorize access to blob and queue da
 
 ### 7.13: Eliminate unintended credential exposure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3786).
-
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
-- [ How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1208,17 +917,11 @@ Managed identities for Azure resources can authorize access to blob and queue da
 
 ## Malware Defense
 
-*For more information, see the [Azure Security Benchmark: Malware Defense](../../security/benchmarks/security-control-malware-defense.md).*
+*For more information, see [Security Control: Malware Defense](../../security/benchmarks/security-control-malware-defense.md).*
 
-### 8.1: Use centrally-managed anti-malware software
+### 8.1: Use Centrally Managed Anti-malware Software
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3787).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles antimalware for underlying platform.
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1226,28 +929,19 @@ Managed identities for Azure resources can authorize access to blob and queue da
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3788).
-
-**Guidance**: Use Azure Defender for Storage for detecting malware uploads to Azure Storage using hash reputation analysis and suspicious access from an active Tor exit node (an anonymizing proxy). 
+**Guidance**: Use threat protection for Azure Storage for detecting malware uploads to Azure Storage using hash reputation analysis and suspicious access from an active Tor exit node (an anonymizing proxy). 
 
 You can also pre-scan any content for malware before uploading to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc to meet your organizations requirements.
 
-- [Configure Azure Defender for Storage](azure-defender-storage-configure.md)
+- [Configure advanced threat protection for Azure Storage](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 8.3: Ensure anti-malware software and signatures are updated
+### 8.3: Ensure Anti-Malware Software and Signatures are Updated
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3789).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles antimalware for underlying platform.
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1255,18 +949,15 @@ You can also pre-scan any content for malware before uploading to non-compute Az
 
 ## Data Recovery
 
-*For more information, see the [Azure Security Benchmark: Data Recovery](../../security/benchmarks/security-control-data-recovery.md).*
+*For more information, see [Security Control: Data Recovery](../../security/benchmarks/security-control-data-recovery.md).*
 
-### 9.1: Ensure regular automated back-ups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3790).
+### 9.1: Ensure Regular Automated Back Ups
 
 **Guidance**: The data in your Microsoft Azure storage account is always automatically replicated to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions. 
 
 You can also enable Azure automation to take regular snapshots of the blobs.
 
-- [Understanding Azure Storage redundancy and Service-Level Agreements](storage-redundancy.md)
+- [Understanding Azure Storage redundancy and Service-Level Agreements](./storage-redundancy.md)
 
 - [Create a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
@@ -1276,66 +967,55 @@ You can also enable Azure automation to take regular snapshots of the blobs.
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3791).
+### 9.2: Perform Complete System Backups and Backup any Customer Managed Keys
 
 **Guidance**: In order to backup data from Storage account supported services, there are multiple methods available including using azcopy or third party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
 
-Customer-managed/provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell. 
+- [Get started with AzCopy](./storage-use-azcopy-v10.md)
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md) 
+- [Set and manage immutability policies for Blob storage](../blobs/storage-blob-immutability-policies-manage.md?tabs=azure-portal)
 
-- [Set and manage immutability policies for Blob storage](../blobs/storage-blob-immutability-policies-manage.md)
+Customer managed / provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell. 
 
-- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer-managed keys
+### 9.3: Validate all Backups including Customer Managed Keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3792).
+**Guidance**: Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands: 
 
-**Guidance**: Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
-
-Restore-AzKeyVaultCertificate
-
-Restore-AzKeyVaultKey
-
+Restore-AzKeyVaultCertificate 
+Restore-AzKeyVaultKey 
 Restore-AzKeyVaultManagedStorageAccount
+Restore-AzKeyVaultSecret 
 
-Restore-AzKeyVaultSecret
+- [How to restore Key Vault Certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
-- [How to restore Key Vault Certificates](/powershell/module/az.keyvault/restore-azkeyvaultcertificate)
-
-- [How to restore Key Vault Keys](/powershell/module/az.keyvault/restore-azkeyvaultkey)
+- [How to restore Key Vault Keys](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 - [How to restore Key Vault Managed Storage Accounts](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [How to restore Key Vault Secrets](/powershell/module/az.keyvault/restore-azkeyvaultsecret)
+- [How to restore Key Vault Secrets](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret)
 
-- [AzCopy is a command-line utility that you can use to copy blobs, files and table data to or from a storage account](storage-use-azcopy-v10.md)
+- [AzCopy is a command-line utility that you can use to copy blobs, files and table data to or from a storage account](./storage-use-azcopy-v10.md)
 
 Note: If you want to copy data to and from your Azure Table storage service, then install AzCopy version 7.3.
+
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer-managed keys
+### 9.4: Ensure Protection of Backups and Customer Managed Keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3793).
-
-**Guidance**: To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the Soft Delete and Do Not Purge properties on the key vault.  Key Vault's Soft Delete feature allows recovery of deleted vaults and vault objects such as keys, secrets, and certificates.  If backing Storage account data to Azure Storage blobs, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.  You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.  Additionally, for improved protection, you may store business-critical data objects in a WORM (Write Once, Read Many) state.
+**Guidance**: To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the Soft Delete and Do Not Purge properties on the key vault. Key Vault's Soft Delete feature allows recovery of deleted vaults and vault objects such as keys, secrets, and certificates. If backing Storage account data to Azure Storage blobs, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline. Additionally, for improved protection, you may store business-critical data objects in a WORM (Write Once, Read Many) state.
 
 - [How to use Azure Key Vault's Soft Delete](../../key-vault/general/key-vault-recovery.md)
 
-- [Soft delete for Azure Storage blobs](../blobs/soft-delete-blob-overview.md)
+- [Soft delete for Azure Storage blobs](../blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Store business-critical blob data with immutable storage](../blobs/storage-blob-immutable-storage.md)
 
@@ -1345,12 +1025,9 @@ Note: If you want to copy data to and from your Azure Table storage service, the
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](../../security/benchmarks/security-control-incident-response.md).*
+*For more information, see [Security Control: Incident Response](../../security/benchmarks/security-control-incident-response.md).*
 
-### 10.1: Create an incident response guide
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3794).
+### 10.1: Create incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1358,20 +1035,17 @@ Note: If you want to copy data to and from your Azure Table storage service, the
 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-- [NIST's Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 10.2: Create an incident scoring and prioritization procedure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3795).
+### 10.2: Create Incident Scoring and Prioritization Procedure
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
-Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
@@ -1381,10 +1055,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Responsibility**: Customer
 
-### 10.3: Test security response procedures
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3799).
+### 10.3: Test Security Response Procedures
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
@@ -1394,10 +1065,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Responsibility**: Customer
 
-### 10.4: Provide security incident contact details and configure alert notifications for security incidents
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3796).
+### 10.4: Provide Security Incident Contact Details and Configure Alert Notifications for Security Incidents
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
@@ -1408,9 +1076,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3797).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -1424,13 +1089,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.6: Automate the response to security alerts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3798).
-
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
-	
 
-- [	How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)
+- [How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1438,12 +1099,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3800).
+### 11.1: Conduct regular Penetration Testing of your Azure resources
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
@@ -1457,5 +1115,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../../security/benchmarks/security-baselines-overview.md)
