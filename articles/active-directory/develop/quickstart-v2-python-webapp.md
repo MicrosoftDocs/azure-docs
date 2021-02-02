@@ -70,7 +70,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > #### Step 1: Configure your application in Azure portal
 >
-> For this quickstart's code sample:
+> For the code sample in this quickstart to work:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.

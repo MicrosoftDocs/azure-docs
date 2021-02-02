@@ -65,7 +65,7 @@ To run this sample, you need:
 > ### Download and configure your quickstart app
 >
 > #### Step 1: Configure your application in Azure portal
-> This quickstart's code sample requires a client secret, and add Graph API's **User.Read.All** application permission.
+> For the code sample in this quickstart to work, create a client secret and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
