@@ -1,41 +1,35 @@
 ---
-title: Managed identities and trusted storage with media services
-description: Media Services can be used with managed identities to enable trusted storage.
+title: Managed identities
+description: Media Services can be used with Azure Managed Identities.
+keywords: 
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
 ---
 
-# Managed identities and trusted storage with media services
+# Managed identities
 
-Media Services can be used with [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to enable trusted storage. When you create a Media Services account, you must associate it with a storage account. Media Services can access that storage account using system authentication. Media Services validates that the Media Services account and the storage account are in the same subscription and it validates that the user adding the association has access the storage account with Azure Resource Manager RBAC.
+A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-## Trusted storage
-
-However, if you want to use a firewall to secure your storage account, you must use managed identity authentication. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.  For more information about Trusted Microsoft Services, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-## Media services managed identity scenarios
-
-There are currently two scenarios where managed identity can be used with Media Services:
+There are currently two scenarios where Managed Identities can be used with Media Services:
 
 - Use the managed identity of the Media Services account to access storage accounts.
 
 - Use the managed identity of the Media Services account to access Key Vault to access customer keys.
 
-The next two sections describe the differences in the two scenarios.
+The next two sections describe the steps of the two scenarios.
 
-### Use the managed identity of the Media Services account to access storage accounts
+## Use the managed identity of the Media Services account to access storage accounts
 
 1. Create a Media Services account with a managed identity.
 1. Grant the managed identity principal access to a storage account you own.
-1. Media Services can then access Storage account on your behalf using the managed identity.
+1. Media Services can then access storage account on your behalf using the managed identity.
 
-### Use the managed identity of the Media Services account to access Key Vault to access customer keys
+## Use the managed identity of the Media Services account to access Key Vault to access customer keys
 
 1. Create a Media Services account with a managed identity.
 1. Grant the managed identity principal access to a Key Vault that you own.

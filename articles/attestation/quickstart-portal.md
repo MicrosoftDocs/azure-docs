@@ -14,6 +14,10 @@ ms.author: mbaldwin
 
 Follow this quickstart to get started with Azure Attestation. Learn how to manage an attestation provider, a policy signer, and a policy by using the Azure portal.
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Attestation provider
 
 In this section, you'll create an attestation provider and configure it with either unsigned policies or signed policies. You'll also learn how to view and delete the attestation provider.
@@ -151,3 +155,9 @@ If the attestation provider was created with a policy signing requirement,  foll
     For the file upload option, the policy preview is shown in text format and isn't editable.
 	
 1.	Select **Refresh** to view the configured policy.
+
+## Next steps
+
+- [How to author and sign an attestation policy](author-sign-policy.md)
+- [Attest an SGX enclave using code samples](/samples/browse/?expanded=azure&terms=attestation)
+
