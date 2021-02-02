@@ -34507,6 +34507,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/data-lake-storage/abfs-driver.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
       "redirect_document_id": false
