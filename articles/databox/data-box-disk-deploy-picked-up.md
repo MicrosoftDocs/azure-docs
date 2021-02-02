@@ -183,7 +183,7 @@ Take the following steps if returning the device in South Africa.
 
     * Or drop off the package at the nearest DHL service point.
 
-5. If you run into any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ### [China](#tab/in-china)
 

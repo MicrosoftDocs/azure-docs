@@ -51,17 +51,17 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-6. After you've scheduled your device pickup, you can view your authorization code in the  **Schedule pickup for Azure**.
+6. After you've scheduled your device pickup, you can view your authorization code in **Schedule pickup for Azure**.
 
    ![Screenshot of the Schedule pick up for Azure dialog box with the Authorization code for Pickup text box called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Make a note of this **Authorization code**.
+   Make a note of this authorization code.
 
    As per security requirements, at the time of scheduling pick-up, it's necessary to present the name of the person who will be arriving for pick-up.
 
    You also need to provide details of who will go to the datacenter for the pick-up. You or the point of contact must carry a government-approved photo ID that will be validated at the datacenter.
 
-   The person who is picking up the device also needs to have the **Authorization code**. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
+   The person who is picking up the device also needs to have the authorization code. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
 
 7. Your order automatically moves to the **Picked up** state after the device is picked up from the datacenter.
 
@@ -74,11 +74,11 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
    > [!NOTE]
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop-off.
 
-9. After you receive an appointment for drop-off the order, you should be at the **Ready to receive at Azure datacenter** state in the Azure portal.
+9. After you receive an appointment for drop-off, the order should be in the **Ready to receive at Azure datacenter** state in the Azure portal.
 
    ![Screenshot of the Add Shipping Address dialog box with the Ship using options out and the Add shipping address option called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
-10. After your ID and authorization code have been verified, and you'cw dropped off the device at the datacenter, the order status should be **Received**.
+10. After your ID and authorization code have been verified, and you've dropped off the device at the datacenter, the order status should be **Received**.
 
     ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 
