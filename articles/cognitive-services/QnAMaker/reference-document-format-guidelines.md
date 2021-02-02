@@ -29,7 +29,7 @@ QnA Maker identifies sections and subsections and relationships in the file base
 * colors
 
 > [!NOTE]
-> We don't support extraction of images from documents currently.
+> We don't support extraction of images from uploaded documents currently.
 
 ## Product manuals
 
