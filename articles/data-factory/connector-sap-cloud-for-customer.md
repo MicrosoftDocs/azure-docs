@@ -11,10 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
+ms.date: 02/02/2021
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -49,10 +50,7 @@ The following properties are supported for SAP Cloud for Customer linked service
 | url | The URL of the SAP C4C OData service. | Yes |
 | username | Specify the user name to connect to the SAP C4C. | Yes |
 | password | Specify the password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
-
->[!IMPORTANT]
->To copy data into SAP Cloud for Customer, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your SAP Cloud for Customer, and associate in the linked service as the following example:
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example:**
 
