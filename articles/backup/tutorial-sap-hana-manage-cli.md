@@ -87,14 +87,14 @@ To create an incremental backup policy, execute the [az backup policy create](ht
 Example:
 
 ```azurecli
-az backup policy create --resource-group azurefiles --vault-name azurevault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
+az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Output:
+Sample JSON (sappolicy.json) output:
 
 ```json
   "eTag": null,
-  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/sappolicy",
+  "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
   "location": null,
   "name": "sappolicy",
   "properties": {
