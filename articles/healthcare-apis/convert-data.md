@@ -11,7 +11,13 @@ ms.author: ranku
 ---
 
 
-# How to convert data to FHIR
+# How to convert data to FHIR (Preview)
+
+> [!IMPORTANT]
+> This capability is in public preview, is provided without a service level agreement, 
+> and is not recommended for production workloads. Certain features might not be supported 
+> or might have constrained capabilities. For more information, see 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The $convert-data custom endpoint in the Azure API for FHIR is meant for data conversion from different formats to FHIR. It uses the Liquid template engine and the templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default templates. You can customize these conversion templates as needed. Currently it supports HL7v2 to FHIR conversion.
 

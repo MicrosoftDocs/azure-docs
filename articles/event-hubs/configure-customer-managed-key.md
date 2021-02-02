@@ -2,14 +2,15 @@
 title: Configure your own key for encrypting Azure Event Hubs data at rest 
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 02/01/2021
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key will be encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
 
 > [!NOTE]
-> The BYOK capability is supported by [Event Hubs dedicated single-tenant](event-hubs-dedicated-overview.md) clusters. It can't be enabled for standard Event Hubs namespaces.
+> - The BYOK capability is supported by [Event Hubs dedicated single-tenant](event-hubs-dedicated-overview.md) clusters. It can't be enabled for standard Event Hubs namespaces.
+> - The encryption can be enabled only for new or empty namespaces. If the namespace contains event hubs, the encryption operation will fail.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
