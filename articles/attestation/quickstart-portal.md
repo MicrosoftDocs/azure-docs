@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### 1.1 Create an attestation provider
 
-#### To configure the provider with unsigned policies
+#### 1.1.1 To configure the provider with unsigned policies
 
 1.	From the Azure portal menu, or from the Home page, select **Create a resource**
 2.	In the Search box, enter **attestation**
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 6.	After providing the required inputs, click **Review+Create**
 7.	Fix validation issues if any and click **Create**.
 
-#### To configure the provider with signed policies
+#### 1.1.2 To configure the provider with signed policies
 
 1.	From the Azure portal menu, or from the Home page, select **Create a resource**
 2.	In the Search box, enter **attestation**
@@ -122,7 +122,7 @@ a.	Verify the certificates count and certs downloaded.
 
 ### 3.2 Configure attestation policy
 
-#### When attestation provider is created without policy signing requirement
+#### 3.2.1 When attestation provider is created without policy signing requirement
 
 ##### Upload policy in JWT format
 
@@ -154,7 +154,7 @@ a.	Verify the certificates count and certs downloaded.
 
 8.	Click **Refresh** to view the configured policy
 
-#### When attestation provider is created with policy signing requirement
+#### 3.2.2 When attestation provider is created with policy signing requirement
 
 ##### Upload policy in JWT format
 
