@@ -22,13 +22,13 @@ This is a top-level wrapper exception with a large number of possible causes and
 ### Solution
 Some popular causes and solutions are as follows: 
 - Idle timeout of Azure LoadBalancers: This may also manifest as `ClosedConnectionException`. To resolve this, set keep alive setting in driver (see [below](#enable-keep-alive-for-java-driver)) and increase keep-alive settings in operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). 
-- Client application resource exhaustion: ensure that client machines have sufficient resources to complete the request. 
+- **Client application resource exhaustion:** ensure that client machines have sufficient resources to complete the request. 
 
 ## Cannot connect to host
 You may see this error: `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
 
 ### Solution
-This could be SNAT exhaustion on the client side. Please follow steps [here](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) to rule out this issue. This may also be an idle timeout issue (Azure LoadBalance have 4 minutes of idle timeout by default). See documentation [here](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout?tabs=tcp-reset-idle-portal). Enable tcp-keep alive from the driver settings (see [below](#enable-keep-alive-for-java-driver)) and set the keepAlive interval on the operating system to less than 4 minutes.
+This could be SNAT exhaustion on the client-side. Please follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections) to rule out this issue. This may also be an idle timeout issue where the Azure load balancer has 4 minutes of idle timeout by default. See documentation at [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Enable tcp-keep alive from the driver settings (see [below](#enable-keep-alive-for-java-driver)) and set the `keepAlive` interval on the operating system to less than 4 minutes.
 
  
 
@@ -39,8 +39,8 @@ Consider scaling the throughput assigned to a keyspace or table from the Azure p
 
 ### OverloadedException even with sufficient throughput 
 The system appears to be throttling requests despite sufficient throughput being provisioned for request volume and/or consumed request unit cost. There are two possible causes of unexpected rate limiting:
-- Schema level operations: Cassandra API implements a system throughput budget for schema-level operations (CREATE TABLE, ALTER TABLE, DROP TABLE). This budget should be enough for schema operations in a production system. However, if you have a high number of schema-level operations, it is possible you are exceeding this limit. As this budget is not user controlled, you will need to consider lowering the number of schema operations being run. If taking this action does not resolve the issue, or it is not feasible for your workload, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
-- Data skew: when throughput is provisioned in Cassandra API, it is divided equally among physical partitions, and each physical partition has an upper limit. If you have a high amount of data being inserted or queried from one particular partition, it is possible to be rate limited despite provisioning a large amount of overall throughput (request units) for that table. Review your data model and ensure you do not have excessive skew that could be causing hot partitions. 
+- **Schema level operations:** Cassandra API implements a system throughput budget for schema-level operations (CREATE TABLE, ALTER TABLE, DROP TABLE). This budget should be enough for schema operations in a production system. However, if you have a high number of schema-level operations, it is possible you are exceeding this limit. As this budget is not user-controlled, you will need to consider lowering the number of schema operations being run. If taking this action does not resolve the issue, or it is not feasible for your workload, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- **Data skew:** when throughput is provisioned in Cassandra API, it is divided equally among physical partitions, and each physical partition has an upper limit. If you have a high amount of data being inserted or queried from one particular partition, it is possible to be rate-limited despite provisioning a large amount of overall throughput (request units) for that table. Review your data model and ensure you do not have excessive skew that could be causing hot partitions. 
 
 ## Intermittent connectivity errors (Java) 
 Connection drops or times out unexpectedly.
@@ -48,7 +48,7 @@ Connection drops or times out unexpectedly.
 ### Solution 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
 
-## Error with Load Balancing Policy
+## Error with load balancing policy
 
 If you have implemented a load balancing policy in v3.x of the Java Datastax driver, with code similar to the below:
 
@@ -149,4 +149,3 @@ datastax-java-driver {
 
 - Learn about the [supported features](cassandra-support.md) in Azure Cosmos DB Cassandra API.
 - Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](cassandra-migrate-cosmos-db-databricks.md)
-
