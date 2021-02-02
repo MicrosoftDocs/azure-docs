@@ -25,12 +25,12 @@ This article describes troubleshooting steps that you can take when you have iss
 4. Verify that the Log Analytics workspace is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
 
 ### Verify that the VM is properly onboarded
-Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
+Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal and make sure that the two agents are listed.
 
 ![VM extensions](media/vminsights-health-troubleshoot/extensions.png)
 
 ### Verify the system assigned identity is enabled on the virtual machine
-Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
+Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. 
 
 ![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 

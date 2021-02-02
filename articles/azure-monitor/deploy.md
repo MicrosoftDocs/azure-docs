@@ -80,7 +80,7 @@ See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of av
 
 Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. See [Overview of Azure Monitor agents](agents/agents-overview.md) for a comparison of the agents used by Azure Monitor. 
 
-[Azure Monitor for VMs](insights/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
+[Azure Monitor for VMs](vm/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
 
 
 [ ![Deploy Azure VM](media/deploy/deploy-azure-vm.png) ](media/deploy/deploy-azure-vm.png#lightbox)

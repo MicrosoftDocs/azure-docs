@@ -41,13 +41,13 @@ The log size varies by the string lengths of performance counters, and it can in
 ## Configuring Azure Monitor for VMs
 The steps to configure Azure Monitor for VMs are as follows. Follow each link for detailed guidance on each step:
 
-- [Create Log Analytics workspace.](vminsights-configure-workspace.md#create-log-analytics-workspace)
-- [Add VMInsights solution to workspace.](vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
-- [Install agents on virtual machine and virtual machine scale set to be monitored.](vminsights-enable-overview.md)
+- [Create Log Analytics workspace.](../insights/vminsights-configure-workspace.md#create-log-analytics-workspace)
+- [Add VMInsights solution to workspace.](../insights/vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
+- [Install agents on virtual machine and virtual machine scale set to be monitored.](../insights/vminsights-enable-overview.md)
 
 
 
 ## Next steps
 
-- See [Deploy Azure Monitor for VMs](vminsights-enable-overview.md) for requirements and methods that to enable monitoring for your virtual machines.
+- See [Deploy Azure Monitor for VMs](../insights/vminsights-enable-overview.md) for requirements and methods that to enable monitoring for your virtual machines.
 

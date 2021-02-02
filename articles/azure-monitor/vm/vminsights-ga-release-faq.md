@@ -16,7 +16,7 @@ This General Availability FAQ covers changes that were made in Q4 2019 and Q1 20
 We released a new version of Azure Monitor for VMs in January 2020 ahead of our GA announcement. Customers enabling Azure Monitor for VMs will now receive the GA version, but existing customers using the version of Azure Monitor for VMs from Q4 2019 and earlier will be prompted to upgrade. This FAQ offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
 
 
-With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
+With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](../insights/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
@@ -108,4 +108,4 @@ If you are an existing customer that is using the Health feature and want to use
 
 ## Next steps
 
-To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-enable-overview.md).
+To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](../insights/vminsights-enable-overview.md).

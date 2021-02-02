@@ -27,7 +27,7 @@ Insights provide a customized monitoring experience for particular applications 
 | [Azure Monitor for Networks (preview)](insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
 [Azure Monitor for Resource Groups (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
 | [Azure Monitor for Storage](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
-| [Azure Monitor for VMs](insights/vminsights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
+| [Azure Monitor for VMs](vm/vminsights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
 | [Azure Monitor for Key Vault (preview)](./insights/key-vault-insights-overview.md) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. |
 | [Azure Monitor for Azure Cache for Redis (preview)](insights/redis-cache-insights-overview.md) |  Provides a unified, interactive view of overall performance, failures, capacity, and operational health. |
 
@@ -159,8 +159,8 @@ The following table lists Azure services and the data they collect into Azure Mo
 |TINA | No | No | No |  |
 |Traffic Manager | Yes | Yes | No |  |
 |Universal Print | No | No | No |  |
-|Virtual Machine Scale Sets | No | Yes | [Yes](insights/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
-|Virtual Machines | Yes | Yes | [Yes](insights/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
+|Virtual Machine Scale Sets | No | Yes | [Yes](vm/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
+|Virtual Machines | Yes | Yes | [Yes](vm/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
 |Virtual Network | Yes | Yes | [Yes](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG Flow Logs | No | Yes | No |  |
 |VPN Gateway | Yes | Yes | No |  |
