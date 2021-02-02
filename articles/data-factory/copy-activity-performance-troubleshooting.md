@@ -189,7 +189,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Azure SQL Database tier is not high enough.
 
-    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the Azure SQL Database tier.
+    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and consider to upgrade the Azure SQL Database tier.
 
     - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
 
@@ -197,7 +197,6 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
 
-- **Resolution**: Refer to [Troubleshoot copy activity performance](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### Timeout or slow performance when parsing large Excel file
 

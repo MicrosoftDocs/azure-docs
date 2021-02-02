@@ -76,6 +76,9 @@ A registry hive corruption could be due to:
 
 ### Process Overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and access a Repair VM.
 1. Select a Solution:
    - [Repair the System File](#repair-the-system-file)

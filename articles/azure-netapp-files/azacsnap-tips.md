@@ -23,7 +23,7 @@ This article provides tips and tricks that might be helpful when you use AzAcSna
 
 ## Limit service principal permissions
 
-It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](https://docs.microsoft.com/azure/role-based-access-control/) for more details on fine-grained access management of Azure resources.  
+It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](../role-based-access-control/index.yml) for more details on fine-grained access management of Azure resources.  
 
 The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
 

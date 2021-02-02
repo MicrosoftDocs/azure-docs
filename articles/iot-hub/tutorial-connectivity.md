@@ -1,6 +1,6 @@
 ---
-title: Check device connectivity to Azure IoT Hub
-description: Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
+title: Tutorial - Check device connectivity to Azure IoT Hub
+description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
 author: wesmc7777
 manager: philmea
@@ -166,7 +166,7 @@ After a device connects, it typically tries to send telemetry to your IoT hub. T
 First, retrieve the current connection string for your simulated device using the following command:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests** folder in the code you downloaded.

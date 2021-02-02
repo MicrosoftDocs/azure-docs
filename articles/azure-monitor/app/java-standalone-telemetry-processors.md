@@ -238,7 +238,7 @@ For the `hash` action, following are required
 ### `extract`
 
 > [!NOTE]
-> This feature is only in 3.0.1 and later
+> This feature is only in 3.0.2 and later
 
 Extracts values using a regular expression rule from the input key to target keys specified in the rule. If a target key already exists, it will be overridden. It behaves similar to the [Span Processor](#extract-attributes-from-span-name) `toAttributes` setting with the existing attribute as the source.
 

@@ -186,7 +186,7 @@ From the repository root, run the following commands. Replace *\<connection-stri
 
 ```
 # Delete old migrations
-rm Migrations -r
+rm -r Migrations
 # Recreate migrations
 dotnet ef migrations add InitialCreate
 

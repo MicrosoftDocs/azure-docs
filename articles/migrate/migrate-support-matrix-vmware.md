@@ -1,8 +1,8 @@
 ---
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
@@ -32,7 +32,7 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 **VMware** | **Details**
 --- | ---
 **vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, 6.7 or 7.0.<br/><br/> The discovery of VMware VMs by providing ESXi host details in the appliance is currently not supported.
-**Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account need privileges enable for **Virtual Machines** > **Guest Operations**.
+**Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account needs privileges enabled for **Virtual Machines** > **Guest Operations**.
 
 ## VM requirements
 **VMware** | **Details**

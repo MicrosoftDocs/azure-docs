@@ -34,7 +34,10 @@ The following image shows this setting in the **Create storage account** page.
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-If you have an existing storage account that you want to use with Data Lake Storage, and the hierarchical namespace setting is disabled, you must migrate the data to a new storage account that has the setting enabled.
+If you have an existing storage account that you want to use with Data Lake Storage and the hierarchical namespace setting is disabled, you must migrate the data to a new storage account that has the setting enabled.
+
+> [!NOTE]
+> **Data protection** and **Hierarchical namespace** can't be enabled simultaneously.
 
 ## Next steps
 
