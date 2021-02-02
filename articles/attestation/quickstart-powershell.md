@@ -24,6 +24,9 @@ To continue to interact with the PowerShell Gallery, run the following command b
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 ```
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Install Az.Attestation PowerShell module
 
