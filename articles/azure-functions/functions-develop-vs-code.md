@@ -315,9 +315,7 @@ If you want to provide explicit names for the created resources, you must choose
 
 The following steps publish your project to a new function app created with advanced create options:
 
-1. In the **Azure: Functions** area, select the **Deploy to Function App** icon.
-
-    ![Function app settings](./media/functions-develop-vs-code/function-app-publish-project.png)
+1. In the command pallet, enter **Azure Functions: Deploy to function app**.
 
 1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
@@ -339,7 +337,7 @@ The following steps publish your project to a new function app created with adva
 
 ### <a name="get-the-url-of-the-deployed-function"></a>Get the URL of an HTTP triggered function in Azure
 
-To call an HTTP-triggered function from a client, you need the URL of the function when it's deployed to your function app. This URL includes any required function keys. You can use the extension to get these URLs for your deployed functions. If you just want to run the remote function in Azure, use the [Execute function now functionality of the extension](#run-functions-in-azure).
+To call an HTTP-triggered function from a client, you need the URL of the function when it's deployed to your function app. This URL includes any required function keys. You can use the extension to get these URLs for your deployed functions. If you just want to run the remote function in Azure, [use the Execute function now](#run-functions-in-azure) functionality of the extension.
 
 1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Copy Function URL**.
 
