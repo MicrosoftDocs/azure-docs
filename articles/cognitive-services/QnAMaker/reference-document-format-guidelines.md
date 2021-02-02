@@ -28,6 +28,9 @@ QnA Maker identifies sections and subsections and relationships in the file base
 * numbering
 * colors
 
+> [!NOTE]
+> We don't support extraction of images from uploaded documents currently.
+
 ## Product manuals
 
 A manual is typically guidance material that accompanies a product. It helps the user to set up, use, maintain, and troubleshoot the product. When QnA Maker processes a manual, it extracts the headings and subheadings as questions and the subsequent content as answers. See an example [here](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
