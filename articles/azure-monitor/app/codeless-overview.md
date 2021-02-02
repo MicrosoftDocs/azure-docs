@@ -37,11 +37,12 @@ As we're adding more and more integrations, the auto-instrumentation capability 
 
 ### Windows
 
-[Application monitoring on Azure App Service](./azure-web-apps.md?tabs=net) is available for .NET application and is enabled by default, .NET Core can be enabled with one click, and Java and Node.js are in private preview.
+Monitoring Node.js applications in App Service is in public preview and can be enabled in Azure portal, available in all regions. Java application monitoring can also be instrumented with [the generally available Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) prior to deploying the apps to App Service.
+[Application monitoring on Azure App Service](./azure-web-apps.md?tabs=net) is available for .NET application and is enabled by default, .NET Core can be enabled with one click, and Java and Node.js are in private preview. 
 
 ### Linux 
 
-Monitoring of Java and Node.js applications in App Service is in public preview and can be enabled in Azure portal, available in all regions.
+Monitoring Node.js applications in App Service is in public preview and can be enabled in Azure portal, available in all regions. Java application monitoring is in private preview, but the applications can be instrumented with [the generally available Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) prior to deploying the apps to App Service.
 
 ## Azure Functions
 
@@ -53,7 +54,7 @@ Codeless instrumentation of Azure Kubernetes Service is currently available for 
 
 ## Azure Windows VMs and virtual machine scale set
 
-[Auto-instrumentation for Azure VMs and virtual machine scale set](./azure-vm-vmss-apps.md) is available for .NET applications 
+Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.Net](./azure-vm-vmss-apps.md) and [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
 
 ## On-premises servers
 You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).
