@@ -12,11 +12,11 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set up Azure Attestation with Azure portal
 
-Follow the below steps to manage an attestation provider using Azure portal.
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Follow the below steps to manage an attestation provider using Azure portal.
 
 ## 1. Attestation provider
 
