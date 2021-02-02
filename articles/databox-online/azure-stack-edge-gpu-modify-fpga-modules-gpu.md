@@ -47,7 +47,7 @@ For IoT Edge on docker, host path bindings are used to map the shares on the dev
 }
 ```
 <!-- is this how it will look on GPU device?-->
-For host paths for IoT Edge on Kubernetes, an example of using Mounts with type bind is shown here:
+For host paths for IoT Edge on Kubernetes, an example of using `Mounts` with type `bind` is shown here:
 ```
 {
     "HostConfig": {
@@ -126,7 +126,7 @@ With the Kubernetes-based IoT Edge setups on GPU devices, the resources such as 
 
 #### Compute acceleration usage
 
-To deploy modules on FPGA, use the container create options with Device Bindings as shown in the following config: <!--not sure where are device bindings in this config--> 
+To deploy modules on FPGA, use the container create options <!--with Device Bindings--> as shown in the following config: <!--not sure where are device bindings in this config--> 
 
 ```json
 {
@@ -236,9 +236,9 @@ For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configur
 
 - **Modules names**: Module names should follow Kubernetes naming conventions. You may need to rename the modules running on IoT Edge with Docker when you  move those modules to IoT Edge with Kubernetes. For more information on naming, see [Kubernetes naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/).
 - **Other options**: 
-    - Certain docker create options that worked on FPGA devices will not work in the Kubernetes environment on your GPU devices. For example: , like – EntryPoint ,<!--can we confirm what exactly is required here-->
+    - Certain docker create options that worked on FPGA devices will not work in the Kubernetes environment on your GPU devices. For example: , like – EntryPoint.<!--can we confirm what exactly is required here-->
     - Environment variables such as `:` need to be replaced by `__`.
-    - **Container Creating** status leads to **backoff** status on IoT Hub
+    - **Container Creating** status leads to **backoff** status on IoT Hub.
 
 
 ## Next Steps
