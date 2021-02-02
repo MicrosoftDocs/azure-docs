@@ -44,7 +44,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
 
 1. Go to [Azure portal](https://portal.azure.com) and select the Cloud Shell icon.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/cloudshell.png" alt-text="Cloud Shell":::
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 

@@ -319,9 +319,8 @@ cpu_metrics
 | extend module_name = "Total"
 | union cpu_metrics
 ```
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/metrics.png" alt-text="Diagram that shows the metrics using Kusto query.":::
 
+[ ![Diagram that shows the metrics using Kusto query.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## Logging
 
 As with other IoT Edge modules, you can also [examine the container logs](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the edge device. You can configure the information that's written to the logs by using the [following module twin](module-twin-configuration-schema.md) properties:
