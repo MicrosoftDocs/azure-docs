@@ -123,7 +123,7 @@ az cassandra-mi patch cluster \
 
 ## Azure Managed Instance for Apache Cassandra datacenters
 
-The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra hybrid clusters, including:
+The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra datacenters, including:
 
 * [Create a datacenter](#create-a-datacenter)
 * [Delete a datacenter](#delete-a-hybrid-cluster)
@@ -220,5 +220,3 @@ az cassandra-mi scale-datacenter \
 For more information on the Azure CLI, see:
 
 * [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Azure CLI Reference](/cli/azure/cosmosdb)
-* [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)
