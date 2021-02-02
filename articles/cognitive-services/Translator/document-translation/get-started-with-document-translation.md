@@ -10,7 +10,7 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting. Here, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting. In this article, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as fol
 
 ### Keys and endpoints
 
-All requests to the Translator service require an **endpoint** URL and a read-only **key** for authenticating access.
+All API requests to the Translator service require an **endpoint** URL and a read-only subscription**key** for authenticating access.
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
