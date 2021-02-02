@@ -966,8 +966,6 @@
               href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra-migrate-cosmos-db-databricks.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-              href: cassandra-migrate-cosmos-db-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
         - name: Change feed
