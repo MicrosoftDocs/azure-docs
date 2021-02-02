@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -40,9 +40,9 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
-Open `quickstarts/apps/directx/DirectXOUSampleApp.sln` in Visual Studio.
+Open `quickstarts/apps/directx/DirectXAoaSampleApp.sln` in Visual Studio.
 
-Change the **Solution Configuration** to **Release**, change **Solution Platform** to **ARM64**, select **Device** from the deployment target options. Then build the **OUSampleApp** project by right-clicking the project and selecting **Build**.
+Change the **Solution Configuration** to **Release**, change **Solution Platform** to **ARM64**, select **Device** from the deployment target options. Then build the **AoaSampleApp** project by right-clicking the project and selecting **Build**.
 
 :::image type="content" source="./media/vs-deploy-to-device.png" alt-text="Configure Visual Studio project to deploy":::
 
@@ -52,7 +52,7 @@ After compiling the sample project successfully, you can deploy the app to HoloL
 
 Power on the HoloLens device, sign in, and connect it to the PC using a USB cable. Make sure **Device** is the chosen deployment target (see above).
 
-Right-click **OUSampleApp** project, then click **Deploy** from the pop-up menu to install the app. If no error shows up in Visual Studio's **Output Window**, the app will be installed on HoloLens.
+Right-click **AoaSampleApp** project, then click **Deploy** from the pop-up menu to install the app. If no error shows up in Visual Studio's **Output Window**, the app will be installed on HoloLens.
 
 :::image type="content" source="./media/vs-deploy-app.png" alt-text="Deploy app to HoloLens":::
 
@@ -64,11 +64,11 @@ To launch and debug the app, select **Debug > Start debugging**. To stop the app
 
 You'll need to create an object model to run the sample app. Assume you've already got either a CAD or scanned 3D mesh model of an object in your space. Refer to [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md) on how to create a model.
 
-Download that model, **chair.ou** in our case, to your computer. Then, from the HoloLens device portal, select **System > File explorer > LocalAppData > OUSampleApp > LocalState** and select **Browse...**. Then select your model file, **chair.ou** for example, and select **Upload**. You should then see the model file in the local cache.
+Download that model, **chair.ou** in our case, to your computer. Then, from the HoloLens device portal, select **System > File explorer > LocalAppData > AoaSampleApp > LocalState** and select **Browse...**. Then select your model file, **chair.ou** for example, and select **Upload**. You should then see the model file in the local cache.
 
 :::image type="content" source="../../../includes/media/object-anchors-quickstarts/portal-upload-model.png" alt-text="Portal Upload Model":::
 
-From the HoloLens, launch the **OUSampleApp** app (if it was already open, close it, and reopen it). Walk close (within 2-meter distance) to the target object (chair) and scan it by looking at it from multiple perspectives. You should see a pink bounding box around the object with some yellow points rendered close to object's surface, which indicates that it was detected.
+From the HoloLens, launch the **AoaSampleApp** app (if it was already open, close it, and reopen it). Walk close (within 2-meter distance) to the target object (chair) and scan it by looking at it from multiple perspectives. You should see a pink bounding box around the object with some yellow points rendered close to object's surface, which indicates that it was detected.
 
 :::image type="content" source="./media/chair-detection.png" alt-text="Chair Detection":::
 
@@ -82,7 +82,7 @@ The app detects objects at coarse pose with a rough 2+ cm error. A user can air 
 
 ## Capture diagnostics from the application
 
-You can optionally capture diagnostics from the **OUSampleApp**. You can enable diagnostics by uploading an empty **debug** file to the application's **LocalState** folder, which is similar to the way you uploaded an object model.
+You can optionally capture diagnostics from the **AoaSampleApp**. You can enable diagnostics by uploading an empty **debug** file to the application's **LocalState** folder, which is similar to the way you uploaded an object model.
 
 :::image type="content" source="./media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
 

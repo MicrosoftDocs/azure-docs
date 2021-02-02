@@ -15,7 +15,7 @@ ms.service: azure-object-anchors
 
 This section provides a high-level overview of the **Object Anchors** constructs. You'll gain an understanding of how an object is represented and what the various components are used for.
 
-All of the types described below can be found in the **Microsoft.MixedReality.ObjectUnderstanding** namespace.
+All of the types described below can be found in the **Microsoft.MixedReality.ObjectAnchors** namespace.
 
 ## Types
 
@@ -154,7 +154,7 @@ var InstanceChangedHandler = new Windows.Foundation.TypedEventHandler<ObjectInst
     else
     {
         // This object instance is lost for tracking, and will never be recovered.
-        // The caller can detatch the Changed event handler from this instance and dispose it.
+        // The caller can detach the Changed event handler from this instance and dispose it.
         sender.Dispose();
     }
 });
