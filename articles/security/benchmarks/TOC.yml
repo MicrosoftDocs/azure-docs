@@ -232,3 +232,7 @@
     href: ../../vpn-gateway/security-baseline.md
   - name: Windows Virtual Desktop security baseline
     href: ../../virtual-desktop/security-baseline.md
+- name: Resources
+  items:
+  - name: MAzure Security Benchmark V2 to CIS Microsoft Azure Foundations Benchmark mapping
+    href: asbv2_cis_microsoft_azure_foundations_benchmark_mapping.md
