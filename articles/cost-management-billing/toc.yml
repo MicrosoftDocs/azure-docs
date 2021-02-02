@@ -122,10 +122,10 @@
       href: understand/mpa-overview.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
-    - name: Migrate and transfer subscriptions
+    - name: Transfer subscriptions
       items:
-      - name: Azure subscription migration
-        href: manage/subscription-migration.md
+      - name: Azure subscription tranfer
+        href: manage/subscription-transfer.md
       - name: About transferring subscriptions
         href: understand/subscription-transfer.md
       - name: Transfer subscriptions between partners (Preview)
@@ -133,7 +133,7 @@
       - name: Azure Enterprise transfers
         href: manage/ea-transfers.md
       - name: Transfer MOSP subscription to EA
-        href: manage/mosp-ea-migration.md
+        href: manage/mosp-ea-transfer.md
       - name: Transfer EA subscriptions to a partner
         href: manage/transfer-enterprise-subscription-partner.md
   - name: Security

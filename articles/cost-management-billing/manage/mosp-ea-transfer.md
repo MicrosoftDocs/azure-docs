@@ -1,6 +1,6 @@
 ---
 title: Transfer a Microsoft Online Subscription Program (MOSP) subscription to an Enterprise Agreement
-description: This article helps you understand the steps to migrate an MOSP subscription to an Enterprise Agreement.
+description: This article helps you understand the steps to transfer an MOSP subscription to an Enterprise Agreement.
 author: bandersmsft
 ms.reviewer: jatracey
 tags: billing
@@ -14,10 +14,10 @@ ms.custom:
 
 # Transfer an MOSP subscription to an Enterprise Agreement (EA)
 
-This article helps you understand the steps needed to migrate an MOSP subscription, also called a pay-as-you-go (PAYG) subscription, to an EA. The migration has no downtime, however there are many steps to follow to enable the transfer and migration.
+This article helps you understand the steps needed to transfer an MOSP subscription, also called a pay-as-you-go (PAYG) subscription, to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
 
 > [!NOTE]
-> The migration process doesn't change Azure AD Directory information that the subscriptions are linked to. If you want to make an Azure AD Directory change, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+> The transfer process doesn't change Azure AD Directory information that the subscriptions are linked to. If you want to make an Azure AD Directory change, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ The following sections help you identify your subscription account admin, requir
 
 Identify the MOSP subscription account admin by signing in to the Azure portal with an account that has at least the Azure RBAC reader role for the subscription. Then navigate to **Subscriptions** > Select the subscription > **Properties**. The subscription **Account Admin** is shown. Make a note of the user information.
 
-:::image type="content" source="./media/mosp-ea-migration/subscription-account-admin.png" alt-text="Image showing subscription properties where you can view the Account Admin" lightbox="./media/mosp-ea-migration/subscription-account-admin.png" :::
+:::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Image showing subscription properties where you can view the Account Admin" lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
 
 > [!NOTE]
 > You must sign in to Enterprise Agreement (EA) portal later with the same Account Admin user account, as described in the preceding information. If you don't have access to the account, you must get it before proceeding. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).
@@ -51,7 +51,7 @@ Ensure that the authentication level set for the EA allows you to create a new E
 - If the subscription account administrator has an e-mail address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authentication level set to either **Work or School Account** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's e-mail address domain.
 
 > [!NOTE]
-> When set correctly, changing the authentication level doesn't impact the migration process. For more information, see [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
+> When set correctly, changing the authentication level doesn't impact the transfer process. For more information, see [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
 
 ## Transfer the subscription to the EA
 
@@ -100,7 +100,7 @@ The warning states the following, as documented at [Azure EA portal administrati
 
 ***When a user is added as an account owner through the Azure EA Portal, any Azure subscriptions associated with the account owner that are based on either the MOSP (PAYG) Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as MOSP (PAYG), associated with the Account Owner will be converted to the standard EA subscription offer.***
 
-If the user understands the consequences of the warning, select **Continue** and the subscriptions associated with their account are transferred to the EA, including the MOSP subscription that you want to transfer as part of the migration.
+If the user understands the consequences of the warning, select **Continue** and the subscriptions associated with their account are transferred to the EA, including the MOSP subscription that you want to transfer.
 
 ## More help
 
