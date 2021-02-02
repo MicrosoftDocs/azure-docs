@@ -134,6 +134,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: REST API
+            url: /rest/api/avs
           - text: Azure CLI
             url: /cli/azure/ext/vmware/vmware
           - text: Azure PowerShell

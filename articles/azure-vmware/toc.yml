@@ -110,6 +110,8 @@
     href: faq.md
 - name: Reference
   items:
+  - name: REST API
+    href: /rest/api/avs
   - name: Azure CLI
     href: /cli/azure/ext/vmware/vmware
   - name: Azure PowerShell
