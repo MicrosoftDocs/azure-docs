@@ -166,3 +166,7 @@ a.	Verify the certificates count and certs downloaded.
 	
 8.	Click **Refresh** to view the configured policy
 
+## Next steps
+
+In this quickstart, you created an attestation resource using CLI, and validated the deployment. To learn more about Azure Attestation, see [Overview of Azure Attestation](overview.md).
+
