@@ -59,16 +59,19 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 > * For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
 > * When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md) article.
+> * The subnet used to deploy compute cluster/instance should not be delegated to any other service like ACI
+> * Virtual network service endpoint policies do not work for compute cluster/instance system storage accounts
+
     
 > [!TIP]
 > The Machine Learning compute instance or cluster automatically allocates additional networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
 > 
 > * One network security group
-> * One public IP address
+> * One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
 > * One load balancer
 > 
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
-> These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md).
+> These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted.
 
 
 ### <a id="mlcports"></a> Required ports

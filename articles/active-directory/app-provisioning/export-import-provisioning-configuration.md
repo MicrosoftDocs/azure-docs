@@ -3,7 +3,7 @@ title: Export provisioning configuration and roll back to a known good state for
 description: Learn how to export your provisioning configuration and roll back to a known good state for disaster recovery.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
