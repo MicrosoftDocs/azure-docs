@@ -32,7 +32,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Finding Log Analytics workspace in the Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Finding Log Analytics workspace in the Azure portal](media/quick-collect-linux-computer/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Select **Create**, and then select choices for the following items:
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Creating a Log Analytics workspace in the Azure portal](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+        ![Creating a Log Analytics workspace in the Azure portal](media/quick-collect-linux-computer/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
@@ -123,7 +123,7 @@ Azure Monitor can collect events from the Linux Syslog and performance counters 
 
 7. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Linux performance counters selected in Azure Monitor](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Default Linux performance counters selected in Azure Monitor](media/quick-collect-linux-computer/linux-perfcounters-azure-monitor.png)
 
     Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**. They are added and preset with a ten second collection sample interval.  
 
@@ -153,7 +153,7 @@ To remove the agent, run the following command on the Linux computer. The *--pur
 
 To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page select **Delete**.
 
-![Delete Log Analytics resource](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+![Delete Log Analytics resource](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 
