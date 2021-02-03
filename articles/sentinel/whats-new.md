@@ -41,7 +41,7 @@ Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershell
 
 The **Az.SecurityInsights** module supports common Azure Sentinel use cases, like interacting with incidents to change statues, severity, owner, and so on, adding comments and labels to incidents, and creating bookmarks.
 
-Although we recommend using [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is specifically targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
+Although we recommend using [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
 
 For more information, including a full list and description of the available cmdlets, parameter descriptions, and examples, see the [Az.SecurityInsights PowerShell documentation](/powershell/module/az.securityinsights/).
 
@@ -65,7 +65,7 @@ For more information, see [Automatically create incidents from Microsoft securit
 Azure Sentinel now supports dedicated Log Analytics clusters as a deployment option. We recommend considering a dedicated cluster if you:
 
 - **Ingest over 1 Tb per day** into your Azure Sentinel workspace
-- **Have multiple Azure Sentinel workspaces** in your Azure enrolment
+- **Have multiple Azure Sentinel workspaces** in your Azure enrollment
 
 Dedicated clusters enable you to use features like customer-managed keys, lockbox, double encryption, and faster cross-workspace queries when you have multiple workspaces on the same cluster.
 
@@ -118,7 +118,7 @@ This update for Azure Sentinel includes new hunting queries that provide coverag
 
 The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
 
-If, after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
+If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
 
 All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 
