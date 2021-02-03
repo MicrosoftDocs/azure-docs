@@ -74,20 +74,12 @@ In the following example, two cars were detected in the same video frame, with v
         "type": "entity"
       }
     ]
-  },
-  "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
-    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-04-23T06:37:16.097Z"
   }
 }
 ```
 
 In the messages, notice the following details:
 
-* In `applicationProperties`, `subject` references the node in the graph topology from which the message was generated. 
-* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
 * The `eventTime` value is the time when the event occurred.
 * The `body` section contains data about the analytics event. In this case, the event is an inference event, so the body contains `inferences` data.
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.

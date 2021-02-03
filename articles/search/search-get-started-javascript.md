@@ -9,7 +9,7 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
 ---
 
@@ -82,7 +82,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as our service name and api key.
+4. Install `dotenv`, which is used to import the environment variables such as our service name and API key.
     ```cmd
     npm install dotenv
     ```
