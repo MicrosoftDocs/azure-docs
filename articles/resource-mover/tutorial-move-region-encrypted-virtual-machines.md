@@ -1,19 +1,22 @@
 ---
 title: Move encrypted Azure VMs across regions with Azure Resource Mover
-description: Learn how to move Azure VMs to another region with Azure Resource Mover
+description: Learn how to move encrypted Azure VMs to another region with Azure Resource Mover
 manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/03/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 
 ---
-# Tutorial: Move Azure VMs across regions
+# Tutorial: Move encrypted Azure VMs across regions
 
-In this article, learn how to move Azure VMs with disks with Azure disk encryption enabled, or that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption), using [Azure Resource Mover](overview.md). This occurs in a couple of scenarios:
+In this article, learn how to move encrypted Azure VMs to a different Azure region using [Azure Resource Mover](overview.md). Here's what we mean by encryption:
+
+- VMs that have disks with Azure disk encryption enabled.
+- Or, VMs that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption).
 
 
 In this tutorial, you learn how to:
@@ -184,7 +187,7 @@ Destination resources associated with encryption need manual assignment.
 2. In **Configuration settings**, select the destination disk encryption set. Then select **Save changes**.
 3. You can select to save and validate dependencies for the resource you're modifying, or you can just save the changes, and validate everything you modify in one go.
 
-    ![Page to select disk encryption set in destination region](./media/tutorial-move-region-virtual-machines/select-destination-set.png)
+    ![Page to select disk encryption set in destination region](./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png)
 
     After adding the destination resource, the status of the disk encryption set turns to *Commit move pending*.
 3. In the key vault entry, select **Resource not assigned** in the **Destination configuration** column. **Configuration settings**, select the destination key vault. Save the changes. The destination key vault resource status turns to *Commit move pending*.
@@ -271,7 +274,7 @@ With resources prepared, you can now initiate the move.
     - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
     - After moving resources, they're in an *Commit move pending* state.
 
-![Page showing resources in *Delete source pending* state](./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png)
+![Page showing resources in a Commit move pending state](./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png)
 
 
 ## Discard or commit?
@@ -327,7 +330,7 @@ After the move, you can optionally delete resources in the source region.
 3. After typing **yes**, select **Delete source**.
 
 > [!NOTE]
-    >  In the Resource Move portal, you can't delete resource groups, key vaults, or SQL Server servers. You need to delete these individually from the properties page for each resource.
+>  In the Resource Move portal, you can't delete resource groups, key vaults, or SQL Server servers. You need to delete these individually from the properties page for each resource.
 
 
 ## Delete additional resources created for move
