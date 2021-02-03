@@ -178,7 +178,7 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 
 Cross-zonal restore can be used to restore [Azure zone pinned VMs](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) of the same region.
 
-In the restore process, you'll see the option **Availability Zone.** You'll see your default zone first. To choose a different zone, choose the number of the zone of your choice. Choose a different zone if the default availability zone isn't available due to an outage, or for any other reason you choose to restore in a different zone.
+In the restore process, you'll see the option **Availability Zone.** You'll see your default zone first. To choose a different zone, choose the number of the zone of your choice. When the pinned zone is unavailable, you won't be able to restore the data to another zone because the backed-up data isn't zonally-replicated.
 
 ![Choose availability zone](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
