@@ -137,7 +137,7 @@ Now that you have enabled data collection, lets run a simple log search example 
 
 2. On the Logs query page, type `Perf` in the query editor and select **Run**.
  
-    ![Log Analytics log search](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+    ![Log Analytics log search](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
 
     For example, the query in the following image returned 10,000 Performance records. Your results will be significantly less.
 
