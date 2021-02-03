@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -445,7 +445,7 @@ The verified publisher domain for the application. Read-only.
 Example:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
+    "publisherDomain": "{tenant}.onmicrosoft.com",
 ```
 
 ### replyUrlsWithType attribute
