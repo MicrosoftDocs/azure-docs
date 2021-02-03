@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/03/2021
 ms.author: alkohli
 ---
 
@@ -144,6 +144,35 @@ CANADA and USA:
 
 NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body are tested for body-worn Specific Absorption Rate (SAR) compliance. The SAR limit set by the FCC is 1.6 W/kg when averaged over 1g of tissue. When carrying the product or using it while worn on your body, maintain a distance of 10mm from the body to ensure compliance with RF exposure requirements.
+
+The Netgear A6150 WiFi USB Adapter complies with ANSI/IEEE C95.1-1999 and was tested in accordance with the measurement methods and procedures specified in OET Bulletin 65 Supplement C.
+
+Netgear A6150 Specific Absorption Rate (SAR): 1.18 W/kg averaged over 1g of tissue
+
+The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. This device and its antenna(s) must not be collocated or operating in conjunction with any other antenna or transmitter except in accordance with FCC multitransmitter product procedures. For products available in the USA market, only channel 1~11 can be operated. Selection of other channels is not possible.
+
+Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
+
+La bande 5150–5250 MHz est réservée uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux.
+
+Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz, and these radars could cause interference and/or damage to LE-LAN devices.
+
+This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
+
+If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment to an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+For more information about interference issues, go to the FCC website at [fcc.gov/cgb/consumerfacts/interference.html](https://www.fcc.gov/consumers/guides/interference-radio-tv-and-telephone-signals). You can also call the FCC at 1-888-CALL FCC to request Interference and Telephone Interference fact sheets.
+
+Additional information about radiofrequency safety can be found on the FCC website at [https://www.fcc.gov/general/radio-frequency-safety-0](https://www.fcc.gov/general/radio-frequency-safety-0) and the Industry Canada website at [http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html](http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html).
+
+This product has demonstrated EMC compliance under conditions that included the use of compliant peripheral devices and shielded cables between system components. It is important that you use compliant peripheral devices and shielded cables between system components to reduce the possibility of causing interference to radios, television sets, and other electronic devices.
+
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
 ![Regulatory information warning 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
@@ -153,8 +182,26 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 United States: (800) 426-9400
 Canada: (800) 933-4750
 
+Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429
+
+Netgear A6150 WiFi USB Adapter IC ID: 4054A-18300429
+
+The Netgear A6150 WiFi USB Adapter provided with this equipment is compliant with SAR for general population/uncontrolled exposure limits in IC RSS-102 and has been tested in accordance with the measurement methods and procedures specified in IEEE 1528. Maintain at least 10 mm distance for body-warn<!--Was "body-worn" intended?--> condition.
+
+L’adaptateur USB WiFi Netgear A6150 fourni avec cet équipement est conforme de SAR pour la population générale / limites d'exposition incontrôlée de CNR-102 et a été testé en conformité avec les méthodes et procédures de mesure spécifiées dans la norme IEEE 1528. Maintenir au moins 10mm à distance pour la condition physique-garde.
+
+The Netgear A6150 WiFi USB Adapter complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and are safe for intended operation as described in its manual. Further RF exposure reduction can be achieved by keeping the product as far as possible from your body or by setting the device to a lower output power if such a function is available.
+
+L’adaptateur USB WiFi Netgear A6150 est conforme à la limite d'exposition aux RF portable Canada établies pour un environnement non contrôlé et sont sans danger pour le fonctionnement prévu comme décrit dans le manuel. Poursuite de la réduction de l'exposition aux RF peut être réalisé en gardant le produit autant que possible de votre corps ou par le réglage du dispositif à une puissance de sortie inférieure si une telle fonction est disponible.
+
+A table with the Specific Absorption Rate (SAR) averaged over 1g for each product can be seen in the USA section above.
+
+Un tableau avec le taux d’absorption spécifique (SAR) en moyenne plus de 1g pour chaque produit peut être vu dans la section Des USA ci-dessus.
+
 EUROPEAN UNION:
-Request a copy of the EU Declaration of Conformity.
+Request a copy of the EU Declaration of Conformity for this equipment.
+
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is in compliance with Directive 2014/53/EU and can also be provided on request.
 
 > ![Warning Icon 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 > This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
