@@ -37,10 +37,10 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-#### .Net
-Application monitoring on Azure App Service on Windows is available for [.Net applications](./azure-web-apps.md?tabs=net) .NET and is enabled by default.
+#### .NET
+Application monitoring on Azure App Service on Windows is available for [.NET applications](./azure-web-apps.md?tabs=net) .NET and is enabled by default.
 
-#### .NetCore
+#### .NETCore
 Monitoring for [.NETCore applications](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) can be enabled with one click.
 
 #### Java
@@ -51,8 +51,8 @@ Monitoring for Node.js applications on Windows cannot currently be enabled from 
 
 ### Linux
 
-#### .NetCore
-To monitor .NetCore applications running on Linux, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+#### .NETCore
+To monitor .NETCore applications running on Linux, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 #### Java 
 Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
@@ -73,7 +73,7 @@ Codeless instrumentation of Azure Kubernetes Service is currently available for 
 
 ## Azure Windows VMs and virtual machine scale set
 
-Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.Net](./azure-vm-vmss-apps.md) and [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
+Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
 
 ## On-premises servers
 You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).
