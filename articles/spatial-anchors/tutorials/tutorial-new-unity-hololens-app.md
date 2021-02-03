@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 2/3/21
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
