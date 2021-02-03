@@ -85,8 +85,7 @@ productDirectory:
       imageSrc: media/index/health-bot-logo.svg
       azureCategories:
         - ai-machine-learning
-        - analytics
-      url: /azure/databricks/
+      url: /azure/bot-service/
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
