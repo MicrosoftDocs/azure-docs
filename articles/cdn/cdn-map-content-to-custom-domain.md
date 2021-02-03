@@ -193,7 +193,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
 1. Sign in to Azure PowerShell:
 
 ```azurepowershell-interactive
-Connect-AzAccount
+    Connect-AzAccount
 
 ```
 2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) to map the custom domain to your CDN endpoint. 
