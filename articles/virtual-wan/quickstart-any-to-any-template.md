@@ -46,14 +46,14 @@ This template creates a fully functional Azure Virtual WAN environment with the 
 
 Multiple Azure resources are defined in the template:
 
-* [**Microsoft.Network/expressroutegateways**](/azure/templates/microsoft.network/expressroutegateways)
-* [**Microsoft.Network/p2svpngateways**](/azure/templates/microsoft.network/p2svpngateways)
-* [**Microsoft.Network/vpnserverconfigurations**](/azure/templates/microsoft.network/vpnserverconfigurations)
-* [**Microsoft.Network/vpngateways**](/azure/templates/microsoft.network/vpngateways) 
-* [**Microsoft.Network/hubvirtualnetworkconnections**](/azure/templates/microsoft.network/hubvirtualnetworkconnections)
-* [**Microsoft.Network/virtualhubs**](/azure/templates/microsoft.network/virtualhubs)
 * [**Microsoft.Network/virtualwans**](/azure/templates/microsoft.network/virtualwans)
+* [**Microsoft.Network/virtualhubs**](/azure/templates/microsoft.network/virtualhubs)
 * [**Microsoft.Network/virtualnetworks**](/azure/templates/microsoft.network/virtualnetworks)
+* [**Microsoft.Network/hubvirtualnetworkconnections**](/azure/templates/microsoft.network/virtualhubs/hubvirtualnetworkconnections)
+* [**Microsoft.Network/p2svpngateways**](/azure/templates/microsoft.network/p2svpngateways)
+* [**Microsoft.Network/vpngateways**](/azure/templates/microsoft.network/vpngateways) 
+* [**Microsoft.Network/expressroutegateways**](/azure/templates/microsoft.network/expressroutegateways)
+* [**Microsoft.Network/vpnserverconfigurations**](/azure/templates/microsoft.network/vpnserverconfigurations)
 
 >[!NOTE]
 > This ARM template doesn't create the customer-side resources required for hybrid connectivity. After you deploy the template, you still need to create and configure the P2S VPN clients, the VPN branches (Local Sites), and connect the ExpressRoute circuits.
