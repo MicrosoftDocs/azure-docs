@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: memildin
 
 ---
@@ -29,17 +29,18 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 ## February 2021
 
-Updates in January include:
+Updates in February include:
 
 - [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
 
 ### Kubernetes workload protection recommendations released for General Availability (GA)
 
-We're happy to announce the General Availability (GA) of AKS recommendations for workload protection.
+We're happy to announce the General Availability (GA) of the set of recommendations for Kubernetes workload protections.
 
 To ensure that Kubernetes workloads are secure by default, Security Center has added Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
 
-When the Azure Policy add-on for Kubernetes is installed on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices - displayed as 13 security recommendations - before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+When the Azure Policy add-on for Kubernetes is installed on your Azure Kubernetes Service (AKS) cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices - displayed as 13 security recommendations - before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
@@ -49,7 +50,17 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
 
+### Direct link to policy from recommendation details page
 
+When you're reviewing the details of a recommendation it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, there's a new link from the recommendation details page:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link to Azure Policy page for the specific policy supporting a recommendation":::
+
+Use this link to view the policy definition and review the evaluation logic. 
+
+If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see these links to the policy definition pages:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Azure Security Center recommendations reference page":::
 
 ## January 2021
 
