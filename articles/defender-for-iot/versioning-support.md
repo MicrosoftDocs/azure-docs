@@ -33,7 +33,7 @@ The following versions of the Azure Defender for IoT are currently available.
 The current version of Azure Defender for IoT is vXXX. The Azure Defender for IoT vXXX version contains features that are generally available and ready for production use.
 
 ## Preview status
-A feature is labelled as "(preview)" to indicate its behavior is _unique_ in the beta endpoint. 
+A feature is labeled as "(preview)" to indicate its behavior is _unique_ in the beta endpoint. 
 
 The behavior of most features in the vXXX version is in parity with the beta version. "preview" qualifies a minority of features in one of the following two cases: 
 - Available in only beta
@@ -44,10 +44,10 @@ Like any other feature, features marked in the documentation as "(preview)" may 
 
 ### Deprecated and unsupported versions
 
-There are currently no deprecated versions of Azure Defender for IoT .
+There are currently no deprecated versions of Azure Defender for IoT.
 
 ## Terms of use
 
 By using the Azure Defender for IoT, you agree to the [INSERT LINK TO TERMS OF USE FOR Azure Defender for IoT]().
 
-Your feedback is important to us. Connect with us on [StackOverflow](https://stackoverflow.com/questions/tagged/microsoftgraph?sort=newest). Tag your questions with [??????????????].
+Your feedback is important to us. Connect with us on [StackOverflow](https://stackoverflow.com/questions/tagged/microsoftgraph?sort=newest). Tag your questions with [??????].
