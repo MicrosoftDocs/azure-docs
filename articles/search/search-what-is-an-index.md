@@ -148,6 +148,8 @@ Indexes that support filter and sort are proportionally larger than indexes supp
 > [!Note]
 > Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
+<a name="corsoptions"></a>
+
 ## About `corsOptions`
 
 Index schemas include a section for setting `corsOptions`. Client-side JavaScript cannot call any APIs by default since the browser will prevent all cross-origin requests. To allow cross-origin queries to your index, enable CORS (Cross-Origin Resource Sharing) by setting the **corsOptions** attribute. For security reasons, only query APIs support CORS. 

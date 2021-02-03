@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/28/2021
 ---
 
-# Creating search indexers in Azure Cognitive Search
+# Creating indexers in Azure Cognitive Search
 
 A search indexer provides an automated workflow for transferring documents and content from an external data source, to a search index on your search service. As originally designed, it extracts text and metadata from an Azure data source, serializes documents into JSON, and passes off the resulting documents to a search engine for indexing. It's since been extended to support [AI enrichment](cognitive-search-concept-intro.md) for deep content processing. 
 
