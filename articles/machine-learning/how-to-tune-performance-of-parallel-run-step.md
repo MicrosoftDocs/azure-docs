@@ -53,6 +53,7 @@ Pipeline lifecycle
 1. the master role concatenate the temp files.
 
 # Check performance metrics
+You can check the detailed metric of PRS and its relying resources to find the bottleneck of your job.
 
 ## Progress overview
 The file is `logs/job_progress_overview.yyyymmddhh.txt`. It is `logs/overview.txt` in old versions.
