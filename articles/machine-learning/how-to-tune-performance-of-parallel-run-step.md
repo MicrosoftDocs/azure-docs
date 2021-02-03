@@ -21,21 +21,22 @@ This guide helps users to measure and tune parameters in term of performance whe
 1. Check performance metrics.
 
 >[!NOTE]
->Note that we're continuously improving log and metrics. The content here may not match the actual prod exactly at a given time. We'll align them with on-going releases.
+>Note that we're continuously improving log and metrics. The content here may not match the actual prod exactly at arbitrary time. We'll align them with on-going releases.
 
 # Select Virtual Machine
 1. Choose CPU or GPU virtual machine.
 1. Choose virtual machine size based on your rough estimation of cores, RAM, local storage, cost requirements. This is a **rough estimation** and you can change to new cluster based on your tuning result.
-1. Choose Dedicated or Low priority. For dev purpose, you can always use a few Dedicated virtual machines to ensure you can have a quick response.
-1. Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. For dev purpose, you can set this to the number to keep node in provisioned state to save the time of provision when running a job.
+1. Choose `Dedicated` or `Low priority`. For dev purpose, you can always use a few Dedicated virtual machines to ensure you can have a quick response.
+1. Minimum number of nodes that you want to provision. If you want a number of dedicated  nodes, set that count here. For dev purpose, keep the nodes in provisioned state can save the time of provisioning when start a job.
 
 > [!div class="mx-imgBorder"]
 > ![New Compute Cluster](media/how-to-tune-performance-of-parallel-run-step/new-compute-cluster.png)
 
-# Choose node_count and process_count_per_node
+# Set `node_count` and `process_count_per_node`
 The max number of worker processes running in parallel is `node_count * process_count_per_node`.
-In dev phase, you have tested out the duration per mini batch
-`node_count * process_count_per_node = total mini batches / duration per mini batch`
+In dev phase, you have tested out the duration per mini batch locally and use the following formula to estimate the suitable parameters.
+
+`node_count * process_count_per_node = desired_total_duration / duration_per_mini_batch`
 
 
 # Choose mini batch size
@@ -52,6 +53,7 @@ Pipeline lifecycle
 1. the master role concatenate the temp files.
 
 # Check performance metrics
+You can check the detailed metric of PRS and its relying resources to find the bottleneck of your job.
 
 ## Progress overview
 The file is `logs/job_progress_overview.yyyymmddhh.txt`. It is `logs/overview.txt` in old versions.
