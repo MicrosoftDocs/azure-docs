@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -267,6 +267,11 @@ Extended policy with WHERE clause support for additional filtering:
 - [Create or Update Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Get Database *Extended* Auditing Policy](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+
+### Using Azure CLI
+
+- [Manage a server's auditing policy](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Manage a database's auditing policy](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### Using Azure Resource Manager templates
 
