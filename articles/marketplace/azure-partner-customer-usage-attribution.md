@@ -243,6 +243,9 @@ foreach ($deployment in $deployments){
 
 }
 ```
+## Report
+Reporting for Azure usage tracked via customer usage attribution is not available today for ISV partners. Adding reporting to the Commercial Marketplace Program in Partner Center to cover customer usage attribution is targeted for the second half of 2021.
+
 ## Notify your customers
 
 Partners should inform their customers about deployments that use customer usage attribution. Microsoft reports the Azure usage that's associated with these deployments to the partner. The following examples include content that you can use to notify your customers about these deployments. In the examples, replace \<PARTNER> with your company name. Partners should make sure the notification aligns with their data privacy and collection policies, including options for customers to be excluded from tracking.
