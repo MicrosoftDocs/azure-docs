@@ -4,7 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
@@ -56,6 +56,8 @@ Refer to the following sections to understand the relevant query optimizations f
 - [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Understand which system functions use the index.](#understand-which-system-functions-use-the-index)
+
+- [Improve string system function execution.](#improve-string-system-function-execution)
 
 - [Understand which aggregate queries use the index.](#understand-which-aggregate-queries-use-the-index)
 
@@ -192,10 +194,11 @@ You can add properties to the indexing policy at any time, with no effect on wri
 
 Most system functions use indexes. Here's a list of some common string functions that use indexes:
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
+- StartsWith
+- Contains
+- RegexMatch
+- Left
+- Substring - but only if the first num_expr is 0
 
 Following are some common system functions that don't use the index and must load each document:
 
@@ -204,11 +207,21 @@ Following are some common system functions that don't use the index and must loa
 | UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
-------
+### Improve string system function execution
 
-If a system function uses indexes and still has a high RU charge, you can try adding `ORDER BY` to the query. In some cases, adding `ORDER BY` can improve system function index utilization, particularly if the query is long-running or spans multiple pages.
+For some system functions that use indexes, you can improve query execution by adding an `ORDER BY` clause to the query. 
 
-For example, consider the below query with `CONTAINS`. `CONTAINS` should use an index but let's imagine that, after adding the relevant index, you still observe a very high RU charge when running the below query:
+More specifically, any system function whose RU charge increases as the cardinality of the property increases may benefit from having `ORDER BY` in the query. These queries do an index scan, so having the query results sorted can make the query more efficient.
+
+This optimization can improve execution for the following system functions:
+
+- StartsWith (where case-insensitive = true)
+- StringEquals (where case-insensitive = true)
+- Contains
+- RegexMatch
+- EndsWith
+
+For example, consider the below query with `CONTAINS`. `CONTAINS` will use indexes but sometimes, even after adding the relevant index, you may still observe a very high RU charge when running the below query.
 
 Original query:
 
@@ -218,13 +231,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Updated query with `ORDER BY`:
+You can improve query execution by adding `ORDER BY`:
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+The same optimization can help in queries with additional filters. In this case, it's best to also add properties with equality filters to the `ORDER BY` clause.
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+You can improve query execution by adding `ORDER BY` and [a composite index](index-policy.md#composite-indexes) for (c.name, c.town):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### Understand which aggregate queries use the index

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/18/2021
+ms.date: 02/03/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -132,8 +132,8 @@ The following Language Understanding **features are not currently available** in
 ### [Speech Service](../cognitive-services/speech-service/overview.md)
 The following Speech Service **features are not currently available** in Azure Government:
 - Custom Voice
-- Neural voices for Text-to-Speech
-See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md).
+
+See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md). See additonal endpoint information [here](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 The following Translator **features are not currently available** in Azure Government:
