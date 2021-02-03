@@ -52,4 +52,4 @@ There are currently no deprecated versions of Azure Defender for IoT.
 
 By using the Azure Defender for IoT, you agree to the [INSERT LINK TO TERMS OF USE FOR Azure Defender for IoT]().
 
-Your feedback is important to us. Connect with us on [StackOverflow](https://stackoverflow.com/questions/tagged/microsoftgraph?sort=newest). Tag your questions with [??????].
+Your feedback is important to us. Connect with us on [StackOverflow should this be here?](https://stackoverflow.com/questions/tagged/microsoftgraph?sort=newest). Tag your questions with [??????].
