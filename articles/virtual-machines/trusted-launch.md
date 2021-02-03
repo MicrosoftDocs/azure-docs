@@ -8,9 +8,10 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.reviewer: 
+ms.custom: template-concept
 ---
 
-## Trusted Launch for Azure virtual machines
+# Trusted Launch for Azure virtual machines
 
 Azure offers Trusted Launch as a seamless way to bolster the security of generation 2 VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several, coordinated infrastructure technologies.
 The underlying principle   behind Trusted Launch is ease of use. Each of the features above can be enabled independently of the others, usually with just a few clicks. Each provides an additional layer of defense against sophisticated threat actors.
@@ -41,7 +42,7 @@ Lastly, with Trusted Launch and VBS you can enable Windows Defender Credential G
 ## Public preview limitations
 
 Size support:
-- All [Generation 2](generation-2) VM sizes 
+- All [Generation 2](generation-2.md) VM sizes 
 
 OS support:
 - Redhat Enterprise Linux 8.3
