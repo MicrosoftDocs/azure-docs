@@ -208,7 +208,7 @@ Wait until the *EXTERNAL-IP* address changes from *pending* to an actual public 
 
 Open a web browser to the external IP address and port of your service (`52.152.189.57:9080` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page, you will probably see a different pod name displayed due to load balancing provided by the AKS cluster.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="Java liberty application successfully deployed on AKS":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS":::
 
 >[!NOTE]
 > - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
