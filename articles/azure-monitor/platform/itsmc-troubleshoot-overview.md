@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting problems in ITSM Connector 
-description: Troubleshooting problems in IT Service Management Connector  
+title: Troubleshoot problems in ITSMC 
+description: Learn how to resolve common problems in IT Service Management Connector.  
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
@@ -8,75 +8,85 @@ ms.author: nolavime
 ms.date: 04/12/2020
 
 ---
-# Troubleshooting problems in ITSM Connector
+# Troubleshoot problems in IT Service Management Connector
 
-This article discusses common problems in ITSM Connector and how to troubleshoot them.
+This article discusses common problems in IT Service Management Connector (ITSMC) and how to troubleshoot them.
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them.
-The customer can select how they want to be notified on the alert whether it is by mail, SMS, Webhook or even to automate a solution. Another option to be notified is using ITSM.
-ITSM gives you the option to send the alerts to external ticketing system such as ServiceNow.
+Azure Monitor proactively notifies you in alerts when it finds important conditions in your monitoring data. These alerts help you identify and address problems before the users of your system notice them.
 
-## Visualize and analyze the incident and change request data
+You can select how you want to receive alerts. You can choose mail, SMS, or webhook, or even automate a solution. 
 
-Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](./itsmc-synced-data.md) of this article.
+An alternative is to be notified through ITSMC. ITSMC gives you the option to send alerts to an external ticketing system such as ServiceNow.
+
+## Use the dashboard to analyze incident and change request data
+
+Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. To get the log record schema for this data, see the [Data synced from your ITSM product](./itsmc-synced-data.md) article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
 
 ![Screenshot that shows the ITSMC dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
-The dashboard also provides information about connector status, which you can use as a starting point to analyze problems with the connections.
+The dashboard also provides information about connector status. You can use that information as a starting point to analyze problems with the connections. For more information, see [Error investigation using the dashboard](./itsmc-dashboard.md).
 
-In order to get more information about the dashboard investigation, see [Error Investigation using the dashboard](./itsmc-dashboard.md).
-
-### Service map
+## Use Service Map to visualize incidents
 
 You can also visualize the incidents synced against the affected computers in Service Map.
 
-Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../vm/service-map.md).
+Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them: as interconnected systems that deliver critical services. 
 
-If you're using Service Map, you can view the service desk items created in ITSM solutions, as shown here:
+Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../vm/service-map.md).
+
+If you're using Service Map, you can view the service desk items created in IT Service Management (ITSM) solutions, as shown in this example:
 
 ![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## Common Symptoms - how should it be resolved?
+## Resolve problems
 
-The list below contain common symptoms and how should it be resolved:
+The following sections identify common symptoms, possible causes, and resolutions. 
 
-* **Symptom**: If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message.
+### A connection to the ITSM system fails and you get an "Error in saving connection" message
 
-    **Cause**: the cause can be one of the options:
-    * Incorrect credentials
-     * Insufficient privileges
-     * Web app should be deployed correctly
+**Cause**: The cause can be one of these options:
 
-    **Resolution**:
-    * For ServiceNow, Cherwell, and Provance connections:
-        * Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
-        * For ServiceNow: Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection as [specified](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
-  * For Service Manager connections:  
-      * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-* **Symptom**: Duplicate work items are created
+* Credentials are incorrect.
+* Privileges are insufficient.
+* The web app was incorrectly deployed.
 
-    **Cause**: the cause can be one of the two options:
-    * More than one ITSM action are defined for the alert.
-    * Alert is resolved.
+**Resolution**:
 
-    **Resolution**: There can be two solutions:
-    * Make sure that you have a single ITSM action group per alert.
-    * ITSM Connector does not support matching work items status update when an alert is resolved. A new resolved work item is created.
-* **Symptom**: Work items are not created
+* For ServiceNow, Cherwell, and Provance connections:
+  * Ensure that you correctly entered the username, password, client ID, and client secret for each of the connections.  
+  * For ServiceNow, ensure that you have [sufficient privileges](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role) in the corresponding ITSM product.
 
-    **Cause**: There can be couple of reasons for this symptom:
-    * Code modification in ServiceNow side
-    * Permissions misconfiguration
-    * ServiceNow rate limits are too high/low
-    * Refresh token is expired
-    * ITSM Connector was deleted
+* For Service Manager connections:  
+  * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify that the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the [documentation for making a hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
-    **Resolution**: You can check the [dashboard](itsmc-dashboard.md) and review the errors in the connector status section. Review the [common errors](itsmc-dashboard-errors.md) and find out how to resolve the error.
+### Duplicate work items are created
 
-* **Symptom**: Unable to create ITSM Action for Action Group
+**Cause**: The cause can be one of these two options:
 
-    **Cause**:Newly created ITSM Connector has yet to finish the initial Sync.
+* More than one ITSM action is defined for the alert.
+* The alert is resolved.
 
-    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors.md#ui-common-errors) and find out how to resolve the error.
+**Resolution**: There can be two solutions:
+
+* Make sure that you have a single ITSM action group per alert.
+* ITSMC doesn't support matching work items' status updates when an alert is resolved. Create a new resolved work item.
+
+### Work items are not created
+
+**Cause**: There can be several reasons for this symptom:
+
+* Code was modified on the ServiceNow side.
+* Permissions are misconfigured.
+* ServiceNow rate limits are too high or too low.
+* A refresh token is expired.
+* ITSMC was deleted.
+
+**Resolution**: Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md).
+
+### You can't create an ITSM action for an action group
+
+**Cause**: A newly created ITSMC instance has yet to finish the initial sync.
+
+**Resolution**: Review the [common errors and their resolutions](itsmc-dashboard-errors.md).
