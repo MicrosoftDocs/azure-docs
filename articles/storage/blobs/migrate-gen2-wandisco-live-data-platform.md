@@ -29,7 +29,7 @@ Unlike migrating data _offline_ by [copying static information to Azure Data Box
 
 ## Key features of WANdisco LiveData Platform for Azure
 
-[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication. 
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication. <br><br>
 
 >[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
