@@ -103,6 +103,8 @@
     href: ./linux/tutorial-elasticsearch.md
   - name: FreeBSD Packet Filter
     href: ./linux/freebsd-pf-nat.md
+  - name: Mainframe rehosting
+    href: ./workloads/mainframe-rehosting/overview.md
   - name: Databases
     items:
     - name: MySQL on SUSE
