@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/09/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -233,7 +233,7 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 
 ### Enterprise Agreement units of measure
 
-The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
+The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided by submitting a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Conversion between usage detail report and the usage summary page
 
@@ -319,13 +319,6 @@ If the change of channel partner (COCP) happens in the middle of the month, a cu
 The invoices will be released following the month after the billing period ends. If the billing cadence is monthly, then September's invoice will be released in October for both partners. If the billing cycle is quarterly or annually, the customer can expect an invoice for the previous associated partner for the usage under their period and rest will be to the new partner based on the billing cadence.
 
 ## Next steps
-
-- The following Excel files provide details on Azure services and are updated on the 6th and 20th of every month:
-
-   | Title | Description | File name |
-   | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>Prepayment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
 - To start using the Azure Enterprise portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).

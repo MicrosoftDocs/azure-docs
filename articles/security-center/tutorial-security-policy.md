@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 01/24/2021
 ms.author: memildin
 ---
 
@@ -29,7 +29,7 @@ Security Center policies are based on policy initiatives created in Azure Policy
 
 Security Center offers the following options for working with security policies:
 
-* **View and edit the built-in default policy** - When you enable Security Center, a built-in initiative named 'ASC default' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
+* **View and edit the built-in default policy** - When you enable Security Center, the initiative named 'Azure Security Benchmark' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
 
 * **Add your own custom policies** - If you want to customize the security initiatives applied to your subscription, you can do so within Security Center. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security policies](custom-security-policies.md).
 
@@ -50,7 +50,7 @@ To view your security policies in Security Center:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-   ![policy page](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Security Center's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
@@ -98,7 +98,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
 
-   ![policy management](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center":::
 
 2. Select the subscription or management group for which you want to disable the recommendation.
 
@@ -107,7 +107,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Select **View effective policy**.
 
-   ![view policy](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="How to open the effective policy assigned to your subscription":::
 
 1. Select the assigned policy.
 
@@ -122,10 +122,8 @@ For more information about recommendations, see [Managing security recommendatio
    > [!NOTE]
    > The disable policy changes can take up to 12 hours to take effect.
 
-
-
 ## Next steps
-This article explained security policies. For related information, see the following articles:
+This page explained security policies. For related information, see the following pages:
 
 - [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 

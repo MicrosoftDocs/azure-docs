@@ -136,6 +136,10 @@ Up to 1,000 connections are supported per virtual hub. Each connection consists 
 
 A connection from a branch or VPN device into Azure Virtual WAN is nothing but a VPN connection that connects virtually the VPN Site and the Azure VPN Gateway in a virtual hub.
 
+### What happens if the on-premise VPN device only has 1 tunnel to a Azure Virtual WAN VPN gateway?
+
+An Azure Virtual WAN connection comprises of 2 tunnels. A Virtual WAN VPN gateway is deployed in Virtual Hub in active-active mode which implies that there are separate tunnels from on-premise devices terminating on separate isntances - this is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.)  the gateway instance were to be taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. Also to keep in mind is that BGP session will not move across instances.
+
 ### Can the on-premises VPN device connect to multiple Hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
@@ -195,6 +199,9 @@ When VPN Sites connect into a hub, they do so with connections. Virtual WAN supp
 
 The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale unit of the VPN gateway. Throughput is shared by all existing connections. Each tunnel in a connection can support up to 1 Gbps.
 
+### Can I use NAT-T on my VPN connections?
+Yes, NAT traversal (NAT-T) is supported. Virtual WAN VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+
 ### I don't see the 20 Gbps setting for the virtual hub in portal. How do I configure that?
 
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
@@ -217,7 +224,7 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network)?
 
-A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route does not propagate between hubs (inter-hub).
 
 ### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
 

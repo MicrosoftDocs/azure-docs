@@ -23,7 +23,7 @@ Security Center offers more container security features if you enable Azure Defe
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 
 
@@ -58,7 +58,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
         > [!TIP]
         > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
 
-    1. From any of the security controls, select the recommendation to see the resources on which you can install the add on.
+    1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
     1. Select the relevant cluster, and **Remediate**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
@@ -247,6 +247,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for containers](recommendations-reference.md#recs-containers)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
-- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)
+- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

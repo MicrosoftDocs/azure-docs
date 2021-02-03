@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
 ---
 # API Management authentication policies
@@ -62,7 +62,10 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes
 
 ##  <a name="ClientCertificate"></a> Authenticate with client certificate
- Use the `authentication-certificate` policy to authenticate with a backend service using client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint.
+ Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint or certificate ID (resource name). 
+
+> [!CAUTION]
+> If the certificate references a certificate stored in Azure Key Vault, identify it using the certificate ID. When a key vault certificate is rotated, its thumbprint in API Management will change, and the policy will not resolve the new certificate if it is identified by thumbprint.
 
 ### Policy statement
 
@@ -72,18 +75,17 @@ This topic provides a reference for the following API Management policies. For i
 
 ### Examples
 
-In this example, the client certificate is identified by its thumbprint:
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-In this example, the client certificate is identified by the resource name:
+In this example, the client certificate is identified by the certificate ID:
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+In this example, the client certificate is identified by its thumbprint:
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 In this example, the client certificate is set in the policy rather than retrieved from the built-in certificate store:
 
 ```xml

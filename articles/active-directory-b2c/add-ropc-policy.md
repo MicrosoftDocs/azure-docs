@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -304,7 +304,7 @@ Use your favorite API development application to generate an API call, and revie
 The actual POST request looks like the following example:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1A_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

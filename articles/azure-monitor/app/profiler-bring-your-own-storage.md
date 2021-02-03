@@ -4,7 +4,7 @@ description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Deb
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 
 ms.reviewer: mbullwin
 ---
@@ -87,7 +87,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
 
     Pattern:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 

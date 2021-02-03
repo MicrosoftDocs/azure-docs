@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 01/26/2021
 ms.author: memildin
 ---
 
@@ -110,7 +110,7 @@ An alternative is to enable Azure Defender for servers at the Log Analytics work
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information.
+To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
 
 ### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you'll be billed hourly for running servers only. You won't be charged for any server that's turned off,  during the time it's off. 

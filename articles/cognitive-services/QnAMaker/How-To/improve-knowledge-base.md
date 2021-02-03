@@ -22,7 +22,7 @@ In order to see suggested questions, you must [turn on active learning](../conce
 
 ## View suggested questions
 
-1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**.
+1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. This option will be disabled if there are no suggestions present for any of the question and answer pairs.  
 
     [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

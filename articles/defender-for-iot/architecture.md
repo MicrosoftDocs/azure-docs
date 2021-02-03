@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
 ---
 
 # Azure Defender for IoT architecture
 
-This article describes the functional system architecture of the Defender for IoT solution.
+This article describes the functional system architecture of the Defender for IoT solution. Azure Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
 
-## Defender for IoT components
+## Agentless solution for organizations
+### Defender for IoT components
 
 Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
@@ -75,12 +76,12 @@ Managing Azure Defender for IoT across hybrid environments is accomplished via t
 - The on-premises management console
 - The Azure portal
 
-#### Sensor console
-Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
+### Sensor console
+Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender for IoT sensor console":::
 
-#### On-premises management console
+### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
 
 This architecture provides a comprehensive unified view of the network at a SOC level, optimized alert handling, and the control of operational network security, ensuring that decision-making and risk management remain flawless.
@@ -91,7 +92,7 @@ The management console can be deployed for high-availability configuration, whic
 
 Tightly integrated with your SOC workflows and run books, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
 
-- Holistic - reduce complexity with a single unified platform for asset management, risk and vulnerability management, as well as threat monitoring with incident response.
+- Holistic - reduce complexity with a single unified platform for device management, risk and vulnerability management, as well as threat monitoring with incident response.
 
 - Aggregation and correlation – display, aggregate, and analyze data and alerts collected from all sites.
 
@@ -99,20 +100,23 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Manage all of your alerts and information.":::
 
-#### Azure portal
+### Azure portal
 
 The Defender for IoT portal in Azure is used to help you:
 
 - Purchase solution appliances
+
 - Install and update software
 - Onboard sensors to Azure
 - Update Threat Intelligence packages
 
-## Embedded security agent: Built-in mode
+## Agent-based solution for device builders
+
+### Embedded security agent: Built-in mode
 
 In **Built-in** mode, Defender for IoT is enabled when you elect to turn on the **Security** option in your IoT hub. Offering real-time monitoring, recommendations and alerts, built-in mode offers single-step device visibility and unmatched security. Build-in mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your field device and IoT hub.
 
-## Embedded security agent: Enhanced mode
+### Embedded security agent: Enhanced mode
 
 In **Enhanced** mode, after turning on the **Security** option in your IoT hub and installing Defender for IoT device agents on your devices, the agents collect, aggregate, and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender for IoT device agents also handles event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
@@ -125,6 +129,8 @@ Defender for IoT analytics pipeline also receives additional threat intelligence
 Using the analytics pipeline, Defender for IoT combines all of the streams of information to generate actionable recommendations and alerts. The pipeline contains both custom rules created by security researchers and experts as well as   machine learning models searching for deviation from standard device behavior and risk analysis.
 
 Defender for IoT recommendations and alerts (analytics pipeline output) is written to the Log Analytics workspace of each customer. Including the raw events in the workspace as well as the alerts and recommendations enables deep dive investigations and queries using the exact details of the suspicious activities detected.
+
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="The micro agent architecture.":::
 
 ## See also
 
