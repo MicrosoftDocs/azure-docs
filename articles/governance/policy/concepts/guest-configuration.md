@@ -268,7 +268,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ### Client files
 
-The guest configuration client downloads content packages to a machine and extracts the contents.
+The Guest Configuration client downloads content packages to a machine and extracts the contents.
 To verify what content has been downloaded and stored, view the folder locations given below.
 
 Windows: `c:\programdata\guestconfig\configurations`
