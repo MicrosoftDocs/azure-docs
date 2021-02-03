@@ -198,11 +198,11 @@ Connect-AzAccount
 ```
 2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) to map the custom domain to your CDN endpoint. 
 
-* Replace **myendpoint8675.azureedge.net** with your endpoint url.
-* Replace **myendpoint8675** with your CDN endpoint name.
-* Replace **www.contoso.com** with your custom domain name.
-* Replace **myCDN** with your CDN profile name.
-* Replace **myResourceGroupCDN** with your resource group name.
+    * Replace **myendpoint8675.azureedge.net** with your endpoint url.
+    * Replace **myendpoint8675** with your CDN endpoint name.
+    * Replace **www.contoso.com** with your custom domain name.
+    * Replace **myCDN** with your CDN profile name.
+    * Replace **myResourceGroupCDN** with your resource group name.
 
 ```azurepowershell-interactive
     $parameters = @{
@@ -252,10 +252,10 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 
 1. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) to remove the custom domain from the endpoint:
 
-* Replace **myendpoint8675** with your CDN endpoint name.
-* Replace **www.contoso.com** with your custom domain name.
-* Replace **myCDN** with your CDN profile name.
-* Replace **myResourceGroupCDN** with your resource group name.
+    * Replace **myendpoint8675** with your CDN endpoint name.
+    * Replace **www.contoso.com** with your custom domain name.
+    * Replace **myCDN** with your CDN profile name.
+    * Replace **myResourceGroupCDN** with your resource group name.
 
 
 ```azurepowershell-interactive
