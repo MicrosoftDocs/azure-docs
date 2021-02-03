@@ -107,7 +107,7 @@ var observer = new ObjectObserver();
 byte[] modelAsBytes; // Load a model into a byte array. Model could be a file, an embedded resource, or a network stream.
 var model = await observer.LoadObjectModelAsync(modelAsBytes);
 
-// Note that after a model is load, its vertices and normals are transformed into a centered coordinate system for the 
+// Note that after a model is loaded, its vertices and normals are transformed into a centered coordinate system for the 
 // ease of computing the object pose. The rigid transform can be retrieved through OriginToCenterTransform property.
 ```
 
