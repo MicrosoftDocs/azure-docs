@@ -290,7 +290,7 @@ sudo pcs property set stonith-timeout=900
 </code></pre>
 
 > [!NOTE]
-> Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical in the format **hostname:vm-name**.
+> Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
 > Refer to the bold section in the command. For more information see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
