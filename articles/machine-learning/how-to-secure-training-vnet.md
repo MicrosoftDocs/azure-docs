@@ -160,15 +160,22 @@ There are two ways that you can accomplish this:
 
 * Use a [Virtual Network NAT](../virtual-network/nat-overview.md). A NAT gateway provides outbound internet connectivity for one or more subnets in your virtual network. For information, see [Designing virtual networks with NAT gateway resources](../virtual-network/nat-gateway-resource.md).
 
-* Add [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to the subnet that contains the compute resource. Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service where the resources exist, as this is required for access to Compute Instances. To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
+* Add [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to the subnet that contains the compute resource. Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service, as this is required for access to Compute Instances. When adding the IP for the Azure Machine Learning service, you must add the IP for both the __primary and secondary__ Azure regions. The primary region being the one that the service is located in.
+
+To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+
+To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
 
     * Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
-    * Use the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
+    * Use the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region (primary) and Central US region (secondary):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+        # Get primary region IPs
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+        # Get secondary region IPs
+        az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
         ```
 
         > [!TIP]
@@ -180,8 +187,6 @@ There are two ways that you can accomplish this:
     When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
 
     ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
-
-    You must also add a UDR for the Azure Machine Learning service **secondary region**. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US.
 
     > [!IMPORTANT]
     > The IP addresses may change over time.
