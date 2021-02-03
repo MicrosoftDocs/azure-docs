@@ -36,7 +36,7 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
-To access the .NET Core feature manager APIs, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages.
+To access the .NET Core feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages.
 
 The .NET Core feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables.
 
@@ -72,7 +72,9 @@ public class Startup
 ```
 
 
-If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. The following example shows how to use a built-in feature filter called `PercentageFilter`:
+If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core)
+
+The following example shows how to use a built-in feature filter called `PercentageFilter`:
 
 
 
@@ -173,6 +175,7 @@ In a typical scenario, you will update your feature flag values periodically as 
 
     
 ```csharp
+var connection = settings.GetConnectionString("AppConfig");
 config.AddAzureAppConfiguration(options =>
     options.Connect(connection).UseFeatureFlags(featureFlagOptions => {
         featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
