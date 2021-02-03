@@ -87,7 +87,7 @@ The data object has the following properties:
 |Title | Description |
 |---------|---------|
 | [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
-| [Use Event Grid for data change notifications](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Learn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. |
+| [Use Event Grid for data change notifications](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. |
 
 ## Next steps
 
