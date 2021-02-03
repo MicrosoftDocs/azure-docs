@@ -189,7 +189,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
 + Create a new computeinstance.
 
     ```azurecli-interactive
-    az ml computetarget computeinstance create  -n cpu -s "STANDARD_D3_V2" -v
+    az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
     For more information, see [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
