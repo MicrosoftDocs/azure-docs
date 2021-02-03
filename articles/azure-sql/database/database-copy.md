@@ -137,6 +137,8 @@ CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
 GO
 CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
 GO
+exec sp_addrolemember 'dbmanager','loginname'
+GO
 
 Step# 2
 Create the user in the source database and grant dbowner permission to the database.
