@@ -110,7 +110,8 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
       ```
 
       > [!NOTE]
-      > The "Binds" section in the JSON has 2 entries. Feel free to update the edge device binds, but make sure that those directories exist.
+      > The "Binds" section in the JSON has 2 entries. The directories mentioned in the above bind section will automatically be created by LVA.  
+        Feel free to update the edge device binds, but if you do so, make sure that those directories exist on the device.
     
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": This is used to bind the persistent application configuration data from the container and store it on the edge device.
     * "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a media graph topology that supports storing of video clips on the edge device.
