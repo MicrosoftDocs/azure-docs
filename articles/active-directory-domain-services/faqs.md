@@ -102,7 +102,7 @@ Any user account that's part of the managed domain can join a VM. Members of the
 No. You aren't granted administrative privileges on the managed domain. *Domain Administrator* and *Enterprise Administrator* privileges aren't available for you to use within the domain. Members of the domain administrator or enterprise administrator groups in your on-premises Active Directory are also not granted domain / enterprise administrator privileges on the managed domain.
 
 ### Can I modify group memberships using LDAP or other AD administrative tools on managed domains?
-Users and groups that are synchronized from Azure Active Directory to Azure AD Domain Services cannot be modified because their source of origin is Azure Active Directory. Any user or group originating in the managed domain may be modified.
+Users and groups that are synchronized from Azure Active Directory to Azure AD Domain Services cannot be modified because their source of origin is Azure Active Directory. This includes moving users or groups from the AADDC Users managed organizational unit to a custom organizational unit. Any user or group originating in the managed domain may be modified.  
 
 ### How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?
 Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are automatically synchronized to your managed domain. This synchronization process runs in the background. There's no defined time period for this synchronization to complete all the object changes.
