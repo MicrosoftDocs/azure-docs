@@ -179,7 +179,7 @@ const uint maxSessionSizeInMegaBytes = uint.MaxValue;
 // Recording starts on the creation of a diagnostics session.
 var diagnostics = new ObjectDiagnosticsSession(observer, maxSessionSizeInMegaBytes);
 
-// Wait for the observer do a job.
+// Wait for the observer to do a job.
 
 // Application can report some **pseudo ground-truth** pose for an instance acquired from other means.
 diagnostics.ReportActualInstanceLocation(instance, coordinateSystem, Vector3.Zero, Quaternion.Identity);
