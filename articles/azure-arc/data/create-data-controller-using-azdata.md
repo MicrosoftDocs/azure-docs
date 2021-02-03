@@ -54,7 +54,7 @@ kubectl config current-context
 
 ### Connectivity modes
 
-As described in [Connectivity modes and requirements](https://docs.microsoft.com/azure/azure-arc/data/connectivity), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
+As described in [Connectivity modes and requirements](./connectivity.md), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
 
    ```console
    --connectivity-mode direct
@@ -264,6 +264,8 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 Azure Red Hat OpenShift requires a security context constraint.
 
 #### Apply the security context
+
+Before you create the data controller on Azure Red Hat OpenShift, you will need to apply specific security context constraints (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 

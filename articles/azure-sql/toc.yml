@@ -1016,6 +1016,8 @@
       href: managed-instance/virtual-cluster-delete.md
     - name: Configure custom DNS
       href: managed-instance/custom-dns-configure.md
+    - name: Sync DNS configuration
+      href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
     - name: Sync network configuration
       href: managed-instance/azure-app-sync-network-configuration.md
     - name: Find management endpoint IP address

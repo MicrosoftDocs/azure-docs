@@ -31,7 +31,7 @@ To get started, you need the following items:
 * A ServiceNow single sign-on (SSO) enabled subscription.
 * For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando and Paris versions or later.
 * For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
-* The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
+* The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
 * To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
 

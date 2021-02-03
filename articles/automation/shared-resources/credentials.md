@@ -110,7 +110,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../automation-security-overview.md#run-as-accounts) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
 
 ```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'

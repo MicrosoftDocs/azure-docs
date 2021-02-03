@@ -45,8 +45,8 @@ This method accepts a JSON payload with the following schema:
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -64,8 +64,8 @@ This method accepts a JSON payload with the following schema:
 | ID | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
-| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| since | string | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
+| until | string | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | log level | integer | Filter log lines less than or equal to specified log level. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
 | regex | string | Filter log lines that have content that match the specified regular expression using [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
 | encoding | string | Either `gzip` or `none`. Default is `none`. |
@@ -154,8 +154,8 @@ This method accepts a JSON payload similar to **GetModuleLogs**, with the additi
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -287,8 +287,8 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | sasURL | string (URI) | [Shared Access Signature URL with write access to Azure Blob Storage container](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| since | string | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
+| until | string | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub, and the Edge Security Daemon. Default: false.  OPTIONAL. |
 
 > [!IMPORTANT]

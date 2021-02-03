@@ -41,7 +41,7 @@ This section provides steps to troubleshoot common issues you might experience w
 
 ### You can't download the script
 
-1. Ensure you have the [required permissions to download the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Ensure you have the [required permissions to download the script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
    `nslookup download.microsoft.com`
@@ -62,7 +62,7 @@ When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enter
 
 You might see an "Exception caught while connecting to target" error message.
 
-1. Ensure the machine where the script is run meets the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Ensure the machine where the script is run meets the [access requirements](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
    `nslookup download.microsoft.com`

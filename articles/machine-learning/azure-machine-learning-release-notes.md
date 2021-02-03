@@ -15,6 +15,50 @@ ms.date: 09/10/2020
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
+ ## 2021-01-31
+### Azure Machine Learning Studio Notebooks Experience (January Update)
++ **New features**
+  + Native Markdown Editor in AzureML. Users can now render and edit markdown files natively in AzureML Studio.
+  + [Run Button for Scripts (.py, .R and .sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
+  + [Variable Explorer](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
+  + [Table of Content](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
+  + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
+  + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](https://docs.microsoft.com/visualstudio/intellicode/overview).
+
++ **Bug fixes and improvements**
+  + Improved page load times
+  + Improved performance 
+  + Improved speed and kernel reliability
+  
+ ## 2021-01-25
+
+### Azure Machine Learning SDK for Python v1.21.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Fixed CLI help text when using AmlCompute with UserAssigned Identity
+  + **azureml-contrib-automl-dnn-vision**
+    + Deploy and download buttons will become visible for AutoML vision runs, and models can be deployed or downloaded similar to other AutoML runs. There are two new files (scoring_file_v_1_0_0.py and conda_env_v_1_0_0.yml) which contain a script to run inferencing and a yml file to recreate the conda environment. The 'model.pth' file has also been renamed to use the '.pt' extension.
+  + **azureml-core**
+    + MSI support for azure-cli-ml
+    + User Assigned Managed Identity Support.
+    + With this change, the customers should be able to provide a user assigned identity that can be used to fetch the key from the customer key vault for encryption at rest.
+    +  fix row_count=0 for the profile of very large files - fix error in double conversion for delimited values with white space padding
+    + Remove experimental flag for Output dataset GA
+    + Update documentation on how to fetch specific version of a Model
+    + Allow updating workspace for mixed mode access in case of private link
+    + Fix to remove additional registration on datastore for resume run feature
+    + Added CLI/SDK support for updating primary user assigned identity of workspace
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.16.0
+    + memory optimizations for explanation client in azureml-interpret
+  + **azureml-train-automl-runtime**
+    + Enabled streaming for ADB runs
+  + **azureml-train-core**
+    + Fix to remove additional registration on datastore for resume run feature
+  + **azureml-widgets**
+    + Customers should not see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
+    + The user run widget now includes a detailed explanation for why a run is in the queued state.
+
 
  ## 2021-01-11
 
@@ -31,6 +75,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
     + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
     + Edited Model.register method documentation to mention how to register model from run directly
+    + Fixed IOT-Server connection status change handling issue.
    
 
 ## 2020-12-31
@@ -112,7 +157,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 ## 2020-11-30
 ### Azure Machine Learning Studio Notebooks Experience (November Update)
 + **New features**
-   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](./how-to-run-jupyter-notebooks.md#terminal)
   + Duplicate Folder 
   + Costing for Compute Drop Down 
   + Offline Compute Pylance 
@@ -488,8 +533,8 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
   + **azureml-train-automl-runtime**
     + Improved console output when best model explanations fail.
-    + Renamed "backlist_models" input parameter to "blocked_models".
-      + Renamed "whitelist_models" input parameter to "allowed_models".
+    + Renamed input parameter to "blocked_models" to remove a sensitive term.
+      + Renamed input parameter to "allowed_models" to remove a sensitive term.
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
 
   

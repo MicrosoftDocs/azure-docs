@@ -158,7 +158,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
 
    ```azurepowershell-interactive
-   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Create the IoT Edge for Linux on Windows deployment.
@@ -292,7 +292,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.

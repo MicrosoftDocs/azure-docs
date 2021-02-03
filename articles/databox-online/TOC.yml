@@ -1,5 +1,5 @@
 - name: Azure Stack Edge Pro Documentation 
-  href: /azure/databox-online/
+  href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
   items:
@@ -17,6 +17,7 @@
       href: azure-stack-edge-gpu-deploy-checklist.md     
     - name: 1 - Order, prepare 
       href: azure-stack-edge-gpu-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
     - name: 2 - Install
       href: azure-stack-edge-gpu-deploy-install.md
     - name: 3 - Connect
@@ -75,6 +76,7 @@
       href: azure-stack-edge-pro-r-deploy-checklist.md     
     - name: 1 - Order, prepare 
       href: azure-stack-edge-pro-r-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
     - name: 2 - Install
       href: azure-stack-edge-pro-r-deploy-install.md
     - name: 3 - Connect
@@ -122,6 +124,7 @@
       href: azure-stack-edge-mini-r-deploy-checklist.md     
     - name: 1 - Order, prepare 
       href: azure-stack-edge-mini-r-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
     - name: 2 - Install
       href: azure-stack-edge-mini-r-deploy-install.md
     - name: 3 - Connect
@@ -177,6 +180,10 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
+      - name: Modules from FPGA devices
+        href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+      - name: Module via Azure portal 
+        href: azure-stack-edge-gpu-deploy-compute-module-simple.md
     - name: Deploy Kubernetes workloads
       items:
       - name: Via kubectl
@@ -279,6 +286,8 @@
       items:
       - name: Using metric charts
         href: azure-stack-edge-monitor.md 
+      - name: Manage device event alerts
+        href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md 
       - name: Using Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
       - name: Using Azure Monitor
@@ -295,8 +304,8 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2012 - Current 
-      href: azure-stack-edge-gpu-2012-release-notes.md
+    - name: 2101 - Current 
+      href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 
@@ -321,6 +330,7 @@
     items:
     - name: 1 - Prepare
       href: azure-stack-edge-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
     - name: 2 - Install
       href: azure-stack-edge-deploy-install.md
     - name: 3 - Connect, set up, activate
@@ -381,16 +391,18 @@
       href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
-      - name: 2007 - Current
-        href: ../databox-gateway/data-box-gateway-2007-release-notes.md
+      - name: 2101 - Current
+        href: azure-stack-edge-2101-release-notes.md
+      - name: 2007
+        href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: 1911
-        href: ../databox-gateway/data-box-gateway-1911-release-notes.md
+        href: ../databox-gateway/data-box-gateway-1911-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: 1906
-        href: ../databox-gateway/data-box-gateway-1906-release-notes.md
+        href: ../databox-gateway/data-box-gateway-1906-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: 1905
-        href: ../databox-gateway/data-box-gateway-1905-release-notes.md
+        href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: General availability (GA)
-        href: ../databox-gateway/data-box-gateway-release-notes.md
+        href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Azure PowerShell
