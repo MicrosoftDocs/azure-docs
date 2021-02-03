@@ -92,17 +92,12 @@ At the center of [Azure Monitor logs](../../azure-monitor/log-query/log-query-ov
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The Azure Monitor logs dashboard](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
-
 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
 * [Log searches](../../azure-monitor/log-query/log-query-overview.md) where you construct queries to analyze collected data.
 * [Dashboards](../../azure-monitor/learn/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
 * [Solutions](../../azure-monitor/insights/solutions.md), which provide additional functionality and analysis tools.
-
-![Analysis tools](./media/threat-detection/azure-threat-detection-fig6.png)
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
 
