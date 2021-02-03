@@ -5,13 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: victorh
 ---
 
 # Azure Firewall Premium Preview features
 
-:::image type="content" source="media/overview/icsa-cert-firewall-small.png" alt-text="ICSA certification logo" border="false":::
+:::image type="content" source="media/premium-features/icsa-cert-firewall-small.png" alt-text="ICSA certification logo" border="false"::::::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
+
 
 > [!IMPORTANT]
 > Azure Firewall Premium is currently in public preview.
@@ -51,8 +52,6 @@ Azure Firewall Premium Preview provides signature-based IDPS to allow rapid dete
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can utilize its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.  
-
-IDPS will never filter traffic for Office365 or Azure PaaS ranges as defined by a Service Tag. 
 
 ### URL filtering
 
