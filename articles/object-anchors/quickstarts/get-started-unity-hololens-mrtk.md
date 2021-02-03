@@ -63,7 +63,7 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
 * **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
-    :::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity primary hand menu":::
+    :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
 ##### Tracker settings menu
 
@@ -72,7 +72,7 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Allow Scale Change** – Allows the tracker to change the size of the detected object based on environmental information.
 * **Coverage Ratio Slider** – Adjusts the proportion of surface points that must match for the tracker to detect an object.  Lower values allow the tracker to better detect objects that are challenging for the HoloLens sensors to detect, such as dark objects or highly reflective objects. Higher values will reduce the frequency of false detections.
 
-    :::image type="content" source="./media/mrtk-handmenu-tracker.png" alt-text="Unity tracker hand menu":::
+    :::image type="content" source="./media/mrtk-hand-menu-tracker.png" alt-text="Unity tracker hand menu":::
 
 ##### Search Area settings menu
 
@@ -80,7 +80,7 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Auto-Adjust Search Area** – Allows the search area to reposition itself during object detection.
 * **Cycle Mesh** – Cycles through visualizing the loaded meshes inside the search area.  This option can help users align the search box for hard to detect objects.
 
-    :::image type="content" source="./media/mrtk-handmenu-search-area.png" alt-text="Unity search area hand menu":::
+    :::image type="content" source="./media/mrtk-hand-menu-search-area.png" alt-text="Unity search area hand menu":::
 
 Example `subscription.json`:
 
