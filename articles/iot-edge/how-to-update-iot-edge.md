@@ -31,12 +31,6 @@ On Linux x64 devices, use apt-get or your appropriate package manager to update 
 
 Get the latest repository configuration from Microsoft:
 
-* **Ubuntu Server 16.04**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
 * **Ubuntu Server 18.04**:
 
    ```bash
