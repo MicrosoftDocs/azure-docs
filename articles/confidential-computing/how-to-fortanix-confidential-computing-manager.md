@@ -5,7 +5,8 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
-ms.date: 01/29/2021
+ms.topic: how-to
+ms.date: 02/03/2021
 ms.author: jencook
 ---
 
