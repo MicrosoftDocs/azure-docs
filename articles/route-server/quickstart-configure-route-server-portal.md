@@ -17,7 +17,7 @@ This article helps you configure Azure Route Server to peer with a network virtu
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
-* Review the [service limits for Azure Route Server](route-server-faq.md#what-are-the-limits-of-azure-route-server?).
+* Review the [service limits for Azure Route Server](route-server-faq.md#what-are-the-limits-of-azure-route-server).
 
 ## Create a Route Server
 
