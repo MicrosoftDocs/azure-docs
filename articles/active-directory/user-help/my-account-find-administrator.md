@@ -16,7 +16,7 @@ ms.author: curtand
 
 # Find my administrator to change my information in My Account
 
-Your IT or human resources department may keep some of your profile information in separate systems, for example your profile photo or your name or title. If you're not allowed to change this information yourself, contact your human resources department or admin to have them change it for you.
+Your IT or human resources department may keep some of your profile information in separate systems; for example, your profile photo or your name or title. If you're not allowed to change this information yourself, contact your human resources department or admin to have them change it for you.
 
 ## Why can't you just give me the name of who to contact?
 
@@ -26,11 +26,11 @@ We would have liked to give you the name or the email address of who to contact,
 
 When looking for your My Account admin to update certain information, reset your password, delete an account, or do other tasks, here's some pointers to who you should contact:
 
-Universities and schools: Contact your technical support team. Usually you can find a link on your university site. At smaller schools, there may be just a couple technical people who have admin permissions.
+- Universities and schools: Contact your technical support team. Usually you can find a link on your university site. At smaller schools, there may be just a couple technical people who have admin permissions.
 
-Large businesses: Contact your organization's internal help desk or technical support.
+- Large businesses: Contact your organization's internal help desk or technical support.
 
-Small businesses: Contact the business owner or co-owner. Often they give admin permissions to their IT consultant who does all the computer maintenance work for their business.
+- Small businesses: Contact the business owner or co-owner. Often they give admin permissions to their IT consultant who does all the computer maintenance work for their business.
 
 If you don't know who to contact at your work or school for help, try asking the person who gave you your My Account user account and password.
 
