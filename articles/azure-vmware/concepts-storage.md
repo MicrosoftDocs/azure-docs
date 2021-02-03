@@ -2,7 +2,7 @@
 title: Concepts - Storage
 description: Learn about the key storage capabilities in  Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/02/2021
 ---
 
 #  Azure VMware Solution storage concepts
