@@ -1480,7 +1480,7 @@
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Troubleshoot
-  href: ./troubleshooting/index.yml
+  href: https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines
 - name: Resources
   items:
   - name: Cloud adoption framework
