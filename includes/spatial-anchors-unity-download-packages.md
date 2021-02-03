@@ -25,6 +25,6 @@ Repeat this step to download the package for each platform (Android/iOS/HoloLens
 
 | Platform | Package name                                    |
 |----------|-------------------------------------------------|
-| Android  | com.microsoft.azure.spatial-anchors-sdk.android |
-| iOS      | com.microsoft.azure.spatial-anchors-sdk.ios     |
-| HoloLens | com.microsoft.azure.spatial-anchors-sdk.windows |
+| Android  | com.microsoft.azure.spatial-anchors-sdk.android@<version_number> |
+| iOS      | com.microsoft.azure.spatial-anchors-sdk.ios@<version_number>     |
+| HoloLens | com.microsoft.azure.spatial-anchors-sdk.windows@<version_number> |
