@@ -65,10 +65,10 @@ The API offers the following capabilities:
 
 ## Determine if a user was already invited to your directory
 
-You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If  user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the already email exists as a UPN or other sign-in property.
+You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the already email exists as a UPN or other sign-in property.
 
 1. Make sure the user's email domain isn't part of your resource tenant's verified domain.
-2. In the resource tenant, use the following Get/users query where {0} is the email address you're inviting:
+2. In the resource tenant, use the following get user query where {0} is the email address you're inviting:
 
    ```
    “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
