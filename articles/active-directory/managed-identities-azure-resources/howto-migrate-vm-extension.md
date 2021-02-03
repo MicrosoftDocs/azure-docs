@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
+ROBOTS: NOINDEX
 ---
 
 # How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service
