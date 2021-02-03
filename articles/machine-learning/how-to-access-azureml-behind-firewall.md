@@ -49,6 +49,8 @@ When you add the UDRs, define the route for each related Batch IP address prefix
 
 ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
+You must also add a UDR for the Azure Machine Learning service **secondary region**. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US.
+
 > [!IMPORTANT]
 > The IP addresses may change over time.
 

@@ -181,13 +181,14 @@ There are two ways that you can accomplish this:
 
     ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
+    You must also add a UDR for the Azure Machine Learning service **secondary region**. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US.
+
     > [!IMPORTANT]
     > The IP addresses may change over time.
 
     In addition to any UDRs that you define, outbound traffic to Azure Storage must be allowed through your on-premises network appliance. Specifically, the URLs for this traffic are in the following forms: `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`. 
 
     For more information, see [Create an Azure Batch pool in a virtual network](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
-
 
 ### Create a compute cluster in a virtual network
 
