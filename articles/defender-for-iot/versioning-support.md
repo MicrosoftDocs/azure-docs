@@ -14,6 +14,8 @@ ms.service: azure
 
 This article describes the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
 
+The information in this article doesn't apply to [Defender for IoT cloud](https://ms.portal.azure.com/?Microsoft_Azure_IoT_Defender=canary&pushTiUpdates=true#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) features, which are continuously supported.
+
 ## Support policy and deprecation information
 
 Azure Defender for IoT follows the [Microsoft Lifecycle Policy](https://support.microsoft.com/lifecycle).
