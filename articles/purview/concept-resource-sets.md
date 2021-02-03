@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ---
 
 # Understanding resource sets
@@ -57,14 +57,23 @@ In addition to single schema and classifications, Azure Purview stores the follo
 ## Built-in resource set patterns
 
 Azure Purview supports the following resource set patterns. These patterns can appear as a name in a directory or as part of a file name.
+### Regex based patterns
 
-| Pattern name | Replacer name | Description |
+| Pattern Name | Display Name | Description |
 |--------------|--------------|-------------|
-| GUID         | {GUID}       | A globally unique identifier, as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
-| Number       | {N}          | One or more digits. |
-| Date/time formats | {Year} <br> {Month} <br> {Day} <br> {Hour} <br>  {Minute} <br> {Second}| Azure Purview supports different kinds of date/time formats |
-| 4ByteHex     | {HEX}        | A four-digit hexadecimal number. |
-| Localization | {LOC}        | A language tag, as defined in [BCP 47](https://tools.ietf.org/html/bcp47). Azure Purview supports tags that contain either a hyphen (-) or an underscore (_). For example, en_ca and en-ca. |
+| Guid         | {GUID}       | A globally unique identifier as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122) |
+| Number       | {N}          | One or more digits |
+| Date/Time Formats | {Year}{Month}{Day}{N}     | We support a variety of date/time formats but all are represented with {Year}[delim]{Month}[delim]{Day} or series of {N}s. |
+| 4ByteHex     | {HEX}        | A 4 digit HEX number. |
+| Localization | {LOC}        | A language tag as defined in [BCP 47](https://tools.ietf.org/html/bcp47), both - and _ names are supported (e.g. en_ca and en-ca) |
+
+### Complex patterns
+
+| Pattern Name | Display Name | Description |
+|--------------|--------------|-------------|
+| SparkPath    | {SparkPartitions} | Spark partition file identifier |
+| Date(yyyy/mm/dd)InPath  | {Year}/{Month}/{Day} | Year/month/day pattern spanning multiple folders |
+
 
 ## How resource sets are displayed in the Azure Purview Catalog
 
