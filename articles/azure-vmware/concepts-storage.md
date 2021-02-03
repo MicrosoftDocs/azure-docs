@@ -35,7 +35,11 @@ You can use Azure storage services on workloads running in your private cloud. T
 
 ## Next steps
 
-The next step is to learn about [private cloud identity concepts][concepts-identity].
+Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
+
+- [Private cloud identity concepts](concepts-identity.md).
+- [vSphere role-based access control for Azure VMware Solution](concepts-role-based-access-control.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external-->
 
