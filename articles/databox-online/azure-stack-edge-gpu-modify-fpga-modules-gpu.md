@@ -17,7 +17,7 @@ This article details the changes needed for a docker-based IoT Edge module that 
 
 ## About IoT Edge implementation 
 
-The IoT Edge implementation is different on Azure Stack Edge Pro FPGA devices vs. that on Azure Stack Edge Pro GPU devices. For the GPU devices, Kubernetes is used as a hosting platform for IoT Edge. The IoT edge on FPGA devices uses a docker-based platform. The IoT Edge's docker-based application model is automatically translated to the Kubernetes native application model. However, some changes may still be needed as only a small subset of Kubernetes application model is supported.
+The IoT Edge implementation is different on Azure Stack Edge Pro FPGA devices vs. that on Azure Stack Edge Pro GPU devices. For the GPU devices, Kubernetes is used as a hosting platform for IoT Edge. The IoT Edge on FPGA devices uses a docker-based platform. The IoT Edge docker-based application model is automatically translated to the Kubernetes native application model. However, some changes may still be needed as only a small subset of the Kubernetes application model is supported.
 
 If you are migrating your workloads from an FPGA device to a GPU device, you will need to make changes to the existing IoT Edge modules for those to run successfully on the Kubernetes platform. You may need to specify your storage, networking, resource usage, and web proxy requirements differently. 
 
