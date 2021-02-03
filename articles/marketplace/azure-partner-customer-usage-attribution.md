@@ -243,11 +243,6 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
-## Report
-
-You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a [support request](#get-support).
-
 ## Notify your customers
 
 Partners should inform their customers about deployments that use customer usage attribution. Microsoft reports the Azure usage that's associated with these deployments to the partner. The following examples include content that you can use to notify your customers about these deployments. In the examples, replace \<PARTNER> with your company name. Partners should make sure the notification aligns with their data privacy and collection policies, including options for customers to be excluded from tracking.
