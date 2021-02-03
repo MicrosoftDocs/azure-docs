@@ -17,7 +17,7 @@ Application Insights is integrated with various resource providers and works on 
 
 ## Supported environments, languages, and resource providers
 
-As we're adding more and more integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
+As we're adding additional integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
@@ -44,10 +44,10 @@ Application monitoring on Azure App Service on Windows is available for [.Net ap
 Monitoring for [.NETCore applications](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) can be enabled with one click.
 
 #### Java
-The portal integration for monitoring of Java applications on App Service on Windows is in private preview, however, you can add Application Insights [Java 3.0 standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to you application without any code changes prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your application without any code changes prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
-Monitoring for Node.js applications is in private preview, to monitor Node.js applications, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+Monitoring for Node.js applications on Windows cannot currently be enabled from the portal. To monitor Node.js applications, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
 
 ### Linux
 
@@ -55,7 +55,7 @@ Monitoring for Node.js applications is in private preview, to monitor Node.js ap
 To monitor .NetCore applications running on Linux, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 #### Java 
-Java application monitoring for App Service on Linux is in private preview, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+Enabling Java application monitoring for App Service on Linux from portal is not yet available, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
 [Monitoring Node.js applications in App Service on Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) is in public preview and can be enabled in Azure portal, available in all regions. 
