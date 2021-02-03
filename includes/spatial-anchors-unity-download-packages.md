@@ -19,7 +19,7 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > npm view com.microsoft.azure.spatial-anchors-sdk.core --registry https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM versions
 > ```
 
-The Azure Spatial Anchors package will be downloaded to the folder where you ran the command.
+The Azure Spatial Anchors core package will be downloaded to the folder where you ran the command.
 
 Repeat this step to download the package for each platform (Android/iOS/HoloLens) that you would like to support in your project.
 
