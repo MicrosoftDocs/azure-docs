@@ -18,7 +18,7 @@ This article helps you understand how discounts apply to Azure App Service Premi
 
 After you buy an Azure App Service Premium v3 Reserved Instance, the reservation discount is automatically applied to App Service instances that match the attributes and quantity of the reservation. A reservation covers the cost of your Premium v3 instances. 
 
-### How the Azure reservation discount is applied to Azure App Service 
+### How the discount is applied to Azure App Service 
 
 A reservation discount is *use-it-or-lose-it*. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
@@ -27,7 +27,7 @@ When you shut down a resource, the reservation discount automatically applies to
 
 The Azure reservation discount is applied to running Premium v3 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Premium v3 instances to apply the reservation discount. For Premium v3 Instances that may not run the full hour, the reservation will be filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. In the event an instance does not run for an hour or concurrent instances within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-[Image showing the application of a reservation to billable VM usage](./media/reservation-discount-app-service-isolated-stamp/reserved-premium-v3-instance-application.png)]
+[Image showing the application of a reservation to billable VM usage](./media/reservation-discount-app-service/reserved-premium-v3-instance-application.png)]
 
 1.	Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
@@ -72,7 +72,7 @@ The following examples show how the Isolated Stamp Fee reserved instance discoun
 ## Next steps
 
 - To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
-- To learn more about pre-purchasing App Service Premium v3 and Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service with reserved capacity](prepay-app-service-isolated-stamp.md).
+- To learn more about pre-purchasing App Service Premium v3 and Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service with reserved capacity](prepay-app-service.md).
 - To learn more about Azure Reservations, see the following articles:
   - [What are Azure Reservations?](save-compute-costs-reservations.md)
   - [Manage Reservations in Azure](manage-reserved-vm-instance.md)
