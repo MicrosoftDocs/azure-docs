@@ -32,13 +32,15 @@ The hash is used to map traffic to the available servers. The algorithm provides
 
 ![Five-tuple hash-based distribution mode](./media/distribution-mode-concepts/load-balancer-distribution.png)
 
-Hash based mode has one configuration type:
+Hash-based mode has one configuration type:
 
 * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
 
 ## Source IP affinity
 
-The load balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are started from the same client computer go to the same datacenter endpoint.
+This distribution mode is also known as session affinity or client IP affinity. The mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. 
+
+By using source IP affinity, connections that are started from the same client computer go to the same datacenter endpoint.
 
 The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
 
