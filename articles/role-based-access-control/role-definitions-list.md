@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -29,7 +29,7 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
-If you are interested in viewing an updated roles experience, check out the **Roles (preview)** tab, which is currently in public preview. The **Roles (preview)** tab displays the same list of roles as the **Roles** tab with some additional features. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
+If you are interested in viewing an updated roles experience, check out the **Roles (Preview)** tab, which is currently in public preview. The **Roles (Preview)** tab displays the same list of roles as the **Roles** tab with some additional features. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
 
 #### [Roles](#tab/roles/)
 
@@ -45,7 +45,7 @@ If you are interested in viewing an updated roles experience, check out the **Ro
 
    ![Roles list](./media/role-definitions-list/roles-list-current.png)
 
-#### [Roles (preview)](#tab/roles-preview/)
+#### [Roles (Preview)](#tab/roles-preview/)
 
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -53,9 +53,9 @@ If you are interested in viewing an updated roles experience, check out the **Ro
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Roles (preview)** tab to see a list of all the built-in and custom roles.
+1. Click the **Roles (Preview)** tab to see a list of all the built-in and custom roles.
 
-   ![Preview Roles list](./media/role-definitions-list/roles-list.png)
+   ![Roles list using preview experience](./media/role-definitions-list/roles-list.png)
 
 1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
 
@@ -63,7 +63,7 @@ If you are interested in viewing an updated roles experience, check out the **Ro
 
 1. Click the **Permissions** tab to view and search the permissions for the selected role.
 
-   ![Preview Roles list](./media/role-definitions-list/role-permissions.png)
+   ![Role permissions using preview experience](./media/role-definitions-list/role-permissions.png)
 
 ---
 ## Azure PowerShell
