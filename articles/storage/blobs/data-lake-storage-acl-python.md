@@ -1,6 +1,6 @@
 ---
-title: Use Python with data in Azure Data Lake Storage Gen2
-description: Use Python manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+title: Use Python to set ACLs in Azure Data Lake Storage Gen2
+description: Use Python manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
 ms.date: 01/22/2021
@@ -11,7 +11,7 @@ ms.reviewer: prishet
 ms.custom: devx-track-python
 ---
 
-# Use Python to manage directories and files in Azure Data Lake Storage Gen2
+# Use Python to set ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use Python to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 

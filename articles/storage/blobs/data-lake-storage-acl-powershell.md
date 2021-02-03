@@ -1,6 +1,6 @@
 ---
-title: Use PowerShell with data in Azure Data Lake Storage Gen2
-description: Use PowerShell cmdlets to manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+title: Use PowerShell to set ACLs in Azure Data Lake Storage Gen2
+description: Use PowerShell cmdlets to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 services: storage
 author: normesta
 ms.service: storage
@@ -12,7 +12,7 @@ ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use PowerShell to manage directories and files in Azure Data Lake Storage Gen2
+# Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 

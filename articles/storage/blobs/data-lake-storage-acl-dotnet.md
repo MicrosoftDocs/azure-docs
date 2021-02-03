@@ -1,6 +1,6 @@
 ---
-title: Use .NET with data in Azure Data Lake Storage Gen2
-description: Use the Azure Storage client library to manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+title: Use .NET to set ACLs in Azure Data Lake Storage Gen2
+description: Use .NET to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
 ms.date: 08/26/2020
@@ -11,7 +11,7 @@ ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ---
 
-# Use .NET to manage directories and files in Azure Data Lake Storage Gen2
+# Use .NET to manage ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 

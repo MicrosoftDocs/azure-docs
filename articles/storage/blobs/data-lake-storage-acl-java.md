@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs
-description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
+title: Use Java to set ACLs in Azure Data Lake Storage Gen2
+description: Use Azure Storage libraries for Java to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
 ms.date: 01/11/2021
@@ -11,7 +11,7 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
+# Use Java to set ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
