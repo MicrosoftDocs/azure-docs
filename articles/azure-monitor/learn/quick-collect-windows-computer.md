@@ -32,7 +32,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure portal](media/quick-collect-windows-computer/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Select **Create**, and then select choices for the following items:
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+        ![Create Log Analytics resource blade](media/quick-collect-windows-computer/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
@@ -59,7 +59,7 @@ Before you install the Log Analytics agent for Windows (also referred to as the 
 
 3. Select **Advanced settings**:
 
-    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
+    ![Log Analytics advanced settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-azure-portal.png)
   
 4. Select **Connected Sources**, and then select **Windows Servers**.
 
@@ -104,7 +104,7 @@ Azure Monitor can collect events that you specify from the Windows event log and
 
 2. Select **Advanced settings**:
 
-    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
+    ![Log Analytics advanced settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-azure-portal.png)
  
 3. Select **Data**, and then select **Windows Event Logs**.  
 
@@ -136,7 +136,7 @@ Now that you've enabled data collection, let's run a simple log search to see so
 
     For example, the query in this image returned 10,000 Performance records. Your results will be significantly less.
 
-    ![Log Analytics log search result](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Log Analytics log search result](media/quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## Clean up resources
 
@@ -152,7 +152,7 @@ To remove the agent, complete these steps:
 
 To delete the Log Analytics workspace you created earlier, select it, and, on the resource page, select **Delete**:
 
-![Delete Log Analytics workspace](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+![Delete Log Analytics workspace](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 
