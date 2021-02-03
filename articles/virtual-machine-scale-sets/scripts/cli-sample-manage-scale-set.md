@@ -3,7 +3,7 @@ title: Azure CLI sample for virtual machine scale set management
 description: This sample shows how to add disks to a virtual machine scale set. You can upgrade disks and add your virtual machines to Azure AD authentication.
 author: mimckitt
 ms.author: mimckitt
-ms.date: 01/15/2021
+ms.date: 02/04/2021
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli 
