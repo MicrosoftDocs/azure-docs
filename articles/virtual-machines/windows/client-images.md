@@ -13,16 +13,16 @@ ms.author: cynthn
 # Use Windows client in Azure for dev/test scenarios
 You can use Windows 7, Windows 8, or Windows 10 Enterprise (x64) in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
-To run Windows 10 in a production environment see, [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
+To run Windows 10 in a production environment see, [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md).
 
 
 ## Subscription eligibility
-Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client for development and testing purposes. Windows client can be used on your own hardware and Azure virtual machines running in any type of Azure subscription. Windows client may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
+Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client images for development and testing purposes. Windows client images can be used on your own hardware or on Azure virtual machines. Windows client images may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
 
-Certain Windows 10 images are available from the Azure Gallery. Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
+Certain Windows client images are available from the Azure Marketplace. Visual Studio subscribers within any type of offer can also [prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md).
 
 ## Eligible offers and client images
-The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Gallery. The Windows client images are only visible to the following offers. Visual Studio subscribers who need to run Windows client in a different offer type require you to [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and [then upload to Azure](upload-generalized-managed.md).
+The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Marketplace. The Windows client images are only visible to the following offers. 
 
 | Offer Name | Offer Number | Available client images | 
 |:--- |:---:|:---:|
