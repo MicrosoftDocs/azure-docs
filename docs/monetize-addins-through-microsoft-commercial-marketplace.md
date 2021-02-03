@@ -109,7 +109,7 @@ Your app should have three states:
 2.	User signed in, no license associated
 3.	User signed in, license associated
 
-For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
+For information about authenticating with Azure AD from within your add-in, see [Office Dialog API](/office/dev/add-ins/develop/auth-with-office-dialog-api) and [Microsoft identity platform](/azure/active-directory/develop/v2-overview).
 
 ### Code sample: Move from paid apps to paid web apps with free apps
 
