@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
 
 ---
@@ -50,7 +50,7 @@ You can find your overall secure score, as well as your score per subscription, 
 
 ### Get your secure score from the portal
 
-Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
 
 To recap, your secure score is shown in the following locations in Security Center's portal pages.
 
@@ -58,9 +58,14 @@ To recap, your secure score is shown in the following locations in Security Cent
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
 
-- In the dedicated **Secure score** page:
+- In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Security Center's secure score page":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Security Center's secure score page":::
+
+    > [!NOTE]
+    > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
 
 - At the top of the **Recommendations** page:
 
@@ -121,7 +126,7 @@ The dashboard contains the following two reports to help you analyze your securi
 - **Resources Summary** - provides summarized data regarding your resources’ health.
 - **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time PowerBI dashboard for tracking your secure score over time and investigating changes":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time Power BI dashboard for tracking your secure score over time and investigating changes":::
 
 
 
@@ -243,8 +248,8 @@ Even though Security Center’s default security initiative is based on industry
     <td class="tg-lboi"; width=55%>- Adaptive Application Controls should be enabled on virtual machines<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)<br>- Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)<br>- Monitoring agent health issues should be resolved on your machines</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply data classification (max score 2)</p></strong>Classifying your organization's data by sensitivity and business impact allows you to determine and assign value to the data, and provides the strategy and basis for governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> can assist with data classification. It uses encryption, identity, and authorization policies to protect data and restrict data access. Some classifications that Microsoft uses are Non-business, Public, General, Confidential, and Highly Confidential.</td>
-    <td class="tg-lboi"; width=55%>- Sensitive data in your SQL databases should be classified (Preview)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply data classification (max score 0)</p></strong>Classifying your organization's data by sensitivity and business impact allows you to determine and assign value to the data, and provides the strategy and basis for governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> can assist with data classification. It uses encryption, identity, and authorization policies to protect data and restrict data access. Some classifications that Microsoft uses are Non-business, Public, General, Confidential, and Highly Confidential.</td>
+    <td class="tg-lboi"; width=55%>- Sensitive data in your SQL databases should be classified</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Protect applications against DDoS attacks (max score 2)</p></strong>Distributed denial-of-service (DDoS) attacks overwhelm resources and render applications unusable. Use <a href="/azure/virtual-network/ddos-protection-overview">Azure DDoS Protection Standard</a> to defend your organization from the three main types of DDoS attacks:<br>- <strong>Volumetric attacks</strong> flood the network with legitimate traffic. DDoS Protection Standard mitigates these attacks by absorbing or scrubbing them automatically.<br>- <strong>Protocol attacks</strong> render a target inaccessible, by exploiting weaknesses in the layer 3 and layer 4 protocol stack. DDoS Protection Standard mitigates these attacks by blocking malicious traffic.<br>- <strong>Resource (application) layer attacks</strong> target web application packets. Defend against this type with a web application firewall and DDoS Protection Standard.</td>

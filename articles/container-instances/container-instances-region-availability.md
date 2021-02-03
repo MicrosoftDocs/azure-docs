@@ -35,6 +35,7 @@ The following regions and maximum resources are available to container groups wi
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A |
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A |
+| Germany West Central | 3 | 16 | N/A | N/A | 50 | N/A |
 | Japan East | 2 | 8 | 4 | 16 | 50 | N/A |
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
 | North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
@@ -43,6 +44,7 @@ The following regions and maximum resources are available to container groups wi
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | South India | 4 | 16 | N/A | N/A | 50 | N/A |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A |
+| UAE North | 3 | 16 | N/A | N/A | 50 | N/A |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | West US | 4 | 16 | 4 | 16 | 50 | N/A |

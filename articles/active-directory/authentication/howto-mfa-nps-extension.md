@@ -113,6 +113,8 @@ Additionally, connectivity to the following URLs is required to complete the [se
 * *https:\//login.microsoftonline.com*
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
+* *https:\//www.powershellgallery.com*
+* *https:\//aadcdn.msftauthimages.net*
 
 ## Prepare your environment
 

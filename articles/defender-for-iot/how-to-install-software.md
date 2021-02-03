@@ -13,7 +13,7 @@ ms.service: azure
 
 This article describes how to install the following elements of Azure Defender for IoT:
 
-- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide (direct download)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide (direct download)](./getting-started.md).
 
 - **On-premises management console**: The on-premises management console lets you carry out device management, risk management, and vulnerability management. You can also use it to carry out threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
@@ -225,9 +225,9 @@ This article describes how to configure the BIOS by using the configuration file
 
 4. The appliance's credentials are:
 
-   - Username: **cyberx**
+   - Username: **XXX**
 
-   - Password: **xhxvhttju,@4338**
+   - Password: **XXX**
 
      The import server profile operation is initiated.
 
@@ -269,7 +269,7 @@ To manually configure:
 
    - If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
-   - If the appliance is a Defender for IoT appliance, sign in by using **cyberx** for the username and **xhxvhttju,@4338** for the password.
+   - If the appliance is a Defender for IoT appliance, sign in by using **XXX** for the username and **XXX** for the password.
 
 2. After you access the BIOS, go to **Device Settings**.
 

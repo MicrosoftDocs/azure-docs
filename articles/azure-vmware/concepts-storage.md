@@ -27,7 +27,7 @@ vSAN datastores use data-at-rest encryption by default. The encryption solution 
 
 ## Scaling
 
-Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. See the [scale private cloud tutorial][tutorial-scale-private-cloud] for instructions on scaling clusters.
+Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. For instructions on scaling clusters, see the [scale private cloud tutorial][tutorial-scale-private-cloud].
 
 ## Azure storage integration
 
@@ -35,7 +35,11 @@ You can use Azure storage services on workloads running in your private cloud. T
 
 ## Next steps
 
-The next step is to learn about [private cloud identity concepts][concepts-identity].
+Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
+
+- [Private cloud identity concepts](concepts-identity.md).
+- [vSphere role-based access control for Azure VMware Solution](concepts-role-based-access-control.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external-->
 

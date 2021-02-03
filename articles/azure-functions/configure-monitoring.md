@@ -225,11 +225,13 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+With scale controller logging enabled, you are now able to [query your scale controller logs](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## Enable Application Insights integration
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
+When you create your function app [in the Azure portal](./functions-get-started.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
 ### New function app in the portal
 
@@ -242,7 +244,7 @@ When you choose **Create**, an Application Insights resource is created with you
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-If an Application Insights resources wasn't created with your function app, use the following steps to create the resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
+If an Application Insights resource wasn't created with your function app, use the following steps to create the resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **function app**, and then choose your function app. 
 

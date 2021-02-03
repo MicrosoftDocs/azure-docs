@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Load data & run queries with Apache Spark - Azure HDInsight'
 description: Tutorial - Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc

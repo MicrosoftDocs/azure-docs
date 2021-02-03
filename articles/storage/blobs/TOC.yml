@@ -228,46 +228,6 @@
           href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Periodic data transfer
           href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Import/Export data
-        href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-        - name: Review requirements
-          href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Import data to blobs
-          href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          displayName: Azure CLI, az import-export create, import-export
-        - name: Import data to files
-          href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          displayName: Azure CLI, az import-export create, import-export
-        - name: Export data from blobs
-          href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          displayName: Azure CLI, az import-export create, import-export
-        - name: How-to
-          items:
-          - name: Use customer managed key
-            href: ../common/storage-import-export-encryption-key-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: View drive status
-            href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Review job status
-            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Repair import job
-            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Repair export job
-            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: FAQ
-          href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Reference
-          items:
-          - name: REST API
-            href: /rest/api/storageimportexport/jobs
-          - name: Azure PowerShell
-            href: /powershell/module/Az.ImportExport
-        - name: Contact Support
-          href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Archive
-          items:
-          - name: Prepare drives for import (v1)
-          - name: Prepare drives for import (v2)
     - name: Monitoring
       items:
       - name: Monitor Blob storage
@@ -307,6 +267,8 @@
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account type and SKU name (.NET)
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Manage the default access tier of a storage account
+        href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -321,6 +283,8 @@
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
+      - name: Manage the access tier of a blob
+        href: manage-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
@@ -519,8 +483,10 @@
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor (classic)
       items:
-      - name: Monitor in the Azure portal (classic)
-        href: ../common/storage-monitor-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enable and manage metrics (classic)
+        href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enable and manage logs (classic)
+        href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
       items:
       - name: Latency issues

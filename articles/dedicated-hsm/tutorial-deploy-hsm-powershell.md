@@ -13,7 +13,7 @@ ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
-ms.author: johndaw
+ms.author: mbaldwin
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell

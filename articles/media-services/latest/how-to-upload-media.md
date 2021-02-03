@@ -1,6 +1,6 @@
 ---
 title: Upload media
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn how to upload media for streaming or encoding.
 services: media-services
 documentationcenter: ''
