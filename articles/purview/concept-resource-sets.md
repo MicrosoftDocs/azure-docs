@@ -57,15 +57,15 @@ In addition to single schema and classifications, Azure Purview stores the follo
 ## Built-in resource set patterns
 
 Azure Purview supports the following resource set patterns. These patterns can appear as a name in a directory or as part of a file name.
-### Regex based patterns
+### Regex-based patterns
 
 | Pattern Name | Display Name | Description |
 |--------------|--------------|-------------|
 | Guid         | {GUID}       | A globally unique identifier as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122) |
 | Number       | {N}          | One or more digits |
-| Date/Time Formats | {Year}{Month}{Day}{N}     | We support a variety of date/time formats but all are represented with {Year}[delim]{Month}[delim]{Day} or series of {N}s. |
-| 4ByteHex     | {HEX}        | A 4 digit HEX number. |
-| Localization | {LOC}        | A language tag as defined in [BCP 47](https://tools.ietf.org/html/bcp47), both - and _ names are supported (e.g. en_ca and en-ca) |
+| Date/Time Formats | {Year}{Month}{Day}{N}     | We support various date/time formats but all are represented with {Year}[delimiter]{Month}[delimiter]{Day} or series of {N}s. |
+| 4ByteHex     | {HEX}        | A 4-digit HEX number. |
+| Localization | {LOC}        | A language tag as defined in [BCP 47](https://tools.ietf.org/html/bcp47), both - and _ names are supported (efor example, en_ca and en-ca) |
 
 ### Complex patterns
 
