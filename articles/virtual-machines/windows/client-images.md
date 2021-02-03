@@ -17,7 +17,7 @@ To run Windows 10 in a production environment see, [How to deploy Windows 10 on 
 
 
 ## Subscription eligibility
-Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client images for development and testing purposes. Windows client images can be used on your own hardware or on Azure virtual machines. Windows client images may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
+Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client images for development and testing purposes. Windows client images can be used on your own hardware or on Azure virtual machines.
 
 Certain Windows client images are available from the Azure Marketplace. Visual Studio subscribers within any type of offer can also [prepare and create](prepare-for-upload-vhd-image.md) 64-bit Windows 7, Windows 8, or Windows 10 images and then [upload to Azure](upload-generalized-managed.md).
 
