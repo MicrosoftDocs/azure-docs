@@ -18,3 +18,5 @@ The CIS Microsoft Azure Foundations Benchmark is the security guidance provided 
 We provide a mapping between the [CIS Microsoft Azure Foundations Benchmark latest version v1.3.0](https://www.cisecurity.org/benchmark/azure/) and [Azure Security Benchmark v2](overview.md). This will help you to understand how the recommendations for both benchmarks are aligned. You can download the complete mapping [here](https://github.com/MicrosoftDocs/SecurityBenchmarks/blob/master/Azure%20Security%20Benchmark/2.0/asb_v2_to_cis_microsoft_azure_foundations_benchmark_v1.3.0.xlsx).
 
 :::image type="content" source="./media/asb-cis-mapping.png" alt-text="Mapping between ASB and CIS Benchmark":::
+
+For any questions or comments on the mapping, you can reach us by [sending an email](mailto:benchmarkfeedback@microsoft.com?subject=Benchmark%20Feedback).
