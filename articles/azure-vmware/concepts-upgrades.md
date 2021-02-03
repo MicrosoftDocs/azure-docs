@@ -2,7 +2,7 @@
 title: Concepts - Private cloud updates and upgrades
 description: Learn about the key upgrade processes and features in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/02/2021
 ---
 
 # Azure VMware Solution private cloud updates and upgrades
