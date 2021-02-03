@@ -68,7 +68,7 @@ Cognitive Search provides different authorization models for content management 
 
 ### Authorization for content management
 
-Authorization to content, and operations related to content, is either write access, as conferred through the [API key](search-security-api-keys.md) provided on the request.
+Authorization to content, and operations related to content, is either write access, as conferred through the [API key](search-security-api-keys.md) provided on the request. The API key is an authentication mechanism, but also authorizes access depending on the type of API key.
 
 + Admin key (allows read-write access for create-read-update-delete operations on the search service), created when the service is provisioned
 
@@ -105,7 +105,7 @@ Service management operations are authorized through [Azure role-based access co
 
 In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api).
 
-[Three basic roles](search-security-rbac#management-tasks-by-role) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
+[Three basic roles](search-security-rbac.md#management-tasks-by-role) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 
 > [!Note]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
@@ -126,7 +126,7 @@ At the storage layer, data encryption is built in for all service-managed conten
 
 In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-## Encrypted data at rest
+### Encrypted data at rest
 
 For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
 
