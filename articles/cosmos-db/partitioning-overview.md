@@ -32,10 +32,13 @@ There is no limit to the number of logical partitions in your container. Each lo
 
 A container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Typically smaller containers have many logical partitions but they only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB.
 
-The number of physical partitions in your container depends on the following configuration:
+The number of physical partitions in your container depends on the following:
 
 * The number of throughput provisioned (each individual physical partition can provide a throughput of up to 10,000 request units per second).
 * The total data storage (each individual physical partition can store up to 50GB data).
+
+> [!NOTE]
+> Physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB. When developing your solutions, don't focus on physical partitions because you can't control them instead focus on your partition keys. If you choose a partition key that evenly distributes throughput consumption across logical partitions, you will ensure that throughput consumption across physical partitions is balanced.
 
 There is no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones. Physical partition splits do not impact your application's availability. After the physical partition split, all data within a single logical partition will still be stored on the same physical partition. A physical partition split simply creates a new mapping of logical partitions to physical partitions.
 
@@ -45,12 +48,9 @@ You can see your container's physical partitions in the **Storage** section of t
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Viewing number of physical partitions" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-In the above screenshot, a container has `/foodGroup` as the partition key. Each of the three bars in the graph represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains three logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
+In the above screenshot, a container has `/foodGroup` as the partition key. Each of the three bars in the graph represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains the top 3 most significant size logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
 If you provision a throughput of 18,000 request units per second (RU/s), then each of the three physical partition can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption by [choosing the right logical partition key](#choose-partitionkey). 
-
-> [!NOTE]
-> If you choose a partition key that evenly distributes throughput consumption across logical partitions, you will ensure that throughput consumption across physical partitions is balanced.
 
 ## Managing logical partitions
 
