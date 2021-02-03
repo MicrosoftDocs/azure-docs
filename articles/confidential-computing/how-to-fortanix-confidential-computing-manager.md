@@ -1,23 +1,29 @@
 ---
-title: How To - Deploy an app with Fortanix Confidential Computing Manager
+title: Fortanix Confidential Computing Manager in an Azure managed application
 description: Learn how to deploy Fortanix Confidential Computing Manager (CCM) in a managed application in the Azure portal.
 author: JBCook
-ms.service: container-service
-ms.topic: how-to
+ms.service: virtual-machines
+ms.subservice: workloads
+ms.workload: infrastructure
 ms.date: 01/29/2021
 ms.author: jencook
 ---
 
-# How To: Deploy an application with Fortanix Confidential Computing Manager
+# Fortanix Confidential Computing Manager in an Azure managed application
 
-This article shows you how to deploy an application that is managed by Fortanix Confidential Computing Manager in Azure.
+This article shows you how to deploy an application that's managed by Fortanix Confidential Computing Manager in the Azure portal.
+
+Fortanix is a third-party software vendor with products and services built on top of Azure infrastructure. There are other third-party providers offering similar confidential computing services on Azure.
+
+> [!NOTE]
+>The products referenced in this document are not under the control of Microsoft. Microsoft is providing this information to you only as a convenience, and the reference to these non-Microsoft products do not imply endorsement by Microsoft.
 
 ## Prerequisites
 
-- A private Docker registry to push converted application image(s).
-- An Azure subscription.
+- A private Docker registry to push converted application images.
+- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
 
-## Deploy a Confidential Computing Manager-managed application in Azure
+## Deploy a Confidential Computing Manager through an Azure managed application
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
@@ -33,7 +39,7 @@ This article shows you how to deploy an application that is managed by Fortanix 
 
 4. Fill in all the required fields.
    1. In the Managed Application Details section, the **Managed Resource Group** field will have a default value that the user can modify if they need to.
-   2. In the **Region** field, select either **Australia East**, **Australia Southeast**, **East US**, **West US 2**, **West Europe**, **North Europe**, **Canada Central**, **Canada East**, or **East US 2 EUAP** (more regions will be added as Azure adds Managed Application support to more regions).
+   2. In the **Region** field, select either **Australia East**, **Australia Southeast**, **East US**, **West US 2**, **West Europe**, **North Europe**, **Canada Central**, **Canada East**, or **East US 2 EUAP**.
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/required-fields.png" alt-text="Required Fields":::
 
@@ -97,9 +103,17 @@ This article shows you how to deploy an application that is managed by Fortanix 
 
     :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/node-active-state.png" alt-text="Screenshot that shows the node successfully enrolled.":::
 
-## Delete CCM compute nodes
+## Clean up resources
 
 The user also can delete a CCM node agent from the Confidential Computing Node Agent page. To delete the node agent, select the node agent and select the **Delete** button on the top bar.
 
 :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/delete-node-agent.png" alt-text="Screenshot that shows deleting the node agent.":::
-  
+
+## Next steps
+
+In this quickstart, you enrolled a node using an Azure managed app to Fortanix's Confidential Computing Manager. The node enrollment allows you to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md).
+
+To learn more about Azure's confidential computing offerings, see [Azure confidential computing](overview.md).
+
+Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
+
