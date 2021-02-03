@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall Premium Preview in the Azure portal
-description: Learn how to deploy and configure Azure Firewall Premium Preview using the Azure portal.
+description: Learn about Azure Firewall Premium Preview in the Azure portal.
 author: vhorne
 ms.service: firewall
 services: firewall
@@ -28,7 +28,7 @@ For more information, see [Azure Firewall Premium features](premium-features.md)
 
 ## Deploy the firewall
 
-Deploying an Azure Firewall Premium Preview is very similar to deploying a standard Azure Firewall:
+Deploying an Azure Firewall Premium Preview is similar to deploying a standard Azure Firewall:
 
 
 :::image type="content" source="media/premium-portal/premium-portal.png" alt-text="portal deployment":::
@@ -37,7 +37,7 @@ For **Firewall tier**, you select **Premium (preview)** and for **Firewall polic
 
 ## Configure the Premium policy
 
-Configuring a Premium firewall policy is very similar to configuring a Standard firewall policy. With a Premium policy, you can configure the Premium features:
+Configuring a Premium firewall policy is similar to configuring a Standard firewall policy. With a Premium policy, you can configure the Premium features:
 
 :::image type="content" source="media/premium-portal/premium-policy.png" alt-text="Premium policy deployment":::
 
