@@ -7,7 +7,7 @@ author: ricmmartins
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: ricmart
 
 ---
@@ -216,4 +216,6 @@ In this section, you create a second connection to ensure high availability.
 
 ## Next steps
 
-For more information about AWS support for IKEv2, see the [AWS article](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+* For more information about AWS support for IKEv2, see the [AWS article](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+
+* For more information about building a multicloud VPN at scale, see the video [Build the Best MultiCloud VPN at Scale](https://www.youtube.com/watch?v=p7h-frLDFE0).
