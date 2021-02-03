@@ -40,7 +40,7 @@ In certain situations, you might not want a sensor to learn a detected event, or
 
 After you carry out mitigation or investigation, you can instruct the sensor to hide the alert by selecting **Acknowledge**. If the event is detected again, the alert will be retriggered.
 
-To hide the alert:
+To clear the alert:
 
   - Select **Acknowledge**.
 
@@ -65,9 +65,9 @@ In these situations, learning is not available. When learning can't be carried o
 
 ### What traffic is muted?
 
-A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that's being muted.
+A muted scenario includes the network devices, and traffic detected for an event. The alert title describes the traffic that's being muted.
 
-The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the traffic between them will be muted.
+The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the specific alerted traffic between them will be muted.
 
 **Example 1**
 

@@ -226,7 +226,7 @@ Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
-Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32 TB when replicating to managed disks (9.40 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
+Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 8,192 GB when replicating to managed disks (9.26 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
@@ -287,7 +287,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 32 TB when replicating to managed disk (9.40 version onwards)<br></br>Up to 4,095 GB when replicating to storage account| Check fails if unsupported.
+Data disk size | Up to 8,192 GB when replicating to managed disk (9.26 version onwards)<br></br>Up to 4,095 GB when replicating to storage account| Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
