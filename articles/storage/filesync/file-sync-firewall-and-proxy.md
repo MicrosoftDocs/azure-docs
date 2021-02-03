@@ -14,7 +14,7 @@ Azure File Sync connects your on-premises servers to Azure Files, enabling multi
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
-We recommend reading [Azure File Sync networking considerations](storage-sync-files-networking-overview.md) prior to reading this how to guide.
+We recommend reading [Azure File Sync networking considerations](file-sync-networking-overview.md) prior to reading this how to guide.
 
 ## Overview
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
@@ -280,6 +280,6 @@ The lists earlier in this document contain the URLs Azure File Sync currently co
 Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
-- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
+- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Deploy Azure File Sync](file-sync-deployment-guide.md)
+- [Monitor Azure File Sync](file-sync-monitoring.md)

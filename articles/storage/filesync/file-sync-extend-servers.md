@@ -320,4 +320,4 @@ If you'd like to clean up the resources you created in this tutorial, first remo
 In this tutorial, you learned the basic steps to extend the storage capacity of a Windows server by using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
 
 > [!div class="nextstepaction"]
-> [Plan for Azure File Sync deployment](./storage-sync-files-planning.md)
+> [Plan for Azure File Sync deployment](file-sync-planning.md)
