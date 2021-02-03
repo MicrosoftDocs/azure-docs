@@ -53,6 +53,8 @@ The steps in this section show how to create a blank API with no backend.
 
 ## Add an operation to the test API
 
+### [Portal](#tab/azure-portal)
+
 An API exposes one or more operations. In this section, add an operation to the blank API you created. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps later in the [Enable response mocking](#enable-response-mocking) section.
 
 1. Select the API you created in the previous step.
@@ -82,6 +84,12 @@ Although not required for this example, additional settings for an API operation
 |---------|---------|
 |**Query**     |  Add query parameters. Besides providing a name and description, you can provide values that are assigned to a query parameter. One of the values can be marked as default (optional).        |
 |**Request**     |  Define request content types, examples, and schemas.       |
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
 
 ## Enable response mocking
 

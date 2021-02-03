@@ -34,6 +34,8 @@ In this tutorial, you learn how to:
 
 ## Add a new version
 
+### [Portal](#tab/azure-portal)
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **APIs**.
 1. Select **Demo Conference API** from the API list. 
@@ -42,9 +44,14 @@ In this tutorial, you learn how to:
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/add-version-menu.png" alt-text="API context menu - add version":::
 
-
 > [!TIP]
 > Versions can also be enabled when you create a new API. On the **Add API** screen, select **Version this API?**.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
 
 ## Choose a versioning scheme
 

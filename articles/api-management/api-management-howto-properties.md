@@ -82,6 +82,8 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 
 ### Add a plain or secret value
 
+### [Portal](#tab/azure-portal)
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
@@ -91,6 +93,12 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 1. Select **Create**.
 
 Once the named value is created, you can edit it by selecting the name. If you change the display name, any policies that reference that named value are automatically updated to use the new display name.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
 
 ## Use a named value
 
