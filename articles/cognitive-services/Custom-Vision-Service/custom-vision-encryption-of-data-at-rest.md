@@ -13,7 +13,7 @@ ms.author: egeaney
 #Customer intent: As a user of the Face service, I want to learn how encryption at rest works.
 ---
 
-# Custom Vision encryption of data at rest
+# Custom Vision Encryption of Data at Rest
 
 Azure Custom Vision automatically encrypts your data when persisted it to the cloud. Custom Vision encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
@@ -22,18 +22,9 @@ Azure Custom Vision automatically encrypts your data when persisted it to the cl
 > [!IMPORTANT]
 > Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Custom Vision, you will need to create a new Custom Vision resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
-## Regional availability
-
-Customer-managed keys are currently available in these regions:
-
-* US South Central
-* West US 2
-* East US
-* US Gov Virginia
-
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
-## Next steps
+## Next Steps
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
