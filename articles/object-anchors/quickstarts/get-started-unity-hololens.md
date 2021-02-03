@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 11/19/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -33,7 +33,7 @@ You'll learn how to:
 
 [!INCLUDE [Download Unity Package](../../../includes/object-anchors-quickstart-unity-download-package.md)]
 
-In Unity, open the `quickstarts/apps/unity/ou-basic` project.
+In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
@@ -45,13 +45,13 @@ In Unity, open the `quickstarts/apps/unity/ou-basic` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized. However, you'll need to add your model to the app.
+Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized. However, you'll need to add your model to the app.
 
 [!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
 
 [!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
-Note that by default the app looks for object in the current field of view, then tracks them once detected. An instance will be removed when it's 6 meters away from current user location. The debug text shows details about an instance, like id, updated timestamp and surface coverage ratio.
+The app looks for objects in the current field of view and then tracks them once detected. An instance will be removed when it's 6 meters away from the user's location. The debug text shows details about an instance, like ID, updated timestamp and surface coverage ratio.
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 

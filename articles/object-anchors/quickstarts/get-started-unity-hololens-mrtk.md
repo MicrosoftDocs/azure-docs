@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 11/19/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -34,7 +34,7 @@ You'll learn how to:
 
 [!INCLUDE [Download Unity Package](../../../includes/object-anchors-quickstart-unity-download-package.md)]
 
-In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
+In Unity, open the `quickstarts/apps/unity/mrtk` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
@@ -46,19 +46,43 @@ In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Click **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Click **Stop Search** to stop tracking and all detected instances will be removed.
+Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
 
-You can also do other actions using the hand menu:
+Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
 
-**Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
+#### The app menus
 
-**High Precision Mode**: An experimental feature used to get a more accurate pose. This will require more system resources. The object mesh will be rendered in pink when in this mode. Click this button again to switch back to normal tracking mode.
+You can also do other actions using the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a>.
 
-**Lock/Unlock search area**: Lock area bounding box to prevent accidental movement by hands.
+##### Primary menu
 
-**Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
+* **Start Search / Stop Search** – Starts or stops the object detection process.
+* **Toggle Spatial Mapping** – Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
+* **Tracker Settings** – Toggles activation of the tracker settings menu.
+* **Search Area Settings** – Toggles activation of the search area settings menu.
+* **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
+* **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
-**Upload Tracing**: Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
+    :::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity primary hand menu":::
+
+##### Tracker settings menu
+
+* **High Accuracy** – An experimental feature used to get a more accurate pose. Enabling this option will require more system resources during object detection. The object mesh will be rendered in pink when in this mode. Select this button again to switch back to normal tracking mode.
+* **Relaxed Vertical Alignment** – When enabled, allows an object to be detected at a non-vertical angle. Useful for detecting objects on ramps.
+* **Allow Scale Change** – Allows the tracker to change the size of the detected object based on environmental information.
+* **Coverage Ratio Slider** – Adjusts the proportion of surface points that must match for the tracker to detect an object.  Lower values allow the tracker to better detect objects that are challenging for the HoloLens sensors to detect, such as dark objects or highly reflective objects. Higher values will reduce the frequency of false detections.
+
+    :::image type="content" source="./media/mrtk-handmenu-tracker.png" alt-text="Unity tracker hand menu":::
+
+##### Search Area settings menu
+
+* **Lock Search Area** – Lock area bounding box to prevent accidental movement by hands.
+* **Auto-Adjust Search Area** – Allows the search area to reposition itself during object detection.
+* **Cycle Mesh** – Cycles through visualizing the loaded meshes inside the search area.  This option can help users align the search box for hard to detect objects.
+
+    :::image type="content" source="./media/mrtk-handmenu-search-area.png" alt-text="Unity search area hand menu":::
+
+Example `subscription.json`:
 
 ```json
 {
@@ -67,8 +91,6 @@ You can also do other actions using the hand menu:
   "AccountRegion": "<your account region>"
 }
 ```
-
-:::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity hand menu":::
 
 [!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
 
@@ -80,27 +102,15 @@ You can also do other actions using the hand menu:
 
 If you're still not able to find the issue, you can capture diagnostics and send it to us.
 
-Do a **facepalm** gesture and click **Start Tracing** (see section **Run the Sample App**).
+Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Start Tracing** (see section **Run the Sample App**).
 
 Try to detect your object again.
 
-Do a **facepalm** gesture and click **Stop Tracing**.
+Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Stop Tracing**.
 
 In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
 
 :::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
-
-## Advanced: Semi-automated search area setup
-
-The sample above requires a user to provide a tight bounding box to cover the target object. It could be hard to scale, rotate, and move the cubic box in 3D. To address this problem, we provide an advanced sample to demonstrate semi-automatic setup of a search area.
-
-In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **OUAutoSearchArea**, add it to the scene build list. Optionally, adjust the two thresholds (explained below), then follow the above instructions for **OUSampleScene** to set up and build the app. When running the app, you can move the cubic box to partially cover the object in arbitrary orientation, then start the search. The cubic box will adjust automatically to fit to the object's position and orientation if detection succeeds.
-
-:::image type="content" source="./media/unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
-
-There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
-
-The **OUAutoSearchArea** scene works with a single object model.  The **OUSampleScene** supports multiple object models.
 
 ## Next steps
 
