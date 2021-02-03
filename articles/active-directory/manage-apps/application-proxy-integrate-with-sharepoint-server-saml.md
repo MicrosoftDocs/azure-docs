@@ -1,5 +1,5 @@
 ---
-title: Publishing OnPrem SharePoint federated with Azure AD through Application Proxy
+title: Publish on=premises SharePoint with Application Proxy - Azure AD
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy for SAML.
 services: active-directory
 documentationcenter: ''
