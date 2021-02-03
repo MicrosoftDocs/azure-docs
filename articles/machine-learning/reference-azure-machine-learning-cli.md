@@ -200,7 +200,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    For more information, see [az ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 + Start a computeinstance.
 
@@ -208,7 +208,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    For more information, see [az ml computetarget start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    For more information, see [az ml computetarget computeinstance start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 + Restart a computeinstance.
 
@@ -216,7 +216,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    For more information, see [az ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
 + Delete a computeinstance.
 
