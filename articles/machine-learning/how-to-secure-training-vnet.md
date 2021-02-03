@@ -162,9 +162,9 @@ There are two ways that you can accomplish this:
 
 * Add [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to the subnet that contains the compute resource. Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service, as this is required for access to Compute Instances. When adding the IP for the Azure Machine Learning service, you must add the IP for both the __primary and secondary__ Azure regions. The primary region being the one that the service is located in.
 
-To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+    To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
-To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
+    To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
 
     * Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
