@@ -7,10 +7,10 @@ ms.subservice: security
 ms.custom: security
 ms.devlang: azurecli
 ms.topic: sample
-author: ronitr
-ms.author: ronitr
+author: davidtrigano
+ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/05/2019
+ms.date: 02/03/2020
 ---
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection
 
