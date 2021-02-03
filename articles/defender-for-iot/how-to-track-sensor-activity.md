@@ -82,7 +82,7 @@ To filter the timeline:
 
     - Select **PCAP File** to download the PCAP file (if it exists) that contains a packet capture of the whole network at a specific time. 
     
-      The PCAP file contains technical information that can help network engineers determine therethe exact parameters of the event. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, an open-source application.
+      The PCAP file contains technical information that can help network engineers determine the exact parameters of the event. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, an open-source application.
 
 ## See also
 
