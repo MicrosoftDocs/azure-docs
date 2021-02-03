@@ -68,7 +68,6 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 ## Next steps
 
-In this article, you learned about Azure Defender for SQL.
+In this article, you learned about Azure Defender for SQL. To use the services that have been described:
 
-> [!div class="nextstepaction"]
-> [Scan your SQL servers for vulnerabilities with Azure Defender](defender-for-sql-usage.md)
+- Use Azure Defender for SQL servers on machines to [scan your SQL servers for vulnerabilities](defender-for-sql-usage.md)
