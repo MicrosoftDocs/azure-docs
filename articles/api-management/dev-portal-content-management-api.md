@@ -37,7 +37,7 @@ You can use the official rest API via Azure Resource Manager or the direct acces
 
 ## Open Data Protocol support
 
-Content management API supports these Open Data Protocol (OData) operations: filtering and ordering.
+Content management API supports these Open Data Protocol (OData) operations: *filtering* and *ordering*.
 
 ### Filtering
 
