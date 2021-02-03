@@ -39,7 +39,7 @@ The following table lists modules that Azure Automation imports by default when 
 
 The default modules are also known as "global modules". In the Azure portal,  the "Global module" property will be "true" when viewing a module that was imported when the account was created.
 
-![Screenshot of global module property in Azure Portal](../media/modules/automation-global-module.png)
+![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 
