@@ -90,7 +90,7 @@ Now, you can go ahead and ingest your 3D model.
     | Field                    | Description                       |
     | ---                      | ---                               |
     | InputAssetPath                 | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
-    | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit` enumeration. |
+    | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectAnchors.Ingestion.Unit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 
 3. Build and run the project to upload your 3D model, register a new ingestion job with the service, and wait for it to be completed. Once the job is completed, the Object Anchors model will be downloaded either next to the file specified in the `InputAssetPath` or the path specified in `OutputModelDirectoryPath`. You should see something similar to the following console output:

@@ -48,7 +48,7 @@ For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0
 
 The gravity direction can be reasoned with a 3D rendering tool, like [MeshLab](http://www.meshlab.net/).
 
-The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit** enumeration.
+The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectAnchors.Ingestion.Unit** enumeration.
 
 **Q: How long does it take to ingest a CAD model?**
 
@@ -120,7 +120,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
-**A:** The application can specify the location of diagnostics archives. The OU sample app writes diagnostics to the **TempState** folder.
+**A:** The application can specify the location of diagnostics archives. The Object Anchors sample app writes diagnostics to the **TempState** folder.
 
 **Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
 
