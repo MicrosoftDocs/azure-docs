@@ -244,7 +244,6 @@ Use disclosure as an opportunity to fail gracefully.
 
 * [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 
 ## Next steps
