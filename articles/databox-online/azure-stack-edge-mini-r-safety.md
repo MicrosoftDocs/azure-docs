@@ -213,9 +213,37 @@ Disposal of waste batteries and electrical and electronic equipment:
 This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
 
 This product contains coin cell battery(ies).
+
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
+
+Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10g of tissue
+ 
+This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
+
+| AT | BE | BG | HR | CY | CZ | DK | 
+| EE | FI | FR | DE | EL | HU | IE |
+| IT | LV | LT | LU | MT | NL | PL |
+| PT | RO | SK | SI | ES | SE | UK(NI) |
+
+In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of NETGEAR wireless products for sale in the EU:
+
+WiFi
+
+| Frequency range (MHz) | Channels used | Max Transmit Power (dBm/mW) |
+| --------------------- | ------------- | --------------------------- |
+| 2400-2483.5 | 1-13    | ODFM: 19.9 dBm (97.7 mW) <br> CCK: 17.9 dBm (61.7 mW) |
+| 5150-5350   | 36-48   | 22.9 dBm (195 mW) |
+| 5250-5350   | 52-64   | 22.9 dBm (195 mW) with TPC <br> 19.9 dBm (97.7 mW) non-TPC |
+| 5470-5725   | 100-140 | 29.9 dBm (977 mW) with TPC <vbr> 29.6 dBm (490 mW) non-TPC |
+
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 Telephone number: +353 1 295 3826
 Fax number: +353 1 706 4110
+
+SINGAPORE:
+
+The Netgear A6150 WiFi USB Adapter provided with this equipment complies with IMDA standards.
+
 
 ## Next steps
 
