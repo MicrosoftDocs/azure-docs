@@ -69,7 +69,7 @@ This article shows you how to deploy an application that is managed by Fortanix 
 
     :::image type="content" source="media/fortanix-ccm/add-node-agent.png" alt-text="Screenshot that shows adding the node agent.":::
 
-4.  In the CCM node agent form, fill all the required fields. Paste the join token that you copied in Step 2 in the **Join Token** field. Select **Review + submit** button to confirm.
+4.  In the CCM node agent form, fill all the required fields. Paste the join token that you copied in Step 2 in **Join Token**. Select **Review + submit** to confirm.
 
     For more information on how to enroll a CCM compute node, see [Enroll Compute Node](https://support.fortanix.com/hc/en-us/articles/360043085652-User-s-Guide-Compute-Nodes).
     
