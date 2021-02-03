@@ -218,7 +218,7 @@ For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configur
 
 - `no_proxy`: localhost
 
-- IoT Edge proxy uses port 35000 and 35001. Make sure that your module does not run at these ports or it could cause port conflicts.  <!--need to confirm if this applies only to K8 IoT or also FPGA IoT-->
+- IoT Edge proxy on Kubernetes platform uses port 35000 and 35001. Make sure that your module does not run at these ports or it could cause port conflicts. 
 
 ## Other differences
 
@@ -238,7 +238,7 @@ For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configur
 - **Other options**: 
     - Certain docker create options that worked on FPGA devices will not work in the Kubernetes environment on your GPU devices. For example: , like – EntryPoint.<!--can we confirm what exactly is required here-->
     - Environment variables such as `:` need to be replaced by `__`.
-    - **Container Creating** status leads to **backoff** status on IoT Hub.
+    - **Container Creating** status for a Kubernetes pod leads to **backoff** status for a module on the IoT Hub resource. While there are a number of reasons for the pod to be in this status, a common reason is when a large container image is being pulled over a low network bandwidth connection. When the pod is in this state, the status of the module appears as **backoff** in IOT Hub though the module is just starting up.
 
 
 ## Next steps
