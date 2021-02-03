@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/qquick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
