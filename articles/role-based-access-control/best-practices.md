@@ -41,7 +41,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](../
 
 ## Assign Roles to Groups, not Users
 
-Users should never be assigned roles directly, because it would make roles assignments less manageable. Moreover, assigning the roles to Groups helps to never hit the limit of 2000 role assignments per subscription. For more information, see [Azure role assignments limit](https://docs.microsoft.com/en-us/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). 
+You should avoid assigning roles directly to users because it makes role assignments less manageable. Also, it increases the number of role assignments, which has a [limit of 2000 role assignments per subscription](troubleshooting.md#azure-role-assignments-limit). Instead, you should assign role to groups.
 
 ## Next steps
 
