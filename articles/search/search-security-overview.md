@@ -78,9 +78,9 @@ In application code, you specify the endpoint and an API key to allow access to 
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access to the service), along with the context of an operation.
+In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access based on which API key you provide), along with the context of an operation.
 
-For end-user access, you can structure query requests to connect using a [query key](search-security-rbac.md), which makes any request read-only, and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+For read-only access, you can structure query requests to connect using a [query key](search-security-rbac.md), and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
 Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an [admin key](search-security-rbac.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
