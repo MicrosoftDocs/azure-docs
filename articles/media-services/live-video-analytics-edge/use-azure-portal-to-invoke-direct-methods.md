@@ -50,7 +50,7 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 1. Copy and paste the JSON below in the **Payload** field.
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. Select the **Invoke Method** button at the top of the page.<br><br>
