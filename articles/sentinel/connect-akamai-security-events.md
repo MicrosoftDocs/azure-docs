@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/03/2021
 ms.author: yelevin
 ---
 # Connect your Akamai Security Events collector to Azure Sentinel
@@ -21,7 +21,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Akamai Security Events connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article explains how to connect your Akamai Security Events collector to Azure Sentinel. The Akamai Security Events data connector allows you to easily connect your Akamai logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between the Akamai Security Events collector and Azure Sentinel makes use of CEF-formatted Syslog, a Linux-based log forwarder, and the Log Analytics agent.
+This article explains how to connect your Akamai Security Events collector to Azure Sentinel. The Akamai Security Events data connector allows you to easily connect your Akamai logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between the Akamai Security Events collector and Azure Sentinel makes use of CEF-formatted Syslog, a Linux-based log forwarder, and the Log Analytics agent. It also uses a custom-built log parser based on a Kusto function.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
