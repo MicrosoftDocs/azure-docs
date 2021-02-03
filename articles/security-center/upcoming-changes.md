@@ -48,11 +48,7 @@ Learn more about these recommendations in the [security recommendations referenc
 
 **Estimated date for change:** Q2 2021
 
-The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
-
-- The recommendation will no longer affect your secure score
-- The security control ("Apply data classification") will no longer affect your secure score
-- The recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59)
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 
