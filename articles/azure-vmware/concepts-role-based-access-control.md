@@ -18,9 +18,6 @@ In an Azure VMware Solution deployment, the administrator doesn't have access to
 
 The private cloud user doesn't have access to and can't configure specific management components supported and managed by Microsoft. For example, clusters, hosts, datastores, and distributed virtual switches.
 
-
-
-
 ## Azure VMware Solution CloudAdmin role on vCenter
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
@@ -58,7 +55,11 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 ## Next steps
 
-Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
+Now that you've covered the basics of vSphere role-based access control for Azure VMware Solution, you may want to learn about:
+
+- The details of each privilege in the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+- [How Azure VMware Solution monitors and repairs private clouds](concepts-monitor-repair-private-cloud.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 
