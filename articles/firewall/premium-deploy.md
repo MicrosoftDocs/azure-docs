@@ -25,20 +25,20 @@ ms.author: victorh
 
 For more information, see [Azure Firewall Premium features](premium-features.md)
 
-You will deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
+You'll deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
 - a worker subnet (10.0.10.0/24)
 - a server subnet (10.0.20.0/24)
 - and a firewall subnet (10.0.100.0/24)
 
-A single central VNet is used in this test environment for simplicity. For production purposes, it is more common to use a [hub and spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets.
+A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Central VNet topology":::
 
-The worker virtual machine is a client that initiates HTTP/S requests to the Internet and the server virtual machine.
+The worker virtual machine is a client that sends HTTP/S requests to the Internet and the server virtual machine.
 
 The server virtual machine runs a web server on NGINX. It hosts the HTTP/S sites `http://server.2020-private-preview.com` and `https://server.2020-private-preview.com`. The web server response to both HTTP and HTTPS is `HelloWorld`. This web server is available only within the testing perimeter via the worker virtual machine.
 
-When simulating malicious request generation from the worker virtual machine, you will target these requests to the  server virtual machine rather than an Internet-based commercial web site.
+When simulating malicious request generation from the worker virtual machine, you'll target these requests to the  server virtual machine rather than an Internet-based commercial web site.
 
 You can use RDP on the standard TCP port 3389 to connect remotely from your computer to the worker virtual machine. The worker virtual machine has a public IP address exposed to the Internet and TCP port 3389 is open for incoming requests. Connections are allowed only from a pre-defined source IP address or range to avoid malicious connectivity attempts.  You configure the public IP address of your on-premises computer as the allowed IP address.
 
@@ -61,7 +61,7 @@ Use the **FirewallTopology1.template.json** template to deploy the virtual netwo
 
 You can deploy custom templates using **Template deployment (deploy using custom templates)**, which can be found in the Azure Marketplace. From the Marketplace, search for **template deployment**. When you start your custom deployment, select **Build your own template in the editor** to open an editor where you can paste the contents of the **FirewallTopology1.template.json** file.
 
-For the **Remote Access Address Prefix** parameter, type your own computer public IP address in CIDR notation. For example: x.x.x.x/32. This allows you access to the worker virtual machine from the Internet. To determine your computer's public IP address, you can use multiple services, such as https://www.whatismyip.com.
+For the **Remote Access Address Prefix** parameter, type your own computer public IP address in CIDR notation. For example: x.x.x.x/32. This allows you to access to the worker virtual machine from the Internet. To determine your computer's public IP address, you can use multiple services, such as https://www.whatismyip.com.
 
 
 :::image type="content" source="media/premium-deploy/deploy-topology.png" alt-text="Deploy the template":::
@@ -82,7 +82,7 @@ There are three types of certificates used for your deployment setup:
 For addition details about certificates used by Azure Firewall Premium Preview, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
 
 
-To configure the certificates to test with, do the following:
+To configure the test certificates:
 
 1. Generate the certificates using a bash script and configuration file.
 2. Run the **CACertificate.template.json** ARM template to place a CA certificate in the Key Vault using the Managed Identity created when you ran the **FirewallTopology1.template.json** ARM template.
@@ -90,7 +90,7 @@ To configure the certificates to test with, do the following:
 
 ### Generate the certificates
 
-You can run the bash script on any computer or virtual machine running Linux the you have access to, or you can use the Azure Cloud Shell.
+You can run the bash script on any computer or virtual machine running Linux, or you can use the Azure Cloud Shell.
 
 :::image type="content" source="media/premium-deploy/bash-shell.png" alt-text="Azure Cloud Shell":::
 
@@ -148,7 +148,7 @@ The FirewallPolicy.template.json template file contains settings to enable TLS I
 
 ### TLS Inspection
 
-Now that the certificates are in place, you can deploy the policy template to create rules to configure TLS Inspection and Application rules for specific target URLs. Azure Firewall will perform TLS Inspection only to traffic destined to `google.com/maps` and `www.microsoft.com/.../surface-duo` on port 443. Additional rules can be added as required.
+Now that the certificates are in place, you can deploy the policy template to create rules to configure TLS Inspection and Application rules for specific target URLs. Azure Firewall will do TLS Inspection only to traffic destined to `google.com/maps` and `www.microsoft.com/.../surface-duo` on port 443. Additional rules can be added as required.
 
 TLS Inspection is supported only for HTTPS on port 443, but URL filtering is also supported with HTTP protocol on any given port.
 
@@ -156,11 +156,11 @@ These Policy parameters can be modified as required and then redeployed on the e
 
 ### IDPS
 
-The IDPS service can be applied both on HTTP as well as encrypted HTTPS traffic. Once HTTPS traffic needs to be inspected, Azure Firewall Premium can use its TLS Inspection capability to decrypt the traffic and reveal potential malicious activity in it. Therefore, to apply IDPS on HTTPS, a specific application rule must be defined with TLS Inspection mode enabled, (`terminateTLS": true` in the template).
+The IDPS service can be applied both on HTTP and encrypted HTTPS traffic. Once HTTPS traffic needs to be inspected, Azure Firewall Premium can use its TLS Inspection capability to decrypt the traffic and reveal potential malicious activity in it. Therefore, to apply IDPS on HTTPS, a specific application rule must be defined with TLS Inspection mode enabled (`terminateTLS": true` in the template).
 
 - IDPS `mode` may contain any of the following values *Alert*, *Deny*, or *Off*. If the parent policy is configured for *Alert* mode, the child policy must be stricter, so it can only be configured in *Deny* mode. *Off* mode means IDPS is disabled, *Alert* means that once malicious traffic is identified the Firewall adds an entry to the log and *Deny* means the firewall blocks any identified malicious traffic.
 
-- The `signatureOverrides` parameter provide the granularity of mode setting as per the signature. Signature `mode` values are the same as the IDPS `mode` values. `id` is the specific signature identification that `mode` should be applied on. In the following example, any traffic match to signature number 2024897 will be blocked and any traffic match to signature number 2024898 will create a new entry in Firewall log.
+- The `signatureOverrides` parameter provides the granularity of mode setting as per the signature. Signature `mode` values are the same as the IDPS `mode` values. `id` is the specific signature identification that `mode` should be applied on. In the following example, any traffic match to signature number 2024897 will be blocked and any traffic match to signature number 2024898 will create a new entry in Firewall log.
 
 
    ```json
@@ -175,7 +175,7 @@ The IDPS service can be applied both on HTTP as well as encrypted HTTPS traffic.
       }
    ],
    ```
-- `bypassTrafficSettings` is a set of attributes that allow you to define specific traffic pattern criteria where IDPS is not applied. In the case of inherited policies, these settings are only allowed in the parent policy. In the following example, any TCP traffic sent from 10.0.10.10 or 10.0.10.11 to 1.1.1.1:80 bypasses IDPS service:
+- `bypassTrafficSettings` is a set of attributes that allow you to define specific traffic pattern criteria where IDPS isn't applied. With inherited policies, these settings are only allowed in the parent policy. In the following example, any TCP traffic sent from 10.0.10.10 or 10.0.10.11 to 1.1.1.1:80 bypasses IDPS service:
    ```json
    "bypassTrafficSettings": [ 
     {
@@ -195,9 +195,9 @@ The IDPS service can be applied both on HTTP as well as encrypted HTTPS traffic.
    ]
    ```
 
-   In case of a false positive scenario, where a legitimate request has been blocked by the Firewall due to a signature match, you can use the signature ID from the log and add a new signature Settings rule to bypass this signature (for example, mode=Disabled).
+   In a false positive scenario, where a legitimate request is blocked by the Firewall with a signature match, you can use the signature ID from the log and add a new Signature Settings rule to bypass this signature (for example, mode=Disabled).
 
-   Another practical use case for the signature setting might be when IDPS mode is set to **Alert**, but there are one or more specific signatures that you want to block its associated traffic. In this case you might want to add new signature rules with mode=Deny.
+   Another practical use case for the signature setting might be when IDPS mode is set to **Alert**, but there are one or more specific signatures that you want to block its associated traffic. In this case, you might want to add new signature rules with mode=Deny.
 
 ## Test the firewall
 
@@ -210,7 +210,7 @@ To collect firewall logs, you need to add diagnostics settings to collect firewa
 1. Select the **DemoFirewall** and under **Monitoring**, select **Diagnostic settings**.
 2. Select **Add diagnostic setting**.
 3. For **Diagnostic setting name**, type *fw-diag*.
-4. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule** .
+4. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule**.
 5. Under **Destination details**, select **Send to Log Analytics workspace**.
 6. Select **Save**.
 
@@ -221,7 +221,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 #### To test IDPS for HTTP traffic:
 
 1. On the WorkerVM virtual machine, open an administrator command prompt window.
-2. Type the following at the command prompt:
+2. Type the following command at the command prompt:
 
    `curl -A "BlackSun" http://server.2020-private-preview.com`
 3. You'll see the following response:
@@ -232,7 +232,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
         </body>
    </html>
    ```
-4. Go to the Firewall Network rule logs on the Azure portal to find the an alert similar to the following message:
+4. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
 
    :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="Alert message":::
 
@@ -254,11 +254,11 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    `read tcp 10.0.100.5:55734->10.0.20.10:80: read: connection reset by peer`
 
-7. Go to the Monitor logs in the Azure Portal and identify the message for the blocked request.
+7. Go to the Monitor logs in the Azure portal and identify the message for the blocked request.
 8. Now you can bypass the IDPS function using the **Bypass list**.
 
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
-   2. Edit **MyRule** and set **Destination** to *10.0.20.10* which is the ServerVM private IP address.
+   2. Edit **MyRule** and set **Destination** to *10.0.20.10, which is the ServerVM private IP address.
    3. Select **Save**.
 1. Run the test again: `curl -A "BlackSun" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert.
 
@@ -281,18 +281,18 @@ Use the following steps to test TLS Inspection with URL filtering.
 
       :::image type="content" source="media/premium-deploy/alert-message-url.png" alt-text="Alert message showing the URL":::
 
-Some HTML pages may look incomplete because they are refer to other URLs which are denied. To solve this issue, the following approach can be taken:
+Some HTML pages may look incomplete because they refer to other URLs that are denied. To solve this issue, the following approach can be taken:
 
 - If the HTML page contain links to other domains, you can add these domains to a new application rule with allow access to these FQDNs.
 - If the HTML page contain links to sub URLs then you can modify the rule and add an asterisk to the URL. For example: `targetURLs=www.nytimes.com/section/world*`
 
-   Alternatively , you can add a new URL to the rule. For example: 
+   Alternatively, you can add a new URL to the rule. For example: 
 
    `www.nytimes.com/section/world, www.nytimes.com/section/world/*`
 
 ### Web categories testing
 
-Let's create an application rule to allow access to sports web sites.
+Let's create an application rule to allow access to Sports web sites.
 
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
 2. Select **Application Rules**, and then **Add a rule collection**.
