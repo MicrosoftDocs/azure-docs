@@ -736,43 +736,40 @@
     - name: Manage access control
       items:
       - name: Storage Explorer
-        href: data-lake-storage-explorer.md
-      - name: PowerShell
-        href: data-lake-storage-directory-file-acl-powershell.md
-      - name: Azure CLI
-        href: data-lake-storage-directory-file-acl-cli.md
-      - name: .NET
-        href: data-lake-storage-directory-file-acl-dotnet.md
-      - name: Java
-        href: data-lake-storage-directory-file-acl-java.md
-      - name: Python
-        href: data-lake-storage-directory-file-acl-python.md
-      - name: JavaScript
-        href: data-lake-storage-directory-file-acl-javascript.md
-      - name: Set ACLs recursively
-        href: recursive-access-control-lists.md
-    - name: Work with data
-      items:
-      - name: Storage Explorer
         href: data-lake-storage-explorer-acl.md
       - name: PowerShell
         href: data-lake-storage-acl-powershell.md
       - name: Azure CLI
         href: data-lake-storage-acl-cli.md
-      - name: .NET
+      - name: .NET SDK
         href: data-lake-storage-acl-dotnet.md
-      - name: Java
+      - name: Java SDK
         href: data-lake-storage-acl-java.md
-      - name: Python
+      - name: Python SDK
         href: data-lake-storage-acl-python.md
       - name: JavaScript
         href: data-lake-storage-acl-javascript.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
-
-    - name: Query data
+      - name: Set ACLs recursively
+        href: recursive-access-control-lists.md
+    - name: Work with data
       items:
-      - name: Filter data with query acceleration
+      - name: Storage Explorer
+        href: data-lake-storage-explorer.md
+      - name: PowerShell
+        href: data-lake-storage-directory-file-acl-powershell.md
+      - name: Azure CLI
+        href: data-lake-storage-directory-file-acl-cli.md
+      - name: .NET SDK
+        href: data-lake-storage-directory-file-acl-dotnet.md
+      - name: Java SDK
+        href: data-lake-storage-directory-file-acl-java.md
+      - name: Python SDK
+        href: data-lake-storage-directory-file-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-directory-file-acl-javascript.md
+      - name: Query acceleration
         href: data-lake-storage-query-acceleration-how-to.md
     - name: Use with Azure services
       items:
