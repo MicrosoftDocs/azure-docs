@@ -95,4 +95,5 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 ## Next steps
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
+- [Deploy and configure Azure Firewall Premium Preview](premium-deploy.md)
 - [Migrate to Azure Firewall Premium Preview](premium-migrate.md)
