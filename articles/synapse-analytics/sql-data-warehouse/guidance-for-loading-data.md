@@ -176,3 +176,4 @@ No other changes to underlying external data sources are needed.
 - To learn more about the COPY statement or PolyBase when designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
 - For a loading tutorial, [Use the COPY statement to load data from Azure blob storage to Synapse SQL](./load-data-from-azure-blob-storage-using-copy.md).
 - To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).
+- Take a look at the Azure DevOps project for [Modern Data Warehouse](https://azuredevopsdemogenerator.azurewebsites.net/?name=moddw) to help with deployment steps.
