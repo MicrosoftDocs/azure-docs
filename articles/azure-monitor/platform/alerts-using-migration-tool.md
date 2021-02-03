@@ -9,7 +9,7 @@ ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
 
 ## Benefits of new alerts
 
