@@ -164,11 +164,10 @@ The following options can be set for CORS:
 
 ## Next steps
 
-With an understanding of index composition, you can continue in the portal to create your first index. We recommend starting with **Import data** wizard, choosing either the *realestate-us-sample* or *hotels-sample* hosted data sources.
+You can get hands on experience creating an index using almost any sample or walkthrough for Cognitive Search. You can choose any of the quickstarts from the table of contents to get started.
 
-> [!div class="nextstepaction"]
-> [Import data wizard (portal)](search-get-started-portal.md)
+You'll also want to become familiar with methodologies for loading an index with data. Index definition and population are done together. The following articles provide more information.
 
-For both data sets, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer. Find these data sources in the **Connect to your data** page of the **Import data** wizard.
++ [Data import overview](search-what-is-data-import.md)
 
-  ![Create a sample index](media/search-what-is-an-index//import-wizard-sample-data.png "Create a sample index")
++ [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 
