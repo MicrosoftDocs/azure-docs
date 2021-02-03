@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,33 +14,19 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Monitor
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Azure Monitor. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Azure Monitor. **Controls** not applicable to Azure Monitor have been excluded. 
+This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure Monitor. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Monitor. **Controls** not applicable to Azure Monitor have been excluded. To see how Azure Monitor completely maps to the Azure Security Benchmark, see the [full Azure Monitor security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
- 
-To see how Azure Monitor completely maps to the Azure
-Security Benchmark, see the [full Azure Monitor security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Azure Monitor is part of the Azure core services and the Azure Monitor Service cannot be deployed as a service separately. Azure Monitor components may be deployed with your resources, and this may impact the security posture of those resources.
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+## Network security
 
-## Network Security
-
-*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12394).
-
 **Guidance**: Enable Azure Private Link to allow access to Azure SaaS Services (for example, Azure Monitor) and Azure hosted customer/partner services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
-To allow traffic to reach Azure Monitor, use the "AzureMonitor" service tags to allow inbound and outbound traffic through network security groups. To allow Availability Monitoring test traffic to reach Azure Monitor, use the "ApplicationInsightsAvailability" service tag to all inbound traffic through network security groups. To allow alert notifications to reach customer endpoints, use the "ActionGroup" service tag to allow inbound traffic through network security groups.
+To allow traffic to reach Azure Monitor, use the "AzureMonitor" service tags to allow inbound and outbound traffic through network security groups. To allow Availability Monitoring test traffic to reach Azure Monitor, use the "ApplicationInsightsAvailability" service tag to all inbound traffic through network security groups.
 
 Virtual network rules enable Azure Monitor to only accept communications that are sent from selected subnets inside a virtual network.
 
@@ -56,10 +42,8 @@ Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Mon
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12395).
-
-**Guidance**: Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft. However, for resources that make network connections to the Azure Monitor offering, secure their network with a network security group. Enable network security group flow logs and send logs into a Storage Account for traffic audit. You may also send flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: 
+Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft. However, for resources that make network connections to the Azure Monitor offering, secure their network with a network security group. Enable network security group flow logs and send logs into a Storage Account for traffic audit. You may also send flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 When using Azure Monitor with Private Link, you get access to network logging such as 'Data processed by the Private Endpoint (IN/OUT)'.
 
@@ -77,115 +61,17 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 **Responsibility**: Customer
 
-### 1.3: Protect critical web applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12396).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-Azure Monitor components, including the Application Insights SDK may be deployed with your resources running web applications for additional monitoring, this may impact the configuration and security posture of those resources. Instructions for Application Insights monitoring of web applications are available in the following links.
-
-- [How to add exceptions for CDN endpoints for corporations](app/javascript-sdk-load-failure.md#add-exceptions-for-cdn-endpoints-for-corporations)
-
-- [How to host the SDK on your own CDN](app/javascript-sdk-load-failure.md#host-the-sdk-on-your-own-cdn)
-
-- [How to use NPM packages to embed the Application Insight SDK](app/javascript-sdk-load-failure.md#use-npm-packages-to-embed-the-application-insight-sdk)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.4: Deny communications with known-malicious IP addresses
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12397).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft. For public access to the Azure Monitor service, the Azure Platform implements DDoS Protection basic as part of perimeter security in a shared security model.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.5: Record network packets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12398).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12399).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.7: Manage traffic to web applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12400).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 1.8: Minimize complexity and administrative overhead of network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12401).
 
 **Guidance**: To allow traffic to reach Azure Monitor, use the "AzureMonitor" service tags to allow inbound and outbound traffic through Network Security Groups. To allow availability monitoring test traffic to reach Azure Monitor, use the "ApplicationInsightsAvailability" service tag to all inbound traffic through network security groups. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Understand and use Service Tags](../virtual-network/service-tags-overview.md)
+- [Understand and use Service Tags](../virtual-network/service-tags-overview.md) 
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 1.9: Maintain standard security configurations for network devices
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12402).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor is part of the Azure core services and cannot be deployed as a service separately. Azure Monitor components may be deployed with your resources, and this may impact the security posture of those resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 1.10: Document traffic configuration rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12403).
 
 **Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately. Azure Monitor components, including the Azure Monitor Agent, and Application Insights SDK may be deployed with your resources, and this may impact the security posture of those resources.
 
@@ -193,7 +79,7 @@ Azure Monitor components, including the Application Insights SDK may be deployed
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md) 
 
-- [See getting started with Application Insights](app/app-insights-overview.md#get-started)
+- [See getting started with Application Insights](./app/app-insights-overview.md#get-started)
 
 - [How to set up availability web tests](app/monitor-web-app-availability.md)
 
@@ -203,12 +89,10 @@ Azure Monitor components, including the Application Insights SDK may be deployed
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12404).
+**Guidance**: 
+Use the Azure Activity Log to monitor resource configurations and detect changes to your network resources related to Azure Monitor. Create alerts within Azure Monitor that will trigger when changes to those critical network resources take place.
 
-**Guidance**: Use the Azure Activity Log to monitor resource configurations and detect changes to your network resources related to Azure Monitor. Create alerts within Azure Monitor that will trigger when changes to those critical network resources take place.
-
-- [How to view and retrieve Azure Activity Log events](platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](./platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](platform/alerts-activity-log.md)
 
@@ -216,28 +100,11 @@ Azure Monitor components, including the Application Insights SDK may be deployed
 
 **Responsibility**: Customer
 
-## Logging and Monitoring
+## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### 2.1: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12405).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft maintains time sources for the underlying infrastructure that hosts Azure services like Azure Monitor.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12406).
 
 **Guidance**: Azure Monitor uses Activity logs to log changes to its resources. You can export these logs to Azure Storage, Event Hub, or a Log Analytics workspace. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. Within Azure Monitor, you can query and perform analytics against the data, use Azure Storage Accounts for any long-term/archival storage of logs.
 
@@ -257,9 +124,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.3: Enable audit logging for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12407).
-
 **Guidance**: Azure Monitor uses Activity logs, the Activity Log is automatically enabled and logs operations taken on Azure Monitor resources, such as: who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
 - [How to collect platform logs and metrics with Azure Monitor](platform/diagnostic-settings.md)
@@ -270,30 +134,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Responsibility**: Customer
 
-### 2.4: Collect security logs from operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12408).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 2.5: Configure security log storage retention
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12409).
 
 **Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for any long-term/archival storage of your logs.
 
 - [Change the data retention period in Log Analytics](platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -301,16 +148,14 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.6: Monitor and review logs
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12410).
-
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
+**Guidance**: 
+Analyze and monitor logs for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/get-started-portal)
+- [Getting started with Log Analytics queries](./log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](log-query/get-started-queries.md)
 
@@ -320,10 +165,8 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.7: Enable alerts for anomalous activities
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12411).
-
-**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
+**Guidance**: 
+Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -335,89 +178,28 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 **Responsibility**: Customer
 
-### 2.8: Centralize anti-malware logging
+## Identity and access control
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12412).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor does not produce anti-malware related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.9: Enable DNS query logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12413).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor does not process or produce DNS-related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.10: Enable command-line audit logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12414).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Identity and Access Control
-
-*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12415).
+**Guidance**: 
+Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get a directory role in Azure Active Directory (Azure AD) with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
-
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12416).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Monitor does not have the concept of default passwords. You are responsible for third party applications and marketplace services that may use default passwords.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 3.3: Use dedicated administrative accounts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12417).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
 
 - [Azure AD Privileged Identity Management Overview](../active-directory/privileged-identity-management/pim-configure.md)
 
@@ -427,10 +209,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12418).
-
-**Guidance**: Wherever possible, use Azure Active Directory (Azure AD) SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -440,12 +219,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12419).
+**Guidance**: 
+Enable Azure AD MFA and follow Azure Security Center identity and access recommendations.
 
-**Guidance**: Enable Azure Active Directory (Azure AD) multifactor authentication and follow Azure Security Center identity and access recommendations.
-
-- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -455,14 +232,11 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12420).
-
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [How to enable Azure Active Directory (Azure AD) multifactor authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -470,10 +244,8 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12421).
-
-**Guidance**: Use Azure Active Directory (Azure AD) security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
+**Guidance**: 
+Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity. 
 
 - [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -485,9 +257,6 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.8: Manage Azure resources from only approved locations
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12422).
-
 **Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
@@ -497,9 +266,6 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 **Responsibility**: Customer
 
 ### 3.9: Use Azure Active Directory
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12423).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -511,12 +277,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.10: Regularly review and reconcile user access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12424).
+**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-**Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
-
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -526,12 +289,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12425).
+**Guidance**: You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool. You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-**Guidance**: You have access to Azure Active Directory (Azure AD) Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool. You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
-
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -539,10 +299,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 3.12: Alert on account sign-in behavior deviation
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12426).
-
-**Guidance**: Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 - [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -554,30 +311,11 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Responsibility**: Customer
 
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+## Data protection
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12427).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Customer Lockbox not supported for Azure Monitor. 
-
-- [Supported services and scenarios in general availability](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Data Protection
-
-*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12428).
 
 **Guidance**: Use Tags when possible to assist in tracking Azure Monitor resources that store or process sensitive information like you Log Analytics workspaces.
 
@@ -591,14 +329,11 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12429).
-
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Monitor and related resources that your applications and enterprise environments demand. You can control access to Azure Monitor via Azure role-based access control (Azure RBAC).
+**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Monitor and related resources that your applications and enterprise environments demand. You can control access to Azure Monitor via Azure role-based access control.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -606,27 +341,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Responsibility**: Customer
 
-### 4.3: Monitor and block unauthorized transfer of sensitive information
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12430).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; for the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### 4.4: Encrypt all sensitive information in transit
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12431).
-
-**Guidance**: Azure Monitor negotiates TLS 1.2 by default. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater. 
+**Guidance**: 
+Azure Monitor negotiates TLS 1.2 by default. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater. 
 
 Application Insights and Log Analytics both continue to allow TLS 1.1 and TLS 1.0 data to be ingested. Data may be restricted to TLS 1.2 by configuring on the client side.
 
@@ -638,10 +356,8 @@ Application Insights and Log Analytics both continue to allow TLS 1.1 and TLS 1.
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12432).
-
-**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Monitor. Implement third-party solution if required for compliance purposes.
+**Guidance**: 
+Data identification, classification, and loss prevention features are not yet available for Azure Monitor. Implement third-party solution if required for compliance purposes.
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
@@ -650,12 +366,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use role-based access control to control access to resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12433).
-
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure Monitor.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure Monitor.
 
 - [Roles, permissions, and security in Azure Monitor](platform/roles-permissions-security.md)
 
@@ -665,24 +378,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Customer
 
-### 4.7: Use host-based data loss prevention to enforce access control
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12434).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 4.8: Encrypt sensitive information at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12435).
 
 **Guidance**: Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your Azure Key Vault and accessed by storage using system-assigned managed identity authentication. This customer-managed key (CMK) can be either software or hardware-HSM protected.
 
@@ -692,16 +388,13 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Data collection, retention, and storage in Application Insights](app/data-retention-privacy.md)
 
-- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md) 
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12436).
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place in Azure Monitor and related resources.
 
@@ -711,70 +404,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Customer
 
-## Vulnerability Management
+## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
-
-### 5.1: Run automated vulnerability scanning tools
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12437).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Monitor.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12438).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.3: Deploy automated patch management solution for third-party software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12439).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12440).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Monitor.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12441).
 
 **Guidance**: Use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.
 
@@ -782,20 +416,17 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Customer
 
-## Inventory and Asset Management
+## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12442).
-
 **Guidance**: Use Azure CLI to query and discover Azure Monitor resources within your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-- [Azure Monitor CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest&amp;preserve-view=true)
+- [Azure Monitor CLI](/cli/azure/monitor?view=azure-cli-latest)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -807,9 +438,6 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 6.2: Maintain asset metadata
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12443).
-
 **Guidance**: Apply tags to Azure Monitor resources giving metadata to logically organize them into a taxonomy.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
@@ -820,14 +448,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 6.3: Delete unauthorized Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12444).
-
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Monitor related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -837,9 +462,6 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 6.4: Define and maintain inventory of approved Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12445).
-
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -848,10 +470,8 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 6.5: Monitor for unapproved Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12446).
-
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
+**Guidance**: 
+Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
 Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved.
 
@@ -863,24 +483,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Responsibility**: Customer
 
-### 6.6: Monitor for unapproved software applications within compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12447).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 6.7: Remove unapproved Azure resources and software applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12448).
 
 **Guidance**: Reconcile inventory on a regular basis and ensure unauthorized Azure Monitor related resources are deleted from the subscription in a timely manner.  
 
@@ -890,53 +493,19 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Responsibility**: Customer
 
-### 6.8: Use only approved applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12449).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 6.9: Use only approved Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12450).
+**Guidance**: Use Azure Policy to restrict which Azure Monitor related resources you can provision in your environment. 
 
-**Guidance**: Use Azure Policy to restrict which Azure Monitor related resources you can provision in your environment.
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.10: Maintain an inventory of approved software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12451).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12452).
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -946,42 +515,11 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Responsibility**: Customer
 
-### 6.12: Limit users' ability to execute scripts within compute resources
+## Secure configuration
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12453).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.13: Physically or logically segregate high risk applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12454).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Secure Configuration
-
-*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12455).
 
 **Guidance**: Use custom Azure Policy definitions to audit or enforce the configuration of your Azure Monitor related resources. You may also use built-in Azure Policy definitions as available.
 
@@ -993,7 +531,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 - [Secure APM Live Metrics Stream](app/live-stream.md#secure-the-control-channel)
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1005,24 +543,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-### 7.2: Establish secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12456).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.3: Maintain secure Azure resource configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12457).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure Monitor related resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure Monitor related resources required by your organization.
 
@@ -1036,28 +557,11 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-### 7.4: Maintain secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12458).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.5: Securely store configuration of Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12459).
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies and Azure Resource Manager templates. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1065,24 +569,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-### 7.6: Securely store custom operating system images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12460).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.7: Deploy configuration management tools for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12461).
 
 **Guidance**: Define and implement standard security configurations for Azure Monitor related resources using Azure Policy. Use custom Azure Policy definitions to audit or enforce the security configuration of your Azure Monitor related resources. You may also make use of built-in policy definitions related to your specific resources.
 
@@ -1094,24 +581,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-### 7.8: Deploy configuration management tools for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12462).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.9: Implement automated configuration monitoring for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12463).
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Monitor related resources.  Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
@@ -1121,24 +591,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-### 7.10: Implement automated configuration monitoring for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12464).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.11: Manage Azure secrets securely
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12465).
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for supported Azure monitor related resources.
 
@@ -1148,7 +601,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/general/assign-access=policy-portal)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1156,10 +609,8 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 ### 7.12: Manage identities securely and automatically
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12466).
-
-**Guidance**: Use managed identities to provide Azure services with an automatically-managed identity in Azure Active Directory (Azure AD). Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Azure Monitor resources, without any credentials in your code.
+**Guidance**: 
+Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Azure Monitor resources, without any credentials in your code. 
 
 - [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
@@ -1169,9 +620,6 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 ### 7.13: Eliminate unintended credential exposure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12467).
-
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 - [How to set up Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
@@ -1180,28 +628,11 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 **Responsibility**: Customer
 
-## Malware Defense
+## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
-
-### 8.1: Use centrally-managed anti-malware software
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12468).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12469).
 
 **Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Monitor related resources), however it does not run on your content. 
 
@@ -1217,32 +648,15 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Responsibility**: Customer
 
-### 8.3: Ensure anti-malware software and signatures are updated
+## Data recovery
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12470).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Data Recovery
-
-*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12471).
-
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Use Azure Automation to run the backup scripts automatically. 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1254,16 +668,13 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12472).
+**Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Backup customer-managed keys within Azure Key Vault if Azure Monitor related resources are using customer-managed keys, 
 
-**Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations. Backup customer-managed keys within Azure Key Vault if Azure Monitor related resources are using customer-managed keys,
-
-- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1271,14 +682,11 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 9.3: Validate all backups including customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12473).
+**Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files.  Test restoration of backed up customer-managed keys.
 
-**Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](samples/resource-manager-workspace.md)
-
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1286,35 +694,30 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12474).
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.   Use Azure role-based access control to protect customer-managed keys. 
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  Use Azure role-based access control (Azure RBAC) to protect customer-managed keys.
+Additionally, Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store Azure Resource Manager template backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
 
-Additionally, Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store Azure Resource Manager template backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
-
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [How to enable Soft-Delete and Purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md)
+- [How to enable Soft-Delete and Purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md)
+- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-## Incident Response
+## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12475).
-
-**Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+**Guidance**: 
+Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1328,25 +731,19 @@ Additionally, Enable Soft-Delete and purge protection in Key Vault to protect ke
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12476).
-
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### 10.3: Test security response procedures
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12477).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
@@ -1358,9 +755,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12478).
-
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
@@ -1370,9 +764,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12479).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel. 
 
@@ -1386,9 +777,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.6: Automate the response to security alerts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12480).
-
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
@@ -1397,14 +785,11 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Responsibility**: Customer
 
-## Penetration Tests and Red Team Exercises
+## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12481).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
@@ -1418,5 +803,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

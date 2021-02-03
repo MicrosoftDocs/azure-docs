@@ -121,14 +121,6 @@ Maximum number of synonym maps varies by tier. Each rule can have up to 20 expan
 | Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
-## Queries per second (QPS)
-
-QPS estimates must be developed independently by every customer. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
-
-Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
-
-For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
-
 ## Data limits (AI enrichment)
 
 An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), [language detection](cognitive-search-skill-language-detection.md), and [personal-information detection](cognitive-search-skill-pii-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
