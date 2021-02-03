@@ -91,6 +91,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
+> [!NOTE]
+> The firewall feature on Storage is in public preview and is available in all public cloud regions. 
+
 #### User Identity
 
 To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.

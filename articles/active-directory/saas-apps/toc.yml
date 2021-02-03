@@ -968,6 +968,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kendis-Scaling Agile Platform
+        href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -2121,14 +2123,18 @@
         href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: HelloID
+        href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Ideo
+        href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
-      - name: Ideo
-        href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: iProva
