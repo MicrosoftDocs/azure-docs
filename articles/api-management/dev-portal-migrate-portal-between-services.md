@@ -21,6 +21,8 @@ You can use the API to automate migration of content between two API Management 
 > [!NOTE]
 > If you're using a self-hosted portal with explicitly-defined custom storage account for hosting media files, you need to use the original [scripts/migrate.js](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.js) script. If you defined the `blobStorageUrl` setting in the `config.design.json` configuration file, you hae an explicitly defined custom storage account. The original script doesn't work for managed or self-hosted portals with the media storage account managed by API Management. Use the script from the `/scripts.v2` folder instead.
 
+## Run the migrate.js script
+
 The script performs these steps:
 
 1. Capture the portal content and media from the source API Management service.
