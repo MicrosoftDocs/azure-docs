@@ -19,7 +19,7 @@ To run Windows 10 in a production environment see, [How to deploy Windows 10 on 
 ## Subscription eligibility
 Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client images for development and testing purposes. Windows client images can be used on your own hardware or on Azure virtual machines. Windows client images may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
 
-Certain Windows client images are available from the Azure Marketplace. Visual Studio subscribers within any type of offer can also [prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md).
+Certain Windows client images are available from the Azure Marketplace. Visual Studio subscribers within any type of offer can also [prepare and create](prepare-for-upload-vhd-image.md) 64-bit Windows 7, Windows 8, or Windows 10 images and then [upload to Azure](upload-generalized-managed.md).
 
 ## Eligible offers and client images
 The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Marketplace. The Windows client images are only visible to the following offers. 
@@ -37,15 +37,10 @@ The following table details the offer IDs that are eligible to deploy Windows cl
 
 ## Check your Azure subscription
 If you do not know your offer ID, you can obtain it through the Azure portal in one of these two ways:  
-
 - On the *Subscriptions* window:
-
   ![Offer ID details from the Azure portal](./media/client-images/offer-id-azure-portal.png) 
-
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window.
-
 You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
-
 ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps

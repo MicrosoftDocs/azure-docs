@@ -5,23 +5,25 @@ author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/24/2018
+ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later)
+For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later).
 
 For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> - If using Windows 7, 8.1 and 10 images on Azure Marketplace for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
+> - To use Windows 7, 8.1 and 10 images on Azure Marketplace for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
 > - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
 Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true), you can confirm if a user has been assigned a Windows 10 supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
+
+**Eligible subscription licenses:**
 
 -	Microsoft 365 E3/E5 
 -	Microsoft 365 F3 
