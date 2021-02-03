@@ -18,18 +18,16 @@ ms.collection: M365-identity-device-management
 
 # Reset redemption status for a guest user
 
-After a guest user has redeemed your invitation for B2B collaboration, there might be instances where you'll need to update their user object or sign-in information, for example when:
+After a guest user has redeemed your invitation for B2B collaboration, there might be times when you'll need to update their sign-in information, for example when:
 
-- The user has changed the identity provider they want to use to sign in.
-- The account for the user in their home tenant was deleted and re-created
-- The user has moved to a different company, but they still need the same access to your resources.
-- The user’s responsibilities are being passed along to another user.
+- The user wants to sign in using a different email and identity provider
+- The account for the user in their home tenant has been deleted and re-created
+- The user has moved to a different company, but they still need the same access to your resources
+- The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitations API to reset the user's redemption status and reinvite the user with their new email address in one step. By resetting the redemption status, you can retain the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the new email address becomes the user's UPN. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the new email address becomes the user's UPN. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
-When you reset the user's redemption status, the object ID remains the same, but the UPN changes to the email address you use when creating the new invitation.
-
-## Powershell
+## Use Powershell to reset redemption status
 
 Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEMailAddress` set to the new email address, and `ResetRedemption` set to `true`.
 
@@ -42,9 +40,9 @@ $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGra
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser -ResetRedemption $True 
 ```
 
-## Microsoft Graph API
+## Use Microsoft Graph API to reset redemption status
 
-In the Microsoft Graph API, set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property. The user's object ID remains the same, but the UPN will change to the new email you use to reinvite them.
+Using the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
