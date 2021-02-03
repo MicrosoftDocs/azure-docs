@@ -73,7 +73,6 @@ Use the following diagram to determine whether your synthetic voice experience r
 
 * [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Gating overview](concepts-gating-overview.md)
 
 ## Next steps
 
