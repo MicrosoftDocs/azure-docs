@@ -77,7 +77,7 @@ This article shows you how to deploy an application that is managed by Fortanix 
     
 5. After the validation passes, select **Submit** to complete the node agent creation.
 
-    :::image type="content" source="media/ffortanix-confidential-computing-manager/node-agent-created.png" alt-text="Screenshot that shows the node agent is created.":::
+    :::image type="content" source="media/fortanix-confidential-computing-manager/node-agent-created.png" alt-text="Screenshot that shows the node agent is created.":::
 
 6. To check the deployment status, go to the **Overview** tab, and select **Managed resource group** link.
 
