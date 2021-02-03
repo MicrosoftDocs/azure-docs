@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/03/2021
 ms.author: yelevin
 ---
 # Connect your Imperva WAF Gateway appliance to Azure Sentinel
