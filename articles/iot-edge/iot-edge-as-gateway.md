@@ -65,6 +65,9 @@ The parent/child relationship is established at three points in the gateway conf
 
 All devices in a transparent gateway scenario need cloud identities so they can authenticate to IoT Hub. When you create or update a device identity, you can set the device's parent or child devices. This configuration authorizes the parent gateway device to handle authentication for its child devices.
 
+>[!IMPORTANT]
+>Setting the parent device in IoT Hub used to be an optional step for downstream devices that use symmetric key authentication. However, starting with version 1.1.0 every downstream device must be assigned to a parent device.
+
 Child devices can only have one parent. Each parent can have up to 100 children.
 
 <!-- 1.2.0 -->
