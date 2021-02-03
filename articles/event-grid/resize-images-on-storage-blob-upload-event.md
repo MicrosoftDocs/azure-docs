@@ -38,7 +38,7 @@ To complete this tutorial:
 
 You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+You need an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -133,9 +133,6 @@ In the following command, provide your own unique function app name. The functio
     ```
 
 Now configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].
-
-> [!NOTE]
-> Currently this is not supported for "Free" SKU.
 
 ## Configure the function app
 
