@@ -134,6 +134,9 @@ In the following command, provide your own unique function app name. The functio
 
 Now configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].
 
+> [!NOTE]
+> Currently this is not supported for "Free" SKU.
+
 ## Configure the function app
 
 The function needs credentials for the Blob storage account, which are added to the application settings of the function app using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
