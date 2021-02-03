@@ -33,6 +33,7 @@ Updates in February include:
 
 - [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
+- [SQL data classification recommendation no longer affect your secure score](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
 
 ### Kubernetes workload protection recommendations released for General Availability (GA)
 
@@ -61,6 +62,13 @@ Use this link to view the policy definition and review the evaluation logic.
 If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see these links to the policy definition pages:
 
 :::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Azure Security Center recommendations reference page":::
+
+
+### SQL data classification recommendation no longer affect your secure score
+
+The recommendation **Sensitive data in your SQL databases should be classified** no longer affects your secure score. This is the only recommendation in the **Apply data classification** security control, so that control now has a secure score value of 0.
+
+
 
 ## January 2021
 
