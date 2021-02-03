@@ -6,29 +6,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2020
+ms.date: 02/03/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
 
 # Invite internal users to B2B collaboration
 
-> [!NOTE]
-> Inviting internal users to use B2B collaboration is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like this, you can invite them to use B2B collaboration so you can take advantage of Azure AD B2B benefits. Your B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles.
+Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration. Your B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles. 
 
 Sending an invitation to an existing internal account lets you retain that user’s object ID, UPN, group memberships, and app assignments. You don’t need to manually delete and re-invite the user or reassign resources. To invite the user, you’ll use the invitation API to pass both the internal user object and the guest user’s email address along with the invitation. When the user accepts the invitation, the B2B service changes the existing internal user object to a B2B user. Going forward, the user must sign in to cloud resources services using their B2B credentials. They can still use their internal credentials to access on premises resources, but you can prevent this by resetting or changing the password on the internal account.
 
 > [!NOTE]
-> Invitation is one-way. You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
+>
+> - The [External Identities monthly active user (MAU) pricing](external-identities-pricing.md) model applies to these new B2B users. To activate MAU billing, your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription).
+> - Invitation is one-way. You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
+> - When the user accesses Teams using their external credentials, their tenant won't be available in the Teams tenant picker. As a workaround, the user can access Teams using a URL that contains the tenant context, for example: `https://team.microsoft.com/?tenantId=<TenantId>`.
 
-While in public preview, the method described in this article for inviting internal users to B2B collaboration can’t be used in these instances:
+The method described in this article for inviting internal users to B2B collaboration can’t be used in these instances:
 
 - The internal user has an assigned Exchange license.
 - The user is from a domain that is set up for direct federation in your directory.
@@ -48,7 +47,7 @@ You can use PowerShell or the invitation API to send a B2B invitation to the int
 By default, the invitation will send the user an email letting them know they’ve been invited, but you can suppress this email and send your own instead.
 
 > [!NOTE]
-> To send your own email or other communication, you can use New-AzureADMSInvitation with -SendInvitationMessage:$false to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
+> To send your own email or other communication, you can use `New-AzureADMSInvitation` with `-SendInvitationMessage:$false` to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
 
 ## Use PowerShell to send a B2B invitation
 
@@ -93,7 +92,6 @@ ContentType: application/json
 ```
 
 The response to the API is the same response you get when you invite a new guest user to the directory.
-
 ## Next steps
 
 - [B2B collaboration invitation redemption](redemption-experience.md)
