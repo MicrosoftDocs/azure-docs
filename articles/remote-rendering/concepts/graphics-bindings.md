@@ -344,7 +344,7 @@ void GetCameraSettingsFromSimulationUpdateResult(const SimulationUpdateResult& r
     }
 
     // Use the screenspace depth convention you expect for your projection matrix locally
-    if (FovToProjectionMatrix(result.FieldOfView.Left, result.NearPlaneDistance, result.FarPlaneDistance, (arr_depth_convention)DepthConvention::ZeroToOne, projectionMatrix) != Result::Success)
+    if (FovToProjectionMatrix(result.FieldOfView.Left, result.NearPlaneDistance, result.FarPlaneDistance, DepthConvention::ZeroToOne, projectionMatrix) != Result::Success)
     {
         // Invalid field-of-view
         return;
