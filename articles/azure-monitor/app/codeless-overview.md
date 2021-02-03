@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 
 Auto-instrumentation, or codeless attach, allows you to enable application monitoring with Application Insights without changing your code.  
 
-Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry out of the box. In no time, you'll see the metrics, data, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
+Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry automatically box. In no time, you'll see the metrics, data, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
 
 ## Supported environments, languages, and resource providers
 
@@ -21,8 +21,8 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Private Preview | Private Preview | Not supported   |
-|Azure App Service on Linux             | N/A             | Not supported   | Private Preview | Public Preview  | Not supported   |
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | In progress     | In progress     | Not supported   |
+|Azure App Service on Linux             | N/A             | Not supported   | In progress     | Public Preview  | Not supported   |
 |Azure App Service on AKS               | N/A             | In design       | In design       | In design       | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
@@ -44,7 +44,7 @@ Application monitoring on Azure App Service on Windows is available for [.Net ap
 Monitoring for [.NETCore applications](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) can be enabled with one click.
 
 #### Java
-The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your application without any code changes prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your application without any code changes before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
 Monitoring for Node.js applications on Windows cannot currently be enabled from the portal. To monitor Node.js applications, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
@@ -55,7 +55,7 @@ Monitoring for Node.js applications on Windows cannot currently be enabled from 
 To monitor .NetCore applications running on Linux, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 #### Java 
-Enabling Java application monitoring for App Service on Linux from portal is not yet available, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app prior to deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
 [Monitoring Node.js applications in App Service on Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) is in public preview and can be enabled in Azure portal, available in all regions. 
