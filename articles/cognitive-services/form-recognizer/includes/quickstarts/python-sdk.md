@@ -134,7 +134,7 @@ You'll need to add references to the URLs for your training and testing data.
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model.
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the `begin_recognize_content_from_url` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
@@ -177,7 +177,7 @@ Confidence score: 1.0
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../concept-invoices.md). To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
@@ -320,7 +320,7 @@ Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. To analyze receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../concept-receipts.md). To analyze receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
@@ -359,7 +359,7 @@ Total: 1203.39 has confidence 0.774
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../concept-business-cards.md). To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
