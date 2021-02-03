@@ -11,9 +11,9 @@
   expanded: true
 - name: Concepts
   items:
-  -name: Route Server FAQ
+  - name: Route Server FAQ
     href: route-server-faq.md
-  -name: ExpressRoute and Azure VPN support
+  - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md
 - name: Resources
   items:
