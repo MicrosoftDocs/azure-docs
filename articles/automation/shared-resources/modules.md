@@ -37,7 +37,7 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
 
-The default modules are also known as "global modules". In the Azure portal,  the "Global module" property will be "true" when viewing a module that was imported when the account was created.
+The default modules are also known as global modules. In the Azure portal,  the **Global module** property will be **true** when viewing a module that was imported when the account was created.
 
 ![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
