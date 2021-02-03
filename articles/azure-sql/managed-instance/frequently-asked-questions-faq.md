@@ -359,13 +359,6 @@ Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](./custom
 
 Yes. See [Synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
-DNS configuration is eventually refreshed:
-
-- When DHCP lease expires.
-- On platform upgrade.
-
-As a workaround, downgrade SQL Managed Instance to 4 vCores and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
-
 ## Change time zone
 
 **Can I change the time zone for an existing managed instance?**

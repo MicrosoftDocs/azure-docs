@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -172,7 +172,7 @@ Should you come across any issues, email Data Box Operations Asia [adbo@microsof
 
 ## [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box in Japan, Singapore, Korea, India, South Africa, or West Europe and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box in Japan, Singapore, Korea, India, South Africa, United Kingdom, West Europe, or Australia and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
