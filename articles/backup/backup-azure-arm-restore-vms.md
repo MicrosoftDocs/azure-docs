@@ -132,7 +132,7 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
 As one of the [restore options](#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region.
 
-To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+To begin using the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
@@ -154,6 +154,8 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
 
+Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) replication is 15 minutes.
+
 ![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Select restore point](./media/backup-azure-arm-restore-vms/sec-rp.png)
@@ -170,6 +172,12 @@ The secondary region restore user experience will be similar to the primary regi
 >- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+
+[Azure zone pinned VMs](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) can be restored in any [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) of the same region.
+
+In the restore process, you'll see the option **Availability Zone.** You'll see your default zone first. To choose a different zone, choose the number of the zone of your choice. If the pinned zone is unavailable, you won't be able to restore the data to another zone because the backed-up data isn't zonally-replicated.
+
+![Choose availability zone](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 ### Monitoring secondary region restore jobs
 

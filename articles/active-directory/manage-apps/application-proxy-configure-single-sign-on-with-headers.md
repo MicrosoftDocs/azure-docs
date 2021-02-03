@@ -3,7 +3,7 @@ title: Header-based single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with header-based authentication.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
