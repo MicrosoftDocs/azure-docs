@@ -1,5 +1,5 @@
 ---
-title: Create a basic query
+title: Create a query
 titleSuffix: Azure Cognitive Search
 description: Learn how to construct a query request in Cognitive Search, which tools and APIs to use for testing and code, and how query decisions start with index design.
 
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/03/2021
 ---
 
-# Create a query in Azure Cognitive Search
+# Creating queries in Azure Cognitive Search
 
-If you are building a query for the first time, this article describes the tools and APIs you'll need, which methods are used to create a query, and how index structure and content can impact query outcomes. 
+If you are building a query for the first time, this article describes approaches and methods for setting up queries. It also introduces a query request, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
 ## What's a query request?
 
 A query is a read-only request against the docs collection of a single search index. It specifies a 'queryType' and a query expression though the 'search' parameter. The query expression could have search terms, a quote-enclosed phrase, and operators.
 
-A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following examples show a query request with a subset of theavailable parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
+A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following examples show a query request with a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -50,7 +50,7 @@ You can select any index and REST API version, including preview. A query string
 
 ### Use a REST client
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a query client. Using either tool, you can connect to your search service and send query requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
+Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a query client. Using either tool, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
 
 Start with either of these articles to learn about each client (both include instructions for queries):
 
