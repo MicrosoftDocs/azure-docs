@@ -5,10 +5,24 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 05/09/2019
+ ms.date: 02/18/2021
  ms.author: sharadag
  ms.custom: include file
 ---
+
+| Resource | Standard SKU Limit | Premium SKU Limit |
+| --- | --- | --- |
+| Maximum profile per subscription | 200 | 500 |
+| Maximum endpoint per profile	| 10 | 25 |
+| Maximum custom domain per profile	| 100 | 200 |
+| Maximum origin group per profile | 100 | 200 |
+| Maximum secrets per profile | 100 | 200 |
+| Maximum security policy per profile | 100 | 200 |
+| Maximum rule set per profile | 100 | 200 |
+| Maximum rules per rule set | 100 | 100 |
+| Maximum origin per origin group | 50 | 50 |
+
+### Azure Front Door Classic Service Limits
 
 | Resource | Limit |
 | --- | --- |
