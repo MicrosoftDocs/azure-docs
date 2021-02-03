@@ -65,7 +65,7 @@ Azure Purview supports the following resource set patterns. These patterns can a
 | Number       | {N}          | One or more digits |
 | Date/Time Formats | {Year}{Month}{Day}{N}     | We support various date/time formats but all are represented with {Year}[delimiter]{Month}[delimiter]{Day} or series of {N}s. |
 | 4ByteHex     | {HEX}        | A 4-digit HEX number. |
-| Localization | {LOC}        | A language tag as defined in [BCP 47](https://tools.ietf.org/html/bcp47), both - and _ names are supported (efor example, en_ca and en-ca) |
+| Localization | {LOC}        | A language tag as defined in [BCP 47](https://tools.ietf.org/html/bcp47), both - and _ names are supported (for example, en_ca and en-ca) |
 
 ### Complex patterns
 
@@ -82,16 +82,19 @@ When Azure Purview matches a group of assets into a resource set, it attempts to
 ### Example 1
 
 Qualified name: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+
 Display name: "name of spark output"
 
 ### Example 2
 
 Qualified name: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+
 Display name: "my partitioned data"
 
 ### Example 3
 
 Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+
 Display name: "data"
 
 ## Known Issues with resource sets
