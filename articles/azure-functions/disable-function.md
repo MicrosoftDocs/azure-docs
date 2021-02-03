@@ -39,7 +39,7 @@ You can also use the **Enable** and **Disable** buttons on the function's **Over
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
-EVen when you publish your functions from a local project, you can still use the portal to disable functions in your function app. 
+Even when you publish to your function app from a local project, you can still use the portal to disable functions in the function app. 
 
 > [!NOTE]  
 > The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
