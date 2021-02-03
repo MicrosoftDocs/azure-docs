@@ -25,7 +25,7 @@ Apache Spark in Azure Synapse runs on Ubuntu version 16.04.
 
 ## Java version
 
-Apache Spark in Azure Synapse includes Java version 1.8.0_222
+Apache Spark in Azure Synapse includes Java version 1.8.0_272
 
 ## Scala version
 
@@ -33,15 +33,15 @@ Apache Spark in Azure Synapse includes Scala 2.11.12
 
 ## .NET Core version
 
-Apache Spark in Azure Synapse includes .NET Core 3.0
+Apache Spark in Azure Synapse includes .NET Core 3.1
 
 ## .NET Support for Apache Spark
 
-Azure Synapse includes .NET Support for Apache Spark 0.11.0
+Azure Synapse includes .NET Support for Apache Spark 1.0.0
 
 ## Delta Lake
 
-Synapse Analytics includes support for Delta Lake 0.6.0
+Synapse Analytics includes support for Delta Lake 0.6.1
 
 ## Python version
 
