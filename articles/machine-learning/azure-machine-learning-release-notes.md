@@ -44,11 +44,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-core**
     + Adding support for Token Authentication by audience.
     + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
-  + **azureml-parallel-run**
-    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
-    + Add widget ParallelRunStepDetails to visualize status of a ParallelRunStep.
-  + **azureml-pipeline-core**
-    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
   + **azureml-pipeline-steps**
     + CommandStep now GA and no longer experimental.
     + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. error threshold has 3 flavors now: error_threshold - the number of allowed failed mini batch items; allowed_failed_count - the number of allowed failed mini batches; allowed_failed_percent- the percent of allowed failed mini batches. A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
