@@ -81,7 +81,7 @@ For an app, the available metrics are:
 | **Current Assemblies** | The current number of Assemblies loaded across all AppDomains in this application. |
 | **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
 | **Data Out** | The amount of outgoing bandwidth consumed by the app, in MiB. |
-| **File System Usage** | Percentage of filesystem quota consumed by the app. |
+| **File System Usage** | The amount of usage in bytes by storage share. |
 | **Gen 0 Garbage Collections** | The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
 | **Gen 1 Garbage Collections** | The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
 | **Gen 2 Garbage Collections** | The number of times the generation 2 objects are garbage collected since the start of the app process.|

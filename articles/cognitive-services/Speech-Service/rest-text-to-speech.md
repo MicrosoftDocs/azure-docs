@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.author: trbye
 ms.custom: references_regions
 ---
@@ -206,7 +206,8 @@ This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
+| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
 | `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
 | `User-Agent` | The application name. The value provided must be less than 255 characters. | Required |
