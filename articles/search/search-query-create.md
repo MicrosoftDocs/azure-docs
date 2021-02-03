@@ -19,7 +19,7 @@ If you are building a query for the first time, this article describes approache
 
 A query is a read-only request against the docs collection of a single search index. It specifies a 'queryType' and a query expression though the 'search' parameter. The query expression could have search terms, a quote-enclosed phrase, and operators.
 
-A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following examples show a query request with a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
+A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following example gives you a general idea of a query request by showing a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Choose a client
 
-You'll need a tool or API to create a query, like Azure portal or Postman, or code that instantiates a query client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+You'll need a tool like Azure portal or Postman, or code that instantiates a query client using APIs. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 ### Permissions
 
@@ -107,14 +107,6 @@ For a description of field attributes, see [Create Index (REST API)](/rest/api/s
 During indexing, the search engine uses an analyzer to perform text analysis on strings, maximizing the potential for matching at query time. At a minimum, strings are lower-cased, but might also undergo lemmatization and stop word removal. Larger strings or compound words are typically broken up by whitespace, hyphens, or dashes, and indexed as separate tokens. 
 
 The point to take away here is that what you think your index contains, and what's actually in it, can be different. If queries do not return expected results, you can inspect the tokens created by the analyzer through the [Analyze Text (REST API)](/rest/api/searchservice/test-analyzer). For more information about tokenization and the impact on queries, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
-
-## About queries per second (QPS)
-
-Due to the large number of factors that go into query performance, Microsoft doesn't publish expected QPS numbers. QPS estimates must be developed independently by every customer using the service tier, configuration, index, and query constructs that are valid for your application. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
-
-Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
-
-For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
 
 ## Next steps
 
