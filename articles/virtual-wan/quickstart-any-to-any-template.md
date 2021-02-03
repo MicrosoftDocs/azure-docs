@@ -46,7 +46,6 @@ This template creates a fully functional Azure Virtual WAN environment with the 
 
 Multiple Azure resources are defined in the template:
 
-* [**Microsoft.Network/virtualhubs**](/azure/templates/microsoft.network/virtualhubs)
 * [**Microsoft.Network/expressroutegateways**](/azure/templates/microsoft.network/expressroutegateways)
 * [**Microsoft.Network/p2svpngateways**](/azure/templates/microsoft.network/p2svpngateways)
 * [**Microsoft.Network/vpnserverconfigurations**](/azure/templates/microsoft.network/vpnserverconfigurations)
@@ -106,10 +105,10 @@ To deploy this template properly, you must use the button to Deploy to Azure but
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** from the left pane.
 1. Select the resource group that you created in the previous section. On the **Overview** page, you will see something similar to this example:
-   :::image type="content" source="./media/quickstart-any-to-any-template/resources.png" alt-text="Example of resources":::
+   :::image type="content" source="./media/quickstart-any-to-any-template/resources.png" alt-text="Example of resources" lightbox="./media/quickstart-any-to-any-template/resources.png":::
 
 1. Click the virtual WAN to view the hubs. On the virtual WAN page, click each hub to view connections and other hub information.
-   :::image type="content" source="./media/quickstart-any-to-any-template/hub.png" alt-text="Example of hubs":::
+   :::image type="content" source="./media/quickstart-any-to-any-template/hub.png" alt-text="Example of hubs" lightbox="./media/quickstart-any-to-any-template/hub.png":::
 
 ## <a name="complete"></a>Complete the hybrid configuration
 
