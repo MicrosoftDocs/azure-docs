@@ -23,9 +23,9 @@ Sending an invitation to an existing internal account lets you retain that user�
 
 > [!NOTE]
 >
-> - The [External Identities monthly active user (MAU) pricing](external-identities-pricing.md) model applies to these new B2B users. To activate MAU billing, your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription).
+> - This feature doesn't change the UserType of the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.
 > - Invitation is one-way. You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
-> - When the user accesses Teams using their external credentials, their tenant won't be available in the Teams tenant picker. As a workaround, the user can access Teams using a URL that contains the tenant context, for example: `https://team.microsoft.com/?tenantId=<TenantId>`.
+> - When the user accesses Teams using their external credentials, their tenant won't be available initially in the Teams tenant picker. The user can access Teams using a URL that contains the tenant context, for example: `https://team.microsoft.com/?tenantId=<TenantId>`. After that, the tenant will become available in the Teams tenant picker.
 
 The method described in this article for inviting internal users to B2B collaboration can’t be used in these instances:
 
@@ -54,8 +54,8 @@ By default, the invitation will send the user an email letting them know they’
 Use the following command to invite the user to B2B collaboration:
 
 ```powershell
-Uninstall-Module AzureADPreview
-Install-Module AzureADPreview
+Uninstall-Module AzureAD
+Install-Module AzureAD
 $ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
