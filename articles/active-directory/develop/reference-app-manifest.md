@@ -168,7 +168,8 @@ Configures the `groups` claim issued in a user or OAuth 2.0 access token that th
 - `"None"`
 - `"SecurityGroup"` (for security groups and Azure AD roles)
 - `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
-- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.
+- `"DirectoryRole"` (gets the Azure AD directory roles the user is a member of)
+- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
 
 Example:
 

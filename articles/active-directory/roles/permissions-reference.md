@@ -1041,18 +1041,19 @@ Can manage all aspects of the Exchange product.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
-| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
+| microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
+| microsoft.directory/groups.unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
+| microsoft.directory/groups.unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/owners/update | Update ownership of Microsoft 365 groups. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in Microsoft 365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### External ID User Flow Administrator permissions
 
@@ -1290,23 +1291,24 @@ Can manage all aspects of the Intune product.
 | microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property in Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Update devices.registeredUsers property in Azure Active Directory. |
-| microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
-| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
+| microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
-| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups.security/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups.security/classification/update | Update classification property of the Security groups with the exclusion of role-assignable groups |
+| microsoft.directory/groups.security/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups.security/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups.security/dynamicMembershipRule/update | Update dynamicMembershipRule property of the Security groups with the exclusion of role-assignable groups |
+| microsoft.directory/groups.security/groupType/update | Update group type property of the Security groups with the exclusion of role-assignable groups |
+| microsoft.directory/groups.security/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups.security/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups.security/visibility/update | Update visibility property of the Security groups with the exclusion of role-assignable groups |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Kaizala Administrator permissions
 
@@ -1453,13 +1455,18 @@ Do not use - not intended for general use.
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
 | microsoft.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/delete | Delete groups, excluding role-assignable group |
 | microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore deleted groups |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/create | Add users |
 | microsoft.directory/users/delete | Delete users in Azure Active Directory. |
+| microsoft.directory/users/disable | Disable users |
+| microsoft.directory/users/enable | Enable users |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
@@ -1467,9 +1474,9 @@ Do not use - not intended for general use.
 | microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Partner Tier2 Support permissions
 
@@ -1493,16 +1500,25 @@ Do not use - not intended for general use.
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
-| microsoft.directory/domains/allTasks | Create and delete domains, and read and update standard properties in Azure Active Directory. |
+| microsoft.directory/domains/basic/allTasks | Create and delete domains, and read and update standard properties in Azure Active Directory. |
 | microsoft.directory/groups/create | Create groups in Azure Active Directory. |
 | microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
 | microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
 | microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 | microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
+| microsoft.directory/roleDefinitions/allProperties/allTasks | Create and delete role definitions, and read and update all properties |
+| microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
+| microsoft.directory/subscribedSkus/standard/read | Read basic properties on subscriptions |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/create | Add users |
 | microsoft.directory/users/delete | Delete users in Azure Active Directory. |
+| microsoft.directory/users/disable | Disable users |
+| microsoft.directory/users/enable | Enable users |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
@@ -1510,9 +1526,9 @@ Do not use - not intended for general use.
 | microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Password Administrator permissions
 
@@ -1780,18 +1796,18 @@ Can manage all aspects of the SharePoint service.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
-| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups.unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/owners/update | Update ownership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read    | Read Office 365 usage reports. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Teams Communications Administrator permissions
 
@@ -1875,16 +1891,19 @@ Can manage the Microsoft Teams service.
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
-| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups.unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/owners/update | Update ownership of Microsoft 365 groups. |
+| microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
+| microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams. |
 
 ### Usage Summary Reports Reader permissions
@@ -2045,24 +2064,24 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](permission
 
 Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
 
-Password can be reset | Authentication Admin | Helpdesk Admin | Password Admin | User Admin | Privileged Authentication Admin | Global Admin
+Password can be reset | Password Admin | Helpdesk Admin | Authentication Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------
-Authentication Admin | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Authentication Admin | &nbsp; | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Global Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
 Groups Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Helpdesk Admin | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Message Center Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Message Center Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Privileged Authentication Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Reports Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Restricted Guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 User (no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Usage Summary Reports Reader | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 \* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
 
