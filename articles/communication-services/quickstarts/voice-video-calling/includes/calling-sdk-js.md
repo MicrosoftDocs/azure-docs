@@ -511,7 +511,7 @@ await deviceManager.setSpeaker(AudioDeviceInfo);
 You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```js
-const localVideoDevice = deviceManager().getCameraList()[0];
+const localVideoDevice = deviceManager.getCameraList()[0];
 const localCameraStream = new LocalVideoStream(localVideoDevice);
 const renderer = new Renderer(localCameraStream);
 const view = await renderer.createView();
