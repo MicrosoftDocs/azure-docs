@@ -2,7 +2,7 @@
 title: Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 description: Learn how to Set up GitHub Enterprise Server on your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/03/2021
 ---
 
 # Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
@@ -218,14 +218,12 @@ If everything ran successfully, you should see a new issue in your repo, entitle
 
 Congratulations! You just completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
 
-We are just scratching the surface of what you can do with GitHub Actions. For more inspiration, checkout the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
+In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. Yet, we are just scratching the surface of what you can do with GitHub Actions. For more inspiration, checkout the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 
 ## Next steps
 
-In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience. It builds on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
+Now that you've seen how to set up GitHub Enterprise Server on your Azure VMware Solution private cloud, you may want to learn about: 
 
-For further information, see the following resources:
-
-- [Getting started with GitHub Actions](https://docs.github.com/en/actions)
-- [Join the beta program](https://resources.github.com/beta-signup/)
-- [Learn more about the administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- [Getting started with GitHub Actions](https://docs.github.com/en/actions).
+- [Joining the beta program](https://resources.github.com/beta-signup/).
+- [Administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).
