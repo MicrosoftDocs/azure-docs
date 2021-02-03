@@ -42,7 +42,9 @@ Authentication refers to how you prove your identity when connecting to the data
 
 When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
-However, as a best practice, your organization's users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack.
+However, as a best practice, your organization's users should not use an highly privileged account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack.
+
+Whenever it is possible, prefer using Azure Managed Identities to access the database, as discussed in [Tutorial: Secure Azure SQL Database connection from App Service using a managed identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi) and in [Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql). Assign to the Managed Identity only the least privileges required to perform the job.
 
 To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  It's a good idea to also create a user in the master database. Creating a user in master allows a user to log in using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a server.
 
