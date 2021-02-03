@@ -23,18 +23,20 @@ You can associate a [security principal](../../role-based-access-control/overvie
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
 
+<a id="set-access-control-lists"></a>
+
 ## How to set ACLs
 
 To set file and directory level permissions, see any of the following articles:
 
 | Environment | Article |
 |--------|-----------|
-|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Azure CLI|[Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Azure Storage Explorer |[Use Azure Storage Explorer to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Use .NET to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Use Java to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Use Python to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|PowerShell|[Use PowerShell to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
