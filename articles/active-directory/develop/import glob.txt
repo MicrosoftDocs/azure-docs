@@ -1,0 +1,103 @@
+import glob
+import pandas as pd
+
+# Reading subfolders from the root directory
+folders = glob.glob("C:/Users/runuguse/Documents/GitHub/microsoft-graph-docs/*")
+
+file_paths = []
+file_name = []
+freq_count = []
+files_count = 0
+var = 0
+var1 = 0
+var2 = 0
+total_sum = 0
+
+# Looping over every subfolder
+for sub_folder in folders:
+
+    # Extracting .md files stored in each sub folder
+    files = glob.glob(sub_folder + "/*.md")
+
+    for file in files:
+        files_count = files_count + 1
+        #         print("")
+        #         print(file)
+        #         print("")
+
+        # Opening the .md file
+        with  open(file, encoding="utf8")  as f:
+
+            # Reading the complete file line by line and storing it as a list in var "lines"
+            lines = f.readlines()
+
+        # Iterating over each line
+        for ind, line in enumerate(lines):
+
+            # Removing spaces in the start and end of each line
+            line = line.strip()
+
+            # Counting number of times "stackoverflow" keyword occured in a line
+            # "cnt" variable returns the number of times the keyword occurs in a line
+            cnt = line.count("stackoverflow")
+
+            # Counting number of times "Stack Overflow" keyword occured in a line
+            cnt1 = line.count("Stack Overflow")
+
+            # Counting number of times "stack-overflow" keyword occured in a line
+            cnt2 = line.count("stack-overflow")
+
+            # Creating separate variables for each key word to track count for each of them
+            if cnt > 0:
+                # Incrementing "var" variable for every occurance of keyword "stackoverflow"
+                var = var + cnt
+                total_sum = total_sum + cnt
+            #                 print("Line Number = ",ind,"Frequency = ",cnt)
+
+            if cnt1 > 0:
+                # Incrementing "var1" variable for every occurance of keyword "Stack Overflow"
+                var1 = var1 + cnt1
+                total_sum = total_sum + cnt1
+            #                 print("Line Number = ",ind,"Frequency = ",cnt1)
+
+            if cnt2 > 0:
+                # Incrementing "var2" variable for every occurance of keyword "stack-overflow"
+                var2 = var2 + cnt2
+                total_sum = total_sum + cnt2
+        #                 print("Line Number = ",ind,"Frequency = ",cnt2)
+
+        # Appending data into lists against every file
+        file_paths.append(file)
+        file_name.append(file.split("\\")[-1])
+        freq_count.append(var + var1 + var2)
+        #         print("Total Count for File = ",file," = ",var+var1+var2)
+        var = 0
+        var1 = 0
+        var2 = 0
+
+# Accumulating fields to create a dictionary for dataframe creation
+csv_data = {"File Path": file_paths, "File Name": file_name, "Total Sum(per file)": freq_count,
+            "Files Count": files_count, "Aggregated Count": total_sum}
+
+# Dataframe created
+df = pd.DataFrame(csv_data)
+
+# Printing the total occurances for all occurances and storing it in variable "total_count"
+total_count = var + var1 + var2
+print(" ")
+
+# Summing number of occurances for each file and storing it in a variable named "total_sum"
+# print("Total Sum = ",total_sum)
+
+# Displaying max columns of a dataframe
+pd.set_option('display.max_columns', None)
+
+# Showing dataframe in proper tabular form
+df = df[df['Total Sum(per file)'] > 0]
+
+# CSV file is dumped
+df.to_csv("./Updated List times 5.csv")
+print("Successfully Executed")
+
+
+	
