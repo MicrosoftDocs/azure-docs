@@ -217,8 +217,8 @@ assignment are automatically included.
 
 ## Troubleshooting guest configuration
 
-For more information about troubleshooting guest configuration policies, see the
-[Azure Policy troubleshooting article](../troubleshoot/general.md).
+For more information about troubleshooting Guest Configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
 
 ### Multiple assignments
 
