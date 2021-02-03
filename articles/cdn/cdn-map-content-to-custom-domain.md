@@ -205,14 +205,14 @@ Connect-AzAccount
 * Replace **myResourceGroupCDN** with your resource group name.
 
 ```azurepowershell-interactive
-$parameters = @{
-    Hostname = 'myendpoint8675.azureedge.net'
-    EndPointName = 'myendpoint8675'
-    CustomDomainName = 'www.contoso.com'
-    ProfileName = 'myCDN'
-    ResourceGroupName = 'myResourceGroupCDN'
-}
-New-AzCdnCustomDomain @parameters
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
 ```
 
 Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain will be validated. 
@@ -259,13 +259,13 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 
 
 ```azurepowershell-interactive
-$parameters = @{
-    CustomDomainName = 'www.contoso.com'
-    EndPointName = 'myendpoint8675'
-    ProfileName = 'myCDN'
-    ResourceGroupName = 'myResourceGroupCDN'
-}
-Remove-AzCdnCustomDomain @parameters
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
 ```
 
 ---
