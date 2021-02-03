@@ -25,11 +25,13 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 - The user has moved to a different company, but they still need the same access to your resources.
 - The user’s responsibilities are being passed along to another user.
 
-To manage these scenarios previously, you would have had to delete the guest user’s account in your directory and re-create or reinvite them. Now you can reset their redemption status instead. The user object and object ID remains the same. Just the UPN will change to the new email you use to reinvite them.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitations API to reset the user's redemption status and reinvite the user with their new email address in one step. By resetting the redemption status, you can retain the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the new email address becomes the user's UPN. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
-You can reset a guest user's redemption status by either using PowerShell or the Microsoft Graph API. When you reset a user's redemption status, you select the user you want to reset and choose the email you want them to use when re-redeeming your invitation. This email must be the original email you used to invite them, or it must be added to the `otherMails` property in the the user's object in your directory. After you reset the user's redemption status, the object ID remains the same, but the UPN changes to the email address you use to invite the user.
+When you reset the user's redemption status, the object ID remains the same, but the UPN changes to the email address you use when creating the new invitation.
 
 ## Powershell
+
+Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEMailAddress` set to the new email address, and `ResetRedemption` set to `true`.
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -41,6 +43,8 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 ```
 
 ## Microsoft Graph API
+
+In the Microsoft Graph API, set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property. The user's object ID remains the same, but the UPN will change to the new email you use to reinvite them.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
