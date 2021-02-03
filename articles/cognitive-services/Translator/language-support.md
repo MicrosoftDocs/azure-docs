@@ -62,6 +62,7 @@ Translator supports the following languages for text to text translation.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
