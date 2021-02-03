@@ -84,9 +84,9 @@ Ensure restricted access to management, identity, and security systems that have
 
 Use highly secured user workstations with Azure Bastion for administrative tasks. Choose Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and Microsoft Intune to deploy secure and managed user workstations for administrative tasks. The secured workstations must be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 

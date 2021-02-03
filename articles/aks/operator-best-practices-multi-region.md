@@ -115,10 +115,7 @@ The typical strategy is to provide a common storage point where applications can
 
 ![Infrastructure-based asynchronous replication](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
-
-* [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Backup](../backup/backup-overview.md)
+If you use Azure Managed Disks, there are a few options you can use to handle replication and disaster recovery. [Velero on Azure][velero] and [Kasten][kasten] are back up solutions native to Kubernetes but are not supported.
 
 ### Application-based asynchronous replication
 
@@ -136,3 +133,6 @@ This article focuses on business continuity and disaster recovery considerations
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

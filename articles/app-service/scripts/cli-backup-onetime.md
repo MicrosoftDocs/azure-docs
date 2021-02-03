@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Back up an app'
+title: 'CLI: Backup an app'
 description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to back up an app.
 author: msangapu-msft
 tags: azure-service-management

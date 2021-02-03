@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Speech-to-text has two different REST APIs. Each API serves its special purpose and uses different sets of endpoints.
 
 The Speech-to-text REST APIs are:
-- [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md).
 - [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for OnLine transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
 
 ## Speech-to-text REST API v3.0
@@ -40,7 +40,7 @@ REST API v3.0 includes such features as:
 
 See examples on using REST API v3.0 with the Batch transcription is [this article](batch-transcription.md).
 
-If you are using Speech-to-text REST API v2.0, see how you can migrate to v3.0 in [this guide](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+If you are using Speech-to-text REST API v2.0, see how you can migrate to v3.0 in [this guide](./migrate-v2-to-v3.md).
 
 See the full Speech-to-text REST API v3.0 Reference [here](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
@@ -56,7 +56,7 @@ Before using the Speech-to-text REST API for short audio, consider the following
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
-> See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

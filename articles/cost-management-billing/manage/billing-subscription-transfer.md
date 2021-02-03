@@ -8,7 +8,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -67,6 +67,18 @@ If you've accepted the billing ownership of an Azure subscription, we recommend 
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md)
    1. Remote Access credentials for services like Azure Virtual Machines.
 1. If you're working with a partner, consider updating the partner ID on the subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com). For more information, see [Link a partner ID to your Azure accounts](link-partner-id.md)
+
+## Cancel a transfer request
+
+Only one transfer request is active at a time. A transfer request is valid for 15 days. After the 15 days, the transfer request expires.
+
+To cancel a transfer request:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for > select **Transfer billing ownership**.
+1. At the bottom of the page, select **Cancel the transfer request**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## Troubleshooting
 

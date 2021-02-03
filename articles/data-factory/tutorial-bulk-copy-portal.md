@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 12/09/2020
+ms.date: 01/29/2021
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -46,20 +46,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
-* **Azure SQL Database**. This database contains the source data. 
-* **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 
-
-### Prepare SQL Database and Azure Synapse Analytics 
-
-**Prepare the source Azure SQL Database**:
-
-Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
-
-**Prepare the sink Azure Synapse Analytics**:
-
-1. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
-
-1. Create corresponding table schemas in Azure Synapse Analytics. You use Azure Data Factory to migrate/copy data in a later step.
+* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
+* **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 ## Azure services to access SQL server
 
@@ -236,6 +224,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Switch to **Activities** tab, click the **pencil icon** to add a child activity to the **ForEach** activity.
+    
     ![Foreach activity builder](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. In the **Activities** toolbox, expand **Move & Transfer**, and drag-drop **Copy data** activity into the pipeline designer surface. Notice the breadcrumb menu at the top. The **IterateAndCopySQLTable** is the pipeline name and **IterateSQLTables** is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, you can click the link in the breadcrumb menu. 
@@ -252,7 +241,6 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. Switch to the **Sink** tab, and do the following steps: 
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
@@ -260,6 +248,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     1. Click the input box for the VALUE of DWSchema parameter -> select the **Add dynamic content** below, enter `@item().TABLE_SCHEMA` expression as script, -> select **Finish**.
     1. For Copy method, select **PolyBase**. 
     1. Clear the **Use type default** option. 
+    1. For Table option, the default setting is "None". If you don’t have tables pre-created in the sink Azure Synapse Analytics, enable **Auto create table** option, copy activity will then automatically create tables for you based on the source data. For details, refer to [Auto create sink tables](copy-activity-overview.md#auto-create-sink-tables). 
     1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
@@ -267,6 +256,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
 1. Switch to the **Settings** tab, and do the following steps: 
 
     1. Select the checkbox for **Enable Staging**.

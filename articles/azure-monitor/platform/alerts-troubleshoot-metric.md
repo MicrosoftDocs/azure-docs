@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -18,8 +18,9 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you believe a metric alert should have fired but it didn’t fire and isn't found in the Azure portal, try the following steps:
 
 1. **Configuration** - Review the metric alert rule configuration to make sure it’s properly configured:
-    - Check that the **Aggregation type**, **Aggregation granularity (period)**, and **Threshold value** or **Sensitivity** are configured as expected
-    - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated
+    - Check that the **Aggregation type** and **Aggregation granularity (period)** are configured as expected. **Aggregation type** determines how metric values are aggregated (learn more [here](./metrics-aggregation-explained.md#aggregation-types)), and **Aggregation granularity (period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs.
+    -  Check that the **Threshold value** or **Sensitivity** are configured as expected.
+    - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated.
 
        > [!NOTE] 
        > Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.
@@ -85,9 +86,9 @@ If you’re looking to alert on a specific metric but can’t see it when creati
 If you're looking to alert on [specific dimension values of a metric](./alerts-metric-overview.md#using-dimensions), but cannot find these values, note the following:
 
 1. It might take a few minutes for the dimension values to appear under the **Dimension values** list
-1. The displayed dimension values are based on metric data collected in the last three days
-1. If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
-1. If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
+1. The displayed dimension values are based on metric data collected in the last day
+1. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
+1. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
 
 ## Metric alert rules still defined on a deleted resource 
 
@@ -100,7 +101,7 @@ When deleting an Azure resource, associated metric alert rules aren't deleted au
 
 ## Make metric alerts occur every time my condition is met
 
-Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation in which the alert condition is met, create the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)), and set the *autoMitigate* property to 'False'.
+Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation in which the alert condition is met, create the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), and set the *autoMitigate* property to 'False'.
 
 > [!NOTE] 
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved, so even after the condition isn’t met anymore, the fired alerts will remain in a fired state until the 30 days retention period.
@@ -168,9 +169,9 @@ To check the current usage of metric alert rules, follow the steps below.
 
 ### From API
 
-- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - REST API - [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## Managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
 
@@ -189,14 +190,14 @@ Review the [REST API guide](/rest/api/monitor/metricalerts/) to verify you're pa
 
 Make sure that you're using the right PowerShell cmdlets for metric alerts:
 
-- PowerShell cmdlets for metric alerts are available in the [Az.Monitor module](/powershell/module/az.monitor/?view=azps-3.6.1)
-- Make sure to use the cmdlets ending with 'V2' for new (non-classic) metric alerts (for example, [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1))
+- PowerShell cmdlets for metric alerts are available in the [Az.Monitor module](/powershell/module/az.monitor/)
+- Make sure to use the cmdlets ending with 'V2' for new (non-classic) metric alerts (for example, [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2))
 
 ### Azure CLI
 
 Make sure that you're using the right CLI commands for metric alerts:
 
-- CLI commands for metric alerts start with `az monitor metrics alert`. Review the [Azure CLI reference](/cli/azure/monitor/metrics/alert?view=azure-cli-latest) to learn about the syntax.
+- CLI commands for metric alerts start with `az monitor metrics alert`. Review the [Azure CLI reference](/cli/azure/monitor/metrics/alert) to learn about the syntax.
 - You can see [sample showing how to use metric alert CLI](./alerts-metric.md#with-azure-cli)
 - To alert on a custom metric, make sure to prefix the metric name with the relevant metric namespace: NAMESPACE.METRIC
 

@@ -26,4 +26,4 @@ Only roles explicitly defined for data access permit a security principal to acc
 For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> Azure role assignments may take up to five minutes to propagate.
+> Azure role assignments may take up to 30 minutes to propagate.
