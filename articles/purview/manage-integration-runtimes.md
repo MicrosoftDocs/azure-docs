@@ -33,7 +33,7 @@ This article describes how to create and manage a self-hosted integration runtim
 
     a. Copy and paste the authentication key.
         
-    b. Download the self-hosted integration runtime from [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer.
+    b. Download the self-hosted integration runtime from [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer.
         
     c. On the **Register Integration Runtime (Self-hosted)** page, paste one of the 2 keys you saved earlier, and select **Register**.
 
