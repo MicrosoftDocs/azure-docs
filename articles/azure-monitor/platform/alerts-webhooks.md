@@ -10,7 +10,7 @@ ms.subservice: alerts
 # Call a webhook with a classic metric alert in Azure Monitor
 
 > [!WARNING]
-> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts.
+> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
 >
 
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
