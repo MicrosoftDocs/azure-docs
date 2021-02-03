@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/11/2021
+ms.date: 02/02/2021
 ms.author: timlt
 
 ---
@@ -177,6 +177,9 @@ The storage tiering process occurs as follows:
 5. As the HDD tier approaches capacity, StorSimple encrypts the oldest data blocks and sends them securely to the Microsoft Azure storage account via HTTPS.
 6. Microsoft Azure creates multiple replicas of the data in its datacenter and in a remote datacenter, ensuring that the data can be recovered if a disaster occurs.
 7. When the file server requests data stored in the cloud, StorSimple returns it seamlessly and stores a copy on the SSD tier of the StorSimple device.
+
+> [!IMPORTANT]
+> When using StorSimple, do not convert blobs to archival, even if your device is being phased out. To retrieve data from the device, you'll need to rehydrate the blobs from archival to the hot or cool type, which results in significant costs.
 
 #### How StorSimple manages cloud data
 

@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 02/02/2021
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -58,6 +58,8 @@ The following table describes some of the key benefits that the StorSimple Virtu
 | Simplified storage management |StorSimple provides centralized management in the cloud using StorSimple Device Manager to manage multiple devices. |
 | Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption. |
 | Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
+
+
 
 ## StorSimple workload summary
 
@@ -173,6 +175,9 @@ Tiered volumes created for iSCSI have a maximum local reservation of 200 GB rega
 > [!NOTE]
 > You can specify a volume as locally pinned, in which case the data remains on the virtual array and is never tiered to the cloud. For more information, go to [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes).
 
+> [!IMPORTANT]
+> When using StorSimple, do not convert blobs to archival, even if your device is being phased out. To retrieve data from the device, you'll need to rehydrate the blobs from archival to the hot or cool type, which results in significant costs.
+
 
 ### Locally pinned shares and volumes
 
@@ -191,6 +196,7 @@ StorSimple uses deduplication and data compression to further reduce storage req
 
 > [!NOTE]
 > Data stored on the virtual array is not deduplicated or compressed. All deduplication and compression occurs just before the data is sent to the cloud.
+
 
 ### Scheduled and on-demand backups
 
