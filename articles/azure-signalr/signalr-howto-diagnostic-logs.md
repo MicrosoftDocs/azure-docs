@@ -45,7 +45,7 @@ Resource logs are disabled by default. To enable resource logs, follow these ste
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
-For more information about configuring diagnostics, see the [overview of Azure resource logs](../azure-monitor/platform/platform-logs-overview.md).
+For more information about configuring diagnostics, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### Resource logs categories
 

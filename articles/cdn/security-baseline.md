@@ -182,7 +182,7 @@ Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 

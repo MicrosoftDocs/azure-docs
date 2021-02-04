@@ -329,4 +329,4 @@ Intelligent Insights usually needs one hour of time to perform the root cause an
 - Learn [Intelligent Insights](intelligent-insights-overview.md) concepts.
 - Use the [Intelligent Insights performance diagnostics log](intelligent-insights-use-diagnostics-log.md).
 - Monitor using [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
-- Learn to [collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md).
+- Learn to [collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md).

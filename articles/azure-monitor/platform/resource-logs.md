@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 
 # Azure resource logs
-Azure resource logs are [platform logs](platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to a Log Analytics workspace to use with [Azure Monitor Logs](data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
+Azure resource logs are [platform logs](../essentials/platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to a Log Analytics workspace to use with [Azure Monitor Logs](data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
 
 See [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
 
@@ -197,5 +197,5 @@ Within the PT1H.json file, each event is stored with the following format. This 
 
 ## Next steps
 
-* [Read more about resource logs](platform-logs-overview.md).
+* [Read more about resource logs](../essentials/platform-logs-overview.md).
 * [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md).

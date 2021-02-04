@@ -62469,6 +62469,11 @@
       "source_path_from_root": "/articles/azure-monitor/platform/rest-api-walkthrough.md",
       "redirect_url": "/azure/azure-monitor/essentials/rest-api-walkthrough",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/platform-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/essentials/platform-logs-overview",
+      "redirect_document_id": false
     }
   ]
 }

@@ -108,7 +108,7 @@ definition, create a support ticket under **Authoring a policy** to route the is
 #### Issue
 
 A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the
-[Azure Activity log](../../../azure-monitor/platform/platform-logs-overview.md).
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### Cause
 

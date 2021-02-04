@@ -226,7 +226,7 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 
 Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 

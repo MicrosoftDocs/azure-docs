@@ -54,7 +54,7 @@ Enable Diagnostic Settings on Azure resources for access to audit, security, and
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## 2.4: Collect security logs from operating systems
 

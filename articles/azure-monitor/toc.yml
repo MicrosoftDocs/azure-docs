@@ -296,7 +296,7 @@
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: platform/platform-logs-overview.md 
+      href: essentials/platform-logs-overview.md 
     - name: Activity log
       href: essentials/activity-log.md
     - name: Resource logs
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

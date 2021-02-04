@@ -486,7 +486,7 @@ Enable Azure resource logs for Azure SignalR Service. You can use Azure Security
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Resource logs for Azure SignalR Service](signalr-howto-diagnostic-logs.md)
 

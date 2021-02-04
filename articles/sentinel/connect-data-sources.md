@@ -142,7 +142,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | **Data type** | **How to connect** | **Data connector?** | **Comments** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Connect AWS](connect-aws.md) | &#10003; | |
-| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
+| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/essentials/platform-logs-overview.md)| &#10003; | |
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | AzureFirewall |[Azure Diagnostics](../firewall/firewall-diagnostics.md) | &#10003; | |

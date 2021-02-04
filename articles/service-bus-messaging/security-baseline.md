@@ -159,7 +159,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to configure Diagnostic Settings for Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [Understanding Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
+- [Understanding Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 

@@ -15,7 +15,7 @@ Audit logging of database activities in Azure Database for PostgreSQL - Flexible
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible server is in preview
 
-If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md).
+If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Usage considerations
 By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL - Flexible server, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
