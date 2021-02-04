@@ -220,7 +220,8 @@ Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10 g of ti
  
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
 <!--Table below does not build. Designed to provide a grid of entries - no potential for column headers. Should I use a graphic?-->
-| AT | BE | BG | HR | CY | CZ | DK | 
+
+| AT | BE | BG | HR | CY | CZ | DK |
 | EE | FI | FR | DE | EL | HU | IE |
 | IT | LV | LT | LU | MT | NL | PL |
 | PT | RO | SK | SI | ES | SE | UK(NI) |
@@ -241,7 +242,6 @@ Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 Telephone number: +353 1 295 3826
 
 Fax number: +353 1 706 4110
-
 
 SINGAPORE:
 
