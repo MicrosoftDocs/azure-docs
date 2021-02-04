@@ -145,7 +145,7 @@ The following illustration shows the alert configuration:
 
 After installing ANFCapacityManager, you can expect the following behavior: When an Azure NetApp Files capacity pool or volume is created, modified, or deleted, the Logic App will automatically create, modify, or delete a capacity-based Metric Alert rule with the name `ANF_Pool_poolname` or `ANF_Volume_poolname_volname`. 
 
-### Capacity management
+### Manage capacity
 
 In addition to monitoring and alerting, you should also incorporate an application-capacity management practice to manage Azure NetApp Files (increased) capacity consumption. When an Azure NetApp Files volume or capacity pool fills up, [extra capacity can be provided on-the-fly without application disruption](azure-netapp-files-resize-capacity-pools-or-volumes.md). This section describes various manual and automated ways to increase volume and capacity pool provisioned space as needed.
  
