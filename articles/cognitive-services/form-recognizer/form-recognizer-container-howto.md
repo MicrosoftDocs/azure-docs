@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
 ---
@@ -79,40 +79,9 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 > [!Note]
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-## Get the container images with the docker pull command
-
-> [!CAUTION]
-> * These Docker commands are for the Form Recognizer v1.0 container is no longer supported. This article is for reference only. 
-
-Container images for both the **Form Recognizer** and **Recognize Text** offerings are available in the following container registry:
-
-| Container | Fully qualified image name |
-|-----------|------------|
-| Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-You will need both containers, please note that the **Recognizer Text** container is [detailed outside of this article.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
+You will need both the Form Recognizer and Recognize Text containers, please note that the **Recognize Text** container is [detailed outside of this article.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### Docker pull for the Form Recognizer container
-
-#### Form Recognizer
-
-To get the Form Recognizer container, use the following command:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### Docker pull for the Recognize Text container
-
-#### Recognize Text
-
-To get the Recognize Text container, use the following command:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## How to use the container
 
