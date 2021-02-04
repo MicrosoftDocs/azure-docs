@@ -27,7 +27,7 @@ In part 1 of this tutorial series, you will:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * An [Azure Purview account](create-catalog-portal.md).
-* [The starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) that will deploy your data estate.
+* [The starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) that will deploy your data estate.
 
 > [!NOTE]
 > The starter kit is only available for Windows.

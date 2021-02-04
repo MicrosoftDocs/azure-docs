@@ -59,7 +59,7 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Yes (up to 250) |
 | Resource Manager template | 110 | 30 | Yes (up to 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 110 (configured in the Node Pools tab) | No |
 
 ### Configure maximum - new clusters
 
@@ -92,6 +92,8 @@ When you create an AKS cluster, the following parameters are configurable for Az
 **Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
+
+**Azure Network Plugin**: When azure network plugin is used, the internal LoadBalancer service with "externalTrafficPolicy=Local" can't be accessed from VMs with an IP in clusterCIDR that does not belong to AKS cluster.
 
 **Kubernetes service address range**: This is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
 

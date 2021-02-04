@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/18/2021
+ms.date: 02/03/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -132,8 +132,8 @@ The following Language Understanding **features are not currently available** in
 ### [Speech Service](../cognitive-services/speech-service/overview.md)
 The following Speech Service **features are not currently available** in Azure Government:
 - Custom Voice
-- Neural voices for Text-to-Speech
-See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md).
+
+See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md). See additonal endpoint information [here](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 The following Translator **features are not currently available** in Azure Government:
@@ -329,6 +329,9 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 - Analyzing – the Azure Media Indexer 2 Preview Azure Media Analytics media processor is not available in Azure Government.
 - CDN integration – there is no CDN integration with streaming endpoints in Azure Government data centers.
 
+### Media Services Video Indexer
+
+For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
 
 ## Migration
 This section outlines variations and considerations when using Migration services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
@@ -337,7 +340,6 @@ This section outlines variations and considerations when using Migration service
 The following Azure Migrate **features are not currently available** in Azure Government:
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
-
 
 ## Networking
 This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
@@ -413,7 +415,7 @@ The following features have known limitations in Azure Government:
 - Limitations with Azure AD Join:
     - Enterprise state roaming for Windows 10 devices is not available
     
-- Limitaitons with Azure AD SSPR:
+- Limitations with Azure AD SSPR:
     - Azure AD SSPR from Windows 10 login screen is not available
 
 
