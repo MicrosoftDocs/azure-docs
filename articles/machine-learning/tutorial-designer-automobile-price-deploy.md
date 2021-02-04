@@ -16,7 +16,7 @@ ms.custom: designer
 # Tutorial: Deploy a machine learning model with the designer
 
 
-You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
+You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate predictions based on user input. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a real-time inference pipeline.
