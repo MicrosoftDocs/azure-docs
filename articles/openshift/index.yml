@@ -7,7 +7,6 @@ metadata:
   title: Azure Red Hat OpenShift documentation
   description: Microsoft Azure Red Hat OpenShift allows you to deploy a production ready Red Hat OpenShift cluster in Azure. Learn how with these tutorials and how-to guides.
   ms.service: azure-redhat-openshift
-  services: container-service
   ms.topic: landing-page
   author: jimzim
   ms.author: jzim
