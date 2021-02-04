@@ -3,7 +3,7 @@ title: PowerShell sample - Application Proxy apps with no certificate
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using custom domains but do not have a valid TLS/SSL certificate uploaded.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

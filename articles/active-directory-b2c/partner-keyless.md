@@ -82,7 +82,7 @@ To configure an identity provider, follow these steps:
    |Property | Value |
    |:-----| :-----------|
    | Name   | Keyless |
-   | Metadata URL | Insert the URI of the hosted Keyless Authentication app, followed by the specific path such as https://keyless.auth/.well-known/openid-configuration |
+   | Metadata URL | Insert the URI of the hosted Keyless Authentication app, followed by the specific path such as 'https://keyless.auth/.well-known/openid-configuration' |
    | Client Secret | The secret associated with the Keyless Authentication instance - not same as the one configured before. Insert a complex string of your choice. This secret will be used later in the Keyless Container configuration.|
    | Client ID | The ID of the client. This ID will be used later in the Keyless Container configuration.|
    | Scope | openid |
