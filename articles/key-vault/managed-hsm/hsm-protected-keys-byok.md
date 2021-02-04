@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
 ---
 
