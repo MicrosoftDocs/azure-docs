@@ -197,7 +197,7 @@ At the top of your **main** method, add the following code. Here, you'll authent
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../concept-layout.md).
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the **beginRecognizeContentFromUrl** method.
 
@@ -238,7 +238,7 @@ Cell has text ET.
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../concept-invoices.md).
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
 
 To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method. 
 
@@ -366,7 +366,7 @@ Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../concept-receipts.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
 
 To analyze receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. 
 
@@ -409,7 +409,7 @@ Total Price: null, confidence: 0.93
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../concept-business-cards.md).
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUrl` method. 
 
