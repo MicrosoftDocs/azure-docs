@@ -4,32 +4,40 @@ titleSuffix: Azure API Management
 description: Learn about the content management API and how it's used to save and retrieve content.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 02/03/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Content management API
 
-New developer portal is a static web application, which relies on the content management API to save and retrieve content. Unlike classic CMSes, which store content in form of HTML, the developer portal outputs structured JSON. Every element from a page layout to a hyperlink has a strictly-defined contract. This approach allows to abstract data from its representation, ensure content consistency, avoid mixing different types of data, build JSON-based ARM templates, and more.
+Developer portal is a static web application that relies on the content management API to save and retrieve content. Classic content management systems store content in form of HTML. Developer portal outputs structured JSON. Every element, from a page layout to a hyperlink, has a strictly defined contract. This approach lets the developer portal:
 
-The content management API is an endpoint in the [Azure API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest). You can find API reference along with samples in the official Azure documentation:
+- Abstract data from its representation.
+
+- Ensure content consistency.
+
+- Avoid mixing different types of data.
+
+- Build JSON-based Resource Manager templates.
+
+The content management API is an endpoint in the [Azure API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest). You can find API reference along with samples in these articles:
 
 - [Content Types](/rest/api/apimanagement/2019-12-01/contenttypes), [Content Type](/rest/api/apimanagement/2019-12-01/contenttype) - a content type is an entity describing a content item, its properties, validation rules, and constraints.
-- [Content Item](/rest/api/apimanagement/2019-12-01/contentitem) - a content item represents data, which is described by a content type it belongs to.
+- [Content Item](/rest/api/apimanagement/2019-12-01/contentitem) - a content item represents data that the content type it belongs to describes.
 
-Note:
-
-- The following content types are built-in and can't be modified or removed (you can't perform operation other than GET): *Pages*, *Layouts*, *Blog posts*, *Blobs*, *URLs*, *Design blocks*, *Styles*, *Documents*.
-- Custom content types ids need to start with the `c-` prefix
+> [!NOTE]
+> Developer portal comes with these content types built-in. You can't change or remove them: *Pages*, *Layouts*, *Blog posts*, *Blobs*, *URLs*, *Design blocks*, *Styles*, *Documents*. You can only carry out a GET operation on them.
+>
+> Also, custom content types ids need to start with the `c-` prefix.
 
 ## Authentication
 
-You can use the official rest API via Azure Resource Manager (ARM) or via the direct access API in API Management, in which case you need to [obtain a direct API access token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+You can use the official rest API via Azure Resource Manager or the direct access API in API Management. If you use the direct access API, you need to [get a direct API access token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-## OData support
+## Open Data Protocol support
 
-Content management API supports filtering and ordering OData operations.
+Content management API supports these Open Data Protocol (OData) operations: *filtering* and *ordering*.
 
 ### Filtering
 
@@ -37,21 +45,21 @@ Filter the queried collection by one or more entity properties.
 
 Example:
 
-```
+```http
 GET /contentTypes/page/contentItems?$filter=title eq 'about'
 ```
 
 More options:
 
-```
+```http
 $filter=contains(title,'ab')
 ```
 
-```
+```http
 $filter=startswith(title,'hom')
 ```
 
-```
+```http
 $filter=endswith(title,'me')
 ```
 
@@ -61,7 +69,7 @@ Order the queried collection by an entity property.
 
 Example:
 
-```
+```http
 GET /contentTypes/page/contentItems?$orderby=en_us/title desc
 ```
 ## Next steps
