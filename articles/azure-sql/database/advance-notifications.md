@@ -1,6 +1,6 @@
 ---
-title: Advance notifications (Preview) for planned events
-description: Get email notification before Azure performs planned events for Azure SQL Database or Azure SQL Managed Instance.
+title: Advance notifications (Preview) for planned maintenance events
+description: Get email notification before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -71,10 +71,10 @@ The following table shows additional notifications that may be sent while mainte
 
 |Status|Description|
 |:---|:---|
-|**Extended** | Maintenance is in progress, but didn’t complete for database *xyz*, we’ll continue tomorrow.| 
+|**Extended** | Maintenance is in progress but didn’t complete for database *xyz*. Maintenance will continue at the next maintenance window.| 
 |**Canceled**| Maintenance for database *xyz* is canceled and will be rescheduled later. |
 |**Blocked**|There was a problem during maintenance for database *xyz*. We'll notify you when we resume.| 
-|**Resumed**|The problem has been resolved and maintenance will continue tonight.|
+|**Resumed**|The problem has been resolved and maintenance will continue at the next maintenance window.|
 
 
 ## Next steps
