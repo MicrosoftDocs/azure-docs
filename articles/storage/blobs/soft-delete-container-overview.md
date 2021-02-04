@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Soft delete for containers (preview)
 
-Soft delete for containers (preview) protects your data from being accidentally or maliciously deleted. When container soft delete is enabled for a storage account, any deleted container and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers and any blobs within them.
+Soft delete for containers (preview) protects your data from being accidentally or maliciously deleted. When container soft delete is enabled for a storage account, any deleted container and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers. Restoring a container restores any blobs within that container when it was deleted.
 
 For end to end protection for your blob data, Microsoft recommends enabling the following data protection features:
 
@@ -29,6 +29,8 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 ## How container soft delete works
 
 When you enable container soft delete, you can specify a retention period for deleted containers that is between 1 and 365 days. The default retention period is 7 days. During the retention period, you can recover a deleted container by calling the **Undelete Container** operation.
+
+When you restore a container, the container's blobs are also restored. However, you can only use container soft delete to restore blobs if the container itself was deleted. To a restore a deleted blob when its parent container has not been deleted, you must use blob soft delete or blob versioning.
 
 When you restore a container, you can restore it to its original name if that name has not been reused. If the original container name has been used, then you can restore the container with a new name.
 
