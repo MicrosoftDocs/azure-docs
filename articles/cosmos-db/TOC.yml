@@ -1130,6 +1130,8 @@
         href: cli-samples-mongodb.md
       - name: Troubleshoot common issues
         href: mongodb-troubleshoot.md
+      - name: Use multi-document transactions
+        href: mongodb-multi-document-transactions.md
     - name: Reference
       items:
       - name: REST resource provider
