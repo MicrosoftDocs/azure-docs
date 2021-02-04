@@ -131,9 +131,7 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 
 ![Select pages for OCR](./Images/ocr-select-pages.png)
 
-:::image border type="complex" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
-Select pages for OCR example output
-:::image-end:::
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
 
 ## Specify text line order in the output
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `read order` query parameter. Choose between `basic` for the default left-right and top-down line order or `natural` for a more human reading-friendly line order. The following example shows both sets of line order numbers for the same two-column document. Notice that The image on the right shows sequential line numbers within each column to represent the reading order.
