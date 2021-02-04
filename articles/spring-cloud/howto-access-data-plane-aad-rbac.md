@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # How to access data plane with AAD RBAC
 
-This article explains how customers can access Azure Spring Cloud config server and service registry endpoints with Azure Active Directory (AAD) role based access control (RBAC).
+This article explains how customers can access Azure Spring Cloud config server and service registry endpoints with Azure Active Directory (AAD) role-based access control (RBAC).
 
 ## Assign role to AAD user/group, MSI, or service principal
 
@@ -34,7 +34,7 @@ az login
 az account get-access-token
 ```
 
-Currently CLI supports default endpoints of config server and service registry. For more information see[Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get full list of supported endpoints of config server and service registry by accessing endpoints "https://SERVICE_NAME.Root_Endpoint/eureka/actuator/" and "https://SERVICE_NAME.Root_Endpoint/config/actuator/" with the access token as authorization in header. Only the "GET" method is supported.
+Currently CLI supports default endpoints of config server and service registry. For more information, see[Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get full list of supported endpoints of config server and service registry by accessing endpoints "https://SERVICE_NAME.Root_Endpoint/eureka/actuator/" and "https://SERVICE_NAME.Root_Endpoint/config/actuator/" with the access token as authorization in header. Only the "GET" method is supported.
 
 For example, access an endpoint like "https://SERVICE_NAME.Root_Endpoint/eureka/actuator/health" to see the health status of eureka.
 
