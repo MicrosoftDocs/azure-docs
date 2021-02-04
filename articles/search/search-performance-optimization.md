@@ -83,6 +83,18 @@ For more details on this, please visit the [Azure Cognitive Search Service Level
 
 Since replicas are copies of your data, having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
 
+### Availability Zones
+
+An [Availability Zone in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) is a unique physical location within a region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking.
+
+You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed on a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
+
+Azure Cognitive Search currently supports Availability Zones in the following regions:
++ France Central
++ Central US
+
+Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
 ## Scale for geo-distributed workloads and geo-redundancy
 
 For geo-distributed workloads, users who are located far from the host data center will have higher latency rates. One mitigation is to provision multiple search services in regions with closer proximity to these users.
