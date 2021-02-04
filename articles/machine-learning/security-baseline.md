@@ -194,7 +194,7 @@ analytics, and use Azure Storage accounts for long term and archival storage. Al
 
 You can also correlate Machine Learning service operation logs for security and compliance purposes.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 

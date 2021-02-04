@@ -50,7 +50,7 @@ Public IP provides tools to monitor, diagnose, view metrics, and enable or disab
 
 Instead, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

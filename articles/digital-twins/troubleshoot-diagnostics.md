@@ -53,7 +53,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
-For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/platform/diagnostic-settings.md).
+For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## Log categories
 

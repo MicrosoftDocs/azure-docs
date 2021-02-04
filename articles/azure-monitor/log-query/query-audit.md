@@ -14,7 +14,7 @@ Log query audit logs provide telemetry about log queries run in Azure Monitor. T
 
 
 ## Configure query auditing
-Query auditing is enabled with a [diagnostic setting](../platform/diagnostic-settings.md) on the Log Analytics workspace. This allows you to send audit data to the current workspace or any other workspace in your subscription, to Azure Event Hubs to send outside of Azure, or to Azure Storage for archiving. 
+Query auditing is enabled with a [diagnostic setting](../essentials/diagnostic-settings.md) on the Log Analytics workspace. This allows you to send audit data to the current workspace or any other workspace in your subscription, to Azure Event Hubs to send outside of Azure, or to Azure Storage for archiving. 
 
 ### Azure portal
 Access the diagnostic setting for a Log Analytics workspace in the Azure portal in either of the following locations:
@@ -70,5 +70,5 @@ There is no cost for Azure Diagnostic Extension, but you may incur charges for t
 
 ## Next steps
 
-- Learn more about [diagnostic settings](../platform/diagnostic-settings.md).
+- Learn more about [diagnostic settings](../essentials/diagnostic-settings.md).
 - Learn more about [optimizing log queries](query-optimization.md).

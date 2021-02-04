@@ -35,7 +35,7 @@ To enable resource logs using the Azure portal:
 
 7. Save your setting.
 
-To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../../azure-monitor/platform/diagnostic-settings.md) article.
+To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) article.
 
 ### Access resource logs
 

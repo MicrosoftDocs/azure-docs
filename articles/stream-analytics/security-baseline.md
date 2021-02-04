@@ -136,7 +136,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data such as audit events and requests. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accountyfor long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds.
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Azure Security Center monitoring**: Yes
 

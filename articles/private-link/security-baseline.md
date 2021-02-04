@@ -48,7 +48,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Logging and monitoring for Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -64,7 +64,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 **Guidance**: Enable Azure Monitor activity logs, which log operations taken on Private Link resources, such as, who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 

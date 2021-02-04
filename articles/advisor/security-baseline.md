@@ -228,7 +228,7 @@ Activity logs can be used to find an error when troubleshooting or to monitor ho
 
 - [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -242,7 +242,7 @@ Ensure you are integrating Azure activity logs into your central logging. Ingest
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

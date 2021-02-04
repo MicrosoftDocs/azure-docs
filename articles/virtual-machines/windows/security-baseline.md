@@ -218,7 +218,7 @@ For advanced visibility of the applications and services supported by your virtu
 
 Additionally, enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 

@@ -110,7 +110,7 @@ Use the Azure Activity Log to monitor resource configurations and detect changes
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to collect platform logs and metrics with Azure Monitor](platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](essentials/diagnostic-settings.md)
 
 - [How to collect Azure Virtual Machine internal host logs with Azure Monitor](learn/quick-collect-azurevm.md)
 
@@ -126,7 +126,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Azure Monitor uses Activity logs, the Activity Log is automatically enabled and logs operations taken on Azure Monitor resources, such as: who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
-- [How to collect platform logs and metrics with Azure Monitor](platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](essentials/diagnostic-settings.md)
 
 - [Understand logging and different log types in Azure](platform/platform-logs-overview.md)
 

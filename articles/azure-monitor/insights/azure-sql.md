@@ -30,7 +30,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
+| [Diagnostics settings](../essentials/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
 | [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../agents/agent-windows.md) | No | Direct Windows agents aren't used by Azure SQL Analytics. |
 | [Linux agents](../vm/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by Azure SQL Analytics. |

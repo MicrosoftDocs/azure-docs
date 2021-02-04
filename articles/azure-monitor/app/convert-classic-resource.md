@@ -45,7 +45,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
     - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
     
 - Continuous export is not supported for workspace-based resources and must be disabled.
-Once the migration is complete, you can use [diagnostic settings](../platform/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
+Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
 
@@ -225,7 +225,7 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 - Once you have selected disable, you can navigate back to the migration UI. If the edit continuous export page prompts you that your settings won't be saved, you can select ok for this prompt as it does not pertain to disabling/enabling continuous export.
 
-- Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../platform/diagnostic-settings.md).
+- Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../essentials/diagnostic-settings.md).
 
 ### Retention settings
 
