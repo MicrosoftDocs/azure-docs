@@ -32,13 +32,13 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module.
 
-   The module is added to the IoT Edge Modules section with a **running** status.
+   The module is added to the IoT Edge Modules section with the desired **running** status.
 
 1. Select **Next: Routes** to continue to the next step of the wizard.
 
    ![Screenshot that shows continuing to the next step after the module is added.](./media/iot-edge-deploy-module/view-temperature-sensor-next-routes.png)
 
-1. On the **Routes** tab, remove the default route, and then select **Next: Review + create** to continue to the next step of the wizard.
+1. On the **Routes** tab, remove the default route, **route**, and then select **Next: Review + create** to continue to the next step of the wizard.
 
    >[!Note]
    >Routes are constructed by using name and value pairs. You should see two routes on this page. The default route, **route**, sends all messages to IoT Hub (which is called `$upstream`). A second route, **SimulatedTemperatureSensorToIoTHub**, was created automatically when you added the module from the Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub. You can delete the default route because it's redundant in this case.
