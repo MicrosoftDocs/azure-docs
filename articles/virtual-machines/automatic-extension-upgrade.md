@@ -1,6 +1,6 @@
 ---
 title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
-description: Learn how to automatically patch Windows virtual machines in Azure
+description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
 author: mayanknayar
 ms.service: virtual-machines
 ms.workload: infrastructure
@@ -74,8 +74,8 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 
 ## Supported extensions 
 The preview of Automatic Extension Upgrade supports the following extensions (and more are added periodically):
-- Dependency Agent – [Windows](../extensions/agent-dependency-windows.md) and [Linux](../extensions/agent-dependency-linux.md) 
-- [Application Health Extension](../windows/automatic-vm-guest-patching.md) – Windows and Linux 
+- Dependency Agent – [Windows](./extensions/agent-dependency-windows.md) and [Linux](./extensions/agent-dependency-linux.md) 
+- [Application Health Extension](./windows/automatic-vm-guest-patching.md) – Windows and Linux 
 
 
 ## Enabling preview access 
@@ -208,4 +208,4 @@ Automatic Extension Upgrades can also be applied when a VM or VM Scale Set has m
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn about the Application Health Extension](../windows/automatic-vm-guest-patching.md)
+> [Learn about the Application Health Extension](./windows/automatic-vm-guest-patching.md)
