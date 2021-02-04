@@ -1,6 +1,6 @@
 ---
-title: Send Events to a web endpoint using Azure App Configuration
-description: Learn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
+title: Use Event Grid for App Configuration data change notifications
+description: Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
 ---
 
-# Route Azure App Configuration events to a web endpoint with Azure CLI
+# Use Event Grid for App Configuration data change notifications
 
 In this article, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events emitted whenever key-values are modified. These events can trigger web hooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 

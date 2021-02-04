@@ -478,6 +478,8 @@
     href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
+  - name: ARM Templates
+    href: asr-arm-templates.md
 - name: Monitoring
   items:
   - name: Common questions about monitoring
