@@ -81,7 +81,7 @@ sudo apt install docker.io -y
 After installation, run the following command to verify that Docker is running properly on the VM:
 
 ```bash
-sudo docker run -it hello-world
+sudo docker run -it mcr.microsoft.com/hello-world
 ```
 
 Output:

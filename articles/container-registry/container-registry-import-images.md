@@ -63,13 +63,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-The following example imports a public image from the `tensorflow` repository in Docker Hub:
+If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### Import from Microsoft Container Registry
