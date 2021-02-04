@@ -15,8 +15,8 @@ ms.custom: mvc
 
 In this article, learn how to move encrypted Azure VMs to a different Azure region using [Azure Resource Mover](overview.md). Here's what we mean by encryption:
 
-- VMs that have disks with Azure disk encryption enabled.
-- Or, VMs that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption).
+- VMs that have disks with Azure disk encryption enabled. [Learn more](../virtual-machines/windows/disk-encryption-portal-quickstart.md)
+- Or, VMs that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption). [Learn more](virtual-machines/disks-enable-customer-managed-keys-portal.md)
 
 
 In this tutorial, you learn how to:
@@ -39,22 +39,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **Requirement** |**Details**
 --- | ---
-**Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move.<br/><br/> The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription.<br/><br/> To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
-**Key vault permissions** | In the source and target region, to enable replication for VMs you need these permissions:<br/><br/> - Key permissions: Key Management Operations (Get, List); Cryptographic Operations (Decrypt and Encrypt).<br/><br/> Secret permissions: Secret Management Operations (Get, List and Set)<br/><br/>Certificate (List and Get).
+**Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move.<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor and User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
+**VM support** | Check that the VMs you want to move are supported.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/><br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
+**Key vault requirements (Azure disk encryption)** | If you have Azure disk encryption enabled for VMs, in addition to the key vault in the source region, you need a key vault in the destination region. [Create a key vault](../key-vault/general/quick-create-portal.md). | For the key vaults in the source and target region, you need these permissions:<br/><br/> - Key permissions: Key Management Operations (Get, List); Cryptographic Operations (Decrypt and Encrypt).<br/><br/> Secret permissions: Secret Management Operations (Get, List and Set)<br/><br/>Certificate (List and Get).
+**Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption using a CMK, in addition to the disk encryption set in the source region, you need a disk encryption set in the destination region. [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using HSM keys for customer-managed keys.
 **Target region quota** | The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 **Target region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
 
 
-## Before you start
+## Verify key vault permissions (Azure Disk Encryption)
 
-Before you start, verify Key Vault permissions to ensure that moving encrypted VMs will work as expected. In additiona, run a script to copy encryption secrets and keys to the target region.
+If you're moving VMs that have Azure disk encryptione enabled, in the key vaults in the source and destination regions, verify/set permissions to ensure that moving encrypted VMs will work as expected. 
 
-### Verify Key Vault permissions
-
-Verify and set permissions in both the source and target key vaults
-
-1. In the Azure portal, open the Key Vault in the source and then target regions.
-2. Under **Settings**, select **Access policies**.
+1. In the Azure portal, open the key vault in the source region.
+1. Under **Settings**, select **Access policies**.
 
     ![Button to open key vault access policies](./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png)
 
@@ -67,11 +65,18 @@ Verify and set permissions in both the source and target key vaults
 
 4. In **Secret permissions**,  **Secret Management Operations**, select **Get**, **List**, and **Set**. 
 5. If you're assigning permissions to a new user account, in **Select principal**, select the user to whom you're assigning permissions.
+6. Repeat the procedure for the key vault in the destination region.
 
 
-### Copy the keys to the target key vault
+### Copy the keys to the destination key vault
 
-You need to copy the encryption secrets and keys from the source key vault to the target key vault, using a script we provide.
+You need to copy the encryption secrets and keys from the source key vault to the destination key vault, using a script we provide.
+
+- You run the script in PowerShell. We recommend running the latest PowerShell version.
+- Specifically, the script requires these modules:
+    - Az.Compute
+    - Az.KeyVault (version 3.0.0
+    - Az.Accounts (version 2.2.3)
 
 1. Navigate to the [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) in github.
 2. Copy the contents of the script to a local file, and name it *Copy-keys.ps1*.
@@ -84,18 +89,13 @@ You need to copy the encryption secrets and keys from the source key vault to th
 
     ![Screenshot for script that runs successfully](./media/tutorial-move-region-encrypted-virtual-machines/script-output.png)
  
-## Check VM requirements
+## Prepare VMs
 
-1. Check that the VMs you want to move are supported.
-
-    - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.
-    - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.
-    - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
-2. Check that VMs you want to move are turned on.
-3. Make sure VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
+1. After [checking that VMs meet requirements](#prerequisites), make sure that VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
+3. Check that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
     - On Windows VMs, install the latest Windows updates.
     - On Linux VMs, follow distributor guidance so that machines have the latest certificates and CRL. 
-4. Allow outbound connectivity from VMs:
+4. Allow outbound connectivity from VMs as follows:
     - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - If you're using network security group (NSG) rules to control outbound connectivity, create these [service tag rules](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -123,7 +123,7 @@ Select the resources you want to move.
 
     ![Button to select resource to move](./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png) 
 
-1. In **Select resources**, select the VMs. You can only add resources that are [supported for move](#check-vm-requirements). Then click **Done**.
+1. In **Select resources**, select the VMs. You can only add resources that are [supported for move](#prepare-vms). Then click **Done**.
 
     ![Page to select VMs to move](./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png)
 
@@ -135,7 +135,7 @@ Select the resources you want to move.
 
     ![Page to review settings and proceed with move](./media/tutorial-move-region-encrypted-virtual-machines/review.png)
 10. Click **Proceed**, to begin adding the resources.
-11. Select the notifications icons to track progress. After the add process finishes successfully, select **Added resources for move** in the notifications.
+11. Select the notifications icon to track progress. After the add process finishes successfully, select **Added resources for move** in the notifications.
      ![Notification to confirm resources were added successfully](./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png)
     
     
@@ -147,12 +147,12 @@ Select the resources you want to move.
 > - Resources you add are placed into a *Prepare pending* state.
 > - The resource group for the VMs is added automatically.
 > - If you modify the **Destination configuration** entries to use a resource that already exists in the destination region, the resource state is set to *Commit pending*, since you don't need to initiate a move for it.
-> - If you want to remove an resource that's been added, the method for doing that depends on where you are in the move process. [Learn more](remove-move-resources.md).
-> - 
+> - If you want to remove a resource that's been added, the method for doing that depends on where you are in the move process. [Learn more](remove-move-resources.md).
+
 
 ## Resolve dependencies
 
-1. If any resources show a *Validate dependencies* message in the **Issues** column, click the **Validate dependencies** in the **Issues** colum for the resource
+1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button.
 
     ![Button to check dependencies](./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png)
 
@@ -190,11 +190,20 @@ Destination resources associated with encryption need manual assignment.
     ![Page to select disk encryption set in destination region](./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png)
 
     After adding the destination resource, the status of the disk encryption set turns to *Commit move pending*.
-3. In the key vault entry, select **Resource not assigned** in the **Destination configuration** column. **Configuration settings**, select the destination key vault. Save the changes. The destination key vault resource status turns to *Commit move pending*.
-4. In **Across regions**, validate again and resolve any issues.
+3. In the key vault entry, select **Resource not assigned** in the **Destination configuration** column. **Configuration settings**, select the destination key vault. Save the changes. 
+
+At this stage both the disk encryption set and the key vault status turns to *Commit move pending*.
+
+![Page to select prepare for other resources](./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)
+
+To commit and finish the move process for encryption resources.
+
+1. In **Across regions**, select the resource (disk encryption set or key vault) > **Commit move**.
+2. ln **Move Resources**, click **Commit**.
 
 > [!NOTE]
-> If you want to edit target settings before beginning the move, select the link in the **Destination configuration** column for the resource, and edit the settings. If you edit the target VM settings, the target VM size shouldn't be smaller than the source VM size.  
+> After committing the move, the resource is in a *Delete source pending* state.
+
 
 ## Move the source resource group 
 
@@ -241,13 +250,12 @@ To commit and finish the move process:
 
 ## Prepare resources to move
 
-Now that the source resource group is moved, you can prepare to move other resources that are in the *Prepare pending* state.
+Now that the encryption resources and the source resource group are moved, you can prepare to move other resources that are in the *Prepare pending* state.
 
-1. In **Across regions**, select the resources you want to prepare. 
 
-    ![Page to select prepare for other resources](./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)
-
-2. Select **Prepare**. 
+1. In **Across regions**, validate again and resolve any issues.
+2. If you want to edit target settings before beginning the move, select the link in the **Destination configuration** column for the resource, and edit the settings. If you edit the target VM settings, the target VM size shouldn't be smaller than the source VM size.
+3. Select **Prepare** for resources in the *Prepare pending* state that you want to move.
 3. In **Prepare resources**, select **Prepare**
 
     - During the prepare process, the Azure Site Recovery Mobility agent is installed on VMs, to replicate them.
