@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure. 
 ---
@@ -121,6 +121,7 @@ Follow these steps to configure the network for your device.
    - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
    - If DHCP isn't enabled, you can assign static IPs if needed.
    - You can configure your network interface as IPv4.
+   - Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge.
    - Serial number for any port corresponds to the node serial number. For a K-series device, only one serial number is displayed.
 
      >[!NOTE] 
