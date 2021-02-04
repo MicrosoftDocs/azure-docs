@@ -16,17 +16,17 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ## February 2021
 
-|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|----------|-------------|---------------|
-| Reset Skillset and Reset Documents (preview) | REST API | Selective reprocessing of skills or search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
+| Reset Skillset and Reset Documents (preview) | Selective reprocessing of skills or search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 
 ## January 2021
 
-|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|----------|-------------|---------------|
-| [Solution accelerator for Azure Cognitive Search and QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Productivity | Pulls questions and answers out of the document and suggest the most relevant answers. A live demo app can be found at [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo).  | Open source project (no SLA) |
+| [Solution accelerator for Azure Cognitive Search and QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Pulls questions and answers out of the document and suggest the most relevant answers. A live demo app can be found at [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo).  | Open source project (no SLA) |
 
-## 2020 Announcements
+## 2020 Archive
 
 | Month | Feature | Description |
 |-------|---------|-------------|
@@ -35,7 +35,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 | September | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Generally available.  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
 | September | [Management REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | dds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. |
-| September | [Management .NET SDK 4.0](/dotnet/api/overview/azure/search/management) |  Azure SDK update for the management SDK, targeted REST API version 2020-08-01. | Generally available.|
+| September | [Management .NET SDK 4.0](/dotnet/api/overview/azure/search/management) |  Azure SDK update for the management SDK, targeted REST API version 2020-08-01. Generally available.|
 | August | [double encryption](search-security-overview.md#encryption) | Generally available  on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. |
 | July | [Azure.Search.Documents client library](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK for .NET, generally available. |
 | July | [azure.search.documents client library](/python/api/overview/azure/search-documents-readme)  | Azure SDK for Python, generally available. |
@@ -57,6 +57,18 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |January | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Generally available  |
 |January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
 |January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
+
+## 2019 Archive
+
+| Month | Feature | Description |
+|-------|---------|-------------|
+|December | [Create Demo App (preview)](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
+|November | [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) | Caches skillset processing for future reuse.  |
+|November | [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
+|November | [Text Translation](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text.|
+|November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
+|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
+|July | [Azure Government Cloud support](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Generally available.|
 
 <!-- ## November 2020
 
@@ -131,18 +143,6 @@ Create an identity for a search service in Azure Active Directory, then use Azur
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) |Security | Adds an extra layer of encryption in addition to the platform's built-in encryption. Using an encryption key that you create and manage, you can encrypt index content and synonym maps before the payload reaches a search service. | Generally available. </br> Use Search REST API 2019-05-06 or later. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. |
 | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
 | [Azure Private Link for a private search endpoint (preview)](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  | -->
-
-## 2019 Announcements
-
-| Month | Feature | Description |
-|-------|---------|-------------|
-|December | [Create Demo App (preview)](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
-|November | [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) | Caches skillset processing for future reuse.  |
-|November | [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
-|November | [Text Translation](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text.|
-|November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
-|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
-|July | [Azure Government Cloud support](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Generally available.|
 
 <!-- ### December 2019
 
