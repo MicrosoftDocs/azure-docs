@@ -202,7 +202,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-AzureBackup workload extension operation failed. | The VM is shut down, or the VM can't contact the Azure Backup service because of internet connectivity issues.| <li> Ensure the VM is up and running and has internet connectivity.<li> [Re-register extension on the SQL Server VM](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+AzureBackup workload extension operation failed. | The VM is shut down, or the VM can't contact the Azure Backup service because of internet connectivity issues.| <li> Ensure the VM is up and running and has internet connectivity.<li> [Re-register extension on the SQL Server VM](./manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
 
 
 ### UserErrorVMInternetConnectivityIssue
