@@ -261,9 +261,9 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 
 Release note for `2.9.0-amd64-<locale>`:
 
-**Features**
-* Now more error details will be provided when customer have any issue of fetching custom models by id.
-* Hypythesis is supported on Conversation results by default.
+**Feature**
+* More error details for issues when fetching custom models by ID.
+* Hypothesis is supported in conversation results by default.
 
 Note that due to the included phrase lists, the size of this container image has increased. 
 
