@@ -24,8 +24,6 @@ Azure Load Balancer supports two distribution modes for distributing traffic to 
 
 In this article, you learn how to configure the distribution mode for your Azure Load Balancer.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 
 ## Configure distribution mode
 
@@ -52,6 +50,8 @@ The following options are available:
 
 
 # [**PowerShell**](#tab/azure-powershell)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
