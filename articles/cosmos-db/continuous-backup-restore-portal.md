@@ -10,10 +10,15 @@ ms.reviewer: sngun
 
 ---
 
-# Configure and manage continuous backup and point in time restore - using Azure portal
+# Configure and manage continuous backup and point in time restore (Preview) - using Azure portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB's point-in-time restore feature(Preview) helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to identify the restore point and configure continuous backup using Azure portal.
 
