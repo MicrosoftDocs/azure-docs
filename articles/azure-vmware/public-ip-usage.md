@@ -150,5 +150,7 @@ You can have 100 public IPs per SDDCs.
 
 ## Next steps
 
-Learn more about using public IP addresses using [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Now that you've covered how to use the public IP functionality in Azure VMware Solution, you may want to learn about:
 
+- Using public IP addresses with [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+- [Creating an IPSec tunnel into Azure VMware Solution](create-ipsec-tunnel.md).
