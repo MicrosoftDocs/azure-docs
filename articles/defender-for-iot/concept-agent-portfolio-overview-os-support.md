@@ -32,3 +32,5 @@ The Azure Defender for IoT micro agent provides a comprehensive and lightweight 
 The Azure Defender for IoT micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (RTOS) devices.
 
 ## Next steps
+
+Learn more about the [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
