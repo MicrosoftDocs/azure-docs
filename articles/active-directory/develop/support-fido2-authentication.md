@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Support passwordless authentication with FIDO2 keys in apps you develop
 
-Using Azure Active Directory for authentication in your applications allows you to support [passwordless authentication with FIDO2 security keys](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys). This document covers our recommendations for developers to ensure that the FIDO2 passwordless authentication option will be available to users of your applications.
+Using Azure Active Directory for authentication in your applications allows you to support [passwordless authentication with FIDO2 security keys](https://docs.microsoft.com/en-u/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys). This document covers our recommendations for developers to ensure that the FIDO2 passwordless authentication option will be available to users of your applications.
 
 ## General app configuration considerations
 
@@ -25,11 +25,11 @@ There are a few configurations that will affect whether passwordless authenticat
 
 **Home-realm discovery and domain hints**
 
-Bypassing [home-realm discovery](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery) by providing a domain hint will prevent passwordless authentication from being available. Your app should not use a domain hint in the authorization request if you wish to support passwordless authentication.
+Bypassing [home-realm discovery](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery) by providing a domain hint will prevent passwordless authentication from being available. Your app should not use a domain hint in the authorization request if you wish to support passwordless authentication.
 
 **Requiring specific kinds of credentials**
 
-Applications that use SAML can specify the type of authentication that they want to use by [using the RequestedAuthnContext element](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol#requestauthncontext). However, this will prevent passwordless authentication from working if you require a password.
+Applications that use SAML can specify the type of authentication that they want to use by [using the RequestedAuthnContext element](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#requestauthncontext). However, this will prevent passwordless authentication from working if you require a password.
 
 The RequestedAuthnContext element is optional, so to resolve this you can remove it from your SAML authentication requests. This is a general best practice, as using this element can also prevent other authentication options like multi-factor authentication from working correctly.
 
@@ -37,7 +37,7 @@ The RequestedAuthnContext element is optional, so to resolve this you can remove
 
 Be aware that the sign in method that was most recently used by a user will be presented to them first. This may cause confusion when users believe they must use the first option presented. However, they can choose another option.
 
-![Image of the user authentication experience highlighting the button that allows the user to change the authentication method.](./media/support-fido2-authentication/most-recently-used-authentication.png)
+![Image of the user authentication experience highlighting the button that allows the user to change the authentication method.](./media/support-fido2-authentication/most-recently-used-method.png)
 
 ## Platform specific considerations
 
@@ -47,7 +47,7 @@ The following is our best practices guidance for ensuring the availability of FI
 
 Our first reccomendation is that .NET desktop applications that are using the Microsoft Authentication Library should use the Windows Authentication Manager (WAM) to support the best authentication experience. This integration and its benefits are [documented on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
 
-If this is not an option, your application should use [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) to support FIDO2 in an embedded browser so that users can authenticate without leaving the app.
+If this is not an option, your application should use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) to support FIDO2 in an embedded browser so that users can authenticate without leaving the app.
 
 And if neither of those will work for you, you should use the system browser. The MSAL librararies for desktop platforms use this method by default. You can consult our page on FIDO2 browser compatibility to ensure the browser you use supports FIDO2 authentication. 
 
