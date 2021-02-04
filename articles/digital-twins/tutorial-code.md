@@ -264,6 +264,8 @@ After completing this tutorial, you can choose which resources you'd like to rem
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
+You may also want to delete the project folder from your local machine.
+
 ## Next steps
 
 In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.

@@ -405,9 +405,13 @@ Here is a review of the scenario that you built out in this tutorial.
 
 After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
-
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+
+* **If you'd like to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you'd like to remove.
+    - This option will not remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, etc...). You can delete these individually using the [dt commands](/cli/azure/reference-index?view=azure-cli-latest) appropriate for each resource type.
+
+You may also want to delete the project folder from your local machine.
+
 
 ## Next steps
 

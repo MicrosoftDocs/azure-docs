@@ -283,6 +283,8 @@ After completing this tutorial, you can choose which resources you'd like to rem
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
+You may also want to delete the project folder from your local machine.
+
 ## Next steps 
 
 In this tutorial, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You used the client app to explore Azure Digital Twins, creating models, digital twins, and relationships. You also ran some queries on the solution, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.

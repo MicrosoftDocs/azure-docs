@@ -316,6 +316,8 @@ Then, you can choose which resources you'd like to remove, depending on what you
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
+You may also want to delete the project folder from your local machine.
+
 ## Next steps
 
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.

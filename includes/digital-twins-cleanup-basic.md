@@ -17,5 +17,3 @@ ms.author: baanders
     ```azurecli-interactive
     az group delete --name <your-resource-group>
     ```
-
-You may also want to delete the project folder from your local machine.
