@@ -23,14 +23,14 @@ ACL inheritance is already available for new child items that are created under 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - Azure CLI version `2.6.0` or higher.
 
 - One of the following security permissions:
 
   - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    
+
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
   
   - Storage account key.
@@ -70,7 +70,7 @@ Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a to
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. 
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
@@ -79,7 +79,7 @@ This example creates a **DataLakeServiceClient** instance by using a client ID, 
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account. 
+This is the easiest way to connect to an account.
 
 This example creates a **DataLakeServiceClient** instance by using an account key.
 
@@ -113,19 +113,19 @@ This example gets and sets the ACL of a file named `my-file.txt`. The string `rw
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_FileACL":::
 
-## Set an ACL recursively
+## Set ACLs recursively
 
 When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.  
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities). 
 
-Set an ACL recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
+Set ACLs recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
-If you want to set a **default** ACL entry, then add the string `default:` to the beginning of each ACL entry string. 
+If you want to set a **default** ACL entry, then add the string `default:` to the beginning of each ACL entry string.
 
-This example sets the ACL of a directory named `my-parent-directory`. 
+This example sets the ACL of a directory named `my-parent-directory`.
 
-This method accepts a boolean parameter named `is_default_scope` that specifies whether to set the default ACL. if that parameter is `True`, the list of ACL entries are preceded with the string `default:`. 
+This method accepts a boolean parameter named `is_default_scope` that specifies whether to set the default ACL. if that parameter is `True`, the list of ACL entries are preceded with the string `default:`.
 
 The entries of the ACL give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -133,13 +133,13 @@ The entries of the ACL give the owning user read, write, and execute permissions
 
 To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
-## Update an ACL recursively
+## Update ACLs recursively
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
-Update an ACL recursively by calling the **DataLakeDirectoryClient.update_access_control_recursive** method. If you want to update a **default** ACL entry, then add the string `default:` to the beginning of each ACL entry string. 
+Update an ACL recursively by calling the **DataLakeDirectoryClient.update_access_control_recursive** method. If you want to update a **default** ACL entry, then add the string `default:` to the beginning of each ACL entry string.
 
 This example updates an ACL entry with write permission.
 
@@ -182,7 +182,7 @@ To see an example that processes ACLs recursively in batches by specifying a bat
 
 You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can reapply ACL entries without any negative impact.
 
-This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of ``None`` for the continuation token parameter. 
+This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of ``None`` for the continuation token parameter.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_ResumeContinuationToken":::
 
@@ -192,7 +192,7 @@ If you want the process to complete uninterrupted by permission errors, you can 
 
 To ensure that the process completes uninterrupted, don't pass a continuation token into the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_ContinueOnFailure":::
 
@@ -202,9 +202,9 @@ To see an example that processes ACLs recursively in batches by specifying a bat
 
 ## See also
 
-* [API reference documentation](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
-* [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
-* [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+- [API reference documentation](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
+- [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
+- [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+- [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+- [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)

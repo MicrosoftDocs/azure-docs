@@ -14,9 +14,9 @@ ms.custom: devx-track-azurecli
 
 # Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files. 
+This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files.
 
-ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
+ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
 [Reference](/cli/azure/storage/fs/access) | [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -24,14 +24,14 @@ ACL inheritance is already available for new child items that are created under 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - Azure CLI version `2.6.0` or higher.
 
 - One of the following security permissions:
 
   - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    
+
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
   
   - Storage account key.
@@ -45,6 +45,7 @@ ACL inheritance is already available for new child items that are created under 
    ```azurecli
     az --version
    ```
+
    If your version of Azure CLI is lower than `2.14.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
@@ -144,9 +145,9 @@ This example updates the ACL of a **file**.
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
+You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user.
 
-This example changes the owner of a directory. 
+This example changes the owner of a directory.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -159,13 +160,13 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ```
 
-## Set an ACL recursively
+## Set ACLs recursively
 
 When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.  
 
-If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities). 
+If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities).
 
-Set an ACL recursively by using the [az storage fs access set-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) command.
+Set ACLs recursively by using the [az storage fs access set-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) command.
 
 This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -176,15 +177,15 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 > [!NOTE]
 > If you want to set a **default** ACL entry, add the prefix `default:` to each entry. For example, `default:user::rwx` or `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`. 
 
-## Update an ACL recursively
+## Update ACLs recursively
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
-Update an ACL recursively by using the  [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command. 
+Update ACLs recursively by using the  [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
 
-This example updates an ACL entry with write permission. 
+This example updates an ACL entry with write permission.
 
 ```azurecli
 az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx" -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login
@@ -195,9 +196,9 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed.
 
-Remove ACL entries by using the [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) command. 
+Remove ACL entries by using the [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) command.
 
 This example removes an ACL entry from the root directory of the container.  
 
@@ -212,7 +213,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can reapply ACL entries without any negative impact.
 
-In the event of a failure, you can return a continuation token by setting the `--continue-on-failure` parameter to `false`. After you address the errors, you can resume the process from the point of failure by running the command again, and then setting the `--continuation` parameter to the continuation token. 
+In the event of a failure, you can return a continuation token by setting the `--continue-on-failure` parameter to `false`. After you address the errors, you can resume the process from the point of failure by running the command again, and then setting the `--continuation` parameter to the continuation token.
 
 ```azurecli
 az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure false --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
@@ -220,7 +221,7 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 If you want the process to complete uninterrupted by permission errors, you can specify that.
 
-To ensure that the process completes uninterrupted, set the `--continue-on-failure` parameter to `true`. 
+To ensure that the process completes uninterrupted, set the `--continue-on-failure` parameter to `true`.
 
 ```azurecli
 az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
@@ -230,6 +231,6 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 ## See also
 
-* [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-* [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
+- [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
+- [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)

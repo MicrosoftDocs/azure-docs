@@ -23,14 +23,14 @@ ACL inheritance is already available for new child items that are created under 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - Azure CLI version `2.6.0` or higher.
 
 - One of the following security permissions:
 
   - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    
+
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
   
   - Storage account key.
@@ -63,7 +63,7 @@ import com.azure.storage.file.datalake.models.RolePermissions;
 import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOptions;
 ```
 
-## Connect to the account 
+## Connect to the account
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
 
@@ -96,7 +96,6 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
 
-
 ## Get and set a directory ACL
 
 This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
@@ -117,13 +116,13 @@ This example gets and then sets the ACL of a file named `upload-file.txt`. This 
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_ManageFileACLs":::
 
-## Set an ACL recursively
+## Set ACLs recursively
 
 When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.  
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities). 
 
-Set an ACL recursively by calling the **DataLakeDirectoryClient.setAccessControlRecursive** method. Pass this method a [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) of [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) objects. Each [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) defines an ACL entry. 
+Set ACLs recursively by calling the **DataLakeDirectoryClient.setAccessControlRecursive** method. Pass this method a [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) of [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) objects. Each [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) defines an ACL entry.
 
 If you want to set a **default** ACL entry, then you can call the **setDefaultScope** method of the [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) and pass in a value of **true**. 
 
@@ -131,13 +130,13 @@ This example sets the ACL of a directory named `my-parent-directory`. This metho
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_SetACLRecursively":::
 
-## Update an ACL recursively
+## Update ACLs recursively
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
-Update an ACL recursively by calling the **DataLakeDirectoryClient.updateAccessControlRecursive** method.  Pass this method a [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) of [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) objects. Each [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) defines an ACL entry. 
+Update ACLs recursively by calling the **DataLakeDirectoryClient.updateAccessControlRecursive** method.  Pass this method a [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) of [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) objects. Each [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) defines an ACL entry. 
 
 If you want to update a **default** ACL entry, then you can the **setDefaultScope** method of the [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) and pass in a value of **true**. 
 
@@ -147,7 +146,7 @@ This example updates an ACL entry with write permission. This method accepts a b
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed.
 
 Remove ACL entries by calling the **DataLakeDirectoryClient.removeAccessControlRecursive** method. Pass this method a [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) of [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) objects. Each [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) defines an ACL entry. 
 
@@ -161,7 +160,7 @@ This example removes an ACL entry from the ACL of the directory named `my-parent
 
 You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can reapply ACL entries without any negative impact.
 
-This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of `null` for the continuation token parameter. 
+This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of `null` for the continuation token parameter.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_ResumeSetACLRecursively":::
 
@@ -169,7 +168,7 @@ If you want the process to complete uninterrupted by permission errors, you can 
 
 To ensure that the process completes uninterrupted, call the **setContinueOnFailure** method of a [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) object and pass in a value of **true**.
 
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_ContinueOnFailure":::
 
@@ -177,9 +176,9 @@ This example sets ACL entries recursively. If this code encounters a permission 
 
 ## See also
 
-* [API reference documentation](/java/api/overview/azure/storage-file-datalake-readme)
-* [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
-* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+- [API reference documentation](/java/api/overview/azure/storage-file-datalake-readme)
+- [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
+- [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+- [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+- [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)

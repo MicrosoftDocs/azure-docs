@@ -24,14 +24,14 @@ ACL inheritance is already available for new child items that are created under 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - Azure CLI version `2.6.0` or higher.
 
 - One of the following security permissions:
 
   - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    
+
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
   
   - Storage account key.
@@ -43,9 +43,9 @@ ACL inheritance is already available for new child items that are created under 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
    ```
-    
+
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
-    
+
 2. Install **Az.Storage** module.
 
    ```powershell
@@ -170,6 +170,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileP
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
 $file.ACL
 ```
+
 > [!NOTE]
 > If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
@@ -217,13 +218,13 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-## Set an ACL recursively
+## Set ACLs recursively
 
 When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.  
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities). 
 
-Set an ACL recursively by using the **Set-AzDataLakeGen2AclRecursive** cmdlet.
+Set ACLs recursively by using the **Set-AzDataLakeGen2AclRecursive** cmdlet.
 
 This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -246,15 +247,15 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 
 To see an example that sets ACLs recursively in batches by specifying a batch size, see the [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) reference article.
 
-## Update an ACL recursively
+## Update ACLs recursively
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
-Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet. 
+Update ACLs recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet.
 
-This example updates an ACL entry with write permission. 
+This example updates an ACL entry with write permission.
 
 ```powershell
 $filesystemName = "my-container"
@@ -274,9 +275,9 @@ To see an example that updates ACLs recursively in batches by specifying a batch
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed.
 
-Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
+Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet.
 
 This example removes an ACL entry from the root directory of the container.  
 
@@ -353,5 +354,5 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 
 ## See also
 
-* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Storage PowerShell cmdlets](/powershell/module/az.storage)
+- [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Storage PowerShell cmdlets](/powershell/module/az.storage)

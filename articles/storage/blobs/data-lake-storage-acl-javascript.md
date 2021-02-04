@@ -22,17 +22,17 @@ This article shows you how to use JavaScript to get, set, and update the access 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - Azure CLI version `2.6.0` or higher.
 
 - One of the following security permissions:
 
   - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    
+
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
   
-  - Storage account key.. 
+  - Storage account key..
 
 ## Set up your project
 
@@ -48,7 +48,7 @@ Import the `storage-file-datalake` package by placing this statement at the top 
 const AzureStorageDataLake = require("@azure/storage-file-datalake");
 ```
 
-## Connect to the account 
+## Connect to the account
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
 
@@ -103,8 +103,9 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 }      
 
 ```
+
 > [!NOTE]
-> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). 
+> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD).
 
 ## Get and set a directory ACL
 
@@ -218,6 +219,6 @@ await fileClient.setAccessControl(acl);
 
 ## See also
 
-* [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)
-* [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)
+- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
