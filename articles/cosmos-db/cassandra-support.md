@@ -83,8 +83,8 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 > [!NOTE] 
 > \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
-> \*\* The `cast()` function is not nestable in Cassandra API. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.
-> \*\*\* Custom timestamps and TTL specified with the USING option are applied at a row level (and not per cell).
+> \*\* The `cast()` function is not nestable in Cassandra API. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.    
+> \*\*\* Custom timestamps and TTL specified with the `USING` option are applied at a row level (and not per cell).
 
 
 
