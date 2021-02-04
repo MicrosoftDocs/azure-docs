@@ -105,14 +105,6 @@
     href: reference-app-service.md
   - name: Content format guidelines
     href: reference-document-format-guidelines.md
-  - name: Content and data formats
-    items:
-    - name: Content format guidelines
-      href: reference-document-format-guidelines.md
-    - name: URLs
-      href: reference-document-type-url.md
-    - name: Import and export data guidelines
-      href: reference-data-guidelines.md
   - name: Display format
     href: reference-markdown-format.md
   - name: Private Links
