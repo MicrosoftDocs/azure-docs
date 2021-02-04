@@ -220,4 +220,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```
 
 ## Next steps
+
+For more information, and to help troubleshoot disk issues, see [Troubleshoot Linux VM device name changes](../troubleshooting/troubleshoot-device-names-problems.md).
+
 You can also [attach a data disk](add-disk.md) using the Azure CLI.
