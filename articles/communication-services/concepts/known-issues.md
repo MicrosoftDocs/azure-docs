@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - Known issues
-description: Learn about data residency, and privacy related matters on Azure Communication Services
+description: Learn about known issues with Azure Communication Services
 author: mikben
 manager: jken
 services: azure-communication-services
