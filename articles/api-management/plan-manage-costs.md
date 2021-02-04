@@ -85,10 +85,10 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ### Choose tier
 
-Review the [Feature-based comparison of the Azure API Management tiers](api-management-features.md) to help decide which service tier may be appropriate for your scenarios. The different service tiers support combinations of features and capabilities designed for various use cases, with different costs. [Upgrade](upgrade-and-scale.md) to a different service tier at any time.
+Review the [Feature-based comparison of the Azure API Management tiers](api-management-features.md) to help decide which service tier may be appropriate for your scenarios. The different service tiers support combinations of features and capabilities designed for various use cases, with different costs. 
 
 * The **Consumption** service tier provides a lightweight, serverless option that incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. Capacity also scales automatically based on the load on the service.
-* Other API Management tiers incur monthly costs, and provide greater throughput and richer feature sets for evaluation and production workloads.
+* The **Developer**, **Basic**, **Standard**, and **Premium** API Management tiers incur monthly costs, and provide greater throughput and richer feature sets for evaluation and production workloads. [Upgrade](upgrade-and-scale.md) to a different service tier at any time.
 
 ### Scale using capacity units
 
