@@ -28,6 +28,17 @@ Built-in skills in Azure Cognitive Search are based on pre-trained machine learn
 
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Cognitive Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need.  
 
+## Feature availability
+
+AI enrichment is only available in regions where the Azure Cognitive Services are also available.  You check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.  AI enrichment is available in all regions except:
+
++ Australia Southeast
++ China North 2
++ Norway East
++ Germany West Central
+
+If you are using a service in one of these regions, you will not be able to create and use skillsets.  All other core search API and indexer functionality is fully supported.
+
 ## When to use AI enrichment
 
 You should consider using built-in cognitive skills if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content, increasing its value and utility in your search and data science apps. 
