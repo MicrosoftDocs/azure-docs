@@ -7,13 +7,17 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ---
 
-# Question and answer pair concepts
+# Edit QnA pairs in your knowledge base
 
-A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
+QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+
+QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
+
+<a name="add-an-editorial-qna-set"></a>
 
 ## Question and answer pairs
 
-The **required** settings in a question-and-answer (QnA) pair are:
+A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance. The **required** settings in a question-and-answer (QnA) pair are:
 
 * a **question** - text of user query, used to QnA Maker's machine-learning, to align with text of user's question with different wording but the same answer
 * the **answer** - the pair's answer is the response that's returned when a user query is matched with the associated question
@@ -27,14 +31,6 @@ The **optional** settings for a pair include:
 * **Multi-turn prompts**, used to continue a multi-turn conversation
 
 ![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
-
-# Edit QnA pairs in your knowledge base
-
-QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
-
-QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
-
-<a name="add-an-editorial-qna-set"></a>
 
 ## Add an editorial QnA pair
 
@@ -146,7 +142,7 @@ Periodically select **Save and train** after making edits to avoid losing change
 
 [Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../index.yml).
 
-# Editing your knowledge base locally
+## Editing your knowledge base locally
 
 Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally.
 
