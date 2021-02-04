@@ -32,7 +32,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 
 6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp.
 
-   :::image type="content" source="media/diagnostic-logging/fhirdiagnosticsetting.png" alt-text="Diagnostic Setting" lightbox="media/diagnostic-logging/fhirdiagnosticsetting.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR Diagnostic Settings. Select AuditLogs and/or AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Select **Save**
 
