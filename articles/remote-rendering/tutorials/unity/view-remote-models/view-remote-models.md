@@ -50,7 +50,7 @@ In this example, we'll assume the project is being created in a folder called **
 
 ## Include the Azure Remote Rendering package
 
-Follow the instructions on how to add the Azure Remote Rendering package to a Unity Project [here](../../../how-tos/unity/install-remote-rendering-unity-package.md).
+[Follow the instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) on how to add the Azure Remote Rendering package to a Unity Project.
 
 
 ## Configure the camera
