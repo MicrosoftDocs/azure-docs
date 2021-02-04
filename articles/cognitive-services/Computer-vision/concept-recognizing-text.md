@@ -37,6 +37,8 @@ The **Read** call takes images and documents as its input. They have the followi
 >
 > The [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
+## OCR demo (examples)
+
 ![OCR demos](./Images/ocr-demo.gif)
 
 ## Step 1: The Read operation
