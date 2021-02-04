@@ -198,6 +198,13 @@ Operation is blocked as you have reached the limit on number of operations permi
 |---|---|---|
 Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours.
 
+### WorkloadExtensionNotReachable
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+AzureBackup workload extension operation failed. | The VM is shut down (or) The VM is not able to contact Azure Backup service due to internet connectivity issues.| - Please make sure that the VM is up and running and has internet connectivity.<br>- [Re-register extension on the SQL Server VM](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+
+
 ### UserErrorVMInternetConnectivityIssue
 
 | Error message | Possible causes | Recommended action |
@@ -208,7 +215,7 @@ The VM is not able to contact Azure Backup service due to internet connectivity 
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
-- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
 
   - Lack of permission to perform backup-related operations on the VM.
