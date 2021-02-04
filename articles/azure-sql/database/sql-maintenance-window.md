@@ -21,7 +21,7 @@ For more information on maintenance events, see [Plan for Azure maintenance even
 
 ## Overview
 
-Azure performs planned maintenance updates on Azure SQL Database and SQL Managed Instance resources periodically that often include updates to underlying hardware, software including underlying operating system (OS) and the SQL engine. During a maintenance update, resources are fully available and accessible but some of the maintenance updates require a failover as Azure takes instances offline for a short time to apply the maintenance updates (eight seconds in duration on average).  Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database or SQL managed instance, and only during the maintenance window slots selected by the customer.   
+Azure performs planned maintenance updates on Azure SQL Database and SQL Managed Instance resources periodically that often include updates to underlying hardware, software including underlying operating system (OS), and the SQL engine. During a maintenance update, resources are fully available and accessible but some of the maintenance updates require a failover as Azure takes instances offline for a short time to apply the maintenance updates (eight seconds in duration on average).  Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database or SQL managed instance, and only during the maintenance window slots selected by the customer.   
 
 The maintenance window is intended for business workloads that are sensitive to the potential connectivity interruptions that can result from planned maintenance events during the default window.  
 
@@ -42,7 +42,7 @@ Once the maintenance window selection is made, all planned maintenance updates w
 
 ### Cost
 
-Choosing a different Maintenance window is free of charge to all customers subscription with [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
+Choosing a different Maintenance window is free of charge to all customers with subscription [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
 
 > [!Note]
 > An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](/azure/cost-management-billing/manage/switch-azure-offer).

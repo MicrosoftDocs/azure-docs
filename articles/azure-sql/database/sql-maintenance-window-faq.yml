@@ -19,7 +19,7 @@ sections:
     questions: 
       - question: What is the maintenance window feature?
         answer: |
-         The maintenance window feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-sql-maintenance-window) for more information.
+         The maintenance window feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-maintenance-window) for more information.
 
       - question: What is my default maintenance window if I do not choose any specific window? 
         answer: |
