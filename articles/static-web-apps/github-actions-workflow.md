@@ -194,9 +194,23 @@ jobs:
 
 A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static site has it's own configuration file which lives side-by-side in the repository's *.git* folder.
 
+```files
+├── .git
+│   ├── azure-static-web-apps-purple-pond.yml
+│   └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── readme.md
+```
+
 To target a workflow file to a single app, you specify paths in the `push` and `pull_request` sections.
 
-The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond-08f780f0f.yml_.
+The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond.yml_.
 
 ```yml
 on:
@@ -204,24 +218,24 @@ on:
     branches:
       - main
     paths:
-      - customer-client/**
-      - api/customer-client/**
-      - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
     paths:
-      - customer-client/**
-      - api/customer-client/**
-      - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
 In this instance, only changes made to files following files trigger a new build:
 
-- Any files inside the *customer-client* folder
-- Any files inside the *api/customer_client* folder
-- Changes to the app's workflow file
+- Any files inside the *app1* folder
+- Any files inside the *api1* folder
+- Changes to the app's *azure-static-web-apps-purple-pond.yml* workflow file
 
 Other instances of an Azure Static Web Apps static site in the repo need its own workflow file with corresponding path values.
 
