@@ -141,9 +141,9 @@ The equipment is designed to operate in the following environments:
 
 > ![Notice Icon - 2](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
-CANADA and USA:
+#### CANADA and USA:
 
-> ![Notice Icon - 3](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+> ![Notice Icon - 3](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp; This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body are tested for body-worn Specific Absorption Rate (SAR) compliance. The SAR limit set by the FCC is 1.6 W/kg when averaged over 1 g of tissue. When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
 
@@ -183,23 +183,19 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA <br>
 United States: (800) 426-9400 <br>
 Canada: (800) 933-4750
 
-Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429
-
+Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429 <br> 
 Netgear A6150 WiFi USB Adapter IC ID: 4054A-18300429
 
 The Netgear A6150 WiFi USB Adapter provided with this equipment is compliant with SAR for general population/uncontrolled exposure limits in IC RSS-102 and has been tested in accordance with the measurement methods and procedures specified in IEEE 1528. Maintain at least 10-mm distance for body-worn condition.
 
-L’adaptateur USB WiFi Netgear A6150 fourni avec cet équipement est conforme de SAR pour la population générale / limites d'exposition incontrôlée de CNR-102 et a été testé en conformité avec les méthodes et procédures de mesure spécifiées dans la norme IEEE 1528. Maintenir au moins 10 mm à distance pour la condition physique-garde.
-
 The Netgear A6150 WiFi USB Adapter complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in its manual. Further RF exposure reduction can be achieved by keeping the product as far as possible from your body or by setting the device to a lower output power if such a function is available.
-
-L’adaptateur USB WiFi Netgear A6150 est conforme à la limite d'exposition aux RF portable Canada établies pour un environnement non contrôlé et sont sans danger pour le fonctionnement prévu comme décrit dans le manuel. Poursuite de la réduction de l'exposition aux RF peut être réalisé en gardant le produit autant que possible de votre corps ou par le réglage du dispositif à une puissance de sortie inférieure si une telle fonction est disponible.
 
 A table with the Specific Absorption Rate (SAR) averaged over 1 g for each product can be seen in the USA section above.
 
-Un tableau avec le taux d’absorption spécifique (SAR) en moyenne plus de 1 g pour chaque produit peut être vu dans la section Des USA ci-dessus.
+![Regulatory information warning 2](./media/azure-stack-edge-mini-r-safety/regulatory-information-2.png)
 
-EUROPEAN UNION:
+#### EUROPEAN UNION:
+
 Request a copy of the EU Declaration of Conformity for this equipment.
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is in compliance with Directive 2014/53/EU and can also be provided on request.
@@ -223,16 +219,9 @@ This device may operate in all member states of the EU. Observe national and loc
 
 ![EU countries that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
 
-<!--Graphic above replaces this table, which won't build. No way to add headers. Icon isn't defined at top of article. If it's OK to convert table to graphic, need to save a separate icon graphic and add it to the icon descriptions.
+In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of Netgear wireless products for sale in the EU:
 
-| AT | BE | BG | HR | CY | CZ | DK |
-| EE | FI | FR | DE | EL | HU | IE |
-| IT | LV | LT | LU | MT | NL | PL |
-| PT | RO | SK | SI | ES | SE | UK(NI) |-->
-
-In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of NETGEAR wireless products for sale in the EU:
-
-WiFi
+**WiFi**
 
 | Frequency range (MHz) | Channels used | Max Transmit Power (dBm/mW) |
 | --------------------- | ------------- | --------------------------- |
@@ -245,7 +234,7 @@ Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL <br>
 Telephone number: +353 1 295 3826 <br>
 Fax number: +353 1 706 4110 <br>
 
-SINGAPORE:
+#### SINGAPORE:
 
 The Netgear A6150 WiFi USB Adapter provided with this equipment complies with IMDA standards.
 
