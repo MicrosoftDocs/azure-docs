@@ -131,7 +131,8 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 
 ![Select pages for OCR](./Images/ocr-select-pages.png)
 
-:::image border type="complex" source="./Images/ocr-select-pages.png" alt-text="Select pages for OCR example output":::
+:::image border type="complex" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
+Select pages for OCR example output
 :::image-end:::
 
 ## Specify text line order in the output
