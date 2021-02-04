@@ -14,9 +14,7 @@ Azure CycleCloud is targeted at HPC administrators and users who want to deploy 
 
 See [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) for information about how CycleCloud compares against other Azure HPC solutions.
 
-![Overview Intro](~/images/overview-gui.png)
-
-[//]: # (Rob will provide a video that should work?)
+> [!VIDEO https://www.youtube.com/embed/qkiGJWGM6Ew]
 
 ## Why Should I Use Azure CycleCloud?
 
@@ -28,14 +26,14 @@ With a rich, declarative, templating format, CycleCloud provides powerful toolin
 
 CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Azure Cost Management tools](https://docs.microsoft.com/azure/cost-management/overview-cost-mgt).
 
-### CycleCloud Capabilities
+![Overview Intro](~/images/overview-gui.png)
 
-[//]: # (might want to convert this to a table with mini screenshots similar to App Insights overview)
+### CycleCloud Capabilities
 
 ::: moniker range="=cyclecloud-7"
 |  |  |
 | --- | --- |
-| [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images_7x/overview-schedulers-tn.png)  |
+| [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images/version-7/overview-schedulers-tn.png)  |
 | [**Manage Compute Resources**](./how-to/start-cluster.md)<br>Manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements | ![Compute resources sample](./images/overview-nodes-tn.png) |
 | [**Autoscale Resources**](./concepts/scheduling.md)<br>Automatically adjust cluster size and components based upon job load, availability, and time requirements | ![Autoscale sample](./images/overview-scaling-tn.png) |
 | [**Monitor and Analyze**](./concepts/monitoring.md)<br>Collect and analyze performance data using visualization tools | ![Monitor sample](./images/overview-monitor-tn.png) |
@@ -47,7 +45,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.m
 ::: moniker range=">=cyclecloud-8"
 |  |  |
 | --- | --- |
-| [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images_8x/overview-schedulers-tn.png)  |
+| [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images/version-8/overview-schedulers-tn.png)  |
 | [**Manage Compute Resources**](./how-to/start-cluster.md)<br>Manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements | ![Compute resources sample](./images/overview-nodes-tn.png) |
 | [**Autoscale Resources**](./concepts/scheduling.md)<br>Automatically adjust cluster size and components based upon job load, availability, and time requirements | ![Autoscale sample](./images/overview-scaling-tn.png) |
 | [**Monitor and Analyze**](./concepts/monitoring.md)<br>Collect and analyze performance data using visualization tools | ![Monitor sample](./images/overview-monitor-tn.png) |

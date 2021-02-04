@@ -42,3 +42,14 @@ proxy server and port:
 ```bash
 export HTTPS_PROXY=myserver:8080
 ```
+
+## Exporting proxy settings on nodes
+
+If the nodes started by CycleCloud also need to have traffic routed through a proxy server, modify the [configuration](~/cluster-references/configuration-reference.md) section of a cluster definition to change the proxy settings.
+
+```ini
+[[[configuration]]]
+http_proxy = 10.0.0.1
+https_proxy = 10.0.0.1
+no_proxy = 169.254.169.254
+```

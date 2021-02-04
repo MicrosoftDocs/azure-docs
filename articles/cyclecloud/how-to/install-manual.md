@@ -133,19 +133,39 @@ Once installed, you can configure CycleCloud through your web browser. The login
 
 ### Step 1: Welcome
 
-![Welcome Screen](~/images/setup-step1.png)
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="../images/version-7/setup-step1.png" alt-text="Welcome Screen":::
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="../images/version-8/setup-step1.png" alt-text="Welcome Screen":::
+::: moniker-end
 
 Enter a **Site Name** then click **Next**.
 
 ### Step 2: License Agreement
 
-![License Screen](~/images/setup-step2.png)
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="../images/version-7/setup-step2.png" alt-text="License Screen":::
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="../images/version-8/setup-step2.png" alt-text="License Screen":::
+::: moniker-end
+
 
 Accept the license agreement and then click **Next**.
 
 ### Step 3: Administrator Account
 
-![Administrator Account setup](~/images/setup-step3.png)
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="../images/version-7/setup-step3.png" alt-text="Administrator Account setup":::
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="../images/version-8/setup-step3.png" alt-text="Administrator Account setup":::
+::: moniker-end
+
 
 You will now set up the local administrator account for CycleCloud. This account is used to administer the CycleCloud application - it is NOT an operating system account. Enter a **User ID**, **Name** and **Password**, then click **Done** to continue.
 

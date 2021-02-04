@@ -76,10 +76,11 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 
 **Q.** How are users notified of eviction?
 
-**A.** Users will see a log message in the CycleCloud UI’s event log for the cluster.
+**A.** After a CycleCloud node is evicted, users will see a log message in the CycleCloud UI’s event log for the cluster.   Users may also register to receive an Event from CycleCloud via [Azure EventGrid](https://docs.microsoft.com/azure/cyclecloud/how-to/event-grid?view=cyclecloud-8) after a spot instance is evicted. 
 
 * Users can check for an eviction notification on the machine 30 seconds prior to eviction.  See [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events#why-use-scheduled-events) for details on how to register for the event.
 * In general, eviction should be considered similar to pulling the plug on an on-premise machine, and it should be handled in the same ways.
+* **IMPORTANT** Event handlers *should not acknowledge* the Spot Eviction Event, since the Cyclecloud event handler may not receive the event if it is acknowledged.
   
 **Q.** How frequently does eviction occur?
 
