@@ -219,7 +219,7 @@ The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.mi
 Release note for `1.11.0-amd64`:
 
 **Feature**
-* Now more error details will be provided when customer have any issue of fetching custom models by id.
+* More error details for issues when fetching custom models by ID.
 
 | Image Tags                    | Notes | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
