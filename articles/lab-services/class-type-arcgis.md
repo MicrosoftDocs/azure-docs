@@ -29,7 +29,7 @@ Enable your lab account settings as described in the following table.  For more 
 
 The size of the virtual machine (VM) that we recommend using for ArcGIS Desktop depends on the applications, extensions, and the specific versions that students will use.  The VM size also depends on the workloads that students are expected to perform.  Refer to [ArcGIS Desktop system requirements](https://desktop.arcgis.com/en/system-requirements/latest/arcgis-desktop-system-requirements.htm) to help with identifying the VM size.  Once you’ve identified the potential VM size, we recommend that you test your students’ workloads to ensure adequate performance.
 
-In this article, we recommend using the [**Medium** VM size](https://docs.microsoft.comazure/lab-services/administrator-guide#vm-sizing) for version [10.7.1 of ArcMap](https://desktop.arcgis.com/en/system-requirements/10.7/arcgis-desktop-system-requirements.htm), assuming that no additional ArcGIS Desktop extensions are used.  However, depending on the needs of your class, you may require a **Large** or even a **Small\Medium GPU (Visualization)** VM size.  For example, the [Spatial Analyst extension](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/gpu-processing-with-spatial-analyst.htm) that is included with ArcGIS Desktop supports a GPU for enhanced performance, but doesn’t require using a GPU.
+In this article, we recommend using the [**Medium** VM size](https://docs.microsoft.comazure/lab-services/administrator-guide#vm-sizing) for version [10.7.1 of ArcMap](https://desktop.arcgis.com/en/system-requirements/10.7/arcgis-desktop-system-requirements.htm), assuming that no other ArcGIS Desktop extensions are used.  However, depending on the needs of your class, you may require a **Large** or even a **Small\Medium GPU (Visualization)** VM size.  For example, the [Spatial Analyst extension](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/gpu-processing-with-spatial-analyst.htm) that is included with ArcGIS Desktop supports a GPU for enhanced performance, but doesn’t require using a GPU.
 
 | Lab setting | Value and description |
 | ------------ | ------------------ |
@@ -56,19 +56,19 @@ The steps in this section show how to set up the template VM:
     - To enable students to access their work after the class and lab ends.  
     - In case the student gets their VM into a bad state and their image needs to be [reset](https://docs.microsoft.com/azure/lab-services/how-to-set-virtual-machine-passwords#reset-vms).
 
-    With ArcGIS, this means each student should back up the following files at the end of each work session:
+    With ArcGIS, each student should back up the following files at the end of each work session:
 
-    - mxd file which stores the layout information for a project.
-    - File geodatabases which store all data produced by ArcGIS.
+    - mxd file, which stores the layout information for a project.
+    - File geodatabases, which store all data produced by ArcGIS.
     - Any other data that the student may be using such as raster files, shapefiles, GeoTIFF, etc.
 
-    We recommend using OneDrive for backup storage.  To setup OneDrive on the template VM, follow the steps in the article [Install and configure OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive). 
+    We recommend using OneDrive for backup storage.  To set up OneDrive on the template VM, follow the steps in the article [Install and configure OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive). 
 
 4.  Finally, publish the template VM to create the students’ VM.
 
 ### Auto-shutdown and disconnect settings
 
-A lab’s [auto-shutdown and disconnect](https://docs.microsoft.com/azure/lab-services/cost-management-guide#automatic-shutdown-settings-for-cost-control) settings help make sure that a student’s VM is shutdown when it’s not being used.  It’s important to set the values of these settings according to the types of workloads that your students will perform so that their VM doesn’t shutdown in the middle of their work.  For example, the **Disconnect users when virtual machines are idle** setting disconnects the student from their RDP session after no mouse or keyboard inputs have been detected for a specified amount of time.  For workloads where students aren’t actively using the mouse or keyboard but are using the VM to run long queries or to do rendering, you’ll want to ensure that this setting allows for sufficient time.
+A lab’s [auto-shutdown and disconnect](https://docs.microsoft.com/azure/lab-services/cost-management-guide#automatic-shutdown-settings-for-cost-control) settings help make sure that a student’s VM is shut down when it’s not being used.  It’s important to these settings according to the types of workloads that your students will perform so that their VM doesn’t shut down in the middle of their work.  For example, the **Disconnect users when virtual machines are idle** setting disconnects the student from their RDP session after no mouse or keyboard inputs have been detected for a specified amount of time.  This setting must allow sufficient time for workloads where the student isn't actively using the mouse or keyboard, such as to run long queries or wait for rendering.
 
 For ArcGIS, we recommend the following values for these settings:
 - Disconnect users when virtual machines are idle
