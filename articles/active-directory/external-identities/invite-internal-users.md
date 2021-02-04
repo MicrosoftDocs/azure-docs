@@ -23,7 +23,7 @@ Sending an invitation to an existing internal account lets you retain that userâ
 
 ## Things to consider
 
-- **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is [email one-time passcode authentication](one-time-passcode); if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
+- **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is [email one-time passcode authentication](one-time-passcode.md); if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
 
 - **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.
 
