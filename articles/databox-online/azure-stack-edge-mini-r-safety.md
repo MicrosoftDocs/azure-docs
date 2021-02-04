@@ -139,11 +139,11 @@ The equipment is designed to operate in the following environments:
 | Relative humidity (RH) specifications | <ul><li>Storage: 5% to 95% relative humidity</li><li>Operating: 10% to 90% relative humidity</li></ul>|
 | Maximum altitude specifications | <ul><li>Operating: 15,000 feet (4,572 meters)</li><li>Non-operating: 40,000 feet (12,192 meters)</li></ul>|
 
-> ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
+> ![Notice Icon - 2](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
 CANADA and USA:
 
-NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+> ![Notice Icon - 3](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body are tested for body-worn Specific Absorption Rate (SAR) compliance. The SAR limit set by the FCC is 1.6 W/kg when averaged over 1 g of tissue. When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
 
