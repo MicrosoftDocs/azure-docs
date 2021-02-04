@@ -56,9 +56,9 @@ Fortanix is a third-party software vendor with products and services built on to
 
 7. When the deployment is complete, select **Go to resource** button to go to the deployed CCM-managed application's "Overview" page to enroll the compute node.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/ccm-resource.png" alt-text="Screenshot that shows a successful deployment in the Azure portal.]":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/fortanix-resource.png" alt-text="Screenshot that shows a successful deployment in the Azure portal.]":::
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/ccm-overview.png" alt-text="Screenshot that shows an overview of the confidential computing resource in the Azure portal.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/fortanix-overview.png" alt-text="Screenshot that shows an overview of the confidential computing resource in the Azure portal.":::
 
 ## Enroll the compute node in Fortanix CCM
 
@@ -66,7 +66,7 @@ Fortanix is a third-party software vendor with products and services built on to
 
     For more details on how to sign up, log in and create an account in CCM refer to [CCM Getting Started](https://support.fortanix.com/hc/en-us/articles/360034373551-User-s-Guide-Logging-in).
     
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/ccm-login.png" alt-text="Screenshot that shows the Fortanix Confidential Computing Manager login.":::
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/fortanix-login.png" alt-text="Screenshot that shows the Fortanix Confidential Computing Manager login.":::
     
 2. To get the Join Token from the CCM Management Console, first select the **ENROLL NODE** button. Then, in the ENROLL NODE window, select the **COPY** button to copy the join token.
 
