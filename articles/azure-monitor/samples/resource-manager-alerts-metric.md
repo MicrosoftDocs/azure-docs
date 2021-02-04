@@ -1088,7 +1088,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../platform/metrics-custom-overview.md).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../essentials/metrics-custom-overview.md).
 
 When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
@@ -1319,7 +1319,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Multiple resources

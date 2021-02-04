@@ -147,7 +147,7 @@ Click on the exception row to see the details of the server-side exception that 
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../essentials/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.

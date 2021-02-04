@@ -27,7 +27,7 @@ The **Overview** page in the Azure portal for each Queue Storage resource includ
 
 Azure Queue Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources as well as resources in other clouds and on-premises.
 
-Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
+Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) which describes the following:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -39,7 +39,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure Queue Storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
+Azure Queue Storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Queue Storage.
 
@@ -261,7 +261,7 @@ To view an Azure Resource Manager template that creates a diagnostic setting, se
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 This example shows how to view **Transactions** at the account level.
 
@@ -602,5 +602,5 @@ No. Compute instances support the metrics on disks. For more information, see [P
 ## Next steps
 
 - For a reference of the logs and metrics created by Azure Queue Storage, see [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md).
-- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).

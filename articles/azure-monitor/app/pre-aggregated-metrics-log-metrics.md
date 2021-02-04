@@ -77,7 +77,7 @@ The collection of custom metrics dimensions is turned off by default because in 
 
 ## Creating charts and exploring log-based and standard pre-aggregated metrics
 
-Use [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics, and to author dashboards with charts. After selecting the desired Application Insights resource, use the namespace picker to switch between standard (preview) and log-based metrics, or select a custom metric namespace:
+Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics, and to author dashboards with charts. After selecting the desired Application Insights resource, use the namespace picker to switch between standard (preview) and log-based metrics, or select a custom metric namespace:
 
 ![Metric namespace](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

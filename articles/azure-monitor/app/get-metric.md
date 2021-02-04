@@ -298,6 +298,6 @@ SeverityLevel.Error);
 
 * [Learn more ](./worker-service.md)about monitoring worker service applications.
 * For further details on [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* [Metric Explorer](../platform/metrics-getting-started.md)
+* [Metric Explorer](../essentials/metrics-getting-started.md)
 * How to enable Application Insights for [ASP.NET Core Applications](asp-net-core.md)
 * How to enable Application Insights for [ASP.NET Applications](asp-net.md)

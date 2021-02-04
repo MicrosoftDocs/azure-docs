@@ -155,7 +155,7 @@
   - name: Scenarios
     items:
     - name: Monitor Azure resource
-      href: insights/monitor-azure-resource.md
+      href: essentials/monitor-azure-resource.md
     - name: Monitor Azure virtual machines
       href: vm/monitor-vm-azure.md
       displayname: VM
@@ -189,7 +189,7 @@
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
-        href: platform/metrics-getting-started.md
+        href: essentials/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: essentials/metrics-charts.md
       - name: Viewing multiple resources in Metric Explorer
@@ -197,7 +197,7 @@
       - name: Examples of metric charts
         href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
-        href: platform/metrics-troubleshoot.md
+        href: essentials/metrics-troubleshoot.md
       - name: Understanding metrics aggregation 
         href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
@@ -338,9 +338,9 @@
     - name: Custom metrics
       items:
       - name: Custom metrics
-        href: platform/metrics-custom-overview.md   
+        href: essentials/metrics-custom-overview.md   
       - name: Metrics REST API
-        href: platform/metrics-store-custom-rest-api.md
+        href: essentials/metrics-store-custom-rest-api.md
     - name: Custom logs
       items: 
       - name: Log Analytics Data collector API 
@@ -1294,7 +1294,7 @@
     - name: Platform metrics
       href: platform/metrics-supported.md
     - name: Metrics in diagnostic settings
-      href: platform/metrics-supported-export-diagnostic-settings.md
+      href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
   - name: Platform logs
@@ -1378,7 +1378,7 @@
       href: /rest/api/loganalytics
     - name: REST API Walkthrough
       displayname: metrics, analyze
-      href: platform/rest-api-walkthrough.md
+      href: essentials/rest-api-walkthrough.md
   - name: Resource Manager templates
     items:
     - name: Azure Monitor
@@ -1405,7 +1405,7 @@
     - name: OMS portal deprecation
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation
-      href: platform/portal-disk-metrics-deprecation.md
+      href: essentials/portal-disk-metrics-deprecation.md
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

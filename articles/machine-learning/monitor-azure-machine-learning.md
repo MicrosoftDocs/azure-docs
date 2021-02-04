@@ -30,7 +30,7 @@ When you have critical applications and business processes relying on Azure reso
 
 Azure Machine Learning creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources. It can also monitor resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -45,7 +45,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
@@ -77,7 +77,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Machine Learning data reference metrics](monitor-resource-reference.md#metrics).
 
@@ -170,4 +170,4 @@ The following table lists common and recommended metric alert rules for Azure Ma
 
 - For a reference of the logs and metrics, see [Monitoring Azure Machine Learning data reference](monitor-resource-reference.md).
 - For information on working with quotas related to Azure Machine Learning, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
-- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
+- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

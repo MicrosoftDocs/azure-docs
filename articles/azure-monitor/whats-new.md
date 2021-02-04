@@ -433,7 +433,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Azure Activity log](essentials/activity-log.md)
 - [Azure Monitor CLI samples](samples/cli-samples.md)
 - [Azure Monitor PowerShell samples](samples/powershell-samples.md)
-- [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
+- [Azure Monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)
 - [Azure Resource Logs supported services and schemas](./platform/resource-logs-schema.md)
 - [Azure resource logs](platform/resource-logs.md)
 - [Collect and analyze Azure activity log in Azure Monitor](./essentials/activity-log.md)
@@ -636,7 +636,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Metrics
 
-- [Disk metrics deprecation in the Azure portal](platform/portal-disk-metrics-deprecation.md) - New article.
+- [Disk metrics deprecation in the Azure portal](essentials/portal-disk-metrics-deprecation.md) - New article.
 - [Tutorial - Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - Added video.
 
 ### Platform logs
@@ -705,7 +705,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 ### Metrics
 
-- [Azure Monitor platform metrics exportable via Diagnostic Settings](platform/metrics-supported-export-diagnostic-settings.md) - Added section on change to behavior for nulls and zero values.
+- [Azure Monitor platform metrics exportable via Diagnostic Settings](essentials/metrics-supported-export-diagnostic-settings.md) - Added section on change to behavior for nulls and zero values.
 
 ### Visualizations
 
@@ -828,7 +828,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Metrics
 
-- [Azure Monitor platform metrics exportable via Diagnostic Settings](platform/metrics-supported-export-diagnostic-settings.md) - New article.
+- [Azure Monitor platform metrics exportable via Diagnostic Settings](essentials/metrics-supported-export-diagnostic-settings.md) - New article.
 
 ### Platform logs
 

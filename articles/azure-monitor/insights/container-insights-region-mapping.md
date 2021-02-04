@@ -44,7 +44,7 @@ Supported AKS regions are listed in [Products available by region](https://azure
 
 ## Custom metrics supported regions
 
-Collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods are supported for publishing as custom metrics only in the following [Azure regions](../platform/metrics-custom-overview.md#supported-regions).
+Collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods are supported for publishing as custom metrics only in the following [Azure regions](../essentials/metrics-custom-overview.md#supported-regions).
 
 ## Next steps
 

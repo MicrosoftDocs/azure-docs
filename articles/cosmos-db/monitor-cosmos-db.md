@@ -39,7 +39,7 @@ The **Overview** page in the Azure portal for each Azure Cosmos DB account inclu
 
 Azure Cosmos DB creates monitoring data using [Azure Monitor](../azure-monitor/overview.md) which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-If you're not already familiar with monitoring Azure services, start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) which describes the following concepts:
+If you're not already familiar with monitoring Azure services, start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) which describes the following concepts:
 
 * What is Azure Monitor?
 * Costs associated with monitoring
@@ -58,7 +58,7 @@ Azure Monitor for Azure Cosmos DB is based on the [workbooks feature of Azure Mo
 
 ## <a id="monitoring-from-azure-cosmos-db"></a> Monitoring data 
 
-Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
+Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
 
 The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
 
@@ -76,7 +76,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## <a id="analyze-metric-data"></a> Analyzing metrics
 
-Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. You can also checkout how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
+Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. You can also checkout how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
 
 For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-cosmos-db-reference.md#metrics) article.
 
@@ -197,9 +197,9 @@ To retrieve individual metrics use the following format:
 https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
 
-To learn more, see the [Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md) article.
+To learn more, see the [Azure monitoring REST API](../azure-monitor/essentials/rest-api-walkthrough.md) article.
 
 ## Next steps
 
 * See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

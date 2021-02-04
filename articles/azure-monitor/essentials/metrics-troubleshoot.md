@@ -58,7 +58,7 @@ Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Ex
 
 This problem may happen when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
-**Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
+**Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](../platform/metrics-supported.md).
 
 ## Chart shows dashed line
 
@@ -102,5 +102,5 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 
 * [Learn about getting started with Metric Explorer](metrics-getting-started.md)
 * [Learn about advanced features of Metric Explorer](../essentials/metrics-charts.md)
-* [See a list of available metrics for Azure services](metrics-supported.md)
+* [See a list of available metrics for Azure services](../platform/metrics-supported.md)
 * [See examples of configured charts](../essentials/metric-chart-samples.md)

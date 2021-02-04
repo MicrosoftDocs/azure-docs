@@ -104,4 +104,4 @@ There is no way to log this information separately from the query string that in
 Fluency with Azure Monitor is essential for oversight of any Azure service, including resources like Azure Cognitive Search. If you are not familiar with Azure Monitor, take the time to review articles related to resources. In addition to tutorials, the following article is a good place to start.
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
