@@ -28,7 +28,7 @@ Computer Vision's Read API v3.2 public preview includes these capabilities:
 See the [Read API overview](concept-recognizing-text.md) to learn more.
 
 > [!div class="nextstepaction"]
-> [Test drive the Read API v3.2 Public Preview] (https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Test drive the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
 
 
 ## January 2021
