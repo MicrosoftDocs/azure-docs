@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/24/2020
+ms.date: 01/26/2021
 ms.author: memildin
 ---
 
@@ -126,8 +126,9 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
+|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Kubernetes workload protection](kubernetes-workload-protections.md)|-|-|
 |||
 
 (1) Requires **Azure Defender for servers**

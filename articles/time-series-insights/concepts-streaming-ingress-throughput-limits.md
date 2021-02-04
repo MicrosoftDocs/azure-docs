@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
 ---
 

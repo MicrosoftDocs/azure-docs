@@ -98,8 +98,8 @@ Before you configure your experiment, upload your data file to your workspace in
         Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, we don't make any selections. Select **Next**.
-
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week**, so as to not include it. Select **Next**.
+         ![Schema form](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info, Datastore and file selection** and **Settings and preview** forms.
     
     1. Select **Create** to complete the creation of your dataset.
@@ -166,12 +166,6 @@ After you load and configure your data, you can set up your experiment. This set
         
         Select **Save**.
     
-    1. Select **View featurization settings**. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for featurization in this experiment.
-
-        ![Featurization selection](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Select **Save**.
-
 1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
@@ -248,7 +242,7 @@ Delete just the deployment instance from Azure Machine Learning at https:\//ml.a
 In this automated machine learning tutorial, you used Azure Machine Learning's automated ML interface to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.

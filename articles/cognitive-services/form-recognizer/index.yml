@@ -144,7 +144,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Use container instances
-            url: deploy-form-recognizer-on-container-instances.md
+            url: ../containers/azure-container-instance-recipe.md
 
   - title: Reference
     linkLists:

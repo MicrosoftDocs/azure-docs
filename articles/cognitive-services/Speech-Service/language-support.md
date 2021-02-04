@@ -124,8 +124,6 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices/list API](rest-text-to-speech.md#get-a-list-of-voices). 
 
-To learn how you can configure and adjust speaking styles, including neural voices, see the [how-to](speech-synthesis-markup.md#adjust-speaking-styles) on Speech Synthesis Markup Language.
-
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
 
@@ -284,6 +282,8 @@ Below neural voices are in public preview.
 
 For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
+To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
 
@@ -410,7 +410,7 @@ Custom Voice is available in the standard and the neural tier. The languages sup
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
 > [!NOTE]
-> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select "Chinese-English bilingual" if you want to train a Chinese voice that can speak English as well. Chinese-English bilingual model training using the standard method is available in North Europe and North Central US only. Custom Neural Voice training is available in UK South and East US. 
+> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select "Chinese-English bilingual" if you want to train a Chinese voice that can speak English as well. Chinese-English bilingual model training using the standard method is available in North Europe and North Central US only. Custom Neural Voice training is available in UK South and East US.
 
 ## Speech translation
 
