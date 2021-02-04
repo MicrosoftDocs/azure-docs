@@ -237,8 +237,6 @@ In this instance, only changes made to files following files trigger a new build
 - Any files inside the *api1* folder
 - Changes to the app's *azure-static-web-apps-purple-pond.yml* workflow file
 
-Other instances of an Azure Static Web Apps static site in the repo need its own workflow file with corresponding path values.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
