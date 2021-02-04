@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Allowed certificate authorities for enabling custom HTTPS
 
-Specific certificate requirements are required when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) for an Azure CDN(Content Delivery Network) custom domain. 
+Specific certificate requirements are required when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) for an Azure CDN (Content Delivery Network) custom domain. 
 
 * The **Azure CDN Standard from Microsoft** profile requires a certificate from one of the approved certificate authorities (CA) in the following list. If a certificate from an unapproved CA or if a self-signed certificate is used, the request is rejected. 
 
