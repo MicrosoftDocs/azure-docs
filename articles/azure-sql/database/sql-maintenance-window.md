@@ -8,7 +8,7 @@ ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.custom: 
+ms.custom: references_regions
 ms.date: 01/19/2021
 ---
 
@@ -62,17 +62,25 @@ The SQL Maintenance Window feature is available on all Azure SQL Database and SQ
 
 ### Azure region support
 
-The SQL Maintenance Window is available in the following regions:
+The maintenance window is available in the following regions with more regions planned over time:
 
 - Australia East
+- Australia SouthEast
+- Brazil South
+- Canada Central
+- Central US
 - East US
-- East US 2
+- East US2
+- Japan East
+- NorthCentral US
 - North Europe
-- South Central US
-- Southeast Asia
+- SouthCentral US
+- SouthEast Asia
 - UK South
 - West Europe
-- West US 2
+- West US
+- West US2
+
 
 ## Next steps
 
