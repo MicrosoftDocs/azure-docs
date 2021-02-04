@@ -17,11 +17,12 @@ ms.author: alexeyo
 [Azure Private Link](../../private-link/private-link-overview.md) lets you connect to services in Azure by using a [private endpoint](../../private-link/private-endpoint-overview.md). A private endpoint is a private IP address that's accessible only within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 This article explains how to set up and use Private Link and private endpoints with Speech Services in Azure Cognitive Services.
+This article then describes how to remove private endpoints later, but still use the Speech resource.
 
 > [!NOTE]
 > Before you proceed, review [how to use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
 
-This article also describes [how to remove private endpoints later, but still use the Speech resource](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+
 
 ## Create a custom domain name
 
