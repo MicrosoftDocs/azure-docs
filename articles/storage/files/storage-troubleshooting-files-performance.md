@@ -29,14 +29,28 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 1. Select **Transactions** as the metric.
 
-1. Add a filter for **Response type**, and then check to see whether any requests have either of the following response codes:
-   * **SuccessWithThrottling**: For Server Message Block (SMB)
-   * **ClientThrottlingError**: For REST
+1. Add a filter for **Response type**, and then check to see whether any requests have been throttled. 
 
-   ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    For standard file shares, the following response types are logged if a request is throttled:
 
-   > [!NOTE]
-   > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    For premium file shares, the following response types are logged if a request is throttled:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    To learn more about each response type, see [Metric dimensions](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
 
 ### Solution
 
