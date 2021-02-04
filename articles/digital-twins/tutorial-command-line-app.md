@@ -278,9 +278,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 The project in this tutorial forms the basis for the next tutorial, [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
 * In this case, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+Otherwise, to delete the resources created in this tutorial (including the Azure Digital Twins instance), follow these steps.
 
-Finally, delete the project sample folder you downloaded to your local machine.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 ## Next steps 
 

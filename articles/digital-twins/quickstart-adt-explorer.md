@@ -309,10 +309,12 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 To wrap up the work for this quickstart, first end the running console app. This action shuts off the connection to the ADT Explorer app in the browser. You'll no longer be able to view live data in the browser. You can close the browser tab.
 
 If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+
+Otherwise, to delete the resources created in this tutorial (including the Azure Digital Twins instance), follow these steps.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folder, **Azure_Digital_Twins__ADT__explorer**, you downloaded to your local machine. You might have to delete both the zipped and unzipped versions.
+You might have to delete both the zipped and unzipped versions of the downloaded sample folder.
 
 ## Next steps
 
