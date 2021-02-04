@@ -17,9 +17,7 @@ This guide will show you how to get started with the Azure Spatial Anchors SDK i
 
 ## Requirements
 
-Azure Spatial Anchors currently supports Unity 2019.4 (LTS) with the following configurations.
-
-* Unity 2019.4 with AR Foundation 3.1 is supported in Azure Spatial Anchors 2.4.0+.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## Configuring a project
 
