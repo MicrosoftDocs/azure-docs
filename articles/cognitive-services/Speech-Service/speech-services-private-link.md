@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: alexeyo
 ---
 
@@ -336,7 +336,7 @@ The [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-t
 > [!TIP]
 > See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
-The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#general-principles) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech-to-text REST API for short audio and the Text-to-speech REST API.
+The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech-to-text REST API for short audio and the Text-to-speech REST API.
 
 Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the Text-to-speech REST API. Usage of the Speech-to-text REST API for short audio is fully equivalent.
 
@@ -361,7 +361,7 @@ For the private-endpoint-enabled Speech resource, the endpoint URL for the same 
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
 ```
-See a detailed explanation in the [General principles](#general-principles) subsection for the Speech SDK.
+See a detailed explanation in the [Construct endpoint URL](#construct-endpoint-url) subsection for the Speech SDK.
 
 #### Speech resource with a custom domain name and a private endpoint: Usage with the Speech SDK
 
@@ -369,7 +369,7 @@ Using the Speech SDK with a custom domain name and private-endpoint-enabled Spee
 
 We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
-##### General principles
+##### Construct endpoint URL
 
 Usually in SDK scenarios (as well as in the Speech-to-text REST API for short audio and Text-to-speech REST API scenarios), Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
 
@@ -451,7 +451,7 @@ Follow these steps to modify your code:
 
 2. Create a `SpeechConfig` instance by using a full endpoint URL:
 
-   1. Modify the endpoint that you just determined, as described in the earlier [General principles](#general-principles) section.
+   1. Modify the endpoint that you just determined, as described in the earlier [Construct endpoint URL](#construct-endpoint-url) section.
 
    1. Modify how you create the instance of `SpeechConfig`. Most likely, your application is using something like this:
       ```csharp
