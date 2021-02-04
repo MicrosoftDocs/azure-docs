@@ -29,7 +29,7 @@ This article then describes how to remove private endpoints later, but still use
 Private endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Use the following instructions to create one for your Speech resource.
 
 > [!WARNING]
-> A Speech resource with a custom domain name enabled uses a different way to interact with Speech Services. 
+> A Speech resource that uses a custom domain name interacts with Speech Services in a different way.
 > You might have to adjust your application code to use a Speech resource with a private endpoint, and also to use a Speech resource with _no_ private endpoint.
 > Both scenarios may be needed because the switch to custom domain name is _not_ reversible.
 >
@@ -185,7 +185,7 @@ If the name is already taken, then you'll see the following response:
 ```
 ## Enable a custom domain name
 
-To enable a custom domain name for the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
+To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
 
 Select the Azure subscription that contains the Speech resource. If your Azure account has only one active subscription, you can skip this step. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 ```azurecli-interactive
@@ -204,11 +204,13 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ## Enable private endpoints
 
-We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. You create a private DNS zone by default during the provisioning process. If you're using your own DNS server, you might also need to change your DNS configuration. 
+We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. 
+We create a private DNS zone by default during the provisioning process. 
+If you're using your own DNS server, you might also need to change your DNS configuration.
 
 Decide on a DNS strategy *before* you provision private endpoints for a production Speech resource. And test your DNS changes, especially if you use your own DNS server.
 
-Use one of the following articles to create private endpoints. These articles use a web app as a sample resource to enable with private endpoints.
+Use one of the following articles to create private endpoints. These articles add private endpoints to a web app as a sample resource.
 
 - [Create a private endpoint by using the Azure portal](../../private-link/create-private-endpoint-portal.md)
 - [Create a private endpoint by using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -273,7 +275,9 @@ If you plan to access the resource by using only a private endpoint, you can ski
 
 ## Adjust an app to use a Speech resource with a private endpoint
 
-A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom-domain-enabled Speech resource both with and without private endpoints. Information in this section applies to both scenarios.
+A Speech resource with a custom domain interacts with Speech Services in a different way. 
+This is true for a custom-domain-enabled Speech resource both with and without private endpoints. 
+Information in this section applies to both scenarios.
 
 Follow instructions in this section to adjust existing applications and solutions to use a Speech resource with a custom domain name and a private endpoint enabled.
 
@@ -281,7 +285,7 @@ A Speech resource with a custom domain name and a private endpoint enabled uses 
 
 > [!NOTE]
 > A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
-> This way differs from the scenario of a private-endpoint-enabled Speech resource. 
+> This way differs from the scenario of a Speech resource that uses a private endpoint. 
 > This is important to consider because you may decide to remove private endpoints later.
 > See _Adjust an app to use a Speech resource without private endpoints_ later in this article.
 
