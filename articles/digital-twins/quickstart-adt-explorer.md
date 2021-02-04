@@ -310,7 +310,9 @@ To wrap up the work for this quickstart, first end the running console app. This
 
 If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
-Otherwise, to delete the resources created in this tutorial (including the Azure Digital Twins instance), follow these steps.
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+
+Finally, if you do not need any of the resources you created in this tutorial, you can delete the Azure Digital Twins instance and all other quickstart resources with these steps.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

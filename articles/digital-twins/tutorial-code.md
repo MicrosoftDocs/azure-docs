@@ -256,9 +256,11 @@ At this point in the tutorial, you have a complete client app, capable of perfor
 
 ## Clean up resources
  
-The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
+The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins resources you set up here and skip the rest of this section.
 
-Otherwise, to delete the resources created in this tutorial (including the Azure Digital Twins instance), follow these steps.
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+
+Finally, if you do not need any of the resources you created in this tutorial, you can delete the Azure Digital Twins instance and all other tutorial resources with these steps.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
