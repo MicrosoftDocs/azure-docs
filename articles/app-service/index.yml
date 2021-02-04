@@ -13,7 +13,7 @@ metadata:
 landingContent:
   - title: Get started
     linkLists:
-    - linkListType: whats-new
+      - linkListType: whats-new
         links:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=app-service
