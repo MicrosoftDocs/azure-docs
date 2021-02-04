@@ -20,7 +20,8 @@ ms.author: b-juche
 
 From the beginning of the service, Azure NetApp Files has been using a capacity-pool provisioning and automatic growth mechanism. Azure NetApp Files volumes are thinly provisioned on an underlaying, customer-provisioned capacity pool of a selected tier and size. Volume sizes (quotas) are used to provide performance and capacity, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when the capacity fills up.   
 
-The Azure NetApp Files behavior of volume and capacity pool provisioning will change to a *manual* and *controllable* mechanism. **Starting from March 15th, 2021, volume sizes (quota) will manage bandwidth performance, as well as provisioned capacity, and underlying capacity pools will no longer grow automatically.** 
+> [!IMPORTANT] 
+> The Azure NetApp Files behavior of volume and capacity pool provisioning will change to a *manual* and *controllable* mechanism. **Starting from March 15th, 2021, volume sizes (quota) will manage bandwidth performance, as well as provisioned capacity, and underlying capacity pools will no longer grow automatically.** 
 
 ## Reasons for the change to volume hard quota
 
@@ -66,12 +67,12 @@ Because of the volume hard quota change, you should change your operating model.
 The volume hard quota change will result in changes in provisioned and available capacity for previously provisioned volumes and pools. As a result, some capacity allocation challenges might happen. To avoid short-term out-of-space situations for customers, the Azure NetApp Files team recommends the following, one-time corrective/preventative measures: 
 
 * **Provisioned volume sizes**:   
-    Resize every provisioned volume to have appropriate buffer based on change rate and alerting or resize turnaround time (for example, 20% based on typical workload considerations), with a maximum of 100 TiB (which is the volume size limit). This new volume size, including buffer capacity, should be based on the following factors:
+    Resize every provisioned volume to have appropriate buffer based on change rate and alerting or resize turnaround time (for example, 20% based on typical workload considerations), with a maximum of 100 TiB (which is the [volume size limit](azure-netapp-files-resource-limits.md#resource-limits)). This new volume size, including buffer capacity, should be based on the following factors:
     * **Provisioned** volume capacity, in case the used capacity is less than the provisioned volume quota.
     * **Used** volume capacity, in case the used capacity is more than the provisioned volume quota.  
-    There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit increase for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
+    There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
 
-* **Provisioned capacity pool sizes**: 
+* **Provisioned capacity pool sizes**:   
     After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool will have to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 500 TiB (which is the [capacity pool size limit](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity will be subject to ACR charge as normal.
 
 You should work with your Azure NetApp Files specialists to validate your environment, if you need help with setting up monitoring or alerting as described in the sections below.
@@ -80,7 +81,7 @@ You should work with your Azure NetApp Files specialists to validate your enviro
 
 After performing the one-time corrective measures,  you should put together ongoing processes to monitor and manage capacity. The following sections provide suggestions and alternatives about capacity monitoring and management.
 
-### Monitoring
+### Monitor capacity utilization
 
 You can monitor capacity utilization at various levels. 
 
@@ -94,7 +95,7 @@ In the following two scenarios, consider an Azure NetApp Files volume configured
 
 Windows clients can check the used and available capacity of a volume by using the network mapped drive properties. You can use the **Explorer** -> **Drive** -> **Properties** option.  
 
-The following snapshots show the volume capacity reporting in Windows *before* the changed behavior:
+The following examples show the volume capacity reporting in Windows *before* the changed behavior:
 
 ![Screenshots that show example storage capacity of a volume before behavior change](../media/azure-netapp-files/hard-quota-windows-capacity-before.png)
 
@@ -102,7 +103,7 @@ You can also use the `dir` command at the command prompt as shown below:
 
 ![Screenshot that shows using a command to display storage capacity for a volume before behavior change](../media/azure-netapp-files/hard-quota-command-capacity-before.png)
 
-The following snapshots show the volume capacity reporting in Windows *after* the changed behavior:
+The following examples show the volume capacity reporting in Windows *after* the changed behavior:
 
 ![Screenshots that show example storage capacity of a volume after behavior change](../media/azure-netapp-files/hard-quota-windows-capacity-after.png)
 
@@ -159,7 +160,7 @@ You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-o
 
 1. From the Manage NetApp Account blade, click **Volumes**.  
 2. Right-click the name of the volume that you want to resize or click the `…` icon at the end of the volume's row to display the context menu. 
-3. Use the context menu options to resize or delete the volume:   
+3. Use the context menu options to resize or delete the volume.   
 
    ![Screenshot that shows context menu options for a volume](../media/azure-netapp-files/hard-quota-volume-options.png) 
 
@@ -180,8 +181,8 @@ In some cases, the hosting capacity pool does not have sufficient capacity to re
 
 You can use the [Azure NetApp Files CLI tools](azure-netapp-files-sdk-cli.md#cli-tools), including the Azure CLI and Azure PowerShell, to manually change the volume or capacity pool size.  The following two commands can be used to manage Azure NetApp Files volume and pool resources:  
 
-* [`az netappfiles pool`](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest)
-* [`az netappfiles volume`](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest)
+* [`az netappfiles pool`](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest&preserve-view=true)
+* [`az netappfiles volume`](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true)
 
 To manage Azure NetApp Files resources using Azure CLI, you can open the Azure portal and select the Azure **Cloud Shell** link in the top of the menu bar: 
 
@@ -191,13 +192,13 @@ This action will open the Azure Cloud shell:
 
 ![Screenshot that shows Cloud Shell window](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) 
 
-The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show) and [update](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update) the size of a volume:
+The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) and [update](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) the size of a volume:
  
 ![Screenshot that shows using PowerShell to show volume size ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) 
 
 ![Screenshot that shows using PowerShell to update volume size ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) 
 
-The following examples use the commands to show and update the size of a capacity pool:
+The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-show&preserve-view=true) and [update](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-update&preserve-view=true) the size of a capacity pool:
 
 ![Screenshot that shows using PowerShell to show capacity pool size ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) 
 
@@ -209,7 +210,7 @@ You can build an automated process to manage the changed behavior.
 
 ##### REST API   
 
-The REST API for the Azure NetApp Files service defines HTTP operations against resources such as the NetApp account, the capacity pool, the volumes, and snapshots. The REST API specification for Azure NetApp Files is published through the [Azure NetApp Files Resource Manager GitHub page(https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)]. You can find [example code for use with REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-06-01/examples) in GitHub.
+The REST API for the Azure NetApp Files service defines HTTP operations against resources such as the NetApp account, the capacity pool, the volumes, and snapshots. The REST API specification for Azure NetApp Files is published through the [Azure NetApp Files Resource Manager GitHub page](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)]. You can find [example code for use with REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-06-01/examples) in GitHub.
 
 See [Develop for Azure NetApp Files with REST API](azure-netapp-files-develop-with-rest-api.md). 
 
