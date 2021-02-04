@@ -13,7 +13,7 @@ tags: connectors
 
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector
 
-With Azure Logic Apps and the IBM 3270 connector, you can access and run IBM mainframe apps that you usually drive by navigating through 3270 emulator screens. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol; supports in, out, and array processing; and is available in all Azure Logic Apps regions except for Azure Government and Azure China 21Vianet. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+With Azure Logic Apps and the IBM 3270 connector, you can access and run IBM mainframe apps that you usually drive by navigating through 3270 emulator screens. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol and is available in all Azure Logic Apps regions except for Azure Government and Azure China 21Vianet. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 This article describes these aspects for using the 3270 connector: 
 
@@ -129,18 +129,16 @@ to navigate through your mainframe app's screens for the specific task.
 
 * **Methods**: In this mode, you define the method, for example, 
 `GetBalance`, that describes the screen navigation path. You also 
-choose the fields on each screen that become the method's input 
+select the fields on each screen that become the method's input 
 and output parameters.
 
 ### Unsupported elements
 
 The design tool doesn't support these elements:
 
-* Partial IBM Basic Mapping Support (BMS) maps: If you import 
-a BMS map, the design tool ignores partial screen definitions.
-* In/Out parameters: You can't define In/Out parameters.
-* Menu processing: Not supported during preview
-* Array processing: Not supported during preview
+* Partial IBM Basic Mapping Support (BMS) maps: If you import a BMS map, the design tool ignores partial screen definitions.
+
+* Menu processing
 
 <a name="capture-screens"></a>
 
@@ -157,13 +155,11 @@ connecting to the host. Each connector action must map to
 a single task that starts with connecting to your session 
 and ends with disconnecting from your session.
 
-1. If you haven't already, open the 3270 Design Tool. On the 
-toolbar, choose **Capture** so that you enter Capture mode.
-
-1. To start recording, press the F5 key, or from 
-the **Recording** menu, select **Start Recording**. 
+1. If you haven't already, open the 3270 Design Tool. On the toolbar, select **Capture** so that you enter Capture mode.
 
 1. From the **Session** menu, select **Connect**.
+
+1. To start recording, from the **Recording** menu, select **Start Recording**. (Keyboard: Ctrl + E)
 
 1. In the **Capture** pane, starting from the 
 first screen in your app, step through your app 
@@ -173,8 +169,7 @@ for the specific task that you're recording.
 
 1. From the **Session** menu, select **Disconnect**.
 
-1. To stop recording, press the Shift + F5 keys, 
-or from the **Recording** menu, select **Stop Recording**.
+1. To stop recording, from the **Recording** menu, select **Stop Recording**. (Keyboard: Ctrl + Shift + F5)
 
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Some notes 
@@ -290,11 +285,9 @@ in your plan. Here are some examples of repeated screens:
 
 ### Create plans
 
-1. On the 3270 Design Tool's toolbar, choose 
-**Navigation** so that you enter Navigation mode.
+1. On the 3270 Design Tool's toolbar, select **Navigation** so that you enter Navigation mode.
 
-1. To start your plan, in the **Navigation** pane, 
-choose **New Plan**.
+1. To start your plan, in the **Navigation** pane, select **New Plan**.
 
 1. Under **Choose New Plan Name**, enter a name for 
 your plan. From the **Type** list, select the plan type:
@@ -484,14 +477,10 @@ get an error, try one of these solutions:
 
 ## Test your method
 
-1. To run your method against the live host, 
-while still in Methods mode, press the F5 key, 
-or from the design tool's toolbar, choose **Run**.
+1. To run your method against the live host, while still in Methods mode, press the F5 key, or from the design tool's toolbar, choose **Test**.
 
    > [!TIP]
-   > You can change modes at any time. 
-   > On the **File** menu, select **Mode**, 
-   > and then select the mode you want.
+   > You can change modes at any time. On the **File** menu, select **Mode**, and then select the mode you want.
 
 1. Enter your parameters' values, and choose **OK**.
 
@@ -509,7 +498,7 @@ can upload to your integration account. The 3270
 Design Tool creates the HIDX file in a new 
 subfolder where you saved your RAP file.
 
-1. On the 3270 Design Tool's toolbar, choose **Generate Code**.
+1. In the 3270 Design Tool, from the **Tools** menu, select **Generate Definitions**.
 
 1. Go to the folder that contains your RAP file, and open the 
 subfolder that the tool created after generating your HIDX file. 
@@ -545,24 +534,16 @@ integrating with other apps, services, and systems.
 1. Sign in to the [Azure portal](https://portal.azure.com), 
 and open your logic app in Logic App Designer, if not open already.
 
-1. Under the last step where you want to add an action, 
-choose **New step**, and select **Add an action**. 
+1. Under the last step where you want to add an action, select **New step** **>** **Add an action**. 
 
-1. Under the search box, choose **Enterprise**. 
-In the search box, enter "3270" as your filter. 
-From the actions list, select this action: 
+1. Under the search box, select **Enterprise**. In the search box, enter `3270` as your filter. From the actions list, select the action named 
 **Runs a mainframe program over a TN3270 connection**
 
    ![Select 3270 action](./media/connectors-create-api-3270/select-3270-action.png)
 
-   To add an action between steps, 
-   move your pointer over the arrow between steps. 
-   Choose the plus sign (**+**) that appears, 
-   and then select **Add an action**.
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. If no connection exists yet, provide the 
-necessary information for your connection, 
-and choose **Create**.
+1. If no connection exists yet, provide the necessary information for your connection, and select **Create**.
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -611,7 +592,7 @@ and choose **Create**.
 
 1. To review the inputs and outputs for each step, expand that step.
 
-1. To review the outputs, choose **See raw outputs**.
+1. To review the outputs, select **See raw outputs**.
 
 ## Connector reference
 
