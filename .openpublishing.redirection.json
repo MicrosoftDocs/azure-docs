@@ -16117,6 +16117,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/prepay-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-prepay-databricks-reserved-capacity.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-databricks-reserved-capacity",
       "redirect_document_id": true
@@ -16136,6 +16141,12 @@
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service",
+      "redirect_document_id": true
+    },
+
     {
       "source_path_from_root": "/articles/billing/billing-how-reservation-discount-is-applied-to-azure-sql-dw.md",
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-azure-sql-dw",
