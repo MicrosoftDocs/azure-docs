@@ -34,7 +34,7 @@ Some of the operations supported by the Hive Warehouse Connector are:
 
 > [!IMPORTANT]
 > - The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
-> - Interactive Query Clusters with Workload Management Feature enabled is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate Interactive Query cluster without Workload Management Feature to be used with Hive Warehouse Connector.
+> - Hive Warehouse Connector (HWC) Library is not supported for use with Interactive Query Clusters where Workload Management (WLM) feature is enabled. To use HWC Library, you need to create a separate Interactive Query cluster pointing to same metastore database and ensure Workload Management feature is not configured (Avoid setting `hive.server2.tez.interactive.queue` configuration) in it. <br> Note: You can still view the WLM resource plans configured via other cluster because of shared metastore. Don't make any changes to resource plans from this new cluster as it might impact the WLM functionality in other cluster.
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
