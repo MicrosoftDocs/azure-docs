@@ -127,13 +127,19 @@ See the following example of a successful JSON response:
 ```
 
 ## Select page(s) or page ranges for text extraction
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, specify page numbers or page ranges as an input parameter to extract text from only those pages.
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages.
+
+![Select pages for OCR](./Images/selected-pages-ocr-png)
 
 ## Specify text line order in the output
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `read order` input parameter. Choose between `basic` for the default left-right and top-down line order or `natural` for a more human reading-friendly line order.
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `read order` query parameter. Choose between `basic` for the default left-right and top-down line order or `natural` for a more human reading-friendly line order.
+
+![OCR Reading order](./Images/ocr-read-order.png)
 
 ## Handwritten classification for text lines (Latin only)
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is supported only for Latin languages.
+
+![OCR Handwriting classification for text lines](./Images/handwritten-text-line.png)
 
 ## Supported languages
 The Read APIs support a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten style OCR is supported exclusively for English.
