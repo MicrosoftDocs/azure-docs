@@ -49,7 +49,7 @@ The infrastructure requirements for a private application are in the following l
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Self-hosted build agents must be used (for example, Azure DevOps)
+* Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
@@ -98,7 +98,7 @@ The infrastructure requirements for a public application are in the following li
 * Egress traffic must traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Self-hosted build agents must be used (for example, Azure DevOps)
+* Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host DNS records must be stored in Azure Private DNS
 * Internet routable addresses must be stored in Azure Public DNS
