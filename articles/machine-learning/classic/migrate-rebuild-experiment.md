@@ -125,8 +125,6 @@ To set a default compute target for the entire pipeline:
 1. Select **Select compute target**.
 1. Select an existing compute, or create a new compute by following the on-screen instructions.
 
-![Screenshot highlighting the Select compute target selection in the run settings](./media/migrate-to-AML/run-setting.png) 
-
 Now that your compute target is set, you can submit a pipeline run:
 
 1. At the top of the canvas, select **Submit**.
@@ -145,8 +143,6 @@ After the run finishes, you can check the results of each module:
 - **Visualize**: Preview the results dataset.
 - **View Output**: Open a link to the output storage location. Use this to explore or download the output. 
 - **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
-
-![Screenshow showing options when you right click a module in the designer.](./media/migrate-to-AML/right-click.png)
 
 
 ## Next steps

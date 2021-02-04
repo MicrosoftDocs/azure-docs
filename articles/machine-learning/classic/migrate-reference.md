@@ -100,8 +100,6 @@ After you register a dataset in Azure Machine Learning, you can use it in the de
 1. In the module palette to the left, expand the **Datasets** section
 1. Drag your registered dataset onto the canvas. 
 
-    ![Screenshot showing saved dataset in a designer pipeline draft](./media/migrate-to-AML/registered-dataset.png)
-
 ### Use the Import Data module in the designer
 
 1. [Create a datastore](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
@@ -111,8 +109,6 @@ After you create the datastore, you can use the **Import Data** module in the de
 1. Create a new designer pipeline draft.
 1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.
 1. Select the **Import Data** module, and use the settings in the right panel to configure your data source
-
-    ![Screenshot showing the Import Data module data source settings](./media/migrate-to-AML/import-data.png)
 
 ## Execute R Script
 

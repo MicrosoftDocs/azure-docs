@@ -35,9 +35,6 @@ If you deployed your model as a **real-time endpoint**, you can find its REST en
 1. Select your real-time endpoint.
 1. Select **Consume**.
 
-![Screenshot showing real-time sample integration code](./media/migrate-to-AML/realtime-sample-code.png)  
-
-
 > [!NOTE]
 > You can also find the Swagger specification for your endpoint in the **Details** tab. Refer to the Swagger definition to understand your endpoint schema. For more information on Swagger definition, see [Swagger official documentation](https://swagger.io/docs/specification/2-0/what-is-swagger/).
 
@@ -58,8 +55,6 @@ Call the REST endpoint from your client application. You can use the Swagger spe
 1. Select **Pipeline endpoints**.
 1. Select your pipeline endpoint.
 1. In the **Pipeline endpoint overview** pane, select the link under **REST endpoint documentation**.
-
-![Screenshot showing the swagger URI location for pipeline endpoints](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
 
 ### Use Azure Data FActory
 
