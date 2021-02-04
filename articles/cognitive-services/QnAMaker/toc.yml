@@ -92,8 +92,6 @@
     href: Concepts/confidence-score.md
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Question and answer pairs	
-    href: Concepts/question-answer-set.md
   - name: Precise answering
     href: reference-precise-answering.md
   - name: Add secured SharePoint files
