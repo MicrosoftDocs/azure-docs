@@ -74,7 +74,7 @@ Select resources you want to move.
     ![Page to select source and destination region](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. In **Resources to move**, click **Select resources**.
-7. In **Select resources**, select the VM. You can only add [resources supported for move](#check-vm-requirements). Then click **Done**.
+7. In **Select resources**, select the VM. You can only add [resources supported for move](#prepare-vms). Then click **Done**.
 
     ![Page to select VMs to move](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
