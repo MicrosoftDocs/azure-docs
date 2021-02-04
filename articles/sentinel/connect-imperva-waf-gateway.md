@@ -1,6 +1,6 @@
 ---
-title: Connect Imperva WAF Gateway data to Azure Sentinel | Microsoft Docs
-description: Learn how to use the Imperva WAF Gateway connector to pull WAF Gateway logs into Azure Sentinel. View WAF Gateway data in workbooks, create alerts, and improve investigation.
+title: Connect your Imperva WAF Gateway appliance to Azure Sentinel | Microsoft Docs
+description: Learn how to use the Imperva WAF Gateway connector to pull Imperva WAF logs into Azure Sentinel. View Imperva WAF data in workbooks, create alerts, and improve investigation.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -30,9 +30,7 @@ This article explains how to connect your Imperva WAF Gateway appliance to Azure
 
 - You must have read and write permissions on your Azure Sentinel workspace.
 
-- </IF REQUIRED> You must have read permissions to shared keys for the workspace.
-
-- </OTHERS IF REQUIRED>
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 ## Send Imperva WAF Gateway logs to Azure Sentinel
 
@@ -46,13 +44,11 @@ To get its logs into Azure Sentinel, configure your Imperva WAF Gateway applianc
 
     1. Under **1. Linux Syslog agent configuration** - Do this step if you don't already have a log forwarder running, or if you need another one. See [STEP 1: Deploy the log forwarder](connect-cef-agent.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
-    1. Under **2. </COPIED FROM UI INSTRUCTIONS>** - Follow Imperva's instructions to [configure WAF Gateway](</LINK-TO-WEBPAGE>).This configuration should include the following elements:
+    1. Under **2. Forward Common Event Format (CEF) logs to Syslog agent** - This connector requires an **Action Interface** and **Action Set** to be created on the **Imperva SecureSphere MX** management console. Follow Imperva's instructions to [enable Imperva WAF Gateway alert logging to Azure Sentinel](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert). This configuration should include the following elements:
         - Log destination – the hostname and/or IP address of your log forwarding server
-        - Protocol and port – TCP 514 (if recommended otherwise, be sure to make the parallel change in the syslog daemon on your log forwarding server)
+        - Protocol and port – TCP 514
         - Log format – CEF
         - Log types – all available
-
-        This connector requires an Action Interface and Action Set to be created on the Imperva SecureSphere MX. Follow the steps [here](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) to create the requirements.
 
     1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
@@ -66,14 +62,16 @@ To query Imperva WAF Gateway data in Log Analytics, copy the following into the 
 
 ```kusto
 CommonSecurityLog 
-| where DeviceVendor == "<VENDOR/PRODUCT AS APPEARS IN QUERY>"
+| where DeviceVendor == "Imperva Inc." 
+| where DeviceProduct == "WAF Gateway" 
+| where TimeGenerated == ago(5m)
 ```
 
-See the **Next steps** tab in the connector page for more query samples.
+See the **Next steps** tab in the connector page for more useful query samples.
 
 ## Next steps
 In this document, you learned how to connect Imperva WAF Gateway to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

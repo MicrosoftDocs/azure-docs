@@ -44,15 +44,15 @@ Configure Alsid for AD to forward Syslog messages to your Azure Sentinel workspa
 
     1. Configure a Syslog server
 
-        - If you don't already have one, create a Linux Syslog server for Alsid for AD to send logs to. Azure Sentinel supports the **rsyslog** and **syslog-ng** daemons. 
+        1. If you don't already have one, create a Linux Syslog server for Alsid for AD to send logs to. Azure Sentinel supports the **rsyslog** and **syslog-ng** daemons. 
 
-        - Configure your Syslog server to output Alsid for AD logs in a separate file.
+        1. Configure your Syslog server to output Alsid for AD logs in a separate file.
 
     1. Configure Alsid for AD to send logs to your Syslog server
 
-        - On your **Alsid for AD** portal, go to *System*, *Configuration* and then *Syslog*. From there you can create a new Syslog alert toward your Syslog server. For the remote server, use the IP address of the Linux machine you installed the Linux agent on.
+        1. On your **Alsid for AD** portal, go to *System*, *Configuration* and then *Syslog*. From there you can create a new Syslog alert toward your Syslog server. For the remote server, use the IP address of the Linux machine you installed the Linux agent on.
 
-        - Check that the logs are correctly gathered on your server in a separate file (to do this, you can use the **Test the configuration** button in the *Syslog* alert configuration in Alsid for AD).
+        1. Check that the logs are correctly gathered on your server in a separate file (to do this, you can use the **Test the configuration** button in the *Syslog* alert configuration in Alsid for AD).
 
     1. Install and onboard the Log Analytics agent for Linux
 
@@ -63,11 +63,17 @@ Configure Alsid for AD to forward Syslog messages to your Azure Sentinel workspa
         - Select the facilities and severities in the workspace advanced settings configuration.
 
             1. Click the **Open your workspace advanced settings configuration >** link on the connector page.
+
             1. In the **Advanced settings** screen, select **Data** and then **Custom Logs**.
+
             1. Mark the **Apply below configuration to my linux machines** check box, and click **Add**.
-            1. Click **Choose File** to upload a sample AFAD Syslog file from the Linux machine running the Syslog server, and click **Next**.
+
+            1. Click **Choose File** to upload a sample Alsid for AD Syslog file from the Linux machine running the Syslog server, and click **Next**.
+
             1. Check that **Set record delimiter** is set to **New line** and click **Next**.
+
             1. Select **Linux** and enter the file path to the Syslog file, click **+** and then **Next**.
+
             1. In the Name field type *AlsidForADLog* before the _CL suffix, then click **Done**.
     
 It may take up to 20 minutes before your logs start to appear in Log Analytics.

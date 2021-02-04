@@ -47,38 +47,51 @@ Agari solutions can integrate and export logs directly to Azure Sentinel using a
 > [!NOTE]
 > This connector uses Azure Functions to connect to Agari's solutions to pull their logs into Azure Sentinel. This may result in additional data ingestion costs. Check the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page for details.
 
-1. Ensure you have your Agari **Client ID** and **Secret keys**. Instructions can be found on the [Agari developers site](https://developers.agari.com/agari-platform/docs/quick-start#generate-api-credentials).
+1. **Collect your Agari API credentials:** 
 
-1. Optional - The Agari Function App allows you to share threat intelligence with Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
+    Ensure you have your Agari **Client ID** and **Secret keys**. Instructions can be found on the [Agari developers site](https://developers.agari.com/agari-platform/docs/quick-start#generate-api-credentials).
 
-1. In the Azure Sentinel portal, select **Data connectors**. Select **Agari Phishing Defense and Brand Protection (Preview)** and then **Open connector page**.
+1. **(Optional) Enable the Security Graph API:** 
 
-1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
+    The Agari Function App allows you to share threat intelligence with Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
 
-1. Select **Deploy to Azure**.
+    This process will give you three pieces of information for use when deploying the Function App below: the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
 
-1. In the **Custom deployment** screen:
+1. **Deploy the connector and the associated Azure Function App:** 
 
-    1. Enter your Agari **Client ID** and **Client Secret** (secret keys)
+    1. In the Azure Sentinel portal, select **Data connectors**. Select **Agari Phishing Defense and Brand Protection (Preview)** and then **Open connector page**.
 
-    1. Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
+    1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
 
-    1. Select **True** or **False** for the Agari solutions you have active subscriptions for.
+    1. Select **Deploy to Azure**. (You may have to scroll down to find the button.)
 
-    1. If you have created an Azure Application to share IoCs with Azure Sentinel using the Security Graph API, select **True** for **Enable Security Graph Sharing** and enter the Graph tenant ID, Graph client ID, and Graph client secret.
+    1. The **Custom deployment** screen will appear.
 
-1. Select **Review + create**.
+        - Enter your Agari **Client ID** and **Client Secret** (secret keys)
 
-> [!NOTE]
-> The Agari connector uses an environment variable to store last successful log timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.
+        - Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
-1. In the Azure portal, navigate to **Function App**.
+        - Select **True** or **False** for the Agari solutions you have active subscriptions for.
 
-1. In the Function App, select the Function App Name and select Click on **Identity** and for System assigned Identity, set the status to On. 
+        - If you have created an Azure Application to share IoCs with Azure Sentinel using the Security Graph API, select **True** for **Enable Security Graph Sharing** and enter the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
 
-1. Next, click on **Azure role assignments** and **Add Role assignment**. Select **Subscription** as the scope, select your subscription and set the Role to **App Configuration Data Owner**. 
+    1. Select **Review + create**. When the validation completes, click **Create**.
 
-1. Click on **Save**.
+1. **Assign the necessary permissions to your Function App:**
+
+    The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.
+
+    1. In the Azure portal, navigate to **Function App**.
+
+    1. In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.
+
+    1. In the **System assigned** tab, set the **Status** to **On**. 
+
+    1. Select **Save**, and an **Azure role assignments** button will appear. Click it.
+
+    1. In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**. 
+
+    1. Select **Save**.
 
 ## Find your data
 
