@@ -35,16 +35,7 @@ This table shows which listing options are available for each offer type.
 
 ## Changing offer type
 
-Changing your offer type may require a simple edit and republish, or it may require you to create a new offer, as listed here.
-
-| To change from | To | Do this |
-| --- | --- | --- |
-|Contact Me | Trial | Republish the offer |
-Contact Me | Transact | Create a new offer |
-|Trial | Transact | Create a new offer |
-|
-
-To add Test Drive to any offer, republish the offer.
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
 
 ## Free Trial
 
