@@ -86,7 +86,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 |
 | France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| France South         | 40.79.177.10 ,40.79.177.12 |
+| France South         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
 | Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |

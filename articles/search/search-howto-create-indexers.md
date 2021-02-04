@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/28/2021
 ---
 
-# Create a search indexer
+# Creating indexers in Azure Cognitive Search
 
 A search indexer provides an automated workflow for transferring documents and content from an external data source, to a search index on your search service. As originally designed, it extracts text and metadata from an Azure data source, serializes documents into JSON, and passes off the resulting documents to a search engine for indexing. It's since been extended to support [AI enrichment](cognitive-search-concept-intro.md) for deep content processing. 
 
@@ -95,7 +95,7 @@ The following screenshot shows where you can find these features in the portal.
 
 ### Use a REST client
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send requests that create indexers and other objects. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
+Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) requests. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
 
 Start with either of these articles to learn about each client:
 
@@ -106,7 +106,7 @@ Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operati
 
 ### Use an SDK
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them implement a **SearchIndexerClient** that provides methods to creating indexers and related objects, including skillsets.
+For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them provide a **SearchIndexerClient** that has methods for creating indexers and related objects, including skillsets.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|

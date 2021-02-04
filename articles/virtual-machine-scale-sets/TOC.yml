@@ -63,6 +63,8 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
+    - name: Create and manage virtual machine scale set
+      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set

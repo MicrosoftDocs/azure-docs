@@ -483,6 +483,7 @@ Cross-instance service broker isn't supported:
   - `remote access`
   - `remote data archive`
   - `remote proc trans`
+  - `scan for startup procs`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
