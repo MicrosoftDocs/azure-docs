@@ -36,14 +36,16 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-## Log query editor enhancements (public preview)
+## Improved query editing experience (public preview)
 
-The Azure Sentinel **Logs** page now provides the following enhancements for writing and editing queries:
--	An collapsible editing window, providing you with more screen space to view your query history.
--	Syntax highlighting in your query code.
+The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
+
+-	An expandable editing window, providing you with more screen space to view your query.
+-	Key word highlighting in your query code.
 -	Auto-complete support to help you build queries.
--	Real-time query validations. Check the scroll bar on the right for red blocks that indicate errors.
+-	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
 
+For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
