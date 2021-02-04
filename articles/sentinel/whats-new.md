@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## January 2021
 
+- [Log query editor enhancements (public preview)](#log-query-editor-enhancements-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
 - [Improved incident comments](#improved-incident-comments)
@@ -34,6 +35,14 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Logic apps managed identities](#logic-apps-managed-identities)
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
+
+## Log query editor enhancements (public preview)
+
+The Azure Sentinel Logs page now provides the following enhancements for writing and editing queries:
+-	An collapsible editing window, providing you with more screen space to view your query history.
+-	Syntax highlighting in your query code.
+-	Auto-complete support to help you build queries.
+-	Real-time query validations. Check the scroll bar on the right for red blocks that indicate errors.
 
 ### Az.SecurityInsights PowerShell module (Public preview)
 
