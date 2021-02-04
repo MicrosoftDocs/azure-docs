@@ -62379,6 +62379,11 @@
       "source_path_from_root": "/articles/azure-monitor/insights/vminsights-enable-overview.md",
       "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostic-settings.md",
+      "redirect_url": "/azure/azure-monitor/essentials/diagnostic-settings",
+      "redirect_document_id": false
     }
   ]
 }

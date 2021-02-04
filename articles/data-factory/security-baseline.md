@@ -199,7 +199,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).You can also integrate Azure Data Factory with Git to leverage several source control benefits, such as the ability to track/audit changes and the ability to revert changes that introduce bugs.
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md)
+* [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

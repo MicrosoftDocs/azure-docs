@@ -130,7 +130,7 @@ Note: Both logs can be saved to a storage account, streamed to Event hubs and/or
 
 List of resource actions in activity logs: Azure Resource Manager Resource Provider operations
 
-- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

@@ -67,7 +67,7 @@ Automation diagnostic settings supports forwarding the following platform logs a
 * DSCNodeStatus
 * Metrics - Total Jobs, Total Update Deployment Machine Runs, Total Update Deployment Runs
 
-To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) to understand the feature and methods available to configure diagnostic settings to send platform logs.
+To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) to understand the feature and methods available to configure diagnostic settings to send platform logs.
 
 ## Azure Monitor log records
 

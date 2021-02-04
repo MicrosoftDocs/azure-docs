@@ -25,7 +25,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * View alert rules defined in [Azure Alerts](alerts-overview.md)
 * Query for metrics using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](../samples/powershell-samples.md), or [cross-platform CLI](../samples/cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
-* View the [diagnostic settings](diagnostic-settings.md) for a resource.
+* View the [diagnostic settings](../essentials/diagnostic-settings.md) for a resource.
 * View the [log profile](./activity-log.md#legacy-collection-methods) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
@@ -46,7 +46,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](diagnostic-settings.md) for a resource.\*
+* Set [diagnostic settings](../essentials/diagnostic-settings.md) for a resource.\*
 * Set the [log profile](./activity-log.md#legacy-collection-methods) for a subscription.\*
 * Set alert rules activity and settings via [Azure Alerts](alerts-overview.md).
 * Create Application Insights web tests and components.

@@ -48,7 +48,7 @@ See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-re
 Platform metrics are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 You can collect logs from the following categories for Azure Time Series Insights:
 

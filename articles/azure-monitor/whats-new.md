@@ -310,7 +310,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 ### Platform logs
-- [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added regional requirement for diagnostic settings.
+- [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md) - Added regional requirement for diagnostic settings.
 
 ### Visualizations
 - [Azure Monitor Workbooks Overview](visualizations/workbooks-overview.md) - Added video.
@@ -349,7 +349,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Tutorial: Get started with Log Analytics queries](./log-query/log-analytics-tutorial.md) - Added video.
 
 ### Platform logs
-- [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added video.
+- [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md) - Added video.
 - [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md) - Added ARM sample using Logs destination type. 
 
 ### Solutions
@@ -438,7 +438,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Azure resource logs](platform/resource-logs.md)
 - [Collect and analyze Azure activity log in Azure Monitor](./essentials/activity-log.md)
 - [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md)
+- [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md)
 - [Export the Azure Activity Log](./essentials/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](platform/platform-logs-overview.md)
 - [Stream Azure platform logs to an event hub](./platform/resource-logs.md#send-to-azure-event-hubs)
@@ -842,7 +842,7 @@ Multiple articles updated as part of restructure of content for platform logs ba
 - [Collect Azure Activity logs into a Log Analytics workspace across Azure tenants](./essentials/activity-log.md)
 - [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Create diagnostic setting in Azure using Resource Manager template](./samples/resource-manager-diagnostic-settings.md)
-- [Create diagnostic setting to collect logs and metrics in Azure](platform/diagnostic-settings.md)
+- [Create diagnostic setting to collect logs and metrics in Azure](essentials/diagnostic-settings.md)
 - [Export the Azure Activity Log](./essentials/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](platform/platform-logs-overview.md)
 - [Stream Azure monitoring data to event hub](platform/stream-monitoring-data-event-hubs.md)

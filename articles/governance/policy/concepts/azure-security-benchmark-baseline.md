@@ -29,7 +29,7 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 **Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Understand logging and different log types in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
 

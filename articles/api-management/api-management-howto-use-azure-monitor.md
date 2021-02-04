@@ -135,7 +135,7 @@ To configure resource logs:
 
    You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to a Log Analytics workspace. 
 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
+For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## View diagnostic data in Azure Monitor
 

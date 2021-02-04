@@ -23,7 +23,7 @@ The metrics are organized by resource providers and resource type. For a list of
 
 You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
 1. Use the [metrics REST API](/rest/api/monitor/metrics/list)
-2. Use [diagnostics settings](diagnostic-settings.md) to route platform metrics to 
+2. Use [diagnostics settings](../essentials/diagnostic-settings.md) to route platform metrics to 
     - Azure Storage
     - Azure Monitor Logs (and thus Log Analytics)
     - Event hubs, which is how you get them to non-Microsoft systems 

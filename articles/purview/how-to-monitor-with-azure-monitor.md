@@ -69,7 +69,7 @@ Raw telemetry events are emitted to Azure Monitor. Events can be logged to a cus
 
 Follow the steps to create a Diagnostic setting for your Azure Purview account.
 
-1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md). Select the destination only as Azure storage account.
+1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md). Select the destination only as Azure storage account.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 

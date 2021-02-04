@@ -234,7 +234,7 @@ In addition to Azure Monitor, Azure API Management can be integrated with one or
 
 Optionally, enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
+* [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

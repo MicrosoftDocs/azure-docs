@@ -48,7 +48,7 @@ A Log Analytics workspace in Azure Monitor collects and indexes log data from a 
 3. Click **OK** to create the workspace.
 
 ## Create a diagnostic setting
-[Diagnostic settings](../platform/diagnostic-settings.md) define where resource logs should be sent for a particular resource. A single diagnostic setting can have multiple [destinations](../platform/diagnostic-settings.md#destinations), but we'll only use a Log Analytics workspace in this tutorial.
+[Diagnostic settings](../essentials/diagnostic-settings.md) define where resource logs should be sent for a particular resource. A single diagnostic setting can have multiple [destinations](../essentials/diagnostic-settings.md#destinations), but we'll only use a Log Analytics workspace in this tutorial.
 
 1. Under the **Monitoring** section of your resource's menu, select **Diagnostic settings**.
 2. You should have a message "No diagnostic settings defined". Click **Add diagnostic setting**.
