@@ -309,7 +309,7 @@ to the navigation plan surface in the **Navigation** pane.
 describes the task that you're defining.
 
 1. To define the flow path between screens, including forks 
-and joins, on the design tool's toolbar, choose **Flow**.
+and joins, on the design tool's toolbar, select **Flow**.
 
 1. Choose the first screen in the flow. Drag and 
 draw a connection to the next screen in the flow.
@@ -403,7 +403,7 @@ the metadata file, or Host Integration Designer XML (HIDX) file, which now
 has the method definitions to use for creating and running an action for 
 the IBM 3270 connector.
 
-1. On the 3270 Design Tool's toolbar, choose 
+1. On the 3270 Design Tool's toolbar, select 
 **Methods** so that you enter Methods mode. 
 
 1. In the **Navigation** pane, select the 
@@ -413,7 +413,7 @@ screen that has the input fields you want.
 follow these steps:
 
    1. In the **Capture** pane, on the 3270 emulator screen, 
-   choose the whole field, not just text inside the field, 
+   select the whole field, not just text inside the field, 
    that you want as the first input.
 
       > [!TIP]
@@ -421,7 +421,7 @@ follow these steps:
       > that you select the complete field, 
       > on the **View** menu, select **All Fields**.
 
-   1. On the design tool's toolbar, choose **Input Field**. 
+   1. On the design tool's toolbar, select **Input Field**. 
 
    To add more input parameters, 
    repeat the previous steps for each parameter.
@@ -430,7 +430,7 @@ follow these steps:
 follow these steps:
 
    1. In the **Capture** pane, on the 3270 emulator screen, 
-   choose the whole field, not just text inside the field, 
+   select the whole field, not just text inside the field, 
    that you want as the first output.
 
       > [!TIP]
@@ -438,7 +438,7 @@ follow these steps:
       > that you select the complete field, 
       > on the **View** menu, select **All Fields**.
 
-   1. On the design tool's toolbar, choose **Output Field**.
+   1. On the design tool's toolbar, select **Output Field**.
 
    To add more output parameters, 
    repeat the previous steps for each parameter.
@@ -477,17 +477,16 @@ get an error, try one of these solutions:
 
 ## Test your method
 
-1. To run your method against the live host, while still in Methods mode, press the F5 key, or from the design tool's toolbar, choose **Test**.
+1. To run your method against the live host, while still in Methods mode, press the F5 key, or from the design tool's toolbar, select **Test**.
 
    > [!TIP]
    > You can change modes at any time. On the **File** menu, select **Mode**, and then select the mode you want.
 
-1. Enter your parameters' values, and choose **OK**.
+1. Enter your parameters' values, and select **OK**.
 
-1. To continue to the next screen, choose **Next**.
+1. To continue to the next screen, select **Next**.
 
-1. When you're finished, choose **Done**, 
-which shows your output parameter values.
+1. When you're finished, select **Done**, which shows your output parameter values.
 
 <a name="add-metadata-integration-account"></a>
 
