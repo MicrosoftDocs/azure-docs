@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 ---
 
@@ -219,7 +219,7 @@ The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to 
 Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10g of tissue
  
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
-
+<!--Table below does not build. Designed to provide a grid of entries - no potential for column headers. Should I use a graphic?-->
 | AT | BE | BG | HR | CY | CZ | DK | 
 | EE | FI | FR | DE | EL | HU | IE |
 | IT | LV | LT | LU | MT | NL | PL |
@@ -237,8 +237,11 @@ WiFi
 | 5470-5725   | 100-140 | 29.9 dBm (977 mW) with TPC <vbr> 29.6 dBm (490 mW) non-TPC |
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+
 Telephone number: +353 1 295 3826
+
 Fax number: +353 1 706 4110
+
 
 SINGAPORE:
 
