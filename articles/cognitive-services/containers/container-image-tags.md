@@ -607,7 +607,7 @@ This container image has the following tags available. You can also find a full 
 Release note for `1.11.0-amd64-<locale-and-voice>`:
 
 **Feature**
-* Now more error details will be provided when customer have any issue of fetching custom models by id.
+* More error details for issues when fetching custom models by ID.
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
