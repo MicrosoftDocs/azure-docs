@@ -10,7 +10,7 @@ ms.date: 02/04/2021
 ms.author: cherylmc
 
 ---
-# Create custom Intune profiles to deploy VPN client profiles
+# Create custom Intune profiles to deploy User VPN client profiles
 
 [!INCLUDE [Intune profile](../../includes/vpn-gateway-virtual-wan-vpn-profile-intune.md)]
  
