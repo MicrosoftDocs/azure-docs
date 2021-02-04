@@ -95,4 +95,4 @@ Learn more about the [format guidelines](../reference-document-format-guidelines
 
 ## Next steps
 
-Learn how to [edit QnAs] (../how-to/edit-knowledge-base.md).
+Learn how to [edit QnAs](../how-to/edit-knowledge-base.md).
