@@ -37,7 +37,7 @@ AI enrichment is only available in regions where the Azure Cognitive Services ar
 + Norway East
 + Germany West Central
 
-If you are using a service in one of these regions, you will not be able to create and use skillsets.  All other core search API and indexer functionality is fully supported.
+If you are using a service in one of these regions, you will not be able to create and use skillsets.  All other core search API and indexer functionality is fully supported in these regions.
 
 ## When to use AI enrichment
 
