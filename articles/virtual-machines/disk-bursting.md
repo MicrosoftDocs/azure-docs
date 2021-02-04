@@ -15,8 +15,6 @@ ms.custom: references_regions
 ## Virtual Machine level bursting
 VM level bursting support is enabled in all regions in Public Cloud on these supported sizes: 
 - [Lsv2-series](lsv2-series.md)
-
-VM level bursting is also available in West Central US for the following supported sizes:
 - [Dsv3-series](dv3-dsv3-series.md)
 - [Esv3-series](ev3-esv3-series.md)
 
