@@ -192,9 +192,9 @@ jobs:
 
 ## Monorepo support
 
-A monorepo is a repository that contains code for multiple applications. By default a workflow file tracks all the files in a repository, but you can configure multiple workflow files in a repository to support a monorepo. In the context of Azure Static Web Apps, each static site will have it's own configuration file.
+A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static site has it's own configuration file which lives side-by-side in the repository's *.git* folder.
 
-To support a monorepo with multiple static web apps, you can specify specific paths in the `push` and `pull_request` section for the workflow file to track a specific application.
+To target a workflow file to a single app, you specify paths in the `push` and `pull_request` sections.
 
 The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond-08f780f0f.yml_.
 
@@ -205,7 +205,7 @@ on:
       - main
     paths:
       - customer-client/**
-      - api/**
+      - api/customer-client/**
       - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -213,14 +213,14 @@ on:
       - main
     paths:
       - customer-client/**
-      - api/**
+      - api/customer-client/**
       - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
 ```
 
 In this instance, only changes made to files following files trigger a new build:
 
-- Any files inside the _customer-client_ folder
-- Any files inside the _api_ folder
+- Any files inside the *customer-client* folder
+- Any files inside the *api/customer_client* folder
 - Changes to the app's workflow file
 
 Other instances of an Azure Static Web Apps static site in the repo need its own workflow file with corresponding path values.
