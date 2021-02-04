@@ -218,7 +218,7 @@ The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to 
 
 Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10 g of tissue
  
-This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
+This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:  
 
 ![EU countries that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
 
