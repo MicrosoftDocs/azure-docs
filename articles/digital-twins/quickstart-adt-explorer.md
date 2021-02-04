@@ -316,8 +316,6 @@ Then, you can choose which resources you'd like to remove, depending on what you
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-You might have to delete both the zipped and unzipped versions of the downloaded sample folder.
-
 ## Next steps
 
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
