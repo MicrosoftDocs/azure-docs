@@ -30,7 +30,8 @@ This article shows you how to use [Azure Storage Explorer](https://azure.microso
   
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
 
-> [!NOTE] Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
+> [!NOTE] 
+> Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
 
 ## Sign in to Storage Explorer
 
@@ -82,7 +83,7 @@ You can manage permissions on individual directories, as well as individual file
 
 ## Next steps
 
-Learn access control lists in Data Lake Storage Gen2.
+Learn about the Data Lake Storage Gen2 permission model.
 
 > [!div class="nextstepaction"]
-> [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
+> [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md)
