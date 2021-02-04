@@ -75,6 +75,9 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
 
+> [!NOTE]
+> You no longer need to contact us to nominate your offer for co-sell. After you complete all required fields on the Co-sell with Microsoft page and republish your offer, we will review your offer to determine if it meets the requirements for co-sell status.
+
 ## See your offer's Co-sell status
 
 For offers with the [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md), you can see your offer's current Co-sell status on the Offer Overview page:
