@@ -14,7 +14,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device (preview)
 
-Try out Azure IoT Edge in this quickstart by deploy containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to Edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
+Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
 
 In this quickstart, you'll learn how to:
 
@@ -38,17 +38,17 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-* Create a cloud resource group to manage all the resources you'll use in this quickstart.
+Create a cloud resource group to manage all the resources you'll use in this quickstart.
 
-     ```azurecli-interactive
-     az group create --name IoTEdgeResources --location westus2
-     ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
 
-* Make sure your IoT Edge device meets the following requirements:
+Make sure your IoT Edge device meets the following requirements:
 
-  * Windows PC or server, version 1809 or later
-  * At least 4 GB of memory, recommended 8 GB of memory
-  * 10 GB of free disk space
+* Windows PC or server, version 1809 or later
+* At least 4 GB of memory, recommended 8 GB of memory
+* 10 GB of free disk space
 
 ## Create an IoT hub
 
@@ -174,7 +174,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that sends t
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then you used the Azure portal to deploy an IoT Edge module to run on the device without having to make changes to the device itself.
 
-The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The messages that it sends include ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials can use the data created by this module as test data for analytics.
+The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The messages that it sends include ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials uses the data created by this module as test data for analytics.
 
 From the command shell in Windows Admin Center, confirm that the module you deployed from the cloud is running on your IoT Edge device.
 
