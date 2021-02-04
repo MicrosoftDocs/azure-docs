@@ -12,7 +12,7 @@ ms.author: aahi
 ms.custom: devx-track-csharp
 ---
 
-# Install and run Form Recognizer containers (Preview)
+# Install and run Form Recognizer containers (Retiring)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
