@@ -7,26 +7,13 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: estfan, valthom
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 02/03/2021
 tags: connectors
 ---
 
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector
 
-> [!NOTE]
-> This connector is in 
-> [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-With Azure Logic Apps and the IBM 3270 connector, you can 
-access and run IBM mainframe apps that you usually drive by 
-navigating through 3270 emulator screens. That way, you can 
-integrate your IBM mainframe apps with Azure, Microsoft, 
-and other apps, services, and systems by creating automated 
-workflows with Azure Logic Apps. The connector communicates 
-with IBM mainframes by using the TN3270 protocol and is 
-available in all Azure Logic Apps regions except for Azure 
-Government and Azure China 21Vianet. If you're new to logic apps, review 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+With Azure Logic Apps and the IBM 3270 connector, you can access and run IBM mainframe apps that you usually drive by navigating through 3270 emulator screens. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol; supports in, out, and array processing; and is available in all Azure Logic Apps regions except for Azure Government and Azure China 21Vianet. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 This article describes these aspects for using the 3270 connector: 
 
@@ -84,8 +71,7 @@ that Azure Logic Apps supports.
   running your logic app. An ISE provides access from your logic app 
   to resources that are protected inside Azure virtual networks.
 
-* The logic app to use for automating and running 
-your 3270 screen-driven app
+* The logic app to use for automating and running your 3270 screen-driven app
 
   The IBM 3270 connector doesn't have triggers, 
   so use another trigger to start your logic app, 
@@ -95,7 +81,7 @@ your 3270 screen-driven app
   If you use an ISE, select that ISE as your logic app's location.
 
 * [Download and install the 3270 Design Tool](https://aka.ms/3270-design-tool-download).
-The only prerequisite is [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
+The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
   This tool helps you record the screens, navigation paths, 
   methods, and parameters for the tasks in your app that you 
