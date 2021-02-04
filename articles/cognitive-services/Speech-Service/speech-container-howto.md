@@ -314,9 +314,10 @@ This command:
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
 #### Diarization on the speech-to-text output
-Diarization feature is enabled by default. In order to get diarization in your response, you have to
-* Set phrase ouput format as "Detailed".
-* Set mode of diarization. Now the supported modes are "Identity" and "Anonymous".
+Diarization is enabled by default. to get diarization in your response, use `diarize_speech_config.set_service_property`.
+
+1. Set the the phrase output format to `Detailed`.
+2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
 ```python
 diarize_speech_config.set_service_property(
     name='speechcontext-PhraseOutput.Format',
