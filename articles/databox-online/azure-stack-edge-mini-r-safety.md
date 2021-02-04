@@ -64,7 +64,7 @@ It is recommended to operate the system:
 ![Warning Icon 4](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
-* This equipment contains a lithium battery. Do not attempt servicing the battery pack. Batteries in this equipment are not user serviceable. Risk of Explosion if battery is replaced by an incorrect type.
+* This equipment contains a lithium battery. Do not attempt to service the battery pack. Batteries in this equipment are not user serviceable. Risk of Explosion if battery is replaced by an incorrect type.
 
 ![Warning Icon 5](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
@@ -85,7 +85,7 @@ Only charge the battery pack when it is a part of the Azure Stack Edge Mini R de
 
 ![Warning Icon 9](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-This device has two SFP+ ports which may be used with optical transceivers. To avoid hazardous laser radiation, only use with Class 1 transceivers.
+This device has two SFP+ ports, which may be used with optical transceivers. To avoid hazardous laser radiation, only use with Class 1 transceivers.
 
 ## Electrical precautions
 
@@ -120,7 +120,7 @@ When used with the power supply adaptor:
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
 ![Indoor Use Only](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) **WARNING:**
 
-* Power supply labeled with this symbol are rated for indoor use only.
+* Power supply labeled with this symbol is rated for indoor use only.
 
 ## Regulatory information
 
@@ -144,13 +144,13 @@ CANADA and USA:
 
 NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
-The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body are tested for body-worn Specific Absorption Rate (SAR) compliance. The SAR limit set by the FCC is 1.6 W/kg when averaged over 1g of tissue. When carrying the product or using it while worn on your body, maintain a distance of 10mm from the body to ensure compliance with RF exposure requirements.
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body are tested for body-worn Specific Absorption Rate (SAR) compliance. The SAR limit set by the FCC is 1.6 W/kg when averaged over 1 g of tissue. When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
 
 The Netgear A6150 WiFi USB Adapter complies with ANSI/IEEE C95.1-1999 and was tested in accordance with the measurement methods and procedures specified in OET Bulletin 65 Supplement C.
 
-Netgear A6150 Specific Absorption Rate (SAR): 1.18 W/kg averaged over 1g of tissue
+Netgear A6150 Specific Absorption Rate (SAR): 1.18 W/kg averaged over 1 g of tissue
 
-The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. This device and its antenna(s) must not be collocated or operating in conjunction with any other antenna or transmitter except in accordance with FCC multitransmitter product procedures. For products available in the USA market, only channel 1~11 can be operated. Selection of other channels is not possible.
+The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter except in accordance with FCC multitransmitter product procedures. For products available in the USA market, only channel 1~11 can be operated. Selection of other channels is not possible.
 
 Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
@@ -186,17 +186,17 @@ Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429
 
 Netgear A6150 WiFi USB Adapter IC ID: 4054A-18300429
 
-The Netgear A6150 WiFi USB Adapter provided with this equipment is compliant with SAR for general population/uncontrolled exposure limits in IC RSS-102 and has been tested in accordance with the measurement methods and procedures specified in IEEE 1528. Maintain at least 10 mm distance for body-warn<!--Was "body-worn" intended?--> condition.
+The Netgear A6150 WiFi USB Adapter provided with this equipment is compliant with SAR for general population/uncontrolled exposure limits in IC RSS-102 and has been tested in accordance with the measurement methods and procedures specified in IEEE 1528. Maintain at least 10-mm distance for body-worn condition.
 
-L’adaptateur USB WiFi Netgear A6150 fourni avec cet équipement est conforme de SAR pour la population générale / limites d'exposition incontrôlée de CNR-102 et a été testé en conformité avec les méthodes et procédures de mesure spécifiées dans la norme IEEE 1528. Maintenir au moins 10mm à distance pour la condition physique-garde.
+L’adaptateur USB WiFi Netgear A6150 fourni avec cet équipement est conforme de SAR pour la population générale / limites d'exposition incontrôlée de CNR-102 et a été testé en conformité avec les méthodes et procédures de mesure spécifiées dans la norme IEEE 1528. Maintenir au moins 10 mm à distance pour la condition physique-garde.
 
-The Netgear A6150 WiFi USB Adapter complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and are safe for intended operation as described in its manual. Further RF exposure reduction can be achieved by keeping the product as far as possible from your body or by setting the device to a lower output power if such a function is available.
+The Netgear A6150 WiFi USB Adapter complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in its manual. Further RF exposure reduction can be achieved by keeping the product as far as possible from your body or by setting the device to a lower output power if such a function is available.
 
 L’adaptateur USB WiFi Netgear A6150 est conforme à la limite d'exposition aux RF portable Canada établies pour un environnement non contrôlé et sont sans danger pour le fonctionnement prévu comme décrit dans le manuel. Poursuite de la réduction de l'exposition aux RF peut être réalisé en gardant le produit autant que possible de votre corps ou par le réglage du dispositif à une puissance de sortie inférieure si une telle fonction est disponible.
 
-A table with the Specific Absorption Rate (SAR) averaged over 1g for each product can be seen in the USA section above.
+A table with the Specific Absorption Rate (SAR) averaged over 1 g for each product can be seen in the USA section above.
 
-Un tableau avec le taux d’absorption spécifique (SAR) en moyenne plus de 1g pour chaque produit peut être vu dans la section Des USA ci-dessus.
+Un tableau avec le taux d’absorption spécifique (SAR) en moyenne plus de 1 g pour chaque produit peut être vu dans la section Des USA ci-dessus.
 
 EUROPEAN UNION:
 Request a copy of the EU Declaration of Conformity for this equipment.
@@ -216,7 +216,7 @@ This product contains coin cell battery(ies).
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
 
-Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10g of tissue
+Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10 g of tissue
  
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
 <!--Table below does not build. Designed to provide a grid of entries - no potential for column headers. Should I use a graphic?-->
