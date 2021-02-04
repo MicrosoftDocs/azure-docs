@@ -150,8 +150,6 @@ If the OS drive is Standard HDD then the default will be set to 'Read-only'. The
 
 The local and temp disks leverage the virtual machine cache, which is where tempdb is typically placed. If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons, either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with Read-only caching configured.
 
-
-
 ## Disk striping
 
 For more throughput, you can add additional data disks and use disk striping. To determine the number of data disks, analyze the throughput and bandwidth required for your SQL Server data files, including the log and tempdb. Throughput and bandwidth limits vary by VM size. To learn more, see [VM Size](../../../virtual-machines/sizes.md)
@@ -253,6 +251,7 @@ The following screenshot demonstrates where to make these changes in the SQL Ser
 To learn more about performance best practices, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
+- [Disks](performance-guidelines-best-practices-disks.md)
 - [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
