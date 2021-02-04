@@ -3,8 +3,7 @@ title: Microsoft Azure Storage Explorer release notes
 description: Read the release notes for the latest version of Microsoft Azure Storage Explorer. The release notes for previous versions are also shown.
 services: storage
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: twooley
 editor: ''
 ms.assetid:
 ms.service: storage
@@ -13,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
-ms.author: cawa
+ms.author: twooley
 
 ---
 # Microsoft Azure Storage Explorer release notes
