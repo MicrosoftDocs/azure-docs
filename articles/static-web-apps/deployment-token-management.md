@@ -11,12 +11,12 @@ ms.date: 1/31/2021
 
 # Deployment token management in Azure Static Web Apps
 
-When you create a new Azure Static Web App resource, Azure generates a deployment token to authenticate when making a deployment and to identify which Static Web App resource you're deploying to. As a part of provisioning, the corresponding secret is automatically created in the linked GitHub repository and its value is set to the Static Web App's deployment token. This article details the way to manage and use this token.
+When you create a new Azure Static Web Apps site, Azure generates a token used to identify the application during deployment. During provisioning, this token is stored as a secret in the GitHub repository. This article explains how to use and manage this token.
 
-Normally, you don't need to worry about the deployment token. Some reasons you might need to retrieve or reset the token are:
+Normally, you don't need to worry about the deployment token, but the following are some reasons you might need to retrieve or reset the token.
 
-* You want to deploy to the Static Web App resource from another GitHub repository. Then in addition to setting up your GitHub workflow in the new repository, you also need to retrieve the deployment token and create a secret there.
-* Your token has been compromised. You need to reset your token. The guide below will demonstrate how to do it.
+* **Token compromise**: If you need to reset your token in light a your token being exposed.
+* **Deploying from a separate GitHub repository**: If you are attempting to manually deploy from a separate GitHub repository, then you need to set up your GitHub workflow, and set the deployment token in the new repository.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Normally, you don't need to worry about the deployment token. Some reasons you m
 
 ## Reset a deployment token
 
-1. Click on **Manage deployment token** link on the _Overview_ page of your Azure Static Web App resource.
+1. Click on **Manage deployment token** link on the _Overview_ page of your Azure Static Web Apps site.
 
     :::image type="content" source="./media/deployment-token-management/manage-deployment-token-button.png" alt-text="Managing deployment token":::
 
@@ -37,16 +37,19 @@ Normally, you don't need to worry about the deployment token. Some reasons you m
 
 ## Update a secret in the GitHub repository
 
-To keep automated deployment running, after resetting a token you need to set its new value in the corresponding GitHub repository.
+To keep automated deployment running, after resetting a token you need to set the new value in the corresponding GitHub repository.
 
-1. Navigate to your project's repository on GitHub, then click on the **Settings** tab and **Secrets** menu item. You will find a secret generated during Static Web App provisioning named _AZURE_STATIC_WEB_APPS_API_TOKEN_... in the _Repository secrets_ section.
+1. Navigate to your project's repository on GitHub, and click on the **Settings** tab
+1. Click on the **Secrets** menu item. You will find a secret generated during Static Web App provisioning named _AZURE_STATIC_WEB_APPS_API_TOKEN_... in the _Repository secrets_ section.
 
     :::image type="content" source="./media/deployment-token-management/github-repo-secrets.png" alt-text="Listing repository secrets":::
 
     > [!NOTE]
-    > If you created Azure Static Web App resources against multiple branches of this repository, you will see multiple _AZURE_STATIC_WEB_APPS_API_TOKEN_... secrets in this list . To pick the right one, check the file name listed in the _Edit workflow_ field on the _Overview_ tab of the Azure Static Web App resource.
+    > If you created the Azure Static Web Apps site against multiple branches of this repository, you will see multiple _AZURE_STATIC_WEB_APPS_API_TOKEN_... secrets in this list. Select the correct one, by matching the file name listed in the _Edit workflow_ field on the _Overview_ tab of the Static Web Apps site.
 
-1. Click on the **Update** button, paste the value of the deployment token to the _Value_ field and click **Update secret**.
+1. Click on the **Update** button to open the editor.
+1. **Paste the value** of the deployment token to the _Value_ field.
+1. Click **Update secret**.
 
     :::image type="content" source="./media/deployment-token-management/github-update-secret.png" alt-text="Updating repository secret":::
 
