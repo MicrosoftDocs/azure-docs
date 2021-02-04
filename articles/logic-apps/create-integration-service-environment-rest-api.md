@@ -187,7 +187,7 @@ This example request body shows the sample values:
 
 You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates.
 
-### Considerations for adding custom root certificates
+#### Considerations for adding custom root certificates
 
 Before you update your ISE with a custom trusted root certificate, review these considerations:
 
@@ -197,7 +197,7 @@ Before you update your ISE with a custom trusted root certificate, review these 
 
 * Uploading root certificates is an asynchronous operation that might take some time. To check the status or result, you can send a `GET` request by using the same URI. The response message has a `provisioningState` field that returns the `InProgress` value when the upload operation is still working. When `provisioningState` value is `Succeeded`, the upload operation is complete.
 
-### Request syntax
+#### Request syntax
 
 To update your ISE with a custom trusted root certificate, send the following HTTPS PATCH request to the [Azure Resource Manager URL, which differs based on your Azure environment](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), for example:
 
@@ -208,7 +208,7 @@ To update your ISE with a custom trusted root certificate, send the following HT
 | Microsoft Azure China 21Vianet | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
 |||
 
-### Request body syntax for adding custom root certificates
+#### Request body syntax for adding custom root certificates
 
 Here is the request body syntax, which describes the properties to use when you add root certificates:
 
