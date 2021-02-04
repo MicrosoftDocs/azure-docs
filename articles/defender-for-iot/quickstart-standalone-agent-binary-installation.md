@@ -40,13 +40,15 @@ To install the Defender micro agent package on Debian, and Ubuntu based Linux di
 sudo apt-get install defender-iot-micro-agent 
 ```
 
-## Micro Agent Authentication Methods 
+## Micro agent authentication methods 
 
 The two options used to authenticate the Defender for IoT micro agent are: 
 
 - Connection string. 
 
 - Certificate.
+
+### Authenticate using a connection string
 
 To authenticate using a connection string:
 
@@ -84,6 +86,10 @@ To authenticate using a certificate:
     sudo systemctl restart defender-iot-micro-agent.service
     ```
 
+### Validate your installation
+
+To validate your installation:
+
 1. Making sure the micro agent is running properly with the following command:  
 
     ```azurecli
@@ -92,7 +98,7 @@ To authenticate using a certificate:
 1. Ensure that the service is stable by making sure it is `active` and that the uptime of the process is appropriate
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
-
+ 
 ## Testing the system end-to-end 
 
 You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
