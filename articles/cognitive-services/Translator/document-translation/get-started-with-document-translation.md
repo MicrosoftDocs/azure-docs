@@ -1,6 +1,6 @@
 ---
 title: Get started with Document Translation
-description: How to create a document translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
+description: How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
@@ -8,84 +8,66 @@ author: laujan
 ms.date: 02/04/2021
 ---
 
-# Get started with Document Translation
+# Get started with Document Translation (Preview)
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting. In this article, you'll learn to use Document Translator via C#, JavaScript, Python, Java, or Go programming languages and HTTP REST API methods.
+> [!IMPORTANT]  A preview feature may not be complete and may undergo changes before it's official public release. Preview features are provided for testing, exploration, early access, and feedback purposes only. Preview features aren't meant for production applications.
+
+ In this article, you'll learn to use Document Translation via HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
 
 ## Prerequisites
 
 To get started, you'll need:
 
 1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft)  or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription. *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
-1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account. 
+1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
+1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
+
+> [!NOTE]
+> Currently, the **Cognitive Services multi-service resource** doesn't support Document Translation.
 
 ## Create Azure blob storage containers
 
-You'll need to [create two containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account:
+You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source and target documents:
 
-1. **Source container**. The source container is where you'll upload your documents for translation.
-1. **Target container**. The target container is where your translated documents will be stored.  
+1. **Source**. The source container is where you'll upload your documents for translation.
+1. **Target**. The target container is where your translated documents will be stored.  
 
-### Source and target SAS access tokens
+### Source and target SAS access tokens for blob storage
 
 Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token as part of the query string. The token can be assigned to your container or specific blobs.
 
-* You'll delegate **list** and  **read-only** access tokens for your source container or   **read-only** access for a specific source blob.
-* You'll delegate **list** and **write-only** access for your target container or **write-only** for a specific target blob. *See* [Create Shared Access Signature (SAS) tokens in the Azure portal](#create-shared-access-signature-tokens-in-the-azure-portal), below.
+* Your source container or source blob must have designated  **read-only** access.
+* Your target container or target blob must have designated  **write-only** access *See* [TODO](#create-shared-access-signature-tokens-in-the-azure-portal).
 
-## Create Shared Access Signature tokens in the Azure portal
+> [!TIP]
+> If you are translating **multiple** documents (blobs) in an operation, **delegate SAS access at the  container level**.  
+> If you are translating a **single** document (blob) in an operation, **delegate SAS access at the blob level**.  
+> *See* [TODO](create-sas-azure-portal.md)
 
-You can create SAS tokens for your entire containers or specific blobs:
+## Set your custom endpoint
 
-### [Create SAS access for each container](#tab/container)
+All API requests to the Document Translation service require a **custom endpoint** URL. **You can't use the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+
+### Custom endpoint for Document Translator:
+
+```http
+https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches
+```
+
+The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
+
+![Azure portal, instant details, name field](../media/instance-details-azure-portal.png)
 
 >[!NOTE]
-> You'll need to create the SAS token for one container at a time.
+> If you have created a Translator service with Virtual Network support, you must also use the custom endpoint to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com`  nor use an access token for authentication.
 
-#### Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate to **your storage account** → **containers**
-
-|Source container|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Both containers|Target container|
-|---|---|--|
-|&#120783;. Choose your **source** container by selecting the adjacent check box.||&#120783;. Choose your **target** container by selecting the adjacent check box.|
-||&#120784;. From the left rail menu under **Settings**, select **shared access signature**.||
-||&#120785;.  In the main window, make the following selections:||
-||&#120786;. **Allowed services** → select **Blob** and **File** (clear the Queue and Table|| check boxes).
-||&#120787;. **Allowed resource types** →  select **Service** and **Container**.||
-|&#120788;. **Allowed permissions** → select **Read** and **List** only (clear the remaining permissions).||&#120788;. **Allowed permissions** → select **Write** and **List** only (clear the remaining permissions).|
-||&#120789;.. The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.||
-||&#120790;. The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS token. The default value is HTTPS.||
-||&#120791;. Select your **Preferred routing tier**. The default value is Basic.||
-||&#120783;&#120782;. You have the option of creating one or two shared access keys.||
-
-### [Create SAS access for blobs](#tab/blob)
-
-Go to the  [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  
-
- **Your storage account** → **containers** → **your container** → **your blob**
-
-* Select **Generate SAS** from the menu near the top of the page.
-* Select **Signing method** → **User delegation key**.
-* For your **Storage** blob, specify **Permissions** → **Read**.
-* For your **Target** blob, specify  **Permissions** → **Write**.
-* Specify the signed key **Start** and **Expiry** times.
-* The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
-* The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
-
----
-
-### Keys and endpoints
-
-All API requests to the Translator service require an **endpoint** URL and a read-only subscription**key** for authenticating access.
+## Get your subscription key
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your subscription key and resource endpoint in a convenient location, such as *Microsoft Notepad*.
-1. You'll paste them into the code below to connect your application to the Document Translation service.
-
->[!NOTE]
-> To access the Document translation service, you must add the additional parameter **batches** to your endpoint URL.
-> If you have created a Translator service with Virtual Network support, you must use the custom endpoint associated with your Translator resource to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com`  nor use an access token for authentication.
+1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
+1. You'll paste it into the code below to authenticate your request to the Document Translation service.
+1. **Note**: You won't use the endpoint found on the Keys and Endpoint page. *See* [Set your custom endpoint](#set-your-custom-endpoint), above.
 
 ### HTTP headers
 
@@ -94,14 +76,12 @@ The following headers are included with each Document Translator API request:
 |HTTP header|Description|
 |---|--|
 |Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
-|Ocp-Apim-Subscription-Region|**Required** if you're using the Cognitive Services resource. </br>**Optional** if you're using a Translator resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 |Content-Length|**Required**: the length of the request body.|
-|Authorization|**Required** for use with the Cognitive Services subscription if you are passing an authentication token. <br/>The value is **Bearer token: Bearer**.|
 
 ## Submit a Document Translation request (POST)
 
-A batch document translation request is submitted to your translation service endpoint via a POST request.
+A batch Document Translation request is submitted to your translation service endpoint via a POST request.
 
 ### POST request properties
 
@@ -114,7 +94,7 @@ A batch document translation request is submitted to your translation service en
 
 ### POST Request URL
 
-Send a POST request to: **{Your-Translator-Service-Endpoint}/batches**
+Send a POST request to: **"https://\<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"**
 
 #### Request body
 
@@ -129,7 +109,7 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 |**`sourceUrl`**| The URL for the container storing your uploaded source documents and the SAS token with read-only access.|
 |**`storageSource`**|The type of cloud storage. Currently, only **"AzureBlob"** is supported. |
 |**`language`**   | Language of source documents  |
-|**`filter`**   |**Optional**: Filter definitions:</br>&emsp;&bullet; **prefix**—To filter files and/or folders (optional). </br>&emsp;&bullet; **suffix**—To filter files and/or folders (optional).  |
+|**`filter`**   |**Optional**: Filter definitions:</br>&emsp;&bullet; **prefix**—used to filter blobs by the first parameter of file location path (optional). </br>&emsp;&bullet; **suffix**—To filter blobs by file type  (optional).  |
 
 #### Targets array object
 
@@ -148,21 +128,31 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 
 #### Sample HTTP request
 
-> [!NOTE]
- The Host for your HTTP request is the Microsoft Translator Base URL. *See* [Host URLs for HTTP requests](#host-urls-for-http-requests).
+### Request and URL
+
+```html
+POST "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"
+```
+
+*See* [Set your custom endpoint](#set-your-custom-endpoint), above.
+
+### Request headers
 
 ```http
-POST YOUR-ENDPOINT-QUERY-STRING/batches
-Host: https://YOUR-RESOURCE-BASE-URL
-Ocp-Apim-Subscription-Key: YOUR-SUBSCRIPTION-KEY
+Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
 Content-Type: application/json
 Content-Length: YOUR-CONTENT-LENGTH
+```
+
+### Request body
+
+```http
 
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://YOUR-UPLOADED-DOCUMENTS-CONTAINER-URL",
+                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS>",
                 "storageSource": "AzureBlob",
                 "filter": {
                     "prefix": "News",
@@ -172,7 +162,7 @@ Content-Length: YOUR-CONTENT-LENGTH
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-TRANSLATED-DOCUMENTS-CONTAINER-URL>",
+                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-ACCESS-SAS>",
                     "storageSource": "AzureBlob",
                     "category": "general",
                     "language": "de"
@@ -183,8 +173,10 @@ Content-Length: YOUR-CONTENT-LENGTH
 }
 ```
 
+### Response: 202 Accepted
+
 > [!CAUTION]
-> For the samples below, you'll hard-code your keys and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly. See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+> For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly. See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
 ## Platform setup
 
@@ -246,7 +238,7 @@ gradle init --type basic
     application
   }
   application {
-    mainClassName = "<NAME OF YOUR CLASS>"
+    mainClassName = "{NAME OF YOUR CLASS}"
   }
   repositories {
     mavenCentral()
@@ -280,23 +272,15 @@ gradle run
 
 > [!IMPORTANT]
 >
->For the **HTTP** code samples, below, you will need to update the following fields:  
+> For the code samples, below, you may need to update the following fields, depending upon the operation:  
 >
->> 1. POST
->> 1. HOST
->> 1. Ocp-Apim-Subscription-Key
->> 1. sourceURL
->> 1. targetURL
->
-> For the **C#**, **Node.js**, **Python**, **Java**, and **Go** code samples, below, you will need to update the following fields:  
->
->> 1. endpoint
->> 1. subscriptionKey
->> 1. sourceURL
->> 1. targetURL
->
-> * The POST method requires that the `/batches` parameter is included with each instance of your translator services endpoint.
-> * The Response Headers `Operation-Location`  field is a URL. The last parameter is the operation's `jobID` :
+>> 1. `endpoint`
+>> 1. `subscriptionKey`
+>> 1. `sourceURL`
+>> 1. `targetURL`
+>> 1. `id`  (jobId)
+>>
+> You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's **jobId**.  You can use a GET Jobs request. to retrieve the  job `id`  for a Document Translation operation.
 >
 
 ### [C#](#tab/csharp)
@@ -314,13 +298,9 @@ gradle run
     {
 
 
-        private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT";
+        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches";
 
-        private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-
-        // Add your location, also known as region. The default is global.
-        // This is required if using a Cognitive Services resource.
-        private static readonly string location = "YOUR-RESOURCE-LOCATION";
+        private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
         static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
         
@@ -338,8 +318,7 @@ gradle run
                 request.RequestUri = new Uri(endpoint + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 request.Content = content;
-                request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-
+                
                 // Send the request and get response.
                 HttpResponseMessage  response = await client.SendAsync(request);
                 string result = response.Content.ReadAsStringAsync().Result;
@@ -366,12 +345,8 @@ gradle run
 ```javascript
 const axios = require('axios').default;
 
-let endpoint = "https://YOUR-RESOURCE-ENDPOINT";
-let subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-let location = "YOUR_RESOURCE_LOCATION";
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches';
+let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 
 let data = JSON.stringify({"inputs": [
   {
@@ -393,11 +368,9 @@ let data = JSON.stringify({"inputs": [
 let config = {
   method: 'post',
   baseURL: endpoint,
-  url: '/batches', 
   headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-Type': 'application/json'
-    //'Ocp-Apim-Subscription-Region': location,
   },
   data: data
 };
@@ -419,10 +392,8 @@ axios(config)
 
 import requests
 
-path ='/batches/'
-endpoint = "https://YOUR-RESOURCE-ENDPOINT"
-constructed_url = endpoint + path
-subscriptionKey =  'YOUR-SUBSCRIPTION-KEY'
+endpoint = "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"
+subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 
 payload= {
     "inputs": [
@@ -451,7 +422,7 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-response = requests.post(url=constructed_url, headers=headers, json=payload)
+response = requests.post(url=endpoint, headers=headers, json=payload)
 
 print(f'response status code: {response.status_code}\nresponse status: {response.reason}\nresponse headers: {response.headers}')
 ```
@@ -465,8 +436,8 @@ import java.util.*;
 import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
-    String subscriptionKey = "'YOUR-SUBSCRIPTION-KEY'";
-    String url = "https://YOUR-RESOURCE-ENDPOINT/batches";
+    String subscriptionKey = "'<YOUR-SUBSCRIPTION-KEY>'";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches";
 
     OkHttpClient client = new OkHttpClient();
 
@@ -474,7 +445,7 @@ public class DocumentTranslation {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,  "{ \"inputs\": [ {  \"source\": { \"sourceUrl\": \"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\", \"storageSource\": \"AzureBlob\",  \"language\": \"en\", \"filter\":{ \"prefix\": \"Demo_1/\" }  },  \"targets\": [ { \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\": \"AzureBlob\", \"category\": \"general\",  \"language\": \"es\" }  ] } ]}");
         Request request = new Request.Builder()
-                .url(url).post(body)
+                .url(endpoint).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -507,13 +478,13 @@ import (
 )
 
 func main() {
-url := "https://YOUR-RESOURCE-ENDPOINT/batches"
-subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+endpoint := "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"
+subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
 method := "POST"
 
 var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
-req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
+req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
@@ -543,11 +514,7 @@ if err != nil {
 
 ### Response (POST)
 
-If successful, this method returns a `202 Accepted`  response code and the batch request is created by the service.
-
-The **Operation-Location** header will consist of the `sourceURL` and the `jobID`—the last parameter in the path. The `jobId`  is used for GET and DELETE requests.
-
->> **Ex:** https://<span></span>your-service-endpoint/batches/**1c74f0e7-3920-4320-8779-2c5309777ft**
+If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
 
 ## Retrieve job and document status via HTTP GET
 
@@ -564,13 +531,9 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches";
 
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-
-    //// Add your location, also known as region. The default is global.
-    //// This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR-RESOURCE-LOCATION";
+    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -593,8 +556,8 @@ class Program
 
 const axios = require('axios');
 
-let subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-let endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches";
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches';
+let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 
 let config = {
   method: 'get',
@@ -633,8 +596,8 @@ public class DocumentTranslator {
 
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
-String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-String endpoint = "https://YOUR-RESOURCE-ENDPOINT/batches"
+String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+String endpoint = "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches";
 
 Request request = new Request.Builder()
   .url(endpoint)
@@ -651,15 +614,15 @@ Response response = client.newCall(request).execute();
 
 import requests
 
-url = 'https://YOUR-RESOURCE-ENDPOINT/batches'
-subscriptionKey =  'YOUR-SUBSCRIPTION-KEY'
+endpoint = 'https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches'
+subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 
 payload={}
 headers = {
   'Ocp-Apim-Subscription-Key': 'subscriptionKey'
 }
 
-response = requests.request("GET", url, headers=headers, data=payload)
+response = requests.request("GET", url=endpoint, headers=headers, data=payload)
 
 print(response.text)
 ```
@@ -677,13 +640,13 @@ import (
 
 func main() {
 
-  url := "YOUR-SERVICE-ENDPOINT/batches"
-  subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"
+  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   method := "GET"
 
   client := &http.Client {
   }
-  req, err := http.NewRequest(method, url, nil)
+  req, err := http.NewRequest(method, endpoint, nil)
 
   if err != nil {
     fmt.Println(err)
@@ -711,20 +674,11 @@ func main() {
 
 ## Document Translation HTTP requests
 
-### Host URLs for HTTP requests
-
-|Description|Azure geography|Base URL (geographical endpoint)|
-|:--|:--|:--|
-|Azure|Global (non-regional)|api.cognitive.microsofttranslator.com|
-|Azure|United States|api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacific|api-apc.cognitive.microsofttranslator.com|
-
 ### GET Jobs
 
 #### Brief Overview
 
-Retrieve a list and current status for all jobs in a document translation request.
+Retrieve a list and current status for all jobs in a Document Translation request.
 
 #### HTTP request
 
@@ -736,13 +690,13 @@ GET /batches/
 
 #### Brief overview
 
-Get the current status for a single job and a summary of all jobs in a document translation request.
+Get the current status for a single job and a summary of all jobs in a Document Translation request.
 <!-- markdownlint-disable MD024 -->
 
 #### HTTP request
 
 ```http
-GET /batches/{jobId}
+GET /batches/{jobId}/
 ```
 
 ### DELETE Job
@@ -778,7 +732,7 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 
 #### Brief overview
 
-Retrieve the status of all documents in a document translation request.
+Retrieve the status of all documents in a Document Translation request.
 
 #### HTTP request
 
@@ -790,12 +744,12 @@ GET /batches/{jobId}/documents/
 
 #### Brief overview
 
-Retrieve the status of a specific document in a document translation request.
+Retrieve the status of a specific document in a Document Translation request.
 
 #### HTTP request
 
 ```http
-GET  /batches/{jobId}/document/{documentId}
+GET  /batches/{jobId}/document/{documentId}/
 ```
 
 #### Response: GET Documents and GET Document Status
@@ -868,7 +822,7 @@ GET /storagesources/
 
 ## Data Limits
 
-The table below lists the limits for data that you can send to Document Translation. If you need to translate large documents, divide the file contents into smaller blobs prior to sending requests.
+The table below lists the limits for data that you send to Document Translation.
 
 |Attribute | Limit|
 |---|---|
@@ -878,8 +832,13 @@ The table below lists the limits for data that you can send to Document Translat
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
+> [!NOTE]
+> The above data limits are subject to change following the public preview.
+
 ## Learn more
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
 * [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
+>
+>
