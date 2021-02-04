@@ -19,9 +19,9 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 ![RS vault backup items](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
 
 > [!NOTE]
-> For items backed up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both.
+> For items backed up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
 >
-> The DPM version must be DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
+> The DPM version must be DPM 1807 (5.1.378.0) or DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
 
 ## Backup Jobs in Recovery Services vault
 
