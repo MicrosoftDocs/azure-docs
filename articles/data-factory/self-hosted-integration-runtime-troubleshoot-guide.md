@@ -239,7 +239,7 @@ Install drivers for both the source and destination datastores on the destinatio
  
 If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from datastore 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to ddatastore 2. 
+* Copy another IR from Azure Blob Storage to datastore 2. 
 
 This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
