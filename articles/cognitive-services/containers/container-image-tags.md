@@ -47,13 +47,14 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-Release notes for `3.2-preview.1`:
+Release notes for `3.2-preview.2`:
 
 * New v3.2 container
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
+| `3.2-preview.2` |  |
 | `3.2-preview.1` |  |
 
 # [Previous versions](#tab/previous)
