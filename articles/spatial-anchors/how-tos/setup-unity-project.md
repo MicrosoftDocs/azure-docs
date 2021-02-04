@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 
 This guide will show you how to get started with the Azure Spatial Anchors SDK in your Unity project.
 
-## Project Requirements
+## Project requirements
 
 [!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
