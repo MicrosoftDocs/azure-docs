@@ -248,7 +248,7 @@ The overview page shows graphs for some basic cache statistics - cache throughpu
 
 ![screenshot of three line graphs showing the statistics mentioned above for a sample cache](media/hpc-cache-overview-stats.png)
 
-These charts are part of Azure's built-in monitoring and analytics tools. Additional tools and alerts are available from the pages under the **Monitoring** heading in the portal sidebar. Learn more in the portal section of the [Azure Monitoring documentation](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+These charts are part of Azure's built-in monitoring and analytics tools. Additional tools and alerts are available from the pages under the **Monitoring** heading in the portal sidebar. Learn more in the portal section of the [Azure Monitoring documentation](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
 ## Next steps
 

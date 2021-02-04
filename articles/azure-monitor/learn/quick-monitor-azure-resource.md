@@ -11,7 +11,7 @@ ms.date: 12/15/2019
 # Quickstart: Monitor an Azure resource with Azure Monitor
 [Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart provides a brief walkthrough of the data that's automatically collected for a resource and how to view it in the Azure portal for a particular resource. Later, you can add configuration to collect additional data and can go to the Azure Monitor menu to use the same tools to access data collected for all the resources in your subscription.
 
-For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md).
+For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md).
 
 
 ## Sign in to Azure portal

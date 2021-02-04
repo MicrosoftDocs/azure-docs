@@ -27,7 +27,7 @@ You may have additional requirements such as monitoring resources outside of Azu
 ## Collect data from Azure resources
 
 > [!NOTE]
-> See [Monitoring Azure resources with Azure Monitor](insights/monitor-azure-resource.md) for a complete guide on monitoring virtual machines with Azure Monitor.
+> See [Monitoring Azure resources with Azure Monitor](essentials/monitor-azure-resource.md) for a complete guide on monitoring virtual machines with Azure Monitor.
 
 Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
 
@@ -40,7 +40,7 @@ The following features of Azure Monitor are enabled with no configuration requir
 
 [Activity log](platform/platform-logs-overview.md) - Provides insight into management group and subscription-level events that have occurred in Azure. Events are automatically written to the Activity log when you create a new Azure resource, modify a resource, or perform a significant activity. You can view events in the Azure portal and create Activity log alerts when particular events are created. See [Azure Activity log](essentials/activity-log.md) for details of the Activity log and how to view it in the Azure portal.
 
-[Platform metrics](platform/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](essentials/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. See [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md) for details on analyzing platform metrics in the Azure portal. 
+[Platform metrics](platform/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](essentials/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. See [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md) for details on analyzing platform metrics in the Azure portal. 
 
 
 ### Create Log Analytics workspace

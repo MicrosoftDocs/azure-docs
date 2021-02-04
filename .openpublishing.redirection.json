@@ -62429,6 +62429,46 @@
       "source_path_from_root": "/articles/azure-monitor/platform/metrics-charts.md",
       "redirect_url": "/azure/azure-monitor/essentials/metrics-charts",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-custom-overview.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-custom-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-getting-started.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-store-custom-rest-api.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-store-custom-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-supported-export-diagnostic-settings.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-supported-export-diagnostic-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/monitor-azure-resource.md",
+      "redirect_url": "/azure/azure-monitor/essentials/monitor-azure-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/portal-disk-metrics-deprecation.md",
+      "redirect_url": "/azure/azure-monitor/essentials/portal-disk-metrics-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/rest-api-walkthrough.md",
+      "redirect_url": "/azure/azure-monitor/essentials/rest-api-walkthrough",
+      "redirect_document_id": false
     }
   ]
 }

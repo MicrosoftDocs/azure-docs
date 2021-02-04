@@ -69,7 +69,7 @@ To configure a storage account for your cache metrics:
 ![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
 To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).

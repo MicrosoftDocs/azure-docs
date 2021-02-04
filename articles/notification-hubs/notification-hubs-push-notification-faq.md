@@ -188,7 +188,7 @@ You can also programmatically access metrics. For more information, see the foll
 
 - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). This sample uses the user name and password. To use a certificate, overload the FromServicePrincipal method to provide a certificate as shown in [this example](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  

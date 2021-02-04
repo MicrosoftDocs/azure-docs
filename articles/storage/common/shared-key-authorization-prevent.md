@@ -37,7 +37,7 @@ For more information about interpreting requests made with a shared access signa
 
 ### Monitor how many requests are authorized with Shared Key
 
-To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 

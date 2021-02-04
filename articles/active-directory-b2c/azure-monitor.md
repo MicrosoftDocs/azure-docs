@@ -318,6 +318,6 @@ Azure Monitor Logs are designed to scale and support collecting, indexing, and s
 
 * Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem). 
 
-* For more information about adding and configuring diagnostic settings in Azure Monitor, see [Tutorial: Collect and analyze resource logs from an Azure resource](../azure-monitor/insights/monitor-azure-resource.md).
+* For more information about adding and configuring diagnostic settings in Azure Monitor, see [Tutorial: Collect and analyze resource logs from an Azure resource](../azure-monitor/essentials/monitor-azure-resource.md).
 
 * For information about streaming Azure AD logs to an event hub, see [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

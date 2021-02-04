@@ -23,7 +23,7 @@ The **Overview** page in the Azure portal for each Azure Files resource includes
 ## What is Azure Monitor?
 Azure Files creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
 
-Start with the article [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md), which describes the following:
+Start with the article [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md), which describes the following:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -35,7 +35,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure Files collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Files collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Azure File monitoring data reference](storage-files-monitoring-reference.md) for detailed information on the metrics and logs metrics created by Azure Files.
 
@@ -257,7 +257,7 @@ To view an Azure Resource Manager template that creates a diagnostic setting, se
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). 
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions). Metrics for Azure Files are in these namespaces: 
 
@@ -669,7 +669,7 @@ The following table lists some example scenarios to monitor and the proper metri
 ## Next steps
 
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
-- [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
+- [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](./storage-files-planning.md)
 - [How to deploy Azure Files](./storage-how-to-create-file-share.md)

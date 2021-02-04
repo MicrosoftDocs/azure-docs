@@ -168,7 +168,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 
 * [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 

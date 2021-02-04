@@ -56,7 +56,7 @@ Azure Monitor collects data from a variety of sources into [logs](platform/data-
 There is no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of Metrics](essentials/data-platform-metrics.md#retention-of-metrics). There is no limit on the amount of log data that you can collect, but it may be affected by the pricing tier you choose for the Log Analytics workspace. See [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### How do I access data collected by Azure Monitor?
-Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
+Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md).
 
 ## Solutions and insights
 
@@ -101,7 +101,7 @@ To view VM Logs, you need to be granted with read permission to the workspaces t
 ## Metrics
 
 ### Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
-[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
+[Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
 
 ## Alerts
 

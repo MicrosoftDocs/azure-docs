@@ -35,7 +35,7 @@ Either process assigns the **Monitoring Metrics Publisher** role to the cluster'
 
 Before you update your cluster, confirm the following:
 
-* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
+* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../essentials/metrics-custom-overview.md#supported-regions).
 
 * You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. This requirement does not apply to Azure Arc enabled Kubernetes clusters.
 

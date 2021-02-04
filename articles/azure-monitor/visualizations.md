@@ -136,7 +136,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 ## Next steps
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
-- Learn about [Metrics Explorer](platform/metrics-getting-started.md)
+- Learn about [Metrics Explorer](essentials/metrics-getting-started.md)
 - Learn about [Workbooks](./visualizations/workbooks-overview.md).
 - Learn about [import log data into Power BI](./platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).

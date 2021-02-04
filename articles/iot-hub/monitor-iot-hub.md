@@ -26,7 +26,7 @@ The information presented on the Overview pane is useful, but represents only a 
 
 Azure IoT Hub creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -38,7 +38,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
+Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for detailed information on the metrics and logs created by Azure IoT Hub.
 
@@ -72,7 +72,7 @@ When routing IoT Hub platform metrics to other locations, be aware that:
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
 
 In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your IoT hub to open metrics explorer scoped, by default, to the platform metrics emitted by your IoT hub:
 
@@ -299,4 +299,4 @@ For more detailed information about monitoring device connections with Event Gri
 
 - See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
 
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

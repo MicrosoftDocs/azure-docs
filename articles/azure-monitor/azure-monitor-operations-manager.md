@@ -59,7 +59,7 @@ You enable Application Insights for each of your business applications. It ident
 As you gain familiarity with Azure Monitor, you start to create alert rules that are able to replace some management pack functionality and start to evolve your business processes to use the new monitoring platform. This allows you to start removing machines and management packs from the Operations Manager management group. You continue to use management packs for critical server software and on-premises infrastructure but continue to watch for new features in Azure Monitor that will allow you to retire additional functionality.
 
 ## Monitor Azure services
-Azure services actually require Azure Monitor to collect telemetry, and it's enabled the moment that you create an Azure subscription. The [Activity log](essentials/activity-log.md) is automatically collected for the subscription, and [platform metrics](essentials/data-platform-metrics.md) are automatically collected from any Azure resources you create. You can immediately start using [metrics explorer](platform/metrics-getting-started.md), which is similar to performance views in the Operations console, but it provides interactive analysis and [advanced aggregations](essentials/metrics-charts.md) of data. [Create a metric alert](alerts/alerts-metric.md) to be notified when a value crosses a threshold or [add a chart to an Azure dashboard](essentials/metrics-charts.md#pinning-to-dashboards) for visibility.
+Azure services actually require Azure Monitor to collect telemetry, and it's enabled the moment that you create an Azure subscription. The [Activity log](essentials/activity-log.md) is automatically collected for the subscription, and [platform metrics](essentials/data-platform-metrics.md) are automatically collected from any Azure resources you create. You can immediately start using [metrics explorer](essentials/metrics-getting-started.md), which is similar to performance views in the Operations console, but it provides interactive analysis and [advanced aggregations](essentials/metrics-charts.md) of data. [Create a metric alert](alerts/alerts-metric.md) to be notified when a value crosses a threshold or [add a chart to an Azure dashboard](essentials/metrics-charts.md#pinning-to-dashboards) for visibility.
 
 [![Metrics explorer](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 
@@ -126,7 +126,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
 - Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
-- Use [metrics explorer](platform/metrics-getting-started.md) to interactively analyze performance data.
+- Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](log-query/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
@@ -144,7 +144,7 @@ Following the basic strategy in the other sections of this guide, continue to us
 ## Next steps
 
 - See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a detailed comparison of Azure Monitor and System Center Operations Manager and more details on designing and implementing a hybrid monitoring environment.
-- Read more about [monitoring Azure resources in Azure Monitor](insights/monitor-azure-resource.md).
+- Read more about [monitoring Azure resources in Azure Monitor](essentials/monitor-azure-resource.md).
 - Read more about [monitoring Azure virtual machines in Azure Monitor](vm/monitor-vm-azure.md).
 - Read more about [Azure Monitor for VMs](vm/vminsights-overview.md).
 - Read more about [Application Insights](app/app-insights-overview.md).
