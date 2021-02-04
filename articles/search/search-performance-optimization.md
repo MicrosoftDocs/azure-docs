@@ -89,9 +89,18 @@ An [Availability Zone in Azure](https://docs.microsoft.com/azure/availability-zo
 
 You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed on a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
 
-Azure Cognitive Search currently supports Availability Zones for services that were created February 1st, 2021 or later in one of the following regions:
-+ France Central
-+ Central US
+Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
++ Australia East (created 1/30/2021 or later)
++ Canada Central (created 1/30/2021 or later)
++ Central US (created 12/4/2020 or later)
++ East US 2 (created 1/30/2021 or later)
++ France Central (created 10/23/2020 or later)
++ Japan East (created 1/30/2021 or later)
++ North Europe (created 1/28/2021 or later)
++ South East Asia (created 1/31/2021 or later)
++ UK South (created 1/30/2021 or later)
++ West Europe (created 1/29/2021 or later)
++ West US 2 (created 1/30/2021 or later)
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
