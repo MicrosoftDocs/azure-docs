@@ -12,15 +12,15 @@ ms.author: manayar
 
 # Preview: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 
-Automatic Extension Upgrade is available in preview for Azure VMs and Azure VM scale sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. 
+Automatic Extension Upgrade is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. 
 
  Automatic Extension Upgrade has the following features:
-- Supported for Azure VMs and Azure VMSS. Service Fabric VMSS is currently not supported. 
+- Supported for Azure VMs and Azure Virtual Machine Scale Sets. Service Fabric Virtual Machine Scale Sets is currently not supported. 
 - Upgrades are applied in an availability-first deployment model (detailed below). 
-- When applied to a VMSS, no more than 20% of the VMSS virtual machines will be upgraded in a single batch (subject to a minimum of 1 virtual machine per batch). 
+- When applied to a Virtual Machine Scale Sets, no more than 20% of the Virtual Machine Scale Sets virtual machines will be upgraded in a single batch (subject to a minimum of one virtual machine per batch). 
 - Works for all VM sizes, and for both Windows and Linux extensions. 
 - You can opt out of automatic upgrades at any time. 
-- Automatic extension upgrade can be enabled on a VMSS of any size. 
+- Automatic extension upgrade can be enabled on a Virtual Machine Scale Sets of any size. 
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically. 
 - Supported in all public cloud regions. 
 
@@ -42,7 +42,7 @@ A failed extension update is automatically retried. A retry is attempted every f
 
 2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine. 
 
-3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy, before moving on to upgrade the next batch. If a VM does not recover its health after an upgrade, then by default the previous extension version for the VM is re-installed. 
+3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy, before moving on to upgrade the next batch. If a VM does not recover its health after an upgrade, then by default the previous extension version for the VM is reinstalled. 
 
 4. The upgrade orchestrator also tracks the percentage of VMs that become unhealthy after an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process. 
 
@@ -60,7 +60,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - An update will move across Azure globally in a phased manner to prevent Azure-wide deployment failures. 
 - A 'phase' can constitute one or more regions, and an update moves across phases only if eligible VMs in a phase are updated successfully. 
 - Geo-paired regions will not be updated concurrently and cannot be in the same regional phase. 
-- The success of an update is measured by tracking the health of a VM post update. VM health is tracked through platform health indicators for the VM. In the case of VM scale sets, the VM health is tracked through application health probes or the Application Health extension, if applied to the scale set. 
+- The success of an update is measured by tracking the health of a VM post update. VM health is tracked through platform health indicators for the VM. In the case of Virtual Machine Scale Sets, the VM health is tracked through application health probes or the Application Health extension, if applied to the scale set. 
 
 **Within a region:** 
 - VMs in different Availability Zones are not updated concurrently. 
@@ -166,7 +166,7 @@ PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/provi
 ```
 
 ### REST API for Virtual Machine Scale Sets 
-To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension) on an Azure VM Scale Set, use the following:
+To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension) on an Azure Virtual Machine Scale Set, use the following:
 
 ```
 PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<vmssName>?api-version=2019-12-01`
@@ -199,11 +199,11 @@ PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/provi
 
 ## Extension upgrades with multiple extensions 
 
-A VM or VM Scale Set can have multiple extensions with automatic extension upgrade enabled, in addition to other extensions without automatic extension upgrades.  
+A VM or Virtual Machine Scale Set can have multiple extensions with automatic extension upgrade enabled, in addition to other extensions without automatic extension upgrades.  
 
 If multiple extension upgrades are available for a virtual machine, the upgrades may be batched together. However, each extension upgrade is applied individually on a virtual machine. A failure on one extension does not impact the other extension(s) that may be upgrading. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second upgrade will still be upgraded. 
 
-Automatic Extension Upgrades can also be applied when a VM or VM Scale Set has multiple extensions configured with extension sequencing. Extension sequencing is applicable for the first-time deployment of the VM, and any subsequent extension upgrades on an extension are applied independently. 
+Automatic Extension Upgrades can also be applied when a VM or Virtual Machine Scale Set has multiple extensions configured with extension sequencing. Extension sequencing is applicable for the first-time deployment of the VM, and any subsequent extension upgrades on an extension are applied independently. 
 
 
 ## Next steps
