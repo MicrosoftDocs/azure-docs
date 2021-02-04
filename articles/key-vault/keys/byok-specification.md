@@ -127,9 +127,16 @@ The JSON blob is stored in a file with a ".byok" extension so that the Azure Pow
 
 Customer will transfer the Key Transfer Blob (".byok" file) to an online workstation and then run a **az keyvault key import** command to import this blob as a new HSM-backed key into Key Vault. 
 
+To import an RSA key use this command:
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
+To import an EC key, you must specify key type and the curve name.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+```
+
 
 When the above command is executed, it results in sending a REST API request as follows:
 
@@ -137,7 +144,7 @@ When the above command is executed, it results in sending a REST API request as 
 PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-version=7.0
 ```
 
-Request body:
+Request body when importing an RSA key:
 ```json
 {
   "key": {
@@ -153,6 +160,25 @@ Request body:
   }
 }
 ```
+
+Request body when importing an EC key:
+```json
+{
+  "key": {
+    "kty": "EC-HSM",
+    "crv": "P-256"
+    "key_ops": [
+      "sign",
+      "verify"
+    ],
+    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+  },
+  "attributes": {
+    "enabled": true
+  }
+}
+```
+
 “key_hsm” value is the entire contents of the KeyTransferPackage-ContosoFirstHSMkey.byok encoded in the Base64 format.
 
 ## References
