@@ -54,11 +54,11 @@ To migrate from Studio (classic) to Azure Machine Learning, we recommend the fol
 
 
 > [!NOTE]
-> Azure Machine Learning also supports code-first workflows for [training](../how-to-setup-training-targets.md) and [deployment](../how-to-deploy-and-where.md).
+> Azure Machine Learning also supports code-first workflows for [training](../how-to-set-up-training-targets.md) and [deployment](../how-to-deploy-and-where.md).
 
 ## Step 4: Integrate client apps
 
-1. Cut over any client applications to your new [Azure Machine Learning endpoints](migreate-rebuild-integrate-with-client-app.md).
+1. Cut over any client applications to your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
 
 ## Example migration
 
