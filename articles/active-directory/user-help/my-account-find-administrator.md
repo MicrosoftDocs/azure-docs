@@ -1,6 +1,6 @@
 ---
 title: Find an administrator for My Account - Azure AD
-description: How ti find the Az ure AD administrator in your organization, for My Account users
+description: How to find the Azure AD administrator in your organization, for My Account users
 services: active-directory
 author: curtand
 manager: daveba
