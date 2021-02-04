@@ -376,7 +376,9 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 
 Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
 
-[QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # [C# Script](#tab/csharp-script)
 
@@ -396,6 +398,8 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # [Java](#tab/java)
 
