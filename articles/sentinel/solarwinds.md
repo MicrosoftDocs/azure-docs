@@ -122,6 +122,8 @@ The **Sensitive Operations Report** indicates suspicious activity detected in yo
 - Changes made to existing domain federation trusts, which may help attackers gain a long-term foothold in the environment, by adding an attacker-controlled SAML IDP as a trusted authentication source.
 
 - Manual modifications made to refresh tokens, which are used to validate identification and obtain access tokens, and can be used to by an attacker to gain persistence in the network.
+
+For more information, see [Active Directory best practices](/azure/active-directory/develop/identity-platform-integration-checklist) and [Blocking legacy authentication](/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication) in the Azure Active Directory documentation.
 ## Microsoft references for Solorigate
 
 For more information about securing your system after Solorigate, see any of the following Microsoft resources:
@@ -138,3 +140,9 @@ For more information about securing your system after Solorigate, see any of the
 |     |         |
 
 
+**See also:**
+
+For more information, see the following references:
+
+- [Best practices for securing privileged access](/security/compass/overview)
+- [Best practices for human operated ransomware](/security/compass/human-operated-ransomware)
