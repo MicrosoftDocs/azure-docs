@@ -1,10 +1,10 @@
 ---
 title: Connect to your Azure Percept DK over serial
 description: Learn how to set up a serial connection to your Azure Percept DK with PuTTY and a USB to TTL serial cable
-author: elqu20;
-ms.author: v-elqu;
-ms.service: azure-percept;
-ms.topic: how-to;
+author: elqu20
+ms.author: v-elqu
+ms.service: azure-percept
+ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
@@ -13,7 +13,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 Follow the steps below to set up a serial connection to your Azure Percept DK through [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
->[!WARNING] Do **NOT** attempt to connect your devkit over serial except in extreme failure cases (e.g. you bricked your device). Taking apart the carrier board enclosure to connect the serial cable is very difficult and will break your Wi-Fi antenna cables.
+> [!WARNING]
+> Do **NOT** attempt to connect your devkit over serial except in extreme failure cases (e.g. you bricked your device). Taking apart the carrier board enclosure to connect the serial cable is very difficult and will break your Wi-Fi antenna cables.
 
 ## Prerequisites
 
@@ -30,13 +31,15 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
 
 1. Remove the screws on the underside of the carrier board enclosure and extract the motherboard.
 
-    >[!WARNING] Removing the motherboard will break your Wi-Fi antenna cables. Do **NOT** proceed with the serial connection unless it is the last resort to recover your device.
+    > [!WARNING]
+    > Removing the motherboard will break your Wi-Fi antenna cables. Do **NOT** proceed with the serial connection unless it is the last resort to recover your device.
 
 1. Remove the heatsink.
 
 1. Remove the jumper board from the GPIO pins.
 
-    >[!Tip] Note the orientation of the jumper board prior to removing it. For example, draw an arrow on or attach a sticker to the jumper board pointing towards the circuitry for reference. The jumper board is not keyed and may be accidentally connected backwards when reassembling your carrier board.
+    > [!TIP]
+    > Note the orientation of the jumper board prior to removing it. For example, draw an arrow on or attach a sticker to the jumper board pointing towards the circuitry for reference. The jumper board is not keyed and may be accidentally connected backwards when reassembling your carrier board.
 
 1. Connect the [USB to TTL serial cable](https://www.adafruit.com/product/954) to the GPIO pins on the motherboard as shown below. Please note that the red wire is not connected.
 
