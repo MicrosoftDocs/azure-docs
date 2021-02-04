@@ -30,7 +30,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You will need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You will need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total trrors and timestamp.
+6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp.
 
    :::image type="content" source="media/diagnostic-logging/fhirdiagnosticsetting.png" alt-text="Diagnostic Setting" lightbox="media/diagnostic-logging/fhirdiagnosticsetting.png":::
 
