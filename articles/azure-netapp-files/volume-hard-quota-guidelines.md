@@ -36,7 +36,7 @@ Many customers have requested direct control over provisioned capacity. They wan
 
 With the volume hard quota change, Azure NetApp Files volumes will no longer be thin provisioned at (the maximum) 100 TiB. The volumes will be provisioned at the actual configured size (quota). Also, the underlaying capacity pools will no longer automatically grow upon reaching full-capacity consumption. This change will reflect the behavior like Azure-Managed Disks, which are also provisioned as-is, without automatic capacity increase.
 
-For example, consider an Azure NetApp Files volume configured at 1 TiB size (quota) on a 4-TiB Ultra service level capacity pool. An application is continuously writing data to the volume.
+For example, consider an Azure NetApp Files volume configured at 1-TiB size (quota) on a 4-TiB Ultra service level capacity pool. An application is continuously writing data to the volume.
 
 The *initial* behavior:  
 * Expected bandwidth: 128 MiB/s
