@@ -34,9 +34,9 @@ In this article, you learn how to configure the distribution mode for your Azure
 You can change the configuration of the distribution mode by modifying the load-balancing rule in the portal.
 
 1. Sign in to the Azure portal and locate the resource group containing the load balancer you wish to change by clicking on **Resource Groups**.
-2. In the load balancer overview screen, click on **Load-balancing rules** under **Settings**.
-3. In the load-balancing rules screen, click on the load-balancing rule that you wish to change the distribution mode.
-4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop down box. 
+2. In the load balancer overview screen, select **Load-balancing rules** under **Settings**.
+3. In the load-balancing rules screen, select the load-balancing rule that you wish to change the distribution mode.
+4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop-down box. 
 
 The following options are available: 
 
