@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 ---
 
@@ -33,7 +33,7 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. || ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |

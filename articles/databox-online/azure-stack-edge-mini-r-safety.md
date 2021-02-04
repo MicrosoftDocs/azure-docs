@@ -33,6 +33,7 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
 | ![Hazard Symbol](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
 | ![Indoor Use Only](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) | Indoor Use Only |
