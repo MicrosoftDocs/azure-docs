@@ -23,11 +23,11 @@ This article explains how customers can access Azure Spring Cloud config server 
 
 4. Find and select *Azure Spring Cloud Data Reader* in **Role**, Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search fro and select user.  Click `Save`
 
-   ![assign-role](../images/assign-data-reader-role.png)
+   ![assign-role](media/access-data-plane-aad-rbac/assign-data-reader-role.png)
 
 ## Access data plane
 
-After AAD user is assigned *Azure Spring Cloud Data Reader* role, customers can login Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli) to get access token.
+After AAD user is assigned *Azure Spring Cloud Data Reader* role, customers can login Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get access token.
 
 ```
 az login
