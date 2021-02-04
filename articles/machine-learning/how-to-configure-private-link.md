@@ -154,6 +154,27 @@ Since communication to the workspace is only allowed from the virtual network, a
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](../virtual-machines/index.yml).
 
+## Enable public access
+
+After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. It enables public access in addition to the private access. To enable public access to a private link-enabled workspace, use the following steps:
+
+# [Python](#tab/python)
+
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) to remove a private endpoint.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
+
+---
+
 
 ## Next steps
 
