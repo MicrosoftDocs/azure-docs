@@ -12,7 +12,7 @@ ms.date: 02/04/2021
 ---
 
 
-# Migration reference
+# Studio (classic) migration reference
 
 This article contains supplementary reference information to help you migrate from Studio (classic) to Azure Machine Learning.
 

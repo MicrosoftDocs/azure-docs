@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 02/04/2021
 ---
 
-# Migrate to Azure Machine Learning from Studio (classic)
+# Migrate to Azure Machine Learning
 
 In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources to Azure Machine Learning, you must manually rebuild your experiments.
 

@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (classic): Migrate to Azure Machine Learning - Integrate web service with client app'
+title: 'ML Studio (classic): Migrate to Azure Machine Learning - Consume pipeline endpoints'
 description: Integrate pipeline endpoitns with with client applications in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 02/04/2021
 ---
 
-# Integrate web service with client app
+# Consume pipeline endpoints from client applications
 
 In this article, you learn how to integrate client applications with Azure Machine Learning endpoints.
 

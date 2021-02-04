@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 02/04/2021
 ---
 
-# Rebuild web services in Azure Machine Learning
+# Rebuild a Studio (classic) web service in Azure Machine Learning
 
 In this article, you learn how to rebuild a Studio (classic) web service as a **pipeline endpoint** in Azure Machine Learning.
 
