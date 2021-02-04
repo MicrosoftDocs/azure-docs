@@ -151,8 +151,8 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 Release note for `2.9.0-amd64`:
 
 **Feature**
-* Now more error details will be provided when customer have any issue of fetching custom models by id.
-* Hypythesis is supported on Conversation results by default.
+* More error details for issues when fetching custom models by ID.
+* Hypothesis is supported in conversation results by default.
 
 Note that due to the included phrase lists, the size of this container image has increased.
 
