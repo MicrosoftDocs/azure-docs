@@ -64,7 +64,7 @@ Application gateway supports these server variables:
 | client_port                | The client port.                                                  |
 | client_tcp_rtt             | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
 | client_user                | When HTTP authentication is used, the user name supplied for authentication. |
-| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, host value will be is *contoso.com* |
+| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, host value will be is *contoso.com* |
 | cookie_*name*              | The *name* cookie.                                            |
 | http_method                | The method used to make the URL request. For example, GET or POST. |
 | http_status                | The session status. For example, 200, 400, or 403.                       |
