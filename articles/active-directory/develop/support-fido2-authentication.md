@@ -45,11 +45,11 @@ The following is our best practices guidance for ensuring the availability of FI
 
 **Desktop best practices**
 
-Desktop applications that are using the Microsoft Authentication Library (MSAL) should use the Windows Authentication Manager (WAM) as the first choice. This integration and the benefits are [documented on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
+Our first reccomendation is that .NET desktop applications that are using the Microsoft Authentication Library should use the Windows Authentication Manager (WAM) to support the best authentication experience. This integration and its benefits are [documented on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
 
-If this is not an option, your application should use [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
+If this is not an option, your application should use [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) to support FIDO2 in an embedded browser so that users can authenticate without leaving the app.
 
-And if neither of those will work for you, you should use the system web browser rather than an embedded web view.
+And if neither of those will work for you, you should use the system browser. The MSAL librararies for desktop platforms use this method by default. You can consult our page on FIDO2 browser compatibility to ensure the browser you use supports FIDO2 authentication. 
 
 **Mobile best practices**
 
