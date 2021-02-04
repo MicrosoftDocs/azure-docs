@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.topic: conceptual
 ---
 
@@ -111,9 +111,9 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 |`agentserviceapi.azure-automation.net`|Guest Configuration|
 |`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
+For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
-The URLs in the previous table are required in addition to the Service Tag IP address range information because most services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ### Register Azure resource providers
 

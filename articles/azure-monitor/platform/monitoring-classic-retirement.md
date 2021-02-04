@@ -13,7 +13,7 @@ ms.subservice: alerts
 
 Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy.
 
-With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
+With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired for public cloud users, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -43,7 +43,7 @@ Newer metrics for Azure resources are available as:
 
 ## Retirement of Classic monitoring and alerting platform
 
-As stated earlier, older classic monitoring and alerting are retired; including the closure of related APIs, Azure portal interface, and services in it, though still in limited use for resources that do not yet support the new alerts. Specifically, these features will be deprecated:
+As stated earlier, older classic monitoring and alerting are retired for public cloud users; including the closure of related APIs, Azure portal interface, and services in it, though still in limited use for resources that do not yet support the new alerts. Specifically, these features will be deprecated:
 
 - Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](/rest/api/monitor/alertrules) resource
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](/rest/api/monitor/alertrules) resource
