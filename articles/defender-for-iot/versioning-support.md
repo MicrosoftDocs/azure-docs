@@ -20,9 +20,9 @@ The information in this article doesn't apply to [Defender for IoT cloud](https:
 
 Azure Defender for IoT follows the [Microsoft Lifecycle Policy](https://support.microsoft.com/lifecycle).
 
-As new versions of Defender for IoT are released, earlier versions will be retired. Microsoft declares a version as deprecated at least XXXX months in advance of retiring it.
+As new versions of Azure Defender for IoT Sensor, Azure Defender for IoT on premises management console, and Azure Defender for IoT micro agent are released, earlier versions will be retired earlier versions will be retired. Microsoft declares a version as deprecated at least 9 months in advance of retiring it.
 
-When we increment the major version of Azure Defender for IoT (for example, from v1.0 to v2.0), we are announcing that the current version (in this example, v1.0) is immediately deprecated and we will no longer support it XXX months after the announcement. We might make exceptions to this policy for service security, or health reliability issues.
+When we increment the major version of Azure Defender for IoT (for example, from v1.0 to v2.0), we are announcing that the current version (in this example, v1.0) is immediately deprecated and we will no longer support it 9 months after the announcement. We might make exceptions to this policy for service security, or health reliability issues.
 
 When a version is marked as deprecated, we strongly recommend that you migrate to the latest version as soon as possible. In some cases, we will announce that new applications will have to start using the new version a short time after the original is deprecated. In those cases, only active applications that currently use the deprecated version can continue to use them.
 
@@ -52,4 +52,3 @@ There are currently no deprecated versions of Azure Defender for IoT.
 
 By using the Azure Defender for IoT, you agree to the [INSERT LINK TO TERMS OF USE FOR Azure Defender for IoT]().
 
-Your feedback is important to us. Connect with us on [StackOverflow should this be here?](https://stackoverflow.com/questions/tagged/microsoftgraph?sort=newest). Tag your questions with [??????].
