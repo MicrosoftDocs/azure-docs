@@ -234,7 +234,7 @@ az group list
 
 Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge for Linux on Windows.
 
-1. Connect to the Azure IoT Edge for Linux on Windows device connection in Windows Admin Center. The Azure dashboard tool extension loads.
+1. Connect to the IoT Edge device in Windows Admin Center. The Azure dashboard tool extension loads.
 
 1. Select **Uninstall**. After Azure IoT Edge is removed, Windows Admin Center removes the Azure IoT Edge device connection entry from the **Start** page.
 
