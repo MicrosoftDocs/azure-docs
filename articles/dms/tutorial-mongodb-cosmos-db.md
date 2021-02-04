@@ -55,11 +55,11 @@ Customers migrating from MongoDB to Azure Cosmos DB benefit from resource govern
 
 You can find the Server Side Retry capability in the *Features* blade of the Azure Cosmos DB portal
 
-![MongoDB SSR feature](media/tutorial-mongodb-to-cosmosdb/mongo_ssr_feature.png)
+![MongoDB SSR feature](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
 
 And if it is *Disabled*, then we recommend you enable it as shown below
 
-![MongoDB SSR enable](media/tutorial-mongodb-to-cosmosdb/mongo_ssr_enable.png)
+![MongoDB SSR enable](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## Register the Microsoft.DataMigration resource provider
 
