@@ -32,7 +32,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 
 6. Select **AuditLogs** and/or **AllMetrics**. 
 
-   :::image type="content" source="articles/healthcare-apis/media/diagnostic-logging/fhirdiagnosticsetting.jpg" alt-text="Diagnostic Setting" lightbox="articles/healthcare-apis/media/diagnostic-logging/fhirdiagnosticsetting.jpg":::
+   :::image type="content" source="articles/healthcare-apis/media/diagnostic-logging/fhirdiagnosticsetting.png" alt-text="Diagnostic Setting" lightbox="articles/healthcare-apis/media/diagnostic-logging/fhirdiagnosticsetting.png":::
 
 7. Select **Save**
 
