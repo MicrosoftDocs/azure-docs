@@ -271,7 +271,7 @@ If you plan to access the resource by using only a private endpoint, you can ski
 > [!NOTE]
 > The resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
 
-## Adjust an application to use a Speech resource with a private endpoint
+## Adjust an app to use a Speech resource with a private endpoint
 
 A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom-domain-enabled Speech resource both with and without private endpoints. Information in this section applies to both scenarios.
 
@@ -283,7 +283,7 @@ A Speech resource with a custom domain name and a private endpoint enabled uses 
 > A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
 > This way differs from the scenario of a private-endpoint-enabled Speech resource. 
 > This is important to consider because you may decide to remove private endpoints later.
-> See _Adjust an application to use a Speech resource without private endpoints_ later in this article.
+> See _Adjust an app to use a Speech resource without private endpoints_ later in this article.
 
 ### Speech resource with a custom domain name and a private endpoint: Usage with the REST APIs
 
@@ -497,7 +497,7 @@ Follow these steps to modify your code:
 
 After this modification, your application should work with the private-endpoint-enabled Speech resources. We're working on more seamless support of private endpoint scenarios.
 
-## Adjust an application to use a Speech resource without private endpoints
+## Adjust an app to use a Speech resource without private endpoints
 
 In this article, we've pointed out several times that enabling a custom domain for a Speech resource is *irreversible*. Such a resource will use a different way of communicating with Speech Services, compared to the ones that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
