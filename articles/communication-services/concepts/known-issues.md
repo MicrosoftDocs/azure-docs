@@ -15,27 +15,24 @@ ms.service: azure-communication-services
 
 This article provides information about known issues associated with Azure Communication Services.
 
-## Video streaming quality on Chrome/Android 
+### Video streaming quality on Chrome/Android 
 
 Video streaming performance may be degraded on Chrome Android.
 
-### Possible causes
+#### Possible causes
 The quality of remote streams depend on the resolution of the client-side renderer that was used to initiate that stream. When subscribing to a remote stream, a receiver will determine its own resolution based on the sender's client-side renderer dimensions.
 
-## Bluetooth headset microphones are not detected
+### Bluetooth headset microphones are not detected
 
 You may experience issues connecting your bluetooth headset to a Communication Services call.
 
-### Possible causes
+#### Possible causes
 There isn't an option to select Bluetooth microphone on iOS.
 
 
-## Repeatedly switching video devices may cause video streaming to temporarily stop
+### Repeatedly switching video devices may cause video streaming to temporarily stop
 
 Switching between video devices may cause your video stream to pause while the stream is acquired from the selected device.
 
-### Troubleshooting steps
-Stop streaming from one camera before opening another.
-
-### Possible causes
+#### Possible causes
 Streaming from and switching between media devices is computationally intensive. Switching frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
