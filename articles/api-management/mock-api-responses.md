@@ -53,9 +53,9 @@ The steps in this section show how to create a blank API with no backend.
 
 ## Add an operation to the test API
 
-### [Portal](#tab/azure-portal)
-
 An API exposes one or more operations. In this section, add an operation to the blank API you created. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps later in the [Enable response mocking](#enable-response-mocking) section.
+
+### [Portal](#tab/azure-portal)
 
 1. Select the API you created in the previous step.
 1. Select **+ Add Operation**.
@@ -88,6 +88,26 @@ Although not required for this example, additional settings for an API operation
 ### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation?view=azure-cli-latest#az_apim_api_operation_create) command:
+
+```azurecli
+az apim api operation create --resource-group apim-hello-word-resource-group --display-name "Test call" --api-id test-api --method GET --url-template /test --service-name apim-hello-world 
+```
+
+Run the [az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list) command to see all your operations for an API:
+
+```azurecli
+az apim api operation list --resource-group apim-hello-word-resource-group --api-id test-api --service-name apim-hello-world --output table
+```
+
+To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete) command. Get the operation ID from the previous command.
+
+```azurecli
+az apim api operation delete --resource-group apim-hello-word-resource-group --api-id test-api --operation-id 00000000000000000000000000000000 --service-name apim-hello-world
+```
+
+Keep this operation for use in the rest of this article.
 
 ---
 

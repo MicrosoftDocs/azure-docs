@@ -98,6 +98,36 @@ Once the named value is created, you can edit it by selecting the name. If you c
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) command:
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group --display-name "named_value_01" --named-value-id named_value_01 --secret true --service-name apim-hello-world --value test
+```
+
+After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list) command:
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group --service-name apim-hello-world --output table
+```
+
+To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show) command:
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group --service-name apim-hello-world --named-value-id named_value_01
+```
+
+This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret) command:
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group --service-name apim-hello-world --named-value-id named_value_01
+```
+
+To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete) command:
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group --service-name apim-hello-world --named-value-id named_value_01
+```
+
 ---
 
 ## Use a named value
