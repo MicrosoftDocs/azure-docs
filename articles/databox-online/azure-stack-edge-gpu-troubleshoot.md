@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 ---
 # Troubleshoot issues on your Azure Stack Edge Pro GPU device 
