@@ -1,15 +1,15 @@
 ---
-title: Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax
-description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax.
+title: Azure Cosmos DB's API for MongoDB (4.0 version) supported features and syntax
+description: Learn about Azure Cosmos DB's API for MongoDB (4.0 version) supported features and syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 08/07/2020
-author: sivethe
-ms.author: sivethe
+ms.date: 02/01/2021
+author: gahl-levy
+ms.author: gahllevy
 ---
 
-# Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
+# Azure Cosmos DB's API for MongoDB (4.0 version): supported features and syntax
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
@@ -18,7 +18,7 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 ## Protocol Support
 
-The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6 version of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.
+The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 4.0 and 3.6 versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.
 
 ## Query language support
 
@@ -27,6 +27,8 @@ Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB que
 ## Database commands
 
 Azure Cosmos DB's API for MongoDB supports the following database commands:
+### Multi-document transactions
+Sharded vs unsharded collections (please add more info)
 
 ### Query and write operation commands
 
