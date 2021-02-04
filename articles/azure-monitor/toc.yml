@@ -794,6 +794,8 @@
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
+    - name: Work Item integration
+      href: app/work-item-integration.md
     - name: SLA Report
       href: app/sla-report.md
     - name: Metrics
