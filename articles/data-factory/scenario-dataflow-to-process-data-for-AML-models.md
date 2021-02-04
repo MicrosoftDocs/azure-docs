@@ -2,24 +2,24 @@
 title: Use Dataflow to process data for automated machine learning(AutoML) models
 description: Learn how to process data for automated machine learning(AutoML) models in Azure Data Factory using mapping data flows.
 services: data-factory
-author: amberz,ATLArcht
+author: amberz, ATLArcht
 
 ms.service: data-factory
 ms.workload: data-services
 
 ms.topic: conceptual
 ms.date: 1/31/2021
-ms.author: amberz, ATLArcht
+ms.author: amberz,Donnana
 ---
 
 
 # Use Dataflow to process data for automated machine learning(AutoML) models
 
-[Automated machine learning(AutoML)](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
+Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
-One of challenges is raw data from data warehouse or transactional database would be huge dataset during training Azure machine learning model. You would [optimize data processing](https://docs.microsoft.com/en-us/azure/machine-learning/concept-optimize-data-processing) via increasing RAM of VM. Given [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning tasks since it's binary columnar format.This tutorial will go through another option partitioning dataset to parquet files before training models. 
+One challenge is raw data from data warehouse or transactional database would be huge dataset during training Azure machine learning model. You would [optimize data processing](https://docs.microsoft.com/en-us/azure/machine-learning/concept-optimize-data-processing) via increasing RAM of VM. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning tasks since it's binary columnar format.This tutorial will go through another option partitioning dataset to parquet files before training models. 
 
-In Automated machine learning(AutoML) project, it would apply below three data processing scenarios:
+In Automated machine learning(AutoML) project, it would apply the following three data processing scenarios:
 
 1. Partition large data to parquet files before training models. 
 
