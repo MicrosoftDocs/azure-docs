@@ -350,7 +350,6 @@ Convert your notebook to an executable script by running the following statement
 
 ```
 jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
-
 ```
 
 Once the notebook has been converted to `train.py`, remove any unwanted comments. Replace the call to `main()` at the end of the file with a conditional invocation like the following code:
