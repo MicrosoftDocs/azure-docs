@@ -219,12 +219,15 @@ The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to 
 Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10 g of tissue
  
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:
-<!--Table below does not build. Designed to provide a grid of entries - no potential for column headers. Should I use a graphic?-->
+
+![EU countries that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+
+<!--Graphic above replaces this table, which won't build. No way to add headers. Icon isn't defined at top of article. If it's OK to convert table to graphic, need to save a separate icon graphic and add it to the icon descriptions.
 
 | AT | BE | BG | HR | CY | CZ | DK |
 | EE | FI | FR | DE | EL | HU | IE |
 | IT | LV | LT | LU | MT | NL | PL |
-| PT | RO | SK | SI | ES | SE | UK(NI) |
+| PT | RO | SK | SI | ES | SE | UK(NI) |-->
 
 In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of NETGEAR wireless products for sale in the EU:
 
