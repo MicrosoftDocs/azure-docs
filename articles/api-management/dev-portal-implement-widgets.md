@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to implement widgets that consume data from external APIs and shows it in developer portal.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -23,41 +23,39 @@ If you're lost in the development process, refer to the finished widget. It's lo
 
 Before diving in to the implementation details, learn the anatomy of the [Paperbits widget](https://paperbits.io/wiki/widget-anatomy).
 
-## Implement the widget
-
-### Copy the scaffold
+## Copy the scaffold
 
 Use a `widget` scaffold from the `/scaffolds` folder as a starting point to build the new widget.
 
-1. Copy the folder `/scaffolds/widget` into `/community/widgets`.
+1. Copy the `/scaffolds/widget` folder into `/community/widgets`.
 
 1. Rename the folder to `conference-session`.
 
-### Rename exported module classes
+## Rename exported module classes
 
-1. Rename the exported module classes by replacing the `Widget` prefix with `ConferenceSession` in the following files:
+Rename the exported module classes by replacing the `Widget` prefix with `ConferenceSession` in these files:
 
-    - `widget.design.module.ts`
+- `widget.design.module.ts`
 
-    - `widget.publish.module.ts`
+- `widget.publish.module.ts`
 
-    - `widget.runtime.module.ts`
+- `widget.runtime.module.ts`
     
-    For example, change `WidgetDesignModule` to `ConferenceSessionDesignModule` in the `widget.design.module.ts`:
+For example, in the `widget.design.module.ts` file, change `WidgetDesignModule` to `ConferenceSessionDesignModule`:
     
-    **From**
+**From**
     
-    ```typescript
-    export class WidgetDesignModule implements IInjectorModule {
-    ```
+```typescript
+export class WidgetDesignModule implements IInjectorModule {
+```
     
-    **To**
+**To**
     
-    ```typescript
-    export class ConferenceSessionDesignModule implements IInjectorModule {
-    ```
+```typescript
+export class ConferenceSessionDesignModule implements IInjectorModule {
+```
     
-### Register the widget
+## Register the widget
 
 Register a widget's modules in the portal's root modules. Do so by adding these lines to the files:
 
@@ -71,7 +69,7 @@ Register a widget's modules in the portal's root modules. Do so by adding these 
         injector.bindModule(new ConferenceSessionDesignModule());
     ```
 
-1. `src/apim.publish.module.ts` - publish-time dependencies.
+1. `src/apim.publish.module.ts` - a module that registers publish-time dependencies.
 
     ```typescript
     import { ConferenceSessionPublishModule } from "../community/widgets/conference-session/widget.publish.module";
@@ -81,7 +79,7 @@ Register a widget's modules in the portal's root modules. Do so by adding these 
         injector.bindModule(new ConferenceSessionPublishModule());
     ```
 
-1. `src/apim.runtime.module.ts` - run-time dependencies.
+1. `src/apim.runtime.module.ts` - a module that registers run-time dependencies.
 
     ```typescript
     import { ConferenceSessionRuntimeModule } from "../community/widgets/conference-session/widget.runtime.module";
@@ -91,13 +89,17 @@ Register a widget's modules in the portal's root modules. Do so by adding these 
         injector.bindModule(new ConferenceSessionRuntimeModule());
     ```
 
-### Place the widget in the portal
+## Place the widget in the portal
 
-You're now ready to plug in the duplicated scaffold and use it in developer portal.
+Now you're ready to plug in the duplicated scaffold and use it in developer portal.
 
 1. Run the `npm start` command.
 
-1. When the application loads, place the new widget on a page. You can find it under the name **Your widget** in the **Community** category in the widget selector.
+   When the application loads, place the new widget on a page.
+
+1. Select **+** under **Your runtime widget markup**.
+
+1. In the **Add widget** dialog box, select **Your widget** from the **Community** category.
 
     ![Widget selector](media/dev-portal/widget-selector.png)
 
@@ -106,11 +108,11 @@ You're now ready to plug in the duplicated scaffold and use it in developer port
     > [!NOTE]
     > In design-time, you can still interact with the website by holding the **Ctrl** (or **⌘**) key.
 
-### Add custom properties
+## Add custom properties
 
-In order for the widget to fetch session description, it needs to be aware of the session identifier. Add the `Session ID` property to the respective interfaces and classes:
+In order for the widget to fetch the session description, it needs to be aware of the session identifier. Add the session ID property to the respective interfaces and classes:
 
-1. `widgetContract.ts` - data contract (data layer) defining how the widget configuration is persisted.
+1. `widgetContract.ts` - data contract (data layer) defining how developer portal persists the widget configuration.
 
     ```typescript
     export interface WidgetContract extends Contract {
@@ -126,9 +128,12 @@ In order for the widget to fetch session description, it needs to be aware of th
     }
     ```
 
-1. `ko/widgetViewModel.ts` - viewmodel (presentation layer) - a UI framework-specific object, which is rendered with HTML template. You don't need to change anything in this file.
+1. `ko/widgetViewModel.ts` - viewmodel (presentation layer) - a UI framework-specific object that developer portal renders with the HTML template.
 
-### Set up binders
+    > [!NOTE]
+    > You don't need to change anything in this file.
+
+## Set up binders
 
 You now need to let the `sessionNumber` flow from the data source to the widget presentation. Edit the `ModelBinder` and `ViewModelBinder` entities:
 
@@ -151,7 +156,7 @@ You now need to let the `sessionNumber` flow from the data source to the widget 
     }
     ```
 
-1. `widgetViewModelBinder.ts` knows how the model needs to be presented (as a viewmodel) in a specific UI framework.
+1. `ko/widgetViewModelBinder.ts` knows how developer portal needs to present the model (as a viewmodel) in a specific UI framework.
 
     ```typescript
     ...
@@ -164,11 +169,11 @@ You now need to let the `sessionNumber` flow from the data source to the widget 
     ...
     ```
 
-### Adjust design-time widget template
+## Adjust design-time widget template
 
-The components of each scope run independently and aren't aware of each other. They have separate dependency injection containers, their own configuration, lifecycle, and so on. It's possible that they're powered by different UI frameworks. In this example, it's Knockout JS.
+The components of each scope run independently and aren't aware of each other. They have separate dependency injection containers, their own configuration, lifecycle, and so on. It's possible that they're powered by different UI frameworks. In this example, they're powered by **Knockout JS**.
 
-From design-time perspective, any run-time component is just an HTML tag with certain attributes and content. Configuration (if necessary) is passed with plain markup. In simple cases, like in this example, the parameter is passed in the attribute. If the configuration is more complex, use an identifier of the required setting(s) fetched by a chosen configuration provider (for example, `ISettingsProvider`).
+From design-time perspective, any run-time component is just an HTML tag with certain attributes and content. If configuration is necessary, developer portal passes it with plain markup. In simple cases, like in this example, developer portal passes the parameter in the attribute. If the configuration is more complex, use an identifier of the required settings fetched by a chosen configuration provider like `ISettingsProvider`.
 
 1. Update the `ko/widgetView.html` file:
 
@@ -176,13 +181,13 @@ From design-time perspective, any run-time component is just an HTML tag with ce
     <widget-runtime data-bind="attr: { params: runtimeConfig }"></widget-runtime>
     ```
 
-    When `attr` binding is run (in *design-* or *publish-time*), the resulting HTML is:
+    When developer portal runs the `attr` binding in *design-time* or *publish-time*, the resulting HTML is:
 
     ```html
     <widget-runtime params="{ sessionNumber: 107 }"></widget-runtime>
     ```
 
-    Then, in run-time, `widget-runtime` component will read `sessionNumber` and use it in the initialization code (see below).
+    Then, in run-time, the `widget-runtime` component will read `sessionNumber` and use it in the initialization code.
 
 1. Update the `widgetHandlers.ts` file to assign the session ID on creation:
 
@@ -196,17 +201,19 @@ From design-time perspective, any run-time component is just an HTML tag with ce
         ...
     ```
 
-### Revise run-time viewmodel
+## Revise run-time viewmodel
 
-Run-time components are the code running in the website itself. For example, in API Management developer portal, they're all the scripts behind dynamic components. *API details* and *API console* are both dynamic components. They're handling tasks like code sample generation, sending requests, and so on.
+Run-time components run in the website itself. For example, in API Management developer portal, they're all the scripts running behind dynamic components. *API details* and *API console* are both dynamic components. They're handling tasks like code sample generation, sending requests, and so on.
 
 Your run-time component's viewmodel needs to have the following methods and properties:
 
-- The `sessionNumber` property (marked with `Param` decorator) used as a component input parameter passed from outside (the markup generated in design-time, see: the previous step).
+- The `sessionNumber` property, marked with a `Param` decorator, is used as a component input parameter passed from outside. The markup is generated in design-time.
 
-- The `sessionDescription` property bound to the widget template (see: `widget-runtime.html` below).
+- The `sessionDescription` property bound to the widget template. See [Tweak the widget template below](#tweak-the-widget-template) below.
 
-- The `initialize` method (with `OnMounted` decorator) invoked after the widget is created and all its parameters are assigned. It's a good place to read the `sessionNumber` and invoke the API using the `HttpClient`. The `HttpClient` is a dependency injected by the IoC (Inversion of Control) container.
+- First, developer portal creates the widget and assigns all its parameters. Then it invokes the `initialize` method.
+
+    It's a good place to read the `sessionNumber` and invoke the API using the `HttpClient`. The `HttpClient` is a dependency injected by the Inversion of Control (IoC) container.
 
 1. Update the `ko/runtime/widget-runtime.ts` file:
 
@@ -250,7 +257,7 @@ Your run-time component's viewmodel needs to have the following methods and prop
     }
     ```
 
-### Tweak the widget template
+## Tweak the widget template
 
 Your widget is going to display the session description.
 
@@ -260,11 +267,11 @@ Use a paragraph tag and a `markdown` (or `text`) binding in the `ko/runtime/widg
 <p data-bind="markdown: sessionDescription"></p>
 ```
 
-### Add the widget editor
+## Add the widget editor
 
-The widget should now fetch the description of the session `107`, which was specified in the code as the default session. To check that you did everything right, run `npm start` and confirm the description is shown on the page.
+The widget is now configured to fetch the description of the session `107`. You specified `107` in the code as the default session. To check that you did everything right, run `npm start` and confirm that developer portal shows the description on the page.
 
-Allow the user to set up the session ID through a widget editor:
+Now, carry out these steps to allow the user to set up the session ID through a widget editor:
 
 1. Update the `ko/widgetEditorViewModel.ts` file:
 
@@ -295,7 +302,7 @@ Allow the user to set up the session ID through a widget editor:
     }
     ```
 
-    The editor viewmodel uses the same approach as you've seen previously, but there's a new property `onChange`, decorated with `@Event()`. It wires the callback to notify the listeners (in this case - a content editor) of changes to the model.
+    The editor viewmodel uses the same approach as you've seen previously, but there's a new property `onChange`, decorated with `@Event()`. It wires the callback to notify the listeners of changes to the model. In this case, the listener is a content editor.
 
 1. Update the `ko/widgetEditorView.html` file:
 
@@ -303,11 +310,15 @@ Allow the user to set up the session ID through a widget editor:
     <input type="text" class="form-control" data-bind="textInput: sessionNumber" />
     ```
 
-1. Run `npm start` again. Now you can change `sessionNumber` in the widget editor. Change the ID to `108`, save the changes, and refresh the browser. If you're experiencing problems, you may need to readd the widget onto the page.
+1. Run `npm start` again. Now you can change `sessionNumber` in the widget editor.
+
+1. Change the ID to `108`, save the changes, and refresh the browser.
+
+    If you're experiencing problems, you may need to readd the widget onto the page.
 
     ![Widget editor](media/dev-portal/widget-editor.png)
 
-### Rename the widget
+## Rename the widget
 
 Change the widget name in the `constants.ts` file:
 
@@ -315,11 +326,12 @@ Change the widget name in the `constants.ts` file:
 ...
 export const widgetName = "conference-session";
 export const widgetDisplayName = "Conference session";
+export const widgetCategory = "Community";
 ...
 ```
 
 > [!NOTE]
-> If you're contributing the widget to the repository, the `widgetName` value needs to be the same as its folder name and needs to be derived from the display name. Make sure the whole value is lowercase and the spaces are replaced with dashes. The category ust remain `Community`.
+> If you're contributing the widget to the repository, the `widgetName` value needs to be the same as its folder name. You need to derive both from the display name. Make sure the whole value is lowercase and you replace the spaces with dashes. The category must remain `Community`.
 
 ## Next steps
 
