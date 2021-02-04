@@ -214,8 +214,12 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 CASE 1: If source and destination clusters are with Enhanced Writes feature:
 
-Clean WAL FS data for this destination cluster and restore the WAL dir that we backed up from the source cluster in one of the earlier steps to the destination cluster's HDFS. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes:
+Clean WAL FS data for this destination cluster and restore the WAL dir that we backed up from the source cluster in one of the earlier steps to the destination cluster's HDFS. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes on destination cluster:
 
+   Switch to hbase user context:
+   ```bash   sudo -u hbase
+   ```
+   Then execute following commands:
    ```bash   
    hdfs dfs -rm -r hdfs://mycluster/hbasewal**
    hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/**
@@ -225,6 +229,11 @@ CASE 2: If only the destination cluster is with Enhanced Writes feature:
 
 Clean WAL FS data for this destination cluster and copy the WAL directory from source cluster into the destination cluster's HDFS. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes:
 
+   Switch to hbase user context:
+   ```bash   sudo -u hbase
+   ```
+   Then execute the following commands depending on the source cluster version:
+   
    If source cluster is HDI 3.6:
    ```bash   
    hdfs dfs -rm -r hdfs://mycluster/hbasewal**
