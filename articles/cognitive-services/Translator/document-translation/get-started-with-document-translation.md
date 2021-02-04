@@ -10,7 +10,8 @@ ms.date: 02/04/2021
 
 # Get started with Document Translation (Preview)
 
-> [!IMPORTANT]  A preview feature may not be complete and may undergo changes before it's official public release. Preview features are provided for testing, exploration, early access, and feedback purposes only. Preview features aren't meant for production applications.
+> [!IMPORTANT]  
+>A preview feature may not be complete and may undergo changes before it's official public release. Preview features are provided for testing, exploration, early access, and feedback purposes only. Preview features aren't meant for production applications.
 
  In this article, you'll learn to use Document Translation via HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
 
