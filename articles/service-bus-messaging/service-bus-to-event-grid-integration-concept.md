@@ -4,13 +4,12 @@ description: This article provides a description of how Azure Service Bus messag
 documentationcenter: .net
 author: spelluru
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 02/04/2021
 ms.author: spelluru 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure Service Bus to Event Grid integration overview
-
 Azure Service Bus has launched a new integration to Azure Event Grid. The key scenario of this feature is that Service Bus queues or subscriptions with a low volume of messages do not need to have a receiver that polls for messages continuously. 
 
 Service Bus can now emit events to Event Grid when there are messages in a queue or a subscription when no receivers are present. You can create Event Grid subscriptions to your Service Bus namespaces, listen to these events, and then react to the events by starting a receiver. With this feature, you can use Service Bus in reactive programming models.
@@ -23,128 +22,10 @@ To enable the feature, you need the following items:
 
 ![19][]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ### Verify that you have contributor access
 Go to your Service Bus namespace, and then select **Access control (IAM)**, and select **Role assignments** tab. Verify that you have the contributor access to the namespace. 
 
-### Events and event schemas
-
-Service Bus today sends events for two scenarios:
-
-* [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
-* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
-* [DeadletterMessagesAvailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
-
-Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](../event-grid/security-authentication.md).
-
-For more information, see [Azure Event Grid event schemas](../event-grid/event-schema.md).
-
-#### Active Messages Available event
-
-This event is generated if you have active messages in a queue or a subscription and there are no receivers listening.
-
-The schema for this event is as follows:
-
-```JSON
-{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}
-```
-
-#### Deadletter Messages Available event
-
-You get at least one event per Dead Letter queue, which has messages and no active receivers.
-
-The schema for this event is as follows:
-
-```JSON
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### Active Messages Available Periodic Notifications
-
-This event is generated periodically if you have active messages on the specific queue or subscription, even if there are active listeners on that specific queue or subscription.
-
-The schema for the event is as follows.
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### Deadletter Messages Available Periodic Notifications
-
-This event is generated periodically if you have deadletter messages on the specific queue or subscription, even if there are active listeners on the deadletter entity of that specific queue or subscription.
-
-The schema for the event is as follows.
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
 
 ### How many events are emitted, and how often?
 
@@ -165,25 +46,14 @@ You can create Event Grid subscriptions for Service Bus namespaces in three diff
 * In [PowerShell](#powershell-instructions)
 
 ## Azure portal instructions
+See the following tutorials to learn how to use Azure portal to create subscriptions for Azure Logic Apps and Azure Fucntions. 
 
-To create a new Event Grid subscription, do the following:
-1. In the Azure portal, go to your namespace.
-2. In the left pane, select the **Event Grid**. 
-3. Select **Event Subscription**.  
-
-   The following image displays a namespace that has an Event Grid subscription:
-
-   ![Event grid subscriptions](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
-
-   The following image shows how to subscribe to a function or a webhook without any specific filtering:
-
-   ![21][]
+- [Azure Logic Apps](
+service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
+- [Azure Functions](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
 
 ## Azure CLI instructions
-
-First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](/cli/azure/install-azure-cli). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
-
-Execute the following code:
+The following CLI example shows how to create an Azure Functions subscription for a [system topic](../event-grid/system-topics.md) created by a Service Bus namespace.
 
  ```azurecli-interactive
 az login
