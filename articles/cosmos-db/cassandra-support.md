@@ -182,11 +182,11 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | Component  |Supported |
 |---------|---------|
 | DELETE IF EXISTS | Yes |
-| DELETE CONDITIONS | No |
+| DELETE conditions | No |
 | INSERT IF NOT EXISTS | Yes |
 | UPDATE IF EXISTS | Yes |
 | UPDATE IF NOT EXISTS | Yes |
-| UPDATE CONDITIONS | No |
+| UPDATE conditions | No |
 
 ## CQL Shell commands
 
