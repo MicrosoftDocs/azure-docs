@@ -22,7 +22,7 @@ Use the Face client library for JavaScript to:
 * [Create a person group](#create-a-person-group)
 * [Identify a face](#identify-a-face)
 
-[Reference documentation](/javascript/api/@azure/cognitiveservices-face/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Reference documentation](/javascript/api/@azure/cognitiveservices-face/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## Prerequisites
 
