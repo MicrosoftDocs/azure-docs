@@ -590,7 +590,7 @@ The following table lists some example scenarios to monitor and the proper metri
 	- **Dimension name**
 	- **Alert logic**
 
-5. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+5. Click **Add action groups** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 
 6. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 
@@ -638,7 +638,7 @@ The following table lists some example scenarios to monitor and the proper metri
     > [!TIP]
     > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
@@ -657,7 +657,7 @@ The following table lists some example scenarios to monitor and the proper metri
 
 8. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
 9. Define the rest of the **alert parameters** (aggregation granularity and frequency of evaluation) and click **Done**.
-10. Click Select action group to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+10. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 11. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
 12. Click **Create alert rule** to create the alert.
 
@@ -677,7 +677,7 @@ The following table lists some example scenarios to monitor and the proper metri
 8. Enter **536870912000** bytes for Threshold value. 
 9. Click the **Aggregation granularity** drop-down and select **24 hours**.
 10. Select the **Frequency of evaluation** and **click Done**.
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
