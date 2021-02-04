@@ -19,7 +19,7 @@ ms.custom: references_regions
     :::column:::
         Azure File Sync is a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM. 
         
-        This article introduces you to Azure File Sync concepts and features. Once you are familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md) to try out this service.        
+        This article introduces you to Azure File Sync concepts and features. Once you are familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](file-sync-deployment-guide.md) to try out this service.        
     :::column-end:::
 :::row-end:::
 
@@ -101,7 +101,7 @@ In the following table, we have provided both the size of the namespace as well 
 | 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
 | 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure Files scalability and performance targets](storage-files-scale-targets.md#azure-file-sync-scale-targets).
+\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md#azure-file-sync-scale-targets?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
@@ -215,7 +215,7 @@ Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
-- You are migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- You are migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](file-sync-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Not every on-premises server that needs a copy of your file data can be connected directly to the internet.
 - Branch servers consolidate data onto a single hub server, for which you would like to use Azure File Sync.
 
@@ -238,7 +238,7 @@ No other HSM solutions should be used with Azure File Sync.
 ## Identity
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you are using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
 
-Even though changes made directly to the Azure file share will take longer to sync to the server endpoints in the sync group, you may also want to ensure that you can enforce your AD permissions on your file share directly in the cloud as well. To do this, you must domain join your storage account to your on-premises AD, just like how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](storage-files-active-directory-overview.md).
+Even though changes made directly to the Azure file share will take longer to sync to the server endpoints in the sync group, you may also want to ensure that you can enforce your AD permissions on your file share directly in the cloud as well. To do this, you must domain join your storage account to your on-premises AD, just like how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](../files/storage-files-active-directory-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 > [!Important]  
 > Domain joining your storage account to Active Directory is not required to successfully deploy Azure File Sync. This is a strictly optional step that allows the Azure file share to enforce on-premises ACLs when users mount the Azure file share directly.
@@ -253,7 +253,7 @@ Based on your organization's policy or unique regulatory requirements, you may r
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](storage-sync-files-networking-overview.md).
+To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](file-sync-networking-overview.md).
 
 ## Encryption
 When using Azure File Sync, there are three different layers of encryption to consider: encryption on the at-rest storage of Windows Server, encryption in transit between the Azure File Sync agent and Azure, and encryption at rest of your data in the Azure file share. 
@@ -272,7 +272,7 @@ Azure File Sync does not interoperate with NTFS Encrypted File System (NTFS EFS)
 ### Encryption in transit
 
 > [!NOTE]
-> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](file-sync-troubleshoot.md#tls-12-required-for-azure-file-sync).
 
 Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP. 
 
@@ -321,9 +321,9 @@ If you have an existing Windows file server, Azure File Sync can be directly ins
 
 - Create a server endpoint only on the new file server, and copy data into from the old file share using `robocopy`. Depending on the topology of file shares on your new server (how many shares you have on each volume, how free each volume is, etc.), you may need to temporarily provision additional storage as it is expected that `robocopy` from your old server to your new server within your on-premises datacenter will complete faster than Azure File Sync will move data into Azure.
 
-It is also possible to use Data Box to migrate data into an Azure File Sync deployment. Most of the time, when customers want to use Data Box to ingest data, they do so because they think it will increase the speed of their deployment or because it will help with constrained bandwidth scenarios. While it's true that using a Data Box to ingest data into your Azure File Sync deployment will decrease bandwidth utilization, it will likely be faster for most scenarios to pursue an online data upload through one of the methods described above. To learn more about how to use Data Box to ingest data into your Azure File Sync deployment, see [Migrate data into Azure File Sync with Azure Data Box](storage-sync-offline-data-transfer.md).
+It is also possible to use Data Box to migrate data into an Azure File Sync deployment. Most of the time, when customers want to use Data Box to ingest data, they do so because they think it will increase the speed of their deployment or because it will help with constrained bandwidth scenarios. While it's true that using a Data Box to ingest data into your Azure File Sync deployment will decrease bandwidth utilization, it will likely be faster for most scenarios to pursue an online data upload through one of the methods described above. To learn more about how to use Data Box to ingest data into your Azure File Sync deployment, see [Migrate data into Azure File Sync with Azure Data Box](file-sync-offline-data-transfer.md).
 
-A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file such as timestamps and ACLs.
+A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](../files/storage-files-migration-overview.md#file-copy-tools?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file such as timestamps and ACLs.
 
 ## Antivirus
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
@@ -348,8 +348,7 @@ If you prefer to use an on-premises backup solution, backups should be performed
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Next steps
-* [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
-* [Planning for an Azure Files deployment](storage-files-planning.md)
-* [Deploy Azure Files](./storage-how-to-create-file-share.md)
-* [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
-* [Monitor Azure File Sync](storage-sync-files-monitoring.md)
+* [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
+* [Deploy Azure Files](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+* [Deploy Azure File Sync](file-sync-deployment-guide.md)
+* [Monitor Azure File Sync](file-sync-monitoring.md)

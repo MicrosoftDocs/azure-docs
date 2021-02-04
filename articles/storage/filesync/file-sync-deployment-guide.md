@@ -12,23 +12,23 @@ ms.subservice: files
 # Deploy Azure File Sync
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before you complete the steps described in this article.
+We strongly recommend that you read [Planning for an Azure Files deployment](../files/storage-files-planning.md) and [Planning for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps described in this article.
 
 ## Prerequisites
 
 # [Portal](#tab/azure-portal)
 
 1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
-    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
+    - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 
 # [PowerShell](#tab/azure-powershell)
 
 1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
-    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
+    - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 
 1. The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
@@ -59,9 +59,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 # [Azure CLI](#tab/azure-cli)
 
 1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
-    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
+    - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 
 1. [Install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -223,7 +223,7 @@ You can download the agent from the [Microsoft Download Center](https://go.micro
 
 We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
-- Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
+- Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](file-sync-planning.md#azure-file-sync-agent-update-policy).
 
 When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
 
@@ -610,19 +610,19 @@ Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode 
 To migrate a DFS-R deployment to Azure File Sync:
 
 1. Create a sync group to represent the DFS-R topology you are replacing.
-2. Start on the server that has the full set of data in your DFS-R topology to migrate. Install Azure File Sync on that server.
-3. Register that server and create a server endpoint for the first server to be migrated. Do not enable cloud tiering.
-4. Let all of the data sync to your Azure file share (cloud endpoint).
-5. Install and register the Azure File Sync agent on each of the remaining DFS-R servers.
-6. Disable DFS-R. 
-7. Create a server endpoint on each of the DFS-R servers. Do not enable cloud tiering.
-8. Ensure sync completes and test your topology as desired.
-9. Retire DFS-R.
-10. Cloud tiering may now be enabled on any server endpoint as desired.
+1. Start on the server that has the full set of data in your DFS-R topology to migrate. Install Azure File Sync on that server.
+1. Register that server and create a server endpoint for the first server to be migrated. Do not enable cloud tiering.
+1. Let all of the data sync to your Azure file share (cloud endpoint).
+1. Install and register the Azure File Sync agent on each of the remaining DFS-R servers.
+1. Disable DFS-R. 
+1. Create a server endpoint on each of the DFS-R servers. Do not enable cloud tiering.
+1. Ensure sync completes and test your topology as desired.
+1. Retire DFS-R.
+1. Cloud tiering may now be enabled on any server endpoint as desired.
 
 For more information, see [Azure File Sync interop with Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## Next steps
-- [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
-- [Register or unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
-- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
+- [Add or remove an Azure File Sync Server Endpoint](file-sync-server-endpoint.md)
+- [Register or unregister a server with Azure File Sync](file-sync-server-registration.md)
+- [Monitor Azure File Sync](file-sync-monitoring.md)

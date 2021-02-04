@@ -210,10 +210,10 @@ This behavior is not specific to Azure File Sync, Windows Explorer displays a "g
 
 There are two reasons why tiered files may exist in the server endpoint location:
 
-- When adding a new server endpoint to an existing sync group, the metadata is first synced to the server and the files are then downloaded to the server in the background. The files will show as tiered until they're downloaded locally. To improve the file download performance when adding a new server to a sync group, use the [Invoke-StorageSyncFileRecall](storage-sync-cloud-tiering.md#afs-recall-file) cmdlet.
+- When adding a new server endpoint to an existing sync group, the metadata is first synced to the server and the files are then downloaded to the server in the background. The files will show as tiered until they're downloaded locally. To improve the file download performance when adding a new server to a sync group, use the [Invoke-StorageSyncFileRecall](file-sync-cloud-tiering.md#afs-recall-file) cmdlet.
 
 - If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
 
 
 ## Next Steps
-* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
+* [Planning for an Azure File Sync Deployment](file-sync-planning.md)
