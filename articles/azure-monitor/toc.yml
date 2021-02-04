@@ -1045,7 +1045,7 @@
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
       - name: Enable for AKS with Azure Policy
-        href: conatiners/container-insights-enable-aks-policy.md
+        href: containers/container-insights-enable-aks-policy.md
       - name: Enable for Arc enabled cluster
         href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
