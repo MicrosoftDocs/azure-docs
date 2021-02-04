@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/13/2021
-ms.author: dplessMSFT
-ms.reviewer: 
+ms.date: 02/03/2021
+ms.author: dpless
+ms.reviewer: mathoma
 ---
 # Disks: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides disk guidance as part of a  series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md), [Storage](performance-guidelines-best-practices-storage.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+To learn more, see the other articles in this series:   
+[Quick checklist](performance-guidelines-best-practices-checklist.md), [Storage](performance-guidelines-best-practices-storage.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 
 ## Check list
@@ -85,10 +85,10 @@ Choose the larger capacity drives (P30(s) to P80(s)) to support the IOPs, throug
 
 There is no performance benefit in having multiple transaction log files as the transaction log is leveraged sequentially by nature. Additionally, using caching for log files may impact performance, and could potentially cause data corruption. As such, set the caching policy to `none`. 
 
-For applications that require extremely low latency for the transaction log, consider [Ultra-Disk SSD](../../../virtual-machines/disks-types#ultra-disk) or Write Acceleration on the M-Series virtual machines.
+For applications that require extremely low latency for the transaction log, consider [Ultra-Disk SSD](../../../virtual-machines/disks-types.md#ultra-disk) or Write Acceleration on the M-Series virtual machines.
 
 
-### tempdb
+### Tempdb
 
 The tempdb system database is a special purpose database used by all databases on an instance. The health of the tempdb database impacts the performance of the entire SQL Server instance. As such, performance is critical and therefore data access to tempdb needs to be as fast as possible. 
 
@@ -98,20 +98,20 @@ Structurally, tempdb is the same as any other user database. The salient point i
 
 Tempdb is ephemeral, meaning it is recreated every time SQL Server starts. The system always starts with a clean copy of the tempdb database.
 
-Starting in 2016, by default SQL Server creates one data file per logical processor up to 8 tempdb data files where all data files are  equally sized in order to [reduce allocation contention](https://docs.microsoft.com/en-us/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#cause). This is a good practice for most systems although heavy OLTP workloads may benefit from a greater number of data files and heavy decision support system (DSS) workloads may be slowed by the overhead that comes from addressing more than one data file. 
+Starting in 2016, by default SQL Server creates one data file per logical processor up to 8 tempdb data files where all data files are  equally sized in order to [reduce allocation contention](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#cause). This is a good practice for most systems although heavy OLTP workloads may benefit from a greater number of data files and heavy decision support system (DSS) workloads may be slowed by the overhead that comes from addressing more than one data file. 
 
 The tempdb system database typically has a very high concurrency work rate which may be higher depending on the transaction rate, active user rate, the rate temporary objects are created or destroyed, and the amount of internal usage that is needed. 
 
-As more databases are added to an instance, the impact to the tempdb database and the underlying storage should be monitored as well. To lean more, see [Optimizing tempdb performance in SQL Server](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#optimizing-tempdb-performance-in-sql-server). 
+As more databases are added to an instance, the impact to the tempdb database and the underlying storage should be monitored as well. To lean more, see [Optimizing tempdb performance in SQL Server](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server). 
 
 
 ## VM disk types
 
 Azure Managed Disks are block-level storage volumes designed for Azure Virtual Machines. Azure Managed Disks are similar to the virtual disks you leverage in an on-premises environment where you choose your disk type, capacity, and then provision the disk. The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssd) such as the P1 with 4GiB of space and 120 IOPs to the P80 with 32TiB of storage and 20,000 IOPs.
 
-There are three main [disk types](../../../virtual-machines/managed-disks-overview?toc=/azure/virtual-machines/linux/#disk-roles) to consider for your SQL Server on Azure VM -  an OS disk, a temporary disk, and your data disks. The data disks host your SQL Server data files, log files, and other necessary files such as the error log, etc. 
+There are three main [disk types](../../../virtual-machines/managed-disks-overview.md#disk-roles) to consider for your SQL Server on Azure VM -  an OS disk, a temporary disk, and your data disks. The data disks host your SQL Server data files, log files, and other necessary files such as the error log, etc. 
 
-The virtual machine you select comes with the operating system disk and, in many cases depending on your virtual machine, a temporary disk. For example, a [Standard_M128ms](../../../virtual-machines/m-series) includes a temporary storage (SSD) drive of 4096 GiB and 128 GBs for the operating system disk which can be [expanded if necessary](../../../virtual-machines/windows/expand-os-disk).
+The virtual machine you select comes with the operating system disk and, in many cases depending on your virtual machine, a temporary disk. For example, a [Standard_M128ms](../../../virtual-machines/m-series.md) includes a temporary storage (SSD) drive of 4096 GiB and 128 GBs for the operating system disk which can be [expanded if necessary](../../../virtual-machines/windows/expand-os-disk.md).
 
 What is important about the operating system drive (C:\) and the temporary drive (D:\) is choosing what is stored on these local system disks.
 
@@ -124,7 +124,7 @@ An operating system disk is a VHD that can be booted and mounted as a running ve
 
 For production SQL Server environments, use data disks instead of the operating system disk for data files, log files, error logs, and other custom locations avoiding application defaults.
 
-The default caching policy on the operating system disk is  **Read/Write**. Read/write caching is not supported with SQL Server files. For more information, see [Disk caching](performance-guidelines-best-practices-storage.md#disk-caching). 
+The default caching policy on the operating system disk is  **Read/Write**. Read/write caching is not supported with SQL Server files. For more information, see [Disk caching](performance-guidelines-best-practices-storage.md#cache-throughput). 
 
 > [!NOTE] 
 > It is recommended to move all system and user databases to data disks. For more information, see [Move System Databases](/sql/relational-databases/databases/move-system-databases).
@@ -153,7 +153,7 @@ For data files, identify your capacity needs and then provision disks that suit 
 
 For all production SQL Server workloads, it is recommended to use premium SSD disks for data and log files. 
 
-Each premium SSD provides a number of IOPS and bandwidth (MB/s) depending on its size, as described in [Selecting a Disk Type](../../../virtual-machines/disks-types). 
+Each premium SSD provides a number of IOPS and bandwidth (MB/s) depending on its size, as described in [Selecting a Disk Type](../../../virtual-machines/disks-types.md). 
 
 If using a disk striping technique, such as Storage Spaces, you can achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. If you are not using disk striping, use two premium SSD disks mapped to separate drives where one drive contains the log file and the other contains the data.
 
@@ -169,10 +169,11 @@ The following table compares performance of disks:
 | Eligible for reservation | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year |
 | Disk Caching Support | Yes | Yes | Yes | No | No | No |
 | Recommendation | Data or Log | Data or Log | Data or Log | Log Only | Log Only | Log Only |
+|   |   |   |   |   |   |   |   |   |
 
 ### Premium Disk Bursting 
 
-Premium SSD SKUs smaller than P30s offer [disk bursting](../../../virtual-machines/disk-bursting/) and can burst up to 3,500 IOPS per disk and their bandwidth up to 170 MB/s per disk.  Bursting is best used for dev/test scenarios where usage is unpredictable and functionality tests are being accomplished on smaller premium disks before bringing an application into production. Because of the unpredictable nature of bursting use case scenarios, it is recommended to use bursting on non-production workloads or workloads that have a very small user base such as a non-mission critical departmental application workload of 25 or fewer users.
+Premium SSD SKUs smaller than P30s offer [disk bursting](../../../virtual-machines/disk-bursting.md) and can burst up to 3,500 IOPS per disk and their bandwidth up to 170 MB/s per disk.  Bursting is best used for dev/test scenarios where usage is unpredictable and functionality tests are being accomplished on smaller premium disks before bringing an application into production. Because of the unpredictable nature of bursting use case scenarios, it is recommended to use bursting on non-production workloads or workloads that have a very small user base such as a non-mission critical departmental application workload of 25 or fewer users.
 
 Bursting is automatic and operates similar to a credit system. Credits are automatically accumulated in a container when disk traffic is below the performance target and credits are automatically consumed when traffic bursts beyond the performance target - up to the max burst limit. 
 
@@ -184,6 +185,7 @@ All burst applicable disk sizes will start with a full burst credit bucket when 
 
 
 The following table details disk bursting supportability: 
+
 
 | Premium SSD sizes   | P1 | P2 | P3 | P4  | P5  | P6   | P10  | P20   |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -197,7 +199,7 @@ The following table details disk bursting supportability:
 |   |   |   |   |   |   |   |   |   |
 
 
-### Upsizing premium disks
+### Scaling premium disks
 
 When an Azure Managed Disk is first deployed, the performance tier for that disk is based on the provisioned disk size. The performance tier can be changed at deployment or afterwards, without changing the size of the disk. If demand increases, you can increase the performance level to meet your business needs,. 
 
@@ -206,14 +208,14 @@ Use the higher performance for as long as needed where billing is designed to me
 Changing the performance tier allows administrators to prepare for and meet higher demand without using the disk bursting capability. It can be cost-effective to change the performance tier rather than rely on bursting, depending on how long the additional performance is needed. 
 This temporary expansion of performance is a strong use case for targeted events such as shopping, performance testing, training events and other brief windows where greater performance is only needed for a short term. 
 
-For more information, see [Performance tiers for managed disks](../../../virtual-machines/disks-change-performance). 
+For more information, see [Performance tiers for managed disks](../../../virtual-machines/disks-change-performance.md). 
 
 
 ## Ultra-Disk SSD
 
-If a workload can process ~50,000 IOPS and there is a need for millisecond response times with reduced latency consider leveraging [Ultra-Disk SSD](../../../virtual-machines/disks-types#ultra-disk) for the SQL Server log drive. Ultra Disk SSDs are an alternative to disks that support write acceleration. 
+If a workload can process ~50,000 IOPS and there is a need for millisecond response times with reduced latency consider leveraging [Ultra-Disk SSD](../../../virtual-machines/disks-types.md#ultra-disk) for the SQL Server log drive. Ultra Disk SSDs are an alternative to disks that support write acceleration. 
 
-[Ultra-Disk SSD](../../../virtual-machines/disks-types#ultra-disk) can be configured where capacity and IOPS can scale independently. With [Ultra-Disk SSD](../../../virtual-machines/disks-types#ultra-disk) administrators can provision a disk with the capacity, IOPS, and throughput requirements based on application needs and only pay for the provisioned capacity. [Ultra-Disk SSD](../../../virtual-machines/disks-types.md#ultra-disk) does not support cache configuration for reads or writes as it already offers sub-millisecond latency for all reads and writes.
+Ultra-Disk SSD can be configured where capacity and IOPS can scale independently. With Ultra-Disk SSD administrators can provision a disk with the capacity, IOPS, and throughput requirements based on application needs and only pay for the provisioned capacity. Ultra-Disk SSD does not support cache configuration for reads or writes as it already offers sub-millisecond latency for all reads and writes.
 
 Consider the following: 
 - Azure Ultra Disks are supported on the following VM series: ESv3, Easv4, Edsv4, Esv4, DSv3, Dasv4, Ddsv4, Dsv4, FSv2, LSv2, M, and Mv2 series.
@@ -228,12 +230,12 @@ Ultra-Disk SSDs have the following limitations:
 - Ultra-disk SSD do not support  disk snapshots, Azure disk encryption, Azure Backup, or Azure Site Recovery.
 - There is no caching support for reads or writes (not that you want write caching on the log file). 
 
-To learn more, see [Using Ultra Disks](../../../virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal.md).
+To learn more, see [Using Ultra Disks](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
 
 ## Standard HDDs and SSDs
 
-[Standard HDDs](../../../virtual-machines/disks-types#standard-hdd) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using [Standard SSDs](../../../virtual-machines/disks-types#standard-ssd) (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes?toc=/azure/virtual-machines/windows/toc.json) and leverage disk striping with Storage Spaces for the best performance.
+[Standard HDDs](../../../virtual-machines/disks-types.md#standard-hdd) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using Standard SSD (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) and leverage disk striping with Storage Spaces for the best performance.
 
 
 ## Next steps
