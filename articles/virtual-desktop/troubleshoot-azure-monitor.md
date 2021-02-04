@@ -36,7 +36,7 @@ If your data isn't displaying properly, check your configuration, permissions, a
     - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
     - Read-access to the Log Analytics workspace
 
-- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses#outgoing-ports). 
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](../azure-monitor/app/ip-addresses#outgoing-ports.md). 
 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
 
@@ -81,6 +81,8 @@ These are issues and limitations we are currently aware of and working to fix:
 - While rare, a connection's completion event can go missing and this can impact some visuals like connections over time and the user's connection status.  
 	
 - The configuration workbook only supports configuring hosts within the same region as their resource group. 
+
+- Time to connect includes the time it takes users to enter their credentials; this correlates to the experience but in some cases can show false peaks. 
 	
 
 ## Next steps
