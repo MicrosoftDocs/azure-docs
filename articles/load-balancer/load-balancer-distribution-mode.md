@@ -38,20 +38,25 @@ You can change the configuration of the distribution mode by modifying the load-
 1. Sign in to the Azure portal and locate the resource group containing the load balancer you wish to change by clicking on **Resource Groups**.
 2. In the load balancer overview screen, click on **Load-balancing rules** under **Settings**.
 3. In the load-balancing rules screen, click on the load-balancing rule that you wish to change the distribution mode.
-4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop down box.  The following options are available:
-    
-    * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-    * **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-    * **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop down box. 
 
-5. Choose the distribution mode and then click **Save**.
+The following options are available: 
+
+* **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
+* **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+* **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+
+5. Choose the distribution mode and then select **Save**.
+
+:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true":::
+
 
 # [**PowerShell**](#tab/azure-powershell)
 
 Use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
 ```azurepowershell-interactive
-$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb = Get-AzLoadBalancer -Name MyLoadBalancer -ResourceGroupName MyResourceGroupLB
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
@@ -62,7 +67,7 @@ Specify **sourceIP** for two-tuple (source IP and destination IP) load balancing
 
 Specify **sourceIPProtocol** for three-tuple (source IP, destination IP, and protocol type) load balancing. 
 
-Specify **none** for the default behavior of five-tuple load balancing.
+Specify **default** for the default behavior of five-tuple load balancing.
 
 ---
 
