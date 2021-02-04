@@ -53,7 +53,6 @@ Maintenance Notifications can be configured to alert customers on upcoming plann
 
 ## Availability
 
-<<<<<<< HEAD
 ### Supported service level objectives
 
 The SQL Maintenance Window feature is available on all Azure SQL Database and SQL Managed Instance SLOs except for:
@@ -63,11 +62,8 @@ The SQL Maintenance Window feature is available on all Azure SQL Database and SQ
 
 ### Azure region support
 
-The SQL Maintenance Window is available in the following regions:
+The maintenance window is available in the following regions with more regions planned over time:
 
-=======
-The SQL Maintenance Window is available in the following regions with more regions planned over time.
->>>>>>> 360b99a08193f31bb076882e8e3ed99beca51dc4
 - Australia East
 - Australia SouthEast
 - Brazil South
