@@ -124,9 +124,9 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-    In the **Details** tab, you can see more information such as the REST URI, status, and tags.
+    In the **Details** tab, you can see more information such as the REST URI, Swagger definition, status, and tags.
 
-    In the **Consume** tab, you can find security keys and set authentication methods.
+    In the **Consume** tab, you can find sample consumption code, security keys, and set authentication methods.
 
     In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint.
 
