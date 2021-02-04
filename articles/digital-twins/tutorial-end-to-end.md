@@ -403,9 +403,9 @@ Here is a review of the scenario that you built out in this tutorial.
 
 ## Clean up resources
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
 
-Otherwise, **if you no longer need the resources created in this tutorial**, follow the steps below to delete them. This will remove the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

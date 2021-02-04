@@ -308,11 +308,11 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To wrap up the work for this quickstart, first end the running console app. This action shuts off the connection to the ADT Explorer app in the browser. You'll no longer be able to view live data in the browser. You can close the browser tab.
 
-**If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+Then, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+
+* **If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
 [!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
-
-Finally, **if you do not need any of the resources you created in this tutorial**, you can delete the Azure Digital Twins instance and all other quickstart resources with these steps.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
