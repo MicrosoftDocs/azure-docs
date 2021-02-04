@@ -87,7 +87,7 @@ changed as shown in the example below.
 
 ## Event counters in Metric Explorer
 
-To view EventCounter metrics in [Metric Explorer](../platform/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
+To view EventCounter metrics in [Metric Explorer](../essentials/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
 > ![Event counters reported in Application Insights Metric Explorer](./media/event-counters/metrics-explorer-counter-list.png)

@@ -54,7 +54,7 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 
 - Use [Azure Pipelines](/azure/devops/pipelines) to implement Continuous Deployment and automate your entire process from code commit to production based on your CI/CD tests.
 - Use [Quality Gates](/azure/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
-- [Maintain separate monitoring instances](./app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](./platform/metrics-charts.md) or create [cross-resource queries in Azure Monitor](log-query/cross-workspace-query.md).
+- [Maintain separate monitoring instances](./app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](./essentials/metrics-charts.md) or create [cross-resource queries in Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## Create actionable alerts with actions

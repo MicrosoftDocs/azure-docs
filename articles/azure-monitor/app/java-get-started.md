@@ -300,5 +300,5 @@ Application Insights can test your website at regular intervals to check that it
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

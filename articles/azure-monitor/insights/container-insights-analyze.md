@@ -125,7 +125,7 @@ In metrics explorer, you can view aggregated node and pod utilization metrics fr
 | insights.container/pods | |
 | | PodCount | A pod count from Kubernetes.|
 
-You can [split](../platform/metrics-charts.md#apply-splitting) a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension. From a pod, you can segment it by the following dimensions:
+You can [split](../essentials/metrics-charts.md#apply-splitting) a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension. From a pod, you can segment it by the following dimensions:
 
 * Controller
 * Kubernetes namespace

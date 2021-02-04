@@ -210,7 +210,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. 
 
-For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
+For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Metrics supported by Azure CDN from Microsoft**
 

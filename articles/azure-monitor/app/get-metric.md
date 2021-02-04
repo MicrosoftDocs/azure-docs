@@ -104,7 +104,7 @@ If we examine our Application Insights resource in the Logs (Analytics) experien
 > [!NOTE]
 > While the raw telemetry item did not contain an explicit sum property/field once ingested we create one for you. In this case both the `value` and `valueSum` property represent the same thing.
 
-You can also access your custom metric telemetry in the [_Metrics_](../platform/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
+You can also access your custom metric telemetry in the [_Metrics_](../essentials/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
 ![Metrics explorer view](./media/get-metric/metrics-explorer.png)
 
 ### Caching metric reference for high-throughput usage

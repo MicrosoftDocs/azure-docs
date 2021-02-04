@@ -103,7 +103,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../platform/metrics-charts.md) as an aggregated count, and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count, and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -358,7 +358,7 @@ requests
 
 Send exceptions to Application Insights:
 
-* To [count them](../platform/metrics-charts.md), as an indication of the frequency of a problem.
+* To [count them](../essentials/metrics-charts.md), as an indication of the frequency of a problem.
 * To [examine individual occurrences](./diagnostic-search.md).
 
 The reports include the stack traces.
@@ -692,7 +692,7 @@ If your app groups users into accounts, you can also pass an identifier for the 
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../platform/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
+In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
 You can also [Search](./diagnostic-search.md) for client data points with specific user names and accounts.
 

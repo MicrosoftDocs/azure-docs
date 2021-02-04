@@ -21,15 +21,15 @@ Azure Monitor custom metrics are current in public preview.
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
 - Install the Azure Monitor Agent (Preview) on your [Windows or Linux Azure VM](../agents/azure-monitor-agent-overview.md) and use a [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) to send performance counters to Azure Monitor metrics.
-- Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](collect-custom-metrics-guestos-vm-classic.md), or [classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) and send performance counters to Azure Monitor. 
-- Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
+- Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](../essentials/collect-custom-metrics-guestos-vm-classic.md), or [classic Cloud Services](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md) and send performance counters to Azure Monitor. 
+- Install the [InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## Pricing model and retention
 
 Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incur costs when they enter general availability. Metric API queries do incur costs.
 
-Custom metrics are retained for the [same amount of time as platform metrics](data-platform-metrics.md#retention-of-metrics). 
+Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
 > Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](../app/pricing.md#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
@@ -211,11 +211,11 @@ An active time series is defined as any unique combination of metric, dimension 
 
 ## Next steps
 Use custom metrics from different services: 
- - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
- - [Virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md)
- - [Azure Virtual Machines (classic)](collect-custom-metrics-guestos-vm-classic.md)
- - [Linux Virtual Machine using the Telegraf agent](collect-custom-metrics-linux-telegraf.md)
+ - [Virtual Machines](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtual machine scale set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md)
+ - [Azure Virtual Machines (classic)](../essentials/collect-custom-metrics-guestos-vm-classic.md)
+ - [Linux Virtual Machine using the Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)
- - [Classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
+ - [Classic Cloud Services](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
 

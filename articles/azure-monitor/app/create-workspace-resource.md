@@ -208,5 +208,5 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 ## Next steps
 
-* [Explore metrics](../platform/metrics-charts.md)
+* [Explore metrics](../essentials/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)

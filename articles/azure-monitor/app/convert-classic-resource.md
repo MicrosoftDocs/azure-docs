@@ -237,5 +237,5 @@ You can check your current retention settings for Log Analytics under **General*
 
 ## Next steps
 
-* [Explore metrics](../platform/metrics-charts.md)
+* [Explore metrics](../essentials/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)

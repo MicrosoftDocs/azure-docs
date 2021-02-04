@@ -20,7 +20,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](visualizations/workbooks-overview.md).
-- Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./platform/data-platform-metrics.md).
+- Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./essentials/data-platform-metrics.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
@@ -35,9 +35,9 @@ The following diagram gives a high-level view of Azure Monitor. At the center of
 
 ## Monitoring data platform
 
-All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](platform/data-platform.md). [Metrics](platform/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](platform/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
+All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](platform/data-platform.md). [Metrics](essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](platform/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
-For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](platform/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
+For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](essentials/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
 ![Diagram shows Metrics data flowing into the Metrics Explorer to use in visualizations.](media/overview/metrics.png)
 

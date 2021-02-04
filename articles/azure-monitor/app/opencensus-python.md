@@ -433,7 +433,7 @@ As shown, there are three different Azure Monitor exporters that support OpenCen
 Each exporter accepts the same arguments for configuration, passed through the constructors. You can see details about each one here:
 
 - `connection_string`: The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.
-- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../platform/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
+- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
 - `export_interval`: Used to specify the frequency in seconds of exporting.
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.

@@ -27,7 +27,7 @@ In the following table, details of records collected by Azure Monitor for contai
 | Performance metrics for containers part of the Kubernetes cluster | Usage metrics are obtained from cAdvisor and limits from Kube api | Perf &#124; where ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Custom Metrics ||`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags<sup>1</sup>, TimeGenerated, Type, Va, _ResourceId | 
 
-<sup>1</sup> The *Tags* property represents [multiple dimensions](../platform/data-platform-metrics.md#multi-dimensional-metrics) for the corresponding metric. For more information about the metrics collected and stored in the `InsightsMetrics` table and a description of the record properties, see [InsightsMetrics overview](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+<sup>1</sup> The *Tags* property represents [multiple dimensions](../essentials/data-platform-metrics.md#multi-dimensional-metrics) for the corresponding metric. For more information about the metrics collected and stored in the `InsightsMetrics` table and a description of the record properties, see [InsightsMetrics overview](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
 
 ## Search logs to analyze data
 

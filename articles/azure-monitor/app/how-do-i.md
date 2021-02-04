@@ -47,7 +47,7 @@ Because alerts have two states, you have to send a low value when you consider t
 telemetry.TrackMetric("Alarm", 0.5);
 ```
 
-Create a chart in [metric explorer](../platform/metrics-charts.md) to see your alarm:
+Create a chart in [metric explorer](../essentials/metrics-charts.md) to see your alarm:
 
 ![Screenshot that shows how to create a chart in metric explorer to see your alarm.](./media/how-do-i/010-alarm.png)
 
@@ -84,7 +84,7 @@ Some points to consider:
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
-* In [metric explorer](../platform/metrics-charts.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* In [metric explorer](../essentials/metrics-charts.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
 * [Export telemetry to Power BI](./export-power-bi.md).
@@ -161,6 +161,6 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * **Unix server** - [Install collectd](./java-collectd.md)
 
 ### To display more performance counters
-* First, [add a new chart](../platform/metrics-charts.md) and see if the counter is in the basic set that we offer.
+* First, [add a new chart](../essentials/metrics-charts.md) and see if the counter is in the basic set that we offer.
 * If not, [add the counter to the set collected by the performance counter module](./performance-counters.md).
 

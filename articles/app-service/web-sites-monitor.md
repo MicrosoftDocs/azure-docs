@@ -135,7 +135,7 @@ There are two metrics that reflect CPU usage:
 **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 ## Metrics granularity and retention policy
-Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
+Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
 
 ## Monitoring quotas and metrics in the Azure portal
 To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).

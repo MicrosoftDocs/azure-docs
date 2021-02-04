@@ -34,7 +34,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 
     > ![Select a metric](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Optionally, you can [change the metric aggregation](metrics-charts.md#aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
+4. Optionally, you can [change the metric aggregation](../essentials/metrics-charts.md#aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
 > [!TIP]
 > Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.
@@ -42,7 +42,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 ## Select a time range
 
 > [!WARNING]
-> [Most metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can query no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+> [Most metrics in Azure are stored for 93 days](../essentials/data-platform-metrics.md#retention-of-metrics). However, you can query no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart. 
 
@@ -53,22 +53,22 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 ## Apply dimension filters and splitting
 
-[Filtering](metrics-charts.md#filters) and [splitting](metrics-charts.md#apply-splitting) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
+[Filtering](../essentials/metrics-charts.md#filters) and [splitting](../essentials/metrics-charts.md#apply-splitting) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
 
 - **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filter on the *success of request* dimension. 
 
 - **Splitting** controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. You would need to apply splitting on the *server instance* dimension to see separate lines.
 
-See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
+See [examples of the charts](../essentials/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 
-* [Learn about advanced features of Metrics Explorer](metrics-charts.md)
+* [Learn about advanced features of Metrics Explorer](../essentials/metrics-charts.md)
 * [Viewing multiple resources in Metrics Explorer](metrics-dynamic-scope.md)
 * [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
-* [See examples of configured charts](metric-chart-samples.md)
+* [See examples of configured charts](../essentials/metric-chart-samples.md)

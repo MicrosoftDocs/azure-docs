@@ -442,7 +442,7 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 ## Next steps
 These diagnostic tools help you inspect the data from your app:
 
-* [Metric explorer](../platform/metrics-charts.md)
+* [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
 * [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
 

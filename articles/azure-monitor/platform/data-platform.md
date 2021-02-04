@@ -29,13 +29,13 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 
 
 ### Metrics
-[Metrics](data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. 
+[Metrics](../essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. 
 
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
 
 Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](./metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](../alerts/alerts-metric.md).
 
-Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
+Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](../essentials/data-platform-metrics.md).
 
 ### Logs
 [Logs](data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.
@@ -74,7 +74,7 @@ The following table compares Metrics and Logs in Azure Monitor.
 ## Collect monitoring data
 Different [sources of data for Azure Monitor](../agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
-See [Metrics in Azure Monitor](data-platform-metrics.md) and [Logs in Azure Monitor](data-platform-logs.md) for a listing of different data sources that populate each type.
+See [Metrics in Azure Monitor](../essentials/data-platform-metrics.md) and [Logs in Azure Monitor](data-platform-logs.md) for a listing of different data sources that populate each type.
 
 
 ## Stream data to external systems
@@ -84,7 +84,7 @@ In addition to using the tools in Azure to analyze monitoring data, you may have
 
 ## Next steps
 
-- Read more about [Metrics in Azure Monitor](data-platform-metrics.md).
+- Read more about [Metrics in Azure Monitor](../essentials/data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](data-platform-logs.md).
 - Learn about the [monitoring data available](../agents/data-sources.md) for different resources in Azure.
 

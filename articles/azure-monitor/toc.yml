@@ -185,17 +185,17 @@
     items:
     - name: Overview
       displayname: Metrics
-      href: platform/data-platform-metrics.md
+      href: essentials/data-platform-metrics.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
-        href: platform/metrics-charts.md
+        href: essentials/metrics-charts.md
       - name: Viewing multiple resources in Metric Explorer
         href: platform/metrics-dynamic-scope.md
       - name: Examples of metric charts
-        href: platform/metric-chart-samples.md
+        href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
       - name: Understanding metrics aggregation 
@@ -406,13 +406,13 @@
         - name: Send to Azure Monitor Metrics
           items:   
           - name: Virtual Machine 
-            href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
+            href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md 
           - name: Virtual machine scale set 
-            href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
+            href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md  
           - name: VM classic 
-            href: platform/collect-custom-metrics-guestos-vm-classic.md  
+            href: essentials/collect-custom-metrics-guestos-vm-classic.md  
           - name: Cloud service
-            href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+            href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
         - name: Send to Event Hubs
           href: essentials/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
@@ -429,7 +429,7 @@
         - name: Overview
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
-          href: platform/collect-custom-metrics-linux-telegraf.md   
+          href: essentials/collect-custom-metrics-linux-telegraf.md   
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
@@ -799,7 +799,7 @@
       - name: Log-based & pre-aggregated metrics
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
-        href: platform/app-insights-metrics.md
+        href: essentials/app-insights-metrics.md
       - name: Standard metrics
         href: app/standard-metrics.md
     - name: Search
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 
