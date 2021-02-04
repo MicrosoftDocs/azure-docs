@@ -12,5 +12,5 @@ Azure Spatial Anchors can be configured in Unity using the following:
 - ARCore XR Plugin (for Android devices): <a href="https://docs.unity3d.com/Packages/com.unity.xr.arcore@3.1/manual/index.html" target="_blank">3.1.3</a>
 - ARKit XR Plugin (for iOS devices): <a href="https://docs.unity3d.com/Packages/com.unity.xr.arkit@3.1/manual/index.html" target="_blank">3.1.3</a>
 
-[!NOTE]
-The SDK does not currently support the <a href="https://docs.unity3d.com/Manual/XRPluginArchitecture.html" target="_blank">Unity XR plug-in framework</a>
+> [!NOTE]
+> The SDK does not currently support the <a href="https://docs.unity3d.com/Manual/XRPluginArchitecture.html" target="_blank">Unity XR plug-in framework</a>
