@@ -163,6 +163,10 @@ Here are a few examples of normalization automatically performed on the transcri
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
 
+### Text normalization for Japanese
+
+In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
+
 ## Next Steps
 
 - [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
