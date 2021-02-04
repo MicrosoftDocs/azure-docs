@@ -38,7 +38,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## Log query editor enhancements (public preview)
 
-The Azure Sentinel Logs page now provides the following enhancements for writing and editing queries:
+The Azure Sentinel **Logs** page now provides the following enhancements for writing and editing queries:
 -	An collapsible editing window, providing you with more screen space to view your query history.
 -	Syntax highlighting in your query code.
 -	Auto-complete support to help you build queries.
