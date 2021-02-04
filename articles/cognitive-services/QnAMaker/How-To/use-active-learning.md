@@ -119,12 +119,6 @@ QnA Maker needs explicit feedback about which of the answers was the best answer
 
 Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
 
-# Use active learning to improve your knowledge base
-
-Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions. User-submissions are taken into consideration and show up as suggestions in the alternate questions list. You have the flexibility to either add those suggestions as alternate questions or reject them.
-
-Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
-
 ## Upgrade runtime version to use active learning
 
 # [QnA Maker GA (stable release)](#tab/v1)
