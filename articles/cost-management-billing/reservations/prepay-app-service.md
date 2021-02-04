@@ -8,6 +8,7 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
+ms.custom: references_regions
 ---
 
 # Save costs with Azure App Service reserved instances
