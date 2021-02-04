@@ -48612,7 +48612,11 @@
       "redirect_document_id": false
     },
     {
-
+      "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-relnotes.md",
+      "redirect_url": "https://github.com/microsoft/AzureStorageExplorer/releases",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
       "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
       "redirect_document_id": false
