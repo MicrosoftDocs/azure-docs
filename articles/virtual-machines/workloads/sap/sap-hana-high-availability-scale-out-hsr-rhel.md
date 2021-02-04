@@ -196,7 +196,7 @@ For the configuration presented in this document, deploy seven virtual machines:
       1. Enter the name of the new back-end pool (for example, **hana-backend**).
       1. Select **Add a virtual machine**.
       1. Select **Virtual machine**.
-      1. Select the virtual machines of the SAP HANA cluster and their IP addresses for the `client` subnet.
+      1. Select the virtual machines acting as Master node from both site of the SAP HANA cluster and their IP addresses for the `client` subnet.
       1. Select **Add**.
 
    1. Next, create a health probe:
