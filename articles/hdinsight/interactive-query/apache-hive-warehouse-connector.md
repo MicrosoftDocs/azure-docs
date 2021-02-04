@@ -33,11 +33,8 @@ Some of the operations supported by the Hive Warehouse Connector are:
 ## Hive Warehouse Connector setup
 
 > [!IMPORTANT]
-> The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
-<br>
-
-> [!IMPORTANT]
-> Interactive Query Clusters with Workload Management Feature enabled is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate Interactive Query cluster without Workload Management Feature to be used with Hive Warehouse Connector.
+> - The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
+> - Interactive Query Clusters with Workload Management Feature enabled is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate Interactive Query cluster without Workload Management Feature to be used with Hive Warehouse Connector.
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
