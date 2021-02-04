@@ -21,6 +21,9 @@ Learn how to import a new update into Device Update for IoT Hub.
   * The new [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
 
+> [!NOTE]
+> Some data submitted to this service might be processed in a region outside the region this instance was created in.
+
 ## Create Device Update Import Manifest
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
