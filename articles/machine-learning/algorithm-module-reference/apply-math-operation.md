@@ -245,7 +245,19 @@ Returns the value that is lesser—the value in **Column set** or the value in t
 
 Includes the basic arithmetic operations: addition and subtraction, division, and multiplication.  Because most operations are binary, requiring two numbers, you first choose the operation, and then choose the column or numbers to use in the first and second arguments.
 
-The order for division and subtraction are as follows: Arg1 - Arg 2 for subtraction. Arg1 / Arg 2 for division.
+The order for division and subtraction are as follows: 
+- Subtract(Arg1_Arg2) = Arg1 - Arg 2
+- Divide(Arg1_Arg2) =  Arg1 / Arg 2
+
+The following table shows some examples
+Operation|Num1|Num2|Result column|Result value|
+----|----|----|----|----
+|Addition|1|5|Add(Num2_Num1)| 6|
+|Multiplication|1|5|Multiple(Num2_Num1)|5|
+|Subtraction|5|1|Subtract(Num2_Num1)|4|
+|Subtraction|0|1|Subtract(Num2_Num1)|-1|
+|Division|5|1|Divide(Num2_Num1)|5|
+|Division|1|0|Divide(Num2_Num1)|Infinity|
 
 ### Add
 
