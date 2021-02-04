@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -16,7 +16,7 @@ ms.custom: mvc
 In this article, learn how to move encrypted Azure VMs to a different Azure region using [Azure Resource Mover](overview.md). Here's what we mean by encryption:
 
 - VMs that have disks with Azure disk encryption enabled. [Learn more](../virtual-machines/windows/disk-encryption-portal-quickstart.md)
-- Or, VMs that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption). [Learn more](virtual-machines/disks-enable-customer-managed-keys-portal.md)
+- Or, VMs that use customer-managed keys (CMKs) for encryption-at-rest (server-side encryption). [Learn more](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
 
 
 In this tutorial, you learn how to:
