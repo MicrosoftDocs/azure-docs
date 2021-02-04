@@ -4,7 +4,7 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure
 ms.author: jukullam
-ms.date: 11/24/2020
+ms.date: 02/04/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Use Key Vault secrets in GitHub Actions workflows
 
-Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure key vault. Learn more about [Key Vault](../general/overview.md). 
+Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure key vault. Learn more about [Key Vault](/azure/key-vault//general/overview). 
 
 With Key Vault and GitHub Actions, you have the benefits of a centralized secrets management tool and all the advantages of GitHub Actions. GitHub Actions is a suite of features in GitHub to automate your software development workflows. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues. 
 
@@ -36,7 +36,7 @@ The file has for authenticating with GitHub Actions two sections:
 
 ## Authentication
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](/azure/active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
@@ -137,4 +137,4 @@ When your Azure app, GitHub repository, and key vault are no longer needed, clea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Key Vault](../general/overview.md)
+> [Learn more about Azure Key Vault](/azure/key-vault/general/overview.md)
