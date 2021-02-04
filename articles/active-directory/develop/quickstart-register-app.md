@@ -40,7 +40,7 @@ Follow these steps to create the app registration:
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name. You can change it later.
-1. Specify who can use the application. This audience is sometimes called the *sign-in audience*.
+1. Specify who can use the application - its *sign-in audience*.
 
     | Supported account types | Description |
     |-------------------------|-------------|
@@ -124,8 +124,6 @@ For more information about application security recommendations, see [Microsoft 
 1. Select **Add**.
 1. *Record the secret's value* for use in your client application code. This secret value is *never displayed again* after you leave this page.
 
-> [!Note]
-> The ID generated along with the secret's value is the ID of the secret. It's different from the application ID.
 
 ## Next steps
 

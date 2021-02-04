@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Quickstart: Set up a tenant
 
-The Microsoft identity platform allows developers to build apps that target a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you'll need access to an environment, also called an Azure Active Directory (Azure AD) tenant. The Azure AD tenant can register and manage apps, access Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions.
+To build apps that use the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) *tenant*. It's in the Azure AD tenant that you register and manage your apps, configure their access to data in Microsoft 365 and other web APIs, and enable features like Conditional Access.
 
 A tenant represents an organization. It's a dedicated instance of Azure AD that an organization or app developer receives at the beginning of a relationship with Microsoft. That relationship could start with signing up for Azure, Microsoft Intune, or Microsoft 365, for example.
 
@@ -54,8 +54,8 @@ To check the tenant:
 
 > [!TIP]
 > To find the tenant ID in the Azure portal, use one of the following methods:
-> * Hover over your account name.
-> * Go to **Azure Active Directory** > **Properties** > **Tenant ID**.
+> * Hover over your account name and note the GUID in the **Directory:** value shown in the pop-up.
+> * Select **Azure Active Directory** > **Overview** and note the **Tenant ID**.
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
