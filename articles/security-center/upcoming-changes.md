@@ -66,7 +66,7 @@ Next month, the eleven Azure Defender alerts listed below will be deprecated.
     | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
     |                          |                                                                          |
 
-- These nine alerts relate to an Azure Active Directory connector that has already been deprecated:
+- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
 
     | AlertType           | AlertDisplayName              |
     |---------------------|-------------------------------|
