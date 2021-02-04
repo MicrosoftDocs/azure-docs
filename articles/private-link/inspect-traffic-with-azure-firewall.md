@@ -46,7 +46,7 @@ Connections from a client virtual network to the Azure Firewall in a hub virtual
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
 
 >[!NOTE]
-> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
+> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules. SNAT is not required.
 
 ## Scenario 2: Hub and spoke architecture - Shared virtual network for private endpoints and virtual machines
 
@@ -69,7 +69,7 @@ Connections from a client virtual network to the Azure Firewall in a hub virtual
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
 
 >[!NOTE]
-> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
+> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules. SNAT is not required.
 
 ## Scenario 3: Single virtual network
 
@@ -78,7 +78,7 @@ For more information on charges related to connections with peered virtual netwo
 There's some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
 >[!NOTE]
-> If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
+> If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail. SNAT is required to connect to SQL Private Endpoint but it is not required to connect to Storage Private Endpoint in this scenario
 
 ## Scenario 4: On-premises traffic to private endpoints
 
@@ -94,7 +94,7 @@ If your security requirements require client traffic to services exposed via pri
 The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
 >[!NOTE]
-> If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
+> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules. SNAT is not required.
 
 ## Prerequisites
 
