@@ -73,6 +73,7 @@ The SQL Maintenance Window is available in the following regions:
 - UK South
 - West Europe
 - West US 2
+- West US 3
 
 ## Next steps
 
