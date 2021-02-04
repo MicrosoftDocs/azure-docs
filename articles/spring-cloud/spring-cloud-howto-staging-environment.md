@@ -38,8 +38,8 @@ az extension add --name spring-cloud
 To build the application follow these steps:
 1. Generate the code for the sample app using The Spring Initializer with [this configuration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
 
-1. Download the code.
-1. Add the following source file HelloController.java to the folder C:\DocExampleCode\NewFolder\hellospring\hellospring\src\main\java\com\example\hellospring\.
+2. Download the code.
+3. Add the following source file HelloController.java to the folder `\src\main\java\com\example\hellospring\`.
 ```java
 package com.example.hellospring; 
 import org.springframework.web.bind.annotation.RestController; 
@@ -58,19 +58,19 @@ public class HelloController {
 
 } 
 ```
-1. Build the .jar file:
+4. Build the .jar file:
 ```azurecli
 mvn clean packge -DskipTests
 ```
-1. Create the app in your Azure Spring Cloud instance:
+5. Create the app in your Azure Spring Cloud instance:
 ```azurecli
 az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
 ```
-1. Deploy the app to Azure Spring Cloud:
+6. Deploy the app to Azure Spring Cloud:
 ```azurecli
 az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
 ```
-1. Modify the code for your staging deployment:
+7. Modify the code for your staging deployment:
 ```java
 package com.example.hellospring; 
 import org.springframework.web.bind.annotation.RestController; 
