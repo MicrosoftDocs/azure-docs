@@ -167,7 +167,7 @@ You've completed creation of the application and are now ready to test the app's
 1. Start the Node.js console app by running the following command from within the root of your project folder:
 
 ```console
-   npm start
+   node index.js
 ```
 
 2. Open a browser window and navigate to `http://localhost:3000`. You should see a sign-in screen:
