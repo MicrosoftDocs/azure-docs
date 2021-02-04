@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 02/04/2021
 ms.author: bagol
 
 ---
@@ -30,13 +30,15 @@ Providing full security coverage is a [shared responsibility](/azure/security/fu
 
 **Microsoft swiftly took the following steps against the Solorigate attack**:
 
-1. **Disclosed the set of complex techniques** used by the advanced threat actor in the attack, affecting several key customers.
+- **Disclosed the set of complex techniques** used by the advanced threat actor in the attack, affecting several key customers.
 
-1. **Removed the digital certificates used by the files infected with the trojan,** causing all Windows systems to immediately stop trusting those compromised files. 
+-  **Removed the digital certificates used by the files infected with the trojan,** causing all Windows systems to immediately stop trusting those compromised files. 
 
-1. **Updated Microsoft 365 Defender products** to detect, alert, and immediately quarantine an infected file on the system.
+- **Updated Azure Sentinel workbooks** to detect and alert for infected files on the system.
 
-1. **Sinkholed one of the domains used** for the malware's command-and-control servers.
+- **Updated Microsoft 365 Defender products** to detect, alert, and immediately quarantine an infected file on the system.
+ 
+- **Sinkholed one of the domains used** for the malware's command-and-control servers.
 
 > [!IMPORTANT]
 > The Solorigate attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
