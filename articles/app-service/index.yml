@@ -11,12 +11,8 @@ metadata:
   ms.date: 08/06/2020
 
 landingContent:
-  - title: Get started
+  - title: About App Service
     linkLists:
-      - linkListType: whats-new
-        links:
-          - text: Service updates
-            url: https://azure.microsoft.com/updates/?product=app-service
       - linkListType: overview
         links:
           - text: What is App Service?
@@ -25,6 +21,13 @@ landingContent:
             url: environment/intro.md
           - text: Compare hosting options
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
+      - linkListType: whats-new
+        links:
+          - text: Service updates
+            url: https://azure.microsoft.com/updates/?product=app-service
+
+  - title: Get started
+    linkLists:
       - linkListType: quickstart
         links:
           - text: First ASP.NET Core app
@@ -41,6 +44,25 @@ landingContent:
             url: quickstart-python.md
           - text: First Ruby app (Linux only)
             url: quickstart-ruby.md
+
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Map a custom domain to your app
+            url: app-service-web-tutorial-custom-domain.md
+          - text: Secure a custom domain with an SSL binding
+            url: configure-ssl-bindings.md
+          - text: Run app in staged environments
+            url: deploy-staging-slots.md
+          - text: Securely access storage and Microsoft Graph
+            url: scenario-secure-app-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to Linux container via SSH
+            url: configure-linux-open-ssh-session.md
+          - text: Migrate an active domain to App Service
+            url: manage-custom-dns-migrate-domain.md
 
   - title: Run custom containers
     linkLists:
@@ -82,42 +104,6 @@ landingContent:
           - text: Ruby (Rails) app with PostgreSQL
             url: tutorial-ruby-postgres-app.md
 
-  - title: Common tasks
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Map a custom domain to your app
-            url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom domain with an SSL binding
-            url: configure-ssl-bindings.md
-          - text: Run app in staged environments
-            url: deploy-staging-slots.md
-          - text: Securely access storage and Microsoft Graph
-            url: scenario-secure-app-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to Linux container via SSH
-            url: configure-linux-open-ssh-session.md
-          - text: Migrate an active domain to App Service
-            url: manage-custom-dns-migrate-domain.md
-
-  - title: Upload your code or content
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Upload content with FTP
-            url: deploy-ftp.md
-          - text: Upload content as zip packages
-            url: deploy-zip.md
-          - text: Git push from local machine
-            url: deploy-local-git.md
-          - text: Sync content with OneDrive or Dropbox
-            url: deploy-content-sync.md
-          - text: CI/CD with GitHub, BitBucket, etc.
-            url: deploy-continuous-deployment.md
-          - text: Run from package
-            url: deploy-run-package.md
-
   - title: Manage and integrate
     linkLists:
       - linkListType: concept
@@ -144,6 +130,23 @@ landingContent:
             url: configure-domain-traffic-manager.md
           - text: Back up your app to Storage Blobs
             url: manage-backup.md
+
+  - title: Upload your code or content
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+          - text: Upload content as zip packages
+            url: deploy-zip.md
+          - text: Git push from local machine
+            url: deploy-local-git.md
+          - text: Sync content with OneDrive or Dropbox
+            url: deploy-content-sync.md
+          - text: CI/CD with GitHub, BitBucket, etc.
+            url: deploy-continuous-deployment.md
+          - text: Run from package
+            url: deploy-run-package.md
 
   - title: Monitor your app
     linkLists:
