@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Integrate web service with client app'
-description: describe how to integrate web service with client app Azure Machine Learning
+description: Integrate pipeline endpoitns with with client applications in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,12 +8,16 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 1/19/2020
+ms.date: 02/04/2021
 ---
 
 # Integrate web service with client app
 
-In this article, you learn how to integrate client applications with Azure Machine Learning endpoints. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+In this article, you learn how to integrate client applications with Azure Machine Learning endpoints.
+
+Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 
+
+This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see [the migration overview article](migrate-overview.md).
 
 ## Prerequisites
 
@@ -24,7 +28,7 @@ In this article, you learn how to integrate client applications with Azure Machi
 
 ## Consume a real-time endpoint 
 
-If your model is deployed as a **real-time endpoint**, you can find your REST endpoint and automatically generated sample code in C#, Python, and R:
+If you deployed your model as a **real-time endpoint**, you can find its REST endpoint, and pre-generated consumption code in C#, Python, and R:
 
 1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
 1. Go the **Endpoints** tab.
@@ -35,21 +39,40 @@ If your model is deployed as a **real-time endpoint**, you can find your REST en
 
 
 > [!NOTE]
-> You can also find a Swagger URI for your real-time endpoint in the **Details** tab. You can refer to the swagger to understand the endpoint schema.
-
-![Screenshot showing the swagger URI location in the Details tab](./media/migrate-to-AML/realtime-swagger.png)
- 
+> You can also find the Swagger specification for your endpoint in the **Details** tab. Refer to the Swagger definition to understand your endpoint schema. For more information on Swagger definition, see [Swagger official documentation](https://swagger.io/docs/specification/2-0/what-is-swagger/).
 
 
-## Pipeline endpoint
+## Consume a pipeline endpoint
 
-If your model is deployed as a **pipeline endpint**, there are two ways to consume the pipeline endpoint - through REST call or through integration with Azure Data Factory.
+If your model is deployed as a **pipeline endpoint**, there are two ways to consume the pipeline endpoint:
 
-### Submit a REST call
+- REST API calls
+- Integration with Azure Data Factory
 
-After publishing the pipeline, there will be a swagger as the endpoint documentation. Check the swagger to learn how to call the endpoint.
+### Use REST API calls
+
+Call the REST endpoint from your client application. You can use the Swagger specification for your endpoint to understand its schema:
+
+1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
+1. Go the **Endpoints** tab.
+1. Select **Pipeline endpoints**.
+1. Select your pipeline endpoint.
+1. In the **Pipeline endpoint overview** pane, select the link under **REST endpoint documentation**.
+
 ![Screenshot showing the swagger URI location for pipeline endpoints](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
 
 ### Use Azure Data FActory
 
-You can run your machine learning pipeline as a step in an Azure Data Factory pipeline. For more information, see [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md).
+You can call your Azure Machine Learning pipeline as a step in an Azure Data Factory pipeline. For more information, see [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md).
+
+
+## Next steps
+
+In this article, you learned how to integrate client applications with pipeline endpoints.
+
+See the other articles in the Studio (classic) migration series:
+
+- [Migration overview](migrate-overview.md)
+- [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
+- [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md)
+- [Migration reference](migrate-reference.md)

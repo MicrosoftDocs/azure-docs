@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild web service'
-description: describe how to rebuild ML Studio(classic) web service in Azure Machine Learning
+description: Rebuild Studio (classic) web services as pipeline endpoints in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,16 +8,26 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 1/19/2020
+ms.date: 02/04/2021
 ---
 
 # Rebuild web services in Azure Machine Learning
 
-In this article, you learn how to rebuild a Studio (classic) web service in Azure Machine Learning as either a **real-time endpoint** -or- **pipeline endpoint**
+In this article, you learn how to rebuild a Studio (classic) web service as a **pipeline endpoint** in Azure Machine Learning.
 
-For more information on migrating from Studio (classic), see the [migration overview article](migrate-overview.md).
+Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 
 
-Studio (classic) web services have been replaced by **endpoints** in Azure Machine Learning. The following table shows the mapping between web service types and their endpoint replacements:
+This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see the [migration overview article](migrate-overview.md).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
+
+## Real-time endpoint vs pipeline endpoint
+
+Studio (classic) web services have been replaced by **endpoints** in Azure Machine Learning. The following table shows the mapping between web service types and their endpoint replacements. Use this table to decide what kind of Azure Machine Learning endpoint you should use.
 
 |Studio (classic) web service| Azure Machine Learning replacement
 |---|---|
@@ -25,11 +35,6 @@ Studio (classic) web services have been replaced by **endpoints** in Azure Machi
 |Batch web service (batch prediction)|Pipeline endpoint|
 |Retraining web service (retraining)|Pipeline endpoint| 
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
-- An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
 
 ## Deploy a real-time endpoint
 
@@ -48,21 +53,20 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     In the designer, this step also registers the trained model to your Azure Machine Learning workspace.
 
-1. Select **Submit** to run the real-time inference pipeline to make sure it works as expected.
+1. Select **Submit** to run the real-time inference pipeline, and verify that it run successfully.
 
 1. After you verify the inference pipeline, select **Deploy**.
 
 1. Enter a name for your endpoint and a compute type.
 
-    If you choose to deploy to Azure Kubernetes Service (AKS), make sure you have an AKS cluster in your workspace. For more information, see [Create compute targets](../how-to-create-attach-compute-studio.md#inference-clusters).
+    The following table describes your deployment compute options in the designer:
 
-    If you choose to deploy to Azure Container Instances (ACI), Azure Machine Learning will create a container instance for you.
+    | Compute target | Used for | Description | Creation |
+    | ----- |  ----- | ----- | -----  |
+    |[Azure Kubernetes Service (AKS)](../how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](../how-to-create-attach-compute-studio.md#inference-clusters). |
+    |[Azure Container Instances ](../how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
 
-    | Compute target | Used for | Description |
-    | ----- |  ----- | ----- |
-    |[Azure Kubernetes Service (AKS)](../how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.|
-    |[Azure Container Instances ](../how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.|
-
+### Test the real-time endpoint
 
 After deployment completes, you can see additional details and test your endpoint:
 
@@ -76,15 +80,14 @@ After deployment completes, you can see additional details and test your endpoin
 
 You can also use your training pipeline to create a **pipeline endpoint** instead of a real-time endpoint.
 
-In Azure Machine Learning, you use **pipeline endpoints** to perform either batch prediction or retraining, depending on how you configure your endpoint. 
-
-If the original pipeline is set up for prediction, the pipeline endpoint can be used for batch prediction. If the original pipeline is set up for training, the pipeline endpoint can be used for retraining. You can call pipeline endpoints from any HTTP library.
-
 Pipeline endpoints replace Studio (classic) **batch execution endpoints**  and **retraining web services**.
 
-### Batch prediction
+In Azure Machine Learning, you use **pipeline endpoints** to perform either batch prediction or retraining, depending on how you configure your endpoint. You can call pipeline endpoints from any HTTP library.
 
-The process for publishing a pipeline endpoint for batch prediction is similar to the real-time endpoint process. You must already have a training pipeline draft. For more information on building a training pipeline, see [Rebuild a Studio (classic) experiment](migrate-rebuild-experiment.md).
+
+### Publish a pipeline endpoint for batch prediction
+
+Publishing a pipeline endpoint for batch prediction is similar to the real-time endpoint process. Similar to the real-time endpoint, you must already have a training pipeline draft. For more information on building a training pipeline, see [Rebuild a Studio (classic) experiment](migrate-rebuild-experiment.md).
 
 Use the following steps to publish a pipeline endpoint for batch prediction:
 
@@ -98,15 +101,18 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
 
     In the designer, this step also registers the trained model to your Azure Machine Learning workspace.
 
-1. Select **Submit** to run the batch inference pipeline to make sure it works as expected.
+1. Select **Submit** to run the batch inference pipeline and verify that it successfully completes.
 
 1. After you verify the inference pipeline, select **Publish**.
  
 1. Create a new pipeline endpoint or select an existing one.
     
-    Pipeline endpoints are versioned, so you can publish multiple pipelines to a single endpoint, and call on specific pipelines by providing the version number.
+    A new pipeline endpoint creates a new REST endpoint for your pipeline. 
 
- ### Publish pipeline endpoint for retraining
+    If you select an existing pipeline endpoint, you don't overwrite the existing pipeline. Instead, Azure Machine Learning versions each pipeline in an pipeline endpoint. You can specify which version to run in your REST call. You must also set a default pipeline if the REST call doesn't specify a version.
+
+
+ ### Publish a pipeline endpoint for retraining
 
 To publish a pipeline endpoint for retraining, you must already have a pipeline draft that trains a model. For more information on building a training pipeline, see [Rebuild a Studio (classic) experiment](migrate-rebuild-experiment.md).
 
@@ -126,21 +132,24 @@ Use the following steps to publish a training pipeline draft as a retraining pip
 ![Screenshot highlighting the Publish button on a training pipeline](./media/migrate-rebuild-web-service/create-retraining-pipeline.png)
 
 
-### Call your pipeline endpoint from the studio
+## Call your pipeline endpoint from the studio
 
 After you create your batch inference or retraining pipeline endpoint, you can call your endpoint directly from your browser.
 
 1. Go to the **Pipelines** tab, and select **Pipeline endpoints**.
-1. Select the pipeline endpoint name you want to run.
+1. Select the pipeline endpoint you want to run.
 1. Select **Submit**.
 
-    You can set any pipeline parameters you created before publishing your endpoint after you select **Submit**.
+    You can specify any pipeline parameters after you select **Submit**.
 
 ## Next steps
 
-In this article, you learned how to rebuild a Studio (classic) experiment in Azure Machine Learning. See the other articles in the Studio (classic) migration series:
+In this article, you learned how to rebuild a Studio (classic) web service in Azure Machine Learning. The next step is to [integrate your web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+
+
+See the other articles in the Studio (classic) migration series:
 
 - [Migration overview](migrate-overview.md)
-- [Rebuild a Studio (classic) experiment to Azure Machine learning](migrate-rebuild-experiment.md).
+- [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
 - [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md)
 - [Migration reference](migrate-reference.md)

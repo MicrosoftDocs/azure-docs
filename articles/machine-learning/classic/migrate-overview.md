@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning'
-description: describe how to migrate ML Studio classic projects to Azure Machine Learning
+description: Migrate from Studio (classic) to Azure Machine Learning for a modernized data science platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,19 +8,19 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 11/27/2020
+ms.date: 02/04/2021
 ---
 
 # Migrate to Azure Machine Learning from Studio (classic)
 
 In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources to Azure Machine Learning, you must manually rebuild your experiments.
 
-Azure Machine Learning combines no-code and code-first approaches to create an inclusive data science platform. Train, deploy, automate, manage, and track ML models.
+Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the  [Assess readiness](#step-1-assess-readiness) section.
 
 
 ## Recommended approach
 
-To migrate to Azure Machine Learning, we recommend the following approach:
+To migrate from Studio (classic) to Azure Machine Learning, we recommend the following approach:
 
 > [!div class="checklist"]
 > * Step 1: Assess readiness
@@ -30,15 +30,16 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 
 ## Step 1: Assess readiness
-1. Learn about the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
+1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
 1. [Compare the capabilities](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) of Azure Machine Learning and Studio (classic).
-1. Azure Machine Learning supports code-first development, in addition to the drag-and-drop designer. If you're interested, see [MLOps: Model management, deployment, and monitoring](../concept-model-management-and-deployment.md).
+    
+     Azure Machine Learning supports code-first development in addition to the drag-and-drop designer. For more information on the code-first development cycle, see [MLOps: Model management, deployment, and monitoring](../concept-model-management-and-deployment.md).
 
 ## Step 2: Prepare to migrate
 
-1. Identify data sets that you want to migrate:
+1. Identify which data sets, models, and web services you want to migrate:
     
-    Go your Studio (classic) workspace and take the opportunity to clean up data sets that you no longer use, and identify datasets you want to migrate.
+    Go your Studio (classic) workspace and take the opportunity to clean up resources that you no longer use, and identify which resources to migrate.
 
 1. Determine the impact that a migration will have on your business.
     
@@ -48,9 +49,9 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Step 3: Rebuild experiments and web services
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace) to migrate your Studio (classic) experiments to.
-1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md) with drag-and-drop modules.
-1. Use the designer to rebuild your [web services](migrate-rebuild-web-service.md).
+1. [Create the Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace) that want to migrate to.
+1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md) and deploy [web services](migrate-rebuild-web-service.md) with drag-and-drop modules.
+
 
 > [!NOTE]
 > Azure Machine Learning also supports code-first workflows for [training](../how-to-setup-training-targets.md) and [deployment](../how-to-deploy-and-where.md).
@@ -61,7 +62,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Example migration
 
-The following basic experiment migration highlights some of the differences between Studio (classic) and Azure Machine Learning.
+The following experiment migration highlights some of the differences between Studio (classic) and Azure Machine Learning.
 
 ### Datasets
 

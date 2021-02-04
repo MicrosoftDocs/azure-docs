@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - reference'
-description: the reference that details the difference of ML Studio classic and AML, that customer would pay attention during the migration process
+description: Supplementary information to help you migrate from Studio (classic) to Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 1/7/2021
+ms.date: 02/04/2021
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild experiment'
-description: describe how to rebuild experiment to train a model in Azure Machine Learning
+description: Rebuild Studio (classic) experiments in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 1/19/2020
+ms.date: 02/04/2021
 ---
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
@@ -21,7 +21,7 @@ Rebuilding a Studio (classic) **experiment** as an Azure Machine Learning **pipe
 1.  [Rebuild the pipeline graph](#rebuild-the-pipeline).
 1.  [Submit a run and check results](#submit-a-run-and-check-results).
 
-Rebuilding a pipeline is an iterative process, so it's important to check results and repeat the process until you're satisfied with the results.
+Rebuilding a pipeline is an iterative process, so check results and repeat the process until you're satisfied with the results.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ Rebuilding a pipeline is an iterative process, so it's important to check result
 
 ## Migrate the dataset
 
-There are multiple ways ingest data in Azure Machine Learning. This article will show you the simplest way to migrate a dataset from Studio (classic). Download the Studio (classic) dataset and using the data file to create a new dataset in Azure Machine Learning.
+There are multiple ways ingest data in Azure Machine Learning. This article shows you the simplest way to migrate a dataset from Studio (classic), which is to download the Studio (classic) dataset and using the data file to create a new dataset in Azure Machine Learning.
 
 To import data directly from cloud sources instead, see the [Migration reference](migrate-reference.md#import-data-from-cloud-sources).
 
 ### Download the dataset
 
-For the following Studio (classic) data types, you can download datasets directly.
+You can download the following  Studio (classic) dataset types directly.
 
 * Plain text (.txt)
 * Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
@@ -67,7 +67,7 @@ To convert your dataset to a CSV, and download the results:
 1. Drag and drop the dataset you want to download onto the canvas.
 1. Add a **Convert to CSV** module.
 1. Connect the **Convert to CSV** input port to the output port of your dataset.
-1. Run the experiment
+1. Run the experiment.
 1. Right-click the **Convert to CSV** module.
 1. Select **Results dataset** > **Download**
 
@@ -85,7 +85,7 @@ After you download the data file, you can register the dataset in Azure Machine 
 1. For **Dataset type**, select **Tabular**.
 
     > [!NOTE]
-    > You can also upload ZIP files. To upload ZIP files, select **File** for **Dataset type**.
+    > You can also upload ZIP files as datasets. To upload a ZIP file, select **File** for **Dataset type**.
 
 1. **For Datastore and file selection**, select the datastore you want to upload your dataset file to.
 
@@ -95,7 +95,7 @@ After you download the data file, you can register the dataset in Azure Machine 
 
 ## Rebuild the pipeline
 
-After you upload you your dataset to Azure Machine Learning, you're ready to recreate your experiment. Azure Machine Learning **designer** provides a similar drag-and-drop experience to Studio (classic).
+After you upload you your dataset to Azure Machine Learning, you're ready to recreate your experiment. **Azure Machine Learning designer** provides a similar drag-and-drop experience to Studio (classic).
 
 In Azure Machine Learning, the visual graph is called a **pipeline draft**. Once you submit a run from a pipeline draft, it turns into a **pipeline run**. Each pipeline run is recorded and logged in Azure Machine Learning.
 
@@ -103,12 +103,12 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. Once
 1. In the left navigation pane, select **Designer** > **Easy-to-use prebuilt modules**
     ![Screenshot showing how to create a new pipeline draft.](../media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. Manually rebuild your experiment by using designer modules.
+1. Manually rebuild your experiment with designer modules.
     
-    See the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping) to see if replacement modules are available in the designer. Many of Studio (classic)'s most popular modules have identical versions the designer.
+    See the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping) to see the replacement modules. Many of Studio (classic)'s most popular modules have identical versions the designer.
 
     > [!Important]
-    > If your experiment uses the Execute R Script module, you need to perform aadditional steps to migrate your experiment. For more information, see the [Migration reference](migrate-reference.md#execute-r-script).
+    > If your experiment uses the Execute R Script module, you need to perform additional steps to migrate your experiment. For more information, see the [Migration reference](migrate-reference.md#execute-r-script).
 
 1. Adjust parameters.
     
@@ -118,7 +118,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. Once
 
 After you recreate your Studio (classic) experiment, it's time to submit a pipeline run.
 
-A pipeline runs on a compute target attached to your workspace. You can set a default compute target for the entire pipeline, or you can specify compute targets on a per-module basis.
+A pipeline run executes on a compute target attached to your workspace. You can set a default compute target for the entire pipeline, or you can specify compute targets on a per-module basis.
 
 To set a default compute target for the entire pipeline:
 1. Select the **Gear icon** ![Gear icon in the designer](../media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
@@ -135,23 +135,26 @@ Now that your compute target is set, you can submit a pipeline run:
     > Experiments organize similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs. This is useful for logging and tracking.
 1. Enter an experiment name. Then, select **Submit**.
 
-The first run may take up to 20 minutes for your pipeline to complete. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive runs take less time, since the nodes are already allocated. To speed up the running time, you can keep at least one node idle.
+The first run may take up to 20 minutes. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive runs take less time, since the nodes are already allocated. To speed up the running time, you can create a compute resources with a minimum node size of 1 or greater.
 
 After the run finishes, you can check the results of each module:
 
 1. Right-click the module whose output you want to see.
-1. Select **Visualize**, **View Output**, or **View Log** to see more.
+1. Select **Visualize**, **View Output**, or **View Log**.
 
 - **Visualize**: Preview the results dataset.
 - **View Output**: Open a link to the output storage location. Use this to explore or download the output. 
-- **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script.
+- **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
 
 ![Screenshow showing options when you right click a module in the designer.](./media/migrate-to-AML/right-click.png)
 
 
 ## Next steps
 
-In this article, you learned how to rebuild a Studio (classic) experiment in Azure Machine Learning. See the other articles in the Studio (classic) migration series:
+In this article, you learned how to rebuild a Studio (classic) experiment in Azure Machine Learning. The next step is to [rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md).
+
+
+See the other articles in the Studio (classic) migration series:
 
 - [Migration overview](migrate-overview.md)
 - [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
