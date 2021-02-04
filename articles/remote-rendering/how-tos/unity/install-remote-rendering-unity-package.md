@@ -9,8 +9,6 @@ ms.topic: how-to
 
 # Install the Remote Rendering package for Unity
 
-Azure Remote Rendering uses the Mixed Reality Feature Tool to distribute packages for Unity.
-
 
 ## Install Remote Rendering Package using the Mixed Reality Feature Tool
 
