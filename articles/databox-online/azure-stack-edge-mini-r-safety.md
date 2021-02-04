@@ -211,9 +211,10 @@ This symbol on the product or its batteries or its packaging means that this pro
 
 This product contains coin cell battery(ies).
 
-The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10mm from the body to ensure compliance with RF exposure requirements.
 
-Netgear A6150 Specific Absorption Rate (SAR): 0.54 W/kg averaged over 10 g of tissue
+**Netgear A6150 Specific Absorption Rate (SAR):** 0.54 W/kg averaged over 10g of tissue
+
  
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:  
 
@@ -226,9 +227,9 @@ In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table p
 | Frequency range (MHz) | Channels used | Max Transmit Power (dBm/mW) |
 | --------------------- | ------------- | --------------------------- |
 | 2400-2483.5 | 1-13    | ODFM: 19.9 dBm (97.7 mW) <br> CCK: 17.9 dBm (61.7 mW) |
-| 5150-5350   | 36-48   | 22.9 dBm (195 mW) |
+| 5150-5320   | 36-48   | 22.9 dBm (195 mW) |
 | 5250-5350   | 52-64   | 22.9 dBm (195 mW) with TPC <br> 19.9 dBm (97.7 mW) non-TPC |
-| 5470-5725   | 100-140 | 29.9 dBm (977 mW) with TPC <vbr> 29.6 dBm (490 mW) non-TPC |
+| 5470-5725   | 100-140 | 29.9 dBm (977 mW) with TPC <br> 29.6 dBm (490 mW) non-TPC |
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL <br>
 Telephone number: +353 1 295 3826 <br>
