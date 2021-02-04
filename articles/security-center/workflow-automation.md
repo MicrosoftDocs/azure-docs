@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 02/04/2021
 ms.author: memildin
 ---
 
@@ -15,7 +15,7 @@ ms.author: memildin
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
-This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts, recommendations, and changes to regulatory compliance. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## Availability
@@ -66,10 +66,12 @@ This article describes the workflow automation feature of Azure Security Center.
 
     The logic app designer supports these Security Center triggers:
 
-    * **When an Azure Security Center Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, see [Azure Security Center release notes](release-notes.md).
+    - **When an Azure Security Center Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, see [Azure Security Center release notes](release-notes.md).
 
-    * **When an Azure Security Center Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
+    - **When an Azure Security Center Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
     
+    - **When a Security Center regulatory compliance assessment is created or triggered** - Trigger automations based on updates to regulatory compliance assessments.
+
     > [!NOTE]
     > If you are using the legacy trigger "When a response to an Azure Security Center alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
 

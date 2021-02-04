@@ -2,7 +2,7 @@
 title: Concepts - Private cloud updates and upgrades
 description: Learn about the key upgrade processes and features in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/02/2021
 ---
 
 # Azure VMware Solution private cloud updates and upgrades
@@ -52,7 +52,10 @@ For more information on VMware software versions, see the [private clouds and cl
 
 ## Next steps
 
-The next step is to [create a private cloud](tutorial-create-private-cloud.md).
+Now that you've covered the key upgrade processes and features in Azure VMware Solution, you may want to learn about:
+
+- [How to create a private cloud](tutorial-create-private-cloud.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

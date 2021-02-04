@@ -1,4 +1,4 @@
-- name: Microsoft Azure Attestation (preview)
+- name: Microsoft Azure Attestation 
   href: index.yml
 - name: Overview
   items:
@@ -63,5 +63,5 @@
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
   - name: Troubleshoot issues
     href: troubleshoot-guide.md
-  - name: VBS attestation protocol
+  - name: TPM and VBS attestation protocol
     href: virtualization-based-security-protocol.md

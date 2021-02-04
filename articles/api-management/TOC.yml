@@ -61,11 +61,15 @@
             - name: Policy reference index
               href: api-management-policies.md
             - name: Error handling
-              href: api-management-error-handling-policies.md  
+              href: api-management-error-handling-policies.md 
       - name: Security
         items:
+            - name: Security controls by Azure Policy
+              href: ./security-controls-policy.md
             - name: Security baseline
               href: security-baseline.md
+      - name: Backends
+        href: backends.md 
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Versions
@@ -103,10 +107,10 @@
               href: import-function-app-as-api.md
             - name: Import a Logic App
               href: import-logic-app-as-api.md
-            - name: Import a Service Fabric app
-              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
             - name: Edit an API
               href: edit-api.md
+            - name: Configure Service Fabric backend
+              href: how-to-configure-service-fabric-backend.md
       - name: Provision and scale
         items:
             - name: Capacity metric

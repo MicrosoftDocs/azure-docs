@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
 ---
 
@@ -532,6 +532,18 @@ To configure an asynchronous request-reply pattern for your logic app using the 
 For full error messages, check your SAP adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
 
 For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
+
+* The default logging level is **Warning**.
+
+* If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
+
+* To increase the logging level to **Verbose**, update the following setting in your configuration file. Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
