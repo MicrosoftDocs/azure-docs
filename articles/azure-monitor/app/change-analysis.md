@@ -29,7 +29,7 @@ The following diagram illustrates the architecture of Change Analysis:
 
 Application Change Analysis service supports resource property level changes in all Azure resource types, including common resources like:
 - Virtual Machine
-- Virtual Machine scale set
+- Virtual machine scale set
 - App Service
 - Azure Kubernetes service
 - Azure Function
@@ -58,16 +58,16 @@ Change Analysis captures the deployment and configuration state of an applicatio
 
 Changes to resource dependencies can also cause issues in a resource. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. Another example is if port 22 was closed in a Virtual Machine's Network Security Group, it will cause connectivity errors. 
 
-#### Web App Diagnose and Solve Problems Navigator (Preview)
+#### Web App diagnose and solve problems navigator (Preview)
 To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
 Currently the following dependencies are supported in **Web App Diagnose and solve problems | Navigator (Preview)**:
 - Web Apps
 - Azure Storage
 - Azure SQL
 
-#### Related Resources
+#### Related resources
 Application Change Analysis detects related resources. Common examples are Network Security Group, Virtual Network, Application Gateway and Load Balancer related to a Virtual Machine. 
-The network resources are usually automatically provisioned in the same resource group as the resources using it, so filtering the changes by resource group will show all changes for the Virtual Machine and related networking resources. The product itself has related resource concept and will be integrated in the UI entry points discussed in the following sections soon. 
+The network resources are usually automatically provisioned in the same resource group as the resources using it, so filtering the changes by resource group will show all changes for the Virtual Machine and related networking resources.
 
 ![Screenshot of Networking changes](./media/change-analysis/network-changes.png)
 
@@ -102,7 +102,7 @@ For any feedback, use the send feedback button in the blade or email changeanaly
 
 ![Screenshot of feedback button in Change Analysis blade](./media/change-analysis/change-analysis-feedback.png)
 
-#### Muptiple subscription support
+#### Multiple subscription support
 The UI supports selecting multiple subscriptions to view resource changes. Use the subscription filter:
 
 ![Screenshot of subscription filter that supports selecting multiple subscriptions](./media/change-analysis/multiple-subscriptions-support.png)
