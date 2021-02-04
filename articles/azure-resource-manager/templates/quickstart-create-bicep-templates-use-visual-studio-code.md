@@ -1,8 +1,8 @@
 ---
-title: Create Bicep template - Visual Studio Code
+title: Create Bicep templates - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to work on Azure Resource Manager templates (ARM templates) in Bicep.
 author: mumian
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ms.topic: quickstart
 ms.author: jgao
 
@@ -10,11 +10,11 @@ ms.author: jgao
 
 ---
 
-# Quickstart: Create ARM templates with Visual Studio Code
+# Quickstart: Create ARM Bicep templates with Visual Studio Code
 
 The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates (ARM templates). In this quickstart, you use the extension to create an ARM template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the [Azure CLI](/cli/azure/?view=azure-cli-latest) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installed and authenticated.
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
