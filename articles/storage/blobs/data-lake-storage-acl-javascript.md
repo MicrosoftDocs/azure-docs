@@ -20,14 +20,19 @@ This article shows you how to use JavaScript to get, set, and update the access 
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * If you are using this package in a Node.js application, you'll need Node.js 8.0.0 or higher.
-> * One of the following security permissions:
-    - Storage account key.
-    - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    - Owning user of the target container or directory to which you plan to apply ACL settings. 
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+
+- Azure CLI version `2.6.0` or higher.
+
+- One of the following security permissions:
+
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+    
+  - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
+  
+  - Storage account key.. 
 
 ## Set up your project
 

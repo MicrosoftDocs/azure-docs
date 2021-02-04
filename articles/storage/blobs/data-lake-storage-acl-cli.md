@@ -14,20 +14,27 @@ ms.custom: devx-track-azurecli
 
 # Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files. ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
+This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files. 
+
+ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
 
 [Reference](/cli/azure/storage/fs/access) | [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * Azure CLI version `2.6.0` or higher.
-> * One of the following security permissions:
-    - Storage account key.
-    - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+
+- Azure CLI version `2.6.0` or higher.
+
+- One of the following security permissions:
+
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+    
+  - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
+  
+  - Storage account key.
 
 ## Ensure that you have the correct version of Azure CLI installed
 

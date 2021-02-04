@@ -14,21 +14,27 @@ ms.custom: devx-track-azurepowershell
 
 # Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use PowerShell to get, set, and update the access control lists of directories and files. ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
+This article shows you how to use PowerShell to get, set, and update the access control lists of directories and files. 
+
+ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
 
 [Reference](/powershell/module/Az.Storage/) | [Recursive ACL Samples](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) | [Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
-> * PowerShell version `5.1` or higher.
-> * One of the following security permissions:
-    - Storage account key.
-    - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
-    - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+
+- Azure CLI version `2.6.0` or higher.
+
+- One of the following security permissions:
+
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+    
+  - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
+  
+  - Storage account key.
 
 ## Install the PowerShell module
 
