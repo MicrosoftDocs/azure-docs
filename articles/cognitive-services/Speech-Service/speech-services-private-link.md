@@ -280,7 +280,10 @@ Follow instructions in this section to adjust existing applications and solution
 A Speech resource with a custom domain name and a private endpoint enabled uses a different way to interact with Speech Services. This section explains how to use such a resource with the Speech Services REST APIs and the [Speech SDK](speech-sdk.md).
 
 > [!NOTE]
-> A Speech resource without private endpoints but with a custom domain name enabled also has a special way of interacting with Speech Services. This way differs from the scenario of a private-endpoint-enabled Speech resource. If you have such resource (for example, you had a resource with private endpoints but then decided to remove them), see the section [Use a Speech resource with a custom domain name and without private endpoints](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
+> This way differs from the scenario of a private-endpoint-enabled Speech resource. 
+> This is important to consider because you may decide to remove private endpoints later.
+> See _Adjust an application to use a Speech resource without private endpoints_ later in this article.
 
 ### Speech resource with a custom domain name and a private endpoint: Usage with the REST APIs
 
