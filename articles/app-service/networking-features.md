@@ -111,7 +111,7 @@ The IP-based access restrictions feature helps when you want to restrict the IP 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
 
 > [!NOTE]
-> If traffic originates from a subnet with the [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) *Microsoft.Web* enabled, the app must use access restriction rules based on service endpoints.
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
 
 #### Access restriction rules based on service endpoints 
 
