@@ -1,5 +1,5 @@
 ---
-title: How to find my administrator for My Account - Azure AD
+title: Find an administrator for My Account - Azure AD
 description: How ti find the Az ure AD administrator in your organization, for My Account users
 services: active-directory
 author: curtand
@@ -14,7 +14,7 @@ ms.date: 07/29/2020
 ms.author: curtand
 ---
 
-# Find my administrator to change my information in My Account
+# Find an administrator to change my information in My Account
 
 Your IT or human resources department may keep some of your profile information in separate systems; for example, your profile photo or your name or title. If you're not allowed to change this information yourself, contact your human resources department or admin to have them change it for you.
 
