@@ -41,9 +41,6 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-(jgao) show an image of the equivalent json to compare
-(jgao) show intellisense.
-
 ## Completion and validation
 
 One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action.
@@ -74,7 +71,7 @@ param storageAccountName string {
 
 Azure storage account names have a minimum length of 3 characters and a maximum of 24. Use `minLength` and `maxLength` to provide appropriate values.
 
-Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list.
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list.
 
 ![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-bicep-templates-use-visual-studio-code/12.png)
 
