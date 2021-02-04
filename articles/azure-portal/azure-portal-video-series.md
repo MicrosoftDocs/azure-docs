@@ -20,9 +20,9 @@ In this featured video, we show you how to use Azure Cost Management views.
 
 Catch up on these recent videos you may have missed:
 
-| [How to use pills to filter in the Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [How to pin content to your Azure portal dashboard](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [How to use pills to filter in the Azure portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [How to pin content to your Azure portal dashboard](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to use pills to filter in the Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Image of YouTube video about how to pin content to your Azure portal dashboard](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![Image of YouTube video about how to use pills to filter in the Azure portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Image of YouTube video about how to pin content to your Azure portal dashboard](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## Video playlist
 
