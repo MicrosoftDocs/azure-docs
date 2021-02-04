@@ -307,7 +307,7 @@ This is a sample request URL:
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
 
-> [!TIP]
+> [!NOTE]
 > See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 After you enable a custom domain for a Speech resource (which is necessary for private endpoints), that resource will use the following DNS name pattern for the basic REST API endpoint: <p/>`{your custom name}.cognitiveservices.azure.com`.
@@ -333,7 +333,7 @@ The [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-t
 - [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
 - Special endpoints for all other operations
 
-> [!TIP]
+> [!NOTE]
 > See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech-to-text REST API for short audio and the Text-to-speech REST API.
