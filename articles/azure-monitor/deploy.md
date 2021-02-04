@@ -18,7 +18,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 ## Configuration goals
 The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
 
-Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](platform/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. 
+Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. 
 
 Some data can be sent to both Metrics and Logs in order to leverage it using different features. In these cases, you may need to configure each separately. For example, metric data is automatically sent by Azure resources to Metrics, which supports metrics explorer and metric alerts. You have to create a diagnostic setting for each resource to send that same metric data to Logs, which allows you to analyze performance trends with other log data using Log Analytics. The sections below identify where data is sent and includes each step required to send data to all possible locations.
 
@@ -40,7 +40,7 @@ The following features of Azure Monitor are enabled with no configuration requir
 
 [Activity log](platform/platform-logs-overview.md) - Provides insight into management group and subscription-level events that have occurred in Azure. Events are automatically written to the Activity log when you create a new Azure resource, modify a resource, or perform a significant activity. You can view events in the Azure portal and create Activity log alerts when particular events are created. See [Azure Activity log](essentials/activity-log.md) for details of the Activity log and how to view it in the Azure portal.
 
-[Platform metrics](platform/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](platform/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. See [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md) for details on analyzing platform metrics in the Azure portal. 
+[Platform metrics](platform/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](essentials/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. See [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md) for details on analyzing platform metrics in the Azure portal. 
 
 
 ### Create Log Analytics workspace
@@ -107,7 +107,7 @@ See [Agent data sources in Azure Monitor](agents/agent-data-sources.md) for deta
 ### Diagnostic extension and Telegraf agent
 Azure Monitor for VMs uses the Log Analytics agent which sends performance data to a Log Analytics workspace but not to Azure Monitor Metrics. Sending this data to Metrics allows it to be analyzed with Metrics Explorer and used with metric alerts. This requires the diagnostic extension on Windows and the Telegraf agent on Linux.
 
-See [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
+See [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
 
 
 ## Monitor applications

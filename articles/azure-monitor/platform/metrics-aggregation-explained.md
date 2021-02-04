@@ -120,7 +120,7 @@ Using filtering allows us to clean up the chart to see what's really happening. 
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing Disk Write Bytes for all virtual machines in Contoso Hotels resource group split and filtered by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](metrics-charts.md#filters).
+For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](../essentials/metrics-charts.md#filters).
 
 ### NULL and zero values
 
@@ -279,4 +279,4 @@ You can also see that the NULLs give a better calculation of average than if zer
 ## Next steps
 
 - [Getting started with metrics explorer](metrics-getting-started.md)
-- [Advanced Metrics explorer](metrics-charts.md)
+- [Advanced Metrics explorer](../essentials/metrics-charts.md)

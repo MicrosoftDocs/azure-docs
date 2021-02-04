@@ -48,7 +48,7 @@ As far as metrics support, classic metrics provide **capacity** metrics only for
 
 If the activity in your account does not trigger a metric, classic metrics will show a value of zero (0) for that metric. Metrics in Azure Monitor will omit the data entirely, which leads to cleaner reports. For example, with classic metrics, if no server timeout errors are reported, then the `ServerTimeoutError` value in the metrics table is set to 0. Azure Monitor doesn't return any data when you query the value of metric `Transactions` with dimension `ResponseType` equal to `ServerTimeoutError`. 
 
-To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
+To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

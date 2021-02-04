@@ -16,7 +16,7 @@ When you have critical applications and business processes relying on Azure reso
 > This article applies to all services in Azure that use Azure Monitor. Compute resources, including VMs and App Service, generate the same monitoring data described here but also have a guest operating system that may also generate logs and metrics. See the monitoring documentation for these services for details on how to collect and analyze this data.
 
 ## What is Azure Monitor?
-Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The [Azure Monitor data platform](../platform/data-platform.md) collects data into [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
+Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The [Azure Monitor data platform](../platform/data-platform.md) collects data into [logs](../platform/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
 
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs which you can [view and analyze in the Azure portal](#monitoring-in-the-azure-portal). With some configuration, you can gather additional monitoring data and enable additional features. See [Monitoring Data](#monitoring-data) below for details on any configuration requirements.
 
@@ -42,13 +42,13 @@ There may be Azure Monitor costs associated with the following. See [Azure Monit
 - Accessing metrics through API.
 
 ## Monitoring data
-Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
+Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
 
 ![Overview](media/monitor-azure-resource/logs-metrics.png)
 
 
 
-- [Platform metrics](../platform/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. 
+- [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. 
 - [Resource logs](../platform/platform-logs-overview.md) - Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content and structure of resource logs varies by the Azure service and resource type.
 - [Activity log](../platform/platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane), for example creating a new resource or starting a virtual machine. This is information about the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription.
 
@@ -58,7 +58,7 @@ Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metri
 ### Configure monitoring
 Some monitoring data is collected automatically, but you may need to perform some configuration depending on your requirements. See the information below for specific information for each type of monitoring data.
 
-- [Platform metrics](../platform/data-platform-metrics.md) - Platform metrics are collected automatically into [Azure Monitor Metrics](../platform/data-platform-metrics.md) with no configuration required. Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
+- [Platform metrics](../essentials/data-platform-metrics.md) - Platform metrics are collected automatically into [Azure Monitor Metrics](../essentials/data-platform-metrics.md) with no configuration required. Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
 - [Resource logs](../platform/platform-logs-overview.md) - Resource logs are automatically generated by Azure resources but not collected without a diagnostic setting.  Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
 - [Activity log](../platform/platform-logs-overview.md) - The Activity log is collected automatically with no configuration required and can be view in the Azure portal. Create a diagnostic setting to copy them to Azure Monitor Logs or to forward them outside of Azure.
 
@@ -99,7 +99,7 @@ If a service has an Azure Monitor insight, you can access it from **Monitoring**
 Analyze metrics in the Azure portal using [metrics explorer](../platform/metrics-getting-started.md) which is available from the **Metrics** menu item for most services. This tool allows you to work with individual metrics or combine  multiple to identify correlations and trends. 
 
 - See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for the basics of using metrics explorer.
-- See [Advanced features of Azure Metrics Explorer](../platform/metrics-charts.md) for advanced features of metrics explorer such as using multiple metrics and applying filters and splitting.
+- See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md) for advanced features of metrics explorer such as using multiple metrics and applying filters and splitting.
 
 ![Metrics explorer in the Azure portal](media/monitor-azure-resource/metrics.png)
 

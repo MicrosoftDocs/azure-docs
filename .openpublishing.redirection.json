@@ -62384,6 +62384,51 @@
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostic-settings.md",
       "redirect_url": "/azure/azure-monitor/essentials/diagnostic-settings",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/app-insights-metrics.md",
+      "redirect_url": "/azure/azure-monitor/essentials/app-insights-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md",
+      "redirect_url": "/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md",
+      "redirect_url": "/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/collect-custom-metrics-guestos-vm-classic.md",
+      "redirect_url": "/azure/azure-monitor/essentials/collect-custom-metrics-guestos-vm-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md",
+      "redirect_url": "/azure/azure-monitor/essentials/collect-custom-metrics-guestos-vm-cloud-service-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/collect-custom-metrics-linux-telegraf.md",
+      "redirect_url": "/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-platform-metrics.md",
+      "redirect_url": "/azure/azure-monitor/essentials/data-platform-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metric-chart-samples.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metric-chart-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-charts.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-charts",
+      "redirect_document_id": false
     }
   ]
 }

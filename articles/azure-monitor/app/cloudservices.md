@@ -28,7 +28,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../platform/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
+Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](./monitor-web-app-availability.md) and [add code to your webpages](./javascript.md).
 
@@ -163,7 +163,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Open the Application Insights resources that you created.
 
-   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../platform/metrics-charts.md).
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../essentials/metrics-charts.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -182,7 +182,7 @@ You can find the [Azure Diagnostics](../essentials/diagnostics-extension-overvie
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../platform/metrics-charts.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../essentials/metrics-charts.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 

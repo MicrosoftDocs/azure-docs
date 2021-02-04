@@ -95,7 +95,7 @@ For metrics that support dimensions, you can apply filters using a dimension val
 
 You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For example, splitting out the **Pipeline Step Type** to see a count of the types of steps used in the pipeline.
 
-For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/platform/metrics-charts.md).
+For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
 <a id="analyzing-log-data"></a>
 ## Analyzing logs

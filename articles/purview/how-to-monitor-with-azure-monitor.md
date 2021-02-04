@@ -52,7 +52,7 @@ Azure Purview users can also access the metrics page directly from the managemen
 
 ### Available metrics
 
-To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/platform/metrics-charts.md).
+To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/essentials/metrics-charts.md).
 
 The following table contains the list of metrics available to explore in the Azure portal:
 

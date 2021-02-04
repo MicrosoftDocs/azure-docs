@@ -54,7 +54,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Log Analytics workspace data export in Azure Monitor (preview)](platform/logs-data-export.md) - Added ARM templates.
 
 ### Metrics
-- [Advanced features of Azure Metrics Explorer](platform/metrics-charts.md) - Added information on resource scope picker.
+- [Advanced features of Azure Metrics Explorer](essentials/metrics-charts.md) - Added information on resource scope picker.
 - [Viewing multiple resources in Metrics Explorer](platform/metrics-dynamic-scope.md) - New article.
 
 ### Networks
@@ -590,7 +590,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Metrics
 
-- [Advanced features of Azure Metrics Explorer](platform/metrics-charts.md) - Added aggregation section.
+- [Advanced features of Azure Metrics Explorer](essentials/metrics-charts.md) - Added aggregation section.
 
 ### Workbooks
 

@@ -176,7 +176,7 @@ See [Overview of Azure Monitor agents](agents/agents-overview.md) for details on
 | [Azure Monitor agent (preview)](agents/azure-monitor-agent-overview.md) | Yes | Yes |
 | [Log Analytics agent](agents/log-analytics-agent.md) | No | Yes|
 | [Diagnostic extension](essentials/diagnostics-extension-overview.md) | Yes | No |
-| [Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) | Yes | No |
+| [Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) | Yes | No |
 | [Dependency agent](vm/vminsights-enable-overview.md) | No | Yes |
 
 

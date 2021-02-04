@@ -12,7 +12,7 @@ ms.subservice: metrics
 
 # Troubleshooting metrics charts
 
-Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
+Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](../essentials/metrics-charts.md). You can also see [examples](../essentials/metric-chart-samples.md) of the configured metric charts.
 
 ## Chart shows no data
 
@@ -38,13 +38,13 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### You picked a time range greater than 30 days
 
-[Most metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+[Most metrics in Azure are stored for 93 days](../essentials/data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 **Solution:** If you see a blank chart or your chart only displays part of metric data, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
 ### All metric values were outside of the locked y-axis range
 
-By [locking the boundaries of chart y-axis](metrics-charts.md#locking-the-range-of-the-y-axis), you can unintentionally  make the chart display area not show the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
+By [locking the boundaries of chart y-axis](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis), you can unintentionally  make the chart display area not show the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
 
 **Solution:** Verify that the y-axis boundaries of the chart aren’t locked outside of the range of the metric values. If the y-axis boundaries are locked, you may want to temporarily reset them to ensure that the metric values don’t fall outside of the chart range. Locking the y-axis range isn’t recommended with automatic granularity for the charts with **sum**, **min**, and **max** aggregation because their values will change with granularity by resizing browser window or going from one screen resolution to another. Switching granularity may leave the display area of your chart empty.
 
@@ -101,6 +101,6 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 ## Next steps
 
 * [Learn about getting started with Metric Explorer](metrics-getting-started.md)
-* [Learn about advanced features of Metric Explorer](metrics-charts.md)
+* [Learn about advanced features of Metric Explorer](../essentials/metrics-charts.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
-* [See examples of configured charts](metric-chart-samples.md)
+* [See examples of configured charts](../essentials/metric-chart-samples.md)

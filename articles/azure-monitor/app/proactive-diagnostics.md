@@ -49,7 +49,7 @@ Alternatively, you can change the configuration using Azure Resource Manager tem
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Metric explorer](../platform/metrics-charts.md)
+* [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
 * [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
 

@@ -220,7 +220,7 @@ Azure IoT Hub has the following dimensions associated with some of its routing a
 |**Result**| Either **success** or **failure**.|
 |**RoutingSource**| Device Messages<br>Twin Change Events<br>Device Lifecycle Events|
 
-To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs
 

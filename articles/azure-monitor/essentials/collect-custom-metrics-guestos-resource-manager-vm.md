@@ -24,7 +24,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions). 
+- Your VM resource must be in a [region that supports custom metrics](../platform/metrics-custom-overview.md#supported-regions). 
 
 
 ## Set up Azure Monitor as a data sink
@@ -246,7 +246,7 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Remember to [use an Azure region that is enabled for custom metrics](metrics-custom-overview.md).
+   > Remember to [use an Azure region that is enabled for custom metrics](../platform/metrics-custom-overview.md).
 
 1. Run the following commands to deploy the VM using the Resource Manager template.
    > [!NOTE]
@@ -281,4 +281,4 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 
 ## Next steps
-- Learn more about [custom metrics](metrics-custom-overview.md).
+- Learn more about [custom metrics](../platform/metrics-custom-overview.md).
