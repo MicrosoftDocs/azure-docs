@@ -127,9 +127,9 @@ See the following example of a successful JSON response:
 ```
 
 ## Select page(s) or page ranges for text extraction
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages.
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. For example, the following example shows a document with 10 pages for both cases - all pages (1-10 and selected pages (3-6).
 
-![Select pages for OCR](./Images/selected-pages-ocr.png)
+![Select pages for OCR](./Images/ocr-selected-pages.png)
 
 ## Specify text line order in the output
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `read order` query parameter. Choose between `basic` for the default left-right and top-down line order or `natural` for a more human reading-friendly line order.
