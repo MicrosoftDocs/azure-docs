@@ -69,16 +69,16 @@ Application gateway supports these server variables:
 | http_method                | The method used to make the URL request. For example, GET or POST. |
 | http_status                | The session status. For example, 200, 400, or 403.                       |
 | http_version               | The request protocol. Usually HTTP/1.0, HTTP/1.1, or HTTP/2.0. |
-| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, query_string value will be *id=123&title=fabrikam* |
+| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value will be *id=123&title=fabrikam* |
 | received_bytes             | The length of the request (including the request line, header, and request body). |
 | request_query              | The arguments in the request line.                                |
 | request_scheme             | The request scheme: http or https.                            |
-| request_uri                | The full original request URI (with arguments). Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, request_uri value will be */article.aspx?id=123&title=fabrikam*   |
+| request_uri                | The full original request URI (with arguments). Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value will be */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | The number of bytes sent to a client.                             |
 | server_port                | The port of the server that accepted a request.                 |
 | ssl_connection_protocol    | The protocol of an established TLS connection.        |
 | ssl_enabled                | “On” if the connection operates in TLS mode. Otherwise, an empty string. |
-| uri_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, uri_path value will be */article.aspx*  |
+| uri_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, uri_path value will be */article.aspx*  |
 
 ## Rewrite configuration
 
