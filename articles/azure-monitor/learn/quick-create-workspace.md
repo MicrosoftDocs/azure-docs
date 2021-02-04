@@ -20,7 +20,7 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
 *  [Collect data from Azure virtual machines](./quick-collect-azurevm.md) 
-*  [Collect data from hybrid Linux computer](./quick-collect-linux-computer.md)
+*  [Collect data from hybrid Linux computer](../vm/quick-collect-linux-computer.md)
 *  [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

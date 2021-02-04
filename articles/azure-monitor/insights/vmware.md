@@ -29,7 +29,7 @@ Use the following information to install and configure the solution.
 vSphere ESXi Host 5.5, 6.0, and 6.5
 
 #### Prepare a Linux server
-Create a Linux operating system VM to receive all syslog data from the ESXi hosts. The [Log Analytics Linux agent](../learn/quick-collect-linux-computer.md) is the collection point for all ESXi host syslog data. You can use multiple ESXi hosts to forward logs to a single Linux server, as in the following example.
+Create a Linux operating system VM to receive all syslog data from the ESXi hosts. The [Log Analytics Linux agent](../vm/quick-collect-linux-computer.md) is the collection point for all ESXi host syslog data. You can use multiple ESXi hosts to forward logs to a single Linux server, as in the following example.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 

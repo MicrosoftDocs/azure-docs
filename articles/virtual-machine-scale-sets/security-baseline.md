@@ -222,7 +222,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -240,7 +240,7 @@ For advanced visibility of the applications and services supported by the Azure 
 
 * [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 * [Application Insights overview](../azure-monitor/app/app-insights-overview.md)
 
@@ -256,7 +256,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -266,7 +266,7 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 * [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
 
@@ -476,7 +476,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Currently not available
 

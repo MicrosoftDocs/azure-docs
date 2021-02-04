@@ -18,11 +18,11 @@ Wire data is consolidated network and performance data collected from Windows-co
 In addition to the Log Analytics agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Azure Monitor using agents.  
 
 >[!NOTE]
->The Wire Data solution has been replaced with the [Service Map solution](../insights/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
+>The Wire Data solution has been replaced with the [Service Map solution](../vm/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
 > 
 >Existing customers using the Wire Data solution may continue to use it. We will publish guidance for a migration timeline for moving to Service Map.
 >
->New customers should install the [Service Map solution](../insights/service-map.md) or [Azure Monitor for VMs](../vm/vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  Azure Monitor for VMs includes the Service Map data set with additional performance data and features for analysis. 
+>New customers should install the [Service Map solution](../vm/service-map.md) or [Azure Monitor for VMs](../vm/vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  Azure Monitor for VMs includes the Service Map data set with additional performance data and features for analysis. 
 
 
 By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either side closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
@@ -52,8 +52,8 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../agents/agent-windows.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../learn/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../agents/agent-windows.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](../vm/vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../vm/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](../vm/vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../agents/om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Azure Monitor is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -204,7 +204,7 @@ The Dependency agent is installed on Linux computers through InstallDependencyAg
 
 Use the following steps to install the Dependency agent on each Linux computer:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Download the Linux Dependency agent using the link in the previous section and then install it as root by using the following command:
 sh InstallDependencyAgent-Linux64.bin
 3. If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is: /var/opt/microsoft/dependency-agent/log.

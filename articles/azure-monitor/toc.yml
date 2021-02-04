@@ -24,9 +24,9 @@
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
-      href: learn/quick-monitor-azure-vm.md
+      href: vm/quick-monitor-azure-vm.md
     - name: Linux computer
-      href: learn/quick-collect-linux-computer.md
+      href: vm/quick-collect-linux-computer.md
     - name: Windows computer
       href: learn/quick-collect-windows-computer.md
   - name: Monitor applications
@@ -100,7 +100,7 @@
     - name: Azure Monitor for containers
       href: samples/resource-manager-container-insights.md
     - name: Azure Monitor for VMs
-      href: samples/resource-manager-vminsights.md
+      href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: samples/cli-samples.md
   - name: Azure PowerShell
@@ -157,7 +157,7 @@
     - name: Monitor Azure resource
       href: insights/monitor-azure-resource.md
     - name: Monitor Azure virtual machines
-      href: insights/monitor-vm-azure.md
+      href: vm/monitor-vm-azure.md
       displayname: VM
   - name: Deploy
     items:
@@ -985,11 +985,11 @@
     - name: FAQ
       href: faq.md#azure-monitor-for-vms
     - name: Configure workspace
-      href: insights/vminsights-configure-workspace.md
+      href: vm/vminsights-configure-workspace.md
     - name: Install agents
       items:
       - name: Overview
-        href: insights/vminsights-enable-overview.md
+        href: vm/vminsights-enable-overview.md
       - name: Azure portal
         href: vm/vminsights-enable-portal.md
       - name: Azure PowerShell
@@ -1001,7 +1001,7 @@
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
       - name: Upgrade Dependency agent
-        href: insights/vminsights-dependency-agent-maintenance.md
+        href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
@@ -1165,9 +1165,9 @@
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution
-          href: insights/service-map.md
+          href: vm/service-map.md
         - name: Service Map and Operations Manager
-          href: insights/service-map-scom.md
+          href: vm/service-map-scom.md
         - name: Azure SQL
           href: insights/azure-sql.md
         - name: SQL Server
@@ -1438,4 +1438,5 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 

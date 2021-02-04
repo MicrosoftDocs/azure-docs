@@ -740,7 +740,7 @@ See the [Network firewall requirements](insights/container-insights-onboard.md#n
 ## Azure Monitor for VMs
 
 ### Can I onboard to an existing workspace?
-If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
+If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](vm/vminsights-configure-workspace.md#supported-regions).
 
 
 ### Can I onboard to a new workspace? 

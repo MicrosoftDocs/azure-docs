@@ -155,7 +155,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [Connect threat intelligence](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/vm/vminsights-enable-portal.md)<br>  [Using On-boarding Via Policy](../azure-monitor/vm/vminsights-enable-policy.md)| &#10007; | VM insights workbook  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/vm/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/vm/vminsights-enable-portal.md)<br>  [Using On-boarding Via Policy](../azure-monitor/vm/vminsights-enable-policy.md)| &#10007; | VM insights workbook  |
 | DnsEvents | [Connect DNS](connect-dns.md) | &#10003; | |
 | W3CIISLog | [Connect IIS logs](../azure-monitor/agents/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [Connect Wire Data](../azure-monitor/insights/wire-data.md) | &#10007; | |

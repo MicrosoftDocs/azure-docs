@@ -145,6 +145,6 @@ Following the basic strategy in the other sections of this guide, continue to us
 
 - See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a detailed comparison of Azure Monitor and System Center Operations Manager and more details on designing and implementing a hybrid monitoring environment.
 - Read more about [monitoring Azure resources in Azure Monitor](insights/monitor-azure-resource.md).
-- Read more about [monitoring Azure virtual machines in Azure Monitor](insights/monitor-vm-azure.md).
+- Read more about [monitoring Azure virtual machines in Azure Monitor](vm/monitor-vm-azure.md).
 - Read more about [Azure Monitor for VMs](vm/vminsights-overview.md).
 - Read more about [Application Insights](app/app-insights-overview.md).
