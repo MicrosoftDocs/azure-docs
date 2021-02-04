@@ -1063,6 +1063,8 @@
         href: tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
+      - name: Wire protocol support (4.0)
+        href: mongodb-feature-support-40.md
       - name: Wire protocol support (3.6)
         href: mongodb-feature-support-36.md
       - name: Wire protocol support (3.2)
