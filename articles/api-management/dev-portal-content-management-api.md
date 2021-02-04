@@ -45,21 +45,21 @@ Filter the queried collection by one or more entity properties.
 
 Example:
 
-```console
+```http
 GET /contentTypes/page/contentItems?$filter=title eq 'about'
 ```
 
 More options:
 
-```console
+```http
 $filter=contains(title,'ab')
 ```
 
-```console
+```http
 $filter=startswith(title,'hom')
 ```
 
-```console
+```http
 $filter=endswith(title,'me')
 ```
 
@@ -69,7 +69,7 @@ Order the queried collection by an entity property.
 
 Example:
 
-```console
+```http
 GET /contentTypes/page/contentItems?$orderby=en_us/title desc
 ```
 ## Next steps
