@@ -6,7 +6,7 @@ author: rishjai
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/04/2021
 ms.author: rishjai
 ---
 
@@ -17,8 +17,8 @@ The following table includes links to Azure Resource Manager templates for using
 | Template | Description |
 |---|---|
 |**Azure to Azure** | |
-| [Create a Recovery Services vault](https://github.com/Azure/azure-quickstart-templates/tree/master/link-coming-soon)| Create a Recovery Services vault. The vault can be used for Azure Backup and Azure Site Recovery. |
-| [Enable Replication for Azure VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/link-coming-soon) | Enable replication for Azure VMs using the existing Vault and custom Target Settings.|
-| [Trigger Failover and Reprotect](https://github.com/Azure/azure-quickstart-templates/tree/master/link-coming-soon) | Trigger a Failover and Reprotect operation for a set of Azure VMs. |
-| [Run a 540 flow for Azure VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/link-coming-soon) | Start a complete 540 flow (Enable Replication + Failover and Reprotect + Failback and Reprotect) for Azure VMs.|
+| [Create a Recovery Services vault](https://docs.microsoft.com/en-us/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)| Create a Recovery Services vault. The vault can be used for Azure Backup and Azure Site Recovery. |
+| [Enable Replication for Azure VMs](https://aka.ms/asr-arm-enable-replication) | Enable replication for Azure VMs using the existing Vault and custom Target Settings.|
+| [Trigger Failover and Reprotect](https://aka.ms/asr-arm-failover-reprotect) | Trigger a Failover and Reprotect operation for a set of Azure VMs. |
+| [Run an End to End DR Flow for Azure VMs](https://aka.ms/asr-arm-e2e-flow) | Start a complete End to End Disaster Recovery Flow (Enable Replication + Failover and Reprotect + Failback and Reprotect) for Azure VMs, also called as 540° flow.|
 |   |   |
