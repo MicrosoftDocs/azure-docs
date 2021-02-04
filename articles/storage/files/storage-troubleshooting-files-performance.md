@@ -267,7 +267,7 @@ To confirm, you can use Azure Metrics in the portal -
     > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
