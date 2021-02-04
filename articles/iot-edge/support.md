@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -57,7 +57,7 @@ Azure IoT Edge supports modules built as either Linux or Windows containers. Lin
 
 Modules built as Linux containers can be deployed to either Linux or Windows devices. For Linux devices, the IoT Edge runtime is installed directly on the host device. For Windows devices, a Linux virtual machine prebuilt with the IoT Edge runtime runs on the host device.
 
-IoT Edge for Linux on Windows is currently in public preview, but is the recommended way to run IoT Edge on Windows devices.
+[IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is currently in public preview, but is the recommended way to run IoT Edge on Windows devices.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
@@ -71,9 +71,12 @@ IoT Edge for Linux on Windows is currently in public preview, but is the recomme
 All Windows operating systems must be version 1809 (build 17763) or later.
 
 >[!NOTE]
->Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1
+>Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.
 
 #### Windows containers
+
+>[!IMPORTANT]
+>IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers will not be supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
 
 Modules built as Windows containers can be deployed only to Windows devices.
 
@@ -86,7 +89,7 @@ Modules built as Windows containers can be deployed only to Windows devices.
 All Windows operating systems must be version 1809 (build 17763). The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
 
 >[!NOTE]
->Windows 10 IoT Core support ended with the release of IoT Edge version 1.1
+>Windows 10 IoT Core support ended with the release of IoT Edge version 1.1.
 
 ### Tier 2
 
@@ -116,7 +119,7 @@ IoT Edge components can be installed or updated individually, and are backwards 
 
 | Release | Security daemon | Edge hub<br>Edge agent | Libiothsm | Moby |
 |--|--|--|--|--|
-| **1.1 LTS**<sup>1</sup> | 1.1 | 1.1 | 1.1 |   |
+| **1.1.0 LTS**<sup>1</sup> | 1.1.0 | 1.1.0 | 1.1.0 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
 | **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
@@ -124,7 +127,10 @@ IoT Edge components can be installed or updated individually, and are backwards 
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-<sup>1</sup>IoT Edge 1.1 is the first long-term support (LTS) release. This version introduced no new features, but will receive bug fixes and security patches for two years.
+<sup>1</sup>IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive bug fixes and security patches. IoT Edge 1.1 LTS uses .NET Core 3.1, and will be supported until December 3, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
+>[!IMPORTANT]
+>With the release of a long-term support channel, we recommend that all current customers running 1.0.x upgrade their devices to 1.1.x to receive ongoing support.
 
 IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
 

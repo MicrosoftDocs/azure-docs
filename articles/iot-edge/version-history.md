@@ -4,7 +4,7 @@ description: Discover what's new in IoT Edge with information about new features
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -21,6 +21,8 @@ The IoT Edge documentation on this site is available for two different versions 
 * **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions. The 1.1 release is the latest generally available version of IoT Edge.
 * **IoT Edge 1.2 (preview)** contains additional content for features and capabilities that are in the latest preview release, [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1)
   * While IoT Edge 1.2 is in preview, you need to install the release candidate versions. For more information, see [Offline or specific version installation](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation-optional).
+
+For more information about IoT Edge releases, see [Azure IoT Edge supported systems](support.md).
 
 ## Version history
 
