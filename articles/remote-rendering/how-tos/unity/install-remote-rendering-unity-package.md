@@ -19,8 +19,8 @@ Following Unity's naming scheme for packages, the package is called **com.micros
 
 To add the package to a project you need to:
 1. [Download the Mixed Reality Feature Tool](https://aka.ms/mrfeaturetool)
-2. Follow the [full instructions](https://aka.ms/MRFeatureToolDocs) on how to use the tool.
-3. On the **Discover Features** page tick the box for the **Microsoft Azure Remote Rendering** package and select the version of the package you wish to add to your project
+1. Follow the [full instructions](https://aka.ms/MRFeatureToolDocs) on how to use the tool.
+1. On the **Discover Features** page tick the box for the **Microsoft Azure Remote Rendering** package and select the version of the package you wish to add to your project
 
 ![Mixed_Reality_feature_tool_package](media/mixed_reality_feature_tool_package.png)
 
