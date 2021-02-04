@@ -26,7 +26,7 @@ By using Azure Active Directory (Azure AD), you can customize the claim type for
 
 ## When to use this feature
 
-Use this feature, if your application expects custom roles to be passed in a SAML response. You can create as many roles as you need to be passed back from Azure AD to your application.
+Use this feature if your application expects custom roles in the SAML response returned by Azure AD. You can create as many roles as you need.
 
 ## Create roles for an application
 

@@ -70,7 +70,7 @@ If you don't specify an instance, your app will target the Azure public cloud in
 
 The sign-in audience depends on the business needs for your app:
 
-- If you're a line of business (LOB) developer, you'll probably produce a single-tenant application that will be used only in your organization. In that case, specify the organization, either by its tenant ID (the ID of your Azure AD instance) or by a domain name associated with the Azure AD instance.
+- If you're a line of business (LOB) developer, you'll probably produce a single-tenant application that will be used only in your organization. In that case, specify the organization by its tenant ID (the ID of your Azure AD instance) or by a domain name associated with the Azure AD instance.
 - If you're an ISV, you might want to sign in users with their work and school accounts in any organization or in some organizations (multitenant app). But you might also want to have users sign in with their personal Microsoft accounts.
 
 ### How to specify the audience in your code/configuration

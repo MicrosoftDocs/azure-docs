@@ -97,7 +97,7 @@ In the Azure app registration for the client application:
 
 ### Updating the application manifest
 
-After acquiring a certificate, compute:
+After acquiring a certificate, compute these values:
 
 - `$base64Thumbprint` - Base64-encoded value of the certificate hash
 - `$base64Value` - Base64-encoded value of the certificate raw data
