@@ -64,7 +64,7 @@ The OpenShift persistent volume binder service account will require the ability 
 ```bash
 ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
-oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $APISERVER
+oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $ARO_API_SERVER
 
 oc create clusterrole azure-secret-reader \
 	--verb=create,get \
@@ -120,7 +120,7 @@ oc new-app -template httpd-example
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
 
-oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data
+oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data --claim-class='azure-file'
 
 #Wait for the new deployment to rollout
 export POD=$(oc get pods --field-selector=status.phase==Running -o jsonpath={.items[].metadata.name})
