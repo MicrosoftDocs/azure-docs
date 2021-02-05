@@ -13,7 +13,7 @@ After you enable the Start/Stop VMs during off-hours feature to manage the runni
 
 * Delete the resource group containing the Automation account and linked Azure Monitor Log Analytics workspace, each dedicated to support this feature.
 * Unlink the Log Analytics workspace from the Automation account and delete the Automation account dedicated for this feature.
-* Delete the feature from an Automation account and linked workspace supporting other configuration management and monitoring requirements.
+* Delete the feature from an Automation account and linked workspace that are supporting other management and monitoring objectives.
 
 Deleting this feature only removes the associated runbooks, it doesn't delete the schedules or variables that were created during deployment or any custom-defined ones created after.
 
