@@ -47,7 +47,7 @@ Spend more time innovating and less time patching, updating, and backing up your
 
 Azure constantly monitors your data for threats. With Azure SQL, you can:
 
-- Remediate potential threats in real time with intelligent [advanced threat detection](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) and proactive vulnerability assessment alerts. 
+- Remediate potential threats in real time with intelligent [advanced threat detection](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) and proactive vulnerability assessment alerts. 
 - Get industry-leading, multi-layered protection with [built-in security controls](https://azure.microsoft.com/overview/security/) including T-SQL, authentication, networking, and key management. 
 - Take advantage of the most comprehensive [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/) coverage of any cloud database service. 
 
