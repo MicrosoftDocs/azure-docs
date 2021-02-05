@@ -114,7 +114,7 @@ The following example creates a new elastic pool and sets the maintenance window
 
 ## Set the maintenance window for an existing database 
 
-# [Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 
 The following steps set the maintenance window on an existing database using the the Azure portal:
 
@@ -125,7 +125,7 @@ The following steps set the maintenance window on an existing database using the
 
 
 
-# [PowerShell](#tab/azure-powershell)
+## [PowerShell](#tab/azure-powershell)
 
 
 
