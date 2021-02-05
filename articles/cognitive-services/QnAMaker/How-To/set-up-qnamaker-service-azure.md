@@ -57,30 +57,6 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-### Upgrade QnA Maker SKU
-
-When you want to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
-
-To upgrade the QnA Maker management SKU:
-
-1. Go to your QnA Maker resource in the Azure portal, and select **Pricing tier**.
-
-    ![QnA Maker resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
-
-1. Choose the appropriate SKU and press **Select**.
-
-    ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
-
-### Upgrade App Service
-
- When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
-
-You can [scale up](../../../app-service/manage-scale-up.md) or scale out App Service.
-
-Go to the App Service resource in the Azure portal, and select the **Scale up** or **Scale out** option as required.
-
-![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
-
 # [QnA Maker managed (preview release)](#tab/v2)
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
@@ -203,9 +179,35 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 
 ---
 
-## Upgrade the Azure Cognitive Search service
+## Update Azure resources
 
 # [QnA Maker GA (stable release)](#tab/v1)
+
+### Upgrade QnA Maker SKU
+
+When you want to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
+
+To upgrade the QnA Maker management SKU:
+
+1. Go to your QnA Maker resource in the Azure portal, and select **Pricing tier**.
+
+    ![QnA Maker resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
+
+1. Choose the appropriate SKU and press **Select**.
+
+    ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
+
+### Upgrade App Service
+
+ When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
+
+You can [scale up](../../../app-service/manage-scale-up.md) or scale out App Service.
+
+Go to the App Service resource in the Azure portal, and select the **Scale up** or **Scale out** option as required.
+
+![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
+
+### Upgrade the Azure Cognitive Search service
 
 If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
@@ -294,46 +296,6 @@ If you are not using a QnA maker resource, you should remove all the resources. 
 
 Free Search resources are deleted after 90 days without receiving an API call.
 
-# [QnA Maker managed (preview release)](#tab/v2)
-
-If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
-
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
-
-1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
-
-    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
-
-1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
-
-1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
-
-### Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
-
-If you create a QnA service managed (Preview) and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker managed (Preview) service. After these resources are created, you can update the Search service in the **Configuration** tab.
-
-1. Go to your QnA Maker managed (Preview) service in the Azure portal.
-
-1. Select **Configuration** and select the Azure Cognitive Search service you want to link with your QnA Maker managed (Preview) service.
-
-    ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
-
-1. Click **Save**.
-
-> [!NOTE]
-> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
-### Inactivity policy for free Search resources
-
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
-
-Free Search resources are deleted after 90 days without receiving an API call.
-
----
-
-## Configure Azure resources
-
-# [QnA Maker GA (stable release)](#tab/v1)
-
 ### Get the latest runtime updates
 
 The QnAMaker runtime is part of the Azure App Service instance that's deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in the Azure portal. Updates are made periodically to the runtime. The QnA Maker App Service instance is in auto-update mode after the April 2019 site extension release (version 5+). This update is designed to take care of ZERO downtime during upgrades.
@@ -398,6 +360,38 @@ The high-level idea as represented above is as follows:
 1. Finally, use the traffic manager endpoint in your Bot or App.
 
 # [QnA Maker managed (preview release)](#tab/v2)
+
+If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
+
+Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
+
+1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
+
+    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
+
+1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
+
+1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
+
+### Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
+
+If you create a QnA service managed (Preview) and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker managed (Preview) service. After these resources are created, you can update the Search service in the **Configuration** tab.
+
+1. Go to your QnA Maker managed (Preview) service in the Azure portal.
+
+1. Select **Configuration** and select the Azure Cognitive Search service you want to link with your QnA Maker managed (Preview) service.
+
+    ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
+
+1. Click **Save**.
+
+> [!NOTE]
+> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+### Inactivity policy for free Search resources
+
+If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
+
+Free Search resources are deleted after 90 days without receiving an API call.
 
 ---
 
