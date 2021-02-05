@@ -48,14 +48,16 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 Release notes for `3.2-preview.2`:
+* Distroless release
+* ReadingOrder parameter to choose between text line order in JSON response
+* Enhanced logging
+* Hotfixes to CJK model
 
 * New v3.2 container
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest`                      |       |
-| `3.2-preview.2` |  |
-| `3.2-preview.1` |  |
+|3.2.2.014850001-49e0eac6-amd64-preview                     |       |
 
 # [Previous versions](#tab/previous)
 
