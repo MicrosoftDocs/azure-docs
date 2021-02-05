@@ -588,8 +588,110 @@ xz-1.5.jar
 zookeeper-3.4.11.2.6.99.201-25973884.jar
 
 zstd-jni-1.3.2-2.jar
-
+ 
 ## Python libraries
+
+_libgcc_mutex==0.1 
+
+_openmp_mutex==4.5
+
+c-ares==1.16.1
+
+ca-certificates==2020.6.20
+
+certifi==2020.6.20
+
+cffi=1.14.3
+
+chardet==3.0.4
+
+cryptography==3.1.1
+
+conda==4.3.21
+
+cytoolz==0.8.2
+
+gperftools==2.7
+
+h5py==2.10.0
+
+hdf5==1.10.6
+
+jpeg==9d
+
+libblas==3.9.0
+
+libcblas==3.9.0
+
+libcurl==7.71.1
+
+libedit==3.1.20191231
+
+libev==4.33
+
+libffi==3.2.1
+
+libgcc-ng==9.3.0
+
+libgfortran-ng==9.3.0
+
+libgfortran4==7.5.0
+
+libgfortran5==9.3.0
+
+libgomp==9.3.0
+
+libiconv==1.16
+
+liblapack==3.9.0
+
+libnghttp2==1.41.0
+
+libopenblas==0.3.12
+
+numpy==1.18.5
+
+ncurses==6.2
+
+openssl==1.1.1
+
+perl==5.32.0
+
+pip==20.2.4
+
+pygments==2.7.3
+
+pyopenssl==19.1.0
+
+python==3.6.11
+
+readline==8.0
+
+requests==2.24.0
+
+sentencepiece==0.1.92
+
+setuptools==41.4.0
+
+six==1.15.0
+
+sqlite==3.33.0
+
+tk==8.6.10
+
+toolz==0.11.1
+
+urllib3==1.25.10
+
+unixodbc==2.3.9
+
+xz==5.2.5
+
+wheel==0.30.0
+
+yaml==0.2.5
+
+zlib====1.2.11
 
 absl-py==0.11.0
 
@@ -602,6 +704,8 @@ aiohttp==3.7.2
 alembic==1.4.1
 
 altair==4.1.0
+
+appdirs==1.4.4
 
 applicationinsights==0.11.9
 
@@ -651,6 +755,7 @@ azureml-dataprep==2.3.1
 
 azureml-dataprep-native==23.0.0
 
+
 azureml-dataprep-rslex==1.1.1
 
 azureml-dataset-runtime==1.16.0
@@ -672,6 +777,8 @@ azureml-pipeline-core==1.16.0
 azureml-pipeline-steps==1.16.0
 
 azureml-sdk==1.16.0
+
+azure-storage-blob==12.5.0
 
 azureml-telemetry==1.16.0
 
@@ -711,10 +818,6 @@ cachetools==4.1.1
 
 certifi==2020.6.20
 
-cffi==1.14.3
-
-chardet==3.0.4
-
 click==7.1.2
 
 cloudpickle==1.6.0
@@ -723,17 +826,13 @@ configparser==3.7.4
 
 contextlib2==0.6.0.post1
 
-cryptography==3.1.1
-
 cycler==0.10.0
 
-Cython==0.29.21
+cython==0.29.21
 
 cytoolz==0.8.2
 
-databricks-cli==0.14.0
-
-dataclasses==0.6
+dataclasses==0.8
 
 datashape==0.5.2
 
@@ -889,6 +988,10 @@ multidict==5.0.0
 
 multipledispatch==0.6.0
 
+mypy==0.780
+
+mypy-extensions==0.4.3
+
 ndg-httpsclient==0.5.1
 
 networkx==2.5
@@ -898,8 +1001,6 @@ nimbusml==1.7.1
 nltk==3.5
 
 nose==1.3.7
-
-numpy==1.18.5
 
 oauthlib==3.1.0
 
@@ -961,8 +1062,6 @@ pyasn1==0.4.8
 
 pyasn1-modules==0.2.8
 
-pycparser==2.20
-
 pycrypto==2.6.1
 
 PyJWT==1.7.1
@@ -973,19 +1072,19 @@ pymssql==2.1.5
 
 pyodbc==4.0.30
 
-pyOpenSSL==19.1.0
+pyopencl==2020.1
 
 pyparsing==2.4.7
 
 pyrsistent==0.17.3
-
-pyspark==2.4.5
 
 pytest==5.3.2
 
 python-dateutil==2.8.1
 
 python-editor==1.0.4
+
+pytools==2021.1
 
 pytz==2020.1
 
@@ -996,8 +1095,6 @@ PyYAML==5.3.1
 querystring-parser==1.2.4
 
 regex==2020.10.28
-
-requests==2.24.0
 
 requests-oauthlib==1.3.0
 
@@ -1025,8 +1122,6 @@ SecretStorage==3.1.2
 
 segtok==1.5.10
 
-sentencepiece==0.1.94
-
 shap==0.34.0
 
 skl2onnx==1.4.9
@@ -1049,7 +1144,7 @@ statsmodels==0.10.2
 
 tabulate==0.8.7
 
-tb-nightly==1.14.0a20190603
+tb-nightly==1.14.0
 
 tensorboard==2.3.0
 
@@ -1063,7 +1158,7 @@ termcolor==1.1.0
 
 textblob==0.15.3
 
-tf-estimator-nightly==1.14.0.dev2019060501
+tf-estimator-nightly==1.14.0
 
 tf2onnx==1.7.2
 
@@ -1099,7 +1194,7 @@ wheel==0.30.0
 
 wrapt==1.11.2
 
-xgboost==0.90 
+xgboost==0.90
 
 zict==1.0.0
 

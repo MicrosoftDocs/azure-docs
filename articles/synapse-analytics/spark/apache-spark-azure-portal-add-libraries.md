@@ -2,7 +2,7 @@
 title: Manage libraries for Apache Spark
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
-author: euangMS
+author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
@@ -27,13 +27,14 @@ When a Spark instance starts up, these libraries will automatically be included.
 ## Manage Python packages
 Once you have identified the libraries that you would like to use for your Spark application, you can install them into a Spark pool. 
 
- A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool.
+ A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPI at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool.
 
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Packages which require compiler support at install time, such as GCC, are not supported.
 > - Packages can not be downgraded, only added or upgraded.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
+> - Installing packages from PyPI is not supported within DEP-enabled workspaces.
 
 
 ### Requirements format

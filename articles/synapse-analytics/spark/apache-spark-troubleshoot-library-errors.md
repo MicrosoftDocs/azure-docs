@@ -4,7 +4,6 @@ description: This tutorial provides an overview on how to troubleshoot library i
 services: synapse-analytics
 author: midesa
 ms.author: midesa 
-ms.reviewer: euangms
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
@@ -78,14 +77,20 @@ The Synapse serverless Apache Spark pools are based off the Linux distribution. 
 >Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 
 ## Check for dependency conflicts
-Synapse Apache Spark pools use PIP for package management. In general, Python dependency resolution can be tricky to manage. To help debug dependency conflicts locally, you can create your own virtual environment based off the Synapse Runtime and validate your changes.
+ In general, Python dependency resolution can be tricky to manage. To help debug dependency conflicts locally, you can create your own virtual environment based off the Synapse Runtime and validate your changes.
 
 To recreate the environment and validate your updates:
- 1. Download the template to locally recreate the Synapse runtime. There may be slight differences between the template and the actual Synapse environment.
+ 1. [Download](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/base_environment.yml) the template to locally recreate the Synapse runtime. There may be slight differences between the template and the actual Synapse environment.
    
- 2. Create a virtual environment using the [following instructions](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/). This virtual environment allows you to create an isolated Python installation with the specified list of libraries.  
+ 2. Create a virtual environment using the [following instructions](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html). This  environment allows you to create an isolated Python installation with the specified list of libraries. 
+    
+    ```
+    conda myenv create -f environment.yml
+    conda activate myenv
+    ```
    
- 3. Use ``pip install`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
+ 3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 ## Next steps
-If the previous steps don't help to resolve your issue, create a [support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md)].
+- View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
+
