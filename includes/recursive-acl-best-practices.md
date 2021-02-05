@@ -10,7 +10,7 @@ ms.author: normesta
 ms.custom: "include file"
 ---
 
-## Best practice guidelines
+## Best practice guidelines (Recursive ACLs)
 
 This section provides you some best practice guidelines for setting ACLs recursively. 
 
