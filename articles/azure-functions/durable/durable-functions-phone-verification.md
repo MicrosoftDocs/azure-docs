@@ -34,7 +34,7 @@ This article walks through the following functions in the sample app:
 * `E4_SendSmsChallenge`: An [activity function](durable-functions-bindings.md#activity-trigger) that sends a code via text message.
 
 > [!NOTE]
-> `HttpStart` function from the sample app acts as [Orchestration client](durable-functions-bindings.md#orchestration-client) which triggers the orchestrator function.
+> The `HttpStart` function in the [sample app and the quickstart](#prerequisites) acts as [Orchestration client](durable-functions-bindings.md#orchestration-client) which triggers the orchestrator function.
 
 ### E4_SmsPhoneVerification orchestrator function
 
