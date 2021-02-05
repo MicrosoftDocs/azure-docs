@@ -239,7 +239,30 @@ After the resources are created, they have the same name, except for the optiona
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
 
-### Resource purposes
+# [QnA Maker managed (preview release)](#tab/v2)
+
+The resource name for the QnA Maker managed (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
+
+The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+After the resources are created, they have the same name.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
+> [!TIP]
+> Create a new resource group when you create a QnA Maker resource. That allows you to see all resources associated with the QnA Maker managed (Preview) resource when searching by resource group.
+
+> [!TIP]
+> Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
+
+---
+
+## Resource purposes
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 Each Azure resource created with QnA Maker has a specific purpose:
 
@@ -249,6 +272,15 @@ Each Azure resource created with QnA Maker has a specific purpose:
 * App Plan Service
 * Application Insights Service
 
+### QnA Maker resource
+
+The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
+
+The second ranking applies intelligent filters that can include metadata and follow-up prompts.
+
+#### QnA Maker resource configuration settings
+
+When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource.
 
 ### Cognitive Search resource
 
@@ -267,15 +299,11 @@ A resource priced to hold 15 indexes, will hold 14 published knowledge bases, an
 
 The first knowledge base created in the QnA Maker resource is used to determine the _single_ language set for the Cognitive Search resource and all its indexes. You can only have _one language set_ for a QnA Maker service.
 
-### QnA Maker resource
+#### Using a single Cognitive Search service
 
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
+If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
 
-The second ranking applies intelligent filters that can include metadata and follow-up prompts.
-
-#### QnA Maker resource configuration settings
-
-When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource.
+Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
 
 ### App service and App service plan
 
@@ -301,37 +329,16 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can't be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
-### Using a single Cognitive Search service
-
-If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
-
-Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
-
 # [QnA Maker managed (preview release)](#tab/v2)
-
-The resource name for the QnA Maker managed (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
-
-The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
-After the resources are created, they have the same name.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
-
-> [!TIP]
-> Create a new resource group when you create a QnA Maker resource. That allows you to see all resources associated with the QnA Maker managed (Preview) resource when searching by resource group.
-
-> [!TIP]
-> Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
-
-### Resource purposes
 
 Each Azure resource created with QnA Maker managed (Preview) has a specific purpose:
 
 * QnA Maker resource
 * Cognitive Search resource
+
+### QnA Maker resource
+
+The QnA Maker managed (Preview) resource provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
 ### Azure Cognitive Search resource
 
@@ -349,10 +356,6 @@ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge b
 #### Language usage
 
 With QnA Maker managed (Preview) you have a choice to setup your QnA Maker service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your QnA Maker service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
-
-### QnA Maker resource
-
-The QnA Maker managed (Preview) resource provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
 ---
 
