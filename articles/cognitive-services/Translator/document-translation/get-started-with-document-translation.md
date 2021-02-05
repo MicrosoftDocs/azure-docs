@@ -19,9 +19,10 @@ ms.date: 02/04/2021
 
 To get started, you'll need:
 
-1. An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-1. A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-1. An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
+> [!div class="checklist"]
+> * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+> * A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
+> * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
 
 > [!NOTE]
 > Currently, the **Cognitive Services multi-service resource** doesn't support Document Translation.
@@ -35,15 +36,15 @@ You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blob
 
 ### Source and target SAS access tokens for blob storage
 
-Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token as part of the query string. The token can be assigned to your container or specific blobs.
+Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token, appended a query string. The token can be assigned to your container or specific blobs.
 
 * Your source container or source blob must have designated  **read-only** access.
-* Your target container or target blob must have designated  **write-only** access *See* [TODO](#create-shared-access-signature-tokens-in-the-azure-portal).
+* Your target container or target blob must have designated  **write-only** access *See* [Create SAS tokens with Azure Storage Explorer](#create-sas-azure-storage-explorer.md and [Create SAS tokens in the Azure portal](create-sas-azure-portal.md).
 
 > [!TIP]
 > If you are translating **multiple** documents (blobs) in an operation, **delegate SAS access at the  container level**.  
 > If you are translating a **single** document (blob) in an operation, **delegate SAS access at the blob level**.  
-> *See* [TODO](create-sas-azure-portal.md)
+> 
 
 ## Set your custom endpoint
 
@@ -57,7 +58,7 @@ https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches
 
 The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
 
-![Azure portal, instant details, name field](../media/instance-details-azure-portal.png)
+![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png)
 
 >[!NOTE]
 > If you have created a Translator service with Virtual Network support, you must also use the custom endpoint to make HTTP requests. You can't use the global translator endpoint `api.cognitive.microsofttranslator.com`  nor use an access token for authentication.
@@ -144,7 +145,7 @@ Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
 Content-Type: application/json
 Content-Length: YOUR-CONTENT-LENGTH
 ```
-
+<!-- markdownlint-disable MD024 -->
 ### Request body
 
 ```http

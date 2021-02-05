@@ -92,10 +92,14 @@
     items:
     - name: What is Document Translation?
       href: document-translation/overview.md 
-  - name: How-to guide 
+  - name: How-to guides 
     items:   
     - name: Get started with Document Translation
       href: document-translation/get-started-with-document-translation.md
+    - name:   Create SAS tokens with Azure Storage Explorer
+      href: document-translation/create-sas-azure-storage-explorer.md
+    - name:   Create SAS tokens with Azure Portal
+      href: document-translation/create-sas-azure-portal.md         
 - name: Custom Translator
   items:
   - name: Overview
