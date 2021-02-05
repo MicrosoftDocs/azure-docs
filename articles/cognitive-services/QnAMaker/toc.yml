@@ -30,8 +30,6 @@
     href: Concepts/azure-resources.md
   - name: Data sources and content
     href: Concepts/data-sources-and-content.md
-  - name: Active learning	
-    href: Concepts/active-learning-suggestions.md	
   - name: Azure role-based access control (Azure RBAC)	    
     href: Concepts/role-based-access-control.md	
   - name: Ranker Process	
