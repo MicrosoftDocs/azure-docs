@@ -69,7 +69,7 @@ You can set up a GPU lab that gives engineering students access to [SolidWorks](
 For detailed information on how to set up this type of lab, see [Set up a lab for engineering classes using SolidWorks](class-type-solidworks.md).
 
 ## SQL database and management
-Structured Query Language (SQL) is the standard language for relational database management including adding, accessing, and managing content in a database.  You can set up a lab to teach database concepts using both [MySQL](https://www.mysql.com/) Database server and [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019)server.
+Structured Query Language (SQL) is the standard language for relational database management including adding, accessing, and managing content in a database.  You can set up a lab to teach database concepts using both [MySQL](https://www.mysql.com/) Database server and [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) server.
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach database management for relational databases](class-type-database-management.md).
 
