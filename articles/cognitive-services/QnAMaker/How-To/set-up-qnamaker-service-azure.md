@@ -86,60 +86,10 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
-
+    
 ---
 
-## Find authoring keys in the Azure portal
-
-# [QnA Maker GA (stable release)](#tab/v1)
-
-You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys.
-
-1. Go to the QnA Maker resource in the Azure portal and select the resource that has the _Cognitive Services_ type:
-
-    ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Go to **Keys and Endpoint**:
-
-    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### Find query endpoint keys in the QnA Maker portal
-
-The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
-
-Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
-
-1. Sign in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then select **Service settings**:
-
-    ![Endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. View or reset your keys:
-
-    > [!div class="mx-imgBorder"]
-    > ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
-
-# [QnA Maker managed (preview release)](#tab/v2)
-
-You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker managed (Preview) resource. These keys may be referred to as subscription keys.
-
-1. Go to the QnA Maker managed (Preview) resource in the Azure portal and select the resource that has the *Cognitive Services* type:
-
-    ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. Go to **Keys and Endpoint**:
-
-    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### Update the resources
-
-Learn how to upgrade the resources used by your knowledge base. QnA Maker managed (Preview) is **free** while in preview. 
-
----
-
-### Recommended settings for network isolation
+## Recommended settings for network isolation
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
