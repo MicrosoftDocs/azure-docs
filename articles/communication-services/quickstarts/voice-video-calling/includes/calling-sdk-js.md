@@ -11,7 +11,7 @@ ms.author: mikben
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
-- Optional: Complete the [web calling tutorial](../../../samples/wb-calling-sample.md)
+
 ## Setting up
 
 ### Install the client library
