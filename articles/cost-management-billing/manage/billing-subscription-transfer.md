@@ -84,6 +84,19 @@ To cancel a transfer request:
 
 Use the following troubleshooting information if you're having trouble transferring subscriptions.
 
+### Original Billing owner of an Azure subscription no longer with the company
+
+It is possible that the original billing owner who created an Azure account and a Azure subscription is no longer with the company and hence their user identity is no longer in the company’s Azure Active Directory. When this happens, the affected Azure subscription is basically without a billing owner. This could mean that there is no means of performing any billing operation on the account including view/payment of bills. If a subscription goes into past-due, then eventually the subscription gets disabled because of non-payment and eventually deleted impacting any service that may be running on the subscription. 
+
+When a subscription gets into this state, our system will send out an email to other Billing owners, Service Administrators, Co-Administrators and Subscription Owners (Learn more about [Billing Roles](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/understand-mca-roles), [Classic Roles and Azure RBAC Roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles)) informing them of this state and providing them with a link to accept billing ownership of the subscription. Any one of the users can click on the link to accept billing ownership. 
+
+![Orphaned subscription email](./media/billing-subscription-transfer/orphaned-sub-email.png)
+
+Additionally, we will also show a banner in the Azure subscription’s details blade in the Azure portal to other Billing owners, Service Administrators, Co-Administrators and Subscription Owners. Clicking on the link in the banner to accept billing ownership.
+
+![Orphaned subscription UX](./media/billing-subscription-transfer/orphaned-sub-UX.png)
+
+
 ### The "Transfer subscription" option is unavailable
 
 <a name="no-button"></a> 
