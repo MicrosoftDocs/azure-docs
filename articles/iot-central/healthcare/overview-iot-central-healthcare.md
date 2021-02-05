@@ -10,7 +10,7 @@ services: iot-central
 manager: eliotgra
 ---
 
-# How to build healthcare solutions with Azure IoT Central?
+# Building healthcare solutions with Azure IoT Central
 
 Learn to build healthcare solutions with Azure IoT Central using application templates.
 

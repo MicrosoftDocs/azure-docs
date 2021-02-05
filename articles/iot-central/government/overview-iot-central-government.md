@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 ---
 
-# How to build government solutions with Azure IoT Central?
+# Building government solutions with Azure IoT Central
 
 Get started with building smart city solutions using Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
