@@ -816,7 +816,7 @@ In addition, you can use these UI tools to access the data in Azure Storage:
 * Visual Studio Server Explorer.
 * [Screenshot shows containers and tables in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
+This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
