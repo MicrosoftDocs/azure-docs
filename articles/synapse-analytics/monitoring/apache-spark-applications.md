@@ -158,11 +158,11 @@ Click on **Compare applications** button and choose an application to compare pe
 
 1. Use the mouse to hover on an application, and then the **Compare applications** icon is displayed.
 
-2. Click on the **Compare applications** icon, and the Compare applications page will pop-up.
+2. Click on the **Compare applications** icon, and the Compare applications page will pop up.
 
 3. Click on **Choose application** button to open **Choose comparison application** page.
 
-4. When choosing the comparison application, users needs to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
+4. When choosing the comparison application, users need to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
 
    ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
 
