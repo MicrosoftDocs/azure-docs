@@ -58,7 +58,8 @@ Call creation and start is synchronous. The Call instance allows you to subscrib
 ## Place a call
 
 ### Place a 1:1 call to a user or PSTN
-To place a call to another Communication Services user, invoke the `call` method on `callAgent` and pass the calle's CommunicationUserIdentifier
+To place a call to another Communication Services user, invoke the `call` method on `callAgent` and pass the callee's CommunicationUserIdentifier:
+
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const oneToOneCall = callAgent.call([userCallee]);
@@ -66,7 +67,7 @@ const oneToOneCall = callAgent.call([userCallee]);
 
 To place a call to a PSTN, invoke the `call` method on `callAgent` and pass the calle's PhoneNumberIdentifier.
 Your Communication Services resource must be configured to allow PSTN calling.
-When calling a PSTN number, you must specify your alternate caller Id.
+When calling a PSTN number, you must specify your alternate caller ID.
 ```js
 const pstnCalee = { phoneNumber: '<ACS_USER_ID>' }
 const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
@@ -125,7 +126,7 @@ const call = callAgent.join(locator);
 
 ## Receiving an incoming call
 
-The `CallAgent` instance emits an `incomingCall` event when the logged in identity is receiving an incoming call. To listen to this event subscibe in the following way
+The `CallAgent` instance emits an `incomingCall` event when the logged in identity is receiving an incoming call. To listen to this event, subscribe in the following way:
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
@@ -146,7 +147,7 @@ The `incomingCall` event will provide with an instance of `IncomingCall` on whic
 You can access call properties and perform various operations during a call to manage settings related to video and audio.
 
 ### Call properties
-* Get the unique Id (string) for this Call.
+* Get the unique ID (string) for this Call.
 ```js
 
 const callId: string = call.id;
@@ -357,7 +358,7 @@ This will synchronously return the remote participant instance.
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
-const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<Alternate Caller Id>'});
+const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<Alternate Caller ID>'});
 ```
 
 ### Remove participant from a call
