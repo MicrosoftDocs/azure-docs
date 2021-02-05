@@ -190,19 +190,19 @@ To manage Azure NetApp Files resources using Azure CLI, you can open the Azure p
 
 This action will open the Azure Cloud Shell:
 
-[ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)  ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
+[ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
 The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) and [update](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) the size of a volume:
  
-![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) 
+[ ![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
-![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) 
+[ ![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
 The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-show&preserve-view=true) and [update](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-update&preserve-view=true) the size of a capacity pool:
 
-![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) 
+[ ![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 
-![Screenshot that shows using PowerShell to update capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png) 
+[ ![Screenshot that shows using PowerShell to update capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png#lightbox)
 
 #### Automated  
 
