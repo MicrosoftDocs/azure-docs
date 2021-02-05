@@ -50,7 +50,7 @@ The infrastructure requirements for a private application are in the following l
 * Data at rest must be encrypted
 * Data in transit must be encrypted
 * Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
-* Secrets, Certificates, and Credentials must be stored in Azure Key Vault
+* Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
 * Adherence to at least one Security Benchmark must be enforced
@@ -99,7 +99,7 @@ The infrastructure requirements for a public application are in the following li
 * Data at rest must be encrypted
 * Data in transit must be encrypted
 * Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
-* Secrets, Certificates, and Credentials must be stored in Azure Key Vault
+* Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault
 * Application host DNS records must be stored in Azure Private DNS
 * Internet routable addresses must be stored in Azure Public DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
