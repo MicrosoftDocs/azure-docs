@@ -61667,7 +61667,7 @@
       "source_path": "articles/aks/view-master-logs.md",
       "redirect_url": "/azure/aks/view-control-plane-logs",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
