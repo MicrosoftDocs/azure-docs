@@ -63,7 +63,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
