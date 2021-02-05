@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Overview
+# Get started with the web calling sample
 
 The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library. 
 
