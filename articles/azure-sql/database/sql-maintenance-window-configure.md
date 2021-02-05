@@ -117,7 +117,7 @@ The following example creates a new elastic pool and sets the maintenance window
 
 # [Portal](#tab/azure-portal)
 
-The following steps set the maintenance window on an existing database using the the Azure portal:
+The following steps set the maintenance window on an existing database using the Azure portal:
 
 1. Navigate to the SQL database, elastic pool, or managed instance you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
