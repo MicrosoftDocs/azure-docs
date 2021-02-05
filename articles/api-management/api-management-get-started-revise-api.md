@@ -86,6 +86,8 @@ In this tutorial, you learn how to:
 
 ### [Azure CLI](#tab/azure-cli)
 
+To begin using Azure CLI:
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Use this procedure to create and update a release.

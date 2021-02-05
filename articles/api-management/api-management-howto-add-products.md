@@ -45,13 +45,15 @@ In this tutorial, you learn how to:
     | State                    | Select **Published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. By default, new products are unpublished, and are visible only to the  **Administrators** group.                                                                                      |
     | Requires subscription    | Select if a user is required to subscribe to use the product.                                                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
-    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions,.                                                                                                                                                                                                                                |
+    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
     | Legal terms              | You can include the terms of use for the product which subscribers must accept in order to use the product.                                                                                                                                                                                                             |
     | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. |
 
 3. Select **Create** to create the new product.
 
 ### [Azure CLI](#tab/azure-cli)
+
+To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
