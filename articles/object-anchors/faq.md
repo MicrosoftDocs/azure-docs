@@ -68,7 +68,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 **Q: How long does it take to detect an object on HoloLens?**
 
 **A:** It depends on the object size and the scanning process. To get quicker detection, try following the best practices for a thorough scan. 
-For smaller objects within 2 meters for each dimension, detection can be done within a few seconds. For larger objects like a car, the user should walk a full loop around the object to get a reliable detection, which means detection could take tens of seconds.
+For smaller objects within 2 meters in each dimension, detection can occur within a few seconds. For larger objects, like a car, the user should walk a full loop around the object to get a reliable detection, which means detection could take tens of seconds.
 
 **Q: What are the best practices while using Object Anchors in a HoloLens application?**
 
@@ -90,7 +90,7 @@ For smaller objects within 2 meters for each dimension, detection can be done wi
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** We don't handle **continuously moving** or **dynamic** objects.
+**A:** We don't support **continuously moving** or **dynamic** objects.
 
 **Q: Can Object Anchors handle deformation or articulations?**
 
@@ -98,11 +98,11 @@ For smaller objects within 2 meters for each dimension, detection can be done wi
 
 **Q: How many different objects can Object Anchors detect at the same time?**
 
-**A:** We currently support detecting 1 object model at a time. 
+**A:** We currently support detecting a single object model at a time. 
 
 **Q: Can Object Anchors detect multiple instances of the same object model?**
 
-**A:** Yes, you can detect upto 3 objects of the same model type. The application can call `ObjectObserver.DetectAsync` multiple times with different queries to detect multiple instances of the same model.
+**A:** Yes, you can detect up to 3 objects of the same model type. The application can call `ObjectObserver.DetectAsync` multiple times with different queries to detect multiple instances of the same model.
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
@@ -140,11 +140,11 @@ For smaller objects within 2 meters for each dimension, detection can be done wi
 
 **A:** Since our algorithms are geometry based, different colors of the same model won't behave differently during detection.
 
-**Q: Can I use AOA without internet connectivity?**
+**Q: Can I use Object Anchors without internet connectivity?**
 
 **A:** 
-* For model ingestion and training, connectivity is required as this occurs in the Cloud
-* Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2
+* For model ingestion and training, connectivity is required as this occurs in the cloud.
+* Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
 
 ## Privacy FAQ
 **Q: How does Azure Object Anchors store data?**
