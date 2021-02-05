@@ -76,10 +76,8 @@ For more info, see [Table 3: Valid ID values per source](active-directory-claims
 
 You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 
-1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
-
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
 1. Click on the required claim which you want to modify.
-
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
 
     ![Org Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
