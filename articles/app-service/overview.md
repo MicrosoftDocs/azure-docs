@@ -52,7 +52,7 @@ If you need to create another web app with an outdated runtime version that is n
 
 - App Service on Linux is not supported on [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) pricing tier. 
 - You can't mix Windows and Linux apps in the same App Service plan.  
-- Within the same resource group, you can't mix Windows and Linux apps in the same region.
+- Historically, you can't mix Windows and Linux apps in the same resource group. However, all resource groups created on or after January 21, 2021 do support this scenario. For resource groups created before January 21, 2021, the ability to add mixed platform deployments will be rolled out across Azure regions (including National cloud regions) in the near future.
 - The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 - When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
 
