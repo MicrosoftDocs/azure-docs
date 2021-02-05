@@ -148,9 +148,9 @@ Audit mode is only supported in the on-premises Active Directory environment. Az
 
 No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
-## Ad hoc testing procedures
+## Basic testing procedures
 
-You may want to do some adhoc testing after deployment in order to validate proper operation of the software. Remember that the password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion, for example if you configure the policy in Azure but forget to sync it to the DC agent - your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario. The following steps are suggested as a way to perform controlled, ad hoc testing of the Azure AD Password Protection software. These steps should be used only during initial deployment testing since all incoming password changes and resets will be accepted without validation while the DC agent service is stopped.
+You may want to do some basic testing after deployment in order to validate proper operation of the software. Remember that the password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion, for example if you configure the policy in Azure but forget to sync it to the DC agent - your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario. The following steps are suggested as a way to perform simple and controlled testing of the Azure AD Password Protection software. These steps should be used only during initial deployment testing since all incoming password changes and resets will be accepted without validation while the DC agent service is stopped.
 
 The procedure below assumes that you have installed the DC agent on at least one domain controller, have installed at least one proxy, and have registered both the proxy and the forest.
 
@@ -173,7 +173,7 @@ The procedure below assumes that you have installed the DC agent on at least one
 
 1. Open a web browser, sign in to the [Azure portal](https://portal.azure.com), and browse to Azure Active Directory > Security > Authentication methods > Password protection.
 1. Modify the Azure AD Password Protection policy as needed for the testing you want to perform.  For example, you may decide to configure either Enforced or Audit Mode, or you may decide to modify the list of banned terms in your custom banned passwords list.
-1. Synchronize the new policy by stopping and restarting the DC agent service
+1. Synchronize the new policy by stopping and restarting the DC agent service.
 
    This step can be accomplished in various ways. One way would be to use the Service Management administrative console, by right-clicking on the Azure AD Password Protection DC Agent service and choosing "Restart". Another way may be performed from the command prompt window like so:
 
@@ -199,9 +199,9 @@ The procedure below assumes that you have installed the DC agent on at least one
    Enforce tenant policy: 1
    ```
 
-   For example, changing between Enforced and Audit mode will result in the AuditOnly flag being modified (the above policy with AuditOnly=0 is in Enforced mode); changes to the custom banned password list are not directly reflected in the 30006 event above (and are not logged anywhere else for security reasons). Successfully downloading the policy from Azure after such a change will ensure that those change are also present.
+   For example, changing between Enforced and Audit mode will result in the AuditOnly flag being modified (the above policy with AuditOnly=0 is in Enforced mode); changes to the custom banned password list are not directly reflected in the 30006 event above (and are not logged anywhere else for security reasons). Successfully downloading the policy from Azure after such a change will also include the modified custom banned password list.
 
-1. Run a test by trying to reset a new password on the test user account
+1. Run a test by trying to reset a new password on the test user account.
 
    This step can be done from the command prompt window like so:
 
@@ -209,7 +209,7 @@ The procedure below assumes that you have installed the DC agent on at least one
    net.exe user ContosoUser <password>
    ```
 
-   After running the command, you can get more information about the outcome of the command by looking in the event viewer.  Password validation outcome events are documented in the [DC Agent Admin event log](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) topic - these are the events you will be looking for, in addition to the interactive output from the net.exe commands.
+   After running the command, you can get more information about the outcome of the command by looking in the event viewer. Password validation outcome events are documented in the [DC Agent Admin event log](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) topic; you will use such events to validate the outcome of your test in addition to the interactive output from the net.exe commands.
 
    Let's try an example: attempting to set a password that is banned by the Microsoft global list (note that list is [not documented](concept-password-ban-bad#global-banned-password-list) but we can test here against a known banned term). This example assumes that you have configured the policy to be in Enforced mode, and have added zero terms to the custom banned password list.
 
@@ -269,9 +269,9 @@ The procedure below assumes that you have installed the DC agent on at least one
    FullName: 
    ```
 
-1. Now you can continue testing various passwords and checking the results in the event viewer using the procedures outlined in the previous steps. If you need to change the policy in the Azure portal, don't forget to synchronize the new policy down to the DC agent as described earlier.
+1. Continue testing various passwords of your choice and checking the results in the event viewer using the procedures outlined in the previous steps. If you need to change the policy in the Azure portal, don't forget to synchronize the new policy down to the DC agent as described earlier.
 
-The preceding examples cover the basic procedures for doing controlled, iterative ad hoc testing of the Azure AD Password Protection password validation behavior. Resetting user passwords from the command line helps to avoid mistakes caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep the [password evaluation algorithm](concept-password-ban-bad#how-are-passwords-evaluated) in mind as it may help to explain results that you did not expect.
+The preceding examples cover the procedures for doing basic controlled and iterative testing of the Azure AD Password Protection password validation behavior. Resetting user passwords from the command line may seem an odd means of doing such testing, but this approach helps to avoid invalid results caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep the [password evaluation algorithm](concept-password-ban-bad#how-are-passwords-evaluated) in mind as it may help to explain results that you did not expect.
 
 Finally, when all testing is completed do not forget to delete all user accounts that were created for testing purposes only!
 
