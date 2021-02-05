@@ -3,7 +3,7 @@ title: SSL/TLS connectivity - Azure Database for MariaDB
 description: Information for configuring Azure Database for MariaDB and associated applications to properly use SSL connections
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
 ---
@@ -57,7 +57,7 @@ To learn how to set the TLS setting for your Azure Database for MariaDB, refer t
 
 ## Cipher support by Azure Database for MariaDB
 
-As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database server. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
 
 ### Cipher suite supported
 
