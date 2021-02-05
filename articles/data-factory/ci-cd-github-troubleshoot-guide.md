@@ -73,14 +73,14 @@ CI/CD release pipeline failing with the following error:
 
 #### Cause
 
-This is due to an Integration Runtime with the same name in the target factory but with a different type. Integration Runtime needs to be of the same type when deploying.
+This is due to an integration runtime with the same name in the target factory but with a different type. Integration Runtime needs to be of the same type when deploying.
 
 #### Recommendation
 
 - Refer to this Best Practices for CI/CD below:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target IR configuration and then deploy the release pipeline.
+- Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target integration runtime configuration and then deploy the release pipeline.
 - If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 ### Document creation or update failed because of invalid reference
@@ -128,7 +128,7 @@ You are unable to move Data Factory from one Resource Group to another, failing 
 
 #### Resolution
 
-You need to delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the IRs, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old Data factory.
+You need to delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old Data Factory.
 
 ###  Unable to export and import ARM template
 
@@ -159,6 +159,20 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 #### Resolution
 
 CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
+
+###  Can not publish because of 4mb ARM template limit  
+
+#### Issue
+
+You can not deploy because you hit ARM limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
+
+#### Cause
+
+ARM restricts template size to be 4mb. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+
+#### Resolution
+
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## Next steps
 
