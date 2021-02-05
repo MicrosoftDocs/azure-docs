@@ -43,6 +43,8 @@
   items:
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
+  - name: Sign an HTTP request with an HMAC signature using C#
+    href: tutorials/hmac-header-tutorial.md
 - name: Concepts
   expanded: false
   items:
