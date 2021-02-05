@@ -16,7 +16,7 @@ For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Deskt
 For more information, see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> - To use Windows 7, 8.1 and 10 images on Azure Marketplace for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
+> - To use Windows 7, 8.1 and 10 images for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
 > - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
