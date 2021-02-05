@@ -48,7 +48,7 @@ Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(S
 
 ## Set your custom endpoint
 
-All API requests to the Document Translation service require a **custom endpoint** URL. **You can't use the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+All API requests to the Document Translation service require a **custom endpoint** URL. **You can't use the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation**.
 
 ### Custom endpoint for Document Translator:
 
