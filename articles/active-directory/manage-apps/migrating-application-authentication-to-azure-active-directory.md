@@ -142,29 +142,34 @@ Based on the communication strategy that you have chosen for the app you may wan
 
 In the following table you will find the minimum suggested communication to keep your stakeholders informed:
 
-**Plan phases and project strategy**
+**Plan phases and project strategy**:
+
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | Awareness and business / technical value of project | All except end-users |
 | Solicitation for pilot apps | - App business owners<br />- App technical owners<br />- Architects and Identity team |
 
-**Phase 1- Discover and Scope**
+**Phase 1- Discover and Scope**:
+
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | - Solicitation for application information<br />- Outcome of scoping exercise | - App technical owners<br />- App business owners |
 
-**Phase 2- Classify apps and plan pilot**
+**Phase 2- Classify apps and plan pilot**:
+
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | - Outcome of classifications and what that means for migration schedule<br />- Preliminary migration schedule | - App technical owners<br /> - App business owners |
 
-**Phase 3 – Plan migration and testing**
+**Phase 3 – Plan migration and testing**:
+
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | - Outcome of application migration testing | - App technical owners<br />- App business owners |
 | - Notification that migration is coming and explanation of resultant end-user experiences.<br />- Downtime coming and complete communications, including what they should now do, feedback, and how to get help | - End users (and all others) |
 
-**Phase 4 – Manage and gain insights**
+**Phase 4 – Manage and gain insights**:
+
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | Available analytics and how to access | - App technical owners<br />- App business owners |
@@ -333,7 +338,7 @@ Applications with **high usage numbers** should receive a higher value than apps
 
 Once you have determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. See one such matrix below:
 
-![](media/migrating-application-authentication-to-azure-active-directory-5.jpg)
+![](media/migrating-application-authentication-to-azure-active-directory5.jpg)
 
 ### Prioritize apps for migration
 
