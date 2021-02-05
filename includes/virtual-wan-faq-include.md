@@ -101,7 +101,7 @@ Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and Express
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
-### What is a Virtual WAN Gateway Scale Unit
+### What is a Virtual WAN Gateway Scale Unit?
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
 
@@ -235,7 +235,7 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 
 The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route does not propagate between hubs (inter-hub).
 
-### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs
+### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs?
 
 If a virtual hub learns the same route from multiple remote hubs,  the order in which it decides is as follows:
 
@@ -245,7 +245,7 @@ If a virtual hub learns the same route from multiple remote hubs,  the order in 
 1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios.
 1. AS path length.
 
-### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits.
+### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
 Transit between ER-to-ER is always via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there is no need for the traffic to come all the way from the edge routers to the virtual hub DC.
 
