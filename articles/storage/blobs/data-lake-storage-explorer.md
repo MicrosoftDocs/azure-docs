@@ -12,7 +12,7 @@ ms.reviewer: stewu
 
 # Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled.
+This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ To download files by using **Azure Storage Explorer**, with a file selected, sel
 
 <a id="managing-access"></a>
 
-## Manage an ACL
+## Manage ACLs
 
 Right-click the container, a directory, or a file, and then click **Manage Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.
 
