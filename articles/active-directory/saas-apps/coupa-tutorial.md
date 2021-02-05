@@ -22,10 +22,10 @@ In this tutorial, you'll learn how to integrate Coupa with Azure Active Director
 
 ## Prerequisites
 
-To configure Azure AD integration with Coupa, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Coupa single sign-on enabled subscription.
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Coupa single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 

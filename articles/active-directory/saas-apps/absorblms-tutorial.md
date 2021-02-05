@@ -77,19 +77,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     If you are using **Absorb 5 - UI** use the following configuration:
 
-    a. In the **Identifier** text box, type the URL using the following pattern:
-    `https://company.myabsorb.com/account/saml`
+    a. In the **Identifier** text box, type a URL using the following pattern::
+    `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
-    b. In the **Reply URL** text box, type the URL using the following pattern:
-    `https://company.myabsorb.com/account/saml`
+    b. In the **Reply URL** text box, type a URL using the following pattern::
+    `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
     If you are using **Absorb 5 - New Learner Experience** use the following configuration:
 
-    a. In the **Identifier** text box, type the URL using the following pattern:
-    `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. In the **Reply URL** text box, type the URL using the following pattern:
-    `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. In the **Reply URL** text box, type a URL using the following pattern: :
+    `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Absorb LMS Client support team](https://support.absorblms.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
