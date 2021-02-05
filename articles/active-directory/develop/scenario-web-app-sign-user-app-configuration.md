@@ -67,7 +67,7 @@ Web applications that sign in users by using the Microsoft identity platform are
 - The audience in the tenant ID (`TenantId`)
 - The client ID (`ClientId`) for your application, as copied from the Azure portal
 
-Sometimes, applications can be parametrized by `Authority`, which is a concatenation of `Instance` and `TenantId`.
+You might also see references to the `Authority`. The `Authority` value is the concatenation of the `Instance` and `TenantId` values.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
