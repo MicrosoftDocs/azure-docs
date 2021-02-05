@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/05/2021
 ms.author: victorh
 ---
 
@@ -87,7 +87,7 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |Wrong source and destination IP addresses in Alerts for IDPS with TLS inspection.|When you enable TLS inspection and IDPS issues a new alert, the displayed source/destination IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
 |Wrong source IP address in Alerts with IDPS for HTTP (without TLS inspection).|When plain text HTTP traffic is in use, and IDPS issues a new alert, and the destination is public an IP address, the displayed source IP address is wrong (the internal IP address is displayed instead of the original IP address).|Fix scheduled for GA.|
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|Fix scheduled for GA.|
-|IDPS Bypass|IDPS Bypass doesn't work for TLS terminated traffic and Source IP address  and Source IP Groups aren't supported.|Fix scheduled for GA.|
+|IDPS Bypass|IDPS Bypass doesn't work for TLS terminated traffic, and Source IP address and Source IP Groups aren't supported.|Fix scheduled for GA.|
 
 
 
