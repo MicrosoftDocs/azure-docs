@@ -65,6 +65,8 @@ The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is th
 
 ## Get your subscription key
 
+Requests to the Translator service require a read-only key for authenticating access.
+
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
