@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -45,7 +45,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Create a container
 
-A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ![Microsoft Azure Storage Explorer - Creating a container](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -57,7 +57,7 @@ To create a directory, select the container that you created in the proceeding s
 
 ## Upload blobs to the directory
 
-On the directory ribbon, chose the **Upload** button. This operation gives you the option to upload a folder or a file.
+On the directory ribbon, choose the **Upload** button. This operation gives you the option to upload a folder or a file.
 
 Choose the files or folder to upload.
 
