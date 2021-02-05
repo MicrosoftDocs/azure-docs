@@ -16116,6 +16116,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/prepay-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-prepay-databricks-reserved-capacity.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-databricks-reserved-capacity",
       "redirect_document_id": true
@@ -16135,6 +16140,12 @@
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service",
+      "redirect_document_id": true
+    },
+
     {
       "source_path_from_root": "/articles/billing/billing-how-reservation-discount-is-applied-to-azure-sql-dw.md",
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-azure-sql-dw",
@@ -48608,6 +48619,11 @@
     {
       "source_path_from_root": "/articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
       "redirect_url": "vmware-physical-secondary-support-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-relnotes.md",
+      "redirect_url": "https://github.com/microsoft/AzureStorageExplorer/releases",
       "redirect_document_id": false
     },
     {
