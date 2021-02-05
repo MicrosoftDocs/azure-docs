@@ -154,8 +154,8 @@ You may want to do some basic testing of various passwords in order to validate 
 
 Why it is necessary to follow such steps? There are several factors that make it difficult to do controlled, repeatable testing of passwords in the on-premises Active Directory environment:
 
-* The password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion. For example. if you configure the policy in Azure but forget to sync it to the DC agent, then your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario.
-* Once a new password policy is synced down to a domain controller, additional latency will occur while it replicates to other domain controllers. This can cause unexpected results if you test a password change against a domain controller that has not yet received the latest version of the policy.
+* The password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion. For example, if you configure the policy in Azure but forget to sync it to the DC agent, then your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario.
+* Once a new password policy is synced down to a domain controller, more latency will occur while it replicates to other domain controllers. These delays can cause unexpected results if you test a password change against a domain controller that has not yet received the latest version of the policy.
 * Testing password changes via a user interface makes it difficult to have confidence in your results. For example, it is easy to mis-type an invalid password into a user interface, especially since most password user interfaces hide user input (for example, such as the Windows Ctrl-Alt-Delete -> Change password UI).
 * It is not possible to strictly control which domain controller is used when testing password changes from domain-joined clients. The Windows client OS selects a domain controller based on factors such as Active Directory site and subnet assignments, environment-specific network configuration, etc.
 
@@ -183,7 +183,7 @@ The steps below assumes that you have installed the DC agent on at least one dom
    net.exe user ContosoUser /add <password>
    ```
 
-1. Open a web browser (you may need to do this from a separate device instead of your domain controller), sign in to the [Azure portal](https://portal.azure.com), and browse to Azure Active Directory > Security > Authentication methods > Password protection.
+1. Open a web browser (you may need to use a separate device instead of your domain controller), sign in to the [Azure portal](https://portal.azure.com), and browse to Azure Active Directory > Security > Authentication methods > Password protection.
 1. Modify the Azure AD Password Protection policy as needed for the testing you want to perform.  For example, you may decide to configure either Enforced or Audit Mode, or you may decide to modify the list of banned terms in your custom banned passwords list.
 1. Synchronize the new policy by stopping and restarting the DC agent service.
 
