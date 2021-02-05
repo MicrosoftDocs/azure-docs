@@ -27,7 +27,7 @@ Alternatively, launch Cloud Shell from Azure portal using the following icon:
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
 choose to use another environment, please ensure the following command-line tools are installed:
 
-* `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli)
 * `kubectl` - Kubernetes command-line tool: [installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` - Kubernetes package manager: [installation instructions](https://github.com/helm/helm/releases/latest)
 * `jq` - command-line JSON processor: [installation instructions](https://stedolan.github.io/jq/download/)
