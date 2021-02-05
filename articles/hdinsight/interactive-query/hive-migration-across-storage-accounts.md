@@ -18,16 +18,27 @@ To manually copy an individual Hive table on HDInsight 4.0, see [Hive export/imp
 ## Prerequisites
 
 * A new HDInsight cluster with following configurations:
-    * Its default filesystem is in the target storage account. See [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md).
-    * Its cluster version must match the source cluster's.
-    * It uses a new external Hive metastore DB. See [Use external metadata stores](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md).
-* A storage account that is accessible to both original and new clusters. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
+  * Its default filesystem is in the target storage account. See [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md).
+  * Its cluster version must match the source cluster's.
+  * It uses a new external Hive metastore DB. See [Use external metadata stores](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation).
+* A storage account that is accessible to both original and new clusters. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) and [Storage types and features](../hdinsight-hadoop-compare-storage-options.md#storage-types-and-features) for allowed secondary storage types.
+
+    Here are some options:
+  1. Add the target storage account to the original cluster.
+  2. Add the original storage account to the new cluster.
+  3. Add an intermediary storage account to both the original and new clusters.
 
 ## How it works
 
 We'll run a script action to export Hive tables from the original cluster to a specified HDFS directory. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
 
-Then, we'll run another script action on the new cluster to import the Hive tables from the HDFS directory. The script will re-create the tables with location determined by the new cluster's default filesystem.
+Then, we'll run another script action on the new cluster to import the Hive tables from the HDFS directory.
+
+The script will re-create the tables to the new cluster's default filesystem. Native tables will also copy their data in storage. Non-native tables will copy only by definition. See [Hive Storage Handlers](https://cwiki.apache.org/confluence/display/Hive/StorageHandlers) for details on non-native tables.
+
+The path of external tables not in the Hive warehouse directory will be preserved. Other tables will copy to the target cluster's default Hive path. See Hive properties `hive.metastore.warehouse.external.dir` and `hive.metastore.warehouse.dir`.
+
+The scripts will not preserve custom file permissions in the target cluster.
 
 > [!NOTE] This guide supports copying metadata objects related to Hive databases, tables and partitions. Other metadata objects must be re-created manually.
 >
@@ -39,15 +50,19 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
 
 1. Apply the "export" script action on the original cluster with the following fields.
 
+    This will generate and execute intermediary Hive scripts. They will save to the specified `<hdfs-export-path>`.
+
+    Optionally, use `--run-script=false` to customize them before manually executing.
+
     |Property | Value |
     |---|---|
     |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/export-hive-data-v01.sh`|
     |Node type(s)|Head|
-    |Parameters|`<hdfs-export-path>`|
+    |Parameters|`<hdfs-export-path>` `--run-script`|
 
     ```sh
     usage: generate Hive export and import scripts and export Hive data to specified HDFS path
-           [--overwrite {true,false}] [--run-script {true,false}]
+           [--run-script={true,false}]
            hdfs-export-path
 
     positional arguments:
@@ -55,10 +70,7 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
         hdfs-export-path      remote HDFS directory to write export data to
 
     optional arguments:
-        --overwrite {true,false}
-                            whether to allow export directory to be non-empty
-                            overwrite its data (default: false)
-        --run-script {true,false}
+        --run-script={true,false}
                             whether to execute the generated Hive export script
                             (default: true)
     ```
