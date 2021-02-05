@@ -33,6 +33,9 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * SAML 1.1 Token enabled LOB App supports **SP** initiated SSO
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Add SAML 1.1 Token enabled LOB App from the gallery
 
 To configure the integration of SAML 1.1 Token enabled LOB App into Azure AD, you need to add SAML 1.1 Token enabled LOB App from the gallery to your list of managed SaaS apps.
@@ -69,8 +72,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![SAML 1.1 Token enabled LOB App Domain and URLs single sign-on information](common/sp-identifier.png)
-
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://your-app-url`
 
@@ -80,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact SAML 1.1 Token enabled LOB App Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 

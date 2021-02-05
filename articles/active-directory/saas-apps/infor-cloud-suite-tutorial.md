@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type the URL using the following pattern:
+    a. In the **Identifier** text box, type the URL using one of the following patterns:
 
     ```http
     http://mingle-sso.inforcloudsuite.com
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     http://mingle-sso.se2.inforcloudsuite.com
     ```
 
-    b. In the **Reply URL** text box, type the URL using the following pattern:
+    b. In the **Reply URL** text box, type the URL using one of the following patterns:
 
     ```http
     https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
@@ -90,9 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
     ```http
     https://mingle-portal.inforcloudsuite.com/Tenant-Name/
