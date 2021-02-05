@@ -52,7 +52,7 @@ Your applications are likely using the following types of authentication:
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) offers a universal identity platform that provides your people, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
-![](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
+![A diagram of Azure Active Directory connectivity](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
 
 Azure AD has a [full suite of identity management capabilities](/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD enables you get the benefits these capabilities provide.
 
@@ -113,7 +113,7 @@ When technology projects fail, it is often due to mismatched expectations, the r
 
 Before we get into the tools, you should understand how to think through the migration process. Through several direct-to-customer workshops, we recommend the following four phases:
 
-![](media/migrating-application-authentication-to-azure-active-directory-2.jpg)
+![A diagram of the phases of migration](media/migrating-application-authentication-to-azure-active-directory-2.jpg)
 
 ### Assemble the project team
 
@@ -229,9 +229,9 @@ In the cloud environment, you need rich visibility, control over data travel, an
 
 - **APIs** - For apps connected to cloud infrastructure, you can use the APIs and tools on those systems to begin to take an inventory of hosted apps. In the Azure environment:
 
-  - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN)cmdlet to get information about Azure websites.
+  - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true)cmdlet to get information about Azure websites.
 
-  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0)cmdlet to get information about your Azure Web Apps.
+  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true)cmdlet to get information about your Azure Web Apps.
 
   - You can find all the apps running on Microsoft IIS from the Windows command line using [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
@@ -328,17 +328,17 @@ One way to think about this is along the axes of business criticality, usage, an
 
 Business criticality will take on different dimensions for each business, but the two measures that you should consider are **features and functionality** and **user profiles**. Assign apps with unique functionality a higher point value than those with redundant or obsolete functionality.
 
-![](media/migrating-application-authentication-to-azure-active-directory-3.jpg)
+![A diagram of the spectrums of Features & Functionality and User Profiles](media/migrating-application-authentication-to-azure-active-directory-3.jpg)
 
 ### Usage
 
 Applications with **high usage numbers** should receive a higher value than apps with low usage. Assign a higher value to apps with external, executive, or security team users. For each app in your migration portfolio, complete these assessments.
 
-![](media/migrating-application-authentication-to-azure-active-directory-4.jpg)
+![A diagram of the spectrums of User Volume and User Breadth](media/migrating-application-authentication-to-azure-active-directory-4.jpg)
 
 Once you have determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. See one such matrix below:
 
-![](media/migrating-application-authentication-to-azure-active-directory5.jpg)
+![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrating-application-authentication-to-azure-active-directory5.jpg)
 
 ### Prioritize apps for migration
 
@@ -444,7 +444,7 @@ External users may also refer to customers which requires special consideration.
 
 The device and location that a user uses to access an app are also important. Devices physically connected to your corporate network are more secure. Connections from outside the network over VPN may need scrutiny.
 
-![](media/migrating-application-authentication-to-azure-active-directory-6.jpg)
+![A diagram showing the relationship between User Location and Data Access](media/migrating-application-authentication-to-azure-active-directory-6.jpg)
 
 With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal) capabilities. Conditional access goes beyond user permissions: it is based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they are using, and the type of data they are trying to access. The access granted to the user adapts to this broader set of conditions.
 
@@ -470,9 +470,9 @@ Once you have gained business buy-in, the next step is to start migrating these 
 
 Use the tools and guidance below to follow the precise steps needed to migrate your applications to Azure AD:
 
-- **General migration guidance** – Use the whitepaper, tools, email templates, and applications questionnaire in the [Azure AD apps migration toolkit](http://aka.ms/migrateapps) to discover, classify, and migrate your apps.
+- **General migration guidance** – Use the whitepaper, tools, email templates, and applications questionnaire in the [Azure AD apps migration toolkit](https://aka.ms/migrateapps) to discover, classify, and migrate your apps.
 
-- **SaaS applications** – See our list of [hundreds of SaaS app tutorials](/azure/active-directory/active-directory-saas-tutorial-list) and the complete [Azure AD SSO deployment plan](http://aka.ms/ssodeploymentplan) to walk through the end-to-end process.
+- **SaaS applications** – See our list of [hundreds of SaaS app tutorials](/azure/active-directory/active-directory-saas-tutorial-list) and the complete [Azure AD SSO deployment plan](https://aka.ms/ssodeploymentplan) to walk through the end-to-end process.
 
 - **Applications running on-premises** – Learn all [about the Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy) and use the complete [Azure AD Application Proxy deployment plan](https://aka.ms/AppProxyDPDownload) to get going quickly.
 
@@ -505,7 +505,7 @@ Depending on how you configure your app, verify that SSO works properly.
 
 ### Troubleshoot
 
-If you run into problems, check out our [apps troubleshooting guide](http://aka.ms/troubleshoot-apps) to get help. See also [Problems signing in to a custom-developed application](/azure/active-directory/manage-apps/application-sign-in-problem-custom-dev).
+If you run into problems, check out our [apps troubleshooting guide](https://aka.ms/troubleshoot-apps) to get help. See also [Problems signing in to a custom-developed application](/azure/active-directory/manage-apps/application-sign-in-problem-custom-dev).
 
 ### Plan rollback
 
@@ -597,7 +597,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit** or access the same information from the [Azure  AD Reporting API](azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) to slurp into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit** or access the same information from the [Azure  AD Reporting API](/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) to slurp into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 
@@ -617,7 +617,7 @@ You are successful in this phase when you:
 
 Deployment plans walk you through the business value, planning, implementation steps, and management of Azure AD solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Azure AD capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
 
-Many [deployment plans](http://aka.ms/deploymentplans) are available for your use, and we’re always making more!
+Many [deployment plans](https://aka.ms/deploymentplans) are available for your use, and we’re always making more!
 
 ### Contact support
 
