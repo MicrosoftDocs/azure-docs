@@ -57,7 +57,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: What devices does Object Anchors support?**
 
-**A:** Hololens 2 
+**A:** HoloLens 2 
 
 **Q: Which OS build should my HoloLens run?**
 
@@ -136,7 +136,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **A:** Since we are geometry based, we only support 3D.
 
-**Q: Can you differentiate between the same model in different colos?**
+**Q: Can you differentiate between the same model in different colors?**
 
 **A:** Since our algorithms are geometry based, different colors of the same model won't behave differently during detection.
 
