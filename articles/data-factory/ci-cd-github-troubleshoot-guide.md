@@ -158,7 +158,7 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvments](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
+CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
 
 ## Next steps
 
