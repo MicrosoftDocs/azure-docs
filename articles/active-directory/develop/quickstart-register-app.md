@@ -40,13 +40,13 @@ Follow these steps to create the app registration:
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name. You can change it later.
-1. Specify who can use the application - its *sign-in audience*.
+1. Specify who can use the application, sometimes called its *sign-in audience*.
 
     | Supported account types | Description |
     |-------------------------|-------------|
     | **Accounts in this organizational directory only** | Select this option if you're building an application for use only by users (or guests) in *your* tenant.<br><br>Often called a *line-of-business* (LOB) application, this app is a *single-tenant* application in the Microsoft identity platform. |
-    | **Accounts in any organizational directory** | Select this option if you want users in *any* Azure Active Directory (Azure AD) tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This type of app is known as a *multi-tenant* application in the Microsoft identity platform. |
-    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a *multi-tenant* application that can also support users who have personal *Microsoft accounts*. |
+    | **Accounts in any organizational directory** | Select this option if you want users in *any* Azure Active Directory (Azure AD) tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This type of app is known as a *multitenant* application in the Microsoft identity platform. |
+    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a *multitenant* application that can also support users who have personal *Microsoft accounts*. |
     | **Personal Microsoft accounts** | Select this option if you're building an application only for users who have personal Microsoft accounts. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts. |
 
 1. Don't enter anything for **Redirect URI (optional)**. You'll configure a redirect URI in the next section.
