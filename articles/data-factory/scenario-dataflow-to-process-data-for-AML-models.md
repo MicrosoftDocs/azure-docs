@@ -39,7 +39,7 @@ In Automated machine learning(AutoML) project, it would apply the following thre
 
 
 ## Preparation
-Use a table of Azure SQL Database as raw data, then run [Insert data](./media/scenario-dataflow-to-process-data-for-AML-models/MyProducts.sql) get tutorial data. 
+Use the following table of Azure SQL Database. 
 ```
 CREATE TABLE [dbo].[MyProducts](
 	[ID] [int] NULL,
@@ -67,18 +67,18 @@ Let's suppose to remove row count less than 2.
 
 1. Use Aggregate activity to get row count row: **Group by** based on Col2 and **Aggregates** with count(1) for row count. 
 
-    ![AggregateActivityAddRowCount](./media/scenario-dataflow-to-process-data-for-AML-models/AggregateActivityAddRowCount.png)
+    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-AML-models/AggregateActivityAddRowCount.png)
 
 1. Use Sink activity, choose **Sink type** as Cache in **Sink** tab, then choose desired column from **key columns** dropdown list in **Settings** tab. 
 
-    ![CacheSinkActivityAddRowCount](./media/scenario-dataflow-to-process-data-for-AML-models/CacheSinkActivityAddRowCount.png)
+    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-AML-models/CacheSinkActivityAddRowCount.png)
 
 1. Use derived column activity to add row count column in  in master source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
-    ![DerivedColumnActivityRowCountS1](./media/scenario-dataflow-to-process-data-for-AML-models/DerivedColumnActivityRowCountS1.png)
+    ![using DerivedColumn Activity to get Row Count in S1](./media/scenario-dataflow-to-process-data-for-AML-models/DerivedColumnActivityRowCountS1.png)
 
 1. Use Conditional split activity to remove unqualified data. In this example,  row count based on Col2 column, and the condition is to remove row count less than 2, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to a blob storage for data management. 
 
-    ![ConditionalSplitGreaterOrEquelThan2](./media/scenario-dataflow-to-process-data-for-AML-models/ConditionalSplitGreaterOrEquelThan2.png)
+    ![using Conditional Split to get GreaterOrEquelThan2](./media/scenario-dataflow-to-process-data-for-AML-models/ConditionalSplitGreaterOrEquelThan2.png)
 
     Note: 
     1. Create a new source for getting row count which will be used in original source in later steps. 
@@ -89,19 +89,19 @@ Let's suppose to remove row count less than 2.
 1. We want to split training data and test data for each partition. In this example, for the same value of Col2, get top 2 rows as test data and the rest rows as training data. 
 
     Use Window activity to add one column row number for each partition. In **Over** tab choose column for partition(in this tutorial, will partition for Col2), give order in **Sort** tab(in this tutorial, will based on ID to order), and in **Window columns** tab to add one column as row number for each partition. 
-    ![WindowActivityAddRowNumber](./media/scenario-dataflow-to-process-data-for-AML-models/WindowActivityAddRowNumber.png)
+    ![using Window Activity to add Row Number](./media/scenario-dataflow-to-process-data-for-AML-models/WindowActivityAddRowNumber.png)
 
 1. Use conditional split activity to split each partition top 2 rows to test dataset, and the rest rows to training dataset. In **Conditional split setttings** tab, use expression lesserOrEqual(RowNum,2) as condition. 
 
-    ![SplitTrainingDatasetAndTestDataset](./media/scenario-dataflow-to-process-data-for-AML-models/SplitTrainingDatasetAndTestDataset.png)
+    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-to-process-data-for-AML-models/SplitTrainingDatasetAndTestDataset.png)
 
 ## Partition training dataset and test dataset with parquet format
 
 1. Use Sink activity, in **Optimize** tab, using **Unique value per partition** to set a column as a column key for partition. 
-    ![PartitionTrainingDatasetSink](./media/scenario-dataflow-to-process-data-for-AML-models/PartitionTrainingDatasetSink.png)
+    ![Partition Training Dataset Sink](./media/scenario-dataflow-to-process-data-for-AML-models/PartitionTrainingDatasetSink.png)
 
 Looks back the entire pipeline logic: 
-    ![EntirePipeline](./media/scenario-dataflow-to-process-data-for-AML-models/EntirePipeline.png)
+    ![Look back entire Pipeline](./media/scenario-dataflow-to-process-data-for-AML-models/EntirePipeline.png)
 
 
 ## Next steps
