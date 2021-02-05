@@ -206,7 +206,7 @@ A monorepo is a repository that contains code for more than one application. By 
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 To target a workflow file to a single app, you specify paths in the `push` and `pull_request` sections.
