@@ -97,15 +97,14 @@ We recommend that you <!--turn on storage auto-grow or to--> set up an alert to 
 Storage auto-grow is not yet available for Azure Database for MySQL Flexible Server.
 
 ## IOPS
-The minimum effective IOPS is 100 across all compute sizes and the max effective IOPS is determined by both of the following attributes: 
-- Compute: the max effective IOPS maybe limited by the maximum available IOPS of the selected compute size.
-- Storage: in all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
-You can scale effective IOPS available by increasing the provisioned storage or moving to a larger compute size (if your IOPS are limited by compute). In preview, the max effective IOPS supported is 20,000 IOPS.
+Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-To learn more about the max effective IOPS per compute size, using the combination of both compute and storage, is shown below: 
+The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-| Compute size         | Max effective IOPS  | 
+To learn more about the maximum IOPS per compute size is shown below: 
+
+| Compute size         | Maximum IOPS        | 
 |----------------------|---------------------|
 | **Burstable**        |                     |
 | Standard_B1s         | 320                 |
@@ -128,11 +127,14 @@ To learn more about the max effective IOPS per compute size, using the combinati
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-The maximum effective IOPS is dependent on the maximum available IOPS per compute size. See to the formula below and refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
+The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
-**Max effective IOPS** = MINIMUM(*"Max uncached disk throughput: IOPS/MBps"* of compute size, storage provisioned in GiB * 3)
+> [!Important]
+> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, storage provisioned in GiB * 3)<br>
+> **Minimum IOPS** is 100 across all compute sizes<br>
+> **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS, you will need to understand if you are restricted by the compute size or the storage provisioned. Scale your server's compute or storage provisioned accordingly.
+You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
 
 ## Backup
 
