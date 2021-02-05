@@ -114,7 +114,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Cloud tiering overview](storage-sync-cloud-tiering-overview.md#what-is-cloud-tiering).
+  See [Cloud tiering overview](storage-sync-cloud-tiering-overview.md#tiered-vs.-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
