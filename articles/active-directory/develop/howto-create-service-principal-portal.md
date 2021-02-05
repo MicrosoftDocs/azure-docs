@@ -111,7 +111,7 @@ The next section shows how to get values that are needed when signing in program
 
 ## Get tenant and app ID values for signing in
 
-When programmatically signing in, you need to pass the tenant ID with your authentication request and the application ID.  You also need a certificate or an authentication key (described in the following section). To get those values, use the following steps:
+When programmatically signing in, pass the tenant ID with your authentication request and the application ID.  You also need a certificate or an authentication key (described in the following section). To get those values, use the following steps:
 
 1. Select **Azure Active Directory**.
 1. From **App registrations** in Azure AD, select your application.
@@ -158,7 +158,7 @@ To upload the certificate:
 
 1. Select **Add**.
 
-After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
+After registering the certificate with your application in the application registration portal, enable the client application code to use the certificate.
 
 ### Option 2: Create a new application secret
 
