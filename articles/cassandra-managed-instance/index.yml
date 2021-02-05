@@ -36,6 +36,8 @@ landingContent:
         links:
           - text: Create an Azure Managed Instance for Apache Cassandra
             url: create-cassandra-managed-instance-portal.md
+          - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
+            url: cassandra-mi-databricks.md            
       - linkListType: video
         links:
           - text: Modernize your existing applications with a Cassandra managed instance in the cloud
@@ -60,8 +62,6 @@ landingContent:
         links:
           - text: Build a Grafana dashboard using hosted prometheus metrics
             url: cassandra-mi-grafana-setup.md
-          - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
-            url: cassandra-mi-databricks.md
       - linkListType: how-to-guide
         links:
           - text: Add a Managed Instance to an existing on-prem cluster

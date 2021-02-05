@@ -35,13 +35,23 @@ For details, refer to the [Azure Managed Instance for Apache Cassandra pricing d
 
 ### Can I use YAML file settings to configure behavior?
 
+Yes, we allow you to embed YAML file configurations as part of an ARM template deployment. 
+
 ### Will the Azure Managed Instance for Apache Cassandra support node addition, cluster status, and node status commands?
+
+We expose all the "read only" notetool commands (such as status) through azure cli, but not operations such as node addition. This is because we manage the health of nodes in Azure Managed Instance for Apache Cassandra. In Hybrid mode, customers can connect to the cluster with nodetool. However, please note that this is not recommended, as it could destabilize the cluster, and could invalidate any production support SLA relating to the health of the Azure Managed Instance datacenters in the cluster.
 
 ### What happens with various settings for table metadata (bloom filter, caching, read repair chance, gc_grace, and compression memtable_flush_period)?
 
+This is fully supported as with any self-hosted Apache Cassandra environment. 
+
 ### How can I monitor infrastructure along with throughput?
 
+We host a [Prometheus](https://prometheus.io/docs/introduction/overview/) server to monitor activity across your cluster, and expose an endpoint. This maintains 10 minutes or 10GB of data (whichever threshold is reached first). You will need to setup a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and appropriate dashboard tool (e.g. Grafana).
+
 ### Does Azure Managed Instance for Apache Cassandra provide full backups?
+
+Yes, we will provide full backups to Azure Storage and restore to a new cluster
 
 ### How can I migrate data from my existing Apache Cassandra cluster to Azure Managed Instance for Apache Cassandra?
 

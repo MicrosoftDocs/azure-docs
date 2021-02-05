@@ -14,6 +14,8 @@
   items:
     - name: Create Azure Managed Instance for Apache Cassandra cluster
       href: quickstart.md
+    - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
+      href: cassandra-mi-databricks.md      
 - name: How-to guides
   items:
     - name: Manage Resources
