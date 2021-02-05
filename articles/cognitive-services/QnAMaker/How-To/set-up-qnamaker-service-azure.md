@@ -210,9 +210,9 @@ You can view and reset your authoring keys from the Azure portal, where you crea
 
     ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Go to **Keys**:
+2. Go to **Keys and Endpoint**:
 
-    ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### Find query endpoint keys in the QnA Maker portal
 
