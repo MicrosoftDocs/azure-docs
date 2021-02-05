@@ -134,6 +134,22 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
 
+## Limitations
+
+If you make some modifications in your training pipeline, you should re-submit the training pipeline, **Update**  the inference pipeline and run the inference pipeline again.
+
+Note that only models will be updated in the inference pipeline, while data transformation will not be updated.
+
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+
+![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+
+![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Then you can submit the inference pipeline with the updated model and transformation, and deploy.
+
 ## Clean up resources
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
