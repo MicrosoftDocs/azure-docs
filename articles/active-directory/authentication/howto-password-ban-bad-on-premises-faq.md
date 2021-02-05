@@ -148,18 +148,18 @@ Audit mode is only supported in the on-premises Active Directory environment. Az
 
 No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
-## Ad-hoc testing procedures
+## Ad hoc testing procedures
 
-You may want to do some adhoc testing after deployment in order to validate proper operation of the software. Remember that the password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the onpremises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion, for example if you configure the policy in Azure but forget to sync it to the DC agent - your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is obviously non-ideal for an interactive testing scenario. The following steps are suggested as a way to do controlled, ad-hoc testing of the Azure AD Password Protection software. These steps should only be used during initial deployment testing since all incoming password changes and resets will be accepted as-is while the DC agent service is stopped.
+You may want to do some adhoc testing after deployment in order to validate proper operation of the software. Remember that the password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion, for example if you configure the policy in Azure but forget to sync it to the DC agent - your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario. The following steps are suggested as a way to perform controlled, ad hoc testing of the Azure AD Password Protection software. These steps should be used only during initial deployment testing since all incoming password changes and resets will be accepted without validation while the DC agent service is stopped.
 
 The procedure below assumes that you have installed the DC agent on at least one domain controller, have installed at least one proxy, and have registered both the proxy and the forest.
 
-1. Logon to a domain controller using Domain Admin credentials (or other credentials that have sufficient privileges to create test user accounts and reset passwords), that has the DC agent software installed and has been rebooted.
+1. Log on to a domain controller using Domain Admin credentials (or other credentials that have sufficient privileges to create test user accounts and reset passwords), that has the DC agent software installed and has been rebooted.
 1. Open up Event Viewer and navigate to the [DC Agent Admin event log](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
 1. Open an elevated command prompt window.
 1. Create a test account for doing password testing
 
-   There are many ways to create a user account, but a command line option is offered here as a way to make it easy during repetitive testing cycles:
+   There are many ways to create a user account, but a command-line option is offered here as a way to make it easy during repetitive testing cycles:
 
    ```text
    net.exe user <testuseraccountname> /add <password>
@@ -175,7 +175,7 @@ The procedure below assumes that you have installed the DC agent on at least one
 1. Modify the Azure AD Password Protection policy as needed for the testing you want to perform.  For example, you may decide to configure either Enforced or Audit Mode, or you may decide to modify the list of banned terms in your custom banned passwords list.
 1. Synchronize the new policy by stopping and restarting the DC agent service
 
-   This step can be accomplished in a variety of ways. One way would be to use the Service management console, by right-clicking on the Azure AD Password Protection DC Agent service and choosing "Restart". Another way may be performed from the command prompt window like so:
+   This step can be accomplished in various ways. One way would be to use the Service Management administrative console, by right-clicking on the Azure AD Password Protection DC Agent service and choosing "Restart". Another way may be performed from the command prompt window like so:
 
    ```text
    net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
@@ -183,12 +183,12 @@ The procedure below assumes that you have installed the DC agent on at least one
     
 1. Check the Event Viewer to verify that a new policy has been downloaded.
 
-   Each time the DC agent service is stopped and started, you should see two 30006 events issued in close succession. The first 30006 event will reflect the policy that was cached on disk in the sysvol share. The second 30006 event (if present) should have an updated Tenant policy date, and if so will reflect the policy that was just downloaded from Azure. Note that the Tenant policy date value is currently coded to display the approximatetimestamp that the policy was downloaded from Azure.
+   Each time the DC agent service is stopped and started, you should see two 30006 events issued in close succession. The first 30006 event will reflect the policy that was cached on disk in the sysvol share. The second 30006 event (if present) should have an updated Tenant policy date, and if so will reflect the policy that was downloaded from Azure. The Tenant policy date value is currently coded to display the approximate timestamp that the policy was downloaded from Azure.
    
-   If the second 30006 event does not appear, you should troubleshoot this before continuing.
+   If the second 30006 event does not appear, you should troubleshoot the problem before continuing.
    
-   The 30006 events will look similar to this:
-
+   The 30006 events will look similar to this example:
+ 
    ```text
    The service is now enforcing the following Azure password policy.
 
@@ -199,11 +199,11 @@ The procedure below assumes that you have installed the DC agent on at least one
    Enforce tenant policy: 1
    ```
 
-   For example, changing between Enforced and Audit mode will result in the AuditOnly flag being modified (the above policy with AuditOnly=0 is in Enforced mode); changes to the custom banned password list are not directly reflected in the 30006 event above (and are not logged anywhere else for security reasons); if the policy was successfully downloaded from Azure on restart this is a good indication that those changes are also present. 
+   For example, changing between Enforced and Audit mode will result in the AuditOnly flag being modified (the above policy with AuditOnly=0 is in Enforced mode); changes to the custom banned password list are not directly reflected in the 30006 event above (and are not logged anywhere else for security reasons). Successfully downloading the policy from Azure after such a change will ensure that those change are also present.
 
 1. Run a test by trying to reset a new password on the test user account
 
-   This can easily be done from the command prompt window like so:
+   This step can be done from the command prompt window like so:
 
    ```text
    net.exe user ContosoUser <password>
@@ -220,9 +220,9 @@ The procedure below assumes that you have installed the DC agent on at least one
    More help is available by typing NET HELPMSG 2245.
    ```
 
-   Per the documentation, because this was a password reset operation, you should see a 10017 and a 30005 event for the ContosoUser user. 
+   Per the documentation, because our test was a password reset operation you should see a 10017 and a 30005 event for the ContosoUser user.
 
-   The 10017 event should look like this:
+   The 10017 event should look like this example:
 
    ```text
    The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
@@ -231,7 +231,7 @@ The procedure below assumes that you have installed the DC agent on at least one
    FullName: 
    ```
 
-   The 30005 event should look like this:
+   The 30005 event should look like this example:
 
    ```text
    The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
@@ -240,9 +240,9 @@ The procedure below assumes that you have installed the DC agent on at least one
    FullName: 
    ```
 
-   That was fun - let's try another example! This time we will attempt to set a password that is banned by the custom banned list while the policy is in Audit mode. This example assumes that you have done the following: configured the policy to be in Audit mode, added the term "lachrymose" to the custom banned password list, and synchronized the resultant new policy to the domain controller by cycling the DC agent service as described above.
+   That was fun - let's try another example! This time we will attempt to set a password that is banned by the custom banned list while the policy is in Audit mode. This example assumes that you have done the following steps: configured the policy to be in Audit mode, added the term "lachrymose" to the custom banned password list, and synchronized the resultant new policy to the domain controller by cycling the DC agent service as described above.
 
-   Ok, set a variation of the password:
+   Ok, set a variation of the banned password:
 
    ```text
    net.exe user ContosoUser LaChRymoSE!1
@@ -251,7 +251,7 @@ The procedure below assumes that you have installed the DC agent on at least one
 
    Remember, this time it succeeded because the policy is in Audit mode. You should see a 10025 and a 30007 event for the ContosoUser user.
 
-   The 10025 event should look like this:
+   The 10025 event should look like this example:
    
    ```text
    The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
@@ -260,7 +260,7 @@ The procedure below assumes that you have installed the DC agent on at least one
    FullName: 
    ```
 
-   The 30007 event should look like this:
+   The 30007 event should look like this example:
 
    ```text
    The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
@@ -269,12 +269,11 @@ The procedure below assumes that you have installed the DC agent on at least one
    FullName: 
    ```
 
-1. Continue testing various passwords and checking the results in the event viewer using the procedures outlined in the previous steps.
-1. If you change the policy in the Azure portal, be sure to re-synchronize it back to the DC agent as described earlier.
+1. Now you can continue testing various passwords and checking the results in the event viewer using the procedures outlined in the previous steps. If you need to change the policy in the Azure portal, don't forget to synchronize the new policy down to the DC agent as described earlier.
 
-The preceding examples cover the basic procedures for doing controlled, iterative testing. Resetting user passwords from the command line helps to avoid mistakes caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep in mind the [password evaluation algorithm](concept-password-ban-bad#how-are-passwords-evaluated) as this may help explain results that you did not expect.
+The preceding examples cover the basic procedures for doing controlled, iterative ad hoc testing of the Azure AD Password Protection password validation behavior. Resetting user passwords from the command line helps to avoid mistakes caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep the [password evaluation algorithm](concept-password-ban-bad#how-are-passwords-evaluated) in mind as it may help to explain results that you did not expect.
 
-Finally, when all testing is done don't forget to delete any user accounts that were created for testing!
+Finally, when all testing is completed do not forget to delete all user accounts that were created for testing purposes only!
 
 ## Additional content
 
