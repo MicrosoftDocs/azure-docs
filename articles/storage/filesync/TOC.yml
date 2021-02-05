@@ -55,8 +55,6 @@
       href: ../files/storage-how-to-create-file-share.md
     - name: Create a premium file share
       href: ../files/storage-how-to-create-premium-fileshare.md
-    - name: Create an NFS share
-      href: ../files/storage-files-how-to-create-nfs-shares.md
   - name: Deploy
     items:
     - name: Deploy Azure File Sync
@@ -67,24 +65,14 @@
       href: ../files/storage-how-to-use-files-windows.md
     - name: Mount SMB file share to Linux
       href: ../files/storage-how-to-use-files-linux.md
-    - name: Mount NFS file share to Linux
-      href: ../files/storage-files-how-to-mount-nfs-shares.md
     - name: Mount SMB file share to macOS
       href: ../files/storage-how-to-use-files-mac.md
   - name: Network
     items:
-    - name: Azure Files
-      items:
-      - name: Configure Azure Files network endpoints
-        href: ../files/storage-files-networking-endpoints.md
-      - name: Configuring DNS forwarding for Azure Files
-        href: ../files/storage-files-networking-dns.md
-    - name: Azure File Sync
-      items:
-      - name: Configuring Azure File Sync network endpoints
-        href: ../files/storage-sync-files-networking-endpoints.md
-      - name: Configure File Sync proxy and firewall settings
-        href: ../files/storage-sync-files-firewall-and-proxy.md
+    - name: Configuring Azure File Sync network endpoints
+      href: ../files/storage-sync-files-networking-endpoints.md
+    - name: Configure File Sync proxy and firewall settings
+      href: ../files/storage-sync-files-firewall-and-proxy.md
     - name: Configure Site-to-Site VPN 
       href: ../files/storage-files-configure-s2s-vpn.md
     - name: Configure Point-to-Site VPN on Windows

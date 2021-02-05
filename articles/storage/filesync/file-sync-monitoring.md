@@ -282,4 +282,3 @@ This section provides some example alerts for Azure File Sync.
 - [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
 - [Deploy Azure File Sync](file-sync-deployment-guide.md)
 - [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
-- [Azure Files frequently asked questions](storage-files-faq.md)
