@@ -25,7 +25,7 @@ Disable Automanage on your Automanaged VMs. You can do this by selecting your VM
 ## Move your Automanaged VMs and re-enable Automanage
 For details on how to move your VMs, see this [article](https://docs.microsoft.com/azure/resource-mover/tutorial-move-region-virtual-machines).
 
-Once you have moved your VMs across regions, you may re-enable Automanage on them again. Details are available [here](./automanage-virtual-machines.md#Enabling-Automanage-for-VMs-in-Azure-portal).
+Once you have moved your VMs across regions, you may re-enable Automanage on them again. Details are available [here](./automanage-virtual-machines.md#enabling-Automanage-for-VMs-in-Azure-portal).
 
 ## Next steps
 * [Learn more about Azure Automanage](./automanage-virtual-machines.md)
