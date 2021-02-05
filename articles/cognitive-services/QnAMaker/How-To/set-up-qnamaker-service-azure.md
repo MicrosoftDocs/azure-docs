@@ -251,7 +251,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 ---
 
-## Update Azure resources
+## Configure Azure resources
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
