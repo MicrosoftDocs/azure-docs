@@ -64,7 +64,7 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 
 ### Assign policy definition to specified scope
 
-3. Create  the policy assignment with the following command:
+- Create  the policy assignment with the following command:
 
     ``` sh
     az policy assignment create --name aks-monitoring-addon --policy "(Preview)AKS-Monitoring-Addon" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <locatio> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
