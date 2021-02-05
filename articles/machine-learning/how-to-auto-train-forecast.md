@@ -371,8 +371,7 @@ day_datetime,store,week_of_year
 Repeat the necessary steps to load this future data to a dataframe and then run `best_run.predict(test_data)` to predict future values.
 
 > [!NOTE]
-> In-sample predictions are not supported for forecasting with automated ML. Values cannot be predicted for number of periods greater than the `forecast_horizon`. The model must be re-trained with a larger horizon to predict future values beyond
-> the current horizon.
+> In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
 
 ## Example notebooks
