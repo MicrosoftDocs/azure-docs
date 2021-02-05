@@ -14,7 +14,7 @@
 |---------------|-------------------|---|---|---|---|
 | Azure Data Factory | [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](../articles/data-factory/load-azure-data-lake-storage-gen2.md) | Tutorial |
 | Azure Databricks | [Use with Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) | How to |
-| Azure Databricks | [Extract, transform, and load data by using Azure Databricks](../articles/databricks/scenarios/databricks-extract-load-sql-data-warehouse.md) | Tutorial |
+| Azure Databricks | [Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) | Tutorial |
 | Azure Databricks | [Access Data Lake Storage Gen2 data with Azure Databricks using Spark](../articles/storage/blobs/data-lake-storage-use-databricks-spark.md)| Tutorial |
 | Azure Event Grid | [Implement the data lake capture pattern to update a Databricks Delta table](../articles/storage/blobs/data-lake-storage-events.md) | Tutorial |
 | Azure Machine Learning | [Access data in Azure storage services](../articles/machine-learning/how-to-access-data.md) | How to |
@@ -23,7 +23,7 @@
 | HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../articles/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) | How to |
 | HDInsight | [Extract, transform, and load data by using Apache Hive on Azure HDInsight](../articles/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive.md) | Tutorial |
 | Power BI | [Analyze data in Data Lake Storage Gen2 using Power BI](/power-query/connectors/datalakestorage) | Tutorial |
-| Azure Data Explorer | [Query data in Azure Data Lake using Azure Data Explorer](../articles/data-explorer/data-lake-query-data.md) | How to |
+| Azure Data Explorer | [Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data) | How to |
 | Azure Cognitive Search | [Index and search Azure Data Lake Storage Gen2 documents (preview)](../articles/search/search-howto-index-azure-data-lake-storage.md) | How to |
 
 > [!NOTE]
