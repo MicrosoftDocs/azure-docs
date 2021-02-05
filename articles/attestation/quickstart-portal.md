@@ -27,11 +27,11 @@ In this section, you'll create an attestation provider and configure it with eit
 1. Go to the Azure portal menu or the home page and select **Create a resource**.
 1. In the search box, enter **attestation**.
 1. In the results list, select **Microsoft Azure Attestation**.
-1. On the Microsoft Azure Attestation page, select **Create**.
-1. On the create attestation provider page, provide the following inputs:
+1. On the **Microsoft Azure Attestation** page, select **Create**.
+1. On the **Create attestation provider** page, provide the following inputs:
 
    - **Subscription**: Choose a subscription.
-   - **Resource Group**: Select an existing resource group or select **Create new** and enter a resource group name.
+   - **Resource Group**: Select an existing resource group, or select **Create new** and enter a resource group name.
    - **Name**: Enter a unique name.
    - **Location**: Choose a location.
    - **Policy signer certificates file**: Don't upload the policy signer certificates file to configure the provider with unsigned policies.
@@ -44,11 +44,11 @@ In this section, you'll create an attestation provider and configure it with eit
 1. Go to the Azure portal menu or the home page and select **Create a resource**.
 1. In the search box, enter **attestation**.
 1. In the results list, select **Microsoft Azure Attestation**.
-1. On the Microsoft Azure Attestation page, select **Create**.
-1. On the Create attestation provider page, provide the following information:
+1. On the **Microsoft Azure Attestation** page, select **Create**.
+1. On the **Create attestation provider** page, provide the following information:
 
    - **Subscription**: Choose a subscription.
-   - **Resource Group**: Select an existing resource group or select **Create new** and enter a resource group name.
+   - **Resource Group**: Select an existing resource group, or select **Create new** and enter a resource group name.
    - **Name**: Enter a unique name.
    - **Location**: Choose a location.
    - **Policy signer certificates file**: Upload the policy signer certificates file to configure the attestation provider with signed policies. [See examples of policy signer certificates](./policy-signer-examples.md).
@@ -123,7 +123,7 @@ This section describes how to view an attestation policy and how to configure po
 
 ### Configure an attestation policy
 
-Follow these steps to upload a policy in JWT or Text format if the attestation provider was created without a policy signing requirement.
+Follow these steps to upload a policy in JWT or text format if the attestation provider was created without a policy signing requirement.
 
 1. Go to the Azure portal menu or the home page and select **All resources**.
 1. In the filter box, enter the attestation provider name.
@@ -135,7 +135,7 @@ Follow these steps to upload a policy in JWT or Text format if the attestation p
    If the attestation provider was created without policy signing requirement, the user can upload a policy in either **JWT** or **Text** format.
 
       - If you chose JWT format, upload the policy file with the policy content in **unsigned/signed JWT** format and select **Save**. [See policy examples](./policy-examples.md).
-      - If you chose Text format, upload the policy file with the content in **Text** format or enter the policy content in the text area and select **Save**. [See policy examples](./policy-examples.md).
+      - If you chose text format, upload the policy file with the content in **Text** format or enter the policy content in the text area and select **Save**. [See policy examples](./policy-examples.md).
 
    For the file upload option, the policy preview is shown in text format and isn't editable.
 
