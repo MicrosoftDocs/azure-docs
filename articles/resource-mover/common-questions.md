@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/01/2021
 ms.author: raynew
 
 ---
@@ -46,6 +46,10 @@ Using Resource Mover, you can currently move the following resources across regi
 
 You can change the subscription after moving resources to the destination region. [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md) about moving resources to a different subscription. 
 
+### Does Azure Resource Move service store customer data? 
+No. Resource Move service does not store customer data, it only stores metadata information which facilitates the tracking and progress of the resources selected for move, by the customer.
+
+
 ### Where is the metadata for moving across regions stored?
 
 It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public regions.
@@ -58,7 +62,7 @@ Yes, both in transit and at rest.
 
 ### How is managed identity used in Resource Mover?
 
-[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MIS)) provides Azure services with an automatically managed identity in Azure AD.
+[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Azure AD.
 - Resource Mover uses managed identity so that it can access Azure subscriptions to move resources across regions.
 - A move collection needs a system-assigned identity, with access to the subscription that contains resources you're moving.
 

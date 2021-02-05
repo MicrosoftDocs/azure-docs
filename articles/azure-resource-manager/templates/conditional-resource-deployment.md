@@ -14,7 +14,7 @@ Sometimes you need to optionally deploy a resource in an Azure Resource Manager 
 
 ## New or existing resource
 
-You can use conditional deployment to create a new resource or use an existing one. The following example shows how to use condition to deploy a new storage account or use an existing storage account.
+You can use conditional deployment to create a new resource or use an existing one. The following example shows how to use `condition` to deploy a new storage account or use an existing storage account.
 
 ```json
 {
@@ -31,7 +31,7 @@ You can use conditional deployment to create a new resource or use an existing o
 }
 ```
 
-When the parameter **newOrExisting** is set to **new**, the condition evaluates to true. The storage account is deployed. However, when **newOrExisting** is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
+When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. However, when `newOrExisting` is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
 
 For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
@@ -75,13 +75,13 @@ For the complete template, see [Azure SQL logical server](https://github.com/Azu
 
 If you use a [reference](template-functions-resource.md#reference) or [list](template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
 
-Use the [if](template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+Use the [if](template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses `if` and `reference` with a conditionally deployed resource.
 
 You set a [resource as dependent](define-resource-dependency.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 ## Complete mode
 
-If you deploy a template with [complete mode](deployment-modes.md) and a resource isn't deployed because condition evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource when condition is false.
+If you deploy a template with [complete mode](deployment-modes.md) and a resource isn't deployed because `condition` evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource when condition is false.
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
 ---
 
@@ -20,6 +20,9 @@ This article discusses a collection of best practices and useful tips for using 
 
 - **Pool allocation mode**
     When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable an important, but small subset of scenarios. You can read more about user subscription mode at [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **'cloudServiceConfiguration' or 'virtualMachineConfiguration'.**
+    'virtualMachineConfiguration' should be used. All Batch features are supported by 'virtualMachineConfiguration' pools. Not all features are supported for 'cloudServiceConfiguration' pools and no new capabilities are being planned.
 
 - **Consider job and task run time when determining job to pool mapping.**
     If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job is not long, do not allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
@@ -145,7 +148,7 @@ Just as with other tasks, the node [start task](jobs-and-tasks.md#start-task) sh
 
 ### Isolated nodes
 
-Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
 
 ### Manage long-running services via the operating system services interface
 
@@ -164,6 +167,8 @@ If you notice a problem involving the behavior of a node or tasks running on a n
 ### Manage OS upgrades
 
 For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times where tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
+
+For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
 
 ## Isolation security
 
@@ -185,29 +190,19 @@ Review the following guidance related to connectivity in your Batch solutions.
 
 ### Network Security Groups (NSGs) and User Defined Routes (UDRs)
 
-When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following
-the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule.
-Use of the service tag is highly recommended, rather than using the underlying Batch service IP addresses. This is because the IP addresses can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
+When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended, rather than using the underlying Batch service IP addresses. This is because the IP addresses can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
 
-For User Defined Routes (UDRs), ensure that you have a process in place to update Batch service IP addresses periodically
-in your route table, since these addresses change over time. To learn how to obtain the list of Batch service IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md). The Batch service IP addresses will be
-associated with the `BatchNodeManagement` service tag (or the regional variant that matches your Batch account region).
+For User Defined Routes (UDRs), ensure that you have a process in place to update Batch service IP addresses periodically in your route table, since these addresses change over time. To learn how to obtain the list of Batch service IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md). The Batch service IP addresses will be associated with the `BatchNodeManagement` service tag (or the regional variant that matches your Batch account region).
 
 ### Honoring DNS
 
-Ensure that your systems are honoring DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure
-that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses (or [create a pool with static public IP addresses](create-pool-public-ip.md) as described below).
+Ensure that your systems are honoring DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses (or [create a pool with static public IP addresses](create-pool-public-ip.md) as described below).
 
-If your requests receive 5xx level HTTP responses and there is a "Connection: close" header in the response, your
-Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the
-Batch account service URL, and attempt following requests on a new connection.
+If your requests receive 5xx level HTTP responses and there is a "Connection: close" header in the response, your Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the Batch account service URL, and attempt following requests on a new connection.
 
 ### Retry requests automatically
 
-Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even
-during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an
-interval of at least 5 minutes. Automatic retry capabilities are provided with various Batch SDKs, such as the
-[.NET RetryPolicyProvider class](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
+Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an interval of at least 5 minutes. Automatic retry capabilities are provided with various Batch SDKs, such as the [.NET RetryPolicyProvider class](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
 
 ### Static public IP addresses
 

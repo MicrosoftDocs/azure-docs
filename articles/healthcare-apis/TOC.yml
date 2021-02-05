@@ -21,8 +21,13 @@
     - name: Using ARM template
       displayName: Resource Manager
       href: fhir-paas-arm-template-quickstart.md
-  - name: Deploy Azure IoT Connector for FHIR (preview) - Portal
-    href: iot-fhir-portal-quickstart.md
+  - name: Deploy Azure IoT Connector for FHIR (preview)
+    expanded: false
+    items:
+    - name: Using Portal
+      href: iot-fhir-portal-quickstart.md
+    - name: Using ARM template
+      href: iot-fhir-arm-template-quickstart.md 
 - name: Tutorials
   expanded: false
   items:
@@ -88,6 +93,11 @@
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md
+  - name: Convert data
+    expanded: false
+    items:
+    - name: $convert-data and FHIR Converter Extension Templates
+      href: convert-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Diagnostic logging and metrics
@@ -117,6 +127,10 @@
       href: iot-data-flow.md
     - name: Azure IoT Connector for FHIR (preview) mapping templates
       href: iot-mapping-templates.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: Resources
   items:
   - name: FAQ

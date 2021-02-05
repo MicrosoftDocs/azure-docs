@@ -3,7 +3,6 @@ title: Azure HDInsight Create a cluster - error dictionary
 description: Learn how to troubleshoot errors that occur when creating Azure HDInsight clusters
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017

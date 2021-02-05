@@ -5,9 +5,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: j-martens
-ms.author: jmartens
-ms.date: 11/04/2019
+ms.author: larryfr
+author: BlackMist
+ms.date: 11/04/2020
 ms.custom: devx-track-python
 ---
 
@@ -20,8 +20,6 @@ Azure Machine Learning can be used for any kind of machine learning, from classi
 Start training on your local machine and then scale out to the cloud. 
 
 The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
 > **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today. You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
@@ -42,7 +40,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
-+ + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
++ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 + [Machine learning extension for Visual Studio Code users](tutorial-setup-vscode-extension.md)
 
@@ -113,7 +111,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 + __Azure Virtual Networks__. For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
-+ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
++ __MLFlow__. For more information, see [MLflow to track metrics](how-to-use-mlflow.md)  and [Deploy Mlflow models as a web service](how-to-deploy-mlflow-models.md) 
 + __Kubeflow__. For more information, see [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 ### Secure communications
@@ -125,7 +123,6 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 - Create your first experiment with your preferred method:
 - + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)

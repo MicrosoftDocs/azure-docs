@@ -57,9 +57,9 @@ The v2.2 schema is recommended for all new VMs and does not require Azure Active
           "EncryptionOperation": "[encryptionOperation]",
           "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
           "KeyVaultURL": "[keyVaultURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
           "KeyVaultResourceId": "[keyVaultResourceID]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[kekVaultResourceID]",
           "SequenceVersion": "sequenceVersion]",
           "VolumeType": "[volumeType]"
         }
@@ -93,8 +93,8 @@ Using `aadClientSecret`:
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[kekVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     }
@@ -123,8 +123,8 @@ Using `AADClientCertificate`:
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[kekVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     }
@@ -144,7 +144,7 @@ Using `AADClientCertificate`:
 | (1.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (1.1 schema) AADClientSecret | password | string |
 | (1.1 schema) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| EncryptionOperation | EnableEncryption | string | 
 | (optional - default RSA-OAEP ) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |

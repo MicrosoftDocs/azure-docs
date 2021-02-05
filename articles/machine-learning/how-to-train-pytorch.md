@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 12/10/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
 
@@ -19,7 +19,7 @@ ms.custom: how-to
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 
-The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network (DNN) based on PyTorch's transfer learning [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This shortcuts the training  process by requiring less data, time, and compute resources than training from scratch.
+The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network (DNN) based on PyTorch's transfer learning [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This shortcuts the training  process by requiring less data, time, and compute resources than training from scratch. See the [deep learning vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) article to learn more about transfer learning.
 
 Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
 

@@ -155,7 +155,7 @@ You have the option to pick premium storage (SSD) for Azure file shares or stand
 
 Still not sure?
 
-* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-billing).
+* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-model).
 * Choose standard storage for general-purpose file server workloads, which includes hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
 
 #### Account kind
@@ -436,6 +436,9 @@ At this point, there are differences between your on-premises Windows Server ins
 1. Some files might have been left behind by the data transformation job because of invalid characters. If so, copy them to the Azure File Sync-enabled Windows Server instance. Later on, you can adjust them so that they will sync. If you don't use Azure File Sync for a particular share, you're better off renaming the files with invalid characters on the StorSimple volume. Then run the RoboCopy directly against the Azure file share.
 
 > [!WARNING]
+> Robocopy in Windows Server 2019 currently experiences an issue that will cause files tiered by Azure File Sync on the target server to be recopied from the source and re-uploaded to Azure when using the /MIR function of robocopy. It is imperative that you use Robocopy on a Windows Server other than 2019. A preferred choice is Windows Server 2016. This note will be updated should the issue be resolved via Windows Update.
+
+> [!WARNING]
 > You *must not* start the RoboCopy before the server has the namespace for an Azure file share downloaded fully. For more information, see [Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -443,7 +446,7 @@ At this point, there are differences between your on-premises Windows Server ins
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -494,6 +497,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Allows for RoboCopy to only consider deltas between source (StorSimple appliance) and target (Windows Server directory).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Ensures fidelity is preserved in certain mirror scenarios.</br>Example: Between two Robocopy runs a file experiences an ACL change and an attribute update, for instance it is also marked *hidden*. Without /IT the ACL change can be missed by Robocopy and thus not transferred to the target location.
    :::column-end:::
 :::row-end:::
 :::row:::

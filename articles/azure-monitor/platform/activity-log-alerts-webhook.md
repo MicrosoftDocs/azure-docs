@@ -23,6 +23,20 @@ The webhook can optionally use token-based authorization for authentication. The
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
 
+> [!NOTE]
+> Currently, the description that is part of the Activity log event is copied to the fired **"Alert Description"** property.
+>
+> In order to align the Activity Log payload with other alert types, Starting April 1, 2021 the fired alert property **"Description“** will contain the alert rule description instead.
+>
+> In preparation for this change, we created a new property **“Activity Log Event Description“** to the Activity Log fired Alert. This new property will be filled with the **"Description"** property that is already available for use. This means that the new field **“Activity Log Event Description“** will contain the description that is part of the Activity log event.
+>
+> Please review your alert rules, action rules, webhooks, logic app or any other configurations where you might be using the **“Description”** property from the fired alert and replace it with **“Activity Log Event Description”** property.
+>
+> if your condition (in your action rules, webhooks, logic app or any other configurations) is currently based on the **"Description"** property for activity log alerts, you may need to modify it to be based on the **“Activity Log Event Description”** property instead.
+>
+> In order to fill the new **"Description"** property, you can add a description in the alert rule definition.
+> ![Fired Activity Log Alerts](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
+
 ### Common
 
 ```json

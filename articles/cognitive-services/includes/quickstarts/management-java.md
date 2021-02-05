@@ -10,7 +10,7 @@ ms.date: 09/01/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## Java prerequisites
 
@@ -89,7 +89,7 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (Java)
 
 To create and subscribe to a new Cognitive Services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
 
@@ -119,7 +119,7 @@ The following method deletes the specified resource from the given resource grou
 
 ## See also
 
-* [Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices)
 * [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Authenticate requests to Azure Cognitive Services](../../authentication.md)
 * [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
