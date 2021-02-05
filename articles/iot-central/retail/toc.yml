@@ -5,7 +5,7 @@
     - name: Building retail solutions with Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Tutorials
-- expanded: true
+  expanded: true
   items:
   - name : In-store analytics checkout
     items:
