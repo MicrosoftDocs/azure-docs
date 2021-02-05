@@ -2,6 +2,36 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/docker-machine.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mysql-on-opensuse.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/mysql-on-opensuse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitor.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/postgresql-install.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/postgresql-install",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
       "redirect_document_id": false
