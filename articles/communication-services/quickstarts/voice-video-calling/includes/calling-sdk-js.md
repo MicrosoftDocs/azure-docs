@@ -65,7 +65,7 @@ const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const oneToOneCall = callAgent.call([userCallee]);
 ```
 
-To place a call to a PSTN, invoke the `call` method on `callAgent` and pass the calle's PhoneNumberIdentifier.
+To place a call to a PSTN, invoke the `call` method on `callAgent` and pass the callee's PhoneNumberIdentifier.
 Your Communication Services resource must be configured to allow PSTN calling.
 When calling a PSTN number, you must specify your alternate caller ID.
 ```js
@@ -221,7 +221,7 @@ const localVideoStreams = call.localVideoStreams;
 
 ### Call ended event
 
-The `Call` instance emits a `callEnded` event when the call ends. To listen to this event subscibe in the following way
+The `Call` instance emits a `callEnded` event when the call ends. To listen to this event subscribe in the following way:
 
 ```js
 const callEndHander = async (args: { callEndReason: CallEndReason }) => {
@@ -412,7 +412,7 @@ if (remoteParticipantStream.isAvailable) {
 ### Remote video stream properties
 Remote video streams have the following properties:
 
-* `Id` - Id of a remote video stream
+* `Id` - ID of a remote video stream
 ```js
 const id: number = remoteVideoStream.id;
 ```
