@@ -1,6 +1,6 @@
 ---
-title: Sign an HTTP request C#
-description: This is the C# version of singing an HTTP request for Communication Services.
+title: Sign an HTTP request with C#
+description: This is the C# version of signing an HTTP request with an HMAC signature for Communication Services.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -16,17 +16,18 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).You'll need to record your **resourceEndpoint** and  **resourceAccessKey** for this tutorial.
- 
 
 
-## Overview
-Access key authentication uses a shared secret key to generate an HMAC for each HTTP request computed by using the SHA256 algorithm, and sends it in the `Authorization` header using the `HMAC-SHA256` scheme.
+
+## Sign an HTTP request with C#
+Access key authentication uses a shared secret key to generate an HMAC signature for each HTTP request. This signature is generated with the SHA256 algorithm, and is sent in the `Authorization` header using the `HMAC-SHA256` scheme. For example:
 
 ```
 Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
-hmac-sha256-signature consists of : 
+The `hmac-sha256-signature` consists of: 
+
 1. HTTP Verb (e.g. `GET` or `PUT`)
 2. HTTP request path
 3. Date
@@ -35,6 +36,7 @@ hmac-sha256-signature consists of :
 
 ## Setting up
 The following steps describe how to construct the Authorization header:
+
 ### Create a new C# application
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `SignHmacTutorial`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
@@ -52,14 +54,13 @@ dotnet build
 
 ## Install the package
 
-Install the  package Newtonsoft.Json, used for body serialization.
+Install the  package `Newtonsoft.Json`, used for body serialization:
 
 ```console
 dotnet add package Newtonsoft.Json
 ```
 
-Update the Main method declaration to support async code
-Use the following code to begin:
+Update the `Main` method declaration to support async code. Use the following code to begin:
 
 ```csharp
 using System;
@@ -69,7 +70,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-
 namespace SignHmacTutorial
 {
     class Program
@@ -77,35 +77,37 @@ namespace SignHmacTutorial
         static async Task Main(string[] args)
         {
             Console.WriteLine("Azure Communication Services - Sign an HTTP request Tutorial");
-
             // Tutorial code goes here
         }
     }
 }
+
 ```
 ## Create a request message
-For this specific example we will try to sign request to create new identity calling ACS AUTH Api of version 2020-07-20-preview2
-Add following code into Main method:
+
+For this example we'll sign a request to create a new identity using the Communication Services Authentication API (version `2020-07-20-preview2`)
+
+Add following code to the `Main` method:
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
 //Create an uri you are going to call
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2020-07-20-preview2");
-
 //Endpoint identities?api-version=2020-07-20-preview2 accepts list of scopes as a body
 var body = new[] { "chat" }; 
 var serializedBody = JsonConvert.SerializeObject(body);
-
 var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 {
     Content = new StringContent(serializedBody, Encoding.UTF8)
 };
 ```
-replace **resourceEndpoint** with your real resource endpoint value.
+
+Replace `resourceEndpoint` with your real resource endpoint value.
 
 ## Create content hash
-Content hash is a part of signature. 
-Use following code to create a method to hash a content and add it into Progam.cs under Main method.
+
+The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `Progam.cs` under the `Main` method.
+
 ```csharp
 static string ComputeContentHash(string content)
 {
@@ -118,14 +120,12 @@ static string ComputeContentHash(string content)
 ```
 
 ## Compute a signature
-Prepare a method to compute your signature.
-Use following code to create a method for computing a signature.
+Use the following code to create a method for computing a your HMAC signature.
 
 ```csharp
  static string ComputeSignature(string stringToSign)
 {
     string secret = "resourceAccessKey";
-
     using (var hmacsha256 = new HMACSHA256(Convert.FromBase64String(secret)))
     {
         var bytes = Encoding.ASCII.GetBytes(stringToSign);
@@ -134,17 +134,21 @@ Use following code to create a method for computing a signature.
     }
 }
 ```
-replace **resourceAccessKey** with access key of your real Azure Communication Services resource.
+
+Replace `resourceAccessKey` with access key of your real Azure Communication Services resource.
 
 ## Create an authorization header string
-Prepare a string will be used in authorization header.
-steps:
+
+We'll now construct the string we'll add to our authorization header:
+
 1. Compute a content hash
 2. Specify the Coordinated Universal Time (UTC) timestamp
 3. Prepare a string to sign
 4. Compute the signature
 5. Concatenate the string, which will be used in authorization header
- Add following code into Main method:
+ 
+Add following code to the `Main` method:
+
 ```csharp
 // Compute a content hash
 var contentHash = ComputeContentHash(serializedBody);
@@ -159,8 +163,9 @@ var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha
 ```
 
 ## Add headers to requestMessage
-In previous steps we prepared value for authorization part.
-Add following code into Main method to add headers to requestMessage
+
+Use the following code to add the required headers to your `requestMessage`:
+
 ```csharp
 //Add content hash header
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
@@ -171,15 +176,14 @@ requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```
 
 ## Test the client
-Call the endpoint using HttpClient and check the response.
+Call the endpoint using `HttpClient` and check the response.
+
 ```csharp
 HttpClient httpClient = new HttpClient
 {
     BaseAddress = requestUri
 };
-
 var response = await httpClient.SendAsync(requestMessage);
 var responseString = await response.Content.ReadAsStringAsync();
-
 Console.WriteLine(responseString);
 ```
