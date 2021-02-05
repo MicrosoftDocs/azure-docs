@@ -87,7 +87,7 @@ Although not required for this example, additional settings for an API operation
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation?view=azure-cli-latest#az_apim_api_operation_create) command:
 

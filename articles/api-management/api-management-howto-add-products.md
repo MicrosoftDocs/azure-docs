@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 To create a product, run the [az apim product create](/cli/azure/apim/product#az_apim_product_create) command:
 

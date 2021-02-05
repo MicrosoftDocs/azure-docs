@@ -96,7 +96,7 @@ Once the named value is created, you can edit it by selecting the name. If you c
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) command:
 
