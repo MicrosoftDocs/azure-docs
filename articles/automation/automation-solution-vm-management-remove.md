@@ -53,17 +53,33 @@ To delete your Automation account dedicated to Start/Stop VMs during off-hours, 
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
-8. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it from the Azure portal:
+### Unlink workspace from Automation account
 
-    1. Search for and select **Log Analytics workspaces**.
+1. In the Azure portal, select **Automation Accounts**.
 
-    2. On the Log Analytics workspace page, select the workspace.
+2. Open your Automation account and select **Linked workspace** under **Related Resources** on the left.
 
-    3. Select **Delete** from the menu.
+3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
 
-9. Navigate back to your Automation account, and select **Delete**.
+   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
 
-10. At the prompt to confirm deletion, select **Yes**.
+While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+
+Alternatively, you can unlink your Log Analytics workspace from your Automation account from within the workspace:
+
+1. In the Azure portal, select **Log Analytics workspaces**.
+
+2. From the workspace, select **Automation Account** under **Related Resources**.
+
+3. On the Automation Account page, select **Unlink account**.
+
+While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
+
+### Delete Automation account
+
+1. In the Azure portal, select **Automation Accounts**.
+
+2. Open your Automation account and select **Delete** from the menu.
 
 While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
 
@@ -87,15 +103,7 @@ To delete Start/Stop VMs during off-hours from your Automation account, perform 
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
-8. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it from the Azure portal:
-
-    1. Search for and select **Log Analytics workspaces**.
-
-    2. On the Log Analytics workspace page, select the workspace.
-
-    3. Select **Delete** from the menu.
-
-    4. If you don't want to keep the Azure Automation account [feature components](automation-solution-vm-management.md#components), you can manually delete each.
+8. If you don't want to keep the [feature components](automation-solution-vm-management.md#components) created by the feature, you have to manually delete them from the account.
 
 ## Next steps
 
