@@ -57,7 +57,7 @@ Right-click the container, a directory, or a file, and then click **Manage Acces
 The **Manage Access** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
 > [!div class="mx-imgBorder"]
-> ![Right-clicking a directory in Azure Storage Explorer](./media/data-lake-storage-explorer-acl/manage-access-dialog-box.png)
+> ![Manage Access dialog box](./media/data-lake-storage-explorer-acl/manage-access-dialog-box.png)
 
 To add a new user or group to the access control list, select the **Add** button. Then, enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.  The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
