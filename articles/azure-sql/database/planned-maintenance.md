@@ -40,12 +40,12 @@ Any client production application that connects to a cloud database service shou
 
 If your database is experiencing log-on failures, check the [Resource Health](../../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
 
-## SQL maintenance window feature
+## Maintenance window feature
 
-The SQL Maintenance Window feature allows for the configuration of predictable maintenance window schedules for eligible Azure SQL databases and SQL managed instances. See [SQL Maintenance Window](sql-maintenance-window.md) for more information.
+The maintenance Window feature allows for the configuration of predictable maintenance window schedules for eligible Azure SQL databases and SQL managed instances. See [Maintenance window](maintenance-window.md) for more information.
 
 ## Next steps
 
 - Learn more about [Resource Health](resource-health-to-troubleshoot-connectivity.md) for Azure SQL Database and Azure SQL Managed Instance.
 - For more information about retry logic, see [Retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
-- Configure maintenance window schedules with the [SQL Maintenance Window](sql-maintenance-window.md) feature.
+- Configure maintenance window schedules with the [Maintenance window](maintenance-window.md) feature.

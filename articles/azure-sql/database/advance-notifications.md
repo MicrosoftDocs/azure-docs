@@ -15,14 +15,14 @@ ms.date: 01/21/2021
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Advance notifications (Preview), is available to databases configured for [SQL Maintenance Window](sql-maintenance-window.md). Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event.
+Advance notifications (Preview), is available to databases configured for [Maintenance Window (Preview)](maintenance-window.md). Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event.
 
 Notifications can be configured so you can get texts, emails, Azure push notifications, and voicemails when planned maintenance is due to begin in the next 24 hours. Additional notifications are sent when maintenance begins and when maintenance ends.
 
 
 ## Create an advance notification
 
-Advance notifications are available for Azure SQL databases and managed instances that have their SQL Maintenance Window configured. 
+Advance notifications are available for Azure SQL databases and managed instances that have their maintenance window configured. 
 
 Complete the following steps to enable a notification.  
 
@@ -79,7 +79,7 @@ The following table shows additional notifications that may be sent while mainte
 
 ## Next steps
 
-- [SQL Maintenance window](sql-maintenance-window.md)
-- [SQL Maintenance window FAQ](sql-maintenance-window-faq.yml)
+- [Maintenance window](maintenance-window.md)
+- [Maintenance window FAQ](maintenance-window-faq.yml)
 - [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 - [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)

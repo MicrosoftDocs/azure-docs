@@ -84,12 +84,12 @@ Choosing a maintenance window is available in the following regions with more re
 
 ## Next steps
 
-* [Maintenance Window walkthrough](sql-maintenance-window-configure.md)
-* [Maintenance Window Notifications walkthrough](advance-notifications.md)
+* [Configure maintenance window](maintenance-window-configure.md)
+* [Maintenance window notifications](advance-notifications.md)
 
 ## Learn more
 
-* [Maintenance Window FAQ](sql-maintenance-window-faq.yml)
+* [Maintenance window FAQ](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

@@ -12,14 +12,14 @@ metadata:
   ms.custom: 
   ms.date: 01/19/2021
 
-title: SQL Maintenance Window FAQ
+title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
 sections:
   - name: General
     questions: 
       - question: What is the maintenance window feature?
         answer: |
-         The maintenance window feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-maintenance-window) for more information.
+         The maintenance window feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [Maintenance window schedules](maintenance-window.md#gain-more-predictability-with-maintenance-window) for more information.
 
       - question: What is my default maintenance window if I do not choose any specific window? 
         answer: |
@@ -43,15 +43,15 @@ sections:
 
       - question: In which regions is choosing a maintenance window Available?
         answer: | 
-          Available in limited regions to start but more regions to be added in over coming months, see [Maintenance Window](sql-maintenance-window.md#availability).
+          For a list of available regions, see [Maintenance window availability](maintenance-window.md#availability).
       
       - question: I don’t see my region in the available regions list, what can I do? 
         answer: |
-          We are working on adding more regions, you can open a ticket to check if your region will be available soon. 
+          You can open a ticket to check if your region will be available soon. 
       
       - question: What is the pricing for maintenance window? 
         answer: |
-          Choosing a maintenance window is free of charge to all customers with paid Azure subscription types, see [Maintenance Window cost](sql-maintenance-window.md#cost).
+          Choosing a maintenance window is free of charge to all customers with paid Azure subscription types, see [Maintenance window cost](maintenance-window.md#cost).
         
       - question: Would I receive a notification of the maintenance window?
         answer: |
@@ -59,7 +59,7 @@ sections:
 
       - question: Which service level objectives (SLOs) are supported for a configurable maintenance window? 
         answer: |
-          Feature is available in most service tiers with some exceptions, see [maintenance window supported service level objectives](sql-maintenance-window.md#supported-service-level-objectives).
+          Feature is available in most service tiers with some exceptions, see [maintenance window supported service level objectives](maintenance-window.md#supported-service-level-objectives).
 
       - question: If I have selected a maintenance window for a resource, and I downscale to a service tier where choosing a maintenance window is not supported, what happens to my database?
         answer: |
@@ -95,7 +95,7 @@ sections:
 
 additionalContent: |
  ## See Also
- - [Maintenance Window](sql-maintenance-window.md)
- - [Maintenance Window walkthrough](sql-maintenance-window-configure.md)
- - [Maintenance Window Notifications walkthrough](advance-notifications.md)
+ - [Maintenance window](maintenance-window.md)
+ - [Configure maintenance window](maintenance-window-configure.md)
+ - [Configure maintenance window notifications](advance-notifications.md)
  - [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)
