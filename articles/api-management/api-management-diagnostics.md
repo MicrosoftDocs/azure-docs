@@ -2,7 +2,7 @@
 title: Diagnose and solve problems
 description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnostics and solve tool in the Azure portal. 
 author: rzhang628
-ms.service: api management
+ms.service: api-management
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: rongzhang
