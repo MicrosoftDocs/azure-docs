@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ---
 
-# Enable AKS Monitoring Addon using Azure Policy
+# Enable AKS monitoring addon using Azure Policy
 This article describes how to enable AKS Monitoring Addon using Azure Custom Policy. Monitoring Addon Custom Policy can be assigned either at subscription or resource group scope. If Azure Log Analytics workspace and AKS cluster are in different subscriptions then the managed identity used by the policy assignment has to have the required role permissions on both the subscriptions or least on the resource of the Log Analytics workspace. Similarly, if the policy is scoped to the resource group, then the managed identity should have the required role permissions on the Log Analytics workspace if the workspace not in the selected resource group scope.
 
 Monitoring Addon require following roles on the managed identity used by Azure Policy:
@@ -13,17 +13,17 @@ Monitoring Addon require following roles on the managed identity used by Azure P
  - [azure-kubernetes-service-contributor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
  - [log-analytics-contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
 
-## Create and Assign Policy definition using Azure portal
+## Create and assign policy definition using Azure portal
 
-### Create Policy Definition
+### Create policy definition
 
-1. Download the Azure Custom Policy definition to enable AKS Monitoring Addon
+1. Download the Azure Custom Policy definition to enable AKS Monitoring Addon.
  
     ``` sh
     curl -o azurepolicy.json -L https://aka.ms/aks-enable-monitoring-custom-policy
     ```
 
-3. Navigate to https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions and create policy definition  with the following details in the Policy definition  create dialogue box
+3. Navigate to https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions and create policy definition  with the following details in the Policy definition  create dialogue box.
  
     - **Definition location**: Choose the Azure subscription where the policy definition should be stored.
     - **Name**: *(Preview)AKS-Monitoring-Addon*
@@ -31,18 +31,18 @@ Monitoring Addon require following roles on the managed identity used by Azure P
     - **Category**: Choose *use existing* and pick *Kubernetes* from drop-down.
     - **Policy Rule**: Remove the existing sample rules and copy the contents of *azurepolicy.json* downloaded in step #1 above.
 
-### Assign Policy Definition to Specified Scope
+### Assign policy definition to specified scope
 
 > [!NOTE]
 >  Managed identity will be created automatically and assigned specified roles in the Policy definition.
 
-3. Select the policy definition *(Preview) AKS Monitoring Addon* that you just created.
+1. Select the policy definition *(Preview) AKS Monitoring Addon* that you just created.
 4. Click *Assign*** and specify a **Scope** of where the policy should be assigned. 
-5. Click **Next** and provide the Resource ID of the Azure Log Analytics Workspace. The Resource ID should be in this format `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>`
+5. Click **Next** and provide the Resource ID of the Azure Log Analytics Workspace. The Resource ID should be in this format `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>`.
 6. Create a remediation task in case if you want to apply to policy to existing AKS clusters in the selected scope.
 7. Click **Review + Create** option to create the policy assignment.
    
-## Create and Assign Policy definition using Azure CLI
+## Create and assign policy definition using Azure CLI
 
 ### Create policy definition
 
@@ -73,7 +73,7 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 ## Next steps
 
 - Learn more about [Azure Policy](../../governance/policy/overview.md).
-- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)
-- Learn more about [Azure Monitor for Containers](../insights/container-insights-overview.md)
+- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
+- Learn more about [Azure Monitor for Containers](../insights/container-insights-overview.md).
 - Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
