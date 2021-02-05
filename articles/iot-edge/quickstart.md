@@ -154,12 +154,12 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
      :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Screenshot that shows the connection string in the Device connection string field.":::
 
-1. After provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should see your device listed as an IoT Edge Device.
+1. After provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should see your device listed as an IoT Edge device.
 
      :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Screenshot that shows all connections in Windows Admin Center.":::
 
 1. Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed. The **IoT Edge Module List** should show one module running **edgeAgent**, and the **IoT Edge Status** should be **active (running)**.
-​
+
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
 ## Deploy a module
@@ -174,7 +174,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that sends t
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then you used the Azure portal to deploy an IoT Edge module to run on the device without having to make changes to the device itself.
 
-The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The messages that it sends include ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials uses the data created by this module as test data for analytics.
+The module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The messages that it sends include ambient temperature and humidity, machine temperature and pressure, and a timestamp. IoT Edge tutorials use the data created by this module as test data for analytics.
 
 From the command shell in Windows Admin Center, confirm that the module you deployed from the cloud is running on your IoT Edge device.
 
