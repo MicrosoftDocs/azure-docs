@@ -41,8 +41,8 @@ You can change the configuration of the distribution mode by modifying the load-
 The following options are available: 
 
 * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-* **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-* **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+* **Client IP (source IP affinity two-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+* **Client IP and protocol (source IP affinity three-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
 
@@ -90,7 +90,7 @@ Set the value of `--load-distribution` for the type of load balancing required.
 
 * Specify **Default** for the default behavior of five-tuple load balancing.
 
-For more information on the Azure CLI command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
+For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 
