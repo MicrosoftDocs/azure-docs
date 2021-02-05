@@ -31,6 +31,8 @@ Create an application registration that will be used by both tenants to share th
 1. In **Expires**, leave the default of **In 1 year** and then select **Add**.
 1. Copy the value of the secret and save it to a safe place. You cannot retrieve it after you leave the page.
 
+> [!NOTE]
+> Ensure you select the proper **Supported account types** listed above. Ensure that the **Redirect URI** has the *https://www.microsoft.com* uri.
 
 Give the app registration permission to use the shared image gallery.
 1. In the Azure portal, select the Shared Image Gallery that you want to share with another tenant.
