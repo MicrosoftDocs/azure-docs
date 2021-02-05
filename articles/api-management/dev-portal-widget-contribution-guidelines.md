@@ -59,6 +59,6 @@ We welcome your contributions!
 
 ## Next steps
 
-[Implement widgets](dev-portal-implement-widgets.md) - learn how to develop your own widget, step by step.
+- See [Implement widgets](dev-portal-implement-widgets.md) to learn how to develop your own widget, step by step.
 
-[Use community widgets](dev-portal-use-community-widgets.md) - learn how to use widgets contributed by the community.
+- See [Use community widgets](dev-portal-use-community-widgets.md) to learn how to use widgets contributed by the community.
