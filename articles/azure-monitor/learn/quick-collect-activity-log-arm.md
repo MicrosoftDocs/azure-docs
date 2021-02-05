@@ -317,7 +317,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## Next steps
 
-In this quickstart, you configured the Activity log to be sent to a Log Analytics workspace. You can now configure other data to be collected into the workspace where you can analyze it together using [log queries](../log-query/log-query-overview.md) in Azure Monitor and leverage features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualizations/workbooks-overview.md). You should next gather [resource logs](../platform/resource-logs.md) from your Azure resources which compliment the data in the Activity log providing insight into the operations that were performed within each resource.
+In this quickstart, you configured the Activity log to be sent to a Log Analytics workspace. You can now configure other data to be collected into the workspace where you can analyze it together using [log queries](../log-query/log-query-overview.md) in Azure Monitor and leverage features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualizations/workbooks-overview.md). You should next gather [resource logs](../essentials/resource-logs.md) from your Azure resources which compliment the data in the Activity log providing insight into the operations that were performed within each resource.
 
 > [!div class="nextstepaction"]
 > [Collect and analyze resource logs with Azure Monitor](tutorial-resource-logs.md)

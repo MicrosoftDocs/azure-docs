@@ -240,7 +240,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Platform logs
 - [Azure Activity Log event schema - Azure Monitor](essentials/activity-log-schema.md) - Added severity levels.
-- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md) - Added sample for Azure storage account.
+- [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Added sample for Azure storage account.
 
 ### Visualizations
 - [Azure Monitor workbook chart visualizations](visualizations/workbooks-chart-visualizations.md) - New article.
@@ -306,7 +306,7 @@ New articles for Azure Monitor for VMs guest health (preview)
   - [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md) - Updates to Ingestion volume rate limit section.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Updated usage queries to more efficient query format.
 - [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added specific values to performance indicators.
-- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md) - Added sample for log query audit logs.
+- [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Added sample for log query audit logs.
 
 
 ### Platform logs
@@ -422,26 +422,26 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 ### Platform logs
 
-- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md) - Fix for Activity log diagnostic setting.
+- [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Fix for Activity log diagnostic setting.
 - [Send Azure Activity log to Log Analytics workspace using Azure portal](learn/quick-collect-activity-log-portal.md) - New article.
 - [Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template](learn/quick-collect-activity-log-arm.md) - New article.
 
 New and updated articles from restructure and consolidation of platform log content
 
-- [Archive Azure resource logs to storage account](./platform/resource-logs.md#send-to-azure-storage)
+- [Archive Azure resource logs to storage account](./essentials/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](essentials/activity-log-schema.md)
 - [Azure Activity log](essentials/activity-log.md)
 - [Azure Monitor CLI samples](samples/cli-samples.md)
 - [Azure Monitor PowerShell samples](samples/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)
-- [Azure Resource Logs supported services and schemas](./platform/resource-logs-schema.md)
-- [Azure resource logs](platform/resource-logs.md)
+- [Azure Resource Logs supported services and schemas](./essentials/resource-logs-schema.md)
+- [Azure resource logs](essentials/resource-logs.md)
 - [Collect and analyze Azure activity log in Azure Monitor](./essentials/activity-log.md)
-- [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Collect Azure resource logs in Log Analytics workspace](./essentials/resource-logs.md#send-to-log-analytics-workspace)
 - [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md)
 - [Export the Azure Activity Log](./essentials/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](essentials/platform-logs-overview.md)
-- [Stream Azure platform logs to an event hub](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Stream Azure platform logs to an event hub](./essentials/resource-logs.md#send-to-azure-event-hubs)
 - [View Azure Activity log events in Azure Monitor](./essentials/activity-log.md#view-the-activity-log)
 
 ### Virtual machines
@@ -475,7 +475,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
 - [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)
 - [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
-- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md)
+- [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](samples/resource-manager-workspace.md)
 - [Resource Manager template samples for log queries](samples/resource-manager-log-queries.md)
 - [Resource Manager template samples for log query alert rules](samples/resource-manager-alerts-log.md)
@@ -834,19 +834,19 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 Multiple articles updated as part of restructure of content for platform logs based on new feature for configuring activity log using diagnostic settings.
 
-- [Archive Azure resource logs to storage account](./platform/resource-logs.md#send-to-azure-storage)
+- [Archive Azure resource logs to storage account](./essentials/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](essentials/activity-log-schema.md)
 - [Azure Monitor service limits](service-limits.md)
 - [Collect and analyze Azure activity logs in Log Analytics workspace](./essentials/activity-log.md)
 - [Collect Azure Activity log with diagnostic settings (preview) - Azure Monitor](./essentials/activity-log.md)
 - [Collect Azure Activity logs into a Log Analytics workspace across Azure tenants](./essentials/activity-log.md)
-- [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Create diagnostic setting in Azure using Resource Manager template](./samples/resource-manager-diagnostic-settings.md)
+- [Collect Azure resource logs in Log Analytics workspace](./essentials/resource-logs.md#send-to-log-analytics-workspace)
+- [Create diagnostic setting in Azure using Resource Manager template](./essentials/resource-manager-diagnostic-settings.md)
 - [Create diagnostic setting to collect logs and metrics in Azure](essentials/diagnostic-settings.md)
 - [Export the Azure Activity Log](./essentials/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](essentials/platform-logs-overview.md)
 - [Stream Azure monitoring data to event hub](platform/stream-monitoring-data-event-hubs.md)
-- [Stream Azure platform logs to an event hub](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Stream Azure platform logs to an event hub](./essentials/resource-logs.md#send-to-azure-event-hubs)
 
 ### Quickstarts and tutorials
 

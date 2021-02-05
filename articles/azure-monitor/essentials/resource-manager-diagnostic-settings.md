@@ -808,5 +808,5 @@ The following sample creates a diagnostic setting for each storage service endpo
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
 * [Learn more about diagnostic settings](../essentials/diagnostic-settings.md).

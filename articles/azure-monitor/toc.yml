@@ -90,7 +90,7 @@
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
-      href: samples/resource-manager-diagnostic-settings.md
+      href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: samples/resource-manager-workspace.md
     - name: Log queries
@@ -300,7 +300,7 @@
     - name: Activity log
       href: essentials/activity-log.md
     - name: Resource logs
-      href: platform/resource-logs.md
+      href: essentials/resource-logs.md
     - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
@@ -1302,9 +1302,9 @@
     - name: Activity log schema
       href: essentials/activity-log-schema.md
     - name: Resource log schemas
-      href: platform/resource-logs-schema.md
+      href: essentials/resource-logs-schema.md
     - name: Supported resource log categories
-      href: platform/resource-logs-categories.md
+      href: essentials/resource-logs-categories.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
@@ -1408,7 +1408,7 @@
       href: essentials/portal-disk-metrics-deprecation.md
     - name: Change to blob storage format
       displayname: Diagnostic settings
-      href: platform/resource-logs-blob-format.md
+      href: essentials/resource-logs-blob-format.md
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
     - name: Unix metrics
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

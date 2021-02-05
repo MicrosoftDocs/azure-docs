@@ -75,7 +75,7 @@ You can access resource logs either as a blob in a storage account, as event dat
 
 Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Time Series Insights, see [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Time Series Insights, see [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md#resource-logs).
 
 Azure Time Series Insights stores data in the following tables.
 

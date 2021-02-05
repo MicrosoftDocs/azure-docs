@@ -21,7 +21,7 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and
 You can route log events to:
 
 * An Azure [storage account](../storage/blobs/storage-blobs-introduction.md).
-* A [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (to analyze data, create dashboards, and alert on specific events).
+* A [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (to analyze data, create dashboards, and alert on specific events).
 * An Azure [event hub](../event-hubs/event-hubs-about.md) (and integrate with your Splunk and Sumo Logic instances).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -140,9 +140,9 @@ After you've deployed the template and waited a few minutes for the resource pro
 
 Diagnostic settings define where logs and metrics for a resource should be sent. Possible destinations are:
 
-- [Azure storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- [Event hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) solutions
-- [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Azure storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- [Event hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) solutions
+- [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 In this example, we use the Log Analytics workspace to create a dashboard.
 

@@ -67,7 +67,7 @@ Data is sent to storage accounts as it reaches Azure Monitor and stored in hourl
 
 The storage account blob path is *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such a case would be PT1H_#.json, where # is the incremental blob count.
 
-The storage account data format is [JSON lines](./resource-logs-blob-format.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
+The storage account data format is [JSON lines](../essentials/resource-logs-blob-format.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 

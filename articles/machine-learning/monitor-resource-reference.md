@@ -112,7 +112,7 @@ The following table lists the operations related to Azure Machine Learning that 
 
 This section lists the types of resource logs you can collect for Azure Machine Learning workspace.
 
-Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Category | Display Name |
 | ----- | ----- |

@@ -43,7 +43,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | [Windows agents](./../agents/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../vm/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](./om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
-| [Azure storage account](./resource-logs.md#send-to-log-analytics-workspace) | No | The solution does not collection information from Azure storage. |
+| [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | The solution does not collection information from Azure storage. |
 
 ## Prerequisites
 
