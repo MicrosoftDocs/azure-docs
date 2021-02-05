@@ -36,7 +36,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What is the maximum CAD model size that can be processed for ingestion?**
 
-**A:** The model file size should be approximately less than 150 MB.
+**A:** The model file size should be less than 150 MB.
 
 **Q: What are the supported CAD formats?**
 
