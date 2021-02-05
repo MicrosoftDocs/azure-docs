@@ -27,10 +27,9 @@ Request is blocked. Please check your authorization token and Cosmos DB account 
 ```
 
 #### Solution:
-Verify that your current firewall settings are correct and include the IPs or networks you are trying to connect from. If you recently updated them, keep in mind that changes can take **up to 15 minutes to apply**.
+Verify that your current [firewall settings](how-to-configure-firewall.md) are correct and include the IPs or networks you are trying to connect from. If you recently updated them, keep in mind that changes can take **up to 15 minutes to apply**.
 
 ## Next steps
-* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
-* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
-* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.
-* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).
+* Configure [IP Firewall](how-to-configure-firewall.md).
+* Configure access from [virtual networks](how-to-configure-vnet-service-endpoint.md).
+* Configure access from [private endpoints](how-to-configure-private-endpoints.md).
