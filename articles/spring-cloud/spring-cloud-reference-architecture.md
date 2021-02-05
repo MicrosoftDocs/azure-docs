@@ -43,18 +43,18 @@ These use cases are similar except for their security and network traffic rules.
 
 ## Private applications
 
-The infrastructure requirements for a private application are in the following list:
+These requirements are typically seen in highly regulated environments. The infrastructure requirements for a private application are in the following list:
 
 * No direct egress to the public Internet except for control plane traffic
-* Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
-* Data at rest must be encrypted
-* Data in transit must be encrypted
-* Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
+* Egress traffic should travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
+* Data at rest should be encrypted
+* Data in transit should be encrypted
+* DevOps deployment pipelines can be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
 * Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault
-* Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
-* Name resolution of hosts on-premises and in the Cloud must be bidirectional
-* Adherence to at least one Security Benchmark must be enforced
-* Azure service dependencies must communicate through Service Endpoints or Private Link
+* Application host Domain Name Service (DNS) records should be stored in Azure Private DNS
+* Name resolution of hosts on-premises and in the Cloud should be bidirectional
+* Adherence to at least one Security Benchmark should be enforced
+* Azure service dependencies should communicate through Service Endpoints or Private Link
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified
 * Subnets managed by the Azure Spring Cloud deployment must not be modified
 * A subnet must only have one instance of Azure Spring Cloud
@@ -90,21 +90,21 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Public applications
 
-The infrastructure requirements for a public application are in the following list:
+These requirements are typically seen in highly regulated environments. The infrastructure requirements for a public application are in the following list:
 
-* Ingress traffic must be managed by at least Application Gateway or Azure Front Door
-* Azure DDoS Protection standard must be enabled
+* Ingress traffic should be managed by at least Application Gateway or Azure Front Door
+* Azure DDoS Protection standard should be enabled
 * No direct egress to the public Internet except for control plane traffic
-* Egress traffic must traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
-* Data at rest must be encrypted
-* Data in transit must be encrypted
-* Self-hosted build agents hosted on-premise or in Azure must be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
+* Egress traffic should traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
+* Data at rest should be encrypted
+* Data in transit should be encrypted
+* DevOps deployment pipelines can be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud
 * Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault
-* Application host DNS records must be stored in Azure Private DNS
-* Internet routable addresses must be stored in Azure Public DNS
-* Name resolution of hosts on-premises and in the Cloud must be bidirectional
-* Adherence to at least one Security Benchmark must be enforced
-* Azure service dependencies must communicate through Service Endpoints or Private Link
+* Application host DNS records should be stored in Azure Private DNS
+* Internet routable addresses should be stored in Azure Public DNS
+* Name resolution of hosts on-premises and in the Cloud should be bidirectional
+* Adherence to at least one Security Benchmark should be enforced
+* Azure service dependencies should communicate through Service Endpoints or Private Link
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified
 * Subnets managed by the Azure Spring Cloud deployment must not be modified
 * A subnet must only have one instance of Azure Spring Cloud
