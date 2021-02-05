@@ -235,7 +235,15 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
     ![Restart of the QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
     
+### Inactivity policy for free Search resources
+
+If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
+
+Free Search resources are deleted after 90 days without receiving an API call.
+    
 # [QnA Maker managed (preview release)](#tab/v2)
+
+### Upgrade the Azure Cognitive Search service
 
 If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
@@ -248,6 +256,12 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
 1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
+
+### Inactivity policy for free Search resources
+
+If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
+
+Free Search resources are deleted after 90 days without receiving an API call.
 
 ---
 
@@ -304,13 +318,6 @@ Complete the following steps in the [Azure portal](https://portal.azure.com):
 1. [Associate the App service to the new Cognitive Search resource](#configure-qna-maker-to-use-different-cognitive-search-resource) created in step 2. Then, you can delete the original Cognitive Search resource created in step 1.
 
 In the [QnA Maker portal](https://www.qnamaker.ai/), create your first knowledge base.
-
-
-### Inactivity policy for free Search resources
-
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
-
-Free Search resources are deleted after 90 days without receiving an API call.
 
 ### Get the latest runtime updates
 
@@ -391,11 +398,6 @@ If you create a QnA service managed (Preview) and its dependencies (such as Sear
 
 > [!NOTE]
 > If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
-### Inactivity policy for free Search resources
-
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
-
-Free Search resources are deleted after 90 days without receiving an API call.
 
 ---
 
