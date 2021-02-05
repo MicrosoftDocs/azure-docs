@@ -10,6 +10,12 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ---
 
 # Monitoring and diagnostics
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will be continued through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Monitoring and diagnostics for Service Fabric Mesh is categorized into three main types of diagnostics data:
 
 - Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (e.g. docker logs)
