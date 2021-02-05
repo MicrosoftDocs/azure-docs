@@ -233,7 +233,7 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 2. Protect App Service (QnA Runtime) from public access.
 
-   ### Add IPs to App Service allowlist
+   #### Add IPs to App Service allowlist
 
     * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
     * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
@@ -245,7 +245,7 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 
     We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App    Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
 
-    ### Configure App Service Environment to host QnA Maker App Service
+    #### Configure App Service Environment to host QnA Maker App Service
     The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
 
     1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
@@ -261,7 +261,8 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-1. Protect Cognitive Service Resource from public access by configuring the virtual network.
+1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+2. [Create Private endpoints](../reference-private-endpoint.md) 
 
 ---
 
