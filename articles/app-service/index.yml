@@ -152,13 +152,13 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: App Service Integration with Azure Monitor
+          - text: App Service Integration with Azure Monitor (preview)
             url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
-          - text: Log Types for Azure Monitor Integration
+          - text: Log Types for Azure Monitor Integration (preview)
             url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
       - linkListType: tutorial
         links:
-          - text: Troubleshoot errors with Azure Monitor
+          - text: Troubleshoot errors with Azure Monitor (preview)
             url: tutorial-troubleshoot-monitor.md
       - linkListType: how-to-guide
         links:
