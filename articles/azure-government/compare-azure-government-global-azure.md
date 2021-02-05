@@ -55,7 +55,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
 |**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/platform/data-collector-api.md)|
+|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
 |||\*.ods.opinsights.azure.com|\*.ods.opinsights.azure.us||
 |||\*.oms.opinsights.azure.com|\*.oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
@@ -290,7 +290,7 @@ The following Azure Monitor **features behave differently** in Azure Government:
         1. Unzip the file that you downloaded.
         1. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
         1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/agents/om-agents.md).
-- For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/platform/collect-sccm.md).
+- For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/logs/collect-sccm.md).
 
 **Frequently asked questions**
 - Can I migrate data from Azure Monitor logs in Microsoft Azure to Azure Government?

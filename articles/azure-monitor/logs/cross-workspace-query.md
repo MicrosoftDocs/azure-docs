@@ -29,7 +29,7 @@ There are two methods to query data that is stored in multiple workspace and app
 
 
 ## Querying across Log Analytics workspaces and from Application Insights
-To reference another workspace in your query, use the [*workspace*](../logs/workspace-expression.md) identifier, and for an app from Application Insights, use the [*app*](./app-expression.md) identifier.  
+To reference another workspace in your query, use the [*workspace*](../logs/workspace-expression.md) identifier, and for an app from Application Insights, use the [*app*](../log-query/app-expression.md) identifier.  
 
 ### Identifying workspace resources
 The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of logs from the Update table on a workspace named *contosoretail-it*. 
@@ -103,9 +103,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## Using cross-resource query for multiple resources
-When using cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Azure Monitor log queries](functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
+When using cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Azure Monitor log queries](../log-query/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
 
-Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](functions.md#create-a-function) with the alias _applicationsScoping_.
+Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](../log-query/functions.md#create-a-function) with the alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -119,7 +119,7 @@ app('Contoso-app5').requests
 
 
 
-You can now [use this function](./functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
+You can now [use this function](../log-query/functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
 
 ```Kusto
 applicationsScoping 
@@ -138,5 +138,5 @@ applicationsScoping
 
 ## Next steps
 
-- Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
+- Review [Analyze log data in Azure Monitor](../log-query/log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
 

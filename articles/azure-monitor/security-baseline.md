@@ -382,7 +382,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your Azure Key Vault and accessed by storage using system-assigned managed identity authentication. This customer-managed key (CMK) can be either software or hardware-HSM protected.
 
-- [Azure Monitor customer-managed keys](platform/customer-managed-keys.md)
+- [Azure Monitor customer-managed keys](logs/customer-managed-keys.md)
 
 - [Log Analytics data security](platform/data-security.md)
 

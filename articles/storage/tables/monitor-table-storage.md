@@ -524,7 +524,7 @@ You can access and read log data that's sent to your event hub by using security
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
 
-For more information, see [Stream Azure monitoring data to event hub and external partners](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+For more information, see [Stream Azure monitoring data to event hub and external partners](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 Data is stored in the **StorageTableLogs** table. 
 

@@ -301,9 +301,9 @@ From [client web pages](app/javascript.md):
 From other sources, if you configure them:
 
 * [Azure diagnostics](essentials/diagnostics-extension-to-application-insights.md)
-* [Import to Analytics](platform/data-collector-api.md)
-* [Log Analytics](platform/data-collector-api.md)
-* [Logstash](platform/data-collector-api.md)
+* [Import to Analytics](logs/data-collector-api.md)
+* [Log Analytics](logs/data-collector-api.md)
+* [Logstash](logs/data-collector-api.md)
 
 ### Can I filter out or modify some telemetry?
 

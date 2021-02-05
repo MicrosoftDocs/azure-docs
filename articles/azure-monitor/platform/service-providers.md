@@ -71,7 +71,7 @@ The third architecture mix between the two options. It is based on the first dis
 
 There are two options to implement logs in a central location:
 
-1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](./data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
+1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](../logs/data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between the Log Analytics workspace and [Power BI](./powerbi.md).
 

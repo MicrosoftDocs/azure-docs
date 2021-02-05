@@ -523,7 +523,7 @@ Logs sent to an event hub aren't stored as a file, but you can verify that the e
 
 ![Audit logs](media/monitor-blob-storage/event-hub-log.png)
 
-You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ### Accessing logs in a Log Analytics workspace
 

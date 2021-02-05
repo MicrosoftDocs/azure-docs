@@ -259,7 +259,7 @@ The purpose of an Event Hub is to aggregate the log data for the various sources
 |Resources|Link|
 |---|---|
 |Event Hubs Documentation|[https://docs.microsoft.com/azure/event-hubs](../event-hubs/index.yml)|
-|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)|
+|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)|
 |
 
 ### Log Analytics

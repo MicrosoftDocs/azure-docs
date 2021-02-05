@@ -14,10 +14,10 @@ Azure Monitor Logs Dedicated Clusters are a deployment option that enables advan
 
 The capabilities that require dedicated clusters are:
 
-- **[Customer-managed Keys](../platform/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
-- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
+- **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
-- **[Multi-workspace](../log-query/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
+- **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
 
@@ -27,7 +27,7 @@ Dedicated clusters are managed via an Azure resource that represents Azure Monit
 
 Once the cluster is created, it can be configured and workspaces linked to it. When a workspace is linked to a cluster, new data sent to the workspace resides on the cluster. Only workspaces that are in the same region as the cluster can be linked to the cluster. Workspaces can be unliked from a cluster with some limitations. More detail on these limitations is included in this article. 
 
-Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or [customer-managed key](../platform/customer-managed-keys.md), and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview) control.
+Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or [customer-managed key](../logs/customer-managed-keys.md), and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview) control.
 
 All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](../platform/manage-access.md). 
 
@@ -292,7 +292,7 @@ Authorization: Bearer <token>
 
 After you create your *Cluster* resource and it is fully provisioned, you can edit additional properties at the cluster level using PowerShell or REST API. Other than the properties that are available during cluster creation, additional properties can only be set after the cluster has been provisioned:
 
-- **keyVaultProperties** - Updates the key in Azure Key Vault. See [Update cluster with Key identifier details](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details). It contains the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
+- **keyVaultProperties** - Updates the key in Azure Key Vault. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). It contains the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
   - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
   - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
@@ -546,8 +546,8 @@ Use the following REST call to delete a cluster:
 
   Cluster Update
   -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
-  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../logs/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
   -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.

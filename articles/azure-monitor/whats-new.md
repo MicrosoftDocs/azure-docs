@@ -14,7 +14,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## December 2020
 
 ### General
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error messages.
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error messages.
 - [Partners who integrate with Azure Monitor](platform/partners.md) - Added section on Event Hub integration.
 
 ### Agents
@@ -227,7 +227,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Logs
 - [Audit queries in Azure Monitor log queries](log-query/query-audit.md) - New article.
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added customer lockbox.
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added customer lockbox.
 - [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - New article.
 - [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md) - Updated scale and ingestion volume rate limit section.
 - [Log query scope in Azure Monitor Log Analytics](log-query/scope.md) - Updates to include workspace-based applications.
@@ -343,8 +343,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Metric alerts from Azure Monitor for containers](insights/container-insights-metric-alerts.md) - New article.
 
 ### Logs
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
-- [Azure Monitor HTTP Data Collector API](platform/data-collector-api.md) - Added Python 3 sample.
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
+- [Azure Monitor HTTP Data Collector API](logs/data-collector-api.md) - Added Python 3 sample.
 - [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added section on avoiding multiple data scans when using subqueries.
 - [Tutorial: Get started with Log Analytics queries](./log-query/log-analytics-tutorial.md) - Added video.
 
@@ -373,7 +373,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 
 ### Visualizations
-- [Upgrading your Log Analytics Dashboard visualizations](log-query/dashboard-upgrade.md) - Updated refresh rate.
+- [Upgrading your Log Analytics Dashboard visualizations](logs/dashboard-upgrade.md) - Updated refresh rate.
 - [Visualizing data from Azure Monitor](visualizations.md) - Added video.
 
 
@@ -381,7 +381,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 ### General
 - [Deploy Azure Monitor](deploy-scale.md) - New article.
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Updated billingtype property. Added PowerShell commands.
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Updated billingtype property. Added PowerShell commands.
 
 ### Agents
 - [Log Analytics agent overview](agents/log-analytics-agent.md) - Added Python 2 requirement.
@@ -453,7 +453,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Visualizations
 - [Azure Monitor workbooks data sources](visualizations/workbooks-data-sources.md) - Added Alerts and Custom Endpoints section.
 - [Troubleshooting Azure Monitor workbook-based insights](insights/troubleshoot-workbooks.md) - New article.
-- [Upgrading your Log Analytics Dashboard visualizations](log-query/dashboard-upgrade.md) - New article.
+- [Upgrading your Log Analytics Dashboard visualizations](logs/dashboard-upgrade.md) - New article.
 
 
 
@@ -462,7 +462,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### General
 
 - [Azure Monitor FAQ](faq.md) - Added section for Metrics.
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Various changes in preparation for general availability.
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Various changes in preparation for general availability.
 - [Built-in policy definitions for Azure Monitor](./samples/policy-reference.md) - New article.
 - [Customer-owned storage accounts for log ingestion](platform/private-storage.md) - New article.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added cluster proportional billing.
@@ -500,7 +500,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md)
 - [app() expression in Azure Monitor log queries](log-query/app-expression.md)
 - [Log query scope in Azure Monitor Log Analytics](log-query/scope.md)
-- [Query across resources with Azure Monitor](log-query/cross-workspace-query.md)
+- [Query across resources with Azure Monitor](logs/cross-workspace-query.md)
 - [Standard properties in Azure Monitor log records](./platform/log-standard-columns.md)
 - [Structure of Azure Monitor Logs](./platform/data-platform-logs.md)
 
@@ -551,7 +551,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### General
 
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added section on asynchronous operations
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added section on asynchronous operations
 - [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Updated custom logs sections.
 
 ### Alerts
@@ -601,7 +601,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### General
 
 - [Azure Monitor overview](overview.md) - Added Azure Monitor overview video.
-- [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - General updates.
+- [Azure Monitor customer-managed key configuration](logs/customer-managed-keys.md) - General updates.
 - [Azure Monitor data reference](/azure/azure-monitor/reference/) - New site.
 
 ### Alerts
@@ -637,7 +637,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Metrics
 
 - [Disk metrics deprecation in the Azure portal](essentials/portal-disk-metrics-deprecation.md) - New article.
-- [Tutorial - Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - Added video.
+- [Tutorial - Create a metrics chart in Azure Monitor](essentials/tutorial-metrics-explorer.md) - Added video.
 
 ### Platform logs
 
@@ -742,7 +742,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Data security
 
-- [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - New article.
+- [Azure Monitor customer-managed key configuration](logs/customer-managed-keys.md) - New article.
 
 ### Insights and solutions
 
@@ -845,14 +845,14 @@ Multiple articles updated as part of restructure of content for platform logs ba
 - [Create diagnostic setting to collect logs and metrics in Azure](essentials/diagnostic-settings.md)
 - [Export the Azure Activity Log](./essentials/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](essentials/platform-logs-overview.md)
-- [Stream Azure monitoring data to event hub](platform/stream-monitoring-data-event-hubs.md)
+- [Stream Azure monitoring data to event hub](essentials/stream-monitoring-data-event-hubs.md)
 - [Stream Azure platform logs to an event hub](./essentials/resource-logs.md#send-to-azure-event-hubs)
 
 ### Quickstarts and tutorials
 
-- [Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - New article.
-- [Collect resource logs from an Azure Resource and analyze with Azure Monitor](learn/tutorial-resource-logs.md) - New article.
-- [Monitor an Azure resource with Azure Monitor](learn/quick-monitor-azure-resource.md) - New article.
+- [Create a metrics chart in Azure Monitor](essentials/tutorial-metrics-explorer.md) - New article.
+- [Collect resource logs from an Azure Resource and analyze with Azure Monitor](essentials/tutorial-resource-logs.md) - New article.
+- [Monitor an Azure resource with Azure Monitor](essentials/quick-monitor-azure-resource.md) - New article.
    
 ## Next steps
 

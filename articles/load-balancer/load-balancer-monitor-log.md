@@ -95,7 +95,7 @@ If you're exporting to storage, connect to your storage account and retrieve the
 > If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 ## Stream to an event hub
-When diagnostic information is streamed to an event hub, you can use it for centralized log analysis in a partner SIEM tool with Azure Monitor integration. For more information, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+When diagnostic information is streamed to an event hub, you can use it for centralized log analysis in a partner SIEM tool with Azure Monitor integration. For more information, see [Stream Azure monitoring data to an event hub](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## Send to Log Analytics
 You can send diagnostic information for resources in Azure directly to a Log Analytics workspace. In that workspace, you can run complex queries against the information for troubleshooting and analysis. For more information, see [Collect Azure resource logs in a Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).

@@ -393,7 +393,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -595,7 +595,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Not applicable
 

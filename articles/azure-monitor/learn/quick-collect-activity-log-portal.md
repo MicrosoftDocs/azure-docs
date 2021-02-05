@@ -73,4 +73,4 @@ In this quickstart, you configured the Activity log to be sent to a Log Analytic
 
 
 > [!div class="nextstepaction"]
-> [Collect and analyze resource logs with Azure Monitor](tutorial-resource-logs.md)
+> [Collect and analyze resource logs with Azure Monitor](../essentials/tutorial-resource-logs.md)
