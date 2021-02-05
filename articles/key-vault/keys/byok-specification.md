@@ -166,7 +166,7 @@ Request body when importing an EC key:
 {
   "key": {
     "kty": "EC-HSM",
-    "crv": "P-256"
+    "crv": "P-256",
     "key_ops": [
       "sign",
       "verify"
