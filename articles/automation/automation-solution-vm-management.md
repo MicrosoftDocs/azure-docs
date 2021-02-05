@@ -178,10 +178,6 @@ Azure CSP subscriptions support only the Azure Resource Manager model. Non-Azure
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## Enable the feature
-
-To begin using the feature, follow the steps in [Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).
-
 ## View the feature
 
 Use one of the following mechanisms to access the enabled feature:
