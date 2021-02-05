@@ -5,7 +5,7 @@
     - name: Building government solutions with Azure IoT Central
       href: overview-iot-central-government.md
 - name: Tutorials
-expanded: true
+- expanded: true
   items:
     - name: Create a connected waste management app
       href: tutorial-connected-waste-management.md
