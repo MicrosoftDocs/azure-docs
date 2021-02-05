@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # How to articles that use Azure services with Azure Data Lake Storage Gen2
 
-This article lists guides that show how to use Azure services with Data Lake Storage Gen2. The Data Lake Storage Gen2 content collection features only a few of these guides. In general, guides are hosted in the content collection for the service. You can use this article to find those guides. 
+This article contains links to articles that show you how to use Azure services with Data Lake Storage Gen2. The Data Lake Storage Gen2 content collection features only a few of these articles. In general, these articles are hosted in the content collection for the service. You can use the table below to find those articles. 
  
 ## List of tutorials and how to guides
 
