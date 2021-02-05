@@ -10,7 +10,7 @@ ms.date: 02/04/2021
 
 # Create SAS tokens in the Azure portal
 
-In this article, you'll learn how to create a shared access signature (SAS) token for your Document Translator blobs. An SAS token provides secure, delegated access to resources in your Azure storage account. The token is passed as a query string appended to your resource custom endpoint.
+In this article, you'll learn how to create a shared access signature (SAS) token for your blobs in the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
 
 > [!NOTE]
 > Creating SAS tokens for **containers** directly in the Azure portal is currently not supported. You can use [Azure Storage Explorer](create-sas-azure-storage-explorer.md?tabs=containers) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
@@ -35,11 +35,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. Select **Signing method** → **User delegation key**.
 
-1. **Permissions**:
-
-    * For your **Storage** blob, specify **Permissions** → **Read**.
-
-    * For your **Target** blob, specify  **Permissions** → **Write**.
+1. Define your container **Permissions** by checking and/or clearing the appropriate check box.
 
 1. Specify the signed key **Start** and **Expiry** times.
 
@@ -54,8 +50,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. Append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation.md#submit-a-document-translation-request-post) request body.  
 
-> [!TIP]
-> If you lose or misplace your Blob SAS token, create a new one and update your `sourceURL` and `targetURL` values in your Document Translator POST request with the new SAS query string.
+1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ## Learn more
 

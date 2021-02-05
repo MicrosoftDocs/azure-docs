@@ -10,18 +10,13 @@ ms.date: 02/04/2021
 
 # Create SAS tokens with Azure Storage Explorer
 
-In this article, you'll learn how to create a shared access signature (SAS) token for your Document Translator containers and specific blobs. An SAS token provides secure, delegated access to resources in your Azure storage account. The token is passed as a query string appended to your resource custom endpoint.
-
+In this article, you'll learn how to create a shared access signature (SAS) token containers and blobs using the Azure Storage Explorer. An SAS token provides secure, delegated access to resources in your Azure storage account. 
 ## Prerequisites
 
 * You'll need a [**Azure Storage Explorer**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) app installed in your Windows, macOS, or Linux development environment. Azure Storage Explorer is a free tool that enables you to easily manage your Azure cloud storage resources.
 * After the Azure Storage Explorer app is installed, [connect it the storage account](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation.
 
 ## [SAS tokens for containers](#tab/Containers)
-
->[!NOTE]
-> ✔  If you are translating multiple files (blobs) in a Document Translation operation, delegate SAS access at the **container** level.  
-> ✔ You'll create the SAS token for your source and target containers separately.
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand the Storage Accounts node and select **Blob Containers**.
@@ -31,14 +26,12 @@ In this article, you'll learn how to create a shared access signature (SAS) toke
     * Select your **Access policy** (the default is none).
     * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, an SAS can't be revoked.
     * Select the **Time zone** for the Start and Expiry date and time (default is Local).
-    * Permissions:
-       * For your **source** container, select **Read-only** permission.
-       * For your **target** container, select **Write-only** permission.
+    * Define your container **Permissions** by checking and/or clearing the appropriate check box.
     * Review and select **Create**.
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.  
 **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
-1. You will append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation.md#submit-a-document-translation-request-post) request body.  
+1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ## [SAS tokens for blobs](#tab/blobs)
 
@@ -55,13 +48,11 @@ In this article, you'll learn how to create a shared access signature (SAS) toke
     * Select your **Access policy** (the default is none).
     * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, an SAS can't be revoked.
     * Select the **Time zone** for the Start and Expiry date and time (default is Local).
-    * Permissions:
-       * For a **source** blob, select **Read-only** permission.
-       * For a **target** blob, select **Write-only** permission.
+    * Define your container **Permissions** by checking and/or clearing the appropriate check box.
     * Review and select **Create**.
 1. A new window will appear with the **Blob** name, **URI**, and **Query string** for your blob.  
 **Copy and paste the blob, URI, and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
-1. Append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation.md#submit-a-document-translation-request-post) request body.  
+1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ---
 

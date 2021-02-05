@@ -60,7 +60,7 @@ The `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) t
 * Your target container or target blob must have designated  **write** and **list** access.
 * Your glossary container or glossary blob must have designated  **read** and **list** access.
 
- *See* [Create SAS tokens with Azure Storage Explorer](#create-sas-azure-storage-explorer.md) and [Create SAS tokens in the Azure portal](create-sas-azure-portal.md).
+ *See* [Create SAS tokens with Azure Storage Explorer](create-sas-azure-storage-explorer.md) and [Create SAS tokens in the Azure portal](create-sas-azure-portal.md).
 
 > [!TIP]
 > If you are translating **multiple** documents (blobs) in an operation, **delegate SAS access at the  container level**.  
