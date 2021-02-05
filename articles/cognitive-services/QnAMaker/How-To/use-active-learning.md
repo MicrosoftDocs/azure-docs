@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ---
 
-# Active learning suggestions
+# Active learning
 
 The _Active learning suggestions_ feature allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
 
