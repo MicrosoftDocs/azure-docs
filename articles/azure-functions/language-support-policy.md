@@ -27,17 +27,18 @@ We will send notification emails to function apps that at least 1 year in advanc
 
 
 
-> [!NOTE]
+## Deprecation policy exceptions
+
 There are few exceptions to the deprecation policy outlined above. Here are list of languages that have reached or are approaching their EOL dates but still run on the platform until further notice. Note that when these languages reach their EOL dates, there will be no update or security patch. Therefore, developing and running your function apps with these languages are is highly discouraged.
->
->|Language Versions                        |EOL Date         |Expected Deprecation Date|
->|-----------------------------------------|-----------------|----------------|
->|Node 6|30 April 2019|TBA| 
->|Node 8|31 December 2021|TBA| 
->|Node 10|30 April 2021|TBA| 
->|PowerShell Core 6| 4 September 2020|TBA|
->|Python 3.6 |23 December 2021|TBA| 
->
+
+|Language Versions                        |EOL Date         |Expected Deprecation Date|
+|-----------------------------------------|-----------------|----------------|
+|Node 6|30 April 2019|TBA| 
+|Node 8|31 December 2021|TBA| 
+|Node 10|30 April 2021|TBA| 
+|PowerShell Core 6| 4 September 2020|TBA|
+|Python 3.6 |23 December 2021|TBA| 
+
 
 
 ## Next steps
