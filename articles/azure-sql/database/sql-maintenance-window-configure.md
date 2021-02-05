@@ -59,7 +59,7 @@ For this tutorial, an existing database is required. If you don't already have a
 Each region has its own set of available maintenance windows. Available options can be discovered using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
 
    ```powershell-interactive
-   $location = "eastus2euap"
+   $location = "eastus2"
 
    Write-Host "Available maintenance schedules in ${location}:"
    $configurations = Get-AzMaintenancePublicConfiguration
@@ -97,7 +97,7 @@ Once maintenance window is selected, new database can be created using [New-AzSq
 
 ## Create elastic pool with selected maintenance window
 
-The following example creates new elastic pool using [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
+The following example creates new elastic pool using the [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
 
 
    ```powershell-interactive
@@ -125,7 +125,7 @@ The following example creates new elastic pool using [New-AzSqlElasticPool](/pow
 
 ## Apply maintenance window to existing database
 
-Maintenance window can be applied to existing database using [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
+Maintenance window can be applied to existing database using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
 
    ```powershell-interactive
     # Select different maintenance window
