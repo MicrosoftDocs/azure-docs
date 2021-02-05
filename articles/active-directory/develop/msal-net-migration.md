@@ -143,7 +143,7 @@ MSAL.NET makes the token cache a sealed class, removing the ability to extend it
 
 In v1.0, if you use the `https://login.microsoftonline.com/common` authority, you will allow users to sign in with any AAD account (for any organization). See [Authority Validation in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). In MSAL.NET, if you want to restrict login to any AAD account (same behavior as with ADAL.NET), you need to use `https://login.microsoftonline.com/organizations`. For details, see the `authority` parameter in [public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). In MSAL.NET, if you want to restrict login to any AAD account (same behavior as with ADAL.NET), use `https://login.microsoftonline.com/organizations`. For details, see the `authority` parameter in [public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## v1.0 and v2.0 tokens
 
@@ -180,7 +180,7 @@ string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write
 
 #### Warning: Should you have one or two slashes in the scope corresponding to a v1.0 web API
 
-If you want to write the scope corresponding to the Azure Resource Manager API (https://management.core.windows.net/), you need to request the following scope (note the two slashes)
+If you want to write the scope corresponding to the Azure Resource Manager API (https://management.core.windows.net/), request the following scope (note the two slashes).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};

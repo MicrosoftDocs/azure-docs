@@ -179,7 +179,7 @@
     - name: Deploy AKS with Terraform
       href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
       maintainContext: true
-    - name: Azure Portal Kubernetes resource view
+    - name: Azure portal Kubernetes resource view
       href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
