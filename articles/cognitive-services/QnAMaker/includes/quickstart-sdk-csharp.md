@@ -146,10 +146,9 @@ In the application's `Main` method, add variables and code, shown in the followi
 # [QnA Maker GA (stable release)](#tab/version-1)
 
 > [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. 
 
-> [!NOTE]
-> We use subscription key and authoring key interchangably.
+We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker).
 
 - Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, and QNA_MAKER_RUNTIME_ENDPOINT to store these values.
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
@@ -161,10 +160,9 @@ In the application's `Main` method, add variables and code, shown in the followi
 # [QnA Maker managed (preview release)](#tab/version-2)
 
 > [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. 
 
-> [!NOTE]
-> We use subscription key and authoring key interchangably.
+We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker).
 
 - Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY and QNA_MAKER_ENDPOINT to store these values.
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
