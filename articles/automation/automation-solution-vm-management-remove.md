@@ -29,7 +29,7 @@ Deleting this feature only removes the associated runbooks, it doesn't delete th
 
 5. On the Solutions page, select **Start-Stop-VM[Workspace]**.
 
-6. On the VMManagementSolution[Workspace] page, select **Delete** from the menu.
+6. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
 
     ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
@@ -49,7 +49,7 @@ To delete your Automation account dedicated to Start/Stop VMs during off-hours, 
 
 5. On the Solutions page, select **Start-Stop-VM[Workspace]**.
 
-6. On the VMManagementSolution[Workspace] page, select **Delete** from the menu.
+6. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
@@ -79,7 +79,7 @@ To delete Start/Stop VMs during off-hours from your Automation account, perform 
 
 4. On the Solutions page, select **Start-Stop-VM[Workspace]**.
 
-5. On the VMManagementSolution[Workspace] page, select **Delete** from the menu.
+5. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
 
     ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
