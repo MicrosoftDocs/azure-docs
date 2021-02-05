@@ -72,8 +72,8 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 
 ## Next steps
 
-- Learn more about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- Learn how [remediation security works](https://docs.microsoft.com/azure/governance/policy/how-to/).remediate-resources#how-remediation-security-works
-- Learn more about [Azure Monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
+- Learn more about [Azure Policy](../../governance/policy/overview.md).
+- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)
+- Learn more about [Azure Monitor for Containers](../../insights/container-insights-overview.md)
 - Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
