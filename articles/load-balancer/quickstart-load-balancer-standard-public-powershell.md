@@ -59,6 +59,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicip
 
