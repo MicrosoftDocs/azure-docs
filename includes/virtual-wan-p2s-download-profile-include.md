@@ -15,5 +15,4 @@
 
    
    If for some reason a hub is unavailable, the built-in traffic management provided by the service ensures connectivity (via a different hub) to Azure resources for point-to-site users. You can always download a hub-specific VPN configuration by navigating to the hub. Under **User VPN (point to site)**, download the virtual hub **User VPN** profile.
-1. On the **Download virtual WAN user VPN profile** page, select the **Authentication type**, then select **Generate and download profile**. The profile package will generate and the profile zip file will download.
-1. Use the profile file to configure the VPN clients.
+1. On the **Download virtual WAN user VPN profile** page, select the **Authentication type**, then select **Generate and download profile**. The profile package will generate and a zip file containing the configuration settings will download.
