@@ -262,7 +262,7 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 # [QnA Maker managed (preview release)](#tab/v2)
 
 1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. [Create Private endpoints](../reference-private-endpoint.md) 
+2. [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
 
