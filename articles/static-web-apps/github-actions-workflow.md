@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
 ---
 
@@ -192,12 +192,13 @@ jobs:
 
 ## Monorepo support
 
-A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static site has it's own configuration file which lives side-by-side in the repository's *.git* folder.
+A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static site has it's own configuration file which lives side-by-side in the repository's *.github/workflows* folder.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
