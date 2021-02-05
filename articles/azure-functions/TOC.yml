@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Timer trigger
               href: functions-create-scheduled-function.md
-        - name: Add bindings
+        - name: Connect to services
           items:
-            - name: How to add a binding
+            - name: How to connect to services
+              displayName: bindings,integrate
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Add bindings
+        - name: Connect to services
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md

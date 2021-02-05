@@ -13,10 +13,17 @@ ms.date: 03/18/2020
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
-
 ## Upgrade runtime version to use active learning
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+In QnA Maker managed (Preview), since the runtime is hosted by the QnA Maker service itself, there is no need to upgrade the runtime manually.
+
+---
 
 ## Turn on active learning for alternate questions
 
