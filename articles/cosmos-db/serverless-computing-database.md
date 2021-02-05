@@ -3,12 +3,14 @@ title: Serverless database computing with Azure Cosmos DB and Azure Functions
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ---
 
 # Serverless database computing using Azure Cosmos DB and Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Serverless computing is all about the ability to focus on individual pieces of logic that are repeatable and stateless. These pieces require no infrastructure management and they consume resources only for the seconds, or milliseconds, they run for. At the core of the serverless computing movement are functions, which are made available in the Azure ecosystem by [Azure Functions](https://azure.microsoft.com/services/functions). To learn about other serverless execution environments in Azure see [serverless in Azure](https://azure.microsoft.com/solutions/serverless/) page. 
 
@@ -76,7 +78,7 @@ The following images show the code in the Azure portal for this scenario.
 
 ### Gaming use case - Azure Functions trigger and output binding for Cosmos DB 
 
-In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Gremlin API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB or SQL database]() for easy retrieval.
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Gremlin API](graph-introduction.md). You can then write the results to an Azure Cosmos DB or SQL database for easy retrieval.
 
 **Implementation:** Use an Azure Functions trigger and output binding for Cosmos DB
 

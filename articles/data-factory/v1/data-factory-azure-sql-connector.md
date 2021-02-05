@@ -67,7 +67,7 @@ An Azure SQL linked service links Azure SQL Database to your data factory. The f
 | connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Only basic authentication is supported. |Yes |
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
+> Configure [Azure SQL Database Firewall](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) the database server to [allow Azure Services to access the server](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
 
 ## Dataset properties
 To specify a dataset to represent input or output data in Azure SQL Database, you set the type property of the dataset to: **AzureSqlTable**. Set the **linkedServiceName** property of the dataset to the name of the Azure SQL linked service.

@@ -4,7 +4,7 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: v-erkel
 ms.custom: references_regions
 ---
@@ -59,6 +59,8 @@ The [customer-managed keys feature](customer-keys.md) is supported only in these
 * West Europe
 * US Gov Arizona
 * US Gov Virginia
+
+Azure HPC Cache resides in a single region. It can access data stored in other regions if you connect it to Blob containers located there. The cache does not permanently store customer data.
 
 ## Next steps
 

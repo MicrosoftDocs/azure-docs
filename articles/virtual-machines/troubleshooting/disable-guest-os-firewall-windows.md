@@ -85,7 +85,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
 
 #### Mitigation 4: Remote Registry 
 
-Follow these steps to use [Remote Registry](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Follow these steps to use [Remote Registry](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837).
 
 1.	On the troubleshooting VM, start registry editor, and then go to **File** > **Connect Network Registry**.
 

@@ -1,24 +1,17 @@
 ---
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
-ms.author: juliako 
+ms.author: ralfwi 
 ms.service: germany
-ms.date: 05/27/2020
-ms.topic: how-to
 ms.custom: bfmigrate
 ---
 
 # Migrate database resources to global Azure
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure database resources from Azure Germany to global Azure.
 
@@ -39,7 +32,7 @@ For more information:
 
 - Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
 - Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
-- Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
+- Review the [Azure SQL Database documentation](/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -112,13 +105,13 @@ This approach takes advantage of features that are available only in the Premium
 To export from the source instance and import to the destination instance:
 
 1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
-1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
+1. [Export data from the source cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
 
    > [!NOTE]
    > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
-1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
+1. [Import data to the destination cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 1. Reconfigure your application to use the target Azure Cache for Redis instance.
 
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
@@ -130,11 +123,11 @@ For this approach, you must modify your application. The application needs to wr
 
 For more information:
 
-- Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
+- Review the [overview of Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
 
 ## PostgreSQL and MySQL
 
-For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](../postgresql/index.yml) and [MySQL](../mysql/index.yml).
 
 ![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 

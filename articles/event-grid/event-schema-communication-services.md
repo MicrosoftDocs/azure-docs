@@ -19,7 +19,7 @@ This article provides the properties and schema for Azure Communication Services
 
 ### Available event types
 
-Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) to route event messages to subscribers. 
+Event grid uses [event subscriptions](./concepts.md#event-subscriptions) to route event messages to subscribers. 
 
 Azure Communication Services emits the following event types:
 
@@ -41,7 +41,7 @@ Azure Communication Services emits the following event types:
 
 ## Event subjects
 
-The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](https://docs.microsoft.com/azure/event-grid/event-filtering).
+The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](./event-filtering.md).
 
 | Subject Prefix                              | Communication Service Entity |
 | ------------------------------------------- | ---------------------------- |
@@ -341,6 +341,6 @@ This section contains an example of what that data would look like for each even
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* For an introduction to Azure Event Grid SystemTopics, see [System topics in Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* For an introduction to Azure Event Grid, see [What is Event Grid?](./overview.md)
+* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](./concepts.md)
+* For an introduction to Azure Event Grid SystemTopics, see [System topics in Azure Event Grid?](./system-topics.md)

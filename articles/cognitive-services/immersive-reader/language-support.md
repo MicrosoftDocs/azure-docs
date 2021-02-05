@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
-ms.author: metan
+ms.author: metang
 ---
 
 # Language support for Immersive Reader

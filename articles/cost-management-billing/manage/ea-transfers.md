@@ -6,8 +6,9 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ms.author: banders
+ms.custom: contperf-fy21q1
 ---
 
 # Azure Enterprise transfers
@@ -49,22 +50,22 @@ An enrollment transfer is considered when:
 - An enrollment is in expired/extended status and a new agreement is negotiated.
 - You have multiple enrollments and want to combine all the accounts and billing under a single enrollment.
 
-This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one.
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one, unless the enrollment qualifies for [Auto enrollment transfer](#auto-enrollment-transfer).
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents additional usage against the enrollment.
+- You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.
 - Any remaining Azure Prepayment balance in the agreement is lost, including future terms.
--    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
--    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
+-    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for use in the new enrollment.
+-    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment aren't transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
 
 ### Effective transfer date
 
 The effective transfer day can be on or after the start date of the target enrollment.
 
-The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
+The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
 
 ### Prerequisites
 
@@ -72,13 +73,24 @@ When you request an enrollment transfer, provide the following information:
 
 - For the source enrollment, the enrollment number.
 - For the target enrollment, the enrollment number to transfer to.
-- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't impact usage for any overage invoice already issued.
+- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't affect usage for any overage invoice already issued.
 
 Other points to keep in mind before an enrollment transfer:
 
 - Approval from both target and source enrollment EA Administrators is required.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
+
+### Auto enrollment transfer
+
+You might see that an enrollment has the **Transferred** state, even if you haven't submitted a support ticket to request an enrollment transfer. The **Transferred** state results from the auto enrollment transfer process. In order for the auto enrollment transfer process to occur during the renewal phrase, there are a few items that must be included in the new agreement:
+
+- Prior enrollment number (it must exist in EA portal)
+- Expiration date of the prior enrollment number is one day before the effective start date of the new agreement
+- The new agreement has an invoiced Azure Prepayment order that has a current date or it's backdated
+- The new enrollment is created in the EA portal
+
+If there's no missing usage data in the EA portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
 ### Azure Prepayment
 
@@ -88,21 +100,25 @@ Azure Prepayment isn't transferrable between enrollments. Azure Prepayment balan
 
 There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
 
-## Change account owner
+## Transfer an Enterprise subscription to a Pay-As-You-Go subscription
 
-The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change account owner](ea-portal-get-started.md#change-account-owner).
+To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the **Help and Support** area.
+
+## Change Azure subscription or account ownership
+
+The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## Subscription transfer effects
 
 When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
 
-To view users with Azure RBAC access to the subscription:
+To view users with RBAC access to the subscription:
 
 1. In the Azure portal, open **Subscriptions**.
 2. Select the subscription you want to view, and then select **Access control (IAM)**.
-3. Select **Role assignments**. The role assignments page lists all users who have Azure RBAC access to the subscription.
+3. Select **Role assignments**. The role assignments page lists all users who have RBAC access to the subscription.
 
-If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [Azure RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although Azure RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
+If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
 
 - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).

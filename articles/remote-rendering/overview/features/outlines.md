@@ -58,8 +58,8 @@ Outline rendering may have a significant impact on rendering performance. This i
 
 ## API documentation
 
-* [C# RemoteManager.OutlineSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
-* [C++ RemoteManager::OutlineSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
+* [C# RemoteManager.OutlineSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C++ RemoteManager::OutlineSettings()](/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## Next steps
 

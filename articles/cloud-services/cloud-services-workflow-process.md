@@ -1,21 +1,20 @@
 ---
 title: Workflow of Windows Azure VM Architecture | Microsoft Docs
 description: This article provides overview of the workflow processes when you deploy a service.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 04/08/2019
-ms.author: kwill
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-#    Workflow of Windows Azure classic VM Architecture 
+
+# Workflow of Windows Azure classic VM Architecture 
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
 
 > [!NOTE]
@@ -48,7 +47,7 @@ The following diagram presents the architecture of Azure resources.
 2. Monitoring all its child processes.
 3. Raising the StatusCheck event on the role host process.
 
-**F**. IISConfigurator runs if the role is configured as a Full IIS web role (it will not run for SDK 1.2 HWC roles). It is responsible for:
+**F**. IISConfigurator runs if the role is configured as a Full IIS web role. It is responsible for:
 
 1. Starting the standard IIS services
 2. Configuring the rewrite module in the web configuration

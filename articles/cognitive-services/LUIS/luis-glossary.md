@@ -45,12 +45,13 @@ The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
 ## Batch test
 
-Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](./luis-how-to-batch-test.md#batch-test-file).
+
 
 See also:
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [How-to](luis-how-to-batch-test.md) run a batch test
-* [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
+* [Tutorial](./luis-how-to-batch-test.md) - create and run a batch test
 
 ### F-measure
 
@@ -91,7 +92,7 @@ An [intent](#intent) is an example of a classifier.
 
 ## Collaborator
 
-A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with Azure role-based access control (Azure RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with RBAC.
+A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with Azure role-based access control (Azure RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with Azure RBAC.
 
 ## Contributor
 

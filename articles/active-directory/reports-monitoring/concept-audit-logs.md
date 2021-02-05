@@ -32,7 +32,7 @@ The reporting architecture consists of the following components:
 - **Activity** 
     - **Sign-ins** – The [sign-ins report](concept-sign-ins.md) provides information about the usage of managed applications and user sign-in activities.
     - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
-    - **Provisioning logs** - [Provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) allow customers to monitor activity by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. 
+    - **Provisioning logs** - [Provisioning logs](./concept-provisioning-logs.md) allow customers to monitor activity by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. 
 - **Security** 
     - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
     - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.

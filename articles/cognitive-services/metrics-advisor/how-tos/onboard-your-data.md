@@ -3,13 +3,13 @@ title: Onboard your data feed to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: How to get started with onboarding your data feeds to Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How-to: Onboard your metric data to Metrics Advisor

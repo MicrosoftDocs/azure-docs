@@ -1,7 +1,7 @@
 ---
 title: Parity between public and sovereign regions
 titleSuffix: Azure Machine Learning
-description: Some features of Azure Machine Learning, such as public preview features, may only be available in public cloud regions. This article lists what features are also available in the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: This article lists feature parity between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
 ---
 
@@ -88,7 +88,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
 | **Responsible ML** |   | | |
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
-| Differential privacy WhiteNoise toolkit                                    | OSS                  | NO                 | NO          |
+| Differential privacy SmartNoise toolkit                                    | OSS                  | NO                 | NO          |
 | custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
@@ -118,7 +118,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Root and SSH access to compute resources.                                          | YES | YES |  |
 | Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available |                                  
 | Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available|
-| Role-Based Access Control (RBAC) - Custom Role Creations                           | YES | YES |  |
+| Azure role-based access control (Azure RBAC) - Custom Role Creations                           | YES | YES |  |
 | Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	| ACR behind private endpoint and VNet not supported in Azure Government |
 | **General Machine Learning Service Usage** |  | | |
 | Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
@@ -201,7 +201,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
 | **Responsible ML** |    | | |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
-| Differential privacy WhiteNoise toolkit                                    | OSS              | NO        | N/A        |
+| Differential privacy SmartNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |
 | Fairness AzureML Integration                                               | Public Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |

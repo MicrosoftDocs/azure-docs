@@ -12,7 +12,7 @@ When creating an event subscription, you can customize the settings for event de
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry]().
+> To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Set dead-letter location
 

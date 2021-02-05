@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started in Jupyter Notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: Setup for Jupyter Notebook tutorials. Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
+description: Setup for Jupyter Notebook tutorials. Create  a workspace, clone  notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -29,7 +29,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+Skip to [Clone a notebook folder](#clone) if you already have an Azure Machine Learning workspace.  
+
+There are many [ways to create a workspace](how-to-manage-workspace.md).  In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -44,7 +46,7 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### Clone a notebook folder
+### <a name="clone"></a> Clone a notebook folder
 
 You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
@@ -73,7 +75,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
+1. Select the **img-classification-part1-training.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot that shows the Open tutorials folder.":::
 

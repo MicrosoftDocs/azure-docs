@@ -144,7 +144,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -163,7 +163,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -182,7 +182,7 @@ The volume of data you send can be managed using the following techniques:
 
 * **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](./sampling.md).
 
-* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting.
+* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](./javascript.md#enable-correlation).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](./configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 

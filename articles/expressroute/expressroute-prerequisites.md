@@ -31,14 +31,14 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 * **Routing**: depending on how you connect to the Microsoft Cloud, you or your provider needs to set up and manage the BGP sessions for [routing domains](expressroute-circuit-peerings.md). Some Ethernet connectivity providers or cloud exchange providers may offer BGP management as a value-add service.
 * **NAT**: Microsoft only accepts public IP addresses through Microsoft peering. If you are using private IP addresses in your on-premises network, you or your provider needs to translate the private IP addresses to the public IP addresses [using the NAT](expressroute-nat.md).
 * **QoS**: Skype for Business has various services (for example; voice, video, text) that require differentiated QoS treatment. You and your provider should follow the [QoS requirements](expressroute-qos.md).
-* **Network Security**: consider [network security](../best-practices-network-security.md) when connecting to the Microsoft Cloud via ExpressRoute.
+* **Network Security**: consider [network security](/azure/cloud-adoption-framework/reference/networking-vdc) when connecting to the Microsoft Cloud via ExpressRoute.
 
 ## Microsoft 365
 If you plan to enable Microsoft 365 on ExpressRoute, review the following documents for more information about Microsoft 365 requirements.
 
 * [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
-* [High availability and failover with ExpressRoute](https://aka.ms/erhighavailability)
+* [High availability and failover with ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 * [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)

@@ -75,7 +75,7 @@ Click the **Browse** button for **File or folder**, browse to one of these folde
 
 ![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
+As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
 
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -93,4 +93,3 @@ A one-time copy operation enables data movement from a source to a destination o
 
 ## Next steps
 For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
-

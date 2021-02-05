@@ -29,14 +29,19 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 
 Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
 
-The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs.
+The GRID drivers redistributed by Azure do not work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers will enable the graphics functionalities similar to NV-series.
+
+The NC-Series with Nvidia K80 GPUs do not support GRID/graphics applications.  
 
 Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
-For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 2004):
-- [GRID 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 10.1 (442.06)](https://download.microsoft.com/download/b/8/f/b8f5ecec-b8f9-47de-b007-ac40adc88dc8/442.06_grid_win10_64bit_international_whql.exe) (.exe) 
+For Windows Server 2019, Windows Server 2016 1607, 1709, and Windows 10(up to build 20H2):
+- [GRID 12.0 (461.09)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 11.3 (452.77)](https://download.microsoft.com/download/f/d/5/fd5ad39b-89cb-4990-ae85-a6fd30475584/452.77_grid_win10_server2016_server2019_64bit_azure_swl.exe) (.exe) 
 
 For Windows Server 2012 R2: 
-- [GRID 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
-- [GRID 10.1 (442.66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (.exe)  
+- [GRID 12.0 (461.09)](https://download.microsoft.com/download/c/5/e/c5e7df99-364d-45f5-bff7-c253d59121f1/461.09_grid_server2012R2_64bit_azure_swl.exe) (.exe)
+- [GRID 11.3 (452.77)](https://download.microsoft.com/download/5/4/3/54323644-3c84-4aa1-97ec-35491f94c866/452.77_grid_server2012R2_64bit_azure_swl.exe) (.exe) 
+
+
+For the complete list of all previous Nvidia GRID driver links please visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)

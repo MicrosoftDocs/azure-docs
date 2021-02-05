@@ -32,7 +32,7 @@ Before you begin this tutorial:
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-* Install [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (or later).
+* Install [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (or later).
 
 ## Connect to your Azure account
 
@@ -68,7 +68,7 @@ For this step, provide your own values for the following  parameters:
 
 * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate.
 * **Cluster SKU**: Specify the [type of Service Fabric managed cluster](overview-managed-cluster.md#service-fabric-managed-cluster-skus) to deploy. *Basic* SKU clusters are meant for test deployments only, and do not allow for node type addition or removal.
 
 ```powershell

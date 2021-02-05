@@ -5,10 +5,10 @@ services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 09/24/2020
+ms.date: 11/06/2020
 ms.author: derekol
 ---
 
@@ -25,18 +25,22 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
-| [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |United States|
+| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europe |
+| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, North America |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
-| [Liquid Telecom](https://liquidcloud.africa/365-direct) | Africa  |
+| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
+| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
+| [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
+| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
+| [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.

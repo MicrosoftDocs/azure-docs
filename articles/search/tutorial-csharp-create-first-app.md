@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -65,7 +65,7 @@ Because you are using a public sample search index hosted by Microsoft, you don'
 
 If you want to jump ahead to a working app, follow the steps below to download and run the finished code.
 
-1. Locate the sample on GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples/v11).
+1. Locate the sample on GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11).
 
 1. At the [root folder](https://github.com/Azure-Samples/azure-search-dotnet-samples), select **Code**, followed by **Clone** or **Download ZIP** to make your private local copy of the project.
 

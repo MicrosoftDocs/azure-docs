@@ -9,7 +9,7 @@ ms.date: 07/22/2020
 
 ---
 
-# What is Azure Monitor for VMs?
+# Overview of Azure Monitor for VMs
 
 Azure Monitor for VMs monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
@@ -22,8 +22,6 @@ Azure Monitor for VMs supports Windows and Linux operating systems on the follow
 - Virtual machines hosted in another cloud environment
   
 
-
-
 Azure Monitor for VMs stores its data in Azure Monitor Logs, which allows it to deliver powerful aggregation and filtering and to analyze data trends over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
 
 ![Virtual machine insights perspective in the Azure portal](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -33,6 +31,7 @@ Azure Monitor for VMs stores its data in Azure Monitor Logs, which allows it to 
 There's no direct cost for Azure Monitor for VMs, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
 
 - Data ingested from agents and stored in the workspace.
+- Health state data collected from guest health (preview)
 - Alert rules based on log and health data.
 - Notifications sent from alert rules.
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create container images for a mu
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Create container images on a Linux Service Fabric cluster
 

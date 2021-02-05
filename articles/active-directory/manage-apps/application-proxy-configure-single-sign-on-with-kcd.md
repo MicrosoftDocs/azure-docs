@@ -1,24 +1,20 @@
 ---
-title: Single sign-on with Application Proxy | Microsoft Docs
-description: Covers how to provide single sign-on using Azure AD Application Proxy.
+title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Application Proxy
+description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
+ms.custom: contperf-fy21q2
 ---
 
-# Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy
+# Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy
 
 You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
 
@@ -41,9 +37,9 @@ This diagram explains the flow when a user attempts to access an on premises app
 ## Prerequisites
 Before you get started with single sign-on for IWA applications, make sure your environment is ready with the following settings and configurations:
 
-* Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information, see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information, see [Enable Support for Kerberos Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * All your apps have [Service Principal Names](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+* The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * The server running the Connector has access to read the TokenGroupsGlobalAndUniversal attribute for users. This default setting might have been impacted by security hardening the environment.
 
 ### Configure Active Directory
@@ -60,7 +56,7 @@ The Active Directory configuration varies, depending on whether your Application
    ![Connector-SVR Properties window screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### Connector and application server in different domains
-1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
+1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 2. Use the `principalsallowedtodelegateto` property of the service account (computer or dedicated domain user account) of the web application to enable Kerberos authentication delegation from the Application Proxy (connector). The application server is running in the context of `webserviceaccount` and the delegating server is `connectorcomputeraccount`. Run the commands below on a Domain Controller (running Windows Server 2012 R2 or later) in the domain of `webserviceaccount`. Use flat names (non UPN) for both accounts.
 
    If the `webserviceaccount` is a computer account, use these commands:
@@ -152,4 +148,3 @@ But, in some cases, the request is successfully sent to the backend application 
 
 * [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
-

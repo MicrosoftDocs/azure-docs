@@ -11,7 +11,7 @@ One of the most important steps you can take to protect your data is to have a r
 
 ## Management and control of identity and user access
 
-Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
+Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). Azure RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
 Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to control backup management operations:
 
@@ -19,9 +19,9 @@ Azure Backup provides three [built-in roles](../role-based-access-control/built-
 * Backup Operator - everything a contributor does except removing backup and managing backup policies
 * Backup Reader - permissions to view all backup management operations
 
-Learn more about [Role-Based Access control to manage Azure Backup](./backup-rbac-rs-vault.md).
+Learn more about [Azure role-based access control to manage Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./backup-security-controls.md).
+Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./security-baseline.md).
 
 ## Separation between guest and Azure storage
 

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Terminate notification for Azure virtual machine scale set instances

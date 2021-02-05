@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 12/18/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -42,24 +42,14 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md) that has four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:
 
   * Logic Apps Compute
   * Internal App Service Environment (connectors)
   * Internal API Management (connectors)
   * Internal Redis for caching and performance
   
-  You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > Don't use the following IP address spaces for your virtual network or subnets because they aren't resolvable by Azure Logic Apps:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  You can create the subnets in advance or when you create your ISE so that you can create the subnets at the same time. However, before you create your subnets, make sure that you review the [subnet requirements](#create-subnet).
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
 
@@ -69,7 +59,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
     
-    This specific route table is required so that Logic Apps components can communicate with other dependent Azure Services, such as Azure Storage and Azure SQL DB. For more information about this route, see [0.0.0.0/0 address prefix](../virtual-network/virtual-networks-udr-overview.md#default-route). If you don't use forced tunneling with ExpressRoute, you don't need this specific route table.
+    This specific route table is required so that Logic Apps components can communicate with other dependent Azure services, such as Azure Storage and Azure SQL DB. For more information about this route, see [0.0.0.0/0 address prefix](../virtual-network/virtual-networks-udr-overview.md#default-route). If you don't use forced tunneling with ExpressRoute, you don't need this specific route table.
     
     ExpressRoute lets you extend your on-premises networks into Microsoft cloud and connect to Microsoft cloud services over a private connection that's facilitated by the connectivity provider. Specifically, ExpressRoute is a virtual private network that routes traffic over a private network, rather than through the public internet. Your logic apps can connect to on-premises resources that are in the same virtual network when they connect through ExpressRoute or a virtual private network.
    
@@ -96,11 +86,11 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
    > the firewall or virtual network appliance make sense for your scenario. Learn more about 
    > [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-* If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
+* If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* For an existing virtual network, you can *optionally* set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) to [filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) for those NSGs.
+* For an existing virtual network, you can *optionally* set up [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md#network-security-groups) to [filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) for those NSGs.
 
-  When you set up [NSG security rules](../virtual-network/security-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols, or you can select **Any** instead so you don't have to create separate rules for each protocol. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
+  When you set up [NSG security rules](../virtual-network/network-security-groups-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols, or you can select **Any** instead so you don't have to create separate rules for each protocol. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
 
 * If you set up forced tunneling through your firewall to redirect Internet-bound traffic, review the [additional forced tunneling requirements](#forced-tunneling).
 
@@ -157,21 +147,29 @@ In addition, you need to add outbound rules for [App Service Environment (ASE)](
 
 If you set up or use [forced tunneling](../firewall/forced-tunneling.md) through your firewall, you have to permit additional external dependencies for your ISE. Forced tunneling lets you redirect Internet-bound traffic to a designated next hop, such as your virtual private network (VPN) or to a virtual appliance, rather than to the Internet so that you can inspect and audit outbound network traffic.
 
-Usually, all ISE outbound dependency traffic travels through the virtual IP address (VIP) that is provisioned with your ISE. However, if you change the traffic routing either to or from your ISE, you need to permit the following outbound dependencies on your firewall by setting their next hop to `Internet`. If you use Azure Firewall, follow the [instructions to set up your firewall with your App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working.
 
-If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working:
+* User defined routes
 
-* [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+  To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
+  
+  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+  * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Azure API Management addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Service endpoints
 
-* [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  You need to enable service endpoints for Azure SQL, Storage, Service Bus, KeyVault, and Event Hubs because you can't send traffic through a firewall to these services.
 
-* [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Other inbound and outbound dependencies
 
-* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
-
-* You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
+   Your firewall *must* allow the following inbound and outbound dependencies:
+   
+   * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
+   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
@@ -197,7 +195,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
-   | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: You can select the access endpoint only during ISE creation and can't change this option later. |
+   | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>For example, if you want to use the following webhook-based triggers, make sure that you select **External**: <p><p>- Azure DevOps <br>- Azure Event Grid <br>- Common Data Service <br>- Office 365 <br>- SAP (ISE version) <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: You can select the access endpoint only during ISE creation and can't change this option later. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p><p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. <p>**Important**: Make sure that you [review the subnet requirements before continuing with these steps to create your subnets](#create-subnet). |
    |||||
@@ -206,13 +204,13 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
    **Create subnets**
 
-   Your ISE needs four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You *can't* change these subnet addresses after you create your environment. If you create and deploy your ISE through the Azure portal, make sure that you don't delegate these subnets to any Azure services. However, if you create and deploy your ISE through the REST API, Azure PowerShell, or an Azure Resource Manager template, you need to [delegate](../virtual-network/manage-subnet-delegation.md) one empty subnet to `Microsoft.integrationServiceEnvironment`. For more information, see [Add a subnet delegation](../virtual-network/manage-subnet-delegation.md).
+   Your ISE requires four *empty* subnets, which are needed to create and deploy resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You *can't* change these subnet addresses after you create your environment. If you create and deploy your ISE through the Azure portal, make sure that you don't delegate these subnets to any Azure services. However, if you create and deploy your ISE through the REST API, Azure PowerShell, or an Azure Resource Manager template, you need to [delegate](../virtual-network/manage-subnet-delegation.md) one empty subnet to `Microsoft.integrationServiceEnvironment`. For more information, see [Add a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
    Each subnet needs to meet these requirements:
 
    * Uses a name that starts with either an alphabetic character or an underscore (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
-   * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
+   * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >
@@ -283,30 +281,41 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. To view your environment, select **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
+1. For an ISE that has *external* endpoint access, you need to create a network security group, if you don't have one already, and add an inbound security rule to allow traffic from managed connector outbound IP addresses. To set up this rule, follow these steps:
+
+   1. On your ISE menu, under **Settings**, select **Properties**.
+
+   1. Under **Connector outgoing IP addresses**, copy the public IP address ranges, which also appear in this article, [Limits and configuration - Outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+   1. Create a network security group, if you don't have one already.
+   
+   1. Based on the following information, add an inbound security rule for the public outbound IP addresses that you copied. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+
+      | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | Permit traffic from connector outbound IP addresses | <*connector-public-outbound-IP-addresses*> | * | Address space for the virtual network with ISE subnets | * | |
+      |||||||
+
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
+
+   > [!CAUTION]
+   > If your ISE's network becomes unhealthy, the internal App Service Environment (ASE) that's used by your ISE can also become unhealthy. 
+   > If the ASE is unhealthy for more than seven days, the ASE is suspended. To resolve this state, check your virtual network setup. 
+   > Resolve any problems that you find, and then restart your ISE. Otherwise, after 90 days, the suspended ASE is deleted, and your 
+   > ISE becomes unusable. So, make sure that you keep your ISE healthy to permit the necessary traffic.
+   > 
+   > For more information, see these topics:
+   >
+   > * [Azure App Service diagnostics overview](../app-service/overview-diagnostics.md)
+   > * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
 
 1. To start creating logic apps and other artifacts in your ISE, see [Add resources to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
    > [!IMPORTANT]
-   > Managed ISE connectors that become available after you create your ISE don't automatically appear in the 
-   > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
-   > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
+   > After you create your ISE, managed ISE connectors become available for you to use, but they don't automatically appear 
+   > in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
+   > [add and deploy these connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
    > so that they appear in the Logic App Designer.
-
-   > [!IMPORTANT]
-   > Managed ISE connectors currently do not support [tags](../azure-resource-manager/management/tag-support.md). If you set up a policy that enforces tagging, trying to add ISE connectors  
-   > might fail with an error similar to this example: 
-   > 
-   > ```json
-   > {
-   >    "error": { 
-   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
-   >       "message": "The tags are not supported in the managed API 'azureblob'."
-   >    }
-   > }
-   > ```
-   > To add ISE connectors, you have to either disable or remove your policy.
-   > 
 
 ## Next steps
 

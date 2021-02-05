@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
+ms.custom: references_regions
 ---
 
 
 
 # Create a voice assistant using Custom Commands
 
-In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app. **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
+In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
 At this time, Custom Commands supports speech subscriptions created in these regions:
@@ -24,12 +25,12 @@ At this time, Custom Commands supports speech subscriptions created in these reg
 * West US2
 * East US
 * East US2
+* West Central US
 * North Europe
 * West Europe
-* West Central US
-* Central India
 * East Asia
 * Southeast Asia
+* Central India
 
 ## Prerequisites
 
@@ -121,7 +122,7 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 1. Launch **VoiceAssistantClient.exe**.
 1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key** (this is same as the **Speech resource key** value you saved when publishing the application), **Subscription key region** and **Custom commands app ID**.
     > [!div class="mx-imgBorder"]
-    > ![WVAC Create profile](media/custom-commands/create-profile.png)
+    > ![Screenshot that highlights the General Settings section for creating a WVAC profile.](media/custom-commands/create-profile.png)
 1. Select **Save and Apply Profile**.
 1. Now try out the following inputs via speech/text
     > [!div class="mx-imgBorder"]
@@ -133,4 +134,4 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 ## Next steps
 
-In this article, you used an existing application. Next, in the [how-to sections](how-to-custom-commands-create-application-with-simple-commands.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

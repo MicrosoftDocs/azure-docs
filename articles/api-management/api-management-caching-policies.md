@@ -12,11 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
 ---
 # API Management caching policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+> [!IMPORTANT]
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
 
 ## <a name="CachingPolicies"></a> Caching policies
 
@@ -278,7 +281,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
 
-### <a name="RemoveCacheByKey"></a> Remove value from cache
+## <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 #### Policy statement
@@ -323,4 +326,4 @@ For more information working with policies, see:
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](./policy-reference.md)

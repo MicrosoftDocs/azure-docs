@@ -40,13 +40,13 @@ In previous tutorials, the following variables were set.
 
 ```bash
 CLUSTER=yourclustername
-RESOURCE_GROUP=yourresourcegroup
+RESOURCEGROUP=yourresourcegroup
 ```
 
 Using these values, delete your cluster:
 
 ```bash
-az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 You'll then be prompted to confirm if you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire resource group and all resources inside it—including the cluster—will be deleted.
@@ -57,4 +57,4 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShift 4 cluster
 
-Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://www.openshift.com/try)
+Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.6/welcome/index.html)

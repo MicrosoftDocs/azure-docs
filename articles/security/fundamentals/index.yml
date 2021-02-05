@@ -13,7 +13,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 10/28/2019
+  ms.date: 02/03/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -52,12 +52,12 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Security Center
-            url: ../../security-center/security-center-intro.md
+            url: ../../security-center/security-center-introduction.md
       - linkListType: concept
         links:
           - text: Management and monitoring
             url: management-monitoring-overview.md
-          - text: Advanced threat detection
+          - text: Threat protection
             url: threat-detection.md
 
   # Card
@@ -88,7 +88,7 @@ landingContent:
           - text: Encryption at rest
             url: encryption-atrest.md
           - text: Data protection
-            url: database-security-overview.md
+            url: ../../azure-sql/database/security-overview.md
           - text: Network security
             url: network-overview.md
           - text: Virtual machines security
@@ -98,7 +98,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Secure your cloud applications
-            url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+            url: /learn/paths/secure-your-cloud-apps/
 
   # Card
   - title: Build your security skills
@@ -106,10 +106,10 @@ landingContent:
       - linkListType: learn
         links:
           - text: Implement network security
-            url: https://docs.microsoft.com/learn/paths/implement-network-security
+            url: /learn/paths/implement-network-security
           - text: Manage identity and access
-            url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+            url: /learn/paths/manage-identity-and-access
           - text: Implement resource management security
-            url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+            url: /learn/paths/implement-resource-mgmt-security
           - text: Implement virtual machine host security
             url: https://docs.microsoft.com/learn/paths/implement-host-security

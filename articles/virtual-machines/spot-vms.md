@@ -95,21 +95,26 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Q:** How is quota managed for Spot VMs?
 
-**A:** Spot VMs will have a separate quota pool. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Spot VMs will have a separate quota pool. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q:** Where can I post questions?
 
-**A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
+
+
+**Q:** How can I change the max price for a spot VM?
+
+**A:** Before you can change the max price, you need to deallocate the VM. Then you can change the max price in the portal, from the **Configuration** section for the VM. 
 
 ## Next steps
 Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../virtual-machine-scale-sets/use-spot.md).
 
-If you encounter an error, see [Error codes](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter an error, see [Error codes](./error-codes-spot.md).

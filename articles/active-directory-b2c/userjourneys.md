@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -39,7 +39,38 @@ The **UserJourney** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfiles | 0:1 | List of authorization technical profiles. | 
 | OrchestrationSteps | 1:n | An orchestration sequence that must be followed through for a successful transaction. Every user journey consists of an ordered list of orchestration steps that are executed in sequence. If any step fails, the transaction fails. |
+
+## AuthorizationTechnicalProfiles
+
+Suppose a user has completed a UserJourney and obtained an access or an ID token. To manage additional resources, such the [UserInfo endpoint](userinfo-endpoint.md), the user must be identified. To begin this process, the user must present the access token issued earlier as proof that they were originally authenticated by a valid Azure AD B2C policy. A valid token for the user must always be present during this process to ensure the user is allowed to make this request. The authorization technical profiles validate the incoming token and extract claims from the token.
+
+The **AuthorizationTechnicalProfiles** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfile | 0:1 | List of authorization technical profiles. | 
+
+The **AuthorizationTechnicalProfile** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| TechnicalProfileReferenceId | Yes | The identifier of the technical profile that is to be executed. |
+
+The following example shows a user journey element with authorization technical profiles:
+
+```xml
+<UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
+  <Authorization>
+    <AuthorizationTechnicalProfiles>
+      <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
+    </AuthorizationTechnicalProfiles>
+  </Authorization>
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsExchange">
+     ...
+```
 
 ## OrchestrationSteps
 
@@ -60,7 +91,7 @@ The **OrchestrationStep** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Order` | Yes | The order of the orchestration steps. |
-| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a sub journey (in public preview).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
+| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a [sub journey](subjourneys.md) (in public preview).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
 | ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples - if the type of the orchestration step is one of following: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`, Azure AD B2C needs to display the identity provider selection without having a technical profile. |
 | CpimIssuerTechnicalProfileReferenceId | No | The type of the orchestration step is `SendClaims`. This property defines the technical profile identifier of the claims provider that issues the token for the relying party.  If absent, no relying party token is created. |
 
@@ -139,17 +170,17 @@ Preconditions can check multiple preconditions. The following example checks whe
 ```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
-  <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-	  <Value>objectId</Value>
-	  <Action>SkipThisOrchestrationStep</Action>
-	</Precondition>
-	<Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-	  <Value>email</Value>
-	  <Action>SkipThisOrchestrationStep</Action>
-	</Precondition>
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+      <Value>objectId</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+      <Value>email</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
   </Preconditions>
   <ClaimsExchanges>
-	<ClaimsExchange Id="SelfAsserted-SocialEmail" TechnicalProfileReferenceId="SelfAsserted-SocialEmail" />
+    <ClaimsExchange Id="SelfAsserted-SocialEmail" TechnicalProfileReferenceId="SelfAsserted-SocialEmail" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -183,17 +214,17 @@ In the following orchestration step, the user can choose to sign in with Faceboo
 
 ```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
-    <ClaimsProviderSelections>
+  <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
     <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-    </ClaimsProviderSelections>
-    <ClaimsExchanges>
-    <ClaimsExchange Id="LocalAccountSigninEmailExchange"
-                    TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-    </ClaimsExchanges>
+  </ClaimsProviderSelections>
+  <ClaimsExchanges>
+  <ClaimsExchange Id="LocalAccountSigninEmailExchange"
+        TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 
 
@@ -207,7 +238,7 @@ In the following orchestration step, the user can choose to sign in with Faceboo
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-	<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>
@@ -243,4 +274,4 @@ The **Candidate** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Yes | The identifier of the sub journey that is to be executed. |
+| SubJourneyReferenceId | Yes | The identifier of the [sub journey](subjourneys.md) that is to be executed. |

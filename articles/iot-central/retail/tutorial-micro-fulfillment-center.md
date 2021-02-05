@@ -42,7 +42,7 @@ To create a new micro-fulfillment center application that uses preview features:
 
 1. If you have an Azure subscription, enter your directory, Azure subscription, and region. If you don't have a subscription, you can enable 7-day free trial, and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [Create an application](../preview/quick-deploy-iot-central.md) quickstart.
+    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md) quickstart.
 
 1. Select **Create**.
 
@@ -91,4 +91,4 @@ Learn more about
 > [!div class="nextstepaction"]
 > [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
 * Learn more about the [Azure IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about [Azure IoT Central](../preview/overview-iot-central.md)
+* Learn more about [Azure IoT Central](../core/overview-iot-central.md)

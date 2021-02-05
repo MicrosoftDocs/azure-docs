@@ -3,6 +3,7 @@ title: Create Azure Cosmos containers with large partition key
 description: Learn how to create a container in Azure Cosmos DB with large partition key using Azure portal and different SDKs. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
@@ -10,6 +11,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Create containers with large partition key
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB uses hash-based partitioning scheme to achieve horizontal scaling of data. All Azure Cosmos containers created before May 3 2019 use a hash function that computes hash based on the first 100 bytes of the partition key. If there are multiple partition keys that have the same first 100 bytes, then those logical partitions are considered as the same logical partition by the service. This can lead to issues like partition size quota being incorrect, and unique indexes being applied across the partition keys. Large partition keys are introduced to solve this issue. Azure Cosmos DB now supports large partition keys with values up to 2 KB.
 
@@ -78,4 +80,4 @@ Currently, you cannot use containers with large partition key within in Power BI
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](account-overview.md)
+* [Work with Azure Cosmos account](./account-databases-containers-items.md)

@@ -54,6 +54,7 @@ The MARS agent needs access to these URLs:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+- `www.msftconnecttest.com`
 
 And to these IP addresses:
 
@@ -62,14 +63,14 @@ And to these IP addresses:
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
-When backing up files and folders from Azure VMs using the MARS Agent, the Azure virtual network also needs to be configured to allow access. If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
+When backing up files and folders from Azure VMs using the MARS Agent, the Azure virtual network also needs to be configured to allow access. If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 2. Select **Outbound security rules** under **Settings**.
-3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
+3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
 4. Select **Add** to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
 ### Azure ExpressRoute support
 
@@ -77,11 +78,16 @@ You can back up your data over Azure ExpressRoute with public peering (available
 
 With public peering: Ensure access to the following domains/addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 With Microsoft peering, select the following services/regions and relevant community values:
 
@@ -163,6 +169,17 @@ Windows Server 2008 R2 SP1 |1,700 GB
 Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
+
+### Minimum retention limits
+
+The following are the minimum retention durations that can be set for the different recovery points:
+
+|Recovery point |Duration  |
+|---------|---------|
+|Daily recovery point    |   7 days      |
+|Weekly recovery point     |    4 weeks     |
+|Monthly recovery point    |   3 months      |
+|Yearly recovery point  |      1 year   |
 
 ### Other limitations
 

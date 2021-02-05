@@ -55,7 +55,7 @@ DPM/MABS can be deployed as summarized in the following table.
 
 **Deployment** | **Support** | **Details**
 --- | --- | ---
-**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | If DPM/MABS is installed as a VMware VM, it only backs up VMware VMs and workloads that are running on those VMs.
+**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | Refer to the [protection matrix](backup-mabs-protection-matrix.md) for more details. 
 **Deployed as an Azure Stack VM** | MABS only | DPM can't be used to back up Azure Stack VMs.
 **Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | DPM/MABS running in Azure can't back up on-premises machines.
 
@@ -106,13 +106,18 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 ### URL access
 
-The DPM server/MABS needs access to these URLs:
+The DPM server/MABS server needs access to these URLs and IP addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### Azure ExpressRoute support
 
@@ -120,11 +125,16 @@ You can back up your data over Azure ExpressRoute with public peering (available
 
 With public peering: Ensure access to the following domains/addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 With Microsoft peering, select the following services/regions and relevant community values:
 

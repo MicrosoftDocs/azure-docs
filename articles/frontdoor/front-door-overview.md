@@ -28,11 +28,11 @@ Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
 > * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/application-gateway-introduction.md)
+> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md)
 > * To do network layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Front Door?
 

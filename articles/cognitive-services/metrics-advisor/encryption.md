@@ -2,13 +2,13 @@
 title: Metrics Advisor service encryption
 titleSuffix: Azure Cognitive Services
 description: Metrics Advisor service encryption of data at rest.
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
+ms.author: mbullwin
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.
 ---
 
@@ -28,4 +28,4 @@ The Metrics Advisor service automatically encrypts your data when persisted it t
 ## Next steps
 
 * [Metrics Advisor Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

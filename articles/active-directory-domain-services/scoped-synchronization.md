@@ -2,7 +2,7 @@
 title: Scoped synchronization for Azure AD Domain Services | Microsoft Docs
 description: Learn how to use the Azure portal to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
-ms.author: iainfou 
+ms.date: 01/20/2021
+ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -39,15 +39,14 @@ To complete this article, you need the following resources and privileges:
 
 By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few users need to access the managed domain, you can synchronize only those user accounts. This scoped synchronization is group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain. Nested groups aren't synchronized, only the specific groups you select.
 
-You can change the synchronization scope when you create the managed domain, or once it's deployed. You can also now change the scope of synchronization on an existing managed domain without needing to recreate it.
+You can change the synchronization scope before or after you create the managed domain. The scope of synchronization is defined by a service principal with the application identifier 2565bd9d-da50-47d4-8b85-4c97f669dc36. To prevent scope loss, don't delete or change the service principal. If it is accidentally deleted, the synchronization scope can't be recovered. 
+
+Keep in mind the following caveats if you change the synchronization scope:
+
+- A full synchronization occurs.
+- Objects that are no longer required in the managed domain are deleted. New objects are created in the managed domain.
 
 To learn more about the synchronization process, see [Understand synchronization in Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> Changing the scope of synchronization causes the managed domain to resynchronize all data. The following considerations apply:
->
->  * When you change the synchronization scope for a managed domain, a full resynchronization occurs.
->  * Objects that are no longer required in the managed domain are deleted. New objects are created in the managed domain.
 
 ## Enable scoped synchronization
 

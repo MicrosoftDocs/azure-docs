@@ -1,16 +1,16 @@
 ---
 title: "Tutorial: Manage queries in Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 06/29/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure
 portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your
-Azure portal settings. Whereas a Shared query is a Azure Resource Manager resource that can be
-managed with Azure role-based access control (Azure RBAC) and protected with resource locks. Both types of
-queries are encrypted at rest.
+Azure portal settings. Whereas a Shared query is an Azure Resource Manager resource that can be
+managed with Azure role-based access control (Azure RBAC) and protected with resource locks. Both
+types of queries are encrypted at rest.
 
 By saving queries in the Azure portal, you save the time you might otherwise spend looking for your
 favorite or commonly used queries. When you share queries, you help your team realize goals of
@@ -76,9 +76,9 @@ follow these steps:
 ## Create a Shared query
 
 Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query
-gets saved to a resource group, can be managed and controlled with Azure RBAC, and can even be protected
-with resource locks. As a resource, anyone who has the appropriate permissions can see and use it.
-To create a new Shared query, follow these steps:
+gets saved to a resource group, can be managed and controlled with Azure RBAC, and can even be
+protected with resource locks. As a resource, anyone who has the appropriate permissions can see and
+use it. To create a new Shared query, follow these steps:
 
 1. From the portal menu, select **All services**, or use the Azure search box at the top of all
    pages to search for and select **Resource Graph Explorer**.
@@ -141,7 +141,7 @@ To create a new Shared query, follow these steps:
 
 Because a Shared query is a Resource Manager resource, there are several ways to find one:
 
-- From Resource Graph Explorer, select **Open a query** and set the type to **Shared query**.
+- From Resource Graph Explorer. Select **Open a query** and set the type to **Shared query**.
 - From the Resource Graph queries portal page.
 - From the resource group that the Shared query was saved in.
 - Through a query to Resource Graph.
@@ -189,7 +189,7 @@ information, see [Shared query syntax](../concepts/query-language.md#shared-quer
 If a Shared query is no longer needed, delete it. By deleting a Shared query, you remove the
 corresponding Resource Manager resource. Any dashboards that the results chart was pinned to now
 display an error message. When that error message is displayed, use the **Remove from dashboard**
-button to clean up your dashboard.
+button to clean your dashboard.
 
 You can delete a Shared query through the following interfaces:
 - Resource Graph queries page

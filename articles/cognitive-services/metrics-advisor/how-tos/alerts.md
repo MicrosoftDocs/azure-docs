@@ -3,13 +3,13 @@ title: Configure Metrics Advisor alerts
 titleSuffix: Azure Cognitive Services
 description: How to configure your Metrics Advisor alerts using hooks for email, web and Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How-to: Configure alerts and get notifications using a hook
@@ -23,7 +23,7 @@ Metrics Advisor supports three different types of hooks: email hook, web hook an
 ### Email hook
 
 > [!Note]
-> Metrics Advisor resource administrators need to configure the Email settings, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. 
+> Metrics Advisor resource administrators need to configure the Email settings, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. [Learn more about e-mail settings configuration](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 To create an email hook, the following parameters are available: 
 

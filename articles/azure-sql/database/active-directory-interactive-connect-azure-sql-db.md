@@ -12,16 +12,16 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
-# Connect to Azure SQL Database with Azure Multi-Factor Authentication
+# Connect to Azure SQL Database with Azure AD Multi-Factor Authentication
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
+For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
 ## Multi-Factor Authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to Azure SQL Database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -33,14 +33,14 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 * A dialog box that asks for a Multi-Factor Authentication verification code, which the system has sent to a mobile phone.
 
-For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure AD Multi-Factor Authentication in the cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!TIP]
-> You can search .NET Framework APIs with the [.NET API Browser tool page](https://docs.microsoft.com/dotnet/api/).
+> You can search .NET Framework APIs with the [.NET API Browser tool page](/dotnet/api/).
 >
-> You can also search directly with the [optional ?term=&lt;search value&gt; parameter](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
+> You can also search directly with the [optional ?term=&lt;search value&gt; parameter](/dotnet/api/?term=SqlAuthenticationMethod).
 
 ## Configure your C# application in the Azure portal
 
@@ -48,7 +48,7 @@ Before you begin, you should have a [logical SQL server](logical-servers.md) cre
 
 ### Register your app and set permissions
 
-To use Azure AD authentication, your C# program has to register as an Azure AD application. To register an app, you need to be either an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+To use Azure AD authentication, your C# program has to register as an Azure AD application. To register an app, you need to be either an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 Completing an app registration generates and displays an **application ID**. Your program has to include this ID to connect.
 
@@ -86,13 +86,13 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 An Azure AD admin for a [logical SQL server](logical-servers.md) can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
-You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+You can add a user to the database with the SQL [`Create User`](/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](authentication-aad-overview.md).
 
 ## New authentication enum value
 
-The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. Of special interest for Multi-Factor Authentication is the enum `SqlAuthenticationMethod`, which has the following values:
+The C# example relies on the [`System.Data.SqlClient`](/dotnet/api/system.data.sqlclient) namespace. Of special interest for Multi-Factor Authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
 * `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
@@ -107,7 +107,7 @@ The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.co
   Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support Multi-Factor Authentication.
 
 > [!NOTE]
-> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 ## Set C# parameter values from the Azure portal
 
@@ -142,9 +142,9 @@ For more information, see [Configure Multi-Factor Authentication for SSMS and Az
 ## C# code example
 
 > [!NOTE]
-> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
-The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL assembly.
+The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL assembly.
 
 To install this package, in Visual Studio, select **Project** > **Manage NuGet Packages**. Search for and install **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
@@ -336,6 +336,6 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-& [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)
+& [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

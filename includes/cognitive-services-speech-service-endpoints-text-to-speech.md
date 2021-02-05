@@ -33,6 +33,9 @@ Use this table to determine availability of standard and neural voices by region
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
+> [!TIP]
+> [Voices in preview](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+
 ### Custom voices
 
 If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
@@ -59,3 +62,14 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### Custom Neural Voice
+
+The following table details regional support for Custom Neural Voice features.
+
+| Feature | Supported regions |
+|---|---|
+| Voice model hosting | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
+| Realtime Characters | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
+| Long Audio Characters | East US, West Europe, UK South, Southeast Asia, India Central |
+| Custom Neural Training | East US, UK South |

@@ -29,8 +29,9 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
-1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
+1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
+1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup as described [here](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Make sure that you are on the latest cumulative updates to avoid the time zone related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
@@ -57,7 +58,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -81,11 +82,11 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             | Ports
+| -------------- | ------------------------------------------------------------ | ---
+| Azure  Backup  | `*.backup.windowsazure.com`                             | 443
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | As applicable
 
 #### Use an HTTP proxy server to route traffic
 

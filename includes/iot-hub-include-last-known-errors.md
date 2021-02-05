@@ -9,12 +9,12 @@ ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
 ---
-[Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) in the REST API gives the health status of the endpoints, as well as the last known error, to identify the reason an endpoint is not healthy. The table below lists the most common errors.
+[Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) in the REST API gives the health status of the endpoints, as well as the last known error, to identify the reason an endpoint is not healthy. The table below lists the most common errors.
 
 |Last Known Error|Description/when it occurs|Possible Mitigation|
 |-----|-----|-----|
-|Transient|A transient error has occurred and IoT Hub will retry the operation.|Observe routes [diagnostic logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes).|
-|InternalError|An error occurred while delivering a message to an endpoint.|This is an internal exception but also observe the routes [diagnostic logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes).|
+|Transient|A transient error has occurred and IoT Hub will retry the operation.|Observe [routes resource logs](../articles/iot-hub/monitor-iot-hub-reference.md#routes).|
+|InternalError|An error occurred while delivering a message to an endpoint.|This is an internal exception but also observe the [routes resource logs](../articles/iot-hub/monitor-iot-hub-reference.md#routes).|
 |Unauthorized|IoT Hub is not authorized to send messages to the specified endpoint.|Validate that the connection string is up to date for the endpoint. If it has changed, consider an update on your IoT Hub. If the endpoint uses managed identity, check that the IoT Hub principal has the required permissions on the target.|
 |Throttled|IoT Hub is being throttled while writing messages into the endpoint.|Review the throttle limits for the affected endpoint. Modify configurations for the endpoint to scale up if needed.|
 |Timeout|Operation timeout.|Retry the operation.|

@@ -53,11 +53,19 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
 - ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
 
+### How can I move data from the Recovery Services vault to on-premises?
+
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
+
+### What is the difference between a geo-redundant storage (GRS) vault with and without the Cross-Region Restore (CRR) capability enabled?
+
+In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
+
 ## Azure Backup agent
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
 
-- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.md).
+- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.yml).
 - For the agent used to back up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## General backup
@@ -169,7 +177,7 @@ Typical long-term retention point products store backup data as full points.
 - The full points are storage *inefficient* but are easier and faster to restore.
 - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
-Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](backup-architecture.md#backup-types).
 
 ### Is there a limit on the number of recovery points that can be created?
 
@@ -223,5 +231,5 @@ The key used to encrypt the backup data is present only on your site. Microsoft 
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+- [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
 - [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

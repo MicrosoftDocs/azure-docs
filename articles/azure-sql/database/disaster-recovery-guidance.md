@@ -56,7 +56,7 @@ The recovery operation impacts the application. It requires changing the SQL con
 
 Depending on your application tolerance to downtime and possible business liability you can consider the following recovery options.
 
-Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
+Use the [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
 
 ## Wait for service recovery
 

@@ -29,7 +29,7 @@ Despite the hassle, migrating away from the classic version is still important. 
 - Manage Windows Virtual Desktop through the Azure portal.
 - Assign Azure Active Directory (AD) user groups to application groups.
 - Use the improved Log Analytics feature to troubleshoot your deployment.
-- Use Azure-native Role-Based Access Controls to manage administrative access.
+- Use Azure-native role-based access control (Azure RBAC) to manage administrative access.
 
 ## When should I migrate?
 

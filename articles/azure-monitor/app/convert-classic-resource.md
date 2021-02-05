@@ -1,8 +1,6 @@
 ---
 title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
 
@@ -12,7 +10,7 @@ ms.date: 09/23/2020
 
 This guide will walk you through the process of migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace, which allows you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a single consolidated location.
 
-Workspace-based resources enables common Role-Based Access Control (RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
+Workspace-based resources enables common Azure role-based access control (Azure RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
 
 **Workspace-based resources are currently available in all commercial regions and Azure US Government**
 
@@ -112,7 +110,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
 
 ### Azure PowerShell
 

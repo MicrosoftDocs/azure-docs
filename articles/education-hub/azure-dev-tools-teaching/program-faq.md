@@ -41,7 +41,7 @@ Your Azure for Students subscription provides you with access to certain softwar
 
 ### What is Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+[Microsoft Learn](/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
 
 ### Can Azure for Students be used for production or only for development?
 
@@ -92,7 +92,7 @@ You can download this software in the [Education Hub](https://ms.portal.azure.co
 
 ### What is Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+[Microsoft Learn](/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
 
 ## Azure Academic Grant
 

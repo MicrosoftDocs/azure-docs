@@ -119,7 +119,7 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
-  * For more information, see [What is a network security group?](../../virtual-network/security-overview.md)
+  * For more information, see [What is a network security group?](../../virtual-network/network-security-groups-overview.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 

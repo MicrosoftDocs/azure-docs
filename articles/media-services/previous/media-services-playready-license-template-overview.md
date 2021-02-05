@@ -82,7 +82,7 @@ As the "top-level" class in the template hierarchy, the response template includ
 > 
 > 
 
-For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
+For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc838192(v=vs.95)).
 
 ## <a id="schema"></a>PlayReady license template XML schema
 ```xml

@@ -14,7 +14,6 @@ manager: eliotgra
 # In-store analytics architecture
 
 
-
 In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by using one of the application templates within IoT Central and the architecture below as guidance.
 
 

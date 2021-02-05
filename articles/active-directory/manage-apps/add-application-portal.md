@@ -3,7 +3,7 @@ title: 'Quickstart: Add an application to your Azure Active Directory (Azure AD)
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
@@ -64,7 +64,7 @@ If the application you are looking for is not in the gallery then you can select
 You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## Clean up resources
 

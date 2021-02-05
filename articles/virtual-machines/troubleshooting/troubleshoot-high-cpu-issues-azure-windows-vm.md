@@ -86,11 +86,11 @@ PerfInsights is the recommended tool from Azure support for VM performance issue
 
 #### Run PerfInsights
 
-PerfInsights is available for both the [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) OS. For Windows, here are the options.
+PerfInsights is available for both the [Windows](./how-to-use-perfinsights.md) and [Linux](./how-to-use-perfinsights-linux.md) OS. For Windows, here are the options.
 
 #### Run and analyze reports through Azure portal
 
-When it is [installed through the Azure portal](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics), actually installs an extension on the VM. Users can also install PerfInsights as an extension by going directly to [Extensions in VM blade](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension), and then choosing a performance diagnostics option.
+When it is [installed through the Azure portal](./performance-diagnostics.md), actually installs an extension on the VM. Users can also install PerfInsights as an extension by going directly to [Extensions in VM blade](./performance-diagnostics-vm-extension.md), and then choosing a performance diagnostics option.
 
 #### Azure portal Option 1
 
@@ -128,7 +128,7 @@ The report is stored on one of the Storage Accounts under your subscription. It'
 
 #### Run PerfInsights from within the VM
 
-This method can be used if you intend to run PerfInsights for longer durations. The [PerfInsights article](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) gives a detailed walkthrough of the different commands and flags that are required to run PerfInsights as an executable. For the purpose of high-CPU usage, you'll need either of the following modes:
+This method can be used if you intend to run PerfInsights for longer durations. The [PerfInsights article](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) gives a detailed walkthrough of the different commands and flags that are required to run PerfInsights as an executable. For the purpose of high-CPU usage, you'll need either of the following modes:
 
 - Advanced Scenario
 
@@ -285,7 +285,7 @@ After the settings are enabled, you can view these **Guest** counters in the **M
 
   ![Metrics namespace](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-For more information about how to use Azure monitor to manage Azure VMs, see [Monitoring Azure virtual machines with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+For more information about how to use Azure monitor to manage Azure VMs, see [Monitoring Azure virtual machines with Azure Monitor](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### Reactive troubleshooting
 
@@ -307,7 +307,7 @@ The **Logman Create Counter** command is used to run Perfmon collection through 
 
 Logman.exe can also be started from a peer Azure VM computer in the same VNET.
 
-To learn more about these parameters, see [logman create counter](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+To learn more about these parameters, see [logman create counter](/windows-server/administration/windows-commands/logman-create-counter).
 
 After the Perfmon data is collected while the issue is occurring, the remaining steps to analyze the data are the same as discussed earlier.
 

@@ -1,16 +1,20 @@
 ---
-title: Cloud Services and management certificates | Microsoft Docs
+title: Cloud Services (classic) and management certificates | Microsoft Docs
 description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Certificates overview for Azure Cloud Services
+
+# Certificates overview for Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) and deploy them to Azure.
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, therefore it is not trusted by default. Most browsers can ignore this problem. You should only use self-signed certificates when developing and testing your cloud services. 
@@ -71,7 +75,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
 
-If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+If you want to use this [certificate with the management portal](/previous-versions/azure/azure-api-management-certs), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -86,8 +90,4 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
-
-
-
-
+Upload a [management API certificate](/previous-versions/azure/azure-api-management-certs) to the Azure portal.

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -39,6 +39,11 @@ For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is r
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
+
+Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers):
+
+* *\*.passwordreset.microsoftonline.us*
+* *\*.servicebus.usgovcloudapi.net*
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
 
@@ -175,6 +180,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31016| WriteBackServiceStopped| This event indicates that the password writeback service has stopped. Any password management requests from the cloud won't be successful.|
 | 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup to start the offboarding or onboarding process.|
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
+| 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Azure AD Connect server has all the required Root CAs as described in [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md). |
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this doesn't help, include a copy of your event log along with the tracking ID specified when you open a support request.|
 | 32001| ServiceError| This event indicates there was an error connecting to the cloud password reset service. This error generally occurs when the on-premises service was unable to connect to the password-reset web service.|
 | 32002| ServiceBusError| This event indicates there was an error connecting to your tenant's Service Bus instance. This can happen if you're blocking outbound connections in your on-premises environment. Check your firewall to ensure that you allow connections over TCP 443 and to https://ssprdedicatedsbprodncu.servicebus.windows.net, and then try again. If you're still having problems, try disabling and then re-enabling password writeback.|

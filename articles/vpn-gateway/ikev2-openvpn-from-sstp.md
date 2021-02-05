@@ -54,9 +54,9 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 ![point-to-site](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Once the gateway has been configured, existing clients will not be able to connect until you [deploy and configure the OpenVPN Clients](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Once the gateway has been configured, existing clients will not be able to connect until you [deploy and configure the OpenVPN Clients](./vpn-gateway-howto-openvpn-clients.md).
 
-If you are using Windows 10, you can also use the [Azure VPN Client for Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+If you are using Windows 10, you can also use the [Azure VPN Client for Windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## Frequently asked questions
@@ -92,41 +92,41 @@ The zip file also provides the values of some of the important settings on the A
 
 **IKEv2**
 
-|**Cipher** | **Integrity** | **PRF** | **DH Group** |
-|---        | ---            | ---        | ---     |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_24 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_14 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP384 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP256 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_24 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_14 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP384 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA384        | SHA384    | GROUP_24 |
-|AES256     |   SHA384        | SHA384    | GROUP_14 |
-|AES256     |   SHA384        | SHA384    | GROUP_ECP384 |
-|AES256     |   SHA384        | SHA384    | GROUP_ECP256 |
-|AES256     |   SHA256        | SHA256    | GROUP_24 |
-|AES256     |   SHA256        | SHA256    | GROUP_14 |
-|AES256     |   SHA256        | SHA256    | GROUP_ECP384 |
-|AES256     |   SHA256        | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA256        | SHA256    | GROUP_2 |
+| **Cipher** | **Integrity** | **PRF** | **DH Group** |
+|--|--|--|--|
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP256 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA384 | SHA384 | GROUP_24 |
+| AES256 | SHA384 | SHA384 | GROUP_14 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP384 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_2 |
 
 **IPsec**
 
-|**Cipher** | **Integrity** | **PFS Group** |
-|---        | ---            | ---        |
-|GCM_AES256    | GCM_AES256 | GROUP_NONE |
-|GCM_AES256    | GCM_AES256 | GROUP_24 |
-|GCM_AES256    | GCM_AES256 | GROUP_14 |
-|GCM_AES256    | GCM_AES256 | GROUP_ECP384 |
-|GCM_AES256    | GCM_AES256 | GROUP_ECP256 |
-| AES256    | SHA256 | GROUP_NONE |
-| AES256    | SHA256 | GROUP_24 |
-| AES256    | SHA256 | GROUP_14 |
-| AES256    | SHA256 | GROUP_ECP384 |
-| AES256    | SHA256 | GROUP_ECP256 |
-| AES256    | SHA1 | GROUP_NONE |
+| **Cipher** | **Integrity** | **PFS Group** |
+|--|--|--|
+| GCM_AES256 | GCM_AES256 | GROUP_NONE |
+| GCM_AES256 | GCM_AES256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256 | SHA256 | GROUP_NONE |
+| AES256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA1 | GROUP_NONE |
 
 ### <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
 **TLS**

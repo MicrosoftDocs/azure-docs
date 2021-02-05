@@ -11,7 +11,7 @@ ms.date: 03/12/2020
 
 # Create interactive reports Azure Monitor for VMs with workbooks
 
-Workbooks combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Workbooks are helpful for scenarios such as:
 

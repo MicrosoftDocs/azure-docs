@@ -20,7 +20,7 @@ You can use metric alerts on popular Log Analytics logs extracted as metrics as 
 
 - [Performance counters](./data-sources-performance-counters.md) for Windows & Linux machines
 - [Heartbeat records for Agent Health](../insights/solution-agenthealth.md)
-- [Update management](../../automation/update-management/update-mgmt-overview.md) records
+- [Update management](../../automation/update-management/overview.md) records
 - [Event data](./data-sources-windows-events.md) logs
 
 There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](./alerts-log.md) in Azure; some of them are listed below:
@@ -50,14 +50,14 @@ Before Metric for Logs gathered on Log Analytics data works, the following must 
 
 1. **Active Log Analytics Workspace**: A valid and active Log Analytics workspace must be present. For more information, see [Create a Log Analytics Workspace in Azure portal](../learn/quick-create-workspace.md).
 2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. For more information, see [Log Analytics - Agent Overview](./agents-overview.md).
-3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](./data-sources-performance-counters.md), [Heartbeat records for Agent Health](../insights/solution-agenthealth.md), [Update management](../../automation/update-management/update-mgmt-overview.md), and [Event data](./data-sources-windows-events.md).
+3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](./data-sources-performance-counters.md), [Heartbeat records for Agent Health](../insights/solution-agenthealth.md), [Update management](../../automation/update-management/overview.md), and [Event data](./data-sources-windows-events.md).
 4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](./metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](./data-sources-performance-counters.md) solution first.
 
 ## Configuring Metric Alert for Logs
 
  Metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [metric alerts](./alerts-metric-near-real-time.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
 
-For step-by-step details and samples - see [creating and managing metric alerts](https://aka.ms/createmetricalert). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
+For step-by-step details and samples - see [creating and managing metric alerts](./alerts-metric.md). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
 
 - Target for metric alert is a valid *Log Analytics workspace*
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**
@@ -361,7 +361,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 Or use deploy Resource Template using Azure CLI:
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
 ### Metric Alerts for Logs with Dynamic Thresholds
@@ -677,7 +677,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 Or use deploy Resource Template using Azure CLI:
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## Next steps
@@ -685,4 +685,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Learn more about the [metric alerts](alerts-metric.md).
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
 - Learn about [alerts in Azure](alerts-overview.md).
-

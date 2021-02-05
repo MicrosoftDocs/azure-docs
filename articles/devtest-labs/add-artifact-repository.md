@@ -87,64 +87,64 @@ The sample template used in this article gathers the following information via p
     ```json
     {
 
-    	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    	"contentVersion": "1.0.0.0",
-    	"parameters": {
-    		"labName": {
-    			"type": "string"
-    		},
-    		"artifactRepositoryDisplayName": {
-    			"type": "string",
-    			"defaultValue": "Team Repository"
-    		},
-    		"artifactRepoUri": {
-    			"type": "string"
-    		},
-    		"artifactRepoBranch": {
-    			"type": "string",
-    			"defaultValue": "master"
-    		},
-    		"artifactRepoFolder": {
-    			"type": "string",
-    			"defaultValue": "/Artifacts"
-    		},
-    		"artifactRepoType": {
-    			"type": "string",
-    			"allowedValues": ["VsoGit", "GitHub"]
-    		},
-    		"artifactRepoSecurityToken": {
-    			"type": "securestring"
-    		}
-    	},
-    	"variables": {
-    		"artifactRepositoryName": "[concat('Repo-', uniqueString(subscription().subscriptionId))]"
-    	},
-    	"resources": [{
-    			"apiVersion": "2016-05-15",
-    			"type": "Microsoft.DevTestLab/labs",
-    			"name": "[parameters('labName')]",
-    			"location": "[resourceGroup().location]",
-    			"resources": [
-    				{
-    					"apiVersion": "2016-05-15",
-    					"name": "[variables('artifactRepositoryName')]",
-    					"type": "artifactSources",
-    					"dependsOn": [
-    						"[resourceId('Microsoft.DevTestLab/labs', parameters('labName'))]"
-    					],
-    					"properties": {
-    						"uri": "[parameters('artifactRepoUri')]",
-    						"folderPath": "[parameters('artifactRepoFolder')]",
-    						"branchRef": "[parameters('artifactRepoBranch')]",
-    						"displayName": "[parameters('artifactRepositoryDisplayName')]",
-    						"securityToken": "[parameters('artifactRepoSecurityToken')]",
-    						"sourceType": "[parameters('artifactRepoType')]",
-    						"status": "Enabled"
-    					}
-    				}
-    			]
-    		}
-    	]
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "labName": {
+                "type": "string"
+            },
+            "artifactRepositoryDisplayName": {
+                "type": "string",
+                "defaultValue": "Team Repository"
+            },
+            "artifactRepoUri": {
+                "type": "string"
+            },
+            "artifactRepoBranch": {
+                "type": "string",
+                "defaultValue": "master"
+            },
+            "artifactRepoFolder": {
+                "type": "string",
+                "defaultValue": "/Artifacts"
+            },
+            "artifactRepoType": {
+                "type": "string",
+                "allowedValues": ["VsoGit", "GitHub"]
+            },
+            "artifactRepoSecurityToken": {
+                "type": "securestring"
+            }
+        },
+        "variables": {
+            "artifactRepositoryName": "[concat('Repo-', uniqueString(subscription().subscriptionId))]"
+        },
+        "resources": [{
+                "apiVersion": "2016-05-15",
+                "type": "Microsoft.DevTestLab/labs",
+                "name": "[parameters('labName')]",
+                "location": "[resourceGroup().location]",
+                "resources": [
+                    {
+                        "apiVersion": "2016-05-15",
+                        "name": "[variables('artifactRepositoryName')]",
+                        "type": "artifactSources",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.DevTestLab/labs', parameters('labName'))]"
+                        ],
+                        "properties": {
+                            "uri": "[parameters('artifactRepoUri')]",
+                            "folderPath": "[parameters('artifactRepoFolder')]",
+                            "branchRef": "[parameters('artifactRepoBranch')]",
+                            "displayName": "[parameters('artifactRepositoryDisplayName')]",
+                            "securityToken": "[parameters('artifactRepoSecurityToken')]",
+                            "sourceType": "[parameters('artifactRepoType')]",
+                            "status": "Enabled"
+                        }
+                    }
+                ]
+            }
+        ]
     }
     ```
 

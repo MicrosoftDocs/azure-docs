@@ -26,9 +26,9 @@ The Azure classic CLI is a great way to manage your Azure infrastructure from an
 To create and manage Azure Cache for Redis instances using Azure classic CLI, you must complete the following steps.
 
 * You must have an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a few moments.
-* [Install the Azure classic CLI](../cli-install-nodejs.md).
+* [Install the Azure classic CLI](/cli/azure/install-classic-cli).
 * Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the classic CLI using the `azure login` command.
-* Before running any of the following commands, switch the classic CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure classic CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md).
+* Before running any of the following commands, switch the classic CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure classic CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## Azure Cache for Redis properties
 The following properties are used when creating and updating Azure Cache for Redis instances.

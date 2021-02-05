@@ -52,7 +52,7 @@ Also review the following articles:
  
    > [!div class="mx-imgBorder"]
    > ![Contoso test](./media/network-isolation/contoso-test.png)
-1. On the storage account, go to Firewalls and virtual networks and ensure ‘Allow trusted Microsoft Services to access this storage account’ check box is checked. As [DevTest Labs is a trusted Microsoft service](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), this option will enable the lab to operate normally in a network isolated mode. 
+1. On the storage account, go to Firewalls and virtual networks and ensure ‘Allow trusted Microsoft Services to access this storage account’ check box is checked. As [DevTest Labs is a trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), this option will enable the lab to operate normally in a network isolated mode. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso lab firewalls](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -69,7 +69,7 @@ With this, Azure storage will allow inbound connections from the added virtual n
 
 You can also choose to automate these steps to configure this setting for multiple labs. 
 
-[Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## Things to remember while using a lab in a network isolated mode
 
@@ -77,7 +77,7 @@ You can also choose to automate these steps to configure this setting for multip
 
 Within a network isolated lab, for actions such as uploading a VHD to the lab’s storage account to create custom images from, lab owner will need to explicitly enable accessing the storage account from an allowed endpoint. You can do so by creating a virtual machine and securely access lab’s storage account from that virtual machine. 
 
-[Learn more on accessing a storage account privately from a virtual machine](../private-link/create-private-endpoint-storage-portal.md)
+[Learn more on accessing a storage account privately from a virtual machine](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### Exporting usage data from the lab 
 

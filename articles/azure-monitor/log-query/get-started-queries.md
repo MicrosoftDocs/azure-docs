@@ -12,7 +12,7 @@ ms.date: 10/24/2019
 # Get started with log queries in Azure Monitor
 
 > [!NOTE]
-> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](saved-queries.md).
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](./example-queries.md).
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
@@ -24,7 +24,7 @@ In this tutorial you will learn to write log queries in Azure Monitor. It will t
 - Define and use custom fields
 - Aggregate and group results
 
-For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
+For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 Follow along with a video version of this tutorial below:
@@ -168,7 +168,7 @@ The preceding example generates this output:
 You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
 
 * Select only the *Computer* and *TimeGenerated* original columns.
-* Rename the *Activity* column to *EventDetails*.
+* Displays the *Activity* column as *EventDetails*.
 * Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the Activity field.
 
 
@@ -241,7 +241,7 @@ To make the output clearer, you select to display it as a time-chart, showing th
 
 ## Next steps
 
-- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](string-operations.md).
-- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md).
-- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](joins.md).
+- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](/azure/data-explorer/write-queries#advanced-aggregations).
+- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Get documentation on the entire Kusto query language in the [KQL language reference](/azure/kusto/query/).

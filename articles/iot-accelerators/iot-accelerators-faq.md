@@ -12,30 +12,39 @@ ms.author: dobett
 
 # Frequently asked questions for IoT solution accelerators
 
-See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md) and the [Remote Monitoring-specific FAQ](iot-accelerators-faq-rm-v2.md) .
+See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md).
 
 ### Where can I find the source code for the solution accelerators?
 
 The source code is stored in the following GitHub repositories:
 
-* [Remote Monitoring solution accelerator (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Remote Monitoring solution accelerator (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Predictive Maintenance solution accelerator](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
+* [Device simulation solution accelerator](https://github.com/Azure/device-simulation-dotnet)
+
+### Where can I find the remote monitoring and predictive maintenance solution accelerators?
+
+As of December 10th 2020, the remote monitoring and predictive maintenance accelerators have been removed from the [Azure IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) site and are no longer available for new deployments. The GitHub repositories for both the accelerators have been archived. The code is still available for anyone to access but the repositories aren't taking any new contributions.
+
+### What happens to my existing remote monitoring and predictive maintenance deployments?
+
+Existing deployments aren't impacted by the removal of the remote monitoring and predictive maintenance solution accelerators and will continue to work. Forked repositories also aren't impacted. The master repositories on GitHub have been archived.
+
+### How do I deploy device simulation solution accelerator?
+
+To deploy the device simulation solution accelerator, see the the [device simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) GitHub repository.
+
+### Where can I find information about the removed solution accelerators?
+
+See the following pages on the previous versions site:
+
+* [Remote monitoring](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Predictive maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### What SDKs can I use to develop device clients for the solution accelerators?
 
 You can find links to the different language (C, .NET, Java, Node.js, Python) IoT device SDKs in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repositories.
 
 If you're using the DevKit device, you can find resources and samples in the [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub repository.
-
-### Is the new microservices architecture available for all the three solution accelerators?
-
-Currently, only the Remote Monitoring solution uses the microservices architecture as it covers the broadest scenario.
-
-### What advantages does the new open-sourced microservices-based architecture provide in the new update?
-
-Over the last two years, cloud architecture has greatly evolved. Microservices have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. Microsoft is putting these learnings into practice in the solution accelerators so that customers benefit from them.
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific Azure AD tenant. How do I complete this task?
 
@@ -58,14 +67,6 @@ Look at the following diagram for guidance:
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and check that the correct tenant is selected in the dropdown. If you’ve validated the tenant is correct, follow the preceding diagram and validate the mapping of your subscription and this Azure AD tenant.
 
-### Where can I find information about the previous version of the Remote Monitoring solution?
-
-The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
-
-### Is the new solution accelerator available in the same geographic region as the existing solution?
-
-Yes, the new Remote Monitoring is available in the same geographic regions.
-
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsolutions.com?
 
 * If you delete the solution accelerator in [azureiotsolutions.com](https://www.azureiotsolutions.com/), you delete all the resources that were deployed when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
@@ -83,10 +84,6 @@ By default you can provision [10 IoT hubs per subscription](../azure-resource-ma
 
 Fifty. You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit, but by default, you can only provision 50 Cosmos DB instances per subscription.
 
-### How many Free Bing Maps APIs can I provision in a subscription?
-
-Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The Remote Monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two Remote Monitoring solutions in a subscription with no modifications.
-
 ### Can I create a solution accelerator if I have Microsoft Azure for DreamSpark?
 
 > [!NOTE]
@@ -96,13 +93,11 @@ Currently, you cannot create a solution accelerator with a [Microsoft Azure for 
 
 ### How do I delete an Azure AD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
 
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
-* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
-* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
+* [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)

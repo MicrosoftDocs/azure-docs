@@ -16,7 +16,7 @@ This article helps you understand and use Cost Management alerts to monitor your
 
 ## Budget alerts
 
-Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the [alert condition of the budget](tutorial-acm-create-budgets.md). Cost Management budgets are created using the Azure portal or the [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API.
+Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the [alert condition of the budget](tutorial-acm-create-budgets.md). Cost Management budgets are created using the Azure portal or the [Azure Consumption](/rest/api/consumption) API.
 
 In the Azure portal, budgets are defined by cost. Using the Azure Consumption API, budgets are defined by cost or by consumption usage. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it's shown in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
 
@@ -24,7 +24,7 @@ You can use the Budget API to send email alerts in a different language. For mor
 
 ## Credit alerts
 
-Credit alerts notify you when your Azure credit monetary commitments are consumed. Monetary commitments are for organizations with Enterprise Agreements. Credit alerts are generated automatically at 90% and at 100% of your Azure credit balance. Whenever an alert is generated, it's reflected in cost alerts and in the email sent to the account owners.
+Credit alerts notify you when your Azure Prepayment (previously called monetary commitment) is consumed. Azure Prepayment is for organizations with Enterprise Agreements. Credit alerts are generated automatically at 90% and at 100% of your Azure Prepayment credit balance. Whenever an alert is generated, it's reflected in cost alerts and in the email sent to the account owners.
 
 ## Department spending quota alerts
 

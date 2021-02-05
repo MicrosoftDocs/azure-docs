@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Create or delete a container in Azure Storage with .NET
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Name a container
 
@@ -34,10 +34,10 @@ To create a container, call one of the following methods:
 
 # [\.NET v12](#tab/dotnet)
 
-- [Create](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
-- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
-- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
+These methods throw an exception if a container with the same name already exists.
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -45,11 +45,12 @@ To create a container, call one of the following methods:
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
----
 
 The **Create** and **CreateAsync** methods throw an exception if a container with the same name already exists.
 
 The **CreateIfNotExists** and **CreateIfNotExistsAsync** methods return a Boolean value indicating whether the container was created. If a container with the same name already exists, these methods return **False** to indicate a new container wasn't created.
+
+---
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another.
 

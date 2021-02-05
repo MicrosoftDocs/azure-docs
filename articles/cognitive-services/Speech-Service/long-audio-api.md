@@ -22,7 +22,7 @@ Additional benefits of the Long Audio API:
 * There's no need to deploy a voice endpoint as it synthesizes voices in none real-time batch mode.
 
 > [!NOTE]
-> The Long Audio API now supports both [Public Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> The Long Audio API now supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md#custom-neural-voices).
 
 ## Workflow
 
@@ -39,7 +39,7 @@ When preparing your text file, make sure it:
 * Is either plain text (.txt) or SSML text (.txt)
 * Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * Is a single file, not a zip
-* Contains more than 400 characters for plain text or 400 [billable characters](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) for SSML text, and less than 10,000 paragraphs
+* Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs
   * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -110,7 +110,7 @@ Prepare an input text file, in either plain text or SSML text, then add the foll
 
 > [!NOTE]
 > 'concatenateResult' is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
-> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -283,15 +283,11 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 | Region | Endpoint |
 |--------|----------|
-| Australia East | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Canada Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| West US 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## Audio output formats
 

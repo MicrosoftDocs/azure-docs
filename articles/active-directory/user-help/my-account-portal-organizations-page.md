@@ -26,7 +26,7 @@ The **Organizations** page of the **My Account** portal helps you to manage the 
 - **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
 >[!Important]
->This article is intended for users trying to update the organization info accessed by a work or school account. If you're an administrator looking for information about group and user management for your employees and other uses, see the [Enterprise user management documentation](../users-groups-roles/index.yml).
+>This article is intended for users trying to update the organization info accessed by a work or school account. If you're an administrator looking for information about group and user management for your employees and other uses, see the [Enterprise user management documentation](../enterprise-users/index.yml).
 
 ## View your organizations
 

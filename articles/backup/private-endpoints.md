@@ -21,12 +21,13 @@ This article will help you understand the process of creating private endpoints 
 - Azure Active Directory doesn't currently support private endpoints. So IPs and FQDNs required for Azure Active Directory to work in a region will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
 - Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to disable Network Polices before continuing.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
+- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
 
 ## Recommended and supported scenarios
 
 While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM and MARS agent backup only. You can use the vault for backup of other workloads as well (they won't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery for Azure VM backup. For more information, see the following table:
 
-| Backup of workloads in Azure VM (SQL, SAP HANA), Backup  using MARS Agent | Use of private endpoints is recommended to allow backup  and restore without needing to allow-list any IPs/FQDNs for Azure Backup or Azure  Storage  from your virtual networks. |
+| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent | Use of private endpoints is recommended to allow backup and restore without needing to allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
@@ -142,7 +143,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 Once the private endpoint is created and approved, no additional changes are required from the client side to use the private endpoint. All communication and data transfer from your secured network to the vault will be performed through the private endpoint.
 However, if you remove private endpoints for the vault after a server (SQL/SAP HANA) has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
-### Backup and restore through MARS Agent
+### Backup and restore through MARS agent
 
 When using the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. You must, however, ensure all communication for backup happens through the peered network only.
 
@@ -384,7 +385,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### Create DNS zones for custom DNS servers
 
-You need to create three private DNS zones and link them to your virtual network.
+You need to create three private DNS zones and link them to your virtual network. Keep in mind that, unlike Blob and Queue, the Backup service public URLs don't register in Azure Public DNS for the redirection to the Private Link DNS zones. 
 
 | **Zone**                                                     | **Service** |
 | ------------------------------------------------------------ | ----------- |
@@ -397,9 +398,9 @@ You need to create three private DNS zones and link them to your virtual network
 
 Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes. See the following links for URL naming conventions in national regions:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 #### Adding DNS records for custom DNS servers
 

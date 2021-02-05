@@ -20,4 +20,4 @@ Azure DMS performs an initial load of your on-premises to Azure Database for Pos
 
 ## Next steps
 - View the video [App Modernization with Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102), which contains a demo showing how to migrate PostgreSQL apps to Azure Database for PostgreSQL.
-- See the tutorial [Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- See the tutorial [Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS](../dms/tutorial-postgresql-azure-postgresql-online.md).

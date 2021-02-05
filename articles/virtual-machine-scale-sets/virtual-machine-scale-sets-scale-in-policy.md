@@ -9,7 +9,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 

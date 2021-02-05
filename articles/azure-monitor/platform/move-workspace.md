@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
+ms.date: 11/12/2020
 
 ---
 
@@ -25,20 +25,31 @@ The workspace source and destination subscriptions must exist within the same Az
 ```
 
 ## Workspace move considerations
-Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Connected agents will remain connected and keep send data to the workspace after the move. Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move.
-
-Solutions that must be removed before you can unlink your automation account:
-
-- Update Management
-- Change Tracking
-- Start/Stop VMs during off-hours
-- Azure Security Center
+- Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. 
+- Workspace keys (both primary and secondary) are re-generated with workspace move operation. If you keep a copy of your workspace keys in key vault, update them with the new keys generated after the workspace move. 
+- Connected agents will remain connected and keep send data to the workspace after the move. 
+- Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move. Solutions that must be removed before you can unlink your automation account:
+  - Update Management
+  - Change Tracking
+  - Start/Stop VMs during off-hours
+  - Azure Security Center
 
 >[!IMPORTANT]
-> **Azure Sentinel customers:**
-> - Once deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
+> **Azure Sentinel customers**
+> - Currently, after Azure Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
+> - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> 
+> **Re-create alerts**
+> - All alerts must be re-created after a move because the permissions are based on the Azure Resource ID of the workspace, which changes during a workspace move.
 >
->   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> **Update resource paths**
+> - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
+> 
+>   *Examples:*
+>   - [Azure Monitor alert rules](alerts-resource-move.md)
+>   - Third-party applications
+>   - Custom scripting
+>
 
 ### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:
@@ -51,7 +62,7 @@ Use the following procedure to remove the solutions using the Azure portal:
 
 ### Delete using PowerShell
 
-To remove the solutions using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) cmdlet as shown in the following example:
+To remove the solutions using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet as shown in the following example:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>

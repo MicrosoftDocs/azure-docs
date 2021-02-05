@@ -17,7 +17,7 @@ HTTP headers allow a client and server to pass additional information with a req
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and back-end pools. And it allows you to add conditions to ensure that the specified headers are rewritten only when certain conditions are met.
 
-Application Gateway also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
+Application Gateway also supports several [server variables](#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
 
 > [!NOTE]
 >
@@ -64,21 +64,21 @@ Application gateway supports these server variables:
 | client_port                | The client port.                                                  |
 | client_tcp_rtt             | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
 | client_user                | When HTTP authentication is used, the user name supplied for authentication. |
-| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, host value will be is *contoso.com* |
+| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, host value will be is *contoso.com* |
 | cookie_*name*              | The *name* cookie.                                            |
 | http_method                | The method used to make the URL request. For example, GET or POST. |
 | http_status                | The session status. For example, 200, 400, or 403.                       |
 | http_version               | The request protocol. Usually HTTP/1.0, HTTP/1.1, or HTTP/2.0. |
-| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, query_string value will be *id=123&title=fabrikam* |
+| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value will be *id=123&title=fabrikam* |
 | received_bytes             | The length of the request (including the request line, header, and request body). |
 | request_query              | The arguments in the request line.                                |
 | request_scheme             | The request scheme: http or https.                            |
-| request_uri                | The full original request URI (with arguments). Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, request_uri value will be */article.aspx?id=123&title=fabrikam*   |
+| request_uri                | The full original request URI (with arguments). Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value will be */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | The number of bytes sent to a client.                             |
 | server_port                | The port of the server that accepted a request.                 |
 | ssl_connection_protocol    | The protocol of an established TLS connection.        |
 | ssl_enabled                | “On” if the connection operates in TLS mode. Otherwise, an empty string. |
-| uri_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, uri_path value will be */article.aspx*  |
+| uri_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, uri_path value will be */article.aspx*  |
 
 ## Rewrite configuration
 
@@ -163,5 +163,5 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 To learn how to rewrite HTTP headers, see:
 
-- [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Rewrite HTTP headers using Azure portal](./rewrite-http-headers-portal.md)
 - [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

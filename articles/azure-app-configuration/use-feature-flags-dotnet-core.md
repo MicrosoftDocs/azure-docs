@@ -3,8 +3,7 @@ title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
@@ -25,7 +24,7 @@ The .NET Core Feature Management libraries provide idiomatic support for impleme
 
 The Feature Management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
-The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows several ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. For a complete reference, see the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410).
+The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows several ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. For a complete reference, see the [ASP.NET Core feature management documentation](/dotnet/api/microsoft.featuremanagement).
 
 In this tutorial, you will learn how to:
 
@@ -36,7 +35,6 @@ In this tutorial, you will learn how to:
 ## Set up feature management
 
 Add a reference to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages to utilize the .NET Core feature manager.
-    
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. `IFeatureManager` relies on .NET Core dependency injection. You can register the feature management services by using standard conventions:
 
 ```csharp
@@ -105,16 +103,23 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
               .UseStartup<Startup>();
    ```
 
-2. Open *Startup.cs* and update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+2. Open *Startup.cs* and update the `Configure` and `ConfigureServices` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes in the `options.UseFeatureFlags()` call.
 
 ```csharp
@@ -188,6 +193,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection:
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;
@@ -299,6 +306,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by using the `Microsoft.FeatureManagement` libraries. For more information about feature management support in ASP.NET Core and App Configuration, see the following resources:
 
-* [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET Core feature flag sample code](./quickstart-feature-flag-aspnet-core.md)
+* [Microsoft.FeatureManagement documentation](/dotnet/api/microsoft.featuremanagement)
 * [Manage feature flags](./manage-feature-flags.md)

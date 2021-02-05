@@ -1,12 +1,11 @@
 ---
-title: How to generate thumbnails using Azure Media Services Encoder Standard with REST
+title: Generate thumbnails using Media Encoder Standard  REST
 description: This article shows how to use REST to encode an asset and generate thumbnails at the same time using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,7 +13,6 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 # How to generate thumbnails using Encoder Standard with REST
 
@@ -206,7 +204,7 @@ While all of the above examples have discussed how you can submit an encoding ta
 
 ### JSON preset
 
-For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
+For information about schema, see [this](../previous/media-services-mes-schema.md) article.
 
 ```json
 {

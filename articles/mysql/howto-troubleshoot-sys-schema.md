@@ -1,8 +1,8 @@
 ---
 title: Utilize sys_schema - Azure Database for MySQL
 description: Learn how to use sys_schema to find performance issues and maintain database in Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
@@ -78,4 +78,4 @@ Indexes are great tools to improve read performance, but they do incur additiona
 In summary, the sys_schema is a great tool for both performance tuning and database maintenance. Make sure to take advantage of this feature in your Azure Database for MySQL. 
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

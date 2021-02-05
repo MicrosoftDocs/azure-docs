@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mbaldwin
-ms.date: 08/31/2020
+ms.date: 10/16/2020
 ---
 
 # Quickstart: Create an Azure Attestation provider with an ARM template
@@ -20,56 +20,18 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-attestation-provider-create).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "name": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
-    },
-    "tags": {
-      "type": "Object"
-    },
-    "policySigningCertificates": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "PolicySigningCertificates": {
-      "PolicySigningCertificates": {
-        "keys": [
-          {
-            "kty": "RSA",
-            "use": "sig",
-            "x5c": [ "[parameters('policySigningCertificates')]" ]
-          }
-        ]
-      }
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('name')]",
-      "location": "[parameters('location')]",
-      "type": "Microsoft.Attestation/attestationProviders",
-      "tags": "[parameters('tags')]",
-      "Properties": "[if(empty(parameters('policySigningCertificates')), json('{}'), variables('PolicySigningCertificates'))]"
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/101-attestation-provider-create/azuredeploy.json":::
 
 Azure resources defined in the template:
+
 - Microsoft.Attestation/attestationProviders
 
 ## Deploy the template
@@ -78,15 +40,15 @@ Azure resources defined in the template:
 
     [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
-2. Select or enter the following values.
+1. Select or enter the following values.
 
     Unless it's specified, use the default value to create the attestation provider.
 
-    * **name**: Select a name for your Azure Attestation provider.
-    * **location**: Select a location. For example, **Central US**.
-    * **tags**: select a location. For example, **Central US**.
+    - **Attestation Provider Name**: Select a name for your Azure Attestation provider.
+    - **Location**: Select a location. For example, **Central US**.
+    - **Tags**: Select a location. For example, **Central US**.
 
-3. Select **Purchase**. After the attestation resource has been deployed successfully, you get a notification:
+1. Select **Purchase**. After the attestation resource has been deployed successfully, you get a notification.
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -98,7 +60,7 @@ You can use the Azure portal to check the attestation resource.
 
 Other Azure Attestation build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-When no longer needed, delete the resource group, which deletes the Attestation resource . To delete the resource group by using Azure CLI or Azure PowerShell:
+When no longer needed, delete the resource group, which deletes the Attestation resource. To delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -121,4 +83,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an attestation resource using an ARM template, and validated the deployment. To learn more about  Azure Attestation, see [Overview of Azure Attestation](overview.md).
+In this quickstart, you created an attestation resource using an ARM template, and validated the deployment. To learn more about Azure Attestation, see [Overview of Azure Attestation](overview.md).

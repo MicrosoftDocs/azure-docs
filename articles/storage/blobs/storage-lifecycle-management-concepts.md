@@ -1,10 +1,10 @@
 ---
-title: Managing the Azure Storage lifecycle
-description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
+title: Optimize costs by automating Azure Blob Storage access tiers
+description: Create automated rules for moving data between hot, cool, and archive tiers.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -12,14 +12,15 @@ ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
-# Manage the Azure Blob storage lifecycle
+# Optimize costs by automating Azure Blob Storage access tiers
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for GPv2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
 
 The lifecycle management policy lets you:
 
-- Transition blobs to a cooler storage tier (hot to cool, hot to archive, or cool to archive) to optimize for performance and cost
-- Delete blobs at the end of their lifecycles
+- Transition blobs from cool to hot immediately if accessed to optimize for performance 
+- Transition blobs, blob versions, and blob snapshots to a cooler storage tier (hot to cool, hot to archive, or cool to archive) if not accessed or modified for a period of time to optimize for cost
+- Delete blobs, blob versions, and blob snapshots at the end of their lifecycles
 - Define rules to be run once per day at the storage account level
 - Apply rules to containers or a subset of blobs (using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters)
 
@@ -27,11 +28,14 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
+>[!NOTE]
+>If you need data to stay readable, for example, when used by StorSimple, do not set a policy to move blobs to the Archive tier.
+
 ## Availability and pricing
 
-The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, blob storage accounts, Premium Block Blob storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Add or remove a policy
 
@@ -39,13 +43,13 @@ You can add, edit, or remove a policy by using any of the following methods:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [REST APIs](/rest/api/storagerp/managementpolicies)
 
 A policy can be read or written in full. Partial updates are not supported. 
 
 > [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 This article shows how to manage policy by using the portal and PowerShell methods.
 
@@ -259,29 +263,41 @@ The following sample rule filters the account to run the actions on objects that
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
 - Delete blob 2,555 days (seven years) after last modification
-- Delete blob snapshots 90 days after snapshot creation
+- Delete previous blob versions 90 days after creation
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -308,24 +324,24 @@ Filters include:
 
 Actions are applied to the filtered blobs when the run condition is met.
 
-Lifecycle management supports tiering and deletion of blobs and deletion of blob snapshots. Define at least one action for each rule on blobs or blob snapshots.
+Lifecycle management supports tiering and deletion of blobs, previous blob versions, and blob snapshots. Define at least one action for each rule on base blobs, previous blob versions, or blob snapshots.
 
-| Action                      | Base Blob                                   | Snapshot      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Support blobs currently at hot tier         | Not supported |
-| enableAutoTierToHotFromCool | Support blobs currently at cool tier        | Not supported |
-| tierToArchive               | Support blobs currently at hot or cool tier | Not supported |
-| delete                      | Supported for `blockBlob` and `appendBlob`  | Supported     |
+| Action                      | Base Blob                                  | Snapshot      | Version
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
+| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
+| tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
+| delete                      | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
 
 >[!NOTE]
 >If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
-The run conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
+The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
 | Action run condition               | Condition value                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Integer value indicating the age in days | The condition for base blob actions                                              |
-| daysAfterCreationGreaterThan       | Integer value indicating the age in days | The condition for blob snapshot actions                                          |
+| daysAfterCreationGreaterThan       | Integer value indicating the age in days | The condition for blob version and blob snapshot actions                         |
 | daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | (preview) The condition for base blob actions when last accessed time is enabled |
 
 ## Examples
@@ -419,7 +435,7 @@ Last access time tracking is available for the following types of storage accoun
 
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
 
-Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not yet supported.
+Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are now supported.
 
 #### Pricing and billing
 
@@ -430,7 +446,7 @@ Each last access time update is considered an [other operation](https://azure.mi
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 > [!NOTE] 
-> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
+> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](/rest/api/storageservices/put-blob) or [PutBlockList](/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
 
 ```json
 {
@@ -518,26 +534,35 @@ Some data should only be expired if explicitly marked for deletion. You can conf
 }
 ```
 
-### Delete old snapshots
+### Manage versions
 
-For data that is modified and accessed regularly throughout its lifetime, snapshots are often used to track older versions of the data. You can create a policy that deletes old snapshots based on snapshot age. The snapshot age is determined by evaluating the snapshot creation time. This policy rule deletes block blob snapshots within container `activedata` that are 90 days or older after snapshot creation.
+For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }
@@ -563,7 +588,7 @@ When a blob is moved from one access tier to another, its last modification time
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
 
 Learn how to manage and find data with Blob Index:
 

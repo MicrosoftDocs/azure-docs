@@ -4,7 +4,7 @@ description: How to troubleshoot when a user sees a consent prompt for an applic
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -34,7 +34,7 @@ Additional prompts can be expected in various scenarios:
 
 * The user who originally consented to the application was an administrator, but they did not consent on-behalf of the entire organization.
 
-* The application is using [incremental and dynamic consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) to request additional permissions after consent was initially granted. This is often used when optional features of an application additional require permissions beyond those required for baseline functionality.
+* The application is using [incremental and dynamic consent](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) to request additional permissions after consent was initially granted. This is often used when optional features of an application additional require permissions beyond those required for baseline functionality.
 
 * Consent was revoked after being granted initially.
 
@@ -42,8 +42,6 @@ Additional prompts can be expected in various scenarios:
 
 ## Next steps
 
--   [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
--   [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)

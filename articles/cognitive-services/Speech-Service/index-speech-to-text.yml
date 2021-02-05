@@ -22,6 +22,8 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
+      - text: What is Custom Speech?
+        url: custom-speech-overview.md
       - text: Use the Speech CLI for speech-to-text with no code
         url: spx-overview.md
     - linkListType: quickstart
@@ -33,13 +35,15 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Choose speech recognition mode
-          url: how-to-choose-recognition-mode.md
+          url: ./get-started-speech-to-text.md
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech
-          url: how-to-custom-speech.md
+          url: ./custom-speech-overview.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
+        - text: Migrate from v2.0 to v3.0 
+          url: migrate-v2-to-v3.md
     - linkListType: tutorial
       links:
         - text: Improve accuracy with tenant models
@@ -52,7 +56,7 @@ landingContent:
           url: how-to-custom-speech-train-model.md
         - text: Create human-labeled transcriptions
           url: how-to-custom-speech-human-labeled-transcriptions.md
-- title: References
+- title: Reference
   linkLists:
     - linkListType: reference
       links:
@@ -62,3 +66,9 @@ landingContent:
           url: faq-stt.md
         - text: Speech-to-text pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18, contperfq4"
+ms.custom: "it-pro, seodec18, contperf-fy20q4"
 ms.collection: M365-identity-device-management
 ---
 
@@ -30,8 +30,6 @@ All of your users have a single *home* directory for authentication. Your users 
 
 > [!Important]
 > When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
->
-> Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 >
 > Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 

@@ -1,17 +1,18 @@
 ---
 title: DDL operations in Azure Cosmos DB Cassandra API from Spark
 description: This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 10/07/2020
 
 ---
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
 
@@ -88,8 +89,7 @@ DESCRIBE keyspaces;
 ### Create a table
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### Validate in cqlsh

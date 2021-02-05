@@ -1,8 +1,6 @@
 ---
 title: 'Data migration: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn data migration best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
@@ -19,15 +17,15 @@ This article gives recommendations for data migration to Azure HDInsight. It's p
 There are two main options to migrate data from on-premises to Azure environment:
 
 * Transfer data over network with TLS
-    * Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md).
+    * Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md).
 
     * Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
 
-    * Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
+    * Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](../../databox-online/index.yml).
 
 * Shipping data Offline
 
-    Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information on the Data Box offline transfer devices, see [Azure Data Box Documentation - Offline Transfer](https://docs.microsoft.com/azure/databox/). For more information on migration of Hadoop clusters, see [Use Azure Data Box to migrate from an on-premises HDFS store to Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+    Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information on the Data Box offline transfer devices, see [Azure Data Box Documentation - Offline Transfer](../../databox/index.yml). For more information on migration of Hadoop clusters, see [Use Azure Data Box to migrate from an on-premises HDFS store to Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 

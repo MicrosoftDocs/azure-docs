@@ -70,7 +70,7 @@ If the cancel request fails or the cancel button is not active, it means that th
 
 # [PowerShell](#tab/azure-powershell)
 
-If you don't already have Azure PowerShell installed, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+If you don't already have Azure PowerShell installed, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 To cancel a management operation, you need to specify management operation name. Therefore, first use the get command to retrieve the operation list, and then cancel specific the operation.
 
@@ -88,7 +88,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) and [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+For detailed commands explanation, see [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) and [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -105,7 +105,7 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+For detailed commands explanation, see [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 
@@ -117,7 +117,6 @@ Instances that have failed to create are still present as a resource and:
 
 - Are not charged
 - Do not count towards resource limits (subnet or vCore quota)
-- Keep the instance name reserved - To deploy an instance with the same name, delete the failed instance to release the name
 
 
 > [!NOTE]

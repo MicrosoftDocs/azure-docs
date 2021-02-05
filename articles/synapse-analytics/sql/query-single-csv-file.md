@@ -1,19 +1,19 @@
 ---
-title: Query CSV files using SQL on-demand (preview) 
-description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand (preview).
+title: Query CSV files using serverless SQL pool 
+description: In this article, you'll learn how to query single CSV files with different file formats using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
 # Query CSV files
 
-In this article, you'll learn how to query a single CSV file using SQL on-demand (preview) in Azure Synapse Analytics. CSV files may have different formats: 
+In this article, you'll learn how to query a single CSV file using serverless SQL pool in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row
 - Comma and tab-delimited values
@@ -40,6 +40,12 @@ from openrowset(
 ```
 
 Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
+> A mismatch between text encoding in the file and the collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### Data source usage
 
@@ -85,6 +91,14 @@ from openrowset(
 ```
 
 The numbers after a data type in the `WITH` clause represent column index in the CSV file.
+
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all columns in `WITH` clause or set some UTF-8 collation at database level.
+> Mismatch between text encoding in the file and collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> You can easily set collation on the colum types using the following definition:
+>    `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 In the following sections you can see how to query various types of CSV files.
 

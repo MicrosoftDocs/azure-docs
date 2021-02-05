@@ -3,7 +3,7 @@ title: Send Azure Activity log to Log Analytics workspace using Azure Resource M
 description: Use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020

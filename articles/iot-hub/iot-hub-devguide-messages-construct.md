@@ -17,7 +17,7 @@ To support seamless interoperability across protocols, IoT Hub defines a common 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](/azure/event-hubs/) *events* than [Service Bus](/azure/service-bus-messaging/) *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
+IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](../event-hubs/index.yml) *events* than [Service Bus](../service-bus-messaging/index.yml) *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
 
 An IoT Hub message consists of:
 

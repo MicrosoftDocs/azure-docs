@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -120,7 +120,7 @@ There are also several more validations that you should perform. The validations
 
 - Ensuring that the user/organization has signed up for the application.
 - Ensuring that the user has proper authorization/privileges.
-- Ensuring that a certain strength of authentication has occurred, such as Azure Multi-Factor Authentication.
+- Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
 
 After you validate the ID token, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 
@@ -258,7 +258,7 @@ Error responses look like:
 
 ## Send a sign-out request
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-overview.md).
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-behavior.md).
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
@@ -270,13 +270,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
-| id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. |
+| id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
 | state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
+To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
+## Next steps
+
+- Learn more about [Azure AD B2C session](session-behavior.md).

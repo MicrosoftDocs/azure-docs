@@ -27,7 +27,7 @@ These concerns can be resolved by setting up your connection using a managed ide
 
 ## Using managed identities
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through role-based access control (RBAC).
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through Azure role-based access control (Azure RBAC).
 
 When setting up a data source using a managed identity, you can change your data source credentials and your indexers will still be able to connect to the data source. You can also create data source objects in your code without having to include an account key or use Key Vault to retrieve an account key.
 

@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
 ---
 
@@ -20,6 +20,10 @@ ms.author: rolyon
 In Azure, you can specify a scope at four levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), and resource. Scopes are structured in a parent-child relationship. Each level of hierarchy makes the scope more specific. You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. 
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
+
+Management groups are a level of scope above subscriptions, but management groups support more complex hierarchies. The following diagram shows an example of a hierarchy of management groups and subscriptions that you can define. For more information about management groups, see [What are Azure management groups?](../governance/management-groups/overview.md).
+
+![Management group and subscription hierarchy](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## Scope format
 
@@ -115,4 +119,4 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
 - [Steps to add a role assignment](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [What are Azure management groups?](../governance/management-groups/overview.md)

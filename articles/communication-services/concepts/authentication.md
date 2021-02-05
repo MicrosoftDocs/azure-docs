@@ -28,7 +28,7 @@ The following table describes which authentication options are supported by the 
 
 Each authorization option is briefly described below:
 
-- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based method authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
+- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based message authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
 - **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
 
 ## Authenticate with an access key
@@ -53,9 +53,9 @@ If you're not using a client library to make HTTP requests to the Azure Communic
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your storage account key. Use the following format (shown as pseudo code):
+1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your access key. Use the following format (shown as pseudo code):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Specify the Authorization header as follows:
     ```
@@ -67,11 +67,11 @@ If you're not using a client library to make HTTP requests to the Azure Communic
 
 User access tokens let your client applications authenticate directly against Azure Communication Services. To achieve this you should set up a trusted service that authenticates your application users and issues user access tokens with the Administration client library. Visit the [client and server architecture](./client-and-server-architecture.md) conceptual documentation to learn more about our architectural considerations.
 
-The `CommunicationClientCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
+The `CommunicationUserCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
 
 ### Initialize the client libraries
 
-To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationClientCredential` class, and then use it to initialize an API client.
+To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationUserCredential` class, and then use it to initialize an API client.
 
 The following snippets show you how to initialize the chat client library with a user access token:
 

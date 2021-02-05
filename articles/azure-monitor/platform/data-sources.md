@@ -16,7 +16,7 @@ This article describes the different sources of monitoring data collected by Azu
 
 ## Application tiers
 
-Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](data-locations.md) for a description of each data location and how you can access its data.
+Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](../monitor-reference.md) for a description of each data location and how you can access its data.
 
 
 ![Monitoring tiers](../media/overview/overview.png)
@@ -160,7 +160,7 @@ When you enable Application Insights for an application by installing an instrum
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## Monitoring Solutions and Insights
-[Monitoring solutions](../insights/solutions.md) and [Insights](../insights/insights-overview.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
+[Monitoring solutions](../insights/solutions.md) and [Insights](../monitor-reference.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
 ### Monitoring solutions
 
@@ -204,4 +204,4 @@ Other services in Azure write data to the Azure Monitor data platform. This allo
 ## Next steps
 
 - Learn more about the [types of monitoring data collected by Azure Monitor](data-platform.md) and how to view and analyze this data.
-- List the [different locations where Azure resources store data](data-locations.md) and how you can access it. 
+- List the [different locations where Azure resources store data](../monitor-reference.md) and how you can access it.

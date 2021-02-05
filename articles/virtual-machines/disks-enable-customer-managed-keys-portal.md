@@ -14,8 +14,8 @@ ms.subservice: disks
 
 Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article:
 
-- For Linux: [Customer-managed keys](./linux/disk-encryption.md#customer-managed-keys)
-- For Windows: [Customer-managed keys](./windows/disk-encryption.md#customer-managed-keys)
+- For Linux: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
+- For Windows: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
 
 ## Restrictions
 

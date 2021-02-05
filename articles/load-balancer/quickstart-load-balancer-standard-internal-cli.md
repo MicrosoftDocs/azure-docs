@@ -1,113 +1,160 @@
 ---
-title: "Quickstart: Create an internal load balancer - Azure CLI"
+title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer using the Azure CLI
+description: This quickstart shows how to create an internal load balancer by using the Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-tags: azure-resource-manager
 Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
-# Quickstart: Create an internal load balancer to load balance VMs using Azure CLI
+# Quickstart: Create an internal load balancer by using the Azure CLI
 
-Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and three virtual machines.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure CLI installed locally or Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+>[!NOTE]
+>Azure Load Balancer Standard is the recommended choice for production workloads. This article contains information about Azure Load Balancer Standard, as well as Azure Load Balancer Basic. For more information about SKUs, see [Azure Load Balancer SKUs](skus.md).
 
 ## Create a resource group
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed.
+An Azure resource group is a logical container into which you deploy and manage your Azure resources.
 
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create):
-
-* Named **myResourceGroupLB**. 
-* In the **eastus** location.
+Create a resource group with [az group create](/cli/azure/group#az_group_create). Name the resource group **CreateIntLBQS-rg**, and specify the location as **eastus**.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupLB \
+    --name CreateIntLBQS-rg \
     --location eastus
+
 ```
----
 
-# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
+## Azure Load Balancer Standard
 
->[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
-## Configure virtual network
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
+### Configure the virtual network
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
 
-### Create a virtual network
+#### Create a virtual network
 
-Create a virtual network using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
+Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Specify the following:
 
-* Named **myVNet**.
-* Address prefix of **10.1.0.0/16**.
-* Subnet named **myBackendSubnet**.
-* Subnet prefix of **10.1.0.0/24**.
-* In the **myResourceGroupLB** resource group.
-* Location of **eastus**.
+* Named **myVNet**
+* Address prefix of **10.1.0.0/16**
+* Subnet named **myBackendSubnet**
+* Subnet prefix of **10.1.0.0/24**
+* In the **CreateIntLBQS-rg** resource group
+* Location of **eastus**
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name myBackendSubnet \
     --subnet-prefixes 10.1.0.0/24
 ```
-### Create a network security group
 
-For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
+#### Create a public IP address
 
-Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host. Specify the following:
 
-* Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* Create a standard zone-redundant public IP address named **myBastionIP**
+* In **CreateIntLBQS-rg**
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group CreateIntLBQS-rg  \
+    --name myBastionIP \
+    --sku Standard
+```
+#### Create an Azure Bastion subnet
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet. Specify the following:
+
+* Named **AzureBastionSubnet**
+* Address prefix of **10.1.1.0/24**
+* In virtual network **myVNet**
+* In resource group **CreateIntLBQS-rg**
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group CreateIntLBQS-rg  \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.1.1.0/24
+```
+
+#### Create an Azure Bastion host
+
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host. Specify the following:
+
+* Named **myBastionHost**
+* In **CreateIntLBQS-rg**
+* Associated with public IP **myBastionIP**
+* Associated with virtual network **myVNet**
+* In **eastus** location
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group CreateIntLBQS-rg  \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location eastus
+```
+
+It can take a few minutes for the Azure Bastion host to deploy.
+
+#### Create a network security group
+
+For a standard load balancer, ensure that your VMs have network interfaces that belong to a network security group. Create a network security group by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). Specify the following:
+
+* Named **myNSG**
+* In resource group **CreateIntLBQS-rg**
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNSG
 ```
 
-### Create a network security group rule
+#### Create a network security group rule
 
-Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
+Create a network security group rule by using [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create). Specify the following:
 
-* Named **myNSGRuleHTTP**.
-* In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
-* Protocol **(*)**.
-* Direction **Inbound**.
-* Source **(*)**.
-* Destination **(*)**.
-* Destination port **Port 80**.
-* Access **Allow**.
-* Priority **200**.
+* Named **myNSGRuleHTTP**
+* In the network security group you created in the previous step, **myNSG**
+* In resource group **CreateIntLBQS-rg**
+* Protocol **(*)**
+* Direction **Inbound**
+* Source **(*)**
+* Destination **(*)**
+* Destination port **Port 80**
+* Access **Allow**
+* Priority **200**
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -120,217 +167,134 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
-### Create network interfaces for the virtual machines
-
-Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
-
-#### VM1
-
-* Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
-
-```azurecli-interactive
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM1 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-#### VM2
-
-* Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
-
-```azurecli-interactive
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM2 \
-    --vnet-name myVnet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-
-## Create backend servers
+### Create back-end servers
 
 In this section, you create:
 
-* A cloud configuration file named **cloud-init.txt** for the server configuration.
-* Two virtual machines to be used as backend servers for the load balancer.
+* Three network interfaces for the virtual machines.
+* Three virtual machines to be used as servers for the load balancer.
 
-### Create cloud-init configuration file
+#### Create network interfaces for the virtual machines
 
-Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
+Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Specify the following:
 
-In your current shell, create a file named cloud-init.txt. Copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
-```
-### Create virtual machines
-
-Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
-
-#### VM1
-* Named **myVM1**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM1**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In **Zone 1**.
+* Named **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* In resource group **CreateIntLBQS-rg**
+* In virtual network **myVNet**
+* In subnet **myBackendSubnet**
+* In network security group **myNSG**
 
 ```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM1 \
-    --nics myNicVM1 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --zone 1 \
-    --no-wait
-    
+  array=(myNicVM1 myNicVM2 myNicVM3)
+  for vmnic in "${array[@]}"
+  do
+    az network nic create \
+        --resource-group CreateIntLBQS-rg \
+        --name $vmnic \
+        --vnet-name myVNet \
+        --subnet myBackEndSubnet \
+        --network-security-group myNSG
+  done
 ```
-#### VM2
-* Named **myVM2**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM2**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In **Zone 2**.
+
+#### Create the virtual machines
+
+Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Specify the following:
+
+* Named **myVM1**, **myVM2**, and **myVM3**
+* In resource group **CreateIntLBQS-rg**
+* Attached to network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* Virtual machine image **win2019datacenter**
+* In **Zone 1**, **Zone 2**, and **Zone 3**
 
 ```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM2 \
-    --nics myNicVM2 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --zone 2 \
+  array=(1 2 3)
+  for n in "${array[@]}"
+  do
+    az vm create \
+    --resource-group CreateIntLBQS-rg \
+    --name myVM$n \
+    --nics myNicVM$n \
+    --image win2019datacenter \
+    --admin-username azureuser \
+    --zone $n \
     --no-wait
+  done
 ```
 
-It may take a few minutes for the VMs to deploy.
+It can take a few minutes for the VMs to deploy.
 
-## Create standard load balancer
+### Create the load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
-  * A frontend IP pool that receives the incoming network traffic on the load balancer.
-  * A backend IP pool where the frontend pool sends the load balanced network traffic.
-  * A health probe that determines health of the backend VM instances.
-  * A load balancer rule that defines how traffic is distributed to the VMs.
+* An IP pool that receives the incoming network traffic on the load balancer.
+* A second IP pool, where the first pool sends the load-balanced network traffic.
+* A health probe that determines health of the VM instances.
+* A load balancer rule that defines how traffic is distributed to the VMs.
 
-### Create the load balancer resource
+#### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). Specify the following:
 
-* Named **myLoadBalancer**.
-* A frontend pool named **myFrontEnd**.
-* A backend pool named **myBackEndPool**.
-* Associated with the virtual network **myVNet**.
-* Associated with the backend subnet **myBackendSubnet**.
+* Named **myLoadBalancer**
+* A pool named **myFrontEnd**
+* A pool named **myBackEndPool**
+* Associated with the virtual network **myVNet**
+* Associated with the subnet **myBackendSubnet**
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
     --sku Standard \
     --vnet-name myVnet \
     --subnet myBackendSubnet \
     --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
+    --backend-pool-name myBackEndPool
 ```
 
-### Create the health probe
+#### Create the health probe
 
-A health probe checks all virtual machine instances to ensure they can send network traffic. 
+A health probe checks all virtual machine instances to ensure they can send network traffic. A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). Specify the following:
 
-Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Monitors the health of the virtual machines.
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Monitoring **Port 80**.
+* Monitors the health of the virtual machines
+* Named **myHealthProbe**
+* Protocol **TCP**
+* Monitoring **Port 80**
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
-### Create the load balancer rule
+#### Create a load balancer rule
 
 A load balancer rule defines:
 
-* Frontend IP configuration for the incoming traffic.
-* The backend IP pool to receive the traffic.
+* The IP configuration for the incoming traffic.
+* The IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). Specify the following:
 
 * Named **myHTTPRule**
-* Listening on **Port 80** in the frontend pool **myFrontEnd**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
-* Using health probe **myHealthProbe**.
-* Protocol **TCP**.
-* Enable outbound source network address translation (SNAT) using the frontend IP address.
+* Listening on **Port 80** in the pool **myFrontEnd**
+* Sending load-balanced network traffic to the address pool **myBackEndPool** by using **Port 80** 
+* Using health probe **myHealthProbe**
+* Protocol **TCP**
+* Idle timeout of **15 minutes**
+* Enable TCP reset
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -339,108 +303,146 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true 
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
->[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
-### Add virtual machines to load balancer backend pool
+#### Add VMs to the load balancer pool
 
-Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the back-end pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add). Specify the following:
 
-
-#### VM1
-* In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
-* Associated with network interface **myNicVM1** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
+* In address pool **myBackEndPool**
+* In resource group **CreateIntLBQS-rg**
+* Associated with network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* Associated with load balancer **myLoadBalancer**
 
 ```azurecli-interactive
+  array=(VM1 VM2 VM3)
+  for vm in "${array[@]}"
+  do
   az network nic ip-config address-pool add \
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --nic-name myNic$vm \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
+  done
+
 ```
 
-#### VM2
-* In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
-* Associated with network interface **myNicVM2** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
+## Azure Load Balancer Basic
 
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
-   --lb-name myLoadBalancer
-```
+In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
-# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created for quickstart." border="false":::
 
->[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about SKUS, see **[Azure Load Balancer SKUs](skus.md)**.
-
-## Configure virtual network
+### Configure the virtual network
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
 
-### Create a virtual network
+#### Create a virtual network
 
-Create a virtual network using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
+Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-createt). Specify the following:
 
-* Named **myVNet**.
-* Address prefix of **10.1.0.0/16**.
-* Subnet named **myBackendSubnet**.
-* Subnet prefix of **10.1.0.0/24**.
-* In the **myResourceGroupLB** resource group.
-* Location of **eastus**.
+* Named **myVNet**
+* Address prefix of **10.1.0.0/16**
+* Subnet named **myBackendSubnet**
+* Subnet prefix of **10.1.0.0/24**
+* In the **CreateIntLBQS-rg** resource group
+* Location of **eastus**
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name myBackendSubnet \
     --subnet-prefixes 10.1.0.0/24
 ```
-### Create a network security group
 
-For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
+#### Create a public IP address
 
-Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host. Specify the following:
 
-* Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* Create a standard zone-redundant public IP address named **myBastionIP**
+* In **CreateIntLBQS-rg**
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group CreateIntLBQS-rg \
+    --name myBastionIP \
+    --sku Standard
+```
+#### Create an Azure Bastion subnet
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet. Specify the following:
+
+* Named **AzureBastionSubnet**
+* Address prefix of **10.1.1.0/24**
+* In virtual network **myVNet**
+* In resource group **CreateIntLBQS-rg**
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group CreateIntLBQS-rg \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.1.1.0/24
+```
+
+#### Create an Azure Bastion host
+
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host. Specify the following:
+
+* Named **myBastionHost**
+* In **CreateIntLBQS-rg**
+* Associated with public IP **myBastionIP**
+* Associated with virtual network **myVNet**
+* In **eastus** location
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group CreateIntLBQS-rg \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location eastus
+```
+
+It can take a few minutes for the Azure Bastion host to deploy.
+
+#### Create a network security group
+
+For a standard load balancer, ensure that your VMs have network interfaces that belong to a network security group. Create a network security group by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). Specify the following:
+
+* Named **myNSG**
+* In resource group **CreateIntLBQS-rg**
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNSG
 ```
 
-### Create a network security group rule
+#### Create a network security group rule
 
-Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
+Create a network security group rule by using [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create). Specify the following:
 
-* Named **myNSGRuleHTTP**.
-* In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
-* Protocol **(*)**.
-* Direction **Inbound**.
-* Source **(*)**.
-* Destination **(*)**.
-* Destination port **Port 80**.
-* Access **Allow**.
-* Priority **200**.
+* Named **myNSGRuleHTTP**
+* In the network security group you created in the previous step, **myNSG**
+* In resource group **CreateIntLBQS-rg**
+* Protocol **(*)**
+* Direction **Inbound**
+* Source **(*)**
+* Destination **(*)**
+* Destination port **Port 80**
+* Access **Allow**
+* Priority **200**
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -453,236 +455,150 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
-### Create network interfaces for the virtual machines
-
-Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
-
-#### VM1
-
-* Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
-
-```azurecli-interactive
-
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM1 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-#### VM2
-
-* Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-
-```azurecli-interactive
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM2 \
-    --vnet-name myVnet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-
-## Create backend servers
+### Create back-end servers
 
 In this section, you create:
 
-* A cloud configuration file named **cloud-init.txt** for the server configuration. 
-* Availability set for the virtual machines
-* Two virtual machines to be used as backend servers for the load balancer.
+* Three network interfaces for the virtual machines.
+* The availability set for the virtual machines.
+* Three virtual machines to be used as servers for the load balancer.
 
-To verify that the load balancer was successfully created, you install NGINX on the virtual machines.
+#### Create network interfaces for the virtual machines
 
-### Create cloud-init configuration file
+Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Specify the following:
 
-Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
+* Named **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* In resource group **CreateIntLBQS-rg**
+* In virtual network **myVNet**
+* In subnet **myBackendSubnet**
+* In network security group **myNSG**
 
-In your current shell, create a file named cloud-init.txt. Copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
+```azurecli-interactive
+  array=(myNicVM1 myNicVM2 myNicVM3)
+  for vmnic in "${array[@]}"
+  do
+    az network nic create \
+        --resource-group CreateIntLBQS-rg \
+        --name $vmnic \
+        --vnet-name myVNet \
+        --subnet myBackEndSubnet \
+        --network-security-group myNSG
+  done
 ```
 
-### Create availability set for virtual machines
+#### Create the availability set for the virtual machines
 
-Create the availability set with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create):
+Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create). Specify the following:
 
-* Named **myAvSet**.
-* In resource group **myResourceGroupLB**.
-* Location **eastus**.
+* Named **myAvailabilitySet**
+* In resource group **CreateIntLBQS-rg**
+* Location **eastus**
 
 ```azurecli-interactive
   az vm availability-set create \
-    --name myAvSet \
-    --resource-group myResourceGroupLB \
+    --name myAvailabilitySet \
+    --resource-group CreateIntLBQS-rg \
     --location eastus 
     
 ```
 
-### Create virtual machines
+#### Create the virtual machines
 
-Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Specify the following:
 
-#### VM1
-* Named **myVM1**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM1**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In availability set **myAvSet**.
+* Named **myVM1**, **myVM2**, and **myVM3**
+* In resource group **CreateIntLBQS-rg**
+* Attached to network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* Virtual machine image **win2019datacenter**
+* In **myAvailabilitySet**
 
-```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM1 \
-    --nics myNicVM1 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet \
-    --no-wait
-    
-```
-#### VM2
-* Named **myVM2**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM2**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In **Zone 2**.
 
 ```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM2 \
-    --nics myNicVM2 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet  \
+  array=(1 2 3)
+  for n in "${array[@]}"
+  do
+    az vm create \
+    --resource-group CreateIntLBQS-rg \
+    --name myVM$n \
+    --nics myNicVM$n \
+    --image win2019datacenter \
+    --admin-username azureuser \
+    --availability-set myAvailabilitySet \
     --no-wait
+  done
 ```
+It can take a few minutes for the VMs to deploy.
 
-It may take a few minutes for the VMs to deploy.
-
-## Create basic load balancer
+### Create the load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
-  * A frontend IP pool that receives the incoming network traffic on the load balancer.
-  * A backend IP pool where the frontend pool sends the load balanced network traffic.
-  * A health probe that determines health of the backend VM instances.
-  * A load balancer rule that defines how traffic is distributed to the VMs.
+* An IP pool that receives the incoming network traffic on the load balancer.
+* A second IP pool, where the first pool sends the load-balanced network traffic.
+* A health probe that determines health of the VM instances.
+* A load balancer rule that defines how traffic is distributed to the VMs.
 
-### Create the load balancer resource
+#### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). Specify the following:
 
-* Named **myLoadBalancer**.
-* A frontend pool named **myFrontEnd**.
-* A backend pool named **myBackEndPool**.
-* Associated with the virtual network **myVNet**.
-* Associated with the backend subnet **myBackendSubnet**.
+* Named **myLoadBalancer**
+* A pool named **myFrontEnd**
+* A pool named **myBackEndPool**
+* Associated with the virtual network **myVNet**
+* Associated with the subnet **myBackendSubnet**
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
     --sku Basic \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
     --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
+    --backend-pool-name myBackEndPool
 ```
 
-### Create the health probe
+#### Create the health probe
 
-A health probe checks all virtual machine instances to ensure they can send network traffic. 
+A health probe checks all virtual machine instances to ensure they can send network traffic. A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). Specify the following:
 
-Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Monitors the health of the virtual machines.
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Monitoring **Port 80**.
+* Monitors the health of the virtual machines
+* Named **myHealthProbe**
+* Protocol **TCP**
+* Monitoring **Port 80**
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
-### Create the load balancer rule
+#### Create a load balancer rule
 
 A load balancer rule defines:
 
-* Frontend IP configuration for the incoming traffic.
-* The backend IP pool to receive the traffic.
+* The IP configuration for the incoming traffic.
+* The IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). Specify the following:
 
 * Named **myHTTPRule**
-* Listening on **Port 80** in the frontend pool **myFrontEnd**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
-* Using health probe **myHealthProbe**.
-* Protocol **TCP**.
+* Listening on **Port 80** in the pool **myFrontEnd**
+* Sending load-balanced network traffic to the address pool **myBackEndPool** by using **Port 80** 
+* Using health probe **myHealthProbe**
+* Protocol **TCP**
+* Idle timeout of **15 minutes**
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -690,175 +606,120 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
+    --probe-name myHealthProbe \
+    --idle-timeout 15 
 ```
-### Add virtual machines to load balancer backend pool
+#### Add VMs to the load balancer pool
 
-Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the back-end pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add). Specify the following:
 
-
-#### VM1
-* In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
-* Associated with network interface **myNicVM1** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
+* In address pool **myBackEndPool**
+* In resource group **CreateIntLBQS-rg**
+* Associated with network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**
+* Associated with load balancer **myLoadBalancer**
 
 ```azurecli-interactive
+  array=(VM1 VM2 VM3)
+  for vm in "${array[@]}"
+  do
   az network nic ip-config address-pool add \
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --nic-name myNic$vm \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
+  done
+
 ```
-
-#### VM2
-* In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
-* Associated with network interface **myNicVM2** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
-   --lb-name myLoadBalancer
-```
-
----
 
 ## Test the load balancer
 
-### Create Azure Bastion public IP
+Create the network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Specify the following:
 
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to create a public ip address for the bastion host:
-
-* Create a standard zone redundant public IP address named **myBastionIP**.
-* In **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myBastionIP \
-    --sku Standard
-```
-
-### Create Azure Bastion subnet
-
-Use [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) to create a subnet:
-
-* Named **AzureBastionSubnet**.
-* Address prefix of **10.1.1.0/24**.
-* In virtual network **myVNet**.
-* In resource group **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network vnet subnet create \
-    --resource-group myResourceGroupLB \
-    --name AzureBastionSubnet \
-    --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/24
-```
-
-### Create Azure Bastion host
-Use [az network bastion create](https://docs.microsoft.com/cli/azure/network/bastion?view=azure-cli-latest#az-network-bastion-create) to create a bastion host:
-
-* Named **myBastionHost**
-* In **myResourceGroupLB**
-* Associated with public IP **myBastionIP**.
-* Associated with virtual network **myVNet**.
-* In **eastus** location.
-
-```azurecli-interactive
-  az network bastion create \
-    --resource-group myResourceGroupLB \
-    --name myBastionHost \
-    --public-ip-address myBastionIP \
-    --vnet-name myVNet \
-    --location eastus
-```
-It will take a few minutes for the bastion host to deploy.
-
-### Create test virtual machine
-
-Create the network interface with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
-
-* Named **myNicTestVM**.
-* In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
+* Named **myNicTestVM**
+* In resource group **CreateIntLBQS-rg**
+* In virtual network **myVNet**
+* In subnet **myBackendSubnet**
+* In network security group **myNSG**
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicTestVM \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-Create the virtual machine with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create). Specify the following:
 
-* Named **myTestVM**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicTestVM**.
-* Virtual machine image **Win2019Datacenter**.
-* Choose values for **\<adminpass>** and **\<adminuser>**.
-  
+* Named **myTestVM**
+* In resource group **CreateIntLBQS-rg**
+* Attached to network interface **myNicTestVM**
+* Virtual machine image **Win2019Datacenter**
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myTestVM \
     --nics myNicTestVM \
     --image Win2019Datacenter \
-    --admin-username <adminuser> \
-    --admin-password <adminpass> \
+    --admin-username azureuser \
     --no-wait
 ```
-Can take a few minutes for the virtual machine to deploy.
+You might need to wait a few minutes for the virtual machine to deploy.
+
+## Install IIS
+
+Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machines and set the default website to the computer name.
+
+```azurecli-interactive
+  array=(myVM1 myVM2 myVM3)
+    for vm in "${array[@]}"
+    do
+     az vm extension set \
+       --publisher Microsoft.Compute \
+       --version 1.8 \
+       --name CustomScriptExtension \
+       --vm-name $vm \
+       --resource-group CreateIntLBQS-rg \
+       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+  done
+
+```
 
 ### Test
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
-1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
+2. On the **Overview** page, find the private IP address for the load balancer. In the menu on the left, select **All services** > **All resources** > **myLoadBalancer**.
 
-2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
+3. In the overview of **myLoadBalancer**, copy the address next to **Private IP Address**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
+4. In the menu on the left, select **All services** > **All resources**. From the resources list, in the **CreateIntLBQS-rg** resource group, select **myTestVM**.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+5. On the **Overview** page, select **Connect** > **Bastion**.
 
-6. Enter the username and password entered during VM creation.
+6. Enter the username and password that you entered when you created the VM.
 
-7. Open **Internet Explorer** on **myTestVM**.
+7. On **myTestVM**, open **Internet Explorer**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
+8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of the IP address in the address bar of the browser." border="true":::
    
-To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS web server. Then, manually refresh your web browser from the client machine.
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When your resources are no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroupLB
+    --name CreateIntLBQS-rg
 ```
 
 ## Next steps
-In this quickstart
 
-* You created a standard or public load balancer
-* Attached virtual machines. 
-* Configured the load balancer traffic rule and health probe.
-* Tested the load balancer.
-
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
-Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+Get an overview of Azure Load Balancer.
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md)

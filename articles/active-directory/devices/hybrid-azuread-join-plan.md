@@ -53,7 +53,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 
 - Windows 10
 - Windows Server 2016
-  - **Note**: Azure National cloud customers require version 1809
+  - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019
 
 For devices running the Windows desktop operating system, supported version are listed in this article [Windows 10 release information](/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
@@ -79,6 +79,8 @@ As a first planning step, you should review your environment and determine wheth
 
 - Server Core OS doesn't support any type of device registration.
 
+- User State Migration Tool (USMT) doesn't work with device registration.  
+
 ### OS imaging considerations
 - If you are relying on the System Preparation Tool (Sysprep) and if you are using a **pre-Windows 10 1809** image for installation, make sure that image is not from a device that is already registered with Azure AD as Hybrid Azure AD join.
 
@@ -102,6 +104,8 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 - Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
 
 - Starting from Windows 10 1903 release, TPMs 1.2 are not used with hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
+
+- UPN changes are only supported starting Windows 10 2004 update. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. To resolve this issue, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically). However, users signing in with Windows Hello for Business do not face this issue.
 
 ## Review controlled validation of hybrid Azure AD join
 

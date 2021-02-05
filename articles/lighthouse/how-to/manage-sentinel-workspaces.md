@@ -34,7 +34,7 @@ This centralized model of deployment has the following advantages:
 > [!NOTE]
 > You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
 
-## Granular role-based access control (RBAC)
+## Granular Azure role-based access control (Azure RBAC)
 
 Each customer subscription that an MSSP will manage must be [onboarded to Azure Lighthouse](onboard-customer.md). This allows designated users in the managing tenant to access and perform management operations on Azure Sentinel workspaces deployed in customer tenants.
 

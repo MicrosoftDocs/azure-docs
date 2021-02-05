@@ -109,7 +109,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 The `<service principal ID>` can be the service principal's **appId**, **objectId**, or one of its **servicePrincipalNames**. For more information about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> After any role changes, run `az acr login` to refresh the local identity token for the Azure CLI so that the new roles can take effect. For information about verifying roles for an identity, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot Azure RBAC](../role-based-access-control/troubleshooting.md).
+> After any role changes, run `az acr login` to refresh the local identity token for the Azure CLI so that the new roles can take effect. For information about verifying roles for an identity, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## Push a trusted image
 

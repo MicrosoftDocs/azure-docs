@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first JavaScript query"
 description: In this quickstart, you follow the steps to enable the Resource Graph library for JavaScript and run your first query.
-ms.date: 06/23/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---
@@ -21,12 +21,12 @@ your first Resource Graph query.
 
 - **Node.js**: [Node.js](https://nodejs.org/) version 12 or higher is required.
 
-## Application setup
+## Application initialization
 
-To enable JavaScript to query Azure Resource Graph, the environment must be set up. This setup works
-wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/install-win10).
+To enable JavaScript to query Azure Resource Graph, the environment must be configured. This setup
+works wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/install-win10).
 
-1. Set up a new Node.js project by running the following command.
+1. Initialize a new Node.js project by running the following command.
 
    ```bash
    npm init -y

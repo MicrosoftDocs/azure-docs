@@ -1,7 +1,7 @@
 ---
 title: Error code reference
 titleSuffix: Azure AD B2C
-description: A list of the error codes that can returned by the Azure Active Directory B2C service.
+description: A list of the error codes that can be returned by the Azure Active Directory B2C service.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -57,6 +57,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90055` | The scope '{0}' provided in request must specify a resource, such as 'https://example.com/calendar.read'. |
 | `AADB2C90057` | The provided application is not configured to allow the OAuth Implicit flow. |
 | `AADB2C90058` | The provided application is not configured to allow public clients. |
+| `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| 
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |

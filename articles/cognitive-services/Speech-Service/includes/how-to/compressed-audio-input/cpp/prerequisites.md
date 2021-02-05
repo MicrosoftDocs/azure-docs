@@ -8,7 +8,10 @@ ms.author: trbye
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Developers need to install several dependencies and plugins.
 
-# [Ubuntu, 16.04, 18.04 or Debian 9](#tab/debian)
+> [!NOTE]
+> See the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
+
+# [Ubuntu/Debian](#tab/debian)
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
@@ -18,7 +21,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# [RHEL/CentOS 7/8](#tab/centos)
+# [RHEL/CentOS](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \
