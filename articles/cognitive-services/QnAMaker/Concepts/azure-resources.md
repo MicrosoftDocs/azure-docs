@@ -317,7 +317,7 @@ To query the published knowledge base, all published knowledge bases use the sam
 
 [Application Insights](../../../azure-monitor/app/app-insights-overview.md) is used to collect chat logs and telemetry. Review the common [Kusto queries](../how-to/get-analytics-knowledge-base.md) for information about your service.
 
-## Share services with QnA Maker
+### Share services with QnA Maker
 
 QnA Maker creates several Azure resources. To reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
 
