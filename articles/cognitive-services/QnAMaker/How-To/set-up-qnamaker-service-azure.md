@@ -179,7 +179,7 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 
 ---
 
-## Update Azure resources
+## Upgrade Azure resources
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
@@ -196,10 +196,10 @@ To upgrade the QnA Maker management SKU:
 1. Choose the appropriate SKU and press **Select**.
 
     ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
-
+    
 ### Upgrade App Service
 
- When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
+When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
 
 You can [scale up](../../../app-service/manage-scale-up.md) or scale out App Service.
 
@@ -234,6 +234,26 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 1. Restart the App Service instance.
 
     ![Restart of the QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    
+# [QnA Maker managed (preview release)](#tab/v2)
+
+If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
+
+Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
+
+1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
+
+    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
+
+1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
+
+1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
+
+---
+
+## Update Azure resources
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 ### Configure QnA Maker to use different Cognitive Search resource
 
@@ -356,18 +376,6 @@ The high-level idea as represented above is as follows:
 1. Finally, use the traffic manager endpoint in your Bot or App.
 
 # [QnA Maker managed (preview release)](#tab/v2)
-
-If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
-
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
-
-1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
-
-    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
-
-1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
-
-1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
 
 ### Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
 
