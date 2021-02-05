@@ -84,6 +84,30 @@ For example, to add the version to the **Unlimited** product:
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Add version to product":::
 
+## Using version sets
+
+When you create multiple versions, the Azure portal creates a *version set*, which represents a set of versions for a single logical API. Select the name of an API with multiple versions. The Azure portal displays its **Version set**. You can customize the **Name** and **Description**.
+
+You can interact directly with version sets by using the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) command:
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+When the Azure portal creates a version set for you, it assigns an alphanumeric name, which appears in the **Name** column of the list. Use this name in other Azure CLI commands.
+
+To see details about a version set, run the [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) command:
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
 ## Browse the developer portal to see the version
 
 If you've tried the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
