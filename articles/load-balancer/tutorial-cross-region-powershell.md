@@ -32,47 +32,43 @@ If you don’t have an Azure subscription, create a [free account](https://azure
         - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Sign in to Azure PowerShell
-
-Sign in to Azure PowerShell:
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
-
 ## Create cross-region load balancer
 
-In this section, you'll create a cross-region load balancer, public IP address, and load balancing rule.
 
 ### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-* Named **myResourceGroupLB-CR**.
-* In the **westus** location.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'MyResourceGroupLB-CR'
-$loc = 'westus'
+$rg = @{
+    Name = 'MyResourceGroupLB-CR'
+    Location = 'westus'
+}
+New-AzResourceGroup @rg
 
-New-AzResourceGroup -Name $rg -Location $loc
 ```
 
-### Create a public IP address in the Standard SKU
+### Create cross-region load balancer resources
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+In this section you'll create the resources needed for the cross-region load balancer.
 
-* Create a standard zone redundant public IP address named **myPublicIP-CR**.
-* In **myResourceGroupLB-CR**.
+A global standard sku public IP is used for the frontend of the cross-region load balancer.
+
+* Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
+
+* Create a front-end IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+
+* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+
+* Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
+
+* Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -87,24 +83,9 @@ $publicIp =
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Tier $tir
 ```
 
-To create a zonal public IP address in zone 1, use the following command:
+### Create frontend IP configuration
 
-```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'MyResourceGroupLB-CR'
-$loc = 'westus'
-$pubIP = 'myPublicIP-CR'
-$sku = 'Standard'
-$all = 'static'
-$tir = 'Global'
 
-$publicIp = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1 -Tier $tir
-```
-
-### Create frontend IP
-
-Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
 * Named **myFrontEnd-CR**.
 * Attached to public IP **myPublicIP-CR**.
@@ -123,9 +104,9 @@ $feip =
 New-AzLoadBalancerFrontendIpConfig -Name $fe -PublicIpAddress $publicIp
 ```
 
-### Configure back-end address pool
+### Create back-end address pool
 
-Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
+
 
 * Named **myBackEndPool-CR**.
 * The regional load balancers attach to this back-end pool in the remaining steps.
@@ -168,7 +149,7 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -FrontendPort $port -Back
 
 In this section you'll combine all of the variables from the previous steps and create a cross-region load balancer.
 
-Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
+
 
 * Named **myLoadBalancer-CR**
 * In **westus**.
@@ -188,7 +169,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -LoadBalancingRule $rule -Tier $tir
 ```
 
-## Create backend pool
+## Configure backend pool
 
 In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
