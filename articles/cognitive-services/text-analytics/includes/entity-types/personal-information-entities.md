@@ -19,19 +19,24 @@ ms.author: aahi
 The following entity categories are returned when you're sending requests to the `/v3.1-preview.2/entities/recognition/pii` endpoint.
 
 
-| Category   | Description                          | Starting model version | Notes |
-|------------|--------------------------------------|------------------------|---|
-| Person     | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
-| PersonType | Job types or roles held by a person. | `2020-02-01` | |
-| PhoneNumber | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
-|Organization  | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
-| Address  | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
-| EU GPS Coordinates | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
-| Email | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
-| URL  | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
-| IP  | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
-| DateTime | Dates and times of day. | `2019-10-01` |  | 
-| Quantity | Numbers and numeric quantities. | `2019-10-01` |  |
+| Category   | Subcategory | Description                          | Starting model version | Notes |
+|------------|-------------|--------------------------------------|------------------------|---|
+| Person     | N/A         | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
+| PersonType | N/A         | Job types or roles held by a person. | `2020-02-01` | |
+| PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
+|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
+|Organization | Medical | Medical companies and groups. | `2020-04-01` |  |
+|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` |  |
+| Organization | Sports | Sports-related organizations. | `2020-04-01` |  |
+| Address | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
+| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
+| Email | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
+| URL | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
+| IP | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
+| DateTime | N/A | Dates and times of day. | `2019-10-01` |  | 
+| DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
+| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
+| Quantity | Age | Ages. | `2019-10-01` | Also returned with `domain=phi`.   |
 
 
 ### Category: Person
