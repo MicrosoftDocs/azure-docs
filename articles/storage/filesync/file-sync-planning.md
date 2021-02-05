@@ -47,7 +47,7 @@ Before you can create a sync group in a Storage Sync Service, you must first reg
 A sync group contains one cloud endpoint, or Azure file share, and at least one server endpoint. The server endpoint object contains the settings that configure the **cloud tiering** capability, which provides the caching capability of Azure File Sync. In order to sync with an Azure file share, the storage account containing the Azure file share must be in the same Azure region as the Storage Sync Service.
 
 > [!Important]  
-> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md#afs-change-detection?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
 
 ### Management guidance
 When deploying Azure File Sync, we recommend:
@@ -101,7 +101,7 @@ In the following table, we have provided both the size of the namespace as well 
 | 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
 | 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targetss).
+\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets).
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
