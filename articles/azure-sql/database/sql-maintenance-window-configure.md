@@ -8,7 +8,7 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 01/26/2021
+ms.date: 02/04/2021
 ---
 # Configure SQL maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ SQL maintenance window is not available for every service level or in every regi
 
 ## Configure SQL maintenance window during database creation 
 
+# [Portal](#tab/azure-portal)
+
 To configure the maintenance window when you create a database, set the desired **Maintenance window** on the **Additional settings** page. 
 
 For step-by-step information on creating a new SQL database and setting the SQL maintenance window, see [Create an Azure SQL Database single database](single-database-create-quickstart.md).
@@ -34,10 +36,10 @@ For step-by-step information on creating a new SQL database and setting the SQL 
 
 
 
-
 ## Configure SQL maintenance window for an existing database 
 
-To configure the maintenance window for an existing database:
+
+To configure the maintenance window for an existing database in the Azure portal:
 
 1. Navigate to the SQL database, elastic pool, or managed instance you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
@@ -45,6 +47,135 @@ To configure the maintenance window for an existing database:
    :::image type="content" source="media/sql-maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
 
 
+# [PowerShell](#tab/azure-powershell)
+
+To configure the maintenance window using Windows PowerShell:
+
+## Prerequisites
+For this tutorial pre-existing SQL server is required. Please follow [quickstart](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-powershell) to get it ready.
+
+## Discover maintenance windows
+
+Each region has it's own set of available maintenance window. Available options can be discovered using [Get-AzMaintenancePublicConfiguration](https://docs.microsoft.com/en-us/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
+
+   ```powershell-interactive
+   $location = "eastus2euap"
+
+   Write-Host "Available maintenance schedules in ${location}:"
+   $configurations = Get-AzMaintenancePublicConfiguration
+   $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLDB"}
+   ```
+
+
+## Create database with selected maintenance window
+
+Once maintenance window is selected, new database can be created using [New-AzSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+
+
+   ```powershell-interactive
+    # Set variables for your database
+    $resourceGroupName = "rokhotrg"
+    $serverName = "testfmw2"
+    $databaseName = "pstest2"
+    
+    # Set selected maintenance window
+    $maintenanceConfig = "SQL_EastUS2EUAP_DB_1"
+
+    Write-host "Creating a gen5 2 vCore database with maintenance window ${maintenanceConfig} ..."
+    $database = New-AzSqlDatabase `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName `
+      -Edition GeneralPurpose `
+      -ComputeGeneration Gen5 `
+      -VCore 2 `
+      -MaintenanceConfigurationId $maintenanceConfig
+    $database
+   ```
+
+
+
+## Create elastic pool with selected maintenance window
+
+The following example creates new elastic pool using [New-AzSqlElasticPool](https://docs.microsoft.com/en-us/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
+
+
+   ```powershell-interactive
+    # Set variables for your pool
+    $resourceGroupName = "rokhotrg"
+    $serverName = "testfmw2"
+    $poolName = "pstest3"
+    
+    # Set selected maintenance window
+    $maintenanceConfig = "SQL_EastUS2EUAP_DB_2"
+
+    Write-host "Creating a Standard 50 pool with maintenance window ${maintenanceConfig} ..."
+    $pool = New-AzSqlElasticPool `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -ElasticPoolName $poolName `
+      -Edition "Standard" `
+      -Dtu 50 `
+      -DatabaseDtuMin 10 `
+      -DatabaseDtuMax 20 `
+      -MaintenanceConfigurationId $maintenanceConfig
+    $pool
+   ```
+
+
+## Apply maintenance window to existing database
+
+Maintenance window can be applied to existing database using [Set-AzSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
+
+   ```powershell-interactive
+    # Select different maintenance window
+    $maintenanceConfig = "SQL_EastUS2EUAP_DB_2"
+
+    Write-host "Changing database maintenance window to ${maintenanceConfig} ..."
+    $database = Set-AzSqlDatabase `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName `
+      -MaintenanceConfigurationId $maintenanceConfig
+    $database
+   ```
+
+## Apply maintenance window to existing elastic pool
+
+The same applies to elastic pool except that cmdlet needed is [Set-AzSqlElasticPool](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlelasticpool).
+
+   ```powershell-interactive
+    # Select different maintenance window
+    $maintenanceConfig = "SQL_EastUS2EUAP_DB_1"
+    
+    Write-host "Changing pool maintenance window to ${maintenanceConfig} ..."
+    $pool = Set-AzSqlElasticPool `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -ElasticPoolName $poolName `
+      -MaintenanceConfigurationId $maintenanceConfig
+    $pool
+   ```
+
+
+## Cleanup resources
+
+When you're finished with this tutorial, delete the resources.
+
+
+   ```powershell-interactive
+    # Delete database
+    Remove-AzSqlDatabase `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName
+    
+    # Delete elastic pool
+    Remove-AzSqlElasticPool `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -ElasticPoolName $poolName
+   ```
 
 
 ## Next steps
