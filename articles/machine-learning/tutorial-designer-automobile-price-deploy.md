@@ -146,7 +146,7 @@ To use the updated transformation in inference pipeline, you need to register th
 
 Then manually replace the **TD-** module in inference pipeline with the registered dataset.
 
-![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+![Screenshot showing how to replace transformation module](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 Then you can submit the inference pipeline with the updated model and transformation, and deploy.
 
