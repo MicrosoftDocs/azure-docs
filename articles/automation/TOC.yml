@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Query logs from Start/Stop VMs during off-hours
           href: automation-solution-vm-management-logs.md
+        - name: Remove Start/Stop VMs during off-hours
+          href: automation-solution-vm-management-remove.md
         - name: Troubleshoot Stop/Start VMs during off-hours
           href: troubleshoot/start-stop-vm.md
     - name: Update Management
