@@ -60,7 +60,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> This quickstart's sample code requires a **Redirect URI** of `http://localhost:3000/` and enable **Implicit grant**.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -265,7 +265,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### Get a user token interactively
 
-There are situations where you need to force users to interact with the Microsoft identity platform. For example:
+There are situations where you force users to interact with the Microsoft identity platform. For example:
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
 * Two-factor authentication is required.

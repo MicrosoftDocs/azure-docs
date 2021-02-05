@@ -288,7 +288,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. You need to support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
+MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. As such, support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
 
 #### More information about signing out<a name="more-information-on-sign-out"></a>
 
@@ -339,7 +339,7 @@ private async Task DisplayMessageAsync(string message)
 
 ## Register your application
 
-Now you need to register your application:
+Now, register your application:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.

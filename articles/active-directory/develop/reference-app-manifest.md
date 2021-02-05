@@ -22,7 +22,7 @@ The application manifest contains a definition of all the attributes of an appli
 You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
-* If you need to define permissions and roles that your app supports, you must modify the application manifest.
+* To define permissions and roles that your app supports, you must modify the application manifest.
 
 ## Configure the app manifest
 
