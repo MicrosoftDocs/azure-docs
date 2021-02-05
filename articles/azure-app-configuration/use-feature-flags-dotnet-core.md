@@ -36,7 +36,7 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
-To access the .NET Core feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages.
+To access the .NET Core feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
 
 The .NET Core feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables.
 
@@ -112,9 +112,8 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                 webBuilder.ConfigureAppConfiguration(config =>
                 {
                     var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
                     config.AddAzureAppConfiguration(options =>
-                        options.Connect(connection).UseFeatureFlags());
+                        options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
                 }).UseStartup<Startup>());
     ```
 
@@ -129,9 +128,8 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
             webBuilder.ConfigureAppConfiguration(config =>
             {
                 var settings = config.Build();
-                var connection = settings.GetConnectionString("AppConfig");
                 config.AddAzureAppConfiguration(options =>
-                    options.Connect(connection).UseFeatureFlags());
+                    options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
             }).UseStartup<Startup>());
     ```
         
@@ -145,9 +143,8 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                     .ConfigureAppConfiguration(config =>
                     {
                         var settings = config.Build();
-                        var connection = settings.GetConnectionString("AppConfig");
                         config.AddAzureAppConfiguration(options =>
-                            options.Connect(connection).UseFeatureFlags());
+                            options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
                     }).UseStartup<Startup>();
     ```
     ---
@@ -175,9 +172,8 @@ In a typical scenario, you will update your feature flag values periodically as 
 
     
 ```csharp
-var connection = settings.GetConnectionString("AppConfig");
 config.AddAzureAppConfiguration(options =>
-    options.Connect(connection).UseFeatureFlags(featureFlagOptions => {
+    options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags(featureFlagOptions => {
         featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
     }));
 });
