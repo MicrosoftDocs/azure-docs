@@ -56,7 +56,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> This quickstart's sample code requires a **Redirect URI** of `https://localhost:44368/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44368/`.
 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -176,7 +176,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge

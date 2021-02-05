@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
 ---
 
@@ -192,12 +192,13 @@ jobs:
 
 ## Monorepo support
 
-A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static site has it's own configuration file which lives side-by-side in the repository's *.git* folder.
+A monorepo is a repository that contains code for more than one application. By default, a Static Web Apps workflow file tracks all the files in a repository, but you can adjust it to target a single app. Therefore, for monorepos, each static app has it's own configuration file which lives side-by-side in the repository's *.github/workflows* folder.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -205,7 +206,7 @@ A monorepo is a repository that contains code for more than one application. By 
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 To target a workflow file to a single app, you specify paths in the `push` and `pull_request` sections.
@@ -231,7 +232,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-In this instance, only changes made to files following files trigger a new build:
+In this instance, only changes made to following files trigger a new build:
 
 - Any files inside the *app1* folder
 - Any files inside the *api1* folder

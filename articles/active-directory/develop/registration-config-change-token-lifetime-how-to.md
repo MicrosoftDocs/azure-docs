@@ -23,7 +23,7 @@ This article shows how to use Azure AD PowerShell to set an access token lifetim
 > After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation. For more information, read [Configurable token lifetimes in Azure AD](./active-directory-configurable-token-lifetimes.md).
 > We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency.  
 
-To set an access token lifetime policy, you need to download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
+To set an access token lifetime policy, download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
 Run the **Connect-AzureAD -Confirm** command.
 
 Here’s an example policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access to the service principal of your web app. Create the policy and assign it to your service principal. You also need to get the ObjectId of your service principal.

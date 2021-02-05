@@ -20,6 +20,9 @@ await client.open();
 > [!TIP]
 > For modules and IoT Edge, use `ModuleClient` in place of `Client`.
 
+> [!TIP]
+> This is the only time a device can set model ID, it can't be updated after the device connects.
+
 ## DPS payload
 
 Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
