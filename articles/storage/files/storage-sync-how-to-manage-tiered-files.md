@@ -126,5 +126,8 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 > - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
 >- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
-For conceptual questions regarding cloud tiering, please see [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md).
+> [!Note]
+> To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
+
+For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](storage-files-faq.md).
 

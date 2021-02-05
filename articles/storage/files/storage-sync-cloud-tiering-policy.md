@@ -13,11 +13,11 @@ ms.subservice: files
 
 Cloud tiering has two policies that determine which files are tiered to the cloud: the **volume free space policy** and the **date policy**.
 
-The **volume free space policy** ensures that x% of the local drive the server endpoint is on will always be free. The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
+The **volume free space policy** ensures that a specified percentage of the local drive the server endpoint is and will always be free. The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
 
 ## How both policies work together
 
-We'll use an example to illustrate how these policies work: Let's say you have configured Azure File Sync on a 500 GB local volume, and cloud tiering was never enabled. These are the files in your file share:
+We'll use an example to illustrate how these policies work: Let's say you configured Azure File Sync on a 500 GB local volume, and cloud tiering was never enabled. These are the files in your file share:
 
 |File Name |Last Access Time  |File Size  |Stored In |
 |----------|------------------|-----------|----------|
@@ -56,7 +56,7 @@ With this configuration, only files 1 through 4 would be stored in the local cac
 In this case, files 1, 2 and 5 would be locally cached and files 3 and 4 would be tiered. Because the date policy is 60 days, files 3 and 4 are tiered, even though the volume free space policy allows for up to 400 GB locally.
 
 > [!NOTE] 
-> When customers change the volume free space policy to a smaller value, we will not automatically recall files.
+> When customers change the volume free space policy to a smaller value, files are not automatically recalled.
 
 ## Multiple server endpoints on local volume
 

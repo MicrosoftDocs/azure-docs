@@ -47,23 +47,23 @@ The date policy works the same way. Without a last access time, the date policy 
 
 ### Sync policies that affect cloud tiering
 
-With Azure File Sync agent version 11, there are two additional Azure File Sync policies you can set that affects cloud tiering: **initial download mode** and **proactive recalling mode**.
+With Azure File Sync agent version 11, there are two additional Azure File Sync policies you can set that affects cloud tiering: **initial download** and **proactive recalling**.
 
-#### Initial download mode 
+#### Initial download
 
 When a server is connecting to an Azure file share with files in it, you can now decide how you want the server to initially download the file share data. When cloud tiering is enabled, you have two options. 
 
 The first option is to recall the namespace first, and then recall the file content by last-modified timestamp, until local disk capacity is reached. If you have enough disk space and you know that files that are last modified should be cached locally, this option is ideal.       
 
-![A screenshot of initial download mode when cloud tiering is enabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-3.png)   
+![A screenshot of initial download when cloud tiering is enabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-3.png)   
 
 The second option is to initially recall the namespace only, and recall the file content only when accessed. This option is best if you want to minimize the capacity used on your local disk and want users to decide which files should be cached locally.
 
-![A screenshot of initial download mode when cloud tiering is disabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-4.png)
+![A screenshot of initial download when cloud tiering is disabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-4.png)
 
 When cloud tiering is disabled, you have a third option, which is to avoid tiered files all together. In this situation, files will only appear on the server once they are fully downloaded. If you have applications that require full files to be present and cannot tolerate tiered files in its namespace, this is ideal.      
 
-#### Proactive recalling mode
+#### Proactive recalling
 
 When a file is created or modified, you can proactively recall a file to servers that you specify. This makes the new or modified file readily available for consumption in each specified server. 
 
@@ -77,9 +77,9 @@ Enabling proactive recalling may also result in increased bandwidth usage on the
 
 For more details on both of these options, see [Deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
-## What is a tiered file?
+## Tiered vs. locally cached file behavior
 
-Cloud tiering is the separation between namespace and file content.
+Cloud tiering is the separation between namespace and file content. 
 
 #### Tiered file
 
