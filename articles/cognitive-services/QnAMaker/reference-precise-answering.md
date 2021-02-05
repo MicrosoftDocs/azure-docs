@@ -30,7 +30,7 @@ The service also returns back the confidence score of the precise answer as an *
 
 ## Publishing a QnA Maker bot
 
-When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. User has the flexibility to choose other experiences by updating the template through th eBot app service. 
+When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. User has the flexibility to choose other experiences by updating the template through the Bot app service. 
 
 ## Language support
 
