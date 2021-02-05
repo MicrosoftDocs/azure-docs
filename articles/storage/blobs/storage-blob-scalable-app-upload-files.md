@@ -4,7 +4,7 @@ description: Learn how to use the Azure Storage client library to upload large a
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ---
