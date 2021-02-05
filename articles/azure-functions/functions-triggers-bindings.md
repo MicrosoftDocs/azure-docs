@@ -43,7 +43,7 @@ Triggers and bindings are defined differently depending on the development langu
 | Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with Java annotations  | 
 | JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-For languages that reply on function.json, the portal provides a UI for adding bindings. You can edit the file directly in the portal by opening the **Advanced editor** available via the **Integrate** tab of your function. Visual Studio Code also lets you directly [add a binding to a function.json file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) by following a convenient set of prompts. 
+For languages that rely on function.json, the portal provides a UI for adding bindings in the **Integration** tab. You can also edit the file directly in the portal in the **Code + test** tab of your function. Visual Studio Code lets you easily [add a binding to a function.json file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) by following a convenient set of prompts. 
 
 In .NET and Java, the parameter/annotation type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to de-serialize to an object. Because .NET class library and Java functions don't rely on function.json, they can't be created and edited in the portal. C# portal editing is based on C# script, which uses function.json instead of attributes.
 
