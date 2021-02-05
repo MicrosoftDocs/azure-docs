@@ -5,6 +5,7 @@
     - name: Building energy solutions with Azure IoT Central
       href: overview-iot-central-energy.md
 - name: Tutorials
+expanded: true
   items:
     - name: Create a smart meter monitoring app
       href: tutorial-smart-meter-app.md 
