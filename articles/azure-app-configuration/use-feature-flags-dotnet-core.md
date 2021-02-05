@@ -270,14 +270,14 @@ public class HomeController : Controller
 
 ## Feature flag references
 
-Define feature flags as `enum` variables in order to reference them from code:
+Define feature flags as string variables in order to reference them from code:
 
 ```csharp
-public enum MyFeatureFlags
+public static class MyFeatureFlags
 {
-    FeatureA,
-    FeatureB,
-    FeatureC
+    public const string FeatureA = "FeatureA";
+    public const string FeatureB = "FeatureB";
+    public const string FeatureC = "FeatureC";
 }
 ```
 
@@ -288,7 +288,7 @@ A common pattern of feature management is to check if a feature flag is set to *
 ```csharp
 IFeatureManager featureManager;
 ...
-if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(MyFeatureFlags.FeatureA))
 {
     // Run the following code
 }
@@ -369,7 +369,7 @@ IConfiguration Configuration { get; set;}
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc(options => {
-        options.Filters.AddForFeature<ThirdPartyActionFilter>(nameof(MyFeatureFlags.FeatureA));
+        options.Filters.AddForFeature<ThirdPartyActionFilter>(MyFeatureFlags.FeatureA);
     });
 }
 ```
@@ -379,7 +379,7 @@ public void ConfigureServices(IServiceCollection services)
 You can also use feature flags to conditionally add application branches and middleware. The following code inserts a middleware component in the request pipeline only when `FeatureA` is enabled:
 
 ```csharp
-app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
+app.UseMiddlewareForFeature<ThirdPartyMiddleware>(MyFeatureFlags.FeatureA);
 ```
 
 This code builds off the more-generic capability to branch the entire application based on a feature flag:
