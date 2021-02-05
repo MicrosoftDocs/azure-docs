@@ -1,6 +1,6 @@
 ---
 title: Connect Syslog data to Azure Sentinel | Microsoft Docs
-description: Connect any machine or appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
+description: Connect any machine or appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
