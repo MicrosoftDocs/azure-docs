@@ -54,12 +54,12 @@ To configure the maintenance window using Windows PowerShell:
 ## Prerequisites
 For this tutorial, an existing database is required. If you don't already have a SQL database, see [Create a single database](single-database-create-quickstart.md?tabs=azure-powershell) to create one.
 
-## Discover maintenance windows
+## Discover available maintenance windows
 
-Each region has its own set of available maintenance windows. Available options can be discovered using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
+Each region has its own maintenance windows mapped to the region's time zone. The following example uses the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet to return the available maintenance windows for the *eastus2* region.
 
    ```powershell-interactive
-   $location = "eastus2euap"
+   $location = "eastus2"
 
    Write-Host "Available maintenance schedules in ${location}:"
    $configurations = Get-AzMaintenancePublicConfiguration
@@ -67,9 +67,9 @@ Each region has its own set of available maintenance windows. Available options 
    ```
 
 
-## Create database with selected maintenance window
+## Set the maintenance window during database creation
 
-Once maintenance window is selected, new database can be created using [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+The following example creates a new database and sets the maintenance window using the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
 
    ```powershell-interactive
@@ -95,9 +95,9 @@ Once maintenance window is selected, new database can be created using [New-AzSq
 
 
 
-## Create elastic pool with selected maintenance window
+## Set the maintenance window during elastic pool creation
 
-The following example creates new elastic pool using [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
+The following example creates a new elastic pool and sets the maintenance window using the [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet. The maintenance window is set on the elastic pool, so all databases in the pool inherit the pool's maintenance window schedule.
 
 
    ```powershell-interactive
@@ -125,7 +125,8 @@ The following example creates new elastic pool using [New-AzSqlElasticPool](/pow
 
 ## Apply maintenance window to existing database
 
-Maintenance window can be applied to existing database using [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
+The following example sets the maintenance window on an existing database using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. 
+It's important to make sure that the `$maintenanceConfig` value is a valid value for your database's region.
 
    ```powershell-interactive
     # Select different maintenance window
@@ -142,7 +143,8 @@ Maintenance window can be applied to existing database using [Set-AzSqlDatabase]
 
 ## Apply maintenance window to existing elastic pool
 
-The same applies to elastic pool except that cmdlet needed is [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool).
+The following example sets the maintenance window on an existing elastic pool using the [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) cmdlet. 
+It's important to make sure that the `$maintenanceConfig` value is a valid value for your pool's region.
 
    ```powershell-interactive
     # Select different maintenance window
@@ -160,7 +162,7 @@ The same applies to elastic pool except that cmdlet needed is [Set-AzSqlElasticP
 
 ## Cleanup resources
 
-When you're finished with this tutorial, delete the resources.
+Be sure to delete resources after you are finished to avoid unnecessary charges. 
 
 
    ```powershell-interactive
