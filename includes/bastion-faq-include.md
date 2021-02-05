@@ -5,14 +5,10 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 11/05/2020
+ ms.date: 02/05/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
-
-### <a name="regions"></a>Which regions are available?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
