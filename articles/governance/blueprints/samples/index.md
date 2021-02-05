@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -23,7 +23,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [FedRAMP High](./fedramp-h/index.md) | Provides a set of policies to help comply with FedRAMP High. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | Provides a set of policies to help comply with HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance with IRS 1075.|
-| [ISO 27001](./iso27001/index.md) | Provides guardrails for compliance with ISO 27001. |
+| [ISO 27001](./iso-27001-2013.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides more infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
 | [Media](./media/index.md) | Provides a set of policies to help comply with Media MPAA. |

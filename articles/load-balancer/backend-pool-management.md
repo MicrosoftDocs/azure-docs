@@ -21,6 +21,8 @@ Configure your backend pool by NIC when using existing virtual machines and virt
 
 When preallocating your backend pool with an IP address range which you plan to later create virtual machines and virtual machine scale sets, configure your backend pool by IP address and VNET ID combination.
 
+You can configure IP-based and NIC-based backend pools for the same load balancer however, you cannot create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+
 The configuration sections of this article will focus on:
 
 * Azure PowerShell
