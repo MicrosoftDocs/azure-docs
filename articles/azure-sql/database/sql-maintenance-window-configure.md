@@ -52,11 +52,11 @@ To configure the maintenance window for an existing database in the Azure portal
 To configure the maintenance window using Windows PowerShell:
 
 ## Prerequisites
-For this tutorial, an existing database is required. If you don't already have a SQL database, see [Create a single database](single-database-create-quickstart.md#?tabs=azure-powershell) to create one.
+For this tutorial, an existing database is required. If you don't already have a SQL database, see [Create a single database](single-database-create-quickstart.md?tabs=azure-powershell) to create one.
 
 ## Discover maintenance windows
 
-Each region has its own set of available maintenance windows. Available options can be discovered using the [Get-AzMaintenancePublicConfiguration](../powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
+Each region has its own set of available maintenance windows. Available options can be discovered using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
 
    ```powershell-interactive
    $location = "eastus2euap"
