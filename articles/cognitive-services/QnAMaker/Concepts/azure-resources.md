@@ -160,6 +160,17 @@ Use these keys when making requests to the service through APIs.
 
 ---
 
+## Management service region
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the **West US** region. No customer data is stored in this West US service.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+In QnA Maker managed (Preview) both the management and the prediction services are co-located in the same region. Currently QnA Maker managed (Preview) is available in **South Central US, North Europe and Australia East**.
+
+---
 
 ## Resource naming considerations
 
@@ -251,10 +262,6 @@ If you create a QnA service and its dependencies (such as Search) through the po
 
 Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
 
-## Management service region
-
-The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the **West US** region. No customer data is stored in this West US service.
-
 # [QnA Maker managed (preview release)](#tab/v2)
 
 The resource name for the QnA Maker managed (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
@@ -301,10 +308,6 @@ With QnA Maker managed (Preview) you have a choice to setup your QnA Maker servi
 ### QnA Maker resource
 
 The QnA Maker managed (Preview) resource provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
-
-## Region support
-
-In QnA Maker managed (Preview) both the management and the prediction services are co-located in the same region. Currently QnA Maker managed (Preview) is available in **South Central US, North Europe and Australia East**.
 
 ---
 
