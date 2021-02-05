@@ -202,7 +202,7 @@ Open _\ADMTemplates\CreateADMServiceTopology.json_.
 
 The template contains the following parameters:
 
-* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **jdoe**, the service topology name is **jdoe**ServiceTopology. The resource names are defined in the template's `variables` section.
+* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **demo**, the service topology name is **demo**ServiceTopology. The resource names are defined in the template's `variables` section.
 * `azureResourcelocation`: To simplify the tutorial, all resources share this location unless it's specified otherwise.
 * `artifactSourceSASLocation`: The SAS URI to the Blob container where service unit template and parameters files are stored for deployment. See [Prepare the artifacts](#prepare-the-artifacts).
 * `templateArtifactRoot`: The offset path from the Blob container where the templates and parameters are stored. The default value is _templates/1.0.0.0_. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial. The full path is constructed by concatenating `artifactSourceSASLocation`, `templateArtifactRoot`, and `templateArtifactSourceRelativePath` (or `parametersArtifactSourceRelativePath`).
@@ -236,11 +236,11 @@ The following screenshot only shows some parts of the service topology, services
 
 You create a parameters file used with the topology template.
 
-1. Open _\ADMTemplates\CreateADMServiceTopology.Parameters_ in Visual Studio Code or any text editor.
-1. Fill the parameter values:
+1. Open _\ADMTemplates\CreateADMServiceTopology.Parameters.json_ in Visual Studio Code or any text editor.
+1. Enter the parameter values:
 
-    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
-    * `azureResourceLocation`: If you are not familiar with Azure locations, use **centralus** in this tutorial.
+    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique Azure resource names.
+    * `azureResourceLocation`: If you're not familiar with Azure locations, use **centralus** in this tutorial.
     * `artifactSourceSASLocation`: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
     * `templateArtifactRoot`: Unless you change the folder structure of the artifacts, use _templates/1.0.0.0_ in this tutorial.
 
@@ -257,7 +257,7 @@ The template contains the following parameters:
 
 ![Azure Deployment Manager tutorial rollout template parameters](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **jdoe**, the rollout name is **jdoe**Rollout. The names are defined in the template's `variables` section.
+* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **demo**, the rollout name is **demo**Rollout. The names are defined in the template's `variables` section.
 * `azureResourcelocation`: To simplify the tutorial, all Deployment Manager resources share this location unless it's specified otherwise.
 * `artifactSourceSASLocation`: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment. See [Prepare the artifacts](#prepare-the-artifacts).
 * `binaryArtifactRoot`: The default value is _binaries/1.0.0.0_. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial. The full path is constructed by concatenating `artifactSourceSASLocation`, `binaryArtifactRoot`, and the `deployPackageUri` specified in _CreateWebApplicationParameters.json_. See [Prepare the artifacts](#prepare-the-artifacts).
@@ -296,10 +296,10 @@ The following screenshot only shows some parts of the rollout definition:
 
 You create a parameters file used with the rollout template.
 
-1. Open _\ADMTemplates\CreateADMRollout.Parameters_ in Visual Studio Code or any text editor.
-1. Fill the parameter values:
+1. Open _\ADMTemplates\CreateADMRollout.Parameters.json_ in Visual Studio Code or any text editor.
+1. Enter the parameter values:
 
-    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
+    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique Azure resource names.
     * `azureResourceLocation`: Specify an Azure location.
     * `artifactSourceSASLocation`: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
     * `binaryArtifactRoot`: Unless you change the folder structure of the artifacts, use _binaries/1.0.0.0_ in this tutorial.

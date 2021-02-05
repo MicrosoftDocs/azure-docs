@@ -58,7 +58,7 @@ The following two files are used for deploying the Azure Function. You don't nee
 * A Resource Manager template located at [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
 * A zip file of the Azure Function source code, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
 
-To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
+To deploy the Azure function, select **Try it** to open the Azure Cloud Shell, and then paste the following script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
