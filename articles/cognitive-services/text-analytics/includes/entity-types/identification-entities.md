@@ -1033,7 +1033,35 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-Israel
+#### Israel
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Israel National ID
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `he`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Israel Bank Account Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `he`
+      
+   :::column-end:::
+:::row-end:::
+
 * Israel National ID
 * Israel Bank Account Number
 
