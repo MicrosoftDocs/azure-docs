@@ -53,8 +53,6 @@ Release notes for `3.2-preview.2`:
 * Enhanced logging
 * Hotfixes to CJK model
 
-* New v3.2 container
-
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 |3.2.2.014850001-49e0eac6-amd64-preview                     |       |
