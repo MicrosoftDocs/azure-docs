@@ -12,14 +12,15 @@ ms.reviewer: stewu
 
 # Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
+This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and access control lists (ACLs) in storage accounts that have hierarchical namespace (HNS) enabled.
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+
+- Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Sign in to Storage Explorer
 
@@ -41,7 +42,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Create a container
 
-A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ![Microsoft Azure Storage Explorer - Creating a container](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -53,7 +54,7 @@ To create a directory, select the container that you created in the proceeding s
 
 ## Upload blobs to the directory
 
-On the directory ribbon, chose the **Upload** button. This operation gives you the option to upload a folder or a file.
+On the directory ribbon, choose the **Upload** button. This operation gives you the option to upload a folder or a file.
 
 Choose the files or folder to upload.
 
