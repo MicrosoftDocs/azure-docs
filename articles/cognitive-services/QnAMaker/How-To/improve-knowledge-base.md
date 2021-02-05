@@ -45,6 +45,32 @@ In order to see suggested questions, you must [turn on active learning](../conce
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## Active learning suggestions are saved in the exported knowledge base
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
+
+The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
+
+
 ### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
 A bot or other client application should use the following architectural flow to use active learning:
@@ -305,33 +331,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## Active learning is saved in the exported knowledge base
-
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
-
-The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
-
-
 
 ## Best practices
 
