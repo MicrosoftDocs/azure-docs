@@ -376,6 +376,31 @@ This category contains the following entities:
    :::column-end:::
 :::row-end:::
 
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Age
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Ages.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+
 ## Azure information
 
 This entity category includes identifiable Azure information, including authentication information and connection strings. Available starting with model version `2019-10-01`. Not returned with the `domain=phi` parameter.
