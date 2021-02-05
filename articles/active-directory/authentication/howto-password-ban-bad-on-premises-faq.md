@@ -152,7 +152,7 @@ No. The error message seen by users when a password is rejected by a domain cont
 
 You may want to do some basic testing of various passwords in order to validate proper operation of the software and to gain a better understanding of the [password evaluation algorithm](concept-password-ban-bad.md#how-are-passwords-evaluated). This section outlines a method for such testing that is designed to produce repeatable results.
 
-Why it is necessary to follow such steps? There are several factors that make it difficult to do controlled, repeatable testing of passwords in the on-premises Active Directory environment:
+Why is it necessary to follow such steps? There are several factors that make it difficult to do controlled, repeatable testing of passwords in the on-premises Active Directory environment:
 
 * The password policy is configured and persisted in Azure, and copies of the policy are synced periodically by the on-premises DC agent(s) using a polling mechanism. The latency inherent in this polling cycle may cause confusion. For example, if you configure the policy in Azure but forget to sync it to the DC agent, then your tests may not yield the expected results. The polling interval is currently hardcoded to be once per hour, but waiting an hour between policy changes is non-ideal for an interactive testing scenario.
 * Once a new password policy is synced down to a domain controller, more latency will occur while it replicates to other domain controllers. These delays can cause unexpected results if you test a password change against a domain controller that has not yet received the latest version of the policy.
@@ -164,7 +164,7 @@ In order to avoid these problems, the steps below are based on command-line test
 > [!WARNING]
 > These procedures should be used only in a test environment since all incoming password changes and resets will be accepted without validation while the DC agent service is stopped, and also to avoid the increased risks inherent in logging into a domain controller.
 
-The steps below assumes that you have installed the DC agent on at least one domain controller, have installed at least one proxy, and have registered both the proxy and the forest.
+The following steps assume that you have installed the DC agent on at least one domain controller, have installed at least one proxy, and have registered both the proxy and the forest.
 
 1. Log on to a domain controller using Domain Admin credentials (or other credentials that have sufficient privileges to create test user accounts and reset passwords), that has the DC agent software installed and has been rebooted.
 1. Open up Event Viewer and navigate to the [DC Agent Admin event log](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
