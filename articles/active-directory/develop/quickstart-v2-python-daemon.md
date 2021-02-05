@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
+description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-#Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
+#Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Python console app using app's identity
@@ -39,7 +39,7 @@ To run this sample, you need:
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
@@ -65,7 +65,7 @@ To run this sample, you need:
 > ### Download and configure your quickstart app
 >
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
+> For the code sample in this quickstart to work, create a client secret and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -125,7 +125,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Standard user
 
-If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you're a standard user of your tenant, ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here

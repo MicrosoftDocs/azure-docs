@@ -31,19 +31,19 @@ Verify you have the following requirements ready:
   
   Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
   
-  ```console
+  ```azurecli
   az extension add --name connectedk8s
   ```
   
   Install the `k8sconfiguration` extension:
   
-  ```console
+  ```azurecli
   az extension add --name k8sconfiguration
   ```
   
   If you want to update these extensions later, run the following commands:
   
-  ```console
+  ```azurecli
   az extension update --name connectedk8s
   az extension update --name k8sconfiguration
   ```

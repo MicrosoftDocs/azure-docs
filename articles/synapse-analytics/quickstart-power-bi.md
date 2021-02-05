@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites
 
 - [Create an Azure Synapse workspace and associated storage account](quickstart-create-workspace.md)
-- [A Power BI Professional or Premium workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)
+- [A Power BI Professional or Premium workspace](/power-bi/service-create-the-new-workspaces)
 
 ## Link Power BI workspace to your Synapse workspace
 

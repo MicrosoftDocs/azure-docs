@@ -44,7 +44,7 @@ Every workspace comes with a serverless SQL endpoint. After creating a SQL scrip
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Enable the SQL script to use the serverless SQL endpoint in the workspace":::
 
-Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
+Creating views in the **master** or **default** databases is not recommended or supported. Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
 
 ```sql
 -- Create database

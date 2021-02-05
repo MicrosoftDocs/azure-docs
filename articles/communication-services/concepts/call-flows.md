@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-# Call Flows
+# Call flows
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 

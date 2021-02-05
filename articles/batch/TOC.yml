@@ -101,13 +101,11 @@
   items:
   - name: Manage Batch accounts
     items:
-    - name: Manage your account
-      href: batch-manage-account-basics.md
-    - name: Manage Batch accounts with the portal
+    - name: Manage Batch accounts in the Azure portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
-    - name: Cost analysis and budgets
+    - name: Get cost analysis and set budgets
       href: budget.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
@@ -120,9 +118,8 @@
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
+      displayName: credential, certificate
       href: credential-access-key-vault.md
-    - name: Using certificates with Batch
-      href: batch-certificates.md
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes
@@ -145,6 +142,8 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
+    - name: Create a pool across Availability Zones
+      href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
     - name: Create a pool in a virtual network
@@ -223,14 +222,12 @@
       items:
       - name: Rendering using Azure
         href: batch-rendering-service.md
-      - name: Rendering VM images
+      - name: Batch rendering VM images
         href: batch-rendering-applications.md
       - name: Batch rendering capabilities
         href: batch-rendering-functionality.md
       - name: Using Batch rendering
         href: batch-rendering-using.md
-      - name: Using render managers
-        href: batch-rendering-render-managers.md
       - name: Rendering application reference
         href: batch-rendering-application-reference.md
       - name: Storage and data movement
@@ -293,16 +290,18 @@
     href: https://azure.microsoft.com/updates/
   - name: Batch community
     href: https://github.com/Azure/Batch
+  - name: Batch Explorer
+    href: https://azure.github.io/BatchExplorer/
   - name: Batch feedback
     href: https://feedback.azure.com/forums/269742-batch
-  - name: Microsoft Q&A question page for Batch
-    href: /answers/topics/azure-batch.html
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: /archive/blogs/windowshpc/
   - name: HPC on Azure
     href: /azure/architecture/topics/high-performance-computing/
+  - name: Microsoft Q&A question page for Batch
+    href: /answers/topics/azure-batch.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator

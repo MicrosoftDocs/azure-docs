@@ -43,7 +43,7 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 > ### Option 1: Register and auto configure your app and then download the code sample
 > #### Step 1: Register your application
 > To register your app,
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
@@ -66,7 +66,7 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> For the code sample for this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -178,7 +178,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Where: | Description |
 > |---------|---------|
 > | `clientId` | The Application ID from the application registered in *portal.azure.com* |
-> | `authority` | The Microsoft identity platform endpoint. In most of cases this will be `https://login.microsoftonline.com/common` |
+> | `authority` | The Microsoft identity platform. In most of cases this will be `https://login.microsoftonline.com/common` |
 > | `redirectUri` | The redirect URI of the application. You can pass 'nil' to use the default value, or your custom redirect URI. |
 
 ### For iOS only, additional app requirements
