@@ -216,7 +216,7 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 
 In an Azure Data Factory pipeline, the *Machine Learning Execute Pipeline* activity runs an Azure Machine Learning pipeline. You can find this activity in the Data Factory's authoring page under the *Machine Learning* category:
 
-:::image type="content" source="media/how-to-trigger-published-pipeline/adf-ml-pipeline-activity.png" alt-text="Screenshot showing the ML pipeline activity in the Azure Data Factory authoring environment":::
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Screenshot showing the ML pipeline activity in the Azure Data Factory authoring environment":::
 
 ## Next steps
 
