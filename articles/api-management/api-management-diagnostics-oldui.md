@@ -72,7 +72,6 @@ This category checks which service tier (SKU) you are currently using and
 
 In additional to the Diagnose and solve problems tools, you can search for troubleshooting documentation related to your  issue. After running the diagnostics on your service, select **Search Documentation** in the interactive interface. 
 
-![Search Documentation](.media/api-magament-diagnostics/searchdocumentation.png)
  :::image type="content" source="media/api-management-diagnostics/searchdocumentation.png" alt-text="Search Documentation.":::
 
 
