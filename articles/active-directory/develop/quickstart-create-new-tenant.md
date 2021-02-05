@@ -53,9 +53,9 @@ To check the tenant:
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
 
 > [!TIP]
-> To find the tenant ID in the Azure portal, use one of the following methods:
-> * Hover over your account name and note the GUID in the **Directory:** value shown in the pop-up.
-> * Select **Azure Active Directory** > **Overview** and note the **Tenant ID**.
+> To find the tenant ID, you can:
+> * Hover over your account name to get the directory or tenant ID.
+> * Select **Azure Active Directory** > **Properties** > **Tenant ID** in the Azure portal.
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
