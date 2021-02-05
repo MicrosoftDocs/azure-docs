@@ -30,6 +30,10 @@
     href: Concepts/azure-resources.md
   - name: Data sources and content
     href: Concepts/data-sources-and-content.md
+  - name: Active learning	
+    href: Concepts/active-learning-suggestions.md	
+  - name: Azure role-based access control (Azure RBAC)	    
+    href: Concepts/role-based-access-control.md	
   - name: Ranker Process	
     displayName: DefaultAnswer, Default answer	
     href: Concepts/query-knowledge-base.md	
@@ -46,7 +50,7 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Manage QnA Maker App
+  - name: Manage QnA Maker Resource Access
     href: How-To/manage-qna-maker-app.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
