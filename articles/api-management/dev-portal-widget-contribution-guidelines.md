@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Widget contribution guidelines
 
-If you'd like to contribute a widget to the API Management developer portal repository, you need to follow this three-step process:
+If you'd like to contribute a widget to the API Management developer portal repository, follow this three-step process:
 
 1. Fork the repository.
 
@@ -25,7 +25,7 @@ Refer to the [widget implementation](dev-portal-implement-widgets.md) tutorial f
 
 ## Contribution guidelines
 
-The developer portal team put together this guidance. Its intent is to ensure the safety and privacy of our customers and the visitors to their portals. If your contribution doesn't follow these guidelines, the team will reject it:
+The developer portal team put together this guidance. Its intent is to ensure the safety and privacy of our customers and the visitors to their portals. Follow these guidelines to ensure your contribution is accepted:
 
 1. Place your widget in the `community/widgets/<your-widget-name>` folder.
 
@@ -43,7 +43,7 @@ The developer portal team put together this guidance. Its intent is to ensure th
     npm install azure-storage@2.10.3 axios@0.19.1
     ```
 
-    Your widget should require minimal dependencies. Every dependency will be carefully inspected by the reviewers. In particular, make sure to wrap the core logic of your widget is open-sourced in your widget's folder. Don't wrap it in an npm package.
+    Your widget should require minimal dependencies. Every dependency will be carefully inspected by the reviewers. In particular, the core logic of your widget should be open-sourced in your widget's folder. Don't wrap it in an npm package.
 
 1. Changes to any files outside of your widget's folder aren't allowed as part of a widget contribution. That includes, but isn't limited to, the `/package.json` file.
 
