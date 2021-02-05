@@ -30,7 +30,7 @@ This article focuses on Azure RBAC and ACLs, and how the system evaluates them t
 
 Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
 
-The following roles permit a security principal to access data in a storage account. 
+The following roles permit a security principal to access data in a storage account.
 
 |Role|Description|
 |--|--|
