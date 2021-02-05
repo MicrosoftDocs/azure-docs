@@ -21,14 +21,12 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Files
+  - title: About Azure Files Sync
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Files planning guide
-            url: storage-files-planning.md
           - text: Azure File Sync planning guide
-            url: storage-sync-files-planning.md
+            url: file-sync-planning.md
           - text: What is Azure Files?
             url: storage-files-introduction.md
 
