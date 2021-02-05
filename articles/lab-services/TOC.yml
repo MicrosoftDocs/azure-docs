@@ -36,7 +36,7 @@
       href: classroom-labs-scenarios.md
     - name: Use Lab Services for hackathon
       href: hackathon-labs.md
-    - name: labs - class types
+    - name: Lab class types
       items:
       - name: Class types overview
         href: class-types.md
