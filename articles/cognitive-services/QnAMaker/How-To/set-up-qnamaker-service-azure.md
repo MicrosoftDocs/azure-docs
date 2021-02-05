@@ -121,20 +121,6 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
-### Configure App Service Environment to host QnA Maker App Service
-The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
-
-1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
-2.  Create an App service inside the App Service Environment.
-    * Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
-    * Create an Azure search service.
-    * Ensure Azure Search and App Settings are appropriately configured. 
-      Please follow this [tutorial](../reference-app-service.md?tabs=v1#app-service).
-3.  Update the Network Security Group associated with the App Service Environment
-    * Update pre-created Inbound Security Rules as per your requirements.
-    * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
-4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
-
 ### Business continuity with traffic manager
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
@@ -245,7 +231,9 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
 # [QnA Maker GA (stable release)](#tab/v1)
 
 1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. Protect App Service (QnA Runtime) from public access:
+2. Protect App Service (QnA Runtime) from public access.
+
+   ### Add IPs to App Service allowlist
 
     * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
     * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
@@ -255,7 +243,21 @@ Learn how to upgrade the resources used by your knowledge base. QnA Maker manage
       * Select the IPs of "CognitiveServicesManagement".
       * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
-We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
+    We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App    Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
+
+    ### Configure App Service Environment to host QnA Maker App Service
+    The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
+
+    1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
+    2.  Create an App service inside the App Service Environment.
+        * Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
+        * Create an Azure search service.
+        * Ensure Azure Search and App Settings are appropriately configured. 
+          Please follow this [tutorial](../reference-app-service.md?tabs=v1#app-service).
+    3.  Update the Network Security Group associated with the App Service Environment
+        * Update pre-created Inbound Security Rules as per your requirements.
+        * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
+    4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
