@@ -120,8 +120,7 @@ If you're a public client app developer who's using MSAL:
   | UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register |
   | .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment. |
 
-- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support broker (the
-  redirect URI is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS
+- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
 
 - Configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
