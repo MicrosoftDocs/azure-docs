@@ -1,13 +1,12 @@
 ---
 title: Diagnose and solve problems
 description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnostics and solve tool in the Azure portal. 
-
 author: rzhang628
-
+ms.service: api management
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: rongzhang
-ms.custom: 
+
 
 ---
 # Azure API Management Diagnostics overview
@@ -60,7 +59,7 @@ A similar interactive interface guides you to the data metrics to help y
 
 For gateway requests or responses or any 4xx or 5xx errors on your gateway, use this category to monitor and troubleshoot. Similarly, leverage the interactive interface to dive deep on the specific area that you want to check for your API gateway performance. 
 
-:::image type="content" source="media/api-management-diagnostics/gatewayperformance.png" alt-text="Gateway 4xx responses .":::
+:::image type="content" source="media/api-management-diagnostics/gatewaypreformancetile.png" alt-text="Gateway 4xx responses .":::
 
 ### Service Upgrade
 
