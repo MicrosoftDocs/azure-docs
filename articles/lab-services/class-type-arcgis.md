@@ -15,11 +15,11 @@ ms.author: nicolela
 
 To begin setting up a lab for using ArcMap, you need an Azure subscription and lab account.  If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-After you get an Azure subscription, you can create a new lab account in Azure Lab Services.  For more information about creating a new lab account, see [Set up a lab account](https://docs.microsoft.com/en-us/azure/lab-services/tutorial-setup-lab-account).  You can also use an existing lab account.
+After you get an Azure subscription, you can create a new lab account in Azure Lab Services.  For more information about creating a new lab account, see [Set up a lab account](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account).  You can also use an existing lab account.
 
 ### Lab account settings
 
-Enable your lab account settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](https://docs.microsoft.com/en-us/azure/lab-services/specify-marketplace-images).
+Enable your lab account settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
