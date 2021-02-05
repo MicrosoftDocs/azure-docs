@@ -54,8 +54,8 @@ To configure and test Azure AD SSO with Infor CloudSuite, perform the following 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Infor CloudSuite SSO](#configure-infor-cloudSuite-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Infor CloudSuite test user](#create-infor-cloudSuite-test-user)** - to have a counterpart of B.Simon in Infor CloudSuite that is linked to the Azure AD representation of user.
+1. **[Configure Infor CloudSuite SSO](#configure-infor-cloudsuite-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Infor CloudSuite test user](#create-infor-cloudsuite-test-user)** - to have a counterpart of B.Simon in Infor CloudSuite that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
