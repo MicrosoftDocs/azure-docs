@@ -44,7 +44,7 @@ Both the `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(S
 > [!TIP]
 > If you are translating **multiple** documents (blobs) in an operation, **delegate SAS access at the  container level**.  
 > If you are translating a **single** document (blob) in an operation, **delegate SAS access at the blob level**.  
-> 
+>
 
 ## Set your custom endpoint
 
@@ -96,7 +96,7 @@ A batch Document Translation request is submitted to your translation service en
 
 ### POST Request URL
 
-Send a POST request to: **"https://\<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"**
+Send a POST request to: **https://\<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches**
 
 #### Request body
 
@@ -133,7 +133,7 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 ### Request and URL
 
 ```html
-POST "https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches"
+POST https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches
 ```
 
 *See* [Set your custom endpoint](#set-your-custom-endpoint), above.
@@ -685,7 +685,7 @@ Retrieve a list and current status for all jobs in a Document Translation reques
 #### HTTP request
 
 ```http
-GET /batches/
+GET https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches
 ```
 
 ### GET Job Status
@@ -698,7 +698,7 @@ Get the current status for a single job and a summary of all jobs in a Document 
 #### HTTP request
 
 ```http
-GET /batches/{jobId}/
+GEThttps://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches/{jobId}
 ```
 
 ### DELETE Job
@@ -710,7 +710,7 @@ Cancel currently processing or queued job.
 #### HTTP request
 
 ```http
-DELETE /batches/{jobId}/
+DELETEhttps://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches/{jobId}/
 ```
 
 #### Response
@@ -739,7 +739,7 @@ Retrieve the status of all documents in a Document Translation request.
 #### HTTP request
 
 ```http
-GET /batches/{jobId}/documents/
+GET https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches/{jobId}/documents/
 ```
 
 ### GET Document Status
@@ -751,7 +751,7 @@ Retrieve the status of a specific document in a Document Translation request.
 #### HTTP request
 
 ```http
-GET  /batches/{jobId}/document/{documentId}/
+GET  https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/batches/{jobId}/document/{documentId}/
 ```
 
 #### Response: GET Documents and GET Document Status
@@ -778,7 +778,7 @@ Retrieve a list of supported document formats.
 #### HTTP request
 
 ```http
-GET /documents/formats/
+GET https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/documents/formats/
 ```
 
 ### GET Glossary Formats
@@ -790,7 +790,7 @@ Retrieve a list of supported glossary formats.
 #### HTTP request
 
 ```http
-GET /glossaries/formats/
+GET https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/glossaries/formats/
 ```
 
 #### Response: GET Document Formats and GET Glossary Formats
@@ -813,7 +813,7 @@ Retrieve a list of supported storage sources.
 #### HTTP request
 
 ```http
-GET /storagesources/
+GET https://<NAME-OF-YOUR-RESOURCE>./translator/text/batch/v1.0-preview.1/storagesources/
 ```
 
 #### Response: GET Storage Sources
