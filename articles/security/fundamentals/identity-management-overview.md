@@ -57,9 +57,9 @@ Not only do users not have to manage multiple sets of usernames and passwords, y
 
 Learn more:
 
-* Overview on [SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* Video on [authentication fundamentals](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
-* [Quickstart series](../../active-directory/manage-apps/view-applications-portal.md) on application management
+* [Overview on SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Video on authentication fundamentals](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Quickstart series on application management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
