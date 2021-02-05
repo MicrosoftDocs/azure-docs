@@ -1286,6 +1286,8 @@
         items:
         - name: Overview
           href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-30.md?context=/azure/virtual-machines/context/context
         - name: Collect metrics with Telegraf
           href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
           displayname: diagnostics extension
