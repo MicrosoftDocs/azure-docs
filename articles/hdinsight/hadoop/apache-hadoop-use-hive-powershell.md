@@ -1,9 +1,6 @@
 ---
 title: Use Apache Hive with PowerShell in HDInsight - Azure 
 description: Use PowerShell to run Apache Hive queries in Apache Hadoop in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive

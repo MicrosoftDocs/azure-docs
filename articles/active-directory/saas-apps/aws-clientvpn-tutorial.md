@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/29/2020
 ms.author: jeedes
 
 ---
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Contact [AWS ClientVPN Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real.  Update these values with the actual Sign on URL and Reply URL.  The Sign on URL and Reply URL can have the same value (http://127.0.0.1:35001).  Refer to [AWS Client VPN Documentation](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) for details.   You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Contact [AWS ClientVPN support team](https://aws.amazon.com/contact-us/) for any configuration issues. 
 
 1. In the Azure Active Directory service, navigate to **App registrations** and then select **All Applications**.
 
@@ -153,11 +153,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to AWS ClientVPN Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the AWS ClientVPN tile in the My Apps, this will redirect to AWS ClientVPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the AWS ClientVPN tile in the My Apps, this will redirect to AWS ClientVPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure AWS ClientVPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure AWS ClientVPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # How to use your workspace with a custom DNS server
 
-When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
@@ -32,9 +32,9 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## Find the IP addresses
-
-The following list contains the fully qualified domain names (FQDN) used by your workspace and private endpoint:
+## FQDNs in use
+### These FQDNs are in use in the following regions: eastus, southcentralus and westus2.
+The following list contains the fully qualified domain names (FQDN) used by your workspace:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -46,6 +46,19 @@ The following list contains the fully qualified domain names (FQDN) used by your
 
     > [!NOTE]
     > Compute instances can be accessed only from within the virtual network.
+    
+### These FQDNs are in use in all other regions
+The following list contains the fully qualified domain names (FQDN) used by your workspace:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > Compute instances can be accessed only from within the virtual network.
+
+## Find the IP addresses
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
 
@@ -84,7 +97,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]
-> Some FQDNs are not shown in listed by the private endpoint, but are required by the workspace. These FQDNs are listed in the following table, and must also be added to your DNS server:
+> Some FQDNs are not shown in listed by the private endpoint, but are required by the workspace in eastus, southcentralus and westus2. These FQDNs are listed in the following table, and must also be added to your DNS server and/or an Azure Private DNS Zone:
 >
 > * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
@@ -97,3 +110,5 @@ The information returned from all methods is the same; a list of the FQDN and pr
 ## Next steps
 
 For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
+
+For more information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).

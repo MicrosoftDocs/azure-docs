@@ -18,7 +18,7 @@ Sometimes during [linking of a storage account](../how-tos/create-an-account.md#
 
 ## Client can't connect to server
 
-Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-ports).
+Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-firewall).
 
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 

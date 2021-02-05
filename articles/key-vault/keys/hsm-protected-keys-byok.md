@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/04/2021
 ms.author: ambapat
 
 ---
@@ -62,15 +62,19 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK tool and documentation](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Manufacturer, HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
 ## Supported key types
 
-|Key name|Key type|Key size|Origin|Description|
+|Key name|Key type|Key size/curve|Origin|Description|
 |---|---|---|---|---|
 |Key Exchange Key (KEK)|RSA| 2,048-bit<br />3,072-bit<br />4,096-bit|Azure Key Vault HSM|An HSM-backed RSA key pair generated in Azure Key Vault|
-|Target key|RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+|Target key|
+||RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+||EC|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+||||
 
 ## Generate and transfer your key to the Key Vault HSM
 
@@ -116,7 +120,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE] 
-> Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
+> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is not supported.
 > 
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 
@@ -124,8 +128,15 @@ Transfer the BYOK file to your connected computer.
 
 To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the BYOK file to the Key Vault HSM.
 
+To import an RSA key use following command. Parameter --kty is optional and defaults to 'RSA-HSM'.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+To import an EC key, you must specify key type and the curve name.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 If the upload is successful, Azure CLI displays the properties of the imported key.

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -92,11 +92,11 @@ These lead times are *estimates*. The time for each stage of order processing is
 **Estimated lead times for a Data Box order:**
 
 1. Order Data Box: A few minutes, from the portal
-2. Device allocation and preparation: 1-2 business days
+2. Device allocation and preparation: 1-2 business days, subject to inventory availability and other orders pending fulfillment
 3. Shipping: 2-3 business days
 4. Data copy at customer site: Depends on nature of data, size, and number of files
 5. Return shipping: 2-3 business days
-6. Processing device at datacenter: 1-2 business days
+6. Processing device at datacenter: 1-2 business days, subject to other orders pending processing
 7. Upload data to Azure: Begins as soon as processing is complete and the device is connected. Upload time depends on nature of data, size, and number of files.
 
 ### Q. I ordered a couple of Data Box devices. I can't create any additional orders. Why?

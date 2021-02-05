@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting guide for Azure SignalR Service"
 description: Learn how to troubleshoot common issues
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
@@ -57,6 +57,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
             });
 ```
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## TLS 1.2 required
 
 ### Possible errors:
@@ -98,11 +100,15 @@ Add following code to your Startup:
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## 400 Bad Request returned for client requests
 
 ### Root cause
 
 Check if your client request has multiple `hub` query strings. `hub` is a preserved query parameter and 400 will throw if the service detects more than one `hub` in the query.
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## 401 Unauthorized returned for client requests
 
@@ -122,6 +128,8 @@ For security concerns, extend TTL is not encouraged. We suggest adding reconnect
 
 Check [here](#restart_connection) for how to restart client connections.
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## 404 returned for client requests
 
 For a SignalR persistent connection, it first `/negotiate` to Azure SignalR service and then establishes the real connection to Azure SignalR service.
@@ -132,9 +140,13 @@ For a SignalR persistent connection, it first `/negotiate` to Azure SignalR serv
 * Check the URL of the request when 404 occurs. If the URL is targeting to your web app, and similar to `{your_web_app}/hubs/{hubName}`, check if the client `SkipNegotiation` is `true`. When using Azure SignalR, the client receives redirect URL when it first negotiates with the app server. The client should **NOT** skip negotiation when using Azure SignalR.
 * Another 404 can happen when the connect request is handled more than **5** seconds after `/negotiate` is called. Check the timestamp of the client request, and open an issue to us if the request to the service has a slow response.
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## 404 returned for ASP.NET SignalR's reconnect request
 
 For ASP.NET SignalR, when the [client connection drops](#client_connection_drop), it reconnects using the same `connectionId` for three times before stopping the connection. `/reconnect` can help if the connection is dropped due to network intermittent issues that `/reconnect` can reestablish the persistent connection successfully. Under other circumstances, for example, the client connection is dropped due to the routed server connection is dropped, or SignalR Service has some internal errors like instance restart/failover/deployment, the connection no longer exists, thus `/reconnect` returns `404`. It is the expected behavior for `/reconnect` and after three times retry the connection stops. We suggest having [connection restart](#restart_connection) logic when connection stops.
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## 429 (Too Many Requests) returned for client requests
 
@@ -150,6 +162,8 @@ The connections include both client and server connections. check [here](./signa
 ### Too many negotiate requests at the same time.
 
 We suggest having a random delay before reconnecting, please check [here](#restart_connection) for retry samples.
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later.
 
@@ -210,6 +224,8 @@ When using SDK version >= `1.0.0`, you can enable traces by adding the following
 
 <a name="client_connection_drop"></a>
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## Client connection drops
 
 When the client is connected to the Azure SignalR, the persistent connection between the client and Azure SignalR can sometimes drop for different reasons. This section describes several possibilities causing such connection drop and provides some guidance on how to identify the root cause.
@@ -235,6 +251,7 @@ Client connections can drop under various circumstances:
 2. Check app server-side event log to see if the app server restarted
 3. Create an issue to us providing the time frame, and email the resource name to us
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Client connection increases constantly
 
@@ -290,6 +307,8 @@ This issue often occurs when someone establishes SignalR client connection in Az
 
 <a name="server_connection_drop"></a>
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## Server connection drops
 
 When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. Once a server connection is dropped, all the client connections it serves will be closed too.
@@ -315,6 +334,8 @@ Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**e
 1. Open app server-side log to see if anything abnormal took place
 2. Check app server-side event log to see if the app server restarted
 3. Create an issue to us providing the time frame, and email the resource name to us
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Tips
 
@@ -342,11 +363,13 @@ Take ASP.NET Core one for example (ASP.NET one is similar):
 
 	* [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample/wwwroot/index.html#L164)
+	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
 
 	* [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
 	* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Next steps
 

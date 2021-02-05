@@ -1,9 +1,8 @@
 ---
 title: Understand time handling in Azure Stream Analytics
 description: Learn how to choose the best start time, handle late and early events, and about time handling metrics in Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020

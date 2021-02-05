@@ -35,6 +35,18 @@ Here are the general steps in a typical SGX enclave attestation workflow (using 
 > [!Note]
 > When you send attestation requests in the [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) API version, the client needs to send evidence to Azure Attestation along with the Azure AD access token.
 
+## Trusted Platform Module (TPM) enclave validation work flow
+
+Here are the general steps in a typical TPM enclave attestation workflow (using Azure Attestation):
+
+1.	On device/platform boot, various boot loaders and boot services measure events which backed by the TPM and are securely stored (TCG log).
+2.	Client collects the TCG logs from the device and TPM quote, which acts the evidence for attestation.
+3.	The client has an URI which refers to an instance of Azure Attestation. The client sends evidence to Azure Attestation. Exact information submitted to the provider depends on the platform.
+4.	Azure Attestation validates the submitted information and evaluates it against a configured policy. If the verification succeeds, Azure Attestation issues an attestation token and returns it to the client. If this step fails, Azure Attestation reports an error to the client. The communication between the client and attestation service is dictated by the Azure attestation TPM protocol.
+5.	The client then sends the attestation token to relying party. The relying party calls public key metadata endpoint of Azure Attestation to retrieve signing certificates. The relying party then verifies the signature of the attestation token and ensures the platforms trustworthiness.
+
+![TPM validation flow](./media/tpm-validation-flow.png)
+
 ## Next steps
 - [How to author and sign an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)

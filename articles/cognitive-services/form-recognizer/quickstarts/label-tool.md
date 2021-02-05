@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: document processing
@@ -102,7 +102,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
-> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
+> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Set up input data
 
@@ -135,6 +135,7 @@ Fill in the fields with the following values:
 * **Description** - Your project description.
 * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
 
@@ -171,7 +172,7 @@ It will also show which tables have been automatically extracted. Click on the t
 
 ### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
 # [v2.0](#tab/v2-0)  
 1. First, use the tags editor pane to create the tags you'd like to identify.
@@ -197,7 +198,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
    1. Click **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
+1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ API, you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms.
@@ -263,7 +264,7 @@ The following value types and variations are currently supported:
 
 Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./curl-train-extract.md) or [client library](./client-library.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./client-library.md?pivots=programming-language-rest-api) or [client library](./client-library.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -273,7 +274,7 @@ Click the Train icon on the left pane to open the Training page. Then click the 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
-> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Compose trained models
 
@@ -286,7 +287,7 @@ This feature is currently available in v2.1. preview.
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
 
 To compose models in the sample labeling tool, click on the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models. 
-Click on the "Compose" button. In the pop up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list. 
+Click on the "Compose" button. In the pop-up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
 
@@ -297,7 +298,7 @@ Click on the "Compose" button. In the pop up, name your new composed model and c
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
-> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Improve results
 
@@ -324,7 +325,7 @@ Finally, go to the main page (house icon) and click Open Cloud Project. Then sel
 In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
-> [Train with labels using Python](./python-labeled-data.md)
+> [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](../overview.md)
-* [Form Recognizer client library quickstarts](client-library.md)
+* [Form Recognizer quickstart](client-library.md)

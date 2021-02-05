@@ -53,13 +53,13 @@ The following list presents the set of features which are currently available in
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## Calling client library browser support
+## JavaScript calling client library support by OS and browser
 
 The following table represents the set of supported browsers and versions which are currently available.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
@@ -91,8 +91,8 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|# of outgoing streams that can be sent simultaneously |1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| 6 video + 1 screen sharing |
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video |
+|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
 
 ## Next steps

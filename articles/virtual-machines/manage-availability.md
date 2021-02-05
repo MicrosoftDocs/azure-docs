@@ -36,7 +36,6 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * Use scheduled events to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a load balancer with availability zones or sets
-* Use availability zones to protect from datacenter level failures
 
 ## Use availability zones to protect from datacenter level failures
 

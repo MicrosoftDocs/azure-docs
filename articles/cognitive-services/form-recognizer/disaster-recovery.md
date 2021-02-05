@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Back up and recover your Form Recognizer models
 
-When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync [custom models](./quickstarts/curl-train-extract.md) across regions.
+When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync custom models across regions.
 
 The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
 

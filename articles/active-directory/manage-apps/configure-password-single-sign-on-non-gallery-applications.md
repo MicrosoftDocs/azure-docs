@@ -3,7 +3,7 @@ title: Understand password-based single sign-on (SSO) for apps in Azure Active D
 description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -39,7 +39,7 @@ Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (S
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
 >
-> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform). 
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -49,7 +49,7 @@ Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (S
 In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant, which lets Azure AD knows it's being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
 > [!IMPORTANT]
-> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](access-panel-deployment-plan.md).
+> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](my-apps-deployment-plan.md).
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 

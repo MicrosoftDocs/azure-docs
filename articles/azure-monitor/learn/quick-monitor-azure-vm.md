@@ -68,7 +68,7 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 ### Data collection from Linux VM
 
-1. Select **Syslog**.  
+1. Select **Data**, and then select **Syslog**.
 
 2. Add an event log by typing in the name of the log.  Type **Syslog** and then select the plus sign **+**.  
 

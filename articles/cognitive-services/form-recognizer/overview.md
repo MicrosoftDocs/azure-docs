@@ -39,11 +39,11 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
 # [v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott.azurewebsites.net/)
+> [Try Form Recognizer](https://fott.azurewebsites.net/)
 
 # [v2.1 preview](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+> [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -84,13 +84,13 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
 
 ### Prebuilt Invoice model
-The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to recognize and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
+The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
 ### Prebuilt Receipt model
 
-The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
@@ -105,23 +105,21 @@ The Business Cards model enables you to extract information such as the person's
 
 Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-* [Client library quickstarts](./quickstarts/client-library.md) (all languages, multiple scenarios)
+* [Client library / REST API quickstart](./quickstarts/client-library.md) (all languages, multiple scenarios)
 * Web UI quickstarts
   * [Train with labels - sample labeling tool](quickstarts/label-tool.md)
-* REST quickstarts
+* REST samples (GitHub)
  * Extract text, selection marks and table structure from documents
-    * [Extract layout data - Python](quickstarts/python-layout.md)
+    * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Train custom models and extract form data
-    * [Train without labels - cURL](quickstarts/curl-train-extract.md)
-    * [Train without labels - Python](quickstarts/python-train-extract.md)
-    * [Train with labels - Python](quickstarts/python-labeled-data.md)
+    * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extract data from invoices
-    * [Extract invoice data - Python](quickstarts/python-invoices.md)
+    * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extract data from sales receipts
-    * [Extract receipt data - cURL](quickstarts/curl-receipts.md)
-    * [Extract receipt data - Python](quickstarts/python-receipts.md)
+    * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extract data from business cards
-    * [Extract business card data - Python](quickstarts/python-business-cards.md)
+    * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### Review the REST APIs
 
@@ -151,7 +149,18 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 ## Deploy on premises using Docker containers
 
-[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons. 
+
+## Service availability and redundancy
+
+### Is Form Recognizer service zone-resilient?
+
+Yes. The Form Recognizer service is zone-resilient by default.
+
+### How do I configure the Form Recognizer service to be zone-resilient?
+
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Form Recognizer resources is available by default and managed by the service itself.
+
 
 ## Data privacy and security
 
@@ -159,4 +168,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.

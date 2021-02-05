@@ -20,7 +20,7 @@ Automation variables are useful for the following scenarios:
 
 Azure Automation persists variables and makes them available even if a runbook or DSC configuration fails. This behavior allows one runbook or DSC configuration to set a value that is then used by another runbook, or by the same runbook or DSC configuration the next time it runs.
 
-Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. If you have Automation account variables storing sensitive data that are not already encrypted, then you need to delete them and recreate them as encrypted variables. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-computeapp). If you have unencrypted variables that you want excluded from this security recommendation, see [Exempt a resource from recommendations and secure score](../../security-center/exempt-resource.md) to create an exemption rule.
+Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. If you have Automation account variables storing sensitive data that are not already encrypted, then you need to delete them and recreate them as encrypted variables. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-compute). If you have unencrypted variables that you want excluded from this security recommendation, see [Exempt a resource from recommendations and secure score](../../security-center/exempt-resource.md) to create an exemption rule.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset.
@@ -74,11 +74,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## Python 2 functions to access variables
+## Python functions to access variables
 
-The functions in the following table are used to access variables in a Python 2 runbook.
+The functions in the following table are used to access variables in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
-|Python 2 Functions|Description|
+|Python Functions|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|Retrieves the value of an existing variable. |
 |`automationassets.set_automation_variable`|Sets the value for an existing variable. |
@@ -129,9 +129,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## Textual runbook examples
 
-### Retrieve and set a simple value from a variable
+# [PowerShell](#tab/azure-powershell)
 
 The following example shows how to set and retrieve a variable in a textual runbook. This example assumes the creation of integer variables named `NumberOfIterations` and `NumberOfRunnings` and a string variable named `SampleMessage`.
 
@@ -148,7 +149,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### Retrieve and set a variable in a Python 2 runbook
+# [Python 2](#tab/python2)
 
 The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 2 runbook.
 
@@ -171,6 +172,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# [Python 3](#tab/python3)
+
+The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook (preview).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## Graphical runbook examples
 

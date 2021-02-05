@@ -11,7 +11,7 @@ ms.reviewer: danis
 ---
 # Preview: Create a Linux image and distribute it to a Shared Image Gallery 
 
-This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../windows/shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
+This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -293,4 +293,4 @@ az group delete -n $sigResourceGroup -y
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
+Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).

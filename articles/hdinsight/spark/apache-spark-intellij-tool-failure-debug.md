@@ -2,8 +2,6 @@
 title: 'Debug Spark job with IntelliJ Azure Toolkit (preview) - HDInsight'
 description: Guidance using HDInsight Tools in Azure Toolkit for IntelliJ to debug applications
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh  
 ms.service: hdinsight   
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -137,8 +135,8 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 * [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](./apache-spark-eclipse-tool-plugin.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in the Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in the Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources

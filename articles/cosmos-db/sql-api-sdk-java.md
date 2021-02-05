@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -48,6 +48,12 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## Release notes
+
+### <a name="2.6.1"></a>2.6.1
+* Fixed a bug in handling a query through service interop.
+
+### <a name="2.6.0"></a>2.6.0
+* Added support for querying change feed from point in time.
 
 ### <a name="2.5.1"></a>2.5.1
 * Fixes primary partition cache issue on documentCollection query.
@@ -266,6 +272,8 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |July 16, 2020 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |

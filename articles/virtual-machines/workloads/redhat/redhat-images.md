@@ -19,7 +19,7 @@ This article describes available Red Hat Enterprise Linux (RHEL) images in Azure
 For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata). For pricing details, see [Azure pricing calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. The [Azure Hybrid Use Benefit](../../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and pay-as-you-go licensing isn't supported. To switch licensing mode, you must redeploy the VM from the corresponding image.
+> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. Dynamic switching between BYOS and pay-as-you-go licensing can be done through [Azure Hybrid Use Benefit](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > For any problem related to RHEL images in Azure Marketplace, file a support ticket with Microsoft.
@@ -57,8 +57,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor?view=netframework-4.8) object, not as a string.
+> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor) object, not as a string.
 
 ## RHEL 6 image types
 

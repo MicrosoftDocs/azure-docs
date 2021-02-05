@@ -40,7 +40,7 @@ Event Hubs captures diagnostic logs for the following categories:
 | Category | Description | 
 | -------- | ----------- | 
 | Archive Logs | Captures information about [Event Hubs Capture](event-hubs-capture-overview.md) operations, specifically, logs related to capture errors. |
-| Operational Logs | Capture all management operations that are performed on the Azure Event Hubs namespace. Data operations are not captured, because of the high volume of data operations that are conducted on Azure Event Hubs. |
+| Operational Logs | Capture all management operations that are performed on the Azure Event Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Event Hubs. |
 | Auto scale logs | Captures auto-inflate operations done on an Event Hubs namespace. |
 | Kafka coordinator logs | Captures Kafka coordinator operations related to Event Hubs. |
 | Kafka user error logs | Captures information about Kafka APIs called on Event Hubs. |
@@ -95,12 +95,12 @@ Operational log JSON strings include elements listed in the following table:
 Name | Description
 ------- | -------
 `ActivityId` | Internal ID, used for tracking purposes |
-`EventName` | Operation name |
+`EventName` | Operation name. For a list of values for this element, see the [Event names](#event-names) |
 `resourceId` | Azure Resource Manager resource ID |
 `SubscriptionId` | Subscription ID |
 `EventTimeString` | Operation time |
-`EventProperties` | Operation properties |
-`Status` | Operation status |
+`EventProperties` |Properties for the operation. This element provides more information about the event as shown in the following example. |
+`Status` | Operation status. The value can be either **Succeeded** or **Failed**.  |
 `Caller` | Caller of operation (Azure portal or management client) |
 `Category` | OperationalLogs |
 
@@ -120,6 +120,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### Event names
+Event name is populated as operation type + resource type from the following enumerations. For example, `Create Queue`, `Retrieve Event Hu`, or `Delete Rule`. 
+
+| Operation type | Resource type | 
+| -------------- | ------------- | 
+| <ul><li>Create</li><li>Update</li><li>Delete</li><li>Retrieve</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Queue</li><li>Topic</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Rule</li>ConsumerGroup</li> |
 
 ## Autoscale logs schema
 Autoscale log JSON includes elements listed in the following table:
@@ -195,7 +202,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
 
-Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 ranges. 
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 ranges. 
 
 ### Example
 

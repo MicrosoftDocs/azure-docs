@@ -246,7 +246,7 @@ url=$(az storage blob url \
 Now deploy the template to create the VM as explained [here](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```

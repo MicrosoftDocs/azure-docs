@@ -227,6 +227,7 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 | KeyEncryptionMethod| No | Indicates the method that Azure AD B2C uses to encrypt the copy of the key that was used to encrypt the data. The metadata controls the value of the  `<EncryptedKey>` element in the SAML response. Possible values: ` Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, ` RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. |
 | UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncrytedAssertion as opposed to the EncryptedData. |
 | WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
+| RemoveMillisecondsFromDateTime| No | Indicates whether the millisconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter and AuthnInstant). Possible values: `false` (default) or `true`.  |
 
 ### OutputClaims
 
