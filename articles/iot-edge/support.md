@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/04/2021
+ms.date: 02/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -109,7 +109,7 @@ The systems listed in the following table are considered compatible with Azure I
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> The Ubuntu Server 18.04 packages from the [Azure IoT Edge releases repo](https://github.com/Azure/azure-iotedge/releases) should work without any changes on Ubuntu 20.04.
+<sup>1</sup> The Ubuntu Server 18.04 installation steps in [Install or uninstall Azure IoT Edge for Linux](how-to-install-iot-edge.md) should work without any changes on Ubuntu 20.04.
 
 ## Releases
 
