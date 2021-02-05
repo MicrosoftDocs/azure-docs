@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2021
+ms.date: 02/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -135,7 +135,9 @@ To enable KMSI for your user flow:
 4. Select **User flows (policies)**.
 5. Open the user flow that you previously created.
 6. Select **Properties**.
-7. Under **Session behavior**, select **Enable keep me signed in session**.
+
+7. Under **Session behavior**, select **Enable keep me signed in session**. Next to **Keep me signed in session (days)**, enter a value from 1 to 90 to specify the number of days a session can remain open.
+
 
    ![Enable keep me signed in session](media/session-behavior/enable-keep-me-signed-in.png)
 
