@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
 ---
@@ -55,9 +55,11 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Africa North | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -206,8 +208,7 @@ This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
 | `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
 | `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
 | `User-Agent` | The application name. The value provided must be less than 255 characters. | Required |
@@ -274,5 +275,5 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
+- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)
