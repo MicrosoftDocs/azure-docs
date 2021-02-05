@@ -17,6 +17,10 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## February 2021
+
+* In preview.4, we have updated the terms for Opinion Mining in the JSON response. Aspects are now referred as Target. Opinions are now referred as Assessment. This changes is based on feedback from our UX study. There is no change in the underlying AI model.
+
 ## January 2021
 
 * The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
@@ -32,7 +36,7 @@ These model versions are currently unavailable in the East US region.
 
 ## December 2020
 
-* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API.
 
 ## November 2020
 
