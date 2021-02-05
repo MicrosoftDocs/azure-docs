@@ -50,7 +50,7 @@ For a list of metrics supported by the service, see [Azure Event Hubs](../azure-
 ## Azure Monitor integration with SIEM tools
 Routing your monitoring data (activity logs, diagnostics logs, and so on.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
 
-- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 - [Introduction to Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 

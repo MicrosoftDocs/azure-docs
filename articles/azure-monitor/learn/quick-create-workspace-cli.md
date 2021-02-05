@@ -127,6 +127,6 @@ Now that you have a workspace available, you can configure collection of monitor
 
 * To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace).  
 * Add [System Center Operations Manager as a data source](../agents/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
-* Connect [Configuration Manager](../platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
+* Connect [Configuration Manager](../logs/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [monitoring solutions](../insights/solutions.md) available and how to add or remove a solution from your workspace.
 

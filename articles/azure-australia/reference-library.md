@@ -82,7 +82,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Security Center Alerts](../security-center/security-center-managing-and-responding-alerts.md)
 * [Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 * [Analyze Log Data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Stream Azure Monitor Logs to an Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+* [Stream Azure Monitor Logs to an Event Hub](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 * [Event Hub Security and Authentication](../event-hubs/authenticate-shared-access-signature.md)
 
 ## Azure Policy and Azure Blueprints

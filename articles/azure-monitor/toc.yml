@@ -13,7 +13,7 @@
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
-    href: learn/quick-monitor-azure-resource.md
+    href: essentials/quick-monitor-azure-resource.md
   - name: Send Activity log to a workspace
     items: 
     - name: Azure portal
@@ -40,9 +40,9 @@
 - name: Tutorials
   items:
   - name: Create a metrics chart
-    href: learn/tutorial-metrics-explorer.md
+    href: essentials/tutorial-metrics-explorer.md
   - name: Collect logs from Azure resource
-    href: learn/tutorial-resource-logs.md
+    href: essentials/tutorial-resource-logs.md
   - name: Write log queries
     href: log-query/get-started-queries.md
   - name: Create a dashboard from log query
@@ -120,7 +120,7 @@
     - name: Log data
       href: platform/data-security.md
     - name: Customer-managed keys
-      href: platform/customer-managed-keys.md
+      href: logs/customer-managed-keys.md
     - name: Private Link networking
       href: platform/private-link-security.md
     - name: Private storage 
@@ -262,12 +262,12 @@
       - name: Parse text data
         href: log-query/parse-text.md
       - name: Computer groups
-        href: platform/computer-groups.md
+        href: logs/computer-groups.md
       - name: Cross resource queries
         items:
         - name: Overview
           displayname: cross-resource queries
-          href: log-query/cross-workspace-query.md
+          href: logs/cross-workspace-query.md
         - name: app expression
           href: log-query/app-expression.md
         - name: workspace expression
@@ -334,7 +334,7 @@
       - name: Custom logs
         href: agents/data-sources-custom-logs.md
       - name: Custom fields
-        href: platform/custom-fields.md
+        href: logs/custom-fields.md
     - name: Custom metrics
       items:
       - name: Custom metrics
@@ -344,9 +344,9 @@
     - name: Custom logs
       items: 
       - name: Log Analytics Data collector API 
-        href: platform/data-collector-api.md
+        href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
-        href: platform/create-pipeline-datacollector-api.md
+        href: logs/create-pipeline-datacollector-api.md
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
@@ -1270,7 +1270,7 @@
       - name: Dashboard using application data
         href: learn/tutorial-app-dashboards.md
       - name: Upgrading Log Analytics Dashboards
-        href: log-query/dashboard-upgrade.md
+        href: logs/dashboard-upgrade.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: System Center integration
@@ -1280,7 +1280,7 @@
     - name: Assess Operations Manager
       href: insights/scom-assessment.md
     - name: Connect Configuration Manager
-      href: platform/collect-sccm.md
+      href: logs/collect-sccm.md
 - name: Reference
   items:
   - name: Service limits
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

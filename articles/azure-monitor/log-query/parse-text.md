@@ -19,7 +19,7 @@ This article describes different options for parsing log data in Azure Monitor w
 You can parse data either at ingestion time when the data is collected or at query time when analyzing the data with a query. Each strategy has unique advantages as described below.
 
 ### Parse data at collection time
-When you parse data at collection time, you configure [Custom Fields](../platform/custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
+When you parse data at collection time, you configure [Custom Fields](../logs/custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
 
 Advantages to this method include the following:
 
@@ -51,7 +51,7 @@ Disadvantages to this method include the following:
 - Can create overhead when running complex logic against very large record sets (billions of records).
 
 ## Parse data as it's collected
-See [Create custom fields in Azure Monitor](../platform/custom-fields.md) for details on parsing data as it's collected. This creates custom properties in the table that can be used by queries just like any other property.
+See [Create custom fields in Azure Monitor](../logs/custom-fields.md) for details on parsing data as it's collected. This creates custom properties in the table that can be used by queries just like any other property.
 
 ## Parse data in query using patterns
 When the data you want to parse can be identified by a pattern repeated across records, you can use different operators in the [Kusto query language](/azure/kusto/query/) to extract the specific piece of data into one or more new properties.
