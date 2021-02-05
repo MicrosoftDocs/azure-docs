@@ -2,7 +2,7 @@
 title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 02/04/2021
 ---
 
 # Back up Azure VMware Solution VMs with Azure Backup Server

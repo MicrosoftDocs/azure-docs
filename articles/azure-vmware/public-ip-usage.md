@@ -2,7 +2,7 @@
 title: How to use the public IP functionality in Azure VMware Solution
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 02/04/2021
 ---
 # How to use the public IP functionality in Azure VMware Solution
 
