@@ -186,11 +186,11 @@ You can use the [Azure NetApp Files CLI tools](azure-netapp-files-sdk-cli.md#cli
 
 To manage Azure NetApp Files resources using Azure CLI, you can open the Azure portal and select the Azure **Cloud Shell** link in the top of the menu bar: 
 
-![Screenshot that shows how to access Cloud Shell link.](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png) 
+[ ![Screenshot that shows how to access Cloud Shell link.](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png)
 
 This action will open the Azure Cloud Shell:
 
-![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) 
+[ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)  ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)
 
 The following examples use the commands to [show](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) and [update](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) the size of a volume:
  
