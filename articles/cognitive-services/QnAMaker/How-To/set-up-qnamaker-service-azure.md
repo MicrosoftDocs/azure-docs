@@ -235,10 +235,6 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
     ![Restart of the QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-### Cognitive Search consideration
-
-Cognitive Search, as a separate resource, has some different configurations you should be aware of.
-
 ### Configure QnA Maker to use different Cognitive Search resource
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
