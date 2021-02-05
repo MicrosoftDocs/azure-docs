@@ -43,7 +43,7 @@ In this article, you'll learn how to export Azure IoT Connector for Fast Healthc
 > [!Note] 
 > It might take up to 15 minutes for the first Metrics logs to display in the repository of your choice.  
  
-For more information about how to work with diagnostic logs, see the [Azure Resource Log documentation](../azure-monitor/platform/platform-logs-overview.md)
+For more information about how to work with diagnostic logs, see the [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Conclusion 
 Having access to Metrics logs is essential for monitoring and troubleshooting.  Azure IoT Connector for FHIR allows you to do these actions through Metrics logs. 

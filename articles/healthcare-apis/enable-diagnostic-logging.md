@@ -40,7 +40,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 > [!Note] 
 > It might take up to 15 minutes for the first Logs to show in Log Analytics.  
  
-For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../azure-monitor/platform/platform-logs-overview.md)
+For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Audit log details
 At this time, the Azure API for FHIR service returns the following fields in the audit log: 

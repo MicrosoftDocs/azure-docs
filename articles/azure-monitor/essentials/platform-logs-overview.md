@@ -17,7 +17,7 @@ The following table lists the specific platform logs that are available at diffe
 
 | Log | Layer | Description |
 |:---|:---|:---|
-| [Resource logs](resource-logs.md) | Azure Resources | Provide insight into operations that were performed within an Azure resource (the *data plane*), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
+| [Resource logs](../platform/resource-logs.md) | Azure Resources | Provide insight into operations that were performed within an Azure resource (the *data plane*), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
 | [Activity log](../essentials/activity-log.md) | Azure Subscription | Provides insight into the operations on each Azure resource in the subscription from the outside (*the management plane*) in addition to updates on Service Health events. Use the Activity Log, to determine the _what_, _who_, and _when_ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There is a single Activity log for each Azure subscription. |
 | [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md) | Azure Tenant |  Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant.   |
 
@@ -41,7 +41,7 @@ You can send platform logs to one or more of the destinations in the following t
 
 | Destination | Description |
 |:---|:---|
-| Log Analytics workspace | Analyze the logs of all your Azure resources together and take advantage of all the features available to [Azure Monitor Logs](data-platform-logs.md) including [log queries](../log-query/log-query-overview.md) and [log alerts](../alerts/alerts-log.md). Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report. |  |
+| Log Analytics workspace | Analyze the logs of all your Azure resources together and take advantage of all the features available to [Azure Monitor Logs](../platform/data-platform-logs.md) including [log queries](../log-query/log-query-overview.md) and [log alerts](../alerts/alerts-log.md). Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report. |  |
 | Event hub | Send platform log data outside of Azure, for example to a third-party SIEM or custom telemetry platform.
 | Azure storage | Archive the logs for audit or backup. |
 
@@ -56,5 +56,5 @@ You can send platform logs to one or more of the destinations in the following t
 ## Next steps
 
 * [Read more details about the Activity log](../essentials/activity-log.md)
-* [Read more details about resource logs](resource-logs.md)
+* [Read more details about resource logs](../platform/resource-logs.md)
 

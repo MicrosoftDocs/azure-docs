@@ -106,15 +106,15 @@ Azure Monitor includes the following components.
 
 ### Azure Activity Log
 
-The [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
+The [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
 ### Azure diagnostic logs
 
-[Azure diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+[Azure diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 Windows event system logs are one category of diagnostic logs for VMs. Blob, table, and queue logs are categories of diagnostic logs for storage accounts.
 
-Diagnostic logs differ from the [Activity Log](../../azure-monitor/platform/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
+Diagnostic logs differ from the [Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 

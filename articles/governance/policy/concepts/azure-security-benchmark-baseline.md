@@ -31,7 +31,7 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 * [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Understand logging and different log types in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Understand logging and different log types in Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Azure Security Center monitoring**: Currently not available

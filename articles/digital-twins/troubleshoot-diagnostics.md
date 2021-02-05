@@ -255,6 +255,6 @@ For more detailed information on log queries and how to write them, you can visi
 
 ## Next steps
 
-* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/platform/platform-logs-overview.md).
+* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/essentials/platform-logs-overview.md).
 * For information about the Azure Digital Twins metrics, see [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md).
 * To see how to enable alerts for your metrics, see [*Troubleshooting: Set up alerts*](troubleshoot-alerts.md).

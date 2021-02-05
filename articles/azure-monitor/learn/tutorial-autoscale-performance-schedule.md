@@ -179,5 +179,5 @@ In this tutorial, you
 To learn more about autoscale settings, continue on to the [autoscale overview](../autoscale/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](../platform/platform-logs-overview.md)
+> [Archive your monitoring data](../essentials/platform-logs-overview.md)
 

@@ -371,7 +371,7 @@ Enable and collect network security group (NSG) resource logs and NSG flow logs 
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Enable Azure resource logs for Azure Bastion ](diagnostic-logs.md)
 

@@ -158,7 +158,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 * [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Yes
 

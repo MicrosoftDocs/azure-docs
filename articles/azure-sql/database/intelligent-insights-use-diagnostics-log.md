@@ -140,4 +140,4 @@ You can use the Intelligent Insights performance log with [Azure Monitor logs]( 
 - Learn about [Intelligent Insights](intelligent-insights-overview.md) concepts.
 - Learn how to [Troubleshoot performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
 - Learn how to [Monitor performance issues by using Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
-- Learn how to [collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md).
+- Learn how to [collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md).

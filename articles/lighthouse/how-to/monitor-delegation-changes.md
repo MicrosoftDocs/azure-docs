@@ -9,7 +9,7 @@ ms.topic: how-to
 
 As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure Lighthouse](../overview.md), or when previously delegated resources are removed.
 
-In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
+In the managing tenant, the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
 
 This topic explains the permissions needed to monitor delegation activity to your tenant (across all of your customers). It also includes a sample script that shows one method for querying and reporting on this data.
 
@@ -176,5 +176,5 @@ else {
 ## Next steps
 
 - Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
-- Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
+- Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md).
 - Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.

@@ -112,7 +112,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 Virtual Network NAT currently does not produce any additional diagnostic logs which are configurable by customers.
 

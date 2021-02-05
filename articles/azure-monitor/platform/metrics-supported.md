@@ -2523,4 +2523,4 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 - [Read about metrics in Azure Monitor](data-platform.md)
 - [Create alerts on metrics](alerts-overview.md)
-- [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
+- [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)

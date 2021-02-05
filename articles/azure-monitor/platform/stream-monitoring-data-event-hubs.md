@@ -56,6 +56,6 @@ Other partners may also be available. For a more complete list of all Azure Moni
 
 ## Next Steps
 * [Archive the Activity log to a storage account](./activity-log.md#legacy-collection-methods)
-* [Read the overview of the Azure Activity log](./platform-logs-overview.md)
+* [Read the overview of the Azure Activity log](../essentials/platform-logs-overview.md)
 * [Set up an alert based on an Activity log event](./alerts-log-webhook.md)
 
