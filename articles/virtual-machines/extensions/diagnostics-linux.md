@@ -1,6 +1,6 @@
 ---
 title: Azure Compute - Linux Diagnostic Extension 4.0
-description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
+description: How to configure the Azure Linux Diagnostic Extension (LAD) 4.0 to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
 author: axayjo
 manager: gwallace
@@ -16,7 +16,7 @@ ms.author: akjosh
 This document describes version 4.0 and newer of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
-> For information about version 3.*, see  [this document](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux-v3). 
+> For information about version 3.*, see  [this document](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). 
 > For information about version 2.3 and older, see [this document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
@@ -103,7 +103,7 @@ The python2 executable must be aliased to *python*. Following is one method that
 The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
 
 > [!NOTE]
-> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through Portal, CLI, Powershell, ARM etc.  are listed in detail [here](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through Portal, CLI, Powershell, ARM etc.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
 
 #### Azure CLI sample
 
@@ -487,7 +487,7 @@ This optional section controls enabling sending metrics to the Azure Monitor Sin
 
 > [!NOTE]
 > This requires System Assigned Identity to be enabled on the VMs/VMSS. 
-> This can be done through Portal, CLI, Powershell, ARM etc. Steps are listed in detail [here](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> This can be done through Portal, CLI, Powershell, ARM etc. Steps are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
 > The steps to enable this are also listed in the installation samples for AZ CLI, Powershell etc. above. 
 
 ```json
@@ -637,7 +637,7 @@ Assuming your protected settings are in the file ProtectedSettings.json and your
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
 ### PowerShell
 

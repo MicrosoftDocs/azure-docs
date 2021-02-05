@@ -1,6 +1,6 @@
 ---
 title: Azure Compute - Linux Diagnostic Extension 3.0
-description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
+description: How to configure the Azure Linux Diagnostic Extension (LAD) 3.0 to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
 author: axayjo
 manager: gwallace
