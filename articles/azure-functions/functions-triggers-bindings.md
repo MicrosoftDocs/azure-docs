@@ -45,7 +45,7 @@ Triggers and bindings are defined differently depending on the development langu
 
 For languages that rely on function.json, the portal provides a UI for adding bindings in the **Integration** tab. You can also edit the file directly in the portal in the **Code + test** tab of your function. Visual Studio Code lets you easily [add a binding to a function.json file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) by following a convenient set of prompts. 
 
-In .NET and Java, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary, and a custom type to de-serialize to an object. Since .NET class libraries and Java functions don't rely on *function.json* for binding definitions, they can't be created and edited in the portal. C# portal editing is based on C# script, which uses *function.json* instead of attributes.
+In .NET and Java, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary, and a custom type to de-serialize to an object. Since .NET class library functions and Java functions don't rely on *function.json* for binding definitions, they can't be created and edited in the portal. C# portal editing is based on C# script, which uses *function.json* instead of attributes.
 
 To learn more about how to adding bindings to existing functions, see [Connect functions to Azure services using bindings](add-bindings-existing-function.md).
 
