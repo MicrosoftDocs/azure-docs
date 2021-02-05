@@ -74,7 +74,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicip
 
@@ -338,6 +338,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicipout
 
@@ -352,7 +353,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicipout
 
