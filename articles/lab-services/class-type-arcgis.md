@@ -64,7 +64,7 @@ The steps in this section show how to set up the template VM:
 
     We recommend using OneDrive for backup storage.  To set up OneDrive on the template VM, follow the steps in the article [Install and configure OneDrive](how-to-prepare-windows-template.md#install-and-configure-onedrive). 
 
-4.  Finally, [publish](how-to-create-manage-template.md#Publish-the-template-VM) the template VM to create the students’ VM.
+4.  Finally, [publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM to create the students’ VM.
 
 ### Auto-shutdown and disconnect settings
 
