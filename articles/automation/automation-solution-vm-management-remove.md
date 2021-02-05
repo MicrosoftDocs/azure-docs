@@ -75,7 +75,7 @@ To unlink from the workspace, perform the following steps.
 
 2. From the workspace, select **Automation Account** under **Related Resources**.
 
-3. On the Automation Account page, select **Unlink account**.
+3. On the Automation Account page, select **Unlink account** and respond to prompts.
 
 While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
 
