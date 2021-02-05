@@ -41,8 +41,8 @@ You can change the configuration of the distribution mode by modifying the load-
 The following options are available: 
 
 * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-* **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-* **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+* **Client IP (source IP affinity two-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+* **Client IP and protocol (source IP affinity three-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
 
@@ -61,13 +61,36 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Set the value of the `LoadDistribution` element for the amount of load balancing required. 
+Set the value of the `LoadDistribution` element for the type of load balancing required. 
 
-Specify **sourceIP** for two-tuple (source IP and destination IP) load balancing. 
+* Specify **SourceIP** for two-tuple (source IP and destination IP) load balancing. 
 
-Specify **sourceIPProtocol** for three-tuple (source IP, destination IP, and protocol type) load balancing. 
+* Specify **SourceIPProtocol** for three-tuple (source IP, destination IP, and protocol type) load balancing. 
 
-Specify **default** for the default behavior of five-tuple load balancing.
+* Specify **Default** for the default behavior of five-tuple load balancing.
+
+# [**CLI**](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
+
+```azurecli-interactive
+az network lb rule update \
+    --lb-name myLoadBalancer \
+    --load-distribution SourceIP \
+    --name myHTTPRule \
+    --resource-group myResourceGroupLB 
+```
+Set the value of `--load-distribution` for the type of load balancing required.
+
+* Specify **SourceIP** for two-tuple (source IP and destination IP) load balancing. 
+
+* Specify **SourceIPProtocol** for three-tuple (source IP, destination IP, and protocol type) load balancing. 
+
+* Specify **Default** for the default behavior of five-tuple load balancing.
+
+For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 
