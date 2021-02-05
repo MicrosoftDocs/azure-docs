@@ -62511,11 +62511,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-diagnostic-settings.md",
-      "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/collect-sccm.md",
       "redirect_url": "/azure/azure-monitor/logs/collect-sccm",
       "redirect_document_id": false
