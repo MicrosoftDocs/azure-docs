@@ -17,6 +17,9 @@ ACL inheritance is already available for new child items that are created under 
 
 [Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines)
 
+> [!NOTE]
+Azure Storage Explorer now supports the ability to apply acls recursively. To learn more, see [Apply ACLs recursively in Azure Storage Explorer](data-lake-storage-explorer.md#apply-acls-recursively).
+
 ## Prerequisites
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
