@@ -30,6 +30,10 @@ Today the core operations of spatial analysis are all built on a pipeline that i
 | Region of Interest | This is a zone or line defined in the input video as part of configuration. When a person interacts with the region of the video the system generates an event. For example, for the PersonCrossingLine operation, a line is defined in the video. When a person crosses that line an event is generated. |
 | Event | An event is the primary output of spatial analysis. Each operation emits a specific event either periodically (ex. once per minute) or when a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount operation can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
 
+## Responsible use of Spatial Analysis technology
+
+To learn how to use Spatial Analysis technology responsibly, see the [transparency note](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Microsoft’s transparency notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment.
+
 ## Spatial Analysis gating for public preview
 
 To ensure spatial analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to spatial analysis, you will need to start by filling out our online intake form. [Begin your application here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
