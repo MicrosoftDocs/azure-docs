@@ -36,7 +36,7 @@ Once your custom translation model is built and deployed, you'll get a unique id
 https://<name-of-your-resource>./translator/text/batch/v1.0-preview.1/batches&category=a2eb72f9-46bf-82fa-4693c8b64c3c-GENERAL
 ```
 
- *See* [Create a Custom Translation project](../custom-translator/how-to-create-project.md#view-project-details) and [Translator3.0 Optional Parameters](../reference/v3-0-translate?tabs=curl&branch=pr-en-us-144446#optional-parameters).
+ *See* [Create a Custom Translation project](../custom-translator/how-to-create-project.md#view-project-details) and [Translator3.0 Optional Parameters](../reference/v3-0-translate.md#optional-parameters).
 
 ## Supported file formats
 

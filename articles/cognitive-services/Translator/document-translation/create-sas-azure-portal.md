@@ -1,5 +1,5 @@
 ---
-title: Create shared access signature (SAS) token for Document Translation blobs with Microsoft storage explorer or in the Azure Portal
+title: Create shared access signature (SAS) token for Document Translation blobs with Microsoft storage explorer or in the Azure portal.
 description: How to create a Shared Access Token (SAS) for containers and blobs with Microsoft Storage Explorer or the Azure Portal
 ms.topic: how-to
 manager: nitinme
@@ -10,10 +10,10 @@ ms.date: 02/04/2021
 
 # Create SAS tokens in the Azure portal
 
-In this article, you will learn how to create a shared access signature (SAS) token for your Document Translator source and target blobs. An SAS token provides secure, delegated access to resources in your Azure storage account. The token is passed as a query string that follows your resource custom endpoint URL.
+In this article, you'll learn how to create a shared access signature (SAS) token for your Document Translator blobs. An SAS token provides secure, delegated access to resources in your Azure storage account. The token is passed as a query string appended to your resource custom endpoint.
 
 > [!NOTE]
-> Creating SAS tokens for **containers** directly in the Azure portal is currently not supported. You can use [Azure Storage Explorer](create-sas-azure-storage-explorer.md#sas-tokens-for-containers) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
+> Creating SAS tokens for **containers** directly in the Azure portal is currently not supported. You can use [Azure Storage Explorer](create-sas-azure-storage-explorer.md?tabs=containers) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 1. The **Blob SAS token** query string and **Blob SAS URL** will be displayed in the lower area of window.  
 **Copy and paste the Blob SAS token query string value in a secure location. It will only be displayed once and cannot be retrieved once the window is closed.**
 
-1. Append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation#submit-a-document-translation-request-post) request body.  
+1. Append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation.md#submit-a-document-translation-request-post) request body.  
 
 > [!TIP]
 > If you lose or misplace your Blob SAS token, create a new one and update your `sourceURL` and `targetURL` values in your Document Translator POST request with the new SAS query string.
