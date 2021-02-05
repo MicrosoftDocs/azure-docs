@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with M-Files, perform the following steps:
     >[!NOTE]
     >Follow the next steps if you want to configure SSO for you M-File desktop application. No extra steps are required if you only want to configure SSO for M-Files web version.  
 
-1. Follow the next steps to configure the M-File desktop application to enable SSO with Azure AD. To download M-Files, go to [M-Files download](https://www.m-files.com/en/download-latest-version) page.
+1. Follow the next steps to configure the M-File desktop application to enable SSO with Azure AD. To download M-Files, go to [M-Files download](https://www.m-files.com/customers/product-downloads/download-update-links/) page.
 
 1. Open the **M-Files Desktop Settings** window. Then, click **Add**.
    
