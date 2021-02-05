@@ -58,7 +58,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure the application
-> For the code sample for this quickstart to work, you need to add a redirect URI as **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >

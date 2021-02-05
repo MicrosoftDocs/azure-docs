@@ -16,10 +16,10 @@ Azure Deployment Manager is in preview. Help us improve the feature by providing
 
 To use Deployment Manager, you need to create four files:
 
-* Topology template
-* Rollout template
-* Parameter file for topology
-* Parameter file for rollout
+* Topology template.
+* Rollout template.
+* Parameter file for topology.
+* Parameter file for rollout.
 
 You deploy the topology template before deploying the rollout template.
 
