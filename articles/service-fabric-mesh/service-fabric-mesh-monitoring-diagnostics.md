@@ -60,7 +60,7 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | RestartCount | Number of container restarts | N/A |
 
 > [!NOTE]
-> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](/dotnet/api/system.fabric.health.healthstate) in Service Fabric.
 
 Each metric is available on different dimensions so you can see aggregates at different levels. The current list of dimensions are as follows:
 
