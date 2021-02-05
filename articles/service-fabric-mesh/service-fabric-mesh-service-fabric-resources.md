@@ -10,6 +10,11 @@ ms.custom: mvc, devcenter
 ---
 # Introduction to Service Fabric Resource Model
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 The Service Fabric Resource Model describes a simple approach to define resources that comprise a Service Fabric Mesh application. Individual resources can be deployed to any Service Fabric environment.  The Service Fabric Resource Model is also compatible with the Azure Resource Manager Model. The following types of resources are currently supported in this model:
 
 - Applications and services
