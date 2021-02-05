@@ -50,7 +50,7 @@
         href: class-type-networking-gns3.md
       - name: Database management
         href: class-type-database-management.md
-      - name: Azure Sql Database management and development
+      - name: Sql database management and development
         href: class-type-sql-server.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
