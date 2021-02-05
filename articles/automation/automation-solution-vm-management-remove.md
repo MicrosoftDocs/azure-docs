@@ -55,6 +55,10 @@ To delete your Automation account dedicated to Start/Stop VMs during off-hours, 
 
 ### Unlink workspace from Automation account
 
+There are two options for unlinking the Log Analytics workspace from your Automation account. You can perform this process from the Automation account or from the linked workspace.
+
+To unlink from your Automation account, perform the following steps.
+
 1. In the Azure portal, select **Automation Accounts**.
 
 2. Open your Automation account and select **Linked workspace** under **Related Resources** on the left.
@@ -63,10 +67,10 @@ To delete your Automation account dedicated to Start/Stop VMs during off-hours, 
 
    ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
 
-While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+    While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
-Alternatively, you can unlink your Log Analytics workspace from your Automation account from within the workspace:
-
+To unlink from the workspace, perform the following steps.
+    
 1. In the Azure portal, select **Log Analytics workspaces**.
 
 2. From the workspace, select **Automation Account** under **Related Resources**.
