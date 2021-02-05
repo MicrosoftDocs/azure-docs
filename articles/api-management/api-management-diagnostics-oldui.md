@@ -1,67 +1,90 @@
 ---
-title: Diagnostics and solve tool
-description: Learn how you can troubleshoot issues with your API in Azure API Management Service with the diagnostics and solve tool in the Azure portal. 
-keywords: API Management, azure API Management, diagnostics, support, API, troubleshooting, self-help
-author: 
+title: Diagnose and solve problems
+description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnostics and solve tool in the Azure portal. 
 
-ms.topic: article
-ms.date: 01/14/2021
-ms.author: rongzhang
-ms.custom: 
+author: rzhang628
+
+ms.topic: article
+ms.date: 01/14/2021
+ms.author: rongzhang
+ms.custom: 
 
 ---
-# Azure API Management diagnostics overview
+# Azure API Management Diagnostics overview
 
-When you built and are connected to an API, you want to be prepared for any issues that may arise, from 500 errors to your users telling you that their site is down. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API with no configuration required. When you do run into issues with your API, API Management diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
+When you built and are connected to an API, you want to be prepared for any issues that may arise, from 500 errors to your users telling you that their site is down. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API with no configuration required. When you do run into issues with your API, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
 
-Although this experience is most helpful when you’re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
+Although this experience is most helpful when you’re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-## Open API Management diagnostics
+## Open API Management Diagnostics
 
-To access API Management diagnostics, navigate to your API Management Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
+To access API Management Diagnostics, navigate to your API Management Environment in the [Azure portal](https://portal.azure.com). In the left navigation, select **Diagnose and solve problems**.
 
-![Navigate to Diagnostics](.media/api-magament-diagnostics/apimdisgnostichome.png)
+:::image type="content" source="media/api-management-diagnostics/apimdisgnostichome.png" alt-text="Navigate to Diagnostics.":::
 
-## Intellective Search
 
-You can search your issues or problems in the search bar on the top of the page. The search can also help you find the tools that may help to troubleshoot or resolve your issues. 
 
-![search bar](.media/api-magament-diagnostics/intellectivesearch.png)
+## Intelligent search
 
-## Troubleshooting Category
+You can search your issues or problems in the search bar on the top of the page. The search also helps you find the tools that may help to troubleshoot or resolve your issues. 
 
-You can troubleshoot issues under categories. Common issues that are related to your API performance, gateway, proxy policies can all be analyzed within each category. You can find more specific check information under each category. 
+:::image type="content" source="media/api-management-diagnostics/intelligentsearch.png" alt-text="Intelligent search.":::
 
-![category](.media/api-magament-diagnostics/troubleshootingcategory.png)
 
-### Availability and Performance
+## Troubleshooting categories
 
-You can check your API availability and performance issues under this category. After clicking to this category tile, you will see a few common checks are recommended in an interactive interface. Click each check, you can dive deep  to the specifics of each issue. The check will also provide you a graph analysis to show your API performance. It will summarize issues that happened on your API performance. For example, your API service may have a 5xx error and time out in the last hour at the backend. 
+You can troubleshoot issues under categories. Common issues that are related to your API performance, gateway, proxy policies, and service tier can all be analyzed within each category. Each category also provides more specific diagnostics checks. 
 
-![interactive interface check 1](.media/api-magament-diagnostics/categoryinteractivesearch1.png)
-![interactive interface check 2](.media/api-magament-diagnostics/categoryinteractivesearch2.png)
+:::image type="content" source="media/api-management-diagnostics/troubleshootingcategory.png" alt-text="Category View.":::
 
-### Proxy and Policies
 
-This category detects your proxy errors and returns you the error information to help notifies your proxy policy issues and help you troubleshoot the issues. 
+### Availability and Performance
 
-You will experience similar interactive interface and be guided to the data metrics that is related to your API policies configuration.
+Check your API availability and performance issues under this category. After selecting this category tile, you will see a few common checks are recommended in an interactive interface. Click each check to dive deep to the specifics of each issue. The check will also provide you a graph showing your API performance and a summary of performance issues. For example, your API service may have had a 5xx error and timeout in the last hour at the backend. 
 
-![proxy and policy category overview](.media/api-magament-diagnostics/proxypolicies.png)
+:::image type="content" source="media/api-management-diagnostics/categoryinteractivesearch1.png" alt-text="Interactive Interface check 1.":::
 
-### Gateway Performance 
 
-For gateway requests or responses or any 4xx or 5xx errors on your gateway, you can use this category to monitor then troubleshoot. Similarly, you can leverage the interactive interface to dive deep on the specific area that you want to check for your API gateway performance. 
 
-![gateway performance overview](.media/api-magament-diagnostics/gatewayperformance.png)
+:::image type="content" source="media/api-management-diagnostics/categoryinteractivesearch2.png" alt-text="Interactive Interface check 2.":::
 
-### Service Upgrade
+### Proxy and Policies
 
-This category checks what service SKUs are you currently on and reminds you to upgrade to avoid any issues may related to upgrade. The same interactive interface will help you go deep with more graphics and summarized check result. 
+This category detects proxy errors and notifies you of your policy issues. 
 
-![service upgrade category overview](.media/api-magament-diagnostics/servicesku.png)
- 
+A similar interactive interface guides you to the data metrics to help you troubleshoot your API policies configuration.
 
-Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/248703-api-management) by adding "[Diag]" in the title.
+:::image type="content" source="media/api-management-diagnostics/proxypolicies.png" alt-text="Proxy and Policies .":::
+
+### Gateway Performance 
+
+For gateway requests or responses or any 4xx or 5xx errors on your gateway, use this category to monitor and troubleshoot. Similarly, leverage the interactive interface to dive deep on the specific area that you want to check for your API gateway performance. 
+
+:::image type="content" source="media/api-management-diagnostics/gatewayperformance.png" alt-text="Gateway 4xx responses .":::
+
+### Service Upgrade
+
+This category checks which service tier (SKU) you are currently using and reminds you to upgrade to avoid any issues that may be related to that tier. The same interactive interface helps you go deep with more graphics and a summary check result. 
+
+:::image type="content" source="media/api-management-diagnostics/servicesku.png" alt-text="service upgrade.":::
+
+## Search Documentation
+
+In additional to the Diagnose and solve problems tools, you can search for troubleshooting documentation related to your  issue. After running the diagnostics on your service, select **Search Documentation** in the interactive interface. 
+
+![Search Documentation](.media/api-magament-diagnostics/searchdocumentation.png)
+ :::image type="content" source="media/api-management-diagnostics/searchdocumentation.png" alt-text="Search Documentation.":::
+
+
+ :::image type="content" source="media/api-management-diagnostics/searchdocumentation2.png" alt-text="Search Documentation 2.":::
+
+
+## Next steps
+
+Also use [API analytics](howto-use-analytics.md) to analyze the usage and performance of the APIs. 
+Want to troubleshoot Web Apps issues with Diagnostics? Read it [here](../app-service/overview-diagnostics.md)
+Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](../aks/concepts-diagnostics.md)
+Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/248703-api-management) by adding "[Diag]" in the title.
+
 
 
