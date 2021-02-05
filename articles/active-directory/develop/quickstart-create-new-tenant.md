@@ -50,7 +50,7 @@ Many developers already have tenants through services or subscriptions that are 
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
 
 > [!TIP]
-> If you need to find the tenant ID, you can:
+> To find the tenant ID, you can:
 > * Hover over your account name to get the directory / tenant ID, or
 > * Search and select **Azure Active Directory > Properties > Tenant ID** in the Azure portal
 
