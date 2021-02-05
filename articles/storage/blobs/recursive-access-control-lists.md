@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
@@ -18,7 +18,7 @@ ACL inheritance is already available for new child items that are created under 
 [Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines)
 
 > [!NOTE]
-> Azure Storage Explorer now supports the ability to apply acls recursively. To learn more, see [Apply ACLs recursively in Azure Storage Explorer](data-lake-storage-explorer.md#apply-acls-recursively). 
+> Azure Storage Explorer now supports the ability to apply ACLs recursively. To learn more, see [Apply ACLs recursively in Azure Storage Explorer](data-lake-storage-explorer.md#apply-acls-recursively). 
 
 ## Prerequisites
 
