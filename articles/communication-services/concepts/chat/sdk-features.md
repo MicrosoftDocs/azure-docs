@@ -55,7 +55,7 @@ The following table represents the set of supported browsers and versions which 
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
-| **Chat client library** | Chrome*, new Edge | Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+| **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
 
 *Note that the latest version is supported in addition to the previous two releases.<br/>
