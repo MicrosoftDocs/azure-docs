@@ -265,6 +265,9 @@ This section contains the following examples:
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
+> [!NOTE]
+> When you are copying files to Storage account using Azure file copy task, ensure the right blob prefix and source is added.
+
 ### Copy a file to another storage account
 
 |    |     |
