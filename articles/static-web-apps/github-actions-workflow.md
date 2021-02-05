@@ -232,7 +232,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-In this instance, only changes made to files following files trigger a new build:
+In this instance, only changes made to following files trigger a new build:
 
 - Any files inside the *app1* folder
 - Any files inside the *api1* folder
