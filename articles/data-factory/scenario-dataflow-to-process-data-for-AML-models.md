@@ -19,7 +19,7 @@ ms.co-author: Donnana
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
-One challenge is raw data from data warehouse or transactional database would be huge dataset during training Azure machine learning model. You would [optimize data processing](https://docs.microsoft.com/en-us/azure/machine-learning/concept-optimize-data-processing) via increasing RAM of VM. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning tasks since it's binary columnar format.This tutorial will go through another option partitioning dataset to parquet files before training models. 
+One challenge is raw data from data warehouse or transactional database would be huge dataset during training Azure machine learning model. You would [optimize data processing](https://docs.microsoft.com/azure/machine-learning/concept-optimize-data-processing) via increasing RAM of VM. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning since it's binary columnar format.This tutorial will go through another option partitioning dataset to parquet files before training models. 
 
 In Automated machine learning(AutoML) project, it would apply the following three data processing scenarios:
 
