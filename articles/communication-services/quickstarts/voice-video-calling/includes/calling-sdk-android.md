@@ -106,6 +106,7 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 ### Place a 1:n call with users and PSTN
 > [!WARNING]
 > Currently PSTN calling is not available
+
 To place a 1:n call to a user and a PSTN number you have to specify the phone number of callee.
 Your Communication Services resource must be configured to allow PSTN calling:
 ```java
