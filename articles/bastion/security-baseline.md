@@ -405,7 +405,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 - [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 - [Enable and work with Azure Bastions logs](diagnostic-logs.md)
 

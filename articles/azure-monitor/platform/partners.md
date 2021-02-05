@@ -328,7 +328,7 @@ Using Azure Monitor to route monitoring data to an Azure Event Hub  allows you t
 - [Learn more about Azure Monitor](../overview.md)
 - [Access metrics using the REST API](../essentials/rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](./activity-log.md#legacy-collection-methods)
-- [Stream resource logs to a non-Microsoft service](./resource-logs.md#send-to-azure-event-hubs)
+- [Stream resource logs to a non-Microsoft service](../essentials/resource-logs.md#send-to-azure-event-hubs)
 
 
 

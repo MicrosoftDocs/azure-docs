@@ -276,7 +276,7 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 * [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [How to archive logs to an Azure Storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [How to archive logs to an Azure Storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -63,7 +63,7 @@ Azure services actually require Azure Monitor to collect telemetry, and it's ena
 
 [![Metrics explorer](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 
-[Create a diagnostic setting](essentials/diagnostic-settings.md) for each Azure resource to send metrics and [resource logs](platform/resource-logs.md), which provide details about the internal operation of each resource, to a Log Analytics workspace. This gives you all available telemetry for your resources and allows you to use [Log Analytics](log-query/log-analytics-overview.md) to interactively analyze log and performance data using an advanced query language that has no equivalent in Operations Manager. You can also create [log query alerts](alerts/alerts-log-query.md), which can use complex logic to determine alerting conditions and correlate data across multiple resources.
+[Create a diagnostic setting](essentials/diagnostic-settings.md) for each Azure resource to send metrics and [resource logs](essentials/resource-logs.md), which provide details about the internal operation of each resource, to a Log Analytics workspace. This gives you all available telemetry for your resources and allows you to use [Log Analytics](log-query/log-analytics-overview.md) to interactively analyze log and performance data using an advanced query language that has no equivalent in Operations Manager. You can also create [log query alerts](alerts/alerts-log-query.md), which can use complex logic to determine alerting conditions and correlate data across multiple resources.
 
 [![Logs Analytics](media/azure-monitor-operations-manager/log-analytics.png)](media/azure-monitor-operations-manager/log-analytics.png#lightbox)
 

@@ -44,7 +44,7 @@ az deployment group create \
   - [Log alert rules](resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
   - [Metric alert rules](resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
 - [Application Insights](resource-manager-app-resource.md)
-- [Diagnostic settings](resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
+- [Diagnostic settings](../essentials/resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
 - [Log Analytics Workspace](resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
 - [Workbooks](resource-manager-workbooks.md) - Create workbooks.

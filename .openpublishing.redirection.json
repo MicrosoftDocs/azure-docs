@@ -62490,6 +62490,31 @@
       "source_path_from_root": "/articles/azure-monitor/platform/platform-logs-overview.md",
       "redirect_url": "/azure/azure-monitor/essentials/platform-logs-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/resource-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/resource-logs-blob-format.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-logs-blob-format",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/resource-logs-categories.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-logs-categories",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/resource-logs-schema.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-logs-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-diagnostic-settings.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings",
+      "redirect_document_id": false
     }
   ]
 }

@@ -12,7 +12,7 @@ ms.author: apimpm
 ---
 # Reference: API Management resource log schema
 
-This article provides a schema reference for the Azure API Management GatewayLogs resource log. Log entries also include fields in the [top-level common schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+This article provides a schema reference for the Azure API Management GatewayLogs resource log. Log entries also include fields in the [top-level common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 To enable collection of the resource log in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -44,5 +44,5 @@ The following properties are logged for each API request.
 ## Next steps
 
 * For information about monitoring APIs in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
-* Learn more about [Common and service-specific schema for Azure Resource Logs](../azure-monitor/platform/resource-logs-schema.md)
+* Learn more about [Common and service-specific schema for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md)
 

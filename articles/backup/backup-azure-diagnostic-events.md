@@ -32,7 +32,7 @@ Data for these events can be sent to either a storage account, a Log Analytics w
 
 ## Use diagnostics settings with Log Analytics
 
-You can now use Azure Backup to send vault diagnostics data to dedicated Log Analytics tables for backup. These tables are called [resource-specific tables](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+You can now use Azure Backup to send vault diagnostics data to dedicated Log Analytics tables for backup. These tables are called [resource-specific tables](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 To send your vault diagnostics data to Log Analytics:
 
