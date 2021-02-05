@@ -36,27 +36,16 @@ For step-by-step information on creating a new SQL database and setting the SQL 
 
 
 
-## Configure SQL maintenance window for an existing database 
-
-
-To configure the maintenance window for an existing database in the Azure portal:
-
-1. Navigate to the SQL database, elastic pool, or managed instance you want to set the maintenance window for.
-1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
-
-   :::image type="content" source="media/sql-maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
-
 
 # [PowerShell](#tab/azure-powershell)
 
 To configure the maintenance window using Windows PowerShell:
 
-## Prerequisites
-For this tutorial, an existing database is required. If you don't already have a SQL database, see [Create a single database](single-database-create-quickstart.md?tabs=azure-powershell) to create one.
-
 ## Discover available maintenance windows
 
-Each region has its own maintenance windows mapped to the region's time zone. The following example uses the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet to return the available maintenance windows for the *eastus2* region.
+When setting the maintenance window, each region has its own maintenance window options that correspond to the timezone for the region the database or pool is located. 
+
+The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
 
    ```powershell-interactive
    $location = "eastus2"
@@ -69,7 +58,7 @@ Each region has its own maintenance windows mapped to the region's time zone. Th
 
 ## Set the maintenance window during database creation
 
-The following example creates a new database and sets the maintenance window using the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+The following example creates a new database and sets the maintenance window using the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet. The example uses a valid maintenance window for the eastus2 region from the previous example: `SQL_EastUS2_DB_1`. 
 
 
    ```powershell-interactive
@@ -123,10 +112,25 @@ The following example creates a new elastic pool and sets the maintenance window
    ```
 
 
-## Apply maintenance window to existing database
+## Set the maintenance window for an existing database 
+
+# [Portal](#tab/azure-portal)
+
+The following steps set the maintenance window on an existing database using the the Azure portal:
+
+1. Navigate to the SQL database, elastic pool, or managed instance you want to set the maintenance window for.
+1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
+
+   :::image type="content" source="media/sql-maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
+
+
+
+# [PowerShell](#tab/azure-powershell)
+
+
 
 The following example sets the maintenance window on an existing database using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. 
-It's important to make sure that the `$maintenanceConfig` value is a valid value for your database's region.
+It's important to make sure that the `$maintenanceConfig` value is a valid value for your database's region. To get valid values for your database's region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```powershell-interactive
     # Select different maintenance window
@@ -141,10 +145,10 @@ It's important to make sure that the `$maintenanceConfig` value is a valid value
     $database
    ```
 
-## Apply maintenance window to existing elastic pool
+## Set the maintenance window on an existing elastic pool
 
 The following example sets the maintenance window on an existing elastic pool using the [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) cmdlet. 
-It's important to make sure that the `$maintenanceConfig` value is a valid value for your pool's region.
+It's important to make sure that the `$maintenanceConfig` value is a valid value for your pool's region.  To get valid values for your pool's region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```powershell-interactive
     # Select different maintenance window
@@ -162,7 +166,7 @@ It's important to make sure that the `$maintenanceConfig` value is a valid value
 
 ## Cleanup resources
 
-Be sure to delete resources after you are finished to avoid unnecessary charges. 
+Be sure to delete resources after you're finished with them to avoid unnecessary charges. 
 
 
    ```powershell-interactive
