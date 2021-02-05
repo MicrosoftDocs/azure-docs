@@ -211,7 +211,7 @@ The procedure below assumes that you have installed the DC agent on at least one
 
    After running the command, you can get more information about the outcome of the command by looking in the event viewer. Password validation outcome events are documented in the [DC Agent Admin event log](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) topic; you will use such events to validate the outcome of your test in addition to the interactive output from the net.exe commands.
 
-   Let's try an example: attempting to set a password that is banned by the Microsoft global list (note that list is [not documented](concept-password-ban-bad#global-banned-password-list) but we can test here against a known banned term). This example assumes that you have configured the policy to be in Enforced mode, and have added zero terms to the custom banned password list.
+   Let's try an example: attempting to set a password that is banned by the Microsoft global list (note that list is [not documented](concept-password-ban-bad.md#global-banned-password-list) but we can test here against a known banned term). This example assumes that you have configured the policy to be in Enforced mode, and have added zero terms to the custom banned password list.
 
    ```text
    net.exe user ContosoUser PassWord
@@ -271,7 +271,7 @@ The procedure below assumes that you have installed the DC agent on at least one
 
 1. Continue testing various passwords of your choice and checking the results in the event viewer using the procedures outlined in the previous steps. If you need to change the policy in the Azure portal, don't forget to synchronize the new policy down to the DC agent as described earlier.
 
-The preceding examples cover the procedures for doing basic controlled and iterative testing of the Azure AD Password Protection password validation behavior. Resetting user passwords from the command line may seem an odd means of doing such testing, but this approach helps to avoid invalid results caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep the [password evaluation algorithm](concept-password-ban-bad#how-are-passwords-evaluated) in mind as it may help to explain results that you did not expect.
+The preceding examples cover the procedures for doing basic controlled and iterative testing of the Azure AD Password Protection password validation behavior. Resetting user passwords from the command line may seem an odd means of doing such testing, but this approach helps to avoid invalid results caused by typing a hidden (and potentially unintended) password into a user interface (for example, like the Ctrl-Alt-Delete -> Change Password UI). As you are testing various passwords, keep the [password evaluation algorithm](concept-password-ban-bad.md#how-are-passwords-evaluated) in mind as it may help to explain results that you did not expect.
 
 Finally, when all testing is completed do not forget to delete all user accounts that were created for testing purposes only!
 
