@@ -32,7 +32,7 @@
     displayName: version, postgresql
   - name: known-issues-limitations
     href: concepts-known-issues-limitations.md
-    displayName: issues, limitations 
+    displayName: issues, limitations, postgresql 
 - name: Single Server
   expanded: true
   items:

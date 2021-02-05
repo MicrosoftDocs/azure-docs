@@ -6,7 +6,6 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL - Known issues and limitations
 
