@@ -5,7 +5,7 @@ description: In this tutorial, you create and publish a product in Azure API Man
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
 
 ---

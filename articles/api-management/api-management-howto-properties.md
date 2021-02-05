@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
 ---
 
