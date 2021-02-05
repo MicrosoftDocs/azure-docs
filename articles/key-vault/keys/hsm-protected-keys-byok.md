@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
 
 ---
