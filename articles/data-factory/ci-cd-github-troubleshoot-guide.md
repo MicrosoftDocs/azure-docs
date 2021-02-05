@@ -172,7 +172,7 @@ ARM restricts template size to be 4mb. Limit the size of your template to 4 MB, 
 
 #### Resolution
 
-For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## Next steps
 
