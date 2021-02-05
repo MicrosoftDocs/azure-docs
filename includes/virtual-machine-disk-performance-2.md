@@ -131,8 +131,7 @@ We have metrics on Azure that provide insight on how your virtual machines and d
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
 ## Storage IO utilization metrics
-
-Metrics that help diagnose disk IO capping:
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. Metrics that help diagnose disk IO capping:
 
 - **Data Disk IOPS Consumed Percentage**: The percentage calculated by the data disk IOPS completed over the provisioned data disk IOPS. If this amount is at 100%, your application running is IO capped from your data disk's IOPS limit.
 - **Data Disk Bandwidth Consumed Percentage**: The percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running is IO capped from your data disk's bandwidth limit.
