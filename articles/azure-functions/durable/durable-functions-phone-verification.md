@@ -33,6 +33,9 @@ This article walks through the following functions in the sample app:
 * `E4_SmsPhoneVerification`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that performs the phone verification process, including managing timeouts and retries.
 * `E4_SendSmsChallenge`: An [activity function](durable-functions-bindings.md#activity-trigger) that sends a code via text message.
 
+> [!NOTE]
+> `HttpStart` function from the sample app acts as [Orchestration client](durable-functions-bindings.md#orchestration-client) which triggers the orchestrator function.)
+
 ### E4_SmsPhoneVerification orchestrator function
 
 # [C#](#tab/csharp)
