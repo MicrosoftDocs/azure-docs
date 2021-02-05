@@ -10,6 +10,9 @@ ms.date: 02/04/2021
 
 # What is Document Translation (Preview)?
 
+> [!IMPORTANT]  
+> A preview feature may not be complete and may undergo changes before it's official public release. Preview features are provided for testing, exploration, early access, and feedback purposes only. Preview features aren't meant for production applications.
+
 The Document Translation API translates documents to and from more than 70 languages while preserving source document structure and text formatting. Document Translation is a cloud-based feature of the Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs.
 
 ## Document Translation key features
