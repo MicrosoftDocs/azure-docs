@@ -27,13 +27,13 @@ ___
 
 :::row:::
   :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform</a> (12:28)
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform</a>(12:28)
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."></a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform</a> (15:47)
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform</a>(15:47)
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"></a>
@@ -96,7 +96,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        5 - <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">Application roles and security groups on the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></a> (15:52)
+        5 - <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">Application roles and security groups on the Microsoft identity platform</a> (15:52)
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail for a video about application roles and security groups on the Microsoft identity platform."></a>
@@ -320,7 +320,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">What aspects of using protocols does the MSAL libraries make easier? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">What aspects of using protocols does the MSAL libraries make easier?</a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail for video that describes what aspects of using protocols does the MSAL libraries make easier."></a>
