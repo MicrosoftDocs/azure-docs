@@ -81,7 +81,7 @@ const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
 const groupCall = callAgent.call([userCallee, pstnCallee], {alternateCallerId});
 ```
 
-### Place a 1:1 call with with video camera
+### Place a 1:1 call with video camera
 > [!WARNING]
 > There can currently be no more than one outgoing local video stream.
 To place a video call, you have to enumerate local cameras using the deviceManager `getCameraList` API.
