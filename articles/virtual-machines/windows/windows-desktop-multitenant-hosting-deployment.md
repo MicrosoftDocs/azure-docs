@@ -23,6 +23,9 @@ For more information, see [Multitenant Hosting for Windows 10](https://www.micro
 
 Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true), you can confirm if a user has been assigned a Windows 10 supported license. If you are an enterprise customer using KMS, the user accessing Windows Virtual Desktop must be part of your covered user-base.
 
+> [!IMPORTANT]
+> Users must have one of the below subscription licenses in order to use Windows 10 images in Azure. If you do not have one of these subscription licenses, they can be purchased through the [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx), your [Cloud Service Provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+
 **Eligible subscription licenses:**
 
 -	Microsoft 365 E3/E5 
@@ -31,8 +34,6 @@ Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admi
 -	Windows 10 Enterprise E3/E5
 -	Windows 10 Education A3/A5 
 -	Windows VDA E3/E5
-
-If you do not have one of these subscription licenses, they can be purchased through the [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx), your [Cloud Service Provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
 
 ## Deploying Windows 10 Image from Azure Marketplace 
