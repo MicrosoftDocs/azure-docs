@@ -200,17 +200,17 @@ Anyone with `Reader` access to the Relay will be able to _see_ the Hybrid Connec
 The status of "Connected" means that at least one HCM is configured with that Hybrid Connection, and is able to reach Azure. If the status for your Hybrid Connection does not say **Connected**, your Hybrid Connection is not configured on any HCM that has access to Azure. When your HCM shows **Not Connected** there are a few things to check:
 
 * Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port* 
-* Is your HCM potentially in a bad state. Try restarting the ‘Azure Hybrid Connection Manager Service" local service 
+* Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
 
 If your status says **Connected** but your app cannot reach your endpoint then:
 
 * make sure you are using a DNS name in your Hybrid Connection. If you use an IP address then the required client DNS lookup may not happen. If the client running in your web app does not do a DNS lookup, then the Hybrid Connection will not work
 * check that the DNS name used in your Hybrid Connection can resolve from the HCM host. Check the resolution using *nslookup EndpointDNSname* where EndpointDNSname is an exact match to what is used in your Hybrid Connection definition.
-* test access from your HCM host to your endpoint using the PowerShell command *Test-NetConnection EndpointDNSname -P Port*  If you cannot reach the endpoint from your HCM host then check firewalls between the two hosts including any host based firewalls on the destination host.
+* test access from your HCM host to your endpoint using the PowerShell command *Test-NetConnection EndpointDNSname -P Port*  If you cannot reach the endpoint from your HCM host then check firewalls between the two hosts including any host-based firewalls on the destination host.
 
-In App Service, the **tcpping** command line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+In App Service, the **tcpping** command-line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
 
-If you have a command line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
+If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
 
 <!--Image references-->
