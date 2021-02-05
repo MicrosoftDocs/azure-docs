@@ -34,7 +34,7 @@ Many customers have requested direct control over provisioned capacity. They wan
 
 ## What is the volume hard quota change   
 
-With the volume hard quota change, Azure NetApp Files volumes will no longer be thin provisioned at (the maximum) 100 TiB. The volumes will be provisioned at the actual configured size (quota). Also, the underlaying capacity pools will no longer automatically grow upon reaching full-capacity consumption. This change will reflect the behavior like Azure-Managed Disks, which are also provisioned as-is, without automatic capacity increase.
+With the volume hard quota change, Azure NetApp Files volumes will no longer be thin provisioned at (the maximum) 100 TiB. The volumes will be provisioned at the actual configured size (quota). Also, the underlaying capacity pools will no longer automatically grow upon reaching full-capacity consumption. This change will reflect the behavior like Azure managed disks, which are also provisioned as-is, without automatic capacity increase.
 
 For example, consider an Azure NetApp Files volume configured at 1-TiB size (quota) on a 4-TiB Ultra service level capacity pool. An application is continuously writing data to the volume.
 
@@ -188,7 +188,7 @@ To manage Azure NetApp Files resources using Azure CLI, you can open the Azure p
 
 ![Screenshot that shows how to access Cloud Shell link.](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png) 
 
-This action will open the Azure Cloud shell:
+This action will open the Azure Cloud Shell:
 
 ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) 
 
