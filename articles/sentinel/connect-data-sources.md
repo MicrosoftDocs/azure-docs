@@ -62,17 +62,23 @@ The following data connection methods are supported by Azure Sentinel:
 
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     
+    - [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+    - [BETTER Mobile Threat Defense](connect-better-mtd.md)
+    - [Beyond Security beSECURE](connect-besecure.md)
+    - [Cisco Umbrella](connect-cisco-umbrella.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 logs](connect-perimeter-81-logs.md)
+    - [Proofpoint On Demand (POD) Email Security](connect-proofpoint-pod.md)
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
+    - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -87,25 +93,37 @@ The following data connection methods are supported by Azure Sentinel:
 
     - **Firewalls, proxies, and endpoints - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
+        - [Akamai Security Events](connect-akamai-security-events.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [Citrix WAF](connect-citrix-waf.md)
+        - [CyberArk Enterprise Password Vault](connect-cyberark.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [F5 ASM](connect-f5.md)
         - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+        - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
+        - [Thycotic Secret Server](connect-thycotic-secret-server.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
+        - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+        - [WireX Network Forensics Platform](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Other CEF-based appliances](connect-common-event-format.md)
     - **Firewalls, proxies, and endpoints - Syslog:**
+        - [Alsid for Active Directory](connect-alsid-active-directory.md)
+        - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
+        - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Other Syslog-based appliances](connect-syslog.md)
+    - [Apache HTTP Server](connect-apache-http-server.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
@@ -116,7 +134,6 @@ The following data connection methods are supported by Azure Sentinel:
 ## Agent connection options<a name="agent-options"></a>
 
 To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
-
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 

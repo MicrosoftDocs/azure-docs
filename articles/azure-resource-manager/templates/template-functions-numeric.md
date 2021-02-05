@@ -241,7 +241,7 @@ The output from the preceding example with the default values is:
 
 `float(arg1)`
 
-Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App. The `float` function is not supported in Becip.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
+Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App. The `float` function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
 
 ### Parameters
 

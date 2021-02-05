@@ -17,7 +17,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Create association with Azure VM
 
-The following sample installs the Azure Monitor agent on a Windows Azure virtual machine. An association is created between an Azure virtual machine and a data collection rule.
+The following sample creates an association between an Azure virtual machine and a data collection rule.
 
 ### Template file
 
@@ -76,7 +76,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 }
 ```
 
-## Create association ith Azure Arc
+## Create association with Azure Arc
 
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine. An association is created between an Azure Arc-enabled server machine and a data collection rule.
 

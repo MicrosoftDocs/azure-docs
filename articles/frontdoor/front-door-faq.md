@@ -98,24 +98,24 @@ To lock down your application to accept traffic only from your specific Front Do
 
   Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 
-	``` xml
-	<?xml version="1.0" encoding="UTF-8"?>
-	<configuration>
-		<system.webServer>
-			<rewrite>
-				<rules>
-					<rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
-						<match url="*" />
-						<conditions>
-							<add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
-						</conditions>
-						<action type="AbortRequest" />
-					</rule>
-				</rules>
-			</rewrite>
-		</system.webServer>
-	</configuration>
-	```
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
 
 
 

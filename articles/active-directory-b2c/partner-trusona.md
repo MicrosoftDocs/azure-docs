@@ -24,7 +24,7 @@ To get started, you'll need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-* A [trial account](https://www.trusona.com/aadb2c) at Trusona
+* A [trial account](https://www.trusona.com/) at Trusona
 
 ## Scenario description
 
@@ -49,7 +49,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 ## Onboard with Trusona
 
-1. Fill out the [form](https://www.trusona.com/aadb2c) to create a Trusona account and get started.
+1. Fill out the [form](https://www.trusona.com/) to create a Trusona account and get started.
 
 2. Download the Trusona mobile app from the app store. Install the app and register your email.
 

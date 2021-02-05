@@ -4,15 +4,15 @@ description: Soft-delete in Azure Key Vault allows you to recover deleted key va
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
 ---
 
 # Azure Key Vault soft-delete overview
 
 > [!IMPORTANT]
-> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated by the end of the year, and soft-delete protection will automatically be turned on for all key vaults.  See full details [here](soft-delete-change.md)
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -94,5 +94,6 @@ In general, when an object (a key vault or a key or a secret) is in deleted stat
 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
+- [How to use Key Vault soft-delete with Portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md) 
 - [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)

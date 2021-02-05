@@ -44,7 +44,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://www.microsoft.com/software-download/faq`|
+    |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
 7. In **Step 5**, Select **Create your KB**.

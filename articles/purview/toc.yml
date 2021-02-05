@@ -54,6 +54,8 @@ items:
     href: concept-business-glossary.md 
   - name: Data insights
     href: concept-insights.md
+  - name: Supported Browsers
+    href: supported-browsers.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
 - name: How-to guides
@@ -102,14 +104,16 @@ items:
         href: register-scan-on-premises-sql-server.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
-      - name: Power BI tenant - PowerShell
-        href: powershell-register-scan-power-bi.md
+      # - name: Power BI tenant - PowerShell
+        # href: powershell-register-scan-power-bi.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
+    - name: Bulk edit assets to assign glossary terms 
+      href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
     - name: Create custom classification & classification rule

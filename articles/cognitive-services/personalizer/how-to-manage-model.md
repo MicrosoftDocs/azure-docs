@@ -50,4 +50,4 @@ The [learning policy](concept-active-learning.md#understand-learning-policy-sett
 
 ## Next steps
 
-[Learn how to manage a learning policy](how-to-manage-model.md)
+[Analyze your learning loop with an offline evaluation](how-to-offline-evaluation.md)

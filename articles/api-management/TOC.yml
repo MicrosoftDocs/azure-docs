@@ -42,6 +42,8 @@
         href: api-management-get-started-publish-versions.md
       - name: 9 - Customize developer portal
         href: api-management-howto-developer-portal-customize.md
+      - name: 10 - Manage APIs in Visual Studio Code
+        href: visual-studio-code-tutorial.md
 - name: Samples
   items:
       - name: Policies
@@ -59,11 +61,15 @@
             - name: Policy reference index
               href: api-management-policies.md
             - name: Error handling
-              href: api-management-error-handling-policies.md  
+              href: api-management-error-handling-policies.md 
       - name: Security
         items:
+            - name: Security controls by Azure Policy
+              href: ./security-controls-policy.md
             - name: Security baseline
               href: security-baseline.md
+      - name: Backends
+        href: backends.md 
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Versions
@@ -101,14 +107,16 @@
               href: import-function-app-as-api.md
             - name: Import a Logic App
               href: import-logic-app-as-api.md
-            - name: Import a Service Fabric app
-              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
             - name: Edit an API
               href: edit-api.md
+            - name: Configure Service Fabric backend
+              href: how-to-configure-service-fabric-backend.md
       - name: Provision and scale
         items:
             - name: Capacity metric
               href: api-management-capacity.md
+            - name: Plan and manage costs
+              href: plan-manage-costs.md
             - name: Upgrade and scale
               href: upgrade-and-scale.md
             - name: Configure autoscale
@@ -217,7 +225,7 @@
               href: api-management-sample-flexible-throttling.md
             - name: Using external services
               href: api-management-sample-send-request.md
-            - name: Manage secrets using properties
+            - name: Manage secrets using named values
               href: api-management-howto-properties.md
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md

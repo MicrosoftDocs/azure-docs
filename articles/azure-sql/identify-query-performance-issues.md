@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
+ms.date: 1/14/2021
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
@@ -85,7 +85,7 @@ Here's an example of a partially parameterized query:
 ```sql
 SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
-WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F';
 ```
 
 In this example, `t1.c1` takes `@p1`, but `t2.c2` continues to take GUID as literal. In this case, if you change the value for `c2`, the query is treated as a different query, and a new compilation will happen. To reduce compilations in this example, you would also parameterize the GUID.
@@ -110,7 +110,7 @@ WHERE
   rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
   AND query_parameterization_type_desc IN ('User', 'None')
 GROUP BY q.query_hash
-ORDER BY count (distinct p.query_id) DESC
+ORDER BY count (distinct p.query_id) DESC;
 ```
 
 ### Factors that affect query plan changes
@@ -182,7 +182,7 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
 
 - **Blocking**:
 
-  One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
+  One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking). For more information, see [Understand and resolve Azure SQL blocking problems](database/understand-resolve-blocking.md).
 - **IO problems**
 
   Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](database/monitoring-with-dmvs.md#identify-io-performance-issues).

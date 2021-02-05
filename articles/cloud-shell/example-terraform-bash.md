@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.custom: devx-track-terraform, devx-track-azurecli
+ms.custom: devx-track-terraform
 ---
 
 # Deploy with Terraform from Bash in Azure Cloud Shell

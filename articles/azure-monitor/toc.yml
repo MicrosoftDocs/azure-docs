@@ -8,6 +8,8 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
+  - name: Migrate from Operations Manager
+    href: azure-monitor-operations-manager.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
@@ -190,10 +192,14 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
+      - name: Viewing multiple resources in Metric Explorer
+        href: platform/metrics-dynamic-scope.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+      - name: Understanding metrics aggregation 
+        href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -323,6 +329,8 @@
         href: platform/data-sources-linux-applications.md
       - name: IIS logs
         href: platform/data-sources-iis-logs.md
+      - name: Event Tracing for Windows data
+        href: platform/data-sources-event-tracing-windows.md
       - name: Custom logs
         href: platform/data-sources-custom-logs.md
       - name: Custom fields
@@ -542,16 +550,50 @@
       href: platform/alerts-resource-move.md
     - name: IT Service Management
       items:
-      - name: IT Service Management Connector
+      - name: ITSM Connector Overview
         href: platform/itsmc-overview.md
-      - name: IT Service Management connections
-        href: platform/itsmc-connections.md
-      - name: Integrate with Secure Export
-        href: platform/it-service-management-connector-secure-webhook-connections.md
-      - name: Create Service Manager web app
-        href: platform/itsmc-service-manager-script.md
+      - name: ITSM Connector Partners Setup
+        items:
+        - name: Overview
+          href: platform/itsmc-connections.md
+        - name: ServiceNow
+          href: platform/itsmc-connections-servicenow.md
+        - name: System Center Service Manager
+          items:
+          - name: Setup
+            href: platform/itsmc-connections-scsm.md
+          - name: Create Service Manager web app
+            href: platform/itsmc-service-manager-script.md
+        - name: Cherwell
+          href: platform/itsmc-connections-cherwell.md
+        - name: Provance
+          href: platform/itsmc-connections-provance.md
+      - name: ITSM Connector Azure Configuration
+        href: platform/itsmc-definition.md
+      - name: Data Synced From Your ITSM Product
+        href: platform/itsmc-synced-data.md
       - name: Troubleshooting problems in ITSM Connector
-        href: platform/itsmc-resync-servicenow.md
+        items:
+        - name: Overview
+          href: platform/itsmc-troubleshoot-overview.md
+        - name: Dashboard Investigation
+          href: platform/itsmc-dashboard.md
+        - name: Common Errors
+          href: platform/itsmc-dashboard-errors.md
+        - name: Sync ITSM Connector
+          href: platform/itsmc-resync-servicenow.md
+      - name: Integrate with Secure Export
+        items:
+           - name: Overview
+             href: platform/it-service-management-connector-secure-webhook-connections.md
+           - name: Secure Export Azure Configuration
+             href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+           - name: ITSM Connector Partners Setup
+             items:
+              - name: BMC
+                href: platform/itsmc-secure-webhook-connections-bmc.md
+              - name: ServiceNow
+                href: platform/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -638,6 +680,8 @@
             href: app/javascript-react-native-plugin.md 
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
+          - name: Click Analytics Auto-collection plugin
+            href: app/javascript-click-analytics-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -673,14 +717,17 @@
             - name: Configuration options
               href: app/java-standalone-config.md
             - name: Telemetry processors
-              href: app/java-standalone-telemetry-processors.md
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
               href: app/java-standalone-upgrade-from-2x.md
             - name: Troubleshooting
               href: app/java-standalone-troubleshoot.md
-
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -753,6 +800,8 @@
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: platform/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
     - name: Search
       href: app/diagnostic-search.md
     - name: Profiler
@@ -785,6 +834,8 @@
         href: app/snapshot-debugger.md 
       - name: Enable Snapshot Debugger for an App Service
         href: app/snapshot-debugger-appservice.md
+      - name: Enable Snapshot Debugger for a Function App
+        href: app/snapshot-debugger-function-app.md
       - name: Enable Snapshot Debugger for other environments
         href: app/snapshot-debugger-vm.md
       - name: Upgrade Snapshot Debugger
@@ -1061,6 +1112,8 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
+    - name: Azure Data Explorer (preview)
+      href: insights/data-explorer.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Key Vault
@@ -1176,12 +1229,18 @@
         href: platform/workbooks-automate.md
       - name: Groups
         href: platform/workbooks-groups.md
+      - name: Bring your own storage
+        href: platform/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
         href: platform/workbooks-jsonpath.md
       - name: Move Workbooks to another region
         href: platform/workbooks-move-region.md
       - name: Move Workbook Templates to another region
         href: platform/workbook-templates-move-region.md
+    - name: Links
+      items:
+      - name: Link actions
+        href: platform/workbooks-link-actions.md
     - name: Convert views to workbooks
       items:
       - name: Conversion overview

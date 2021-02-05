@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
 ---
 
@@ -50,7 +50,7 @@ The reset workflow does not require the user to recall the old password and is u
 
 1. In the Azure portal, go to **Overview > Reset admin password**.
 
-    ![Screenshot shows the device with Reset device password selected.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot shows the device with Reset device password selected.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Select **Reset**.

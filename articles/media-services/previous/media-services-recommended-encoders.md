@@ -11,11 +11,11 @@ ms.date: 03/20/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
-# product-name-from-white-list
+# product-name-from-allow-list
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
+# ms.devlang:devlang-from-allow-list
 # ms.suite: 
 # ms.tgt_pltfrm:
 # ms.reviewer:

@@ -1,7 +1,7 @@
 ---
-title: How to run Jupyter Notebooks in your workspace
+title: How to run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how run a Jupyter Notebook without leaving your workspace in Azure Machine Learning studio.
+description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -10,21 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 06/27/2020
+ms.date: 01/19/2021
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
 # How to run Jupyter Notebooks in your workspace
 
-
-Learn how to run your Jupyter Notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
-
-See how you can:
-
-* Create Jupyter Notebooks in your workspace
-* Run an experiment from a notebook
-* Change the notebook environment
-* Find details of the compute instances used to run your notebooks
+Learn how to run your Jupyter notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
 
 ## Prerequisites
 
@@ -44,7 +36,7 @@ To create a new notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
 
 1. Name the file. 
-1. For Jupyter Notebook Files, select **Notebook** as the file type.
+1. For Jupyter notebook Files, select **Notebook** as the file type.
 1. Select a file directory.
 1. Select **Create**.
 
@@ -101,9 +93,9 @@ To edit a notebook, open any notebook located in the **User files** section of y
 
 You can edit the notebook without connecting to a compute instance.  When you want to run the cells in the notebook, select or create a compute instance.  If you select a stopped compute instance, it will automatically start when you run the first cell.
 
-When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
+When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python notebook.
 
-You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
+You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
 
 ### Focus mode
 
@@ -150,18 +142,6 @@ Every notebook is autosaved every 30 seconds. Autosave updates only th
  
 Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
 
-
-### Useful keyboard shortcuts
-
-|Keyboard  |Action  |
-|---------|---------|
-|Shift+Enter     |  Run a cell       |
-|Ctrl+Space | Activate IntelliSense |
-|Ctrl+M(Windows)     |  Enable/disable tab trapping in notebook.       |
-|Ctrl+Shift+M(Mac & Linux)     |    Enable/disable tab trapping in notebook.     |
-|Tab (when tab trap enabled) | Add a '\t' character (indent)
-|Tab (when tab trap disabled) | Change focus to next focusable item (delete cell button, run button, etc.)
-
 ## Delete a notebook
 
 You *can't* delete the **Samples** notebooks.  These notebooks are part of the studio and are updated each time a new SDK is published.  
@@ -169,27 +149,45 @@ You *can't* delete the **Samples** notebooks.  These notebooks are part of the s
 You *can* delete **User files** notebooks in any of these ways:
 
 * In the studio, select the **...** at the end of a folder or file.  Make sure to use a supported browser (Microsoft Edge, Chrome, or Firefox).
-* From any Notebook toolbar, select [**Open terminal**](#terminal)  to access the terminal window for the compute instance.
+* From any notebook toolbar, select [**Open terminal**](#terminal)  to access the terminal window for the compute instance.
 * In either Jupyter or JupyterLab with their tools.
 
-## Run an experiment
+## Run a notebook or Python script
 
-To run an experiment from a Notebook, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
+To run a notebook or a Python script, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
 
-1. Select **+** in the Notebook toolbar. 
+1. Select **+** in the notebook or script toolbar. 
 2. Name the Compute and choose a **Virtual Machine Size**. 
 3. Select **Create**.
-4. The compute instance is connected to the Notebook automatically and you can now run your cells.
+4. The compute instance is connected to the file automatically.  You can now run the notebook cells or the Python script using the tool to the left of the compute instance
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
 ### View logs and output
 
-Use [Notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
+
+## Explore variables in the notebook
+
+On the notebook toolbar, use the **Variable explorer** tool to show the name, type, length, and sample values for all variables that have been created in your notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool":::
+
+Select the tool to show the variable explorer window.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer-window.png" alt-text="Screenshot: Variable explorer window":::
+
+## Navigate with a TOC
+
+On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents.  Start a markdown cell with a heading to add it to the table of contents. Click on an entry in the table to scroll to that cell in the notebook.  
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Table of contents in the notebook":::
 
 ## Change the notebook environment
 
-The Notebook toolbar allows you to change the environment on which your Notebook runs.  
+The notebook toolbar allows you to change the environment on which your notebook runs.  
 
 These actions will not change the notebook state or the values of any variables in the notebook:
 
@@ -210,9 +208,9 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ### Add new kernels
 
-The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
+The notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
-1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
+1. Select [**Open terminal**](#terminal) in the notebook toolbar.
 1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
     ```shell
     conda create -y --name newenv
@@ -229,6 +227,7 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. After you have installed the kernel, please refresh the page and open a notebook. You will now see the new kernel in the kernel list.
 
 > [!NOTE]
 > For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
@@ -254,11 +253,18 @@ An indicator next to the **Kernel** dropdown shows its status.
 |  Green |Kernel connected, idle, busy|
 |  Gray |Kernel not connected |
 
-## Find compute details 
+## Find compute details
 
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
+## Troubleshooting
+
+* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+
+* When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for <instance-name>.<region>.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) article.
+    
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
+* [Working in secure environments](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)

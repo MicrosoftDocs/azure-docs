@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 04/15/2020
+ms.date: 01/19/2021
 
 ms.author: justinha
 author: justinha
@@ -21,7 +21,7 @@ The information in this article is meant to guide admins who are troubleshooting
 
 ## Audit logs
 
-The events logged for combined registration are in the Authentication Methods category in the Azure AD audit logs.
+The events logged for combined registration are in the Authentication Methods service in the Azure AD audit logs.
 
 ![Azure AD Audit logs interface showing registration events](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 

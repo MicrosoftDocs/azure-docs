@@ -32,11 +32,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 If you don't have a Remote Rendering account, [create one](create-an-account.md). Each resource is identified by an *accountId*, which is used throughout the session APIs.
 
-### Example script: Set accountId and accountKey
+### Example script: Set accountId, accountKey and account domain
+
+Account domain is the location of remote rendering account. In this example, the account's location is region *eastus*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## Common request headers
@@ -47,7 +50,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```

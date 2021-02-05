@@ -79,6 +79,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Floating IP configuration
     href: load-balancer-floating-ip.md
+  - name: Distribution modes
+    href: distribution-mode-concepts.md
   - name: Security
     items:
     - name: Security baseline
@@ -93,6 +95,8 @@
     href: manage.md
   - name: Virtual machine scale sets
     items:
+    - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
+      href: update-load-balancer-with-vm-scale-set.md
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - PowerShell
@@ -144,11 +148,15 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
-    - name: Troubleshoot common deployment errors
+    - name: Health Probe status
+      href: load-balancer-troubleshoot-health-probe-status.md  
+    - name: Backend pool (VM) traffic
+      href: load-balancer-troubleshoot-backend-traffic.md         
+    - name: Common deployment errors
       href: load-balancer-common-deployment-errors.md
-    - name: Troubleshoot common outbound connection issues
+    - name: Common outbound connection issues
       href: troubleshoot-outbound-connection.md
-    - name: Troubleshoot resource health and inbound availability issues
+    - name: Resource health and inbound availability issues
       href: troubleshoot-rhc.md
 - name: Reference
   items:

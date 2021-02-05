@@ -104,7 +104,7 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/ext/resource-graph/graph
           - text: Azure PowerShell
-            url: /powershell/module/az.resourcegraph/
+            url: /powershell/module/az.resourcegraph/#resourcegraph
           - text: Azure SDK for .NET
             url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
           - text: Azure SDK for Go

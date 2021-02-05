@@ -35,7 +35,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 
 ### Using CLI to add a Service Bus topic handler
 
-For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus topic:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

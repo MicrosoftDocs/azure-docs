@@ -29,7 +29,7 @@ Like built-in skills, an **AML** skill has inputs and outputs. The inputs are se
 
 * An [AML workspace](../machine-learning/concept-workspace.md)
 * An [Azure Kubernetes Service AML compute target](../machine-learning/concept-compute-target.md) in this workspace with a [deployed model](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
-  * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search only allows access to **https** endpoints
+  * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). Azure Cognitive Search only allows access to **https** endpoints
   * Self-signed certificates may not be used.
 
 ## @odata.type  

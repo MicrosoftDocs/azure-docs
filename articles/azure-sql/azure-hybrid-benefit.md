@@ -5,7 +5,7 @@ description: Use existing SQL Server licenses for Azure SQL Database and SQL Man
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
@@ -83,8 +83,8 @@ SQL Database customers have the following rights associated with Azure Hybrid Be
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in Hyperscale SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale and General Purpose SKU only</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
 |||
 
 

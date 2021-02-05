@@ -71,7 +71,7 @@ To check your subscription permissions:
 
 Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#permissions-required-for-registering-an-app) to make sure your account can create the identity.
 
-1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Select **Azure Active Directory**.
 1. Select **App registrations**.
 1. Select **New registration**.
@@ -111,7 +111,7 @@ The next section shows how to get values that are needed when signing in program
 
 ## Get tenant and app ID values for signing in
 
-When programmatically signing in, you need to pass the tenant ID with your authentication request and the application ID.  You also need a certificate or an authentication key (described in the following section). To get those values, use the following steps:
+When programmatically signing in, pass the tenant ID with your authentication request and the application ID.  You also need a certificate or an authentication key (described in the following section). To get those values, use the following steps:
 
 1. Select **Azure Active Directory**.
 1. From **App registrations** in Azure AD, select your application.
@@ -158,7 +158,7 @@ To upload the certificate:
 
 1. Select **Add**.
 
-After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
+After registering the certificate with your application in the application registration portal, enable the client application code to use the certificate.
 
 ### Option 2: Create a new application secret
 
@@ -177,7 +177,7 @@ If you choose not to use a certificate, you can create a new application secret.
 ## Configure access policies on resources
 Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, navigate to your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
 1. Select **Add** to add the access policy, then **Save** to commit your changes.
     ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)

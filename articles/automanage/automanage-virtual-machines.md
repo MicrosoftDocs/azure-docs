@@ -37,17 +37,16 @@ Lastly, the experience is incredibly simple.
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
 
 - Windows Server VMs only
-- VMs must be running
-- VMs must be in a supported region
+- VMs must be in a supported region (see paragraph below)
 - User must have correct permissions (see paragraph below)
 - Automanage does not support Sandbox subscriptions at this time
 
-You must have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles. 
+It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
+
+You must have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
-
-It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US.
 
 ## Participating services
 
@@ -97,12 +96,20 @@ You can adjust the settings of a default configuration profile through preferenc
 
 ## Automanage Account
 
-The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
+The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management of your resources (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
 
 In the Azure portal experience, when you are enabling Automanage on your VMs, there is an Advanced dropdown on the **Enable Azure VM best practice** blade that allows you to assign or manually create the Automanage Account.
 
+The Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** roles to the subscription(s) containing the machine(s) you onboard to Automanage. You may use the same Automanage Account on machines across multiple subscriptions, which will grant that Automanage Account **Contributor** and **Resource Policy Contributor** permissions on all subscriptions.
+
+If your VM is connected to a Log Analytics workspace in another subscription, the Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** in that other subscription as well.
+
+If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+
+If you are enabling Automanage with an existing Automanage Account, you need to have the **Contributor** role on the resource group containing your VMs.
+
 > [!NOTE]
-> You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+> When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions by going to the subscription's IAM page or delete the Automanage Account. The Automanage Account cannot be deleted if it is still managing any machines.
 
 
 ## Status of VMs
@@ -117,6 +124,7 @@ The **Status** column can display the following states:
 - *In-progress* - the VM was just enabled and is being configured
 - *Configured* - the VM is configured and no drift is detected
 - *Failed* - the VM has drifted and we were unable to remediate
+- *Pending* - the VM is currently not running, and Automanage will attempt to onboard or remediate the VM when it is next running
 
 If you see the **Status** as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
 
@@ -140,7 +148,6 @@ Read carefully through the messaging in the resulting pop-up before agreeing to 
 
 
 First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.
-
 
 ## Next steps
 

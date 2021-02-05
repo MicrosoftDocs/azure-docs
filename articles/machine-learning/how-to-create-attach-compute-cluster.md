@@ -207,6 +207,14 @@ See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#m
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
+## Troubleshooting
+
+There is a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+
 ## Next steps
 
 Use your compute cluster to:
