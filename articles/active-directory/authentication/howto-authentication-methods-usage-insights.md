@@ -1,32 +1,32 @@
 ---
-title: Authentication methods usage & insights - Azure Active Directory
-description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
+title: Authentication Methods Activity - Azure Active Directory
+description: Overview of the authentication methods registered and used by your organization to sign-in and perform password reset. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 
 ms.author: justinha
-author: justinha
+author: sopand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Authentication methods usage & insights (preview)
+# Authentication Methods Activity 
 
-Usage & insights enables you to understand how authentication methods for features like Azure AD Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
+The new authentication methods activity dashboard enables admins to monitor authentication method registration and usage across their organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
 
 ## Permissions and licenses
 
 The following roles can access usage and insights:
 
-- Global Administrator
+- Reports Reader
 - Security Reader
 - Security Administrator
-- Reports Reader
+- Global Administrator
 
  An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -34,64 +34,86 @@ The following roles can access usage and insights:
 
 To access authentication method usage and insights:
 
-1. Browse to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Password reset** > **Usage & insights**.
-1. From the **Registration** or **Usage** overviews, you can choose to open the pre-filtered reports to filter based on your needs.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Click **Azure Active Directory** > **Security** > **Authentication Methods** > **Activity**.
+1. There are two tabs in the report: **Registration** and **Usage**
 
-![Usage & insights overview](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![Authentication Methods Activity overview](media/howto-authentication-methods-usage-insights/registration-usage-tabs.png)
 
-To access usage & insights directly, go to [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). This link will bring you to the registration overview.
+You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
 
-The Users registered, Users enabled, and Users capable tiles show the following registration data for your users:
+Click **Users capable of Azure multi-factor authentication**, **Users capable of passwordless authentication**, or **Users capable of self-service password reset**, or insights can pre-filter a list of user registration details.
 
-- Registered: A user is considered registered if they (or an admin) have registered enough authentication methods to meet your organization's SSPR or Multi-Factor Authentication policy.
-- Enabled: A user is considered enabled if they are in scope for the SSPR policy. If SSPR is enabled for a group, then the user is considered enabled if they are in that group. If SSPR is enabled for all users, then all users in the tenant (excluding guests) are considered enabled.
-- Capable: A user is considered capable if they are both registered and enabled. This status means that they can perform SSPR at any time if needed.
+- **Users capable of Azure multi-factor authentication** shows the breakdown of users capable of MFA in Azure AD. Users are considered capable if they are both registered for a strong authentication method and enabled by policy to use that method to perform MFA. This number does not reflect users registered for MFA outside of Azure AD. 
+- **Users capable of passwordless authentication** shows the breakdown of users capable of signing in without a password. This includes users registered for FIDO2, Windows Hello for Business, and Passwordless Phone sign-in with the Microsoft Authenticator app. 
+- **Users capable of self-service password reset** shows the breakdown of users capable of self-service password reset. Users are considered capable of SSPR if they are both registered for enough methods to satisfy an organization's SSPR policy and enabled to perform SSPR. 
 
-Clicking on any of these tiles or the insights shown in them will bring you to a pre-filtered list of registration details.
+![Screenshot of users capable for registration](media/howto-authentication-methods-usage-insights/users-capable.png)
 
-The **Registrations** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. The **Resets** chart on the **Usage** tab shows the number of successful and failed authentications during the password reset flow by authentication method.
+The **Users Registered by Authentication Method** chart on the **Registration** tab shows how many users are registered for each authentication method. Click an authentication method to see which users are registered for that method. 
 
-Clicking on either of the charts will bring you to a pre-filtered list of registration or reset events.
+![Screenshot of Users Registered](media/howto-authentication-methods-usage-insights/users-registered.png)
 
-Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
+The **Recent Registration by Authentication Method** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. Click an authentication method to see recent registration events for that method.
 
-### Registration details
+![Screenshot of Recently Registered](media/howto-authentication-methods-usage-insights/recently-registered.png)
 
-Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.
+### Usage details
+
+The **Usage** tab of the report shows which authentication methods users are using to sign-in and reset their passwords.
+
+![Screenshot of Usage page](media/howto-authentication-methods-usage-insights/usage-page.png)
+
+The **Sign-ins by authentication requirement** chart on the **Usage** tab shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This does not reflect sign-ins where MFA was enforced by a third-party MFA provider.
+
+![Screenshot of sign ins protected](media/howto-authentication-methods-usage-insights/sign-ins-protected.png)
+
+The **Sign-ins by authentication method** chart on the **Usage** tab shows the number of user interactive sign-ins (success and failure) by authentication method used. It does not include sign-ins where the authentication requirement was satisfied by a claim in the token.
+
+![Screenshot of sign ins by method](media/howto-authentication-methods-usage-insights/sign-ins-by-method.png)
+
+The **Number of password changes and reset** chart on the **Usage** tab shows the number of successful password changes and password resets (self-service and by admin) over time.
+
+![Screenshot of resets and unlocks](media/howto-authentication-methods-usage-insights/resets-and-unlocks.png)
+
+The **Password resets by authentication method** chart on the **Usage** tab shows the  number of successful and failed authentications during the password reset flow by authentication method.
+
+![Screenshot of Resets by method](media/howto-authentication-methods-usage-insights/resets-by-method.png)
+
+### User registration details 
+
+Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
 The registration details report shows the following information for each user:
 
+- User principal name
 - Name
-- User name
-- Registration status (All, Registered, Not registered)
-- Enabled status (All, Enabled, Not enabled)
-- Capable status (All, Capable, Not capable)
-- Methods (App notification, App code, Phone call, SMS, Email, Security questions)
+- MFA Capable (Capable, Not Capable)
+- Passwordless Capable (Capable, Not Capable)
+- SSPR Registered (Registered, Not Registered)
+- SSPR Enabled (Enabled, Not Enabled)
+- SSPR Capable (Capable, Not Capable) 
+- Methods Registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions)
 
-Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
+![Screenshot of Usage page](media/howto-authentication-methods-usage-insights/registration-details.png)
 
-### Reset details
+### Registration and Reset Logs 
 
-Clicking on the Registrations or Resets charts will bring you to the reset details.
+The Registration and reset logs shows registration and reset events from the last 24 hours, last 7 days or last 30 days including:
 
-The reset details report shows registration and reset events from the last 30 days including:
+- Date
+- User Name
+- User 
+- Feature (Registration, Reset)
+- Method Used (App notification, App code, Phone Call, Office Call, Alternate Mobile Call, SMS, Email, Security questions)
+- Status (Success, Failure)
+- Reason for Failure (explanation)
 
-- Name
-- User name
-- Feature (All, Registration, Reset)
-- Authentication method (App notification, App code, Phone call, Office call, SMS, Email, Security questions)
-- Status (All, Success, Failure)
-
-Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
+![Screenshot of Usage page](media/howto-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## Limitations
 
-The data shown in these reports will be delayed by up to 60 minutes. A "Last refreshed" field exists in the Azure portal to identify how recent your data is.
-
-Usage and insights data is not a replacement for the Azure AD Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
-
-Report can't currently be filtered to exclude external users.
+Temporary Access Pass (TAP) registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
 
 ## Next steps
 
