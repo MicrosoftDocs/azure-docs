@@ -38,9 +38,16 @@ The following sample code shows how to load a texture:
 ```cs
 async void LoadMyTexture(RenderingSession session, string storageContainer, string blobName, string assetPath)
 {
-    LoadTextureOptions options = new LoadTextureOptions(storageContainer, blobName, assetPath, TextureType.Texture2D);
-    Texture texture = await session.Connection.LoadTextureAsync(options);
-    // use texture...
+    try
+    {
+        LoadTextureOptions options = new LoadTextureOptions(storageContainer, blobName, assetPath, TextureType.Texture2D);
+        Texture texture = await session.Connection.LoadTextureAsync(options);
+    
+        // use texture...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 

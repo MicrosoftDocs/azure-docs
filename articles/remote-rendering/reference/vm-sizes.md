@@ -27,10 +27,10 @@ The desired type of server configuration has to be specified at rendering sessio
 ```cs
 async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationOptions sessionCreationParams = default;
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationParams);
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
     if (result.ErrorCode == Result.Success)
     {
         RenderingSession session = result.Session;
@@ -42,10 +42,10 @@ async void CreateRenderingSession(RemoteRenderingClient client)
 ```cpp
 void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationOptions sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    client->CreateNewRenderingSessionAsync(sessionCreationParams, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
         if (status == Status::OK && result->GetErrorCode() == Result::Success)
         {
             ApiHandle<RenderingSession> session = result->GetSession();

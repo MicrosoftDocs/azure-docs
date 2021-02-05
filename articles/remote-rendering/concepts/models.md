@@ -41,14 +41,14 @@ The following code snippets show how to load models with either function. To loa
 async void LoadModel(RenderingSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
 {
     // load a model that will be parented to modelParent
-    var modelParams = new LoadModelOptions(
+    var modelOptions = new LoadModelOptions(
         storageAccount, // storage account name + '.blob.core.windows.net', e.g., 'mystorageaccount.blob.core.windows.net'
         containerName,  // name of the container in your storage account, e.g., 'mytestcontainer'
         assetFilePath,  // the file path to the asset within the container, e.g., 'path/to/file/myAsset.arrAsset'
         modelParent
     );
 
-    var loadOp = session.Connection.LoadModelAsync(modelParams, (float progress) =>
+    var loadOp = session.Connection.LoadModelAsync(modelOptions, (float progress) =>
     {
         Debug.WriteLine($"Loading: {progress * 100.0f}%");
     });
@@ -60,14 +60,14 @@ async void LoadModel(RenderingSession session, Entity modelParent, string storag
 ```cpp
 void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
 {
-    LoadModelOptions modelParams;
-    modelParams.Parent = modelParent;
-    modelParams.Blob.StorageAccountName = std::move(storageAccount);
-    modelParams.Blob.BlobContainerName = std::move(containerName);
-    modelParams.Blob.AssetPath = std::move(assetFilePath);
+    LoadModelOptions modelOptions;
+    modelOptions.Parent = modelParent;
+    modelOptions.Blob.StorageAccountName = std::move(storageAccount);
+    modelOptions.Blob.BlobContainerName = std::move(containerName);
+    modelOptions.Blob.AssetPath = std::move(assetFilePath);
 
     ApiHandle<LoadModelResult> result;
-    session->Connection()->LoadModelAsync(modelParams,
+    session->Connection()->LoadModelAsync(modelOptions,
         // completion callback
         [](Status status, ApiHandle<LoadModelResult> result)
         {
@@ -88,9 +88,9 @@ If you want to load a model by using a SAS token, use code similar to the follow
 async void LoadModel(RenderingSession session, Entity modelParent, string modelUri)
 {
     // load a model that will be parented to modelParent
-    var modelParams = new LoadModelFromSasOptions(modelUri, modelParent);
+    var modelOptions = new LoadModelFromSasOptions(modelUri, modelParent);
 
-    var loadOp = session.Connection.LoadModelFromSasAsync(modelParams, (float progress) =>
+    var loadOp = session.Connection.LoadModelFromSasAsync(modelOptions, (float progress) =>
     {
         Debug.WriteLine($"Loading: {progress * 100.0f}%");
     });
@@ -102,12 +102,12 @@ async void LoadModel(RenderingSession session, Entity modelParent, string modelU
 ```cpp
 void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
 {
-    LoadModelFromSasOptions modelParams;
-    modelParams.ModelUri = modelUri;
-    modelParams.Parent = modelParent;
+    LoadModelFromSasOptions modelOptions;
+    modelOptions.ModelUri = modelUri;
+    modelOptions.Parent = modelParent;
 
     ApiHandle<LoadModelResult> result;
-    session->Connection()->LoadModelFromSasAsync(modelParams,
+    session->Connection()->LoadModelFromSasAsync(modelOptions,
         // completion callback
         [](Status status, ApiHandle<LoadModelResult> result)
         {

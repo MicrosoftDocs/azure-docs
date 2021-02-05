@@ -308,12 +308,12 @@ void HolographicAppMain::StartModelLoading()
 {
     m_modelLoadingProgress = 0.f;
 
-    RR::LoadModelFromSasOptions params;
-    params.ModelUri = m_modelURI.c_str();
-    params.Parent = nullptr;
+    RR::LoadModelFromSasOptions options;
+    options.ModelUri = m_modelURI.c_str();
+    options.Parent = nullptr;
 
     // start the async model loading
-    m_api->LoadModelFromSasAsync(params,
+    m_api->LoadModelFromSasAsync(options,
         // completed callback
         [this](RR::Status status, RR::ApiHandle<RR::LoadModelResult> result)
         {

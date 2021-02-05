@@ -84,15 +84,15 @@ RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 
 RemoteManagerStatic.StartupRemoteRendering(init);
 
-SessionConfiguration accountInfo = new SessionConfiguration();
-// fill out accountInfo details...
+SessionConfiguration sessionConfig = new SessionConfiguration();
+// fill out sessionConfig details...
 
-RemoteRenderingClient client = new RemoteRenderingClient(accountInfo);
+RemoteRenderingClient client = new RemoteRenderingClient(sessionConfig);
 
-RenderingSessionCreationOptions sessionCreationParams = new RenderingSessionCreationOptions();
-// fill out sessionCreationParams...
+RenderingSessionCreationOptions rendererOptions = new RenderingSessionCreationOptions();
+// fill out rendererOptions...
 
-CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationParams);
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(rendererOptions);
 
 RenderingSession session = result.Session;
 RenderingSessionProperties sessionProperties;
@@ -115,7 +115,7 @@ if (sessionProperties.Status != RenderingSessionStatus.Ready)
 }
 
 // Connect to server
-ConnectionStatus connectResult = await session.ConnectAsync(new RendererInitOptions());
+ConnectionStatus connectStatus = await session.ConnectAsync(new RendererInitOptions());
 
 // Connected!
 
@@ -142,7 +142,7 @@ The lifetime of a virtual machine isn't tied to the `RemoteRenderingClient` inst
 
 The persistent session ID can be queried via `RenderingSession.SessionUuid()` and cached locally. With this ID, an application can call `RemoteRenderingClient.OpenRenderingSessionAsync` to bind to that session.
 
-When `RenderingSession.IsConnected` is true, `RenderingSession.Connections` returns an instance of `RenderingConnection`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
+When `RenderingSession.IsConnected` is true, `RenderingSession.Connection` returns an instance of `RenderingConnection`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
 
 ## API documentation
 

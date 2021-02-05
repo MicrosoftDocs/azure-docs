@@ -72,7 +72,7 @@ The retrieved `FrameStatistics` object holds the following members:
 
 The sum of all latency values is typically much larger than the available frame time at 60 Hz. This is OK, because multiple frames are in flight in parallel, and new frame requests are kicked off at the desired frame rate, as shown in the illustration. However if latency becomes too large, it affects the quality of the [late stage reprojection](../../overview/features/late-stage-reprojection.md), and may compromise the overall experience.
 
-`VideoFramesReceived`, `VideoFrameReusedCount`, and `VideoFramesDiscarded` can be used to gauge network and server performance. If `VideoFramesReceived` is low and `VideoFrameReusedCount` is high, this combination can indicate network congestion or poor server performance. A high `VideoFramesDiscarded` value also indicates network congestion.
+`VideoFramesReceived`, `VideoFrameReusedCount`, and `VideoFramesDiscarded` can be used to gauge network and server performance. A combination of a low `VideoFramesReceived` value and a high `VideoFrameReusedCount` value can indicate network congestion or poor server performance. A high `VideoFramesDiscarded` value also indicates network congestion.
 
 Lastly,`TimeSinceLastPresent`, `VideoFrameMinDelta`, and `VideoFrameMaxDelta` give an idea of the variance of incoming video frames and local present calls. High variance means instable frame rate.
 
@@ -85,8 +85,14 @@ None of the values above gives clear indication of pure network latency (the red
 ```cs
 async void QueryPerformanceAssessment(RenderingSession session)
 {
-    PerformanceAssessment result = await session.Connection.QueryServerPerformanceAssessmentAsync();
-    // do something with result...
+    try
+    {
+        PerformanceAssessment result = await session.Connection.QueryServerPerformanceAssessmentAsync();
+        // do something with result...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 

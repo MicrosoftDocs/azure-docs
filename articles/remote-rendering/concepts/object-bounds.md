@@ -23,12 +23,18 @@ A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an
 ```cs
 public async void GetBounds(Entity entity)
 {
-    Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
-    Bounds result = await boundsQuery;
-
-    Double3 aabbMin = result.Min;
-    Double3 aabbMax = result.Max;
-    // ...
+    try
+    {
+        Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
+        Bounds result = await boundsQuery;
+    
+        Double3 aabbMin = result.Min;
+        Double3 aabbMax = result.Max;
+        // ...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
@@ -39,9 +45,12 @@ void GetBounds(ApiHandle<Entity> entity)
         // completion callback:
         [](Status status, Bounds bounds)
         {
-            Double3 aabbMin = bounds.Min;
-            Double3 aabbMax = bounds.Max;
-            // ...
+           if (status == Status::OK)
+            {
+                Double3 aabbMin = bounds.Min;
+                Double3 aabbMax = bounds.Max;
+                // ...
+            }
         }
     );
 }
