@@ -14,7 +14,7 @@ ms.topic: how-to
 All accepted community-contributed widgets are located in the `/community/widgets/` folder of the repository. You can use the widgets by injecting them into the self-hosted version of the portal. You can't load community widgets in the managed version of the portal. 
 
 *Although we thoroughly inspect all the contributed widgets and their dependencies, we can’t guarantee it’s safe to load them. Use your own judgement whether to use a widget contributed by the community.
-Refer to [our widget contribution guidelines](dev-portal-widget-contribution-guidelines.md#guidelines) to learn about our preventive measures.*
+Refer to [our widget contribution guidelines](dev-portal-widget-contribution-guidelines.md#contribution-guidelines) to learn about our preventive measures.*
 
 ## Inject and use external widgets
 
