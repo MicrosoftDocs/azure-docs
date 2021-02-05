@@ -8049,7 +8049,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 
 ### Monitoring Metrics Publisher
 
-Enables publishing metrics against Azure resources [Learn more](../azure-monitor/insights/container-insights-update-metrics.md)
+Enables publishing metrics against Azure resources [Learn more](../azure-monitor/containers/container-insights-update-metrics.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

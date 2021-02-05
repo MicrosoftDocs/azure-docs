@@ -33,7 +33,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 
 - You automatically get [platform metrics, activity logs and diagnostics logs](agents/data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [Azure Monitor for VMs](vm/vminsights-overview.md).
--  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](insights/container-insights-overview.md).
+-  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](containers/container-insights-overview.md).
 - Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.
 
 

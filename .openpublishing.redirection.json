@@ -62574,6 +62574,156 @@
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-resource-logs.md",
       "redirect_url": "/azure/azure-monitor/essentials/tutorial-resource-logs",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-agent-config.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-agent-config",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-analyze.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-analyze",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-azure-redhat4-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-azure-redhat-setup.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-azure-redhat-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-cost.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-cost",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-deployment-hpa-metrics.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-deployment-hpa-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-enable-existing-clusters.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-existing-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-enable-new-cluster.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-new-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-gpu-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-gpu-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-hybrid-setup.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-hybrid-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-livedata-deployments.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-livedata-deployments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-livedata-metrics.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-livedata-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-livedata-overview.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-livedata-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-livedata-setup.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-livedata-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-log-alerts.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-log-search.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-manage-agent.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-manage-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-metric-alerts.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-metric-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-onboard.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-hybrid.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-hybrid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-openshift-v3.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-openshift-v3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-openshift-v4.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-openshift-v4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-persistent-volumes.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-persistent-volumes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-prometheus-integration.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-region-mapping.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-region-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-update-metrics.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-update-metrics",
+      "redirect_document_id": false
     }
   ]
 }

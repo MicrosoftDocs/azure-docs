@@ -16,7 +16,7 @@ Azure Monitor helps you maximize the availability and performance of your applic
 Just a few examples of what you can do with Azure Monitor include:
 
 - Detect and diagnose issues across applications and dependencies with [Application Insights](app/app-insights-overview.md).
-- Correlate infrastructure issues with [Azure Monitor for VMs](vm/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
+- Correlate infrastructure issues with [Azure Monitor for VMs](vm/vminsights-overview.md) and [Azure Monitor for Containers](containers/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](visualizations/workbooks-overview.md).
@@ -76,7 +76,7 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![App Insights](media/overview/app-insights.png)
 
 ### Azure Monitor for containers
-[Azure Monitor for containers](insights/container-insights-overview.md) monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.
+[Azure Monitor for containers](containers/container-insights-overview.md) monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.
 
 ![Container Health](media/overview/container-insights.png)
 

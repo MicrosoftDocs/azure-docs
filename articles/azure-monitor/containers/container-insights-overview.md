@@ -62,7 +62,7 @@ You can access Azure Monitor for containers two ways, from Azure Monitor or dire
 
 ![Overview of methods to access Azure Monitor for containers](./media/container-insights-overview/azmon-containers-experience.png)
 
-If you are interested in monitoring and managing your Docker and Windows container hosts running outside of AKS to view configuration, audit, and resource utilization, see the [Container Monitoring solution](./containers.md).
+If you are interested in monitoring and managing your Docker and Windows container hosts running outside of AKS to view configuration, audit, and resource utilization, see the [Container Monitoring solution](../insights/containers.md).
 
 ## Next steps
 

@@ -27,7 +27,7 @@ The solution shows which containers are running, what container image they’re 
 
 If you have containers deployed in [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), we recommend enabling both the [Service Fabric solution](../../service-fabric/service-fabric-diagnostics-oms-setup.md) and this solution to include monitoring of cluster events. Before enabling the Service Fabric solution, review [Using the Service Fabric solution](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) to understand what it provides and how to use it.
 
-If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](./container-insights-overview.md). The Container Monitoring solution does not support monitoring that platform.  
+If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](../containers/container-insights-overview.md). The Container Monitoring solution does not support monitoring that platform.  
 
 The following diagram shows the relationships between various container hosts and agents with Azure Monitor.
 
