@@ -17,7 +17,7 @@ Use the IoT Edge agent runtime responses to troubleshoot compute-related errors.
 
 For more information, see [IoT Edge Agent](/azure/iot-edge/iot-edge-runtime?view=iotedge-2018-06&preserve-view=true#iot-edge-agent).
 
-The following errors are related to the IoT Edge installation on your Azure Stack Edge Pro<!--/ Data Box Gateway--> device.
+The following error is related to the IoT Edge service on your Azure Stack Edge Pro<!--/ Data Box Gateway--> device.
 
 ### Compute modules have Unknown status and can't be used
 
