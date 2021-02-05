@@ -70,7 +70,7 @@ To unlink from your Automation account, perform the following steps.
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 To unlink from the workspace, perform the following steps.
-    
+
 1. In the Azure portal, select **Log Analytics workspaces**.
 
 2. From the workspace, select **Automation Account** under **Related Resources**.
