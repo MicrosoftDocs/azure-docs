@@ -28,11 +28,11 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 
 The `hmac-sha256-signature` consists of: 
 
-1. HTTP Verb (e.g. `GET` or `PUT`)
-2. HTTP request path
-3. Date
-4. Host
-5. x-ms-content-sha256
+- HTTP Verb (e.g. `GET` or `PUT`)
+- HTTP request path
+- Date
+- Host
+- x-ms-content-sha256
 
 ## Setting up
 The following steps describe how to construct the Authorization header:
