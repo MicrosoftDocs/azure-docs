@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
+ms.date: 02/03/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
@@ -30,9 +30,9 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You will need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You will need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **AuditLogs** and any metrics you want to capture. If you are using the Azure IoT Connector for FHIR, make sure to select **Errors, Traffic, and Latency** for metrics. 
+6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR Diagnostic Settings. Select AuditLogs and/or AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Select **Save**
 
