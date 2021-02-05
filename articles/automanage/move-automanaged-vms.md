@@ -1,5 +1,5 @@
 ---
-title: Move an Automanaged virtual machine across regions
+title: Move an Azure Automanage virtual machine across regions
 description: Learn how to move an Automanaged virtual machine across regions
 author: asinn826
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.custom: subject-moving-resources
 # Customer intent: As a sysadmin, I want move my Automanaged VM to a different region.
 ---
 
-# Move an Automanaged virtual machine to a different region
+# Move an Azure Automanage virtual machine to a different region
 This article describes how to keep Automanage enabled on a virtual machine (VM) when you move it to a different region. You might want to move your virtual machines to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. Those VMs that you move may be currently Automanaged, and you may want them to remain Automanaged after your move.
 
 ## Prerequisites
