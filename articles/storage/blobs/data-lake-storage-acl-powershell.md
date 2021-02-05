@@ -316,7 +316,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 
 To see an example that removes ACLs recursively in batches by specifying a batch size, see the [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) reference article.
 
-## Recover from failures (Recursive ACLs)
+## Recover from failures
 
 You might encounter runtime or permission errors when modifying ACLs recursively. 
 
