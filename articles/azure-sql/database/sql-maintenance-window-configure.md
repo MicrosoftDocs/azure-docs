@@ -52,11 +52,11 @@ To configure the maintenance window for an existing database in the Azure portal
 To configure the maintenance window using Windows PowerShell:
 
 ## Prerequisites
-For this tutorial pre-existing SQL server is required. Please follow [quickstart](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-powershell) to get it ready.
+For this tutorial, an existing database is required. If you don't already have a SQL database, see [Create a single database](single-database-create-quickstart.md#?tabs=azure-powershell) to create one.
 
 ## Discover maintenance windows
 
-Each region has it's own set of available maintenance window. Available options can be discovered using [Get-AzMaintenancePublicConfiguration](https://docs.microsoft.com/en-us/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
+Each region has its own set of available maintenance windows. Available options can be discovered using the [Get-AzMaintenancePublicConfiguration](../powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
 
    ```powershell-interactive
    $location = "eastus2euap"
@@ -69,17 +69,17 @@ Each region has it's own set of available maintenance window. Available options 
 
 ## Create database with selected maintenance window
 
-Once maintenance window is selected, new database can be created using [New-AzSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+Once maintenance window is selected, new database can be created using [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
 
    ```powershell-interactive
     # Set variables for your database
-    $resourceGroupName = "rokhotrg"
-    $serverName = "testfmw2"
-    $databaseName = "pstest2"
+    $resourceGroupName = "your_resource_group_name"
+    $serverName = "your_server_name"
+    $databaseName = "your_db_name"
     
     # Set selected maintenance window
-    $maintenanceConfig = "SQL_EastUS2EUAP_DB_1"
+    $maintenanceConfig = "SQL_EastUS2_DB_1"
 
     Write-host "Creating a gen5 2 vCore database with maintenance window ${maintenanceConfig} ..."
     $database = New-AzSqlDatabase `
@@ -97,17 +97,17 @@ Once maintenance window is selected, new database can be created using [New-AzSq
 
 ## Create elastic pool with selected maintenance window
 
-The following example creates new elastic pool using [New-AzSqlElasticPool](https://docs.microsoft.com/en-us/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
+The following example creates new elastic pool using [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet with maintenance window selected. All databases inside this pool are going to follow pool's maintenance window.
 
 
    ```powershell-interactive
     # Set variables for your pool
-    $resourceGroupName = "rokhotrg"
-    $serverName = "testfmw2"
-    $poolName = "pstest3"
+    $resourceGroupName = "your_resource_group_name"
+    $serverName = "your_server_name"
+    $poolName = "your_pool_name"
     
     # Set selected maintenance window
-    $maintenanceConfig = "SQL_EastUS2EUAP_DB_2"
+    $maintenanceConfig = "SQL_EastUS2_DB_2"
 
     Write-host "Creating a Standard 50 pool with maintenance window ${maintenanceConfig} ..."
     $pool = New-AzSqlElasticPool `
@@ -125,11 +125,11 @@ The following example creates new elastic pool using [New-AzSqlElasticPool](http
 
 ## Apply maintenance window to existing database
 
-Maintenance window can be applied to existing database using [Set-AzSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
+Maintenance window can be applied to existing database using [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. It's important to match schedule and resource locations.
 
    ```powershell-interactive
     # Select different maintenance window
-    $maintenanceConfig = "SQL_EastUS2EUAP_DB_2"
+    $maintenanceConfig = "SQL_EastUS2_DB_2"
 
     Write-host "Changing database maintenance window to ${maintenanceConfig} ..."
     $database = Set-AzSqlDatabase `
@@ -142,11 +142,11 @@ Maintenance window can be applied to existing database using [Set-AzSqlDatabase]
 
 ## Apply maintenance window to existing elastic pool
 
-The same applies to elastic pool except that cmdlet needed is [Set-AzSqlElasticPool](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlelasticpool).
+The same applies to elastic pool except that cmdlet needed is [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool).
 
    ```powershell-interactive
     # Select different maintenance window
-    $maintenanceConfig = "SQL_EastUS2EUAP_DB_1"
+    $maintenanceConfig = "SQL_EastUS2_DB_1"
     
     Write-host "Changing pool maintenance window to ${maintenanceConfig} ..."
     $pool = Set-AzSqlElasticPool `
