@@ -6,7 +6,7 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 25/2021
+ms.date: 2/5/2021
 ---
 # Custom classifications in Azure Purview 
 
