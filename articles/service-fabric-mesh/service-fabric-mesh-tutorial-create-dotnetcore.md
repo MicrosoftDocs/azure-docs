@@ -11,6 +11,11 @@ ms.custom: "mvc, devcenter, devx-track-csharp"
 
 # Tutorial: Create, debug, deploy and upgrade a multi-service Service Fabric Mesh app
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure and then make config and code changes and upgrade the app. Finally, you'll clean up unused Azure resources so that you are not charged for what you aren't using.
 
 When you're finished, you'll have walked through most of the phases of app lifecycle management and have built an app that demonstrates a service-to-service call in a Service Fabric Mesh app.
