@@ -89,7 +89,7 @@
       - name: Soft-delete
         href: soft-delete.md
       - name: Diagnostics
-        href: api-management-diagnostics-oldui.md
+        href: diagnose-solve-problems.md
 
 
 - name: How-to guides
