@@ -4,7 +4,7 @@ description: Learn to create an AKS cluster with confidential nodes and deploy a
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 2/5/2020
 ms.author: amgowda
 ---
 
