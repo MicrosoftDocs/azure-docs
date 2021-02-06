@@ -42,7 +42,7 @@ To discover data registered and scanned by Azure Purview, you can use the Search
 ### Actions that you can perform over datasets with Data Factory resources 
 You can directly create Linked Service, Dataset, or dataflow over the data you search by Azure Purview.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot for performing over datasets.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot that shows how you can directly create Linked Service, Dataset, or dataflow over the data you search by Azure Purview.":::
 
 ##  Next steps 
 
