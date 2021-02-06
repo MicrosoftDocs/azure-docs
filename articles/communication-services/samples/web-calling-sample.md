@@ -14,33 +14,25 @@ ms.service: azure-communication-services
 
 # Get started with the web calling sample
 
+The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library. 
+
+This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.
+
+## Get started with the web calling sample
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-The Azure Communication Services **web calling sample** demonstrates how the Communication Services calling client library can be used to build a calling experience with JavaScript.
-
-In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
-
-## Overview
-
-The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library. 
-
-This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.
-
-When the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
+Follow the /Project/readme.md to set up the project and run it locally on your machine.
+Once the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Web calling tutorial 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web calling tutorial 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## User provisioning and SDK initialization 
-
-To begin using the demo, enter the connection string from your [Communication Services resource](../quickstarts/create-communication-resource.md) into `config.json`. This will be used to provision a [user access token](../concepts/authentication.md) so that your calling SDK can be initialized.
-
-Enter your own personal identifier in the User Identity input. If nothing is provided here, then a random user identity will be generated. 
 
 Click on the "Provisioning user and initialize SDK" to initialize your SDK using a token provisioned by the backend token provisioning service. This backend service is in `/project/webpack.config.js`.
 

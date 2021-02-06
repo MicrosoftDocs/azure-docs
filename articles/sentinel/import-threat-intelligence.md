@@ -32,7 +32,7 @@ You can integrate threat intelligence (TI) into Azure Sentinel through the follo
 - Use the built-in **Analytics** rule templates to generate security alerts and incidents using your imported threat intelligence.
 - Visualize key information about your threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-Threat Intelligence also provides useful context within other Azure Sentinel experiences such as **Hunting** and **Notebooks**, and while not covered in this article, these experiences are addressed in [this great blog post by Ian Hellen on Jupyter Notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), which covers the use of CTI within Notebooks.
+Threat Intelligence also provides useful context within other Azure Sentinel experiences such as **Hunting** and **Notebooks**, and while not covered in this article, these experiences are addressed in [this great blog post by Ian Hellen on Jupyter Notebooks in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), which covers the use of CTI within Notebooks.
 
 ## Azure Sentinel data connectors for threat intelligence
 
