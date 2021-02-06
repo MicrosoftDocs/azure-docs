@@ -40,7 +40,9 @@ The path of external tables not in the Hive warehouse directory will be preserve
 
 The scripts will not preserve custom file permissions in the target cluster.
 
-> [!NOTE] This guide supports copying metadata objects related to Hive databases, tables and partitions. Other metadata objects must be re-created manually.
+> [!NOTE]
+>
+> This guide supports copying metadata objects related to Hive databases, tables and partitions. Other metadata objects must be re-created manually.
 >
 > * For `Views`, Hive supports `SHOW VIEWS` command as of Hive 2.2.0 on HDInsight 4.0. Use `SHOW CREATE TABLE` for view definition. For earlier versions of Hive, query the metastore SQL DB to show views.
 > * For `Materialized Views`, use commands `SHOW MATERIALIZED VIEWS`, `DESCRIBE FORMATTED`, and `CREATE MATERIALIZED VIEW`. See [Materialized views](https://cwiki.apache.org/confluence/display/Hive/Materialized+views) for details.
