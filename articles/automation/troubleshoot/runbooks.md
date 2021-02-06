@@ -219,16 +219,48 @@ When executing runbooks, the runbook fails to manage Azure resources.
 
 ### Cause
 
-The runbook isn't using the correct context when running.
+The runbook isn't using the correct context when running. This may be because the runbook is accidentally trying to access the incorrect subscription.
+
+You may see errors like this one:
+
+```Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.```
+```ErrorCode: AuthorizationFailed```
+```StatusCode: 403```
+```ReasonPhrase: Forbidden Operation```
+```ID : <AGuidRepresntingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV ... +```
 
 ### Resolution
 
-The subscription context might be lost when a runbook invokes multiple runbooks. To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
+The subscription context might be lost when a runbook invokes multiple runbooks.
+
+* To avoid accidentally trying to access the incorrect subscription, disable context saving in your Automation runbooks by using the following code at the start of each runbook.
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
 Disable-AzContextAutosave –Scope Process
+```
 
+* The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context (and thereby which subscription) for each cmdlet. To use this, you should save your context object in your runbook when it's created and every time it's changed, and reference it in every Az/AzureRm cmdlet that you call.
+
+> [!NOTE]
+> You will need to pass in a context object even when manipulating the context directly with calls like `Set-AzContext` or `Select-AzSubscription`.
+
+```azurepowershell-interactive
+$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+$context = Add-AzAccount `
+          -ServicePrincipal `
+          -TenantId $servicePrincipalConnection.TenantId `
+          -ApplicationId $servicePrincipalConnection.ApplicationId `
+          -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+$context = Set-AzContext -SubscriptionName $subscription `
+    -DefaultProfile $context
+Get-AzVm -DefaultProfile $context
+```
+
+* To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
+
+```azurepowershell-interactive
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
