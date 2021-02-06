@@ -23,19 +23,19 @@ One challenge is raw data from data warehouse or transactional database would be
 
 In Automated machine learning(AutoML) project, it would apply the following three data processing scenarios:
 
-1. Partition large data to parquet files before training models. 
+* Partition large data to parquet files before training models. 
 
-     [Pandas dataframe](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) is commonly used to process data before training models. Pandas dataframe works well for data sizes less than 1GB, but if data is large than 1GB, Pandas dataframe slow down to process data, sometime even will get out of memory error message. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning since it's binary columnar format.
+     [Pandas data frame](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) is commonly used to process data before training models. Pandas data frame works well for data sizes less than 1GB, but if data is large than 1GB, Pandas data frame slow down to process data, sometime even will get out of memory error message. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning since it's binary columnar format.
     
     Azure Data Factories Mapping data flows are visually designed data transformations with code-free to data engineers. It's powerful to process large data since the pipeline use scaled-out Spark clusters.
 
-1. Split training dataset and test dataset. 
+* Split training dataset and test dataset. 
     
     Training dataset will be used for training model, test dataset will be used for evaluate models in machine learning project. Mapping data flows conditional split activity would split training data and test data. 
 
-1. Remove unqualified data.
+* Remove unqualified data.
 
-    You may want to remove unqualified data, such as: parquet file with zero row. In this tutorial, we will use Aggregate activity to get row count row, the row count will be a condition to remove unqualified data. 
+    You may want to remove unqualified data, such as: parquet file with zero row. In this tutorial, we will use Aggregate activity to get count numbers of rows, the row count will be a condition to remove unqualified data. 
 
 
 ## Preparation
@@ -65,43 +65,43 @@ Data flow will convert a table of Azure SQL Database to parquet file format.
 
 Let's suppose to remove row count less than 2. 
 
-1. Use Aggregate activity to get row count row: **Group by** based on Col2 and **Aggregates** with count(1) for row count. 
+1. Use Aggregate activity to get count number of rows: **Group by** based on Col2 and **Aggregates** with count(1) for row count. 
 
-    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-AML-models/AggregateActivityAddRowCount.png)
+    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-aml-models/aggregate-activity-addrowcount.png)
 
 1. Use Sink activity, choose **Sink type** as Cache in **Sink** tab, then choose desired column from **key columns** dropdown list in **Settings** tab. 
 
-    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-AML-models/CacheSinkActivityAddRowCount.png)
+    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-aml-models/cachesink-activity-addrowcount.png)
 
 1. Use derived column activity to add row count column in  in master source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
-    ![using DerivedColumn Activity to get Row Count in S1](./media/scenario-dataflow-to-process-data-for-AML-models/DerivedColumnActivityRowCountS1.png)
+    ![using DerivedColumn Activity to get count number of rows in S1](./media/scenario-dataflow-to-process-data-for-AML-models/derivedcolumn-activity-RowCount-source1.png)
 
 1. Use Conditional split activity to remove unqualified data. In this example,  row count based on Col2 column, and the condition is to remove row count less than 2, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to a blob storage for data management. 
 
-    ![using Conditional Split to get GreaterOrEquelThan2](./media/scenario-dataflow-to-process-data-for-AML-models/ConditionalSplitGreaterOrEquelThan2.png)
+    ![using Conditional Split to get greater or equal than 2](./media/scenario-dataflow-to-process-data-for-aml-models/conditionalsplit-greater-or-equal-than-2.png)
 
-    Note: 
-    1. Create a new source for getting row count which will be used in original source in later steps. 
-    1. Use CacheSink from performance standpoint. 
+> [!NOTE]
+>    *    Create a new source for getting count number of rows which will be used in original source in later steps. 
+>    *    Use CacheSink from performance standpoint. 
 
 ## Split training data and test data 
 
 1. We want to split training data and test data for each partition. In this example, for the same value of Col2, get top 2 rows as test data and the rest rows as training data. 
 
     Use Window activity to add one column row number for each partition. In **Over** tab choose column for partition(in this tutorial, will partition for Col2), give order in **Sort** tab(in this tutorial, will based on ID to order), and in **Window columns** tab to add one column as row number for each partition. 
-    ![using Window Activity to add Row Number](./media/scenario-dataflow-to-process-data-for-AML-models/WindowActivityAddRowNumber.png)
+    ![using Window Activity to add Row Number](./media/scenario-dataflow-to-process-data-for-aml-models/window-activity-add-row-number.png)
 
-1. Use conditional split activity to split each partition top 2 rows to test dataset, and the rest rows to training dataset. In **Conditional split setttings** tab, use expression lesserOrEqual(RowNum,2) as condition. 
+1. Use conditional split activity to split each partition top 2 rows to test dataset, and the rest rows to training dataset. In **Conditional split settings** tab, use expression lesserOrEqual(RowNum,2) as condition. 
 
-    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-to-process-data-for-AML-models/SplitTrainingDatasetAndTestDataset.png)
+    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-to-process-data-for-aml-models/split-training-dataset-test-dataset.png)
 
 ## Partition training dataset and test dataset with parquet format
 
 1. Use Sink activity, in **Optimize** tab, using **Unique value per partition** to set a column as a column key for partition. 
-    ![Partition Training Dataset Sink](./media/scenario-dataflow-to-process-data-for-AML-models/PartitionTrainingDatasetSink.png)
+    ![Partition Training Dataset Sink](./media/scenario-dataflow-to-process-data-for-aml-models/partition-training-dataset-sink.png)
 
 Looks back the entire pipeline logic: 
-    ![Look back entire Pipeline](./media/scenario-dataflow-to-process-data-for-AML-models/EntirePipeline.png)
+    ![Look back entire Pipeline](./media/scenario-dataflow-to-process-data-for-aml-models/entire-pipeline.png)
 
 
 ## Next steps
