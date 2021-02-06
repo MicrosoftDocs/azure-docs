@@ -51,12 +51,12 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
 > 1. Add `https://localhost:44368/` in **Redirect URI**, and select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
+> 1. In the **Implicit grant and hybrid flows** section, select **ID tokens**.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> This quickstart's sample code requires a **Redirect URI** of `https://localhost:44368/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44368/`.
 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -176,7 +176,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge

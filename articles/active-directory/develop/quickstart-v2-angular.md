@@ -47,11 +47,11 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. If your account has access to more than one tenant, select your account at the upper right, and set your portal session to the Azure AD tenant that you want to use.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
-> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). Select the **Implicit grant** settings for **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
+> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure the application in the Azure portal
-> For the code sample for this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
+> For the code sample in this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >

@@ -32,7 +32,7 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 ## FSLogix updates
 
-Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new.md).
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
 ## January 2021
 
@@ -50,7 +50,7 @@ In the Azure Resource Manager nested template, we changed the default value for 
 
 We’ve released FSLogix, version 2009 HF_01 (2.9.7654.46150) to solve issues in the previous release (2.9.7621.30127). We recommend you stop using the previous version and update FSLogix as soon as possible.
 
-For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### Azure portal experience improvements
 

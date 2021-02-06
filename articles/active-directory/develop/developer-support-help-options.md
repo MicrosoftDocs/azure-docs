@@ -32,7 +32,7 @@ If you have a development-related question, you may be able to find the answer i
 
 ### Scoped search
 
-For faster results, scope your search to Microsoft Q&A, the documentation, and the code samples by using the following query in your favorite search engine:
+For faster results, scope your search to [Microsoft Q&A](https://docs.microsoft.com/answers/products/)the documentation, and the code samples by using the following query in your favorite search engine:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -49,9 +49,9 @@ Where *{Your Search Terms}* correspond to your search keywords.
 
 ## Post a question to Microsoft Q&A
 
-Microsoft Q&A is the preferred channel for development-related questions. Here, members of the developer community and Microsoft team members are directly involved in helping you to solve your problems.
+[Microsoft Q&A](https://docs.microsoft.com/answers/products/) is the preferred channel for development-related questions. Here, members of the developer community and Microsoft team members are directly involved in helping you to solve your problems.
 
-If you can't find an answer to your question through search, submit a new question to Microsoft Q&A. Use one of the following tags when asking questions to help the community identify and answer your question more quickly:
+If you can't find an answer to your question through search, submit a new question to [Microsoft Q&A](https://docs.microsoft.com/answers/products/) . Use one of the following tags when asking questions to help the community identify and answer your question more quickly:
 
 |Component/area  | Tags |
 |---------|---------|
@@ -61,9 +61,9 @@ If you can't find an answer to your question through search, submit a new questi
 | [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
+| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-The following posts from Microsoft Q&A contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
+The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
 * [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
 * [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
