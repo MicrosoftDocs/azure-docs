@@ -18,7 +18,7 @@ You can buy reserved capacity in the [Azure portal](https://portal.azure.com). P
 - You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription. Reserved capacity.
 
-For more information about how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) and [Understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage.md).
+For more information about how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) and [Understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
 
 > [!NOTE]
 > Purchasing reserved capacity does not pre-allocate or reserve specific infrastructure resources (virtual machines or clusters) for your use.
@@ -41,7 +41,7 @@ For example, let's suppose that you are executing a pipeline hourly using memory
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## Need help? Contact us
 
