@@ -3,7 +3,7 @@ title: Azure Image Builder Service DevOps Task
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -150,6 +150,12 @@ The following example explains how this works:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   You can reference multiple scripts, or add more commands, for example:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash

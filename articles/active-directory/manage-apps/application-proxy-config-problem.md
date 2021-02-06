@@ -4,7 +4,7 @@ description: How to troubleshoot issues creating Application Proxy applications 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

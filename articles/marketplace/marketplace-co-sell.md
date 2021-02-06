@@ -3,10 +3,10 @@ title: Co-sell partner engagement - Microsoft commercial marketplace
 description: The Microsoft Partner Center Co-sell program for partners can help you reach a vast customer base and generate new sales.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
+ms.date: 2/05/2021
 ---
 
 # Co-sell partner engagement
@@ -17,7 +17,7 @@ The Co-sell program is available for **software built with your intellectual pro
 
 - **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of Microsoft managed customers to collaborate on sales opportunities that accelerate your business growth.
 
-    ![Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.":::
 
 - **Co-sell incentivized** IP offers can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
 
@@ -58,7 +58,7 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="This image shows the location of the Co-sell with Microsoft tab.":::
+    [![This image shows the location of the Co-sell with Microsoft tab.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Provide basic listing details to help Microsoft sellers quickly sort and discover your offer in the **Listing** section. (*Required: all fields.*)
 
@@ -66,29 +66,23 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
 1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. *(Required: Solution/offer one-pager and Solution/offer pitch deck. Required to attain Azure IP Co-sell incentivized status: Reference architecture diagram.)*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="This image shows the Documents section in the Co-sell tab.":::
+    [![This image shows the Documents section in the Co-sell tab.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer. (*Required: a contact for each geography in which your offer is made available.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="This image shows the Contacts section in the Co-sell tab.":::
+    [![This image shows the Contacts section in the Co-sell tab.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
-1. After ensuring you have met the [criteria for the Co-sell status you are pursuing](#co-sell-publishing-steps-and-requirements), follow the below guidance to nominate your offer for Co-sell:
-    1. **If you have a Microsoft Partner Manager (e.g., PDM):** reach out to your Partner Manager for assistance. They will guide you through the nomination process for Co-sell ready status and Azure IP Co-sell or Business Applications Co-sell incentivized (if applicable).
 
-    1. **If you do not have a Microsoft Partner Manager (e.g., PDM):** [self-nominate via the Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Select "Becoming Co-sell ready" under the "Desired CED Services" dropdown:
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="This image shows the CED dropdown to request a Co-sell review.":::
-
-    The CED will reach out to you to complete the process.
+> [!NOTE]
+> You no longer need to contact us to nominate your offer for co-sell. After you complete all required fields on the Co-sell with Microsoft page and republish your offer, we will review your offer to determine if it meets the requirements for co-sell status.
 
 ## See your offer's Co-sell status
 
 For offers with the [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md), you can see your offer's current Co-sell status on the Offer Overview page:
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="This image shows the current Co-sell status of offers.":::
-
+[![This image shows the current Co-sell status of offers.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## Next steps
 
