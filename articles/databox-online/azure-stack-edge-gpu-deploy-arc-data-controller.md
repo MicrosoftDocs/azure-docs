@@ -13,18 +13,11 @@ ms.author: alkohli
 # Deploy Azure Data Services on your Azure Stack Edge Pro GPU device
 
 
-This article describes the simple process of creating an Azure Arc Data Controller and then deploying Azure Data Services on your Azure Stack Edge Pro GPU device. 
+This article describes the process of creating an Azure Arc Data Controller and then deploying Azure Data Services on your Azure Stack Edge Pro GPU device. 
 
-Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services on that data controller.
+Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services such as SQL Managed Instance (Preview) on that data controller.
 
-The following Azure Data Services can run at the edge, and in the cloud environment using Kubernetes on your device:
-
-- SQL Managed Instance
-- PostgreSQL Hyperscale
-
-Both these services are currently in preview.
-
-The procedure to create Data Controller and then deploy Data Services involves use PowerShell and `kubectl` - a native tool that provides command line access to the Kubernetes cluster on the device.
+The procedure to create Data Controller and then deploy an SQL Managed Instance involves use PowerShell and `kubectl` - a native tool that provides command line access to the Kubernetes cluster on the device.
 
 
 ## Prerequisites
@@ -50,9 +43,10 @@ Before you begin, make sure that:
 
 ## Configure Kubernetes service IPs
 
-Go the local web UI of the device and then go to Compute.
-Select the network enabled for compute. 
-Make sure that you have provided 4 Kubernetes service IPs. The data controller will use 3 services IPs and the 4th IP is used when you create a SQL managed instance. You will need 1 IP for each additional Data Service you will deploy. Apply the setting and these new IPs will immediately take effect on an already existing Kubernetes cluster. 
+1. Go the local web UI of the device and then go to Compute.
+1. Select the network enabled for compute. 
+1. Make sure that you have provided 4 Kubernetes service IPs. The data controller will use 3 services IPs and the 4th IP is used when you create a SQL managed instance. You will need 1 IP for each additional Data Service you will deploy. 
+1. Apply the settings and these new IPs will immediately take effect on an already existing Kubernetes cluster. 
 
 
 ## Deploy Azure Arc Data Controller
@@ -113,52 +107,55 @@ users:
 
 Create an Azure Arc Data Controller that you wish to deploy in the namespace that you created earlier. This Azure Arc Data Controller runs on the Kubernetes cluster that exists on your Azure Stack Edge device.  
 
-	1. Gather the following information that you'll need to create a data controller:
+1. Gather the following information that you'll need to create a data controller:
 
     
-        |Column1  |Column2  |
-        |---------|---------|
-        |Data controller name     |A descriptive name for your data controller - e.g. "Production data controller", "Seattle data controller".         |
-        |Data controller username     |Any username for the data controller administrator user.         |
-        |Data controller password     |A password for the data controller administrator user. The data controller administrator username and password is used to authenticate to the data controller API to perform administrative functions.         |
-        |Name of your Kubernetes namespace     |The name of the Kubernetes namespace that you want to create the data controller in.         |
-        |Azure subscription ID     |The Azure subscription GUID for where you want the data controller resource in Azure to be created.         |
-        |Azure resource group name     |The name of the resource group where you want the data controller resource in Azure to be created.         |
-        |Azure location     |The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see Azure global infrastructure / Products by region.
-        |
+    |Column1  |Column2  |
+    |---------|---------|
+    |Data controller name     |A descriptive name for your data controller - e.g. "Production data controller", "Seattle data controller".         |
+    |Data controller username     |Any username for the data controller administrator user.         |
+    |Data controller password     |A password for the data controller administrator user. The data controller administrator username and password is used to authenticate to the data controller API to perform administrative functions.         |
+    |Name of your Kubernetes namespace     |The name of the Kubernetes namespace that you want to create the data controller in.         |
+    |Azure subscription ID     |The Azure subscription GUID for where you want the data controller resource in Azure to be created.         |
+    |Azure resource group name     |The name of the resource group where you want the data controller resource in Azure to be created.         |
+    |Azure location     |The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see Azure global infrastructure / Products by region.|
 
         <!--Did not see the option of specifying a connectivity mode for the data controller that we are creating? Looks like Azure Arc enabled data services provide you the option to connect to Azure in two different connectivity modes: Directly connected and Indirectly connected-->
 
-	1. Connect to the PowerShell interface. To create the data controller, type: 
+1. Connect to the PowerShell interface. To create the data controller, type: 
 
-        ```powershell
-    	Set-HcsKubernetesAzureArcDataController -SubscriptionId <Subscription ID> -ResourceGroupName <Resource group name> -Location <Location without spaces> -UserName <User you created> -Password <Password to authenticate to Data Controller> -DataControllerName <Data Controller Name> -Namespace <Namespace you created>    
-        ```
-        Here is a sample output of the preceding commands.
+    ```powershell
+    Set-HcsKubernetesAzureArcDataController -SubscriptionId <Subscription ID> -ResourceGroupName <Resource group name> -Location <Location without spaces> -UserName <User you created> -Password <Password to authenticate to Data Controller> -DataControllerName <Data Controller Name> -Namespace <Namespace you created>    
+    ```
+    Here is a sample output of the preceding commands.
 
-        ```powershell
-        [10.100.10.10]: PS>Set-HcsKubernetesAzureArcDataController -SubscriptionId db4e2fdb-6d80-4e6e-b7cd-736098270664 -ResourceGroupName myasegpurg -Location "EastUS" -UserName myadsuser -Password "Password1" -DataControllerName "arctestcontroller" -Namespace myadstest
-        [10.100.10.10]: PS>	
+    ```powershell
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcDataController -SubscriptionId db4e2fdb-6d80-4e6e-b7cd-736098270664 -ResourceGroupName myasegpurg -Location "EastUS" -UserName myadsuser -Password "Password1" -DataControllerName "arctestcontroller" -Namespace myadstest
+    [10.100.10.10]: PS>	
+    ```
     
-        The deployment may take approximately 5 minutes to complete.
+    The deployment may take approximately 5 minutes to complete.
 
-        > [!NOTE]
-        > The data controller created on Kubernetes cluster on your Azure Stack Edge Pro device works only in the disconnected mode in the current release.
+    > [!NOTE]
+    > The data controller created on Kubernetes cluster on your Azure Stack Edge Pro device works only in the disconnected mode in the current release.
 
-    1.  You can use another PowerShell window and `kubectl` commands to monitor the creation status of the data controller. When the controller is created, the status should be `Ready`.
+### Monitor data creation status
 
-        ```powershell
-        kubectl get datacontroller/<Data controller name> --namespace <Name of your namespace>
-        ```
+1. Open another PowerShell window.
+1. Use the following `kubectl` command to monitor the creation status of the data controller. 
 
-        Here is a sample output of the preceding command:
+    ```powershell
+    kubectl get datacontroller/<Data controller name> --namespace <Name of your namespace>
+    ```
+    When the controller is created, the status should be `Ready`.
+    Here is a sample output of the preceding command:
 
-        ```powershell
-        PS C:\WINDOWS\system32> kubectl get datacontroller/arctestcontroller --namespace myadstest
-        NAME                STATE
-        arctestcontroller   Ready
-        PS C:\WINDOWS\system32>
-        ```
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl get datacontroller/arctestcontroller --namespace myadstest
+    NAME                STATE
+    arctestcontroller   Ready
+    PS C:\WINDOWS\system32>
+    ```
 
 
 ## 
