@@ -24,7 +24,7 @@ This part of the series covers how to:
 ## Prerequisites
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) or later (see [*Install Azure PowerShell*](/powershell/azure/install-az-ps)).
 
 ## Add a node type to a Service Fabric managed cluster
 

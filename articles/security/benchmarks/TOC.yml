@@ -195,9 +195,9 @@
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
   - name: Microsoft Cloud App Security baseline
-    href: https://docs.microsoft.com/cloud-app-security/security-baseline
+    href: /cloud-app-security/security-baseline
   - name: Microsoft Defender for Identity security baseline
-    href: https://docs.microsoft.com/defender-for-identity/security-baseline
+    href: /defender-for-identity/security-baseline
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
@@ -230,3 +230,9 @@
     href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
+  - name: Windows Virtual Desktop security baseline
+    href: ../../virtual-desktop/security-baseline.md
+- name: Resources
+  items:
+  - name: Mapping between ASB and CIS Benchmark
+    href: v2-cis-benchmark.md

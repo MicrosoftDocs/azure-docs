@@ -51,9 +51,9 @@ Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 #### Get NTTTCP onto the VMs.
 
 Download the latest version:
-<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
 
-Or search for it if moved: <https://www.bing.com/search?q=ntttcp+download>\< -- should be first hit
+Or view the top-level GitHub Page: <https://github.com/microsoft/ntttcp>\
 
 Consider putting NTTTCP in separate folder, like c:\\tools
 

@@ -70,7 +70,7 @@ If you don't specify an instance, your app will target the Azure public cloud in
 
 The sign-in audience depends on the business needs for your app:
 
-- If you're a line of business (LOB) developer, you'll probably produce a single-tenant application that will be used only in your organization. In that case, you need to specify the organization, either by its tenant ID (the ID of your Azure AD instance) or by a domain name associated with the Azure AD instance.
+- If you're a line of business (LOB) developer, you'll probably produce a single-tenant application that will be used only in your organization. In that case, specify the organization by its tenant ID (the ID of your Azure AD instance) or by a domain name associated with the Azure AD instance.
 - If you're an ISV, you might want to sign in users with their work and school accounts in any organization or in some organizations (multitenant app). But you might also want to have users sign in with their personal Microsoft accounts.
 
 ### How to specify the audience in your code/configuration
@@ -120,10 +120,9 @@ If you're a public client app developer who's using MSAL:
   | UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register |
   | .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment. |
 
-- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support broker (the
-  redirect URI is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS
+- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
 
-- You need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
+- Configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
    ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -146,8 +145,20 @@ For daemon apps, you don't need to specify a redirect URI.
 This option specifies the client secret for the confidential client app. This secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
 ## Logging
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
 
-The other configuration options enable logging and troubleshooting. See the [Logging](msal-logging.md) article for details on how to use them.
+:::row:::
+    :::column:::
+        - [Logging in MSAL.NET](msal-logging-dotnet.md)
+        - [Logging in MSAL for Android](msal-logging-android.md)
+        - [Logging in MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+        - [Logging in MSAL for Java](msal-logging-java.md)
+        - [Logging in MSAL for Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## Next steps
 

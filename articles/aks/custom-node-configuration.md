@@ -127,7 +127,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. | 
 
 > [!IMPORTANT]
-> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Create a `kubeletconfig.json` file with the following contents:
 
@@ -161,7 +161,7 @@ Create a `linuxosconfig.json` file with the following contents:
 }
 ```
 
-Create a new cluster specifying the kublet and OS configurations using the JSON files created in the previous step. 
+Create a new cluster specifying the kubelet and OS configurations using the JSON files created in the previous step. 
 
 > [!NOTE]
 > When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.

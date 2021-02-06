@@ -1,13 +1,13 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
+ms.author: mimart
+author: msmimart
 manager: CelesteDG
 ---
 
@@ -15,10 +15,16 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## January 2021
+
+### Updated articles
+- [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md)
+- [How users in your organization can invite guest users to an app](add-users-information-worker.md)
+
+
 ## December 2020
 
 ### Updated articles
-
 - [Azure Active Directory B2B collaboration FAQs](faq.md)
 - [Add Google as an identity provider for B2B guest users](google-federation.md)
 - [Identity Providers for External Identities](identity-providers.md)
