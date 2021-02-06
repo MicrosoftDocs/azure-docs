@@ -180,25 +180,25 @@ First, set up your storage account.
 
     In the Azure portal, select ***+ Create a resource*** and search for and select ***Storage Account***
     
-    ![Storage Account add page](./media/oracle-backup-recovery/storage-1.png)
+    ![Screenshot that shows where to create a resource and select Storage Account.](./media/oracle-backup-recovery/storage-1.png)
     
 2. In the Create storage account page, choose your existing resource group ***rg-oracle***, name your storage account ***oracbkup1*** and choose ***Storage V2 (generalpurpose v2)*** for Account Kind. Change Replication to ***Locally-redundant storage (LRS)*** and set Performance to ***Standard***. Ensure that Location is set to the same region as all your other resources in the resource group. 
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Screenshot that shows where to choose your existing resource group.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
 3. Click on the ***Advanced*** tab and under Azure Files set ***Large file shares*** to ***Enabled***. Click on Review + Create and then click Create.
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-2.png)
+    ![Screenshot that shows where to set Large file shares to Enabled.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
 4. When the storage account has been created, go to the resource and choose ***File shares***
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-3.png)
+    ![Screenshot that shows where to select File shares.](./media/oracle-backup-recovery/file-storage-3.png)
     
 5. Click on ***+ File share*** and in the ***New file share*** blade name your file share ***orabkup1***. Set ***Quota*** to ***10240*** GiB and check ***Transaction optimized*** as the tier. The quota reflects an upper boundary that the file share can grow to. As we are using Standard storage, resources are PAYG and not provisioned so setting it to 10 TiB will not incur costs beyond what you use. If your backup strategy requires more storage, you must set the quota to an appropriate level to hold all backups.   When you have completed the New file share blade, click ***Create***.
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Screenshot that shows where to add a new file share.](./media/oracle-backup-recovery/file-storage-4.png)
     
     
 6. When created, click on ***orabkup1*** in the File share settings page. 
