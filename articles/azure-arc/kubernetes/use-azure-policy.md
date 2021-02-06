@@ -51,4 +51,4 @@ After the policy assignment is created, for any new `connectedCluster` resource 
 
 ## Next steps
 
-* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)

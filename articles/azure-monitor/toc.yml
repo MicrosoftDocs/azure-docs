@@ -1033,79 +1033,79 @@
   - name: Azure Monitor for containers 
     items:
     - name: Overview
-      href: insights/container-insights-overview.md
+      href: containers/container-insights-overview.md
     - name: FAQ
       href: faq.md#azure-monitor-for-containers
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
-        href: insights/container-insights-onboard.md
+        href: containers/container-insights-onboard.md
       - name: Enable for new AKS cluster
-        href: insights/container-insights-enable-new-cluster.md
+        href: containers/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
-        href: insights/container-insights-enable-existing-clusters.md
+        href: containers/container-insights-enable-existing-clusters.md
       - name: Enable for Arc enabled cluster
-        href: insights/container-insights-enable-arc-enabled-clusters.md
+        href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
-        href: insights/container-insights-hybrid-setup.md
+        href: containers/container-insights-hybrid-setup.md
       - name: Enable for Azure Red Hat OpenShift v3
-        href: insights/container-insights-azure-redhat-setup.md
+        href: containers/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
-        href: insights/container-insights-azure-redhat4-setup.md
+        href: containers/container-insights-azure-redhat4-setup.md
       - name: Region mappings
-        href: insights/container-insights-region-mapping.md
+        href: containers/container-insights-region-mapping.md
     - name: Monitor performance
-      href: insights/container-insights-analyze.md
+      href: containers/container-insights-analyze.md
     - name: Monitor GPU performance
-      href: insights/container-insights-gpu-monitoring.md
+      href: containers/container-insights-gpu-monitoring.md
     - name: Monitor network configuration
       href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
-      href: insights/container-insights-deployment-hpa-metrics.md
+      href: containers/container-insights-deployment-hpa-metrics.md
     - name: Monitor Persistent Volumes (PVs)
-      href: insights/container-insights-persistent-volumes.md
+      href: containers/container-insights-persistent-volumes.md
     - name: Reports tab
       href: insights/container-insights-reports.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
-        href: insights/container-insights-livedata-overview.md
+        href: containers/container-insights-livedata-overview.md
       - name: Setup
-        href: insights/container-insights-livedata-setup.md
+        href: containers/container-insights-livedata-setup.md
       - name: View cluster metrics
-        href: insights/container-insights-livedata-metrics.md
+        href: containers/container-insights-livedata-metrics.md
       - name: View deployments
-        href: insights/container-insights-livedata-deployments.md
+        href: containers/container-insights-livedata-deployments.md
     - name: Analyze data with log queries
-      href: insights/container-insights-log-search.md
+      href: containers/container-insights-log-search.md
     - name: Alerting
       items:
       - name: Create log alert rules
-        href: insights/container-insights-log-alerts.md
+        href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
-        href: insights/container-insights-metric-alerts.md
+        href: containers/container-insights-metric-alerts.md
     - name: Agent management
-      href: insights/container-insights-manage-agent.md
+      href: containers/container-insights-manage-agent.md
     - name: Configure Prometheus metric scraping
-      href: insights/container-insights-prometheus-integration.md
+      href: containers/container-insights-prometheus-integration.md
     - name: Configure agent collection settings
-      href: insights/container-insights-agent-config.md
+      href: containers/container-insights-agent-config.md
     - name: Update to enable metrics
-      href: insights/container-insights-update-metrics.md
+      href: containers/container-insights-update-metrics.md
     - name: Manage cost and usage
-      href: insights/container-insights-cost.md
+      href: containers/container-insights-cost.md
     - name: Disable monitoring
       items:
         - name: Disable monitoring AKS
-          href: insights/container-insights-optout.md
+          href: containers/container-insights-optout.md
         - name: Disable monitoring Red Hat OpenShift v3
-          href: insights/container-insights-optout-openshift-v3.md
+          href: containers/container-insights-optout-openshift-v3.md
         - name: Disable monitoring Red Hat OpenShift v4
-          href: insights/container-insights-optout-openshift-v4.md
+          href: containers/container-insights-optout-openshift-v4.md
         - name: Disable monitoring hybrid cluster
-          href: insights/container-insights-optout-hybrid.md
+          href: containers/container-insights-optout-hybrid.md
     - name: Troubleshooting
-      href: insights/container-insights-troubleshoot.md
+      href: containers/container-insights-troubleshoot.md
   - name: Insights
     items: 
     - name: Azure Cache for Redis (preview)
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

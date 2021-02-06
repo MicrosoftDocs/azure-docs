@@ -100,7 +100,7 @@ For Azure Defender to monitor your AKS nodes, they must be running the Log Analy
 
 If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
 
-[Learn more about the Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
+[Learn more about the Azure Monitor for containers agent](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
 ## Next steps

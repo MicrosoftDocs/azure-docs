@@ -241,9 +241,9 @@ Enable and on-board this data to Azure Sentinel or a third-party SIEM based on y
 
 - [Review the Log schema including log roles here](view-master-logs.md)
 
-- [Understand Azure Monitor for Containers](../azure-monitor/insights/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
 
-- [How to enable Azure Monitor for Containers](../azure-monitor/insights/container-insights-onboard.md)
+- [How to enable Azure Monitor for Containers](../azure-monitor/containers/container-insights-onboard.md)
 
 - [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md)
 
@@ -426,7 +426,7 @@ Create policies and procedures around the use of dedicated administrative accoun
 
 **Guidance**: Use single sign-on for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD) integrated authentication for an AKS cluster.
 
-- [How to view Kubernetes logs, events, and pod metrics in real-time](../azure-monitor/insights/container-insights-livedata-overview.md)
+- [How to view Kubernetes logs, events, and pod metrics in real-time](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -677,9 +677,9 @@ Configure alerts for proactive notification or log creation when CPU and memory 
 
 Use Azure Activity Log to monitor your AKS clusters and related resources at a high level. Integrate with Prometheus to view application and workload metrics it collects from nodes and Kubernetes using queries to create custom alerts, dashboards, and detailed perform detailed analysis.
 
-- [Understand Azure Monitor for Containers](../azure-monitor/insights/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
 
-- [How to enable Azure Monitor for containers](../azure-monitor/insights/container-insights-onboard.md)
+- [How to enable Azure Monitor for containers](../azure-monitor/containers/container-insights-onboard.md)
 
 - [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 

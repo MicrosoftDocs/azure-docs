@@ -663,7 +663,7 @@ ContainerLog
 
 Re-enable collection for these properties for every container log line.
 
-If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the [data collection configuration settings](insights/container-insights-agent-config.md).
+If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the [data collection configuration settings](containers/container-insights-agent-config.md).
 
 > [!NOTE]
 > The second option is not recommended with large clusters that have more than 50 nodes because it generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
@@ -698,7 +698,7 @@ The log collection from containers in the kube-system namespace is disabled by d
 
 ### How do I update the omsagent to the latest released version?
 
-To learn how to upgrade the agent, see [Agent management](insights/container-insights-manage-agent.md).
+To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
 
 ### How do I enable multi-line logging?
 
@@ -726,7 +726,7 @@ For a detailed look at the issue, review the following [GitHub link](https://git
 
 ### How do I resolve Azure AD errors when I enable live logs? 
 
-You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Azure Monitor for containers](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Azure Monitor for containers](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### Why can't I upgrade cluster after onboarding?
 
@@ -734,7 +734,7 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 
 ### Which ports and domains do I need to open/allow for the agent?
 
-See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
 
 
 ## Azure Monitor for VMs
