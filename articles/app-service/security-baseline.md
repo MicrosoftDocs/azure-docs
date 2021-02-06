@@ -1114,7 +1114,7 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts Sentinel as per business needs.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts to Azure Sentinel as per business needs.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

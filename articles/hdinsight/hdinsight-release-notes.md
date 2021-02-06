@@ -45,7 +45,7 @@ HDInsight added network security groups (NSGs) and user-defined routes (UDRs) ch
 The following changes will happen in upcoming releases.
 
 ### Breaking change for .NET for Apache Spark 1.0.0
-HDInsight will introduce the first major official release of .NET for Apache Spark in the next release. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with other features. There will be breaking changes for this major version, refer to [this migration guid](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. Learn more [here](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+HDInsight will introduce the first major official release of .NET for Apache Spark in the next release. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with other features. There will be breaking changes for this major version, refer to [this migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. Learn more [here](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
 
 ### Default cluster VM size will be changed to Ev3 family
 Starting from next release (around end of January), default cluster VM sizes will be changed from D family to Ev3 family. This change applies to head nodes and worker nodes. To avoid this change, specify the VM sizes that you want to use in the ARM template.
