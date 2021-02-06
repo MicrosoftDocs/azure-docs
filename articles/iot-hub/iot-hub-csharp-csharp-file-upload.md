@@ -77,7 +77,6 @@ In this section, you modify the device app you created in [Send cloud-to-device 
     private static async Task SendToBlobAsync(string fileName)
     {
         Console.WriteLine("Uploading file: {0}", fileName);
-
         var watch = System.Diagnostics.Stopwatch.StartNew();
 
         await deviceClient.GetFileUploadSasUriAsync(new FileUploadSasUriRequest { BlobName = fileName });
