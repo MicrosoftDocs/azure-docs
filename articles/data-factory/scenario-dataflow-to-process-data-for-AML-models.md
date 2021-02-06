@@ -19,14 +19,14 @@ ms.co-author: Donnana
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
-One challenge is raw data from data warehouse or transactional database would be huge dataset during training Azure machine learning model. You would [optimize data processing](https://docs.microsoft.com/azure/machine-learning/concept-optimize-data-processing) via increasing RAM of VM. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning since it's binary columnar format.This tutorial will go through another option partitioning dataset to parquet files before training models. 
+One challenge is raw data from data warehouse or transactional database would be huge dataset, such as: 10GB, the large dataset requires longer time to train models, so optimize data processing is recommended before training Azure Machine Learning models. This tutorial will go through how to use ADF to partition dataset to parquet files for Azure Machine Learning dataset. 
 
 In Automated machine learning(AutoML) project, it would apply the following three data processing scenarios:
 
 1. Partition large data to parquet files before training models. 
 
-    [Pandas dataframe](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) is commonly used to process data before training models. Even Pandas dataframe works well for data sizes less than 1GB, but if data is large than 1GB, Pandas dataframe slow down to process data, sometime even will get out of memory error message. 
-
+     [Pandas dataframe](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) is commonly used to process data before training models. Pandas dataframe works well for data sizes less than 1GB, but if data is large than 1GB, Pandas dataframe slow down to process data, sometime even will get out of memory error message. [Parquet file](https://parquet.apache.org/) formats are recommended for machine learning since it's binary columnar format.
+    
     Azure Data Factories Mapping data flows are visually designed data transformations with code-free to data engineers. It's powerful to process large data since the pipeline use scaled-out Spark clusters.
 
 1. Split training dataset and test dataset. 
