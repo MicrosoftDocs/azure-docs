@@ -223,11 +223,11 @@ The runbook isn't using the correct context when running. This may be because th
 
 You may see errors like this one:
 
-```Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.```
-```ErrorCode: AuthorizationFailed```
-```StatusCode: 403```
-```ReasonPhrase: Forbidden Operation```
-```ID : <AGuidRepresntingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV ... +```
+```Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.```  
+```ErrorCode: AuthorizationFailed```  
+```StatusCode: 403```  
+```ReasonPhrase: Forbidden Operation```  
+```ID : <AGuidRepresntingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV ... +```  
 
 ### Resolution
 
@@ -240,7 +240,7 @@ The subscription context might be lost when a runbook invokes multiple runbooks.
 Disable-AzContextAutosave –Scope Process
 ```
 
-* The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context (and thereby which subscription) for each cmdlet. To use this, you should save your context object in your runbook when it's created and every time it's changed, and reference it in every Az/AzureRm cmdlet that you call.
+* The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context (and thereby the subscription) for each cmdlet. To use this, you should save your context object in your runbook when it's created and every time it's changed, and reference it in every Az/AzureRm cmdlet that you call.
 
 > [!NOTE]
 > You will need to pass in a context object even when manipulating the context directly with calls like `Set-AzContext` or `Select-AzSubscription`.
