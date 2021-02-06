@@ -47,11 +47,11 @@ This article walks through setting up the sign in health workbook to monitor for
 
 * A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. 
 
-   * Learn how to [create a Log Analytics workspace](../azure/azure-monitor/learn/quick-create-workspace.md)
+   * Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
 * Azure AD logs integrated with Azure Monitor logs
 
-   * Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream](..y/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+   * Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
  
 
@@ -90,7 +90,7 @@ Use the following instructions to create email alerts based on the queries refle
 
  To configure the underlying query and set alerts, complete the following steps. You'll use the Sample Query as the basis for your configuration. An explanation of the query structure appears at the end of this section.
 
-For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](../azure/azure-monitor/platform/alerts-log.md).
+For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
  
 1. In the workbook, select **Edit**, then select the **query icon** just above the right-hand side of the graph.   
@@ -204,11 +204,11 @@ thisWeek
 ‎  
 3. Paste the query in the window and select **Run**. Ensure you see the Completed message shown in the image below, and results below that message.
 
-   ![Screenshot showing the workbooks gallery in the Azure portal.](./media/monitor-sign-in-health-for-resilience/run-query.png)
+   ![Screenshot showing the run query results.](./media/monitor-sign-in-health-for-resilience/run-query.png)
 
 4. Highlight the query, and select + **New alert rule**. 
  
-![Screenshot showing the workbooks gallery in the Azure portal.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
+![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
 
 
 5. Configure alert conditions. 
@@ -259,7 +259,7 @@ Modify your queries and alerts for maximum effectiveness.
 
 * Modify alert sensitivity and frequency so that you get important notifications. Admins can become desensitized to alerts if they get too many and miss something important. 
 
-* Whitelist the email from which alerts come in your administrator’s email clients> Otherwise you  may miss notifications due to a spam filter on your email client. 
+* Ensure the email from which alerts come in your administrator’s email clients is added to allowed senders list. Otherwise you  may miss notifications due to a spam filter on your email client. 
 
 * Alerts query in Azure Monitor can only include results from past 48 hours. [This is a current limitation by design](https://github.com/MicrosoftDocs/azure-docs/issues/22637)
 
