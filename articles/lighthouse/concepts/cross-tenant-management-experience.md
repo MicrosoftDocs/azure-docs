@@ -138,7 +138,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage Azure Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
 - [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Sentinel workspaces spread across tenants
+- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Azure Sentinel workspaces spread across tenants
 
 [Azure Service Health](../../service-health/index.yml):
 
