@@ -19,8 +19,12 @@
     href: virtual-machines-custom-preferences.md
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
+  - name: Troubleshoot onboarding errors
+    href: common-errors.md
   - name: Repair a broken Automanage account
     href: repair-automanage-account.md
+  - name: Move an Automanaged virtual machine across regions
+    href: move-automanaged-vms.md
 - name: Resources
   expanded: true
   items:

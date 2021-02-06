@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,19 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## January 2021
+
+* The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
+  * Expanded language support for [several general entity categories](named-entity-types.md). 
+  * Improved AI quality of general entity categories for all supported v3 languages. 
+
+* The `2021-01-05` model version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+
+These model versions are currently unavailable in the East US region. 
+
+> [!div class="nextstepaction"]
+> [Learn more about about the new NER model](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## December 2020
 
@@ -61,7 +74,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ### Text Analytics for health container updates
 
 The following updates are specific to the September release of the Text Analytics for health container only.
-* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the containerpreview repository. 
+* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the container preview repository. 
 * This model version provides improvements in entity recognition, abbreviation detection, and latency enhancements.
 
 > [!div class="nextstepaction"]

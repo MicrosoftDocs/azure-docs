@@ -21,7 +21,7 @@ This article shows how to use Azure Purview portal to register and scan a Power 
 To set up authentication, create a security group and add the catalog's managed identity to it.
 
 1. In the [Azure portal](https://portal.azure.com), search for **Azure Active Directory**.
-1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > You can skip this step if you already have a security group you want to use.
@@ -79,7 +79,7 @@ First, add a special feature flag to your Purview URL
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Image showing the list of data sources available to choose":::
 
-1. Give your Power BI instance a friendly name.
+3. Give your Power BI instance a friendly name.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Image showing Power BI data source-friendly name":::
 
@@ -89,17 +89,21 @@ First, add a special feature flag to your Purview URL
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI data source registered":::
 
-1. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
+    > [!Note]
+    > For Power BI, data source registration and scan is allowed for only one instance.
+
+
+4. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup":::
 
     The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens.  Spaces aren't allowed.
 
-1. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
+5. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Scan trigger image":::
 
-1. On **Review new scan**, select **Save and Run** to launch your scan.
+6. On **Review new scan**, select **Save and Run** to launch your scan.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Save and run Power BI screen image":::
 

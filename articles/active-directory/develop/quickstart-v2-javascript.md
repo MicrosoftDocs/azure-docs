@@ -14,7 +14,7 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 
-#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA
@@ -52,14 +52,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform Configurations**, select **Add a platform**. A panel opens on the left. There, select the **Web Applications** region.
-> 1. Still on the left, set the **Redirect URI** value to `http://localhost:3000/`. Then, select **Access Token** and **ID Token**.
+> 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. Under **Manage**, select **Authentication**.
+> 1. Under **Platform Configurations** > **Add a platform**. Select **Web**.
+> 1. Set the **Redirect URI** value to `http://localhost:3000/`. 
+> 1. Select **Access Tokens** and **ID Tokens** under the **Implicit grant and hybrid flows**  .
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/` and enable **Implicit grant**.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -264,14 +265,14 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### Get a user token interactively
 
-There are situations where you need to force users to interact with the Microsoft identity platform endpoint. For example:
+There are situations where you force users to interact with the Microsoft identity platform. For example:
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
 * Two-factor authentication is required.
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint.) In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.

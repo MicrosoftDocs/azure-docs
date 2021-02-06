@@ -52,7 +52,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`.
+> 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.
@@ -61,7 +61,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample for this quickstart to work, you need to add reply URLs as `https://localhost:44321/signin-oidc`, add the Logout URL as `https://localhost:44321/signout-oidc`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44321/signin-oidc` and **Front-channel logout URL** of `https://localhost:44321/signout-oidc` in the app registration.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -163,7 +163,7 @@ The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication, which is used in browser scenarios and to set the challenge to OpenID Connect.
 
-The line containing `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

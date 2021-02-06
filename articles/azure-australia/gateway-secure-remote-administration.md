@@ -123,7 +123,7 @@ The privileged workstation is a hardened machine that can be used to perform adm
 
 |Resources|Link|
 |---|---|
-|Privileged Access Workstations Architecture Overview|[https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/](/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
+|Privileged Access Workstations Architecture Overview|[https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/](/security/compass/privileged-access-deployment)|
 |Securing Privileged Access Reference Material|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
 
 ### Mobile device

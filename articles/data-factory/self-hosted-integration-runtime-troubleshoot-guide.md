@@ -5,7 +5,7 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
 ---
 
@@ -62,31 +62,6 @@ A new activity can throw an OOM error if the IR machine experiences momentary hi
 #### Resolution
 
 Check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on a single IR node at the same time.
-
-
-### SSL/TLS certificate issue
-
-#### Symptoms
-
-When you try to enable a Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificate (advanced) by choosing the certificate (after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**), you get the following error:
-
-"Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was 'abc.microsoft.com' but the remote endpoint provided DNS claim 'microsoft.com'. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity 'microsoft.com' as the Identity property of EndpointAddress when creating channel proxy."
-
-In the preceding example, the chosen certificate has "microsoft.com" appended to it.
-
-#### Cause
-
-This is a known issue in Windows Communication Foundation (WCF). The WCF SSL/TLS validation checks only for the last DNSName in the **Subject Alternative Name** (SAN) field. 
-
-#### Resolution
-
-A wildcard certificate is supported in the Azure Data Factory v2 self-hosted IR. This issue normally happens because the SSL certificate is incorrect. The last DNSName in the SAN should be valid. 
-
-To verify and correct the DNSName, do the following: 
-
-1. Open Management Console.
-1. Under **Certificate Details**, double-check the value in both the **Subject** and **Subject Alternative Name** boxes. For example, "DNS Name= microsoft.com.com" is not a valid name.
-1. Contact the certificate issuing company to have the incorrect DNSName removed.
 
 ### Concurrent jobs limit issue
 
@@ -218,7 +193,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing
@@ -264,7 +239,7 @@ Install drivers for both the source and destination datastores on the destinatio
  
 If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from datastore 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to ddatastore 2. 
+* Copy another IR from Azure Blob Storage to datastore 2. 
 
 This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
@@ -371,7 +346,7 @@ Go to the integration runtime event log to check the error.
     
         ![Screenshot of the "Log On" pane for the service account.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Check to see whether the logon service account has **Log on as a service** permissions to start the Windows service:
+    1. Check to see whether the logon service account has **Log on as a service** permission to start the Windows service:
 
         ![Screenshot of the "Log on as service" properties pane.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
@@ -733,7 +708,7 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
 

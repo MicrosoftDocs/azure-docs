@@ -38,7 +38,7 @@ The workspace delete operation removes the workspace Resource Manager resource, 
 > [!NOTE] 
 > Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can't be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
 
-You can delete a workspace using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [REST API](/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+You can delete a workspace using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), [REST API](/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
 
 ### Azure portal
 

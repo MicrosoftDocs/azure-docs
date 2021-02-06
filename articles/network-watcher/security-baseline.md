@@ -427,7 +427,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 * [Supported IPSec parameters for Azure VPN Gateway](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -921,7 +921,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 * [How to configure continuous export](../security-center/continuous-export.md)
 

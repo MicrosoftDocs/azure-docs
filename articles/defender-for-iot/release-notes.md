@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2021
+ms.date: 01/06/2021
 ms.author: shhazam
 ---
 
-# What's new
+# What's new?
 
 Defender for IoT 10.0 provides feature enhancements that improve security, management, and usability.
 

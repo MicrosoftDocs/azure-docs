@@ -49,6 +49,9 @@ This issue is most often created while you are using sysprep with an on-premises
 
 ### Do not use Unattend.xml
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To fix this issue, follow [the Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image. During sysprep, **do not use `/unattend:<your file’s name>` flag**. Instead, use only the flags below:
 
 `sysprep /oobe /generalize /shutdown`

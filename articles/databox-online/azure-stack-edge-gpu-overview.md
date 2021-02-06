@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -68,7 +68,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
 Azure Stack Edge Pro physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For this preview release, the resource is available in East US, West EU, and South East Asia regions.
+- **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
 - **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
