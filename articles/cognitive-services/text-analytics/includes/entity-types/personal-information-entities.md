@@ -19,24 +19,19 @@ ms.author: aahi
 The following entity categories are returned when you're sending requests to the `/v3.1-preview.2/entities/recognition/pii` endpoint.
 
 
-| Category   | Subcategory | Description                          | Starting model version | Notes |
+| Category   |  Description                          | Starting model version | Notes |
 |------------|-------------|--------------------------------------|------------------------|---|
-| [Person](#category-person)      | N/A         | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
+| [Person](#category-person)      |  Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
 | [PersonType](#category-persontype) | N/A         | Job types or roles held by a person. | `2020-02-01` | |
 | [Phone number](#category-phonenumber) | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
-| [Organization](#category-organization)  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
-|Organization | Medical | Medical companies and groups. | `2020-04-01` |  |
-|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` |  |
-| Organization | Sports | Sports-related organizations. | `2020-04-01` |  |
+| [Organization](#category-organization)  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. This category includes sub-categories of entities, such as *Stock*, and *Medical*.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
 | [Address](#category-address)  | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
 | EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
 | [Email](#category-email) | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
 | [URL](#category-url) | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
 | [IP](#category-ip) | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
-| [DateTime](#category-datetime) | N/A | Dates and times of day. | `2019-10-01` |  | 
-| DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
-| [Quantity](#category-quantity) | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
-| Quantity | Age | Ages. | `2019-10-01` | Also returned with `domain=phi`.   |
+| [DateTime](#category-datetime) | N/A | Dates and times of day. This category includes sub-categories of entities, such as *Date*. | `2019-10-01` |  | 
+| [Quantity](#category-quantity) | N/A | Numbers and numeric quantities.  This category includes sub-categories of entities, such as *age*. | `2019-10-01` |  |
 
 
 ### Category: Person
