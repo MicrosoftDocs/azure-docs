@@ -442,10 +442,9 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > Shifts for Microsoft Teams, Teamwork Projects, Typeform
 >
 > \* **SAP**: The return caller depends on whether the deployment environment is either 
-> multi-tenant Azure or ISE*In the multi-tenant environment, the on-premises data gateway 
-> makes the call back to the Logic Apps service. 
-> In an ISE, the SAP connector makes 
-> the call back to the Logic Apps service.
+> multi-tenant Azure or ISE. In the multi-tenant environment, the on-premises data gateway 
+> makes the call back to the Logic Apps service. In an ISE, the SAP connector makes the 
+> call back to the Logic Apps service.
 
 <a name="multi-tenant-inbound"></a>
 
