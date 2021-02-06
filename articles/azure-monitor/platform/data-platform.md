@@ -38,7 +38,7 @@ Metrics are available for interactive analysis in the Azure portal with [Azure M
 Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](../essentials/data-platform-metrics.md).
 
 ### Logs
-[Logs](data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.
+[Logs](../logs/data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.
 
 Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues.
 
@@ -48,7 +48,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 
  You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](../alerts/alerts-log.md) which will trigger an alert based on the results of a schedule query.
 
-Read more about Azure Monitor Logs including their sources of data in [Logs in Azure Monitor](data-platform-logs.md).
+Read more about Azure Monitor Logs including their sources of data in [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 ### Distributed traces
 Traces are series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.
@@ -74,7 +74,7 @@ The following table compares Metrics and Logs in Azure Monitor.
 ## Collect monitoring data
 Different [sources of data for Azure Monitor](../agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
-See [Metrics in Azure Monitor](../essentials/data-platform-metrics.md) and [Logs in Azure Monitor](data-platform-logs.md) for a listing of different data sources that populate each type.
+See [Metrics in Azure Monitor](../essentials/data-platform-metrics.md) and [Logs in Azure Monitor](../logs/data-platform-logs.md) for a listing of different data sources that populate each type.
 
 
 ## Stream data to external systems
@@ -85,6 +85,6 @@ In addition to using the tools in Azure to analyze monitoring data, you may have
 ## Next steps
 
 - Read more about [Metrics in Azure Monitor](../essentials/data-platform-metrics.md).
-- Read more about [Logs in Azure Monitor](data-platform-logs.md).
+- Read more about [Logs in Azure Monitor](../logs/data-platform-logs.md).
 - Learn about the [monitoring data available](../agents/data-sources.md) for different resources in Azure.
 

@@ -104,5 +104,5 @@ The query explorer experience for saving and sharing user-generated queries rema
 
 ## Next steps
 
-[Get started with KQL Queries](get-started-queries.md)
+[Get started with KQL Queries](../log-query/get-started-queries.md)
 

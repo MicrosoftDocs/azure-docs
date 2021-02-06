@@ -40,7 +40,7 @@ The following diagram shows the integrated monitoring architecture for Azure VMw
 If you are new to Azure or unfamiliar with any of the services previously mentioned, review the following articles:
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
-- [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
+- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
 - [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Azure Security Center
 - [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)

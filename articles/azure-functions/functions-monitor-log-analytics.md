@@ -11,7 +11,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 
 # Monitoring Azure Functions with Azure Monitor Logs
 
-Azure Functions offers an integration with [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
+Azure Functions offers an integration with [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
 
 Azure Monitor Logs gives you the ability to consolidate logs from different resources in the same workspace, where it can be analyzed with [queries](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](../azure-monitor/log-query/log-query-overview.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](../azure-monitor/visualizations.md) or [alert rules](../azure-monitor/platform/alerts-overview.md).
 
@@ -120,5 +120,5 @@ FunctionAppLogs
 ## Next steps
 
 - Review the [Azure Functions overview](functions-overview.md).
-- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
+- Learn more about [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
 - Learn more about the [query language](../azure-monitor/log-query/get-started-queries.md).

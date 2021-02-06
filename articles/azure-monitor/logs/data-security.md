@@ -177,8 +177,8 @@ To access your Log Analytics workspace, you sign into the Azure portal using the
 ## Additional Security features
 You can use these additional security features to further secure your Azure Monitor/Log Analytics environment. These features require more administrator management. 
 - [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
-- [Private / customer-managed Storage](private-storage.md) - Manage your personally encrypted storage account and tell Log Analytics to use it to store monitoring data 
-- [Private Link networking](private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
+- [Private / customer-managed Storage](../platform/private-storage.md) - Manage your personally encrypted storage account and tell Log Analytics to use it to store monitoring data 
+- [Private Link networking](../platform/private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
 - [Azure customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
 
 

@@ -118,7 +118,7 @@
   - name: Data security
     items:
     - name: Log data
-      href: platform/data-security.md
+      href: logs/data-security.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -204,7 +204,7 @@
     items:
     - name: Overview
       displayname: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
-      href: platform/data-platform-logs.md
+      href: logs/data-platform-logs.md
     - name: Workspaces and clusters
       items:
       - name: Create a workspace
@@ -216,11 +216,11 @@
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
       - name: Design a workspace deployment
-        href: platform/design-logs-deployment.md
+        href: logs/design-logs-deployment.md
       - name: Monitor a workspace
         href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
-        href: platform/delete-workspace.md
+        href: logs/delete-workspace.md
       - name: Manage access
         displayName: Log Analytics workspace
         href: platform/manage-access.md
@@ -241,7 +241,7 @@
       - name: Query scope
         href: log-query/scope.md
       - name: Example queries
-        href: log-query/example-queries.md
+        href: logs/example-queries.md
     - name: Log queries
       items:
       - name: Overview
@@ -258,7 +258,7 @@
       - name: Optimize queries
         href: log-query/query-optimization.md
       - name: Functions
-        href: log-query/functions.md
+        href: logs/functions.md
       - name: Parse text data
         href: log-query/parse-text.md
       - name: Computer groups
@@ -269,7 +269,7 @@
           displayname: cross-resource queries
           href: logs/cross-workspace-query.md
         - name: app expression
-          href: log-query/app-expression.md
+          href: logs/app-expression.md
         - name: workspace expression
           href: logs/workspace-expression.md   
         - name: resource expression
@@ -287,7 +287,7 @@
       - name: Export with Logic Apps
         href: platform/logs-export-logic-app.md
       - name: Query data with Azure Data Explorer
-        href: platform/azure-data-explorer-query-storage.md
+        href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: log-query/log-excel.md
       - name: Send to Power BI
@@ -310,7 +310,7 @@
       href: agents/data-collection-rule-overview.md
     - name: Log data ingestion time
       displayname: latency
-      href: platform/data-ingestion-time.md 
+      href: logs/data-ingestion-time.md 
     - name: Agent data sources
       items:
       - name: Overview
@@ -1401,7 +1401,7 @@
     - name: Web App Analytics solution
       href: insights/azure-web-apps-analytics.md
     - name: Application Insights Connector
-      href: platform/app-insights-connector.md
+      href: logs/app-insights-connector.md
     - name: OMS portal deprecation
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

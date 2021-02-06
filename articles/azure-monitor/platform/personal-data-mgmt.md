@@ -123,5 +123,5 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 >  While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, **the formal SLA for the completion of purge operations is set at 30 days**.
 
 ## Next steps
-- To learn more about how Log Analytics data is collected, processed, and secured, see [Log Analytics data security](./data-security.md).
+- To learn more about how Log Analytics data is collected, processed, and secured, see [Log Analytics data security](../logs/data-security.md).
 - To learn more about how Application Insights data is collected, processed, and secured, see [Application Insights data security](../app/data-retention-privacy.md).

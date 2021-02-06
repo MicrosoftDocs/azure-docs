@@ -27,7 +27,7 @@ The best way to get started learning to write log queries using KQL is leveragin
 
 - [Log Analytics tutorial](log-analytics-tutorial.md) - Tutorial on using the features of Log Analytics which is the tool that you'll use in the Azure portal to edit and run queries. It also allows you to write simple queries without directly working with the query language. If you haven't used Log Analytics before, start here so you understand the tool that you'll use with the other tutorials and samples.
 - [KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) - Guided walk through basic KQL concepts and common operators. This is the best place to start to come up to speed with the language itself and the structure of log queries. 
-- [Example queries](example-queries.md) - Description of the example queries available in Log Analytics. You can use the queries without modification or use them as samples to learn KQL.
+- [Example queries](../logs/example-queries.md) - Description of the example queries available in Log Analytics. You can use the queries without modification or use them as samples to learn KQL.
 - [Query samples](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) - Sample queries illustrating a variety of different concepts.
 
 
@@ -68,7 +68,7 @@ While Azure Monitor uses the same KQL as Azure Data Explorer, there are some dif
 ### Additional operators in Azure Monitor
 The following operators support specific Azure Monitor features and are not available outside of Azure Monitor.
 
-* [app()](app-expression.md)
+* [app()](../logs/app-expression.md)
 * [resource()](resource-expression.md)
 * [workspace()](../logs/workspace-expression.md)
 

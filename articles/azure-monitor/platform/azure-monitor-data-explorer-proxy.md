@@ -10,7 +10,7 @@ ms.date: 12/02/2020
 
 ---
 # Cross-resource query Azure Data Explorer by using Azure Monitor
-Azure Monitor supports cross-service queries between Azure Data Explorer, [Application Insights](../app/app-insights-overview.md), and [Log Analytics](./data-platform-logs.md). You can then query your Azure Data Explorer cluster by using Log Analytics/Application Insights tools and refer to it in a cross-service query. The article shows how to make a cross-service query.
+Azure Monitor supports cross-service queries between Azure Data Explorer, [Application Insights](../app/app-insights-overview.md), and [Log Analytics](../logs/data-platform-logs.md). You can then query your Azure Data Explorer cluster by using Log Analytics/Application Insights tools and refer to it in a cross-service query. The article shows how to make a cross-service query.
 
 The following diagram shows the Azure Monitor cross-service flow:
 

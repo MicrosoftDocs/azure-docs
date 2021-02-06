@@ -79,7 +79,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 1. To query the syslog log data in **Logs**, type `Syslog` in the query window.
 
-1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
+1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**

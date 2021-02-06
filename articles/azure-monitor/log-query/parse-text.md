@@ -162,7 +162,7 @@ SecurityEvent
 ```
 
 ## Use function to simulate a table
-You may have multiple queries that perform the same parsing of a particular table. In this case, [create a function](functions.md) that returns the parsed data instead of replicating the parsing logic in each query. You can then use the function alias in place of the original table in other queries.
+You may have multiple queries that perform the same parsing of a particular table. In this case, [create a function](../logs/functions.md) that returns the parsed data instead of replicating the parsing logic in each query. You can then use the function alias in place of the original table in other queries.
 
 Consider the comma-delimited custom log example above. In order to use the parsed data in multiple queries, create a function using the following query and save it with the alias _MyCustomCSVLog_.
 
