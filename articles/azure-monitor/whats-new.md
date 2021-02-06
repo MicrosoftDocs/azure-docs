@@ -18,7 +18,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Partners who integrate with Azure Monitor](platform/partners.md) - Added section on Event Hub integration.
 
 ### Agents
-- [Cross-resource query Azure Data Explorer by using Azure Monitor](platform/azure-monitor-data-explorer-proxy.md) - New article.
+- [Cross-resource query Azure Data Explorer by using Azure Monitor](logs/azure-monitor-data-explorer-proxy.md) - New article.
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added Oracle 8 support.
 
 ### Alerts
@@ -50,7 +50,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Logs
 - [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - Added automated commands, methods to unlink and remove, and troubleshooting.
-- [Cross service query between Azure Monitor and Azure Data Explorer (preview)](platform/azure-data-explorer-monitor-cross-service-query.md) - New article.
+- [Cross service query between Azure Monitor and Azure Data Explorer (preview)](logs/azure-data-explorer-monitor-cross-service-query.md) - New article.
 - [Log Analytics workspace data export in Azure Monitor (preview)](platform/logs-data-export.md) - Added ARM templates.
 
 ### Metrics
