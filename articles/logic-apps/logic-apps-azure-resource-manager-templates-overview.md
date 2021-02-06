@@ -625,7 +625,7 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top level parameters for their values so you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
+Connection resource definitions reference the template's top-level parameters for their values so you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
 
 Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
