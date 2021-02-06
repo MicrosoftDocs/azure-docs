@@ -174,11 +174,13 @@ Since a diagnostic setting needs to be created for each Azure resource, Azure Po
 ## Metric category is not supported error
 When deploying a diagnostic setting, you receive the following error message:
 
-  "Metric category '<category>' is not supported"
+   "Metric category '*xxxx*' is not supported"
 
-For example: "Metric category 'ActionsFailed' is not supported"
+For example: 
 
-However, previously your deployment worked as expected.
+   "Metric category 'ActionsFailed' is not supported"
+
+where previously your deployment succeeded. 
 
 The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
