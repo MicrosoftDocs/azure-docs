@@ -586,26 +586,28 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects
+#### audioEffects (public preview)
 
-|Name|Description|
+|Name|Description
 |---|---|
-|id|The audio effect ID.|
-|type|The audio effect type (for example, Clapping, Speech, Silence).|
-|instances|A list of time ranges where this audio effect appeared.|
+|id|The audio effect ID|
+|type|The audio effect type|
+|instances|A list of time ranges where this audio effect appeared. Each instance has a confidence field.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]
