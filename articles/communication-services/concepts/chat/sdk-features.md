@@ -49,6 +49,17 @@ The following list presents the set of features which are currently available in
 |                    | Monitor the quality and status of API requests made by your app and configure alerts via the portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Additional features | Use [Cognitive Services APIs](../../../cognitive-services/index.yml) along with chat client library to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
+## JavaScript chat client library support by OS and browser
+
+The following table represents the set of supported browsers and versions which are currently available.
+
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+
+
+*Note that the latest version is supported in addition to the previous two releases.<br/>
+
 ## Next steps
 
 > [!div class="nextstepaction"]
