@@ -62821,11 +62821,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/log-query/logs-structure.md",
-      "redirect_url": "/azure/azure-monitor/logs/logs-structure",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/log-standard-columns.md",
       "redirect_url": "/azure/azure-monitor/logs/log-standard-columns",
       "redirect_document_id": false
@@ -62893,11 +62888,6 @@
     {
       "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-workspace.md",
       "redirect_url": "/azure/azure-monitor/logs/resource-manager-workspace",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/log-query/saved-queries.md",
-      "redirect_url": "/azure/azure-monitor/logs/saved-queries",
       "redirect_document_id": false
     }
   ]

@@ -35,7 +35,8 @@ Power BI uses the [M query language](/powerquery-m/power-query-m-language-specif
 
 Log Analytics queries can be exported to M and used in Power BI directly. After running a successful query, select the **Export to Power BI (M query)** from the **Export** button in Log Analytics UI top action bar.
 
-:::image type="content" source="media/log-powerbi-excel/export-query2.png" alt-text="Log Analytics query showing export option menu pulldown" border="true":::
+
+:::image type="content" source="media/log-powerbi/export-query2.png" alt-text="Log Analytics query showing export option menu pulldown" border="true":::
 
 Log Analytics creates a .txt file containing the M code that can be used directly in Power BI.
 

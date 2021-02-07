@@ -66,7 +66,7 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 
 ### Alert extension  
 
-Alerts have been [extended into the Azure portal](./alerts-unified-log.md) Existing alerts will continue to be listed in the OMS portal, but you can only manage them in Azure portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
+Alerts have been [extended into the Azure portal](../alerts/alerts-unified-log.md) Existing alerts will continue to be listed in the OMS portal, but you can only manage them in Azure portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
 As a change from a previous announcement, the [Alert management solution](../platform/alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
