@@ -23,11 +23,11 @@ When you finish building, training, and testing your active LUIS app, make it av
 1. Open your app by selecting its name on **My Apps** page.
 1. To publish to the endpoint, select **Publish** in the top, right panel.
 
-    ![Publish button in top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Publish button in top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar-2.png)
 
 1. Select your settings for the published prediction endpoint, then select **Publish**.
 
-    ![Select publish settings then select Publish button](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Select publish settings then select Publish button](./media/luis-how-to-publish-app/publish-pop-up-2.png)
 
 ### Publishing slots
 
@@ -53,7 +53,6 @@ For example, for an app created on [www.luis.ai](https://www.luis.ai), if you cr
 After you select the slot, configure the publish settings for:
 
 * Sentiment analysis
-* [Spelling correction](luis-tutorial-bing-spellcheck.md)
 * Speech priming
 
 After you publish, these settings are available for review from the **Manage** section's **Publish settings** page. You can change the settings with every publish. If you cancel a publish, any changes you made during the publish are also canceled.
@@ -75,37 +74,6 @@ You do not have to provide a Text Analytics key and there is no billing charge f
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels.
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-reference-prebuilt-sentiment.md)
-
-## Spelling correction
-
-The V3 prediction API now supports the Bing Spellcheck API. You can add spell checking to your application by including the key to your Bing search resource in the header of your requests. You can use an existing Bing resource if you already own one, or [create a new one](https://portal.azure.com/#create/Microsoft.BingSearch) to use this feature. 
-
-|Header Key|Header Value|
-|--|--|
-|`mkt-bing-spell-check-key`|Keys found in **Keys and Endpoint** blade of your resource|
-
-Prediction output example for a misspelled query:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
 
 ## Speech priming
 
