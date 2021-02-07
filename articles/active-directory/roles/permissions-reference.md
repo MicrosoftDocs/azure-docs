@@ -530,6 +530,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 > | microsoft.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
@@ -692,6 +693,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 > | microsoft.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
@@ -761,6 +763,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete oAuth2PermissionGrants, and read and update all properties in Azure Active Directory. |
 > | microsoft.directory/organization/allProperties/allTasks | Create and delete organization, and read and update all properties in Azure Active Directory. |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete roleAssignments, and read and update all properties in Azure Active Directory. |
 > | microsoft.directory/roleDefinitions/allProperties/allTasks | Create and delete roleDefinitions, and read and update all properties in Azure Active Directory. |
 > | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties in Azure Active Directory. |
@@ -1138,6 +1141,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 > | microsoft.directory/organization/basic/read    | Read basic properties on organization in Azure Active Directory. |
 > | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read    | Read organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
 > | microsoft.directory/policies/standard/read    | Read standard policies in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/roleAssignments/basic/read    | Read basic properties on roleAssignments in Azure Active Directory. |
 > | microsoft.directory/roleDefinitions/basic/read    | Read basic properties on roleDefinitions in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/read    | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
@@ -1678,6 +1682,7 @@ Can read sign-in and audit reports.
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 > | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
@@ -1738,6 +1743,7 @@ Can read security information and reports,and manage configuration in Azure AD a
 > | microsoft.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
 > | microsoft.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 > | microsoft.office365.protectionCenter/allEntities/read | Read all aspects of Office 365 Protection Center. |
@@ -1787,6 +1793,7 @@ Can read security information and reports in Azure AD and Microsoft 365.
 > | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 > | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 > | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 > | microsoft.office365.protectionCenter/allEntities/read | Read all aspects of Office 365 Protection Center. |
@@ -2053,7 +2060,7 @@ Teams Communications Administrator | Teams Communications Administrator | baf37b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
 Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams Devices Administrator | Teams Devices Administrator | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Teams Administrator | Teams Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Usage Summary Reports Reader | Usage summary reports reader | 75934031-6c7e-415a-99d7-48dbd49e875e
 User | Not shown because it can't be used | a0b1b346-4d3e-4e8b-98f8-753987be4970
 User Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1

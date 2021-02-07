@@ -760,6 +760,10 @@
       href: solution-template-databricks-notebook.md
   - name: Understanding pricing
     items:
+    - name: Data flow reserved capacity overview
+      href: data-flow-reserved-capacity-overview.md
+    - name: Data flow understand reservation charges
+      href: data-flow-understand-reservation-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
     - name: Pricing examples     
