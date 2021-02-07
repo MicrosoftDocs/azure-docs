@@ -70,7 +70,7 @@ How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
 - [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 
 ## Secret tags  
 You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -120,7 +120,7 @@ How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
 - [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 
 
 ## Next steps

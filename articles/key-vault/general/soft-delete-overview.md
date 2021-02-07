@@ -14,6 +14,9 @@ ms.date: 12/15/2020
 > [!IMPORTANT]
 > You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
 
+> [!IMPORTANT]
+> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions, Azure Monitor diagnostics settings. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
+
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
 - Once a secret, key, certificate, or key vault is deleted, it will remain recoverable for a configurable period of 7 to 90 calendar days. If no configuration is specified the default recovery period will be set to 90 days. This provides users with sufficient time to notice an accidental secret deletion and respond.
