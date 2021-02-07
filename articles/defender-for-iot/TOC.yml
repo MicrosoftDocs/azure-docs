@@ -147,8 +147,10 @@
         href: how-to-manage-the-alert-event.md
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
+        displayName: custom, alerts, comments, groups
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
+        displayName: integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email 
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Work with alerts on the on-premises management console
@@ -176,11 +178,12 @@
         displayName: import, enrich
     - name: Track sensor activity
       href: how-to-track-sensor-activity.md
-      displayName: timeline, time line, time-line, event
+      displayName: timeline, time line, time-line, event, audit
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
+      displayName: health
     - name: Integrate with partners
       items:
       - name: Cisco ISE pxGrid integration
