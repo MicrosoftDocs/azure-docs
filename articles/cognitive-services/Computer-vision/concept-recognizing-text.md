@@ -141,7 +141,7 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 ## Handwritten classification for text lines (Latin only)
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is supported only for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image border type="content" source="./Images/handwritten-text-line.png" alt-text="OCR handwriting classification example":::
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ## Supported languages
 The Read APIs support a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten style OCR is supported exclusively for English.
