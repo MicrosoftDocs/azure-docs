@@ -589,13 +589,37 @@ axios(config)
 ### [Java](#tab/java)
 
 ```java
-import okhttp3.Headers;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
 
-import java.io.IOException;
+public class GetJobs {
 
+    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String url = "<YOUR-RESOURCE-URL";
+    String route = "/batches"
+    OkHttpClient client = new OkHttpClient();
+
+    public void get() throws IOException {
+        Request request = new Request.Builder().url(
+                url + batches)
+                .method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+        Response response = client.newCall(request).execute(); 
+
+            System.out.println(response.body().string());
+        }
+
+    public static void main(String[] args) throws IOException {
+        try{
+            GetJobs jobs = new GetJobs();
+            jobs.get();
+        } catch (Exception e) {
+            System.out.println(e);
+      }
+
+   }
+}
 
 
 ```
