@@ -85,9 +85,10 @@
       - name: Security agents
         href: overview-security-agents.md
       - name: Security agent authentication
-        displayName: method, C, C#
+        displayName: method, C, C#, module, device, installation, authentication
         href: concept-security-agent-authentication-methods.md
       - name: Baseline
+        displayName: custom, setting, properties
         href: concept-baseline.md
       - name: Azure security baseline for Azure Defender for IoT
         displayName: identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance
@@ -221,25 +222,31 @@
   - name: Agent-based solution for device builders
     items:
     - name: Security Module for Azure RTOS
+      displayName: detect, malicious, network, behavior, security, protect, 
       href: iot-security-azure-rtos.md
       items: 
       - name: Work with Security Module for Azure RTOS
         href: how-to-azure-rtos-security-module.md
       - name: Understand the Security Module for Azure RTOS
+        displayName: NetX, Duo
         href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations 
+      - name: Security Module for Azure RTOS alerts and recommendations
         href: concept-rtos-security-alerts-recommendations.md
     - name: Connect to Azure Sentinel
+      displayName: log analytics, service notes
       href: how-to-configure-with-sentinel.md
     - name: Configure Azure Defender for IoT agent-based solution
+      displayName: data, collection, geolocation, log analytics, raw events
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
+      displayName: investigation, queries, investigate
       href: how-to-investigate-cis-benchmark.md
     - name: Investigate security recommendations
       href: quickstart-investigate-security-recommendations.md
     - name: Investigate security alerts
       href: quickstart-investigate-security-alerts.md
     - name: Create custom alerts
+      displayName: security group
       href: quickstart-create-custom-alerts.md
     - name: Classic
       items: 
@@ -264,12 +271,15 @@
       - name: Deploy Edge security module
         href: how-to-deploy-edge.md
       - name: Configure security agents
+        displayName: property
         href: how-to-agent-configuration.md
       - name: Send your own security messages
         href: how-to-send-security-messages.md
       - name: Access raw security data
+        displayName: log analytics, alerts, 
         href: how-to-security-data-access.md
       - name: Investigate a device
+        displayName: access, data, kql, ports, logins, process
         href: how-to-investigate-device.md
 - name: Troubleshooting
   items:
