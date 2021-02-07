@@ -20,9 +20,9 @@ To view the status of the service:
 
 1. Run the following command
 
-```azurecli
-systemctl status defender-iot-micro-agent.service 
-```
+    ```azurecli
+    systemctl status defender-iot-micro-agent.service 
+    ```
 
 1. Check that the service is stable by making sure it is `active`, and that the uptime in the process is appropriate.
 

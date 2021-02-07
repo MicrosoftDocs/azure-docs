@@ -44,4 +44,4 @@ The default buffer for network connection events is 64. No new network events wi
 
 ## Next steps
 
-check your [Defender for IoT security alerts](concept-security-alerts.md).
+Check your [Defender for IoT security alerts](concept-security-alerts.md).

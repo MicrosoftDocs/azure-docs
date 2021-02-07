@@ -110,11 +110,11 @@ sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt
 ```
 A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0: 
 
-:::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub.":::
+:::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
 
 Allow up to one hour for the recommendation to appear in the hub. 
 
-## Micro Agent Versioning 
+## Micro agent versioning 
 
 To install a specific version of the Defender IoT micro agent, run the following command: 
 
