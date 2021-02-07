@@ -62784,6 +62784,121 @@
       "source_path_from_root": "/articles/azure-monitor/log-query/functions.md",
       "redirect_url": "/azure/azure-monitor/logs/functions",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/log-analytics-overview.md",
+      "redirect_url": "/azure/azure-monitor/logs/log-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/log-excel.md",
+      "redirect_url": "/azure/azure-monitor/logs/log-excel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/logicapp-flow-connector.md",
+      "redirect_url": "/azure/azure-monitor/logs/logicapp-flow-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/log-powerbi.md",
+      "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/logs-data-export.md",
+      "redirect_url": "/azure/azure-monitor/logs/logs-data-export",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/logs-dedicated-clusters.md",
+      "redirect_url": "/azure/azure-monitor/logs/logs-dedicated-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/logs-export-logic-app.md",
+      "redirect_url": "/azure/azure-monitor/logs/logs-export-logic-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/logs-structure.md",
+      "redirect_url": "/azure/azure-monitor/logs/logs-structure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/log-standard-columns.md",
+      "redirect_url": "/azure/azure-monitor/logs/log-standard-columns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/manage-access.md",
+      "redirect_url": "/azure/azure-monitor/logs/manage-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/monitor-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/monitor-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/move-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/move-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/oms-portal-transition.md",
+      "redirect_url": "/azure/azure-monitor/logs/oms-portal-transition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/operationalinsights-api-retirement.md",
+      "redirect_url": "/azure/azure-monitor/logs/operationalinsights-api-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/parse-text.md",
+      "redirect_url": "/azure/azure-monitor/logs/parse-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/personal-data-mgmt.md",
+      "redirect_url": "/azure/azure-monitor/logs/personal-data-mgmt",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/powershell-workspace-configuration.md",
+      "redirect_url": "/azure/azure-monitor/logs/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/private-link-security.md",
+      "redirect_url": "/azure/azure-monitor/logs/private-link-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/private-storage.md",
+      "redirect_url": "/azure/azure-monitor/logs/private-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/query-audit.md",
+      "redirect_url": "/azure/azure-monitor/logs/query-audit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/query-optimization.md",
+      "redirect_url": "/azure/azure-monitor/logs/query-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/resource-manager-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/saved-queries.md",
+      "redirect_url": "/azure/azure-monitor/logs/saved-queries",
+      "redirect_document_id": false
     }
   ]
 }

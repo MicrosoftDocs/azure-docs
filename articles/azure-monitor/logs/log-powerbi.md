@@ -76,4 +76,4 @@ Additional information can be found in [Integrate Log Analytics and Excel](log-e
 
 ## Next steps
 
-Get started with [Log Analytics queries](log-query-overview.md).
+Get started with [Log Analytics queries](../log-query/log-query-overview.md).

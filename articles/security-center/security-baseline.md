@@ -655,7 +655,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](../azure-monitor/samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

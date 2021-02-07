@@ -32,7 +32,7 @@ Virtual network rules enable Azure Monitor to only accept communications that ar
 
 Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet preventing need of computers to be connected to internet. 
 
-- [How to set up Private Link for Azure Monitor](platform/private-link-security.md)
+- [How to set up Private Link for Azure Monitor](logs/private-link-security.md)
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](agents/gateway.md)
 
@@ -321,7 +321,7 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Manage access to log data and workspaces in Azure Monitor](platform/manage-access.md)
+- [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -656,7 +656,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Use Azure Automation to run the backup scripts automatically. 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -670,7 +670,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Backup customer-managed keys within Azure Key Vault if Azure Monitor related resources are using customer-managed keys, 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -684,7 +684,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files.  Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](./samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

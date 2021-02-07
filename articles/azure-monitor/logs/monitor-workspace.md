@@ -54,10 +54,10 @@ Ingestion operations are issues that occurred during data ingestion including no
 | Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Custom log | Error   | Custom logs ingestion failed. | |
 | Metadata. | Error | Configuration error detected. | |
-| Data collection | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Data collection | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
 | Data collection | Info    | Collection machine configuration is detected.| |
-| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Data processing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](../logs/data-collector-api.md#request-body) | 
 | Data processing | Warning | Value has been trimmed to the max allowed size. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Data processing | Warning | Field value trimmed as size limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) | 

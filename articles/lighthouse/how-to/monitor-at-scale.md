@@ -12,7 +12,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 > [!NOTE]
-> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) on your delegated customer subscriptions.
+> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) on your delegated customer subscriptions.
 
 ## Create Log Analytics workspaces
 
@@ -23,7 +23,7 @@ We recommend creating these workspaces directly in the customer tenants. This wa
 > [!TIP]
 > Any automation account used to access data from a Log Analytics workspace must be created in the same tenant as the workspace.
 
-You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Even if all of the workspaces are created in the customer tenant, the Microsoft.Insights resource provider must also be registered on a subscription in the managing tenant.
