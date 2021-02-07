@@ -139,7 +139,7 @@ The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/servi
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ## Select page(s) or page ranges for text extraction
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. For example, the following example shows a document with 10 pages for both cases - all pages (1-10) and selected pages (3-6).
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
 
