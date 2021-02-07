@@ -36,7 +36,7 @@ If your data source delivers events in files, we recommend that you use the Azur
 
 If you're familiar with [Logstash](https://www.elastic.co/logstash), you may want to use Logstash with the [Logstash output plug-in for Azure Sentinel](connect-logstash.md) to create your custom connector.
 
-You can use any Logstash input and filtering plugins and configure Azure Sentinel as the output for a Logstash pipeline. Logstash's large library of plug-ins enables input from sources such as Event Hubs, Apache Kafka, Files, Databases, and Cloud services. Use filtering plug-ins to parse events, filter unnecessary events, obfuscate values, and more.
+With the Azure Sentinel Logstash Output plugin, you can use any Logstash input and filtering plugins, and configure Azure Sentinel as the output for a Logstash pipeline. Logstash's large library of plug-ins enables input from sources such as Event Hubs, Apache Kafka, Files, Databases, and Cloud services. Use filtering plug-ins to parse events, filter unnecessary events, obfuscate values, and more.
 
 For an example of using Logstash as a custom connector, see [Collecting AWS CloudWatch data](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (*Ingest S3 Logs to Azure Sentinel via Logstash*).
 
@@ -46,21 +46,23 @@ For an example of using Logstash as a custom connector, see [Collecting AWS Clou
 
 ## Using Logic Apps to create your connector
 
-Create an Azure Sentinel playbook to use a Logic App as a serverless, custom connector. 
+Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom connector for Azure Sentinel.
 
 > [!NOTE]
-> While creating serverless connectors may be convenient, using Logic Apps for your connectors may be costly for large volumes of data. 
+> While creating serverless connectors using Logic Apps may be convenient, using Logic Apps for your connectors may be costly for large volumes of data. 
 >
 > We recommend that you use this method only for low-volume data sources, or enriching your data uploads.
 >
 
-1. **Use one of the following triggers to start your playbook**:
+1. **Use one of the following triggers to start your Logic Apps**:
 
     - **A recurring task**. For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence). 
     - **On-demand triggering**. Run your Logic App on-demand for manual data collection and testing. For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).
     - **HTTP/S endpoint**. Recommended for streaming, and if the source system can initiate the data transfer. For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).
 
-1. **Build one of the following types of custom connectors**:
+1. **Use any of the Logic App connectors that reads information to get your events**.
+
+    For example:
 
     - [Connect to a REST API](/connectors/custom-connectors/)
     - [Connect to a SQL Server](/connectors/sql/)
@@ -83,7 +85,6 @@ Create an Azure Sentinel playbook to use a Logic App as a serverless, custom con
 For examples of how you can create a custom connector for Azure Sentinel using Logic Apps, see:
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
-- [Sending enriched Azure Sentinel alerts to 3rd party SIEM and ticketing systems](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976) (blog)
 - [Ingesting AlienVault OTX threat indicators into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
 - [Sending Proofpoint TAP logs to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
 
@@ -122,14 +123,15 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 
 Find the details for the **WorkspaceID** and **WorkspaceKey** parameters in Azure Sentinel:
 
-1. In Azure Sentinel, select **Settings** on the left. 
+1. In Azure Sentinel, select **Settings** on the left, and then select the **Workspace settings** tab.
 
 1. Under **Get started with Log Analytics** > **1 Connect a data source**, select **Windows and Linux agents management**. 
 
 1. Find your workspace ID, primary key, and secondary key on the **Windows servers** tabs.
-## Create a custom collector via a direct API
+## Create a custom connector via the Log Analytics Data Collector API
 
-Instead of using the Log Analytics Collector API to stream events to Azure Sentinel, you can call a RESTful endpoint directly to stream events to Azure Sentinel.
+
+You can stream events to Azure Sentinel by using the Log Analytics Data Collector API to call a RESTful endpoint directly.
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility. 
 
@@ -140,14 +142,13 @@ For more information, see the [Log Analytics Data collector API](/azure/azure-mo
  
 ## Use Azure Functions to create your custom connector
 
-Use Azure Functions to create a serverless, custom connector using the API connector and any language, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
+Use Azure Functions to create a serverless, custom connector using the RESTful API and a variety of languages, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
 For examples of this method, see:
 
 - [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (GitHub)
-- [Universal logging for LISA app](https://microsoft.github.io/techcasestudies/azure%20functions/2017/05/15/LisaApp.html) (Technical Case Studies)
 
 ## Parsing your custom connector data
 
@@ -156,25 +157,13 @@ You can use your custom connector's built-in parsing technique to extract the re
 For example:
 
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/logstash/current/plugins-filters-grok.html) filter plugin to parse your data. 
-- **If you've used the Log Analytics agent**, use the  [Fluentd parsers](https://docs.fluentd.org/parser) to parse your data.
+- **If you've used an Azure function**, parse your data with code. For more information, see [Parsers](normalization.md#parsers).
 
-Azure Sentinel also allows parsing at query time, which enables you to push data in at the original format, and then parse on demand, when needed. 
+Azure Sentinel allows parsing at query time, which enables you to push data in at the original format, and then parse on demand, when needed. 
 
 When you parse at query time, you don't need to know your data's exact structure when you create your custom connector, or even identify the information you need to extract. Instead, you can parse your data at any time, even during an investigation. 
 
 Updating your parser also applies to data that you've already ingested into Azure Sentinel.
-
-Save your parsers as functions, and use those functions instead of Azure Sentinel tables in any query, including hunting and detection queries. For more information, see:
-
-- [Data normalization in Azure Sentinel](normalization.md#parsers)
-- [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
- 
-> [!TIP]
-> JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool. 
->
-> For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog).
-> 
-
 
 ## Next steps
 
