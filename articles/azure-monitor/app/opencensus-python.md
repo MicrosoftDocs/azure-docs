@@ -453,7 +453,7 @@ In the list under **Active**:
 - For telemetry sent with the Azure Monitor metrics exporter, sent metrics appear under `customMetrics`.
 - For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
-For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../platform/data-platform-logs.md).
+For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 ## Learn more about OpenCensus for Python
 

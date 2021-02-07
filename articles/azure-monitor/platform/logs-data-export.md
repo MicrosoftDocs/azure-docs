@@ -726,4 +726,4 @@ Supported tables are currently limited to those specified below. All data from t
 
 ## Next steps
 
-- [Query the exported data from Azure Data Explorer](azure-data-explorer-query-storage.md).
+- [Query the exported data from Azure Data Explorer](../logs/azure-data-explorer-query-storage.md).

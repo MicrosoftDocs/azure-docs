@@ -70,7 +70,7 @@ You first create cluster resources to begin creating a dedicated cluster.
 The following properties must be specified:
 
 - **ClusterName**: Used for administrative purposes. Users are not exposed to this name.
-- **ResourceGroupName**: As for any Azure resource, clusters belong to a resource group. We  recommended you use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../platform/design-logs-deployment.md)
+- **ResourceGroupName**: As for any Azure resource, clusters belong to a resource group. We  recommended you use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md)
 - **Location**: A cluster is located in a specific Azure region. Only workspaces located in this region can be linked to this cluster.
 - **SkuCapacity**: You must specify the *capacity reservation* level (sku) when creating a *cluster* resource. The *capacity reservation* level can be in the range of 1,000 GB to 3,000 GB per day. You can update it in steps of 100 later if needed. If you need capacity reservation level higher than 3,000 GB per day, contact us at LAIngestionRate@microsoft.com. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
@@ -570,4 +570,4 @@ Use the following REST call to delete a cluster:
 ## Next steps
 
 - Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)
+- Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)

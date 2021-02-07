@@ -9,7 +9,7 @@ ms.topic: how-to
 
 As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
+This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 > [!NOTE]
 > Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) on your delegated customer subscriptions.
@@ -62,5 +62,5 @@ alertsmanagementresources
 
 - Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces. 
 - Learn about [Azure Monitor](../../azure-monitor/index.yml).
-- Learn about [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md).
+- Learn about [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

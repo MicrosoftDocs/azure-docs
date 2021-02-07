@@ -34,11 +34,11 @@ You can get to example queries from two different locations.
 
 When you first enter the Log Analytics experience, the *Example queries dialog* is shown automatically.  It can also be accessed by clicking in the upper right of the screen on **Example queries**.
 
-![Sidebar - example queries](media/saved-queries/sidebar-2.png)
+![Sidebar - example queries](media/example-queries/sidebar-2.png)
 
 The example query dialog then appears as shown below:  
 
-![Example queries screen](media/saved-queries/example-query-start.png)
+![Example queries screen](media/example-queries/example-query-start.png)
 
 The previous screenshot displays the logs screen for an Azure Key Vault instance. As mentioned previously in this article, the queries are shown in-context.  As a result, the screenshot shows only Key Vault related examples. If you select an entire subscription, then queries for all the resource types in that subscription are displayed.  
 
@@ -48,7 +48,7 @@ Each example query is represented by a card. You can quickly scan through the qu
 
 All the same functionality of the dialog experience can be accessed from the queries pane on the left-hand sidebar of Log Analytics. You can hover over a query name to get the query description and additional functionality.
 
-![Screenshot that shows the queries pane.](media/saved-queries/sidebar-3.png)
+![Screenshot that shows the queries pane.](media/example-queries/sidebar-3.png)
 
 ## Finding and filtering queries
 
@@ -69,7 +69,7 @@ While the query dialog experience filers to show only queries with the right con
 
 Change the grouping of the queries by clicking the *group by* drop-down list:
 
-![Example queries screen groupby](media/saved-queries/example-query-groupby.png)
+![Example queries screen groupby](media/example-queries/example-query-groupby.png)
 
 The dialog supports grouping by:
 
@@ -84,7 +84,7 @@ The grouping values also act as an active table of contents. Clicking one of the
 
 You can also filter the queries according to the **group by** values mentioned earlier. In the example query dialog, the filters are found at the top.
 
-![Example queries screen filter](media/saved-queries/example-query-filter.png)
+![Example queries screen filter](media/example-queries/example-query-filter.png)
 
 ### Combining group by and filter
 
@@ -94,7 +94,7 @@ The filter and group by functionality are designed to work in tandem. They provi
 
 If you are a KQL pro and prefer to get directly to the query editor, you can toggle the the query dialog "off". With the toggle off, the example query dialog does not load when Log Analytics screen loads.
 
-![Examples On-Off](media/saved-queries/examples-on-off.png)
+![Examples On-Off](media/example-queries/examples-on-off.png)
 
 You can always access the sample query popup experience from the *Example queries* button on the top bar of Log Analytics.
 
@@ -104,5 +104,5 @@ The query explorer experience for saving and sharing user-generated queries rema
 
 ## Next steps
 
-[Get started with KQL Queries](get-started-queries.md)
+[Get started with KQL Queries](../log-query/get-started-queries.md)
 

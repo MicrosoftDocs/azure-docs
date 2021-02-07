@@ -10,9 +10,9 @@ ms.date: 03/16/2020
 ---
 
 # Azure Monitor log query examples
-This article includes various examples of [queries](log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
+This article includes various examples of [queries](../log-query/log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
 
-See the [Kusto language reference](/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Azure Monitor.
+See the [Kusto language reference](/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](../log-query/get-started-queries.md) if you're new to Azure Monitor.
 
 ## Events
 
@@ -435,4 +435,4 @@ Update
 ## Next steps
 
 - Refer to the [Kusto language reference](/azure/kusto/query) for details on the language.
-- Walk through a [lesson on writing log queries in Azure Monitor](get-started-queries.md).
+- Walk through a [lesson on writing log queries in Azure Monitor](../log-query/get-started-queries.md).

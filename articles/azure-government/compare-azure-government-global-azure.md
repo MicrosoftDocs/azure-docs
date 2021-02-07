@@ -264,7 +264,7 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
-### [Azure Monitor](../azure-monitor/platform/data-platform-logs.md)
+### [Azure Monitor](../azure-monitor/logs/data-platform-logs.md)
 
 The following Azure Monitor **features are not currently available** in Azure Government:
 - Solutions that are in preview in Microsoft Azure, including:

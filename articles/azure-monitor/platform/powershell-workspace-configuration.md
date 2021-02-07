@@ -207,11 +207,11 @@ In the above example regexDelimiter was defined as "\\n" for newline. The log de
 | `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](./delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
 2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
-   * [Recover](./delete-workspace.md#recover-workspace) your workspace
-   * [Permanently delete](./delete-workspace.md#permanent-workspace-delete) your workspace
+   * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
+   * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace
    * Create a new workspace using the same workspace name
 
 

@@ -11,19 +11,19 @@ ms.date: 04/10/2019
 
 # Manage access to log data and workspaces in Azure Monitor
 
-Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](../logs/data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
 * The workspace using workspace permissions.
-* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](design-logs-deployment.md#access-mode)
+* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](../logs/design-logs-deployment.md#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-To understand the Logs concepts around Azure RBAC and access strategies, read [designing your Azure Monitor Logs deployment](design-logs-deployment.md)
+To understand the Logs concepts around Azure RBAC and access strategies, read [designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md)
 
 ## Configure access control mode
 
-You can view the [access control mode](design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+You can view the [access control mode](../logs/design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
 * Azure portal
 
@@ -239,7 +239,7 @@ See [Defining per-table access control](#table-level-azure-rbac) below if you wa
 
 **Table level Azure RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](./data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](../logs/data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](../logs/design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](../logs/design-logs-deployment.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 

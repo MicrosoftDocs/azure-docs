@@ -348,7 +348,7 @@ Azure Monitor negotiates TLS 1.2 by default. Ensure that any clients connecting 
 
 Application Insights and Log Analytics both continue to allow TLS 1.1 and TLS 1.0 data to be ingested. Data may be restricted to TLS 1.2 by configuring on the client side.
 
-- [How to send data securely using TLS 1.2](platform/data-security.md#sending-data-securely-using-tls-12)
+- [How to send data securely using TLS 1.2](logs/data-security.md#sending-data-securely-using-tls-12)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -384,7 +384,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Azure Monitor customer-managed keys](logs/customer-managed-keys.md)
 
-- [Log Analytics data security](platform/data-security.md)
+- [Log Analytics data security](logs/data-security.md)
 
 - [Data collection, retention, and storage in Application Insights](app/data-retention-privacy.md)
 
@@ -487,7 +487,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Reconcile inventory on a regular basis and ensure unauthorized Azure Monitor related resources are deleted from the subscription in a timely manner.  
 
-- [Delete Azure Log Analytics workspace](platform/delete-workspace.md)
+- [Delete Azure Log Analytics workspace](logs/delete-workspace.md)
 
 **Azure Security Center monitoring**: Yes
 

@@ -18,7 +18,7 @@ ms.date: 02/13/2019
 >
 >Existing connections will continue to work until June 30, 2019.  With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. See [Removing the connector with PowerShell](#removing-the-connector-with-powershell) below for a script on using PowerShell to remove existing connections.
 >
->For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](./oms-portal-transition.md).
+>For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](../platform/oms-portal-transition.md).
 >
 > 
 
@@ -42,7 +42,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | --- | --- | --- |
 | [Windows agents](./../agents/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../vm/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [SCOM management group](./om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [SCOM management group](../agents/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | The solution does not collection information from Azure storage. |
 
 ## Prerequisites

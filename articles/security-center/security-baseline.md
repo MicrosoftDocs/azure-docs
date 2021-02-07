@@ -367,7 +367,7 @@ By default Azure Security Center data is stored in the Security Center backend s
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable. 
 
-- [Sending data securely to Log Analytics](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)
+- [Sending data securely to Log Analytics](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
 - [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

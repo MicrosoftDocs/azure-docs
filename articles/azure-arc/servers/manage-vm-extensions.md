@@ -22,7 +22,7 @@ Azure Arc enabled servers VM extension support provides the following key benefi
 
 - Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
-- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
+- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
 
 - With [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 

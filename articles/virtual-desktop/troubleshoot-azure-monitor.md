@@ -36,7 +36,7 @@ If your data isn't displaying properly, something may have happened during the A
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. 
 
-If you don't see any setup errors and still don't see the data you expect, you may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15 minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+If you don't see any setup errors and still don't see the data you expect, you may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15 minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 Finally, if you're not missing any information but your data still doesn't appear, there may be an issue in the query or the data sources. You may need to contact Support to resolve the problem, if that's the case.
 
