@@ -128,11 +128,6 @@ See the following example of a successful JSON response:
 }
 ```
 
-## Select page(s) or page ranges for text extraction
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. For example, the following example shows a document with 10 pages for both cases - all pages (1-10) and selected pages (3-6).
-
-:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
-
 ## Natural reading order output
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown ine the following example.
 
@@ -142,6 +137,11 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is supported only for Latin languages. The following example shows the handwritten classification for the text in the image.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
+
+## Select page(s) or page ranges for text extraction
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. For example, the following example shows a document with 10 pages for both cases - all pages (1-10) and selected pages (3-6).
+
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
 
 ## Supported languages
 The Read APIs support a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten style OCR is supported exclusively for English.
