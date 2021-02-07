@@ -225,7 +225,6 @@ The following table provides a brief description and the unique ID of each built
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Other** |  |  |
-> | [Application Group Contributor](#application-group-contributor) | Contributor of the Application Group. | ca6382a4-1721-4bcf-a114-ff0c70227b6b |
 > | [Azure Digital Twins Data Owner](#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | [Azure Digital Twins Data Reader](#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
@@ -10413,61 +10412,6 @@ Lets you manage tags on entities, without providing access to the entities thems
 
 ## Other
 
-
-### Application Group Contributor
-
-Contributor of the Application Group. [Learn more](../virtual-desktop/rbac.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/* |  |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Read hostpools |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/workspaces/read | Read workspaces |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Contributor of the Application Group.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ca6382a4-1721-4bcf-a114-ff0c70227b6b",
-  "name": "ca6382a4-1721-4bcf-a114-ff0c70227b6b",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.DesktopVirtualization/applicationgroups/*",
-        "Microsoft.DesktopVirtualization/hostpools/read",
-        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-        "Microsoft.DesktopVirtualization/workspaces/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Application Group Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
 
 ### Azure Digital Twins Data Owner
 
