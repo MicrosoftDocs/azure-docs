@@ -596,25 +596,7 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-public class DocumentTranslator {
 
-    public static void main(String[] args) throws IOException {
-        OkHttpExample1 obj = new OkHttpExample1();
-        obj.sendGETSync();
-    }
-
-OkHttpClient client = new OkHttpClient().newBuilder()
-  .build();
-String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
-String route = "/batches";
-
-Request request = new Request.Builder()
-  .url(endpoint + route)
-  .method("GET", null)
-  .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-  .build();
-Response response = client.newCall(request).execute();
 
 ```
 
