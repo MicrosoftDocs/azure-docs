@@ -210,6 +210,26 @@ Restricting access in this manner only applies to data in the Application Insigh
 >
 > Code-level diagnostics (profiler/debugger) need you to provide your own storage account to support private link. Here's [documentation](../app/profiler-bring-your-own-storage.md) for how to do this.
 
+### Handling the All-or-Nothing nature of Private Links
+As explained in [Planning your Private Link setup](#planning-your-private-link-setup), setting up a Private Link even for a single resource affects all Azure Monitor resources in that networks, and in other networks that share the same DNS. This can make your onbaording process challenging. Consider the following options:
+
+* All in - the simplest and most secure approach is to add all of your Application Insights components to the AMPLS. For components that you wish to still access from other networks as well, leave the “Allow public internet access for ingestion/query” flags set to Yes (the default).
+* Isolate networks - if you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup completely separate private link settings in the relevant spoke VNets. Make sure to separate DNS zones as well, since sharing DNS zones with other spoke networks will cause [DNS overrides](#the-issue-of-dns-overrides).
+* Use custom DNS zones for specific apps - this solution allows you to access select Application Insights components over a Private Link, while keeping all other traffic over the public routes.
+    - Setup a [custom private DNS zone](https://docs.microsoft.com/azure/private-link/private-endpoint-dns), and give it a unique name, such as internal.monitor.azure.com
+    - Create an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS
+    - Go to Private Endpoint -> DNS Configuration and you will see a suggested mapping of FQDNs similar to this:
+    ![Screenshot of suggested DNS zone configuration](./media/private-link-security/private-endpoint-fqdns.png)
+    - Choose to Add Configuration and pick the internal.monitor.azure.com zone you just created
+    - Add records for the above
+    ![Screenshot of configured DNS zone](./media/private-link-security/private-endpoint-global-dns-zone.png)
+    - Go to you Application Insights component and copy its [Connection String](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string).
+    - Apps or scripts that wish to call this component over a Private Link should use the connection string with the EndpointSuffix=internal.monitor.azure.com
+* Map endpoints through hosts files instead of DNS - to have a Private Link access only from a specific machine/VM in your network:
+    - Setup an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS 
+    - Configure the above A records on a machine that runs the app in the hosts file
+
+
 ## Use APIs and command line
 
 You can automate the process described earlier using Azure Resource Manager templates, REST, and command-line interfaces.
