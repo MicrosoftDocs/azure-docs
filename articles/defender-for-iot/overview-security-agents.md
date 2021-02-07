@@ -28,12 +28,19 @@ The Defender for IoT security agents handle raw event collection from the device
 Use the following workflow to deploy and test your Defender for IoT security agents:
 
 1. [Enable Defender for IoT service to your IoT Hub](quickstart-onboard-iot-hub.md)
+
 1. If your IoT Hub has no registered devices, [Register a new device](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
+
 1. [Create an azureiotsecurity security module](quickstart-create-security-twin.md) for your devices.
+
 1. To install the agent on an Azure simulated device instead of installing on an actual device, [spin up a new Azure Virtual Machine (VM)](../virtual-machines/linux/quick-create-portal.md) in an available zone.
+
 1. [Deploy an Defender for IoT security agent](how-to-deploy-linux-cs.md) on your IoT device, or new VM.
+
 1. Follow the instructions for [trigger_events](https://aka.ms/iot-security-github-trigger-events) to run a harmless simulation of an attack.
+
 1. Verify Defender for IoT alerts in response to the simulated attack in the previous step. Begin verification five minutes after running the script.
+
 1. Explore [alerts](concept-security-alerts.md), [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub.
 
 ## Next steps
