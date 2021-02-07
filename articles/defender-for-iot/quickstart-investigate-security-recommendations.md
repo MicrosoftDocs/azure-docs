@@ -53,7 +53,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 1.  Explore the recommendation details for a specific device by selecting the desired device in the drill-down page.
 
-    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline" alt-text="Investigate specific security recommendations for a device with ASC for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with ASC for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1.  If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 
 
