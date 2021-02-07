@@ -155,7 +155,9 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Intune](#microsoftintune) |
 | **Other** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
+| [Microsoft.ServicesHub](#microsoftserviceshub) |
 
 
 ## General
@@ -10263,6 +10265,51 @@ Azure service: [Bing Maps](/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listUsageMetrics/action | List the metrics for Microsoft.BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | List the operations for Microsoft.BingMaps |
 
+### Microsoft.DesktopVirtualization
+
+Azure service: [Windows Virtual Desktop](../virtual-desktop/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DesktopVirtualization/register/action | Register subscription |
+> | Microsoft.DesktopVirtualization/applicationgroups/read | Read applicationgroups |
+> | Microsoft.DesktopVirtualization/applicationgroups/write | Write applicationgroups |
+> | Microsoft.DesktopVirtualization/applicationgroups/delete | Delete applicationgroups |
+> | Microsoft.DesktopVirtualization/applicationgroups/applications/read | Read applicationgroups/applications |
+> | Microsoft.DesktopVirtualization/applicationgroups/applications/write | Write applicationgroups/applications |
+> | Microsoft.DesktopVirtualization/applicationgroups/applications/delete | Delete applicationgroups/applications |
+> | Microsoft.DesktopVirtualization/applicationgroups/desktops/read | Read applicationgroups/desktops |
+> | Microsoft.DesktopVirtualization/applicationgroups/desktops/write | Write applicationgroups/desktops |
+> | Microsoft.DesktopVirtualization/applicationgroups/desktops/delete | Delete applicationgroups/desktops |
+> | Microsoft.DesktopVirtualization/applicationgroups/externaluserassignments/read |  |
+> | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
+> | Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/read | Read start menu items |
+> | Microsoft.DesktopVirtualization/hostpools/read | Read hostpools |
+> | Microsoft.DesktopVirtualization/hostpools/write | Write hostpools |
+> | Microsoft.DesktopVirtualization/hostpools/delete | Delete hostpools |
+> | Microsoft.DesktopVirtualization/hostpools/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/hostpools/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/hostpools/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/write | Write hostpools/sessionhosts |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/delete | Delete hostpools/sessionhosts |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read | Read hostpools/sessionhosts/usersessions |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write | Write hostpools/sessionhosts/usersessions |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete | Delete hostpools/sessionhosts/usersessions |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/disconnect/action | Disconnects the user session form session host |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action | Send message to user session |
+> | Microsoft.DesktopVirtualization/workspaces/read | Read workspaces |
+> | Microsoft.DesktopVirtualization/workspaces/write | Write workspaces |
+> | Microsoft.DesktopVirtualization/workspaces/delete | Delete workspaces |
+> | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
+> | **DataAction** | **Description** |
+> | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
+
 ### Microsoft.DigitalTwins
 
 Azure service: [Azure Digital Twins](../digital-twins/index.yml)
@@ -10311,6 +10358,20 @@ Azure service: [Azure Digital Twins](../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/models/read | Read any Model |
 > | Microsoft.DigitalTwins/models/write | Create or Update any Model |
 > | Microsoft.DigitalTwins/models/delete | Delete any Model |
+
+### Microsoft.ServicesHub
+
+Azure service: [Services Hub](/services-hub/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ServicesHub/connectors/write | Create or update a Services Hub Connector |
+> | Microsoft.ServicesHub/connectors/read | View or List Services Hub Connectors |
+> | Microsoft.ServicesHub/connectors/delete | Delete Services Hub Connectors |
+> | Microsoft.ServicesHub/connectors/checkAssessmentEntitlement/action | Lists the Assessment Entitlements for a given Services Hub Workspace |
+> | Microsoft.ServicesHub/supportOfferingEntitlement/read | View the Support Offering Entitlements for a given Services Hub Workspace |
+> | Microsoft.ServicesHub/workspaces/read | List the Services Hub Workspaces for a given User |
 
 ## Next steps
 
