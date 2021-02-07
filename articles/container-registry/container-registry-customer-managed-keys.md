@@ -126,7 +126,7 @@ Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption Users" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
