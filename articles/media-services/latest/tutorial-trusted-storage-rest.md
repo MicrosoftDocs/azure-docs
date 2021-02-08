@@ -235,6 +235,8 @@ Content-Type: application/json; charset=utf-8
 
 ## Give Managed Identity bypass access to the storage account
 
+This action changes the access from system-managed identity to the Managed Identity. In this way, the storage account can access the storage account through a firewall as Azure services can access the storage account regardless of IP access rules (ACLs).
+
 Again, wait until the role has been assigned in the storage account, or the Media Services account will be set up incorrectly.
 
 ```rest
@@ -266,8 +268,6 @@ Content-Type: application/json; charset=utf-8
 
 This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate.
 
-This action changes the access from system-managed identity to the Managed Identity. In this way, the storage account can access the storage account through a firewall as Azure services can access the storage account regardless of IP access rules (ACLs). (Hint: Look for "bypass" in the request bodies in the script.)
-
 ```rest
 // @name updateMediaServicesAccountWithManagedStorageAuth
 PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
@@ -293,7 +293,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Create an Asset
+## Test access
 
 Test access by creating an asset in the storage account.
 
