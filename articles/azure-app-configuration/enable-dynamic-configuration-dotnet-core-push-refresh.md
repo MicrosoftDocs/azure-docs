@@ -54,12 +54,12 @@ Once the resources are created, add the following environment variables. These w
 | Key | Value |
 |---|---|
 | ServiceBusConnectionString | Connection string for the service bus namespace |
-| ServiceBusTopic | Name of the service bus topic |
+| ServiceBusTopic | Name of the Service Bus topic |
 | ServiceBusSubscription | Name of the service bus subscription |
 
 ## Set up Event subscription
 
-1. Open the App Configuration resource in the Azure Portal, then click on `+ Event Subscription` in the `Events` pane.
+1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
 
     ![App Configuration Events](./media/events-pane.png)
 
@@ -67,7 +67,7 @@ Once the resources are created, add the following environment variables. These w
 
     ![Create event subscription](./media/create-event-subscription.png)
 
-1. Select the `Endpoint Type` as `Service Bus Topic`, elect the service bus topic, then click on `Confirm Selection`.
+1. Select the `Endpoint Type` as `Service Bus Topic`, elect the Service Bus topic, then click on `Confirm Selection`.
 
     ![Event subscription service bus endpoint](./media/event-subscription-servicebus-endpoint.png)
 
