@@ -104,10 +104,10 @@ to make each deployment of the copy of the blueprint sample unique.
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
     
-     - **Prefix for resources and resource groups**: This string will be used as a prefix for all resource and resource group names
+     - **Prefix for resources and resource groups**: This string is used as a prefix for all resource and resource group names
      - **Hub name**: Name for the hub
-     - **Log retention (days)**: Number of days that logs will be retained; entering '0' will retain logs indefinitely
-     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment will deploy the hub components of the architecture
+     - **Log retention (days)**: Number of days that logs are retained; entering '0' retains logs indefinitely
+     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment deploys the hub components of the architecture
      - **Hub location**: Location for the hub resource group
      - **Destination IP addresses**: Destination IP addresses for outbound connectivity; comma-separated list of IP addresses or IP range prefixes
      - **Network Watcher name**: Name for the Network Watcher resource
@@ -139,7 +139,7 @@ The following table provides a list of the blueprint parameters:
 |Hub resource group|Resource group|Resource group name|Locked - Concatenates prefix with hub name|
 |Hub resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Firewall template|Resource Manager template|Azure Firewall private IP address||
-|Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace will be created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace is created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
 |Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional)|Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
 |Azure Network Security Group template|Resource Manager template|Enable NSG flow logs|Enter 'true' or 'false' to enable or disable NSG flow logs|
 |Azure Virtual Network hub template|Resource Manager template|Virtual network address prefix|Virtual network address prefix for hub virtual network|
@@ -152,14 +152,14 @@ The following table provides a list of the blueprint parameters:
 |Azure Virtual Network hub template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for hub virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
 |Spoke resource group|Resource group|Resource group name|Locked - Concatenates prefix with spoke name|
 |Spoke resource group|Resource group|Resource group location|Locked - Uses hub location|
-|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment will deploy the spoke components of the architecture|
+|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment deploys the spoke components of the architecture|
 |Azure Virtual Network spoke template|Resource Manager template|Hub subscription ID|Subscription ID where hub is deployed; default value is the subscription where the blueprint definition is located|
 |Azure Virtual Network spoke template|Resource Manager template|Spoke name|Name of the spoke|
 |Azure Virtual Network spoke template|Resource Manager template|Virtual Network address prefix|Virtual Network address prefix for spoke virtual network|
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address prefix|Subnet address prefix for spoke virtual network|
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address names (optional)|Array of subnet names to deploy to the spoke virtual network; for example, "subnet1","subnet2"|
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for the spoke virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
-|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment will deploy the spoke components of the architecture|
+|Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment deploys the spoke components of the architecture|
 |Network Watcher resource group|Resource group|Resource group name|Locked - Uses Network Watcher resource group name|
 |Network Watcher resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Network Watcher template|Resource Manager template|Network Watcher location|Location for the Network Watcher resource|
