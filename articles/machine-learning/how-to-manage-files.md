@@ -44,13 +44,17 @@ To create a new file in a different folder, select the "..." at the end of the f
 > [!IMPORTANT]
 > Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
-### Clone samples
+## Manage files with Git
+
+[Use a compute instance terminal](how-to-use-terminal.md#git) to clone and manage Git repositories.
+
+## Clone samples
 
 Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.  You can clone these notebooks into your own folder on your workspace storage container.  
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### Share files
+## Share files
 
 Copy and paste the URL to share a file.  Only other users of the workspace can access this URL.  Learn more about [granting access to your workspace](how-to-assign-roles.md).
 

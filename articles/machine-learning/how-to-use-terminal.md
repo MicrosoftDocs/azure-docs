@@ -58,7 +58,7 @@ In addition to the steps above, you can also access the terminal from:
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
 > * FireFox/IE may not support clipboard permissions properly.
 
-## Use files from Git and version files
+## <a name=git></a> Use files from Git and version files
 
 You can access all Git operations from the terminal. All Git files and folders will be stored in your workspace file system. This storage allows you to use the files on any compute instance in your workspace.
 

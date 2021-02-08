@@ -133,10 +133,11 @@ These actions will reset the notebook state and will reset all variables in the 
 | Stop compute     |    No cells will run  |
 | Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab.  |
 
-### Add new kernels
+## Add new kernels
 
-The notebook will automatically find all Jupyter kernels installed on the connected compute instance.   [Use the terminal ](how-to-use-terminal.md) to 
+TThe notebook will automatically find all Jupyter kernels installed on the connected compute instance.   [Use the terminal ](how-to-use-terminal.md#add-new-kernels) to create and add new kernels to your compute instance.
 
+>
 ### Status indicators
 
 An indicator next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
