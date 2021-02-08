@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services Trusted Storage
-description: In this tutorial, you'll learn to enable trusted storage using a Managed Identity associated with your Media Services account. The Managed Identity allows Media Services to access a storage account that has been configured with a firewall or a VNet restriction through trusted storage access.
+description: In this tutorial, you'll learn how to enable trusted storage for Azure Media Services, use Manged Identities for trusted storage, and give Azure Services to access to a storage account when using a firewall or VPN.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
@@ -10,21 +10,36 @@ ms.date: 2/8/2021
 
 # Tutorial: Media Services trusted storage
 
+In this tutorial, you'll learn:
+
+> [!div class="checklist"]
+> - How to enable trusted storage for Azure Media Services
+> - How to use Manged Identities for trusted storage
+> - How to give Azure Services to access to a storage account when using a firewall or VPN
+
 With the 2020-05-01 API, you can enable trusted storage by associating a Managed Identity with a Media Services account.
 
-Media Services can automatically access your storage account using system authentication. Media Services validates that the Media Services account and the storage account are in the same subscription. It also validates that the user who is adding the association has access the storage account with Azure Resource Manager RBAC.
+Media Services can automatically access your storage account using system authentication. Media Services validates that the Media Services account and the storage account are in the same subscription. It also validates that the user adding the association has access the storage account with Azure Resource Manager RBAC.
 
 However, if you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](concept-managed-identities.md) authentication is the preferred option. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.
 
-In this tutorial, you'll learn to:
+## Overview
 
-> [!div class="checklist"]
-> - 
-> - 
-> - 
-> - 
-> - 
-> - 
+> [!IMPORTANT]
+> Use the 2020-05-01 API for all requests to Media Services.
+
+These are the general steps for creating trusted storage for Media Services.  See the comments in the code below for details:
+
+1. Create a resource group.
+1. Create a storage account.
+1. Poll the storage account until it's ready. When the storage account is ready, the request will return the service principal ID.
+1. Find the ID of the Storage Blob Data Contributor role.
+1. Call the authorization provider and add a role assignment.
+1. Update the media services account to authenticate to the storage account using Managed Identity.
+    1. This action changes the access from system-managed identity to the Managed Identity. In this way, the storage account can access the storage account through a firewall as Azure services can access the storage account regardless of IP access rules (ACLs). (Hint: Look for "bypass" in the request bodies in the script.)
+1. Delete the resources if you don't want to continue to use them and be charged for them.
+
+<!-- Link to storage role contributor role access differences information -->
 
 ## Prerequisites
 
@@ -38,59 +53,34 @@ If you don't know how to get your tenant ID and subscription ID, see [How to fin
 
 If you don't know how to create a service principal and secret, see [Get credentials to access Media Services API](access-api-howto.md).
 
-### Set up Key Vault
-
-To create a Key Vault, see [How to create a Key Vault in the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-
-You will use the following variables later:
-
-*@keyVaultName* = name of the key vault you created<br/>
-*@keyName* = name of the key you created<br/>
-
-## Get and set variables
-
-### AAD details
+## Set initial variables
 
 ```rest
+### AAD details
 @tenantId = your tenant ID
-@servicePrincipalId = your service principal ID
-@servicePrincipalSecret = your service principal secret
-```
+@servicePrincipalId = the service principal ID
+@servicePrincipalSecret = the service principal secret
 
 ### AAD resources
-
-Depending on the REST client, you are using, you may need to change the paths below to standard path syntax for URLs.
-
-```rest
 @armResource = https%3A%2F%2Fmanagement.core.windows.net%2F
 @graphResource = https%3A%2F%2Fgraph.windows.net%2F
-@keyVaultResource = https%3A%2F%2Fvault.azure.net
 @storageResource = https%3A%2F%2Fstorage.azure.com%2F
-```
 
 ### Service endpoints
-
-```rest
 @armEndpoint = management.azure.com
 @graphEndpoint = graph.windows.net
 @aadEndpoint = login.microsoftonline.com
-@keyVaultDomainSuffix = vault.azure.net
+
+### ARM details
+@subscription = your subscription id
+@resourceGroup = the resource group you'll be creating
+@storageName = the name of the storage you'll be creating
+@accountName = the name of the account you'll be creating
+@resourceLocation = East US (or the location that works best for your region)
+@index = 4
 ```
 
-### Azure Resource Manager (ARM) details
-
-```rest
-@subscription = your subscription ID
-@resourceGroup = name of the resource group you'll be creating
-@storageName = storage account name you'll be creating
-@accountName = AMS account name you want to use
-@keyVaultName = name of the key vault you created
-@keyName = name of the key you created
-@resourceLocation = location in which to create the resource group
-@index = I don't know what this is. (was set at 4)
-```
-
-### Get a token for Azure Resource Manager (ARM) using the service principal name and secret
+## Get a token for Azure Resource Manager using the service principal name and secret
 
 ```rest
 // @name getArmToken
@@ -101,7 +91,7 @@ Content-Type: application/x-www-form-urlencoded
 resource={{armResource}}&client_id={{servicePrincipalId}}&client_secret={{servicePrincipalSecret}}&grant_type=client_credentials
 ```
 
-### Get a token for the Graph API using the Service Principal name and secret
+## Get a token for the Graph API using the Service Principal name and secret
 
 ```rest
 // @name getGraphToken
@@ -112,7 +102,7 @@ Content-Type: application/x-www-form-urlencoded
 resource={{graphResource}}&client_id={{servicePrincipalId}}&client_secret={{servicePrincipalSecret}}&grant_type=client_credentials
 ```
 
-### Get some details about the Service Principal
+## Get the service principal details
 
 ```rest
 // @name getServicePrincipals
@@ -121,13 +111,13 @@ x-ms-client-request-id: cae3e4f7-17a0-476a-a05a-0dab934ba959
 Authorization:  Bearer {{getGraphToken.response.body.access_token}}
 ```
 
-### Store the Service Principal ID
+## Store the service principal ID in a new variable
 
 ```rest
 @servicePrincipalObjectId = {{getServicePrincipals.response.body.value[0].objectId}}
 ```
 
-### Create a resource group
+## Create a resource group using the resource group variable and the location variable
 
 ```rest
 // @name createResourceGroup
@@ -141,7 +131,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Create storage account1
+## Create storage account using the storage account variable and the location variable
 
 ```rest
 // @name createStorageAccount
@@ -161,7 +151,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Get the storage account status
+## Get the storage account status
+
+The storage account will take a while to be ready so this request polls for its status.  Repeat this request until the storage account is ready.
 
 ```rest
 // @name getStorageAccountStatus
@@ -169,7 +161,9 @@ GET {{createStorageAccount.response.headers.Location}}
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 ```
 
-### Create storage account2
+## Get the storage account details
+
+When the storage account is ready, get the properties of the storage account.
 
 ```rest
 // @name getStorageAccount
@@ -178,7 +172,7 @@ GET https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{reso
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 ```
 
-### Get a token for ARM using the Service Principal name and secret
+## Get a token for ARM using the service principal name and secret
 
 ```rest
 // @name getStorageToken
@@ -189,30 +183,7 @@ Content-Type: application/x-www-form-urlencoded
 resource={{storageResource}}&client_id={{servicePrincipalId}}&client_secret={{servicePrincipalSecret}}&grant_type=client_credentials
 ```
 
-### Enable storage blob logging
-
-```rest
-
-// @name setBlobLogging
-PUT https://{{storageName}}.blob.core.windows.net/?restype=service&comp=properties
-Authorization: Bearer {{getStorageToken.response.body.access_token}}
-x-ms-version: 2017-11-09
-
-<StorageServiceProperties>
-  <Logging>
-    <Version>2.0</Version>
-    <Read>true</Read>
-    <Write>true</Write>
-    <Delete>true</Delete>
-    <RetentionPolicy>
-      <Enabled>true</Enabled>
-      <Days>1</Days>
-    </RetentionPolicy>
-  </Logging>
-</StorageServiceProperties>
-```
-
-### Create a Media Services account with a System Assigned Managed Identity
+## Create a Media Services account with a system-assigned managed identity
 
 ```rest
 // @name createMediaServicesAccount
@@ -238,17 +209,17 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Get the storage role definitions
+## Get the storage Storage Blob Data role definition
 
-```rest
 // @name getStorageBlobDataContributorRoleDefinition
 GET https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}/providers/Microsoft.Authorization/roleDefinitions?$filter=roleName%20eq%20%27Storage%20Blob%20Data%20Contributor%27&api-version=2015-07-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
 
-### Set the storage role assignment
 
-```rest
+### Set the storage role assignment.
+
+The role assignment says that the service principal for the Media Services account has the storage role *Storage Blob Data Contributor*.  This may take a while and it's important to wait or the Media Services account win't be set up correctly.
+
 PUT https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}/providers/Microsoft.Authorization/roleAssignments/{{$guid}}?api-version=2020-04-01-preview
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 Content-Type: application/json; charset=utf-8
@@ -259,11 +230,10 @@ Content-Type: application/json; charset=utf-8
     "principalId": "{{createMediaServicesAccount.response.body.identity.principalId}}"
   }
 }
-```
 
-### Create storage account
 
-```rest
+### Give Managed Identity bypass access ("bypass":"Azure Services") to the storage account. Again, wait until the role has been assigned in the storage account, or the Media Services account will be set up incorrectly.
+
 // @name setStorageAccountFirewall
 PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}
     ?api-version=2019-06-01
@@ -286,14 +256,10 @@ Content-Type: application/json; charset=utf-8
       }
     }
 }
-```
 
-### Update the Media Services account to use Managed Identity storage authorization
 
-> [!NOTE]
-> This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate
+### Update the Media Services account to use Managed Identity storage authorization. This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate.
 
-```rest
 // @name updateMediaServicesAccountWithManagedStorageAuth
 PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
@@ -316,9 +282,10 @@ Content-Type: application/json; charset=utf-8
   },
   "location": "{{resourceLocation}}"
 }
-```
 
 ### Create an Asset
+
+Test access by creating an asset in the storage account.
 
 ```rest
 // @name createAsset
@@ -330,63 +297,21 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Stop here (for normal flow)
+## Delete resources
 
-### Create storage account
-
-```rest
-// @name allowStorageAccountFirewall
-PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}
-    ?api-version=2019-06-01
-Authorization: Bearer {{getArmToken.response.body.access_token}}
-Content-Type: application/json; charset=utf-8
-
-{
-    "sku": {
-    "name": "Standard_GRS"
-    },
-    "kind": "StorageV2",
-    "location": "{{resourceLocation}}",
-    "properties": {
-      "networkAcls": {
-        "bypass": "AzureServices",
-        "defaultAction": "Allow"
-      }
-    }
-}
-```
-
-### List storage logs
+If you don't want to keep the resources that you created and continue to be charged for them, delete them.
 
 ```rest
-// @name getBlobLogs
-GET https://{{storageName}}.blob.core.windows.net/$logs/blob/2020/12/09/2100/000000.log
-Authorization: Bearer {{getStorageToken.response.body.access_token}}
-x-ms-version: 2017-11-09
-```
-
-## Clean up resources
-
-Delete the resources you created.  Otherwise, you will be charged for them.
-
 ### Clean up the Storage account
-
-```rest
 DELETE https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}
     ?api-version=2019-06-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
 
 ### Clean up the Media Services account
-
-```rest
 DELETE https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
 
 ### Clean up the Media Services account
-
-```rest
 GET https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 ```

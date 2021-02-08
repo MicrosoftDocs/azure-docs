@@ -72,6 +72,8 @@
       displayName: AAD, Active Directory
   - name: REST
     items:
+    - name: Enable trusted storage
+      href: tutorial-trusted-storage-rest.md
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
     - name: Customer managed keys with REST API
