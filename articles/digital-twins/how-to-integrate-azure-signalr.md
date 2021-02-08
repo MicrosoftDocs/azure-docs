@@ -127,23 +127,11 @@ Back on the *Create Event Subscription* page, hit **Create**.
 
 ## Configure and run the web app
 
-In this section, you will see the result in action. First, you'll start up the **simulated device sample app** that sends telemetry data through your Azure Digital Twins instance. Then, you'll configure the **sample client web app** to connect to the Azure SignalR flow you've set up. After that, you should be able to see the data updating the sample web app in real time.
-
-### Run the device simulator
-
-During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
-
-Now, all you have to do is start the simulator project, located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
-
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="The Visual Studio start button (DeviceSimulator project)":::
-
-A console window will open and display simulated temperature telemetry messages. These are being sent through your Azure Digital Twins instance, where they are then picked up by the Azure functions and SignalR.
-
-You don't need to do anything else in this console, but leave it running while you complete the next steps.
+In this section, you will see the result in action. First, configure the **sample client web app** to connect to the Azure SignalR flow you've set up. Next, you'll start up the **simulated device sample app** that sends telemetry data through your Azure Digital Twins instance. After that, you will view the sample web app to see the simulated device data updating the sample web app in real time.
 
 ### Configure the sample client web app
 
-Next, set up the **SignalR integration web app sample** with these steps:
+Set up the **SignalR integration web app sample** with these steps:
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
 1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
@@ -164,6 +152,18 @@ Next, set permissions in your function app in the Azure portal:
 1. Scroll down in the instance menu and select *CORS*. On the CORS page, add `http://localhost:3000` as an allowed origin by entering it into the empty box. Check the box for *Enable Access-Control-Allow-Credentials* and hit *Save*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="CORS Setting in Azure Function":::
+
+### Run the device simulator
+
+During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
+
+Now, all you have to do is start the simulator project, located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="The Visual Studio start button (DeviceSimulator project)":::
+
+A console window will open and display simulated temperature telemetry messages. These are being sent through your Azure Digital Twins instance, where they are then picked up by the Azure functions and SignalR.
+
+You don't need to do anything else in this console, but leave it running while you complete the next step.
 
 ### See the results
 
