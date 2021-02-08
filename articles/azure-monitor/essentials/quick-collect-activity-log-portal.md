@@ -20,7 +20,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Create a Log Analytics workspace
 In the Azure portal, search for and then select **Log Analytics workspaces**. 
 
-![Screenshot of the Azure portal showing "log analytics workspaces" in the search box and Log Analytics workspaces highlighted under Services.](media/quick-create-workspace/azure-portal-01.png)
+![Screenshot of the Azure portal showing "log analytics workspaces" in the search box and Log Analytics workspaces highlighted under Services.](../logs/media/quick-create-workspace/azure-portal-01.png)
   
 Click **Add**, and then provide values for the **Resource group**, workspace **Name**, and **Location**. The workspace name must be unique across all Azure subscriptions.
 

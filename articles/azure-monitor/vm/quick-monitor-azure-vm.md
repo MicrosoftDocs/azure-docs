@@ -53,7 +53,7 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 2. Select **Advanced settings**
 
-    ![Log Analytics Advance Settings](../learn/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
+    ![Log Analytics Advance Settings](../vm/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
 ### Data collection from Windows VM
 
