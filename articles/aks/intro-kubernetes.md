@@ -19,7 +19,7 @@ Additional features such as advanced networking, Azure Active Directory integrat
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
-To get started, complete the AKS Quickstart [in the Azure portal][aks-portal] or [with the Azure CLI][aks-cli].
+To get started, complete the AKS Quickstart [in the Azure Portal][aks-portal] or [with the Azure CLI][aks-cli].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -41,7 +41,7 @@ To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks
 
 ### Integrated logging and monitoring
 
-Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both the container logs and [the Kubernetes master logs][aks-master-logs]. This monitoring data is stored in an Azure Log Analytics workspace and is available through the Azure portal, Azure CLI, or a REST endpoint.
+Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both the container logs and [the Kubernetes master logs][aks-master-logs]. This monitoring data is stored in an Azure Log Analytics workspace and is available through the Azure Portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
