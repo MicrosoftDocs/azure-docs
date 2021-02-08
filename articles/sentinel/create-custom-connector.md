@@ -30,9 +30,9 @@ The following table compares essential details about each method for creating cu
 
 |Method  | Serverless  |Cost  |Complexity  |Best for |
 |---------|---------|---------|---------|---------|
-|[**Logstash**](#use-logstash-to-create-your-connector)     |   No <br><br>Requires a VM or a VM cluster      |     Low    |   Low <br><br>Supports many scenarios with available plugins      |On-premises and IaaS sources <br><br> Any source for which an input plugin is available <br><br>Organizations that are already familiar with Logstash |
-|[**Logic Apps**](#using-logic-apps-to-create-your-connector) |  Yes       | High <br><br>May be prohibitive for high volume data sources         |    Low <br><br>Simple, code-less development    |Low-volume cloud sources |
-|[**Azure Function**](#use-azure-functions-to-create-your-custom-connector)     | Yes        |Low         | High <br><br>Requires programming knowledge        | High-volume cloud sources|
+|[**Logstash**](#use-logstash-to-create-your-connector)     |   No, requires a VM or a VM cluster      |     Low    |   Low, supports many scenarios with available plugins      |On-premises and IaaS sources <br><br> Any source for which an input plugin is available <br><br>Organizations that are already familiar with Logstash |
+|[**Logic Apps**](#using-logic-apps-to-create-your-connector) |  Yes       | High, may be prohibitive for high volume data sources         |    Low, simple, code-less development    |Low-volume cloud sources |
+|[**Azure Function**](#use-azure-functions-to-create-your-custom-connector)     | Yes        |Low         | High, requires programming knowledge        | High-volume cloud sources|
 |[**PowerShell**](#use-powershell-to-create-your-custom-connector)     |   No      |    Low     |  Medium       |Prototyping and periodic file uploads |
 |     |         |         |         | |
 
