@@ -64,7 +64,7 @@ To create custom monitoring rules:
 6. Choose monitoring conditions. To set custom thresholds for health-event generation, enter threshold values. Whenever the value of the condition exceeds its selected threshold for the selected network or subnetwork pair, a health event is generated. 
 7. Select **Save** to save the configuration. 
 
-After you save a monitoring rule, you can integrate that rule with Alert Management by selecting **Create Alert**. An alert rule is automatically created with the search query. Other required parameters are automatically filled in. Using an alert rule, you can receive e-mail-based alerts, in addition to the existing alerts within Network Performance Monitor. Alerts also can trigger remedial actions with runbooks, or they can integrate with existing service management solutions by using webhooks. Select **Manage Alert** to edit the alert settings. 
+After you save a monitoring rule, you can integrate that rule with Alert Management by selecting **Create Alert**. An alert rule is automatically created with the search query. Other required parameters are automatically filled in. Using an alert rule, you can receive e-mail-based alerts, in addition to the existing alerts within Network Performance Monitor. Alerts also can trigger remedial actions with runbooks, or they can integrate with existing Service Management solutions by using webhooks. Select **Manage Alert** to edit the alert settings. 
 
 You can now create more Performance Monitor rules or move to the solution dashboard to use the capability.
 

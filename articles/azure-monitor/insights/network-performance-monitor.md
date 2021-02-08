@@ -278,7 +278,7 @@ If you are an NPM user creating an alert via Log Analytics:
 
 If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
-2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
+2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email ID is added to that action group.
 3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
