@@ -48,7 +48,7 @@ Azure Machine Learning compute instance enables you to author, train, and deploy
 
 You can run Jupyter notebooks in [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) using compute instance as the remote server with no SSH needed. You can also enable VS Code integration through [remote SSH extension](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-You can [install packages](how-to-create-manage-compute-instance.md#install-packages) and [add kernels](how-to-create-manage-compute-instance.md#add-new-kernels) to your compute instance.  
+You can [install packages](how-to-use-terminal.md#install-packages) and [add kernels](how-to-use-terminal.md#add-new-kernels) to your compute instance.  
 
 Following tools and environments are already installed on the compute instance: 
 

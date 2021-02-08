@@ -278,7 +278,7 @@
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
-          name: Set up studio environment
+        - name: Set up studio environment
           items:
             - name: Create and manage files
               href: how-to-manage-files.md
