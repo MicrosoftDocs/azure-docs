@@ -86,7 +86,9 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
    1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
-   > Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Lineage could be missing sometimes in Azure Purview after running the starter kit. This is because the Data Factory created by starter kit has missing permissions in Purview. Select [**this document link**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)  to make sure the Data Factory is configured correct and assigned appropriate role in Purview
+
 
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 
