@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Agents and communication pattern
 
-[Kubernetes](https://kubernetes.io/) is an open source container orchestration engine for automating deployment, scaling, and management of containerized applications. The emergence of Kubernetes as the go-to option for deploying containerized workloads across different hybrid and multi-cloud environments has led to the need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring and security. Azure Arc enabled Kubernetes intends to solve this problem by allowing for customer managed Kubernetes clusters on any environment (on-prem or hybrid) to brought into the fold of [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This document provides an architectural overview of how this is achieved.
+[Kubernetes](https://kubernetes.io/) is an open-source container orchestration engine for automating deployment, scaling, and management of containerized applications. The emergence of Kubernetes as the go-to option for deploying containerized workloads across different hybrid and multi-cloud environments has led to the need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring, and security. Azure Arc enabled Kubernetes intends to solve this problem by allowing for customer managed Kubernetes clusters on any environment (on-prem or hybrid) to brought into the fold of [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This document provides an architectural overview of connecting a cluster to Azure Arc, the communication pattern followed by agents, and provides a tabulation of the data exchanged between cluster environment and Azure.
 
 ## Deployment of agents on cluster
 
@@ -20,9 +20,9 @@ Most on-premise data centers have strict network rules in place that doesn't all
 
 ![Architectural overview](./media/architectural-overview.png)
 
-The sequence of steps involved in this is as follows:
+Here's the sequence of steps involved in this process of connecting a cluster to Azure Arc:
 
-1. Customer spins up a Kubernetes cluster on their choice of infrastructure (vSphere, AWS, GCP,...). Note that currently Azure Arc enabled Kubernetes only supports attaching existing Kubernetes clusters to Azure Arc. At this moment, lifecycle management of the Kubernetes cluster itself needs to be done by the customer separately. Having said that, Azure Arc based cluster provisioning and lifecycle management is high on the roadmap items the team is working on.
+1. Customer spins up a Kubernetes cluster on their choice of infrastructure (vSphere, AWS, GCP,...). Currently Azure Arc enabled Kubernetes only supports attaching existing Kubernetes clusters to Azure Arc. At this moment, lifecycle management of the Kubernetes cluster itself needs to be done by the customer separately. Having said that, Azure Arc based cluster provisioning and lifecycle management is high on the future work items being prioritized by the Azure Arc team.
 1. Customer uses Azure CLI on a machine having line of sight to this Kubernetes cluster to initiate registration of this cluster with Azure Arc. 
 1. The Azure CLI internally uses Helm to deploy the agent Helm chart on the cluster
 1. The images needed to spin up these agents are all pulled from Microsoft Container Registry. The image pull process is initiated by an outbound communication to the container registry initiated by the nodes of the cluster.
@@ -34,9 +34,9 @@ The sequence of steps involved in this is as follows:
     * `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
     * `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
     * `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
-1. At this stage, once all the Azure Arc enabled Kubernetes agents are up and running, you should be able to see the following:
-    1. Azure Arc enabled Kubernetes resource in Azure Resource Manager. Note that this is a tracked resource in Azure acting as a projection of the customer managed Kubernetes cluster and is not the actual Kubernetes cluster itself.
-    1. Cluster metadata like Kubernetes version, agent version and number of nodes visible on the Arc enabled Kubernetes resource as metadata. This indicates that the process of connecting the cluster to Arc was successful.
+1. At this stage, once all the Azure Arc enabled Kubernetes agents are up and running, the following events indicate the successful connection of cluster to Azure Arc :
+    1. Azure Arc enabled Kubernetes resource in Azure Resource Manager. This is a tracked resource in Azure acting as a projection of the customer managed Kubernetes cluster and is not the actual Kubernetes cluster itself.
+    1. Cluster metadata like Kubernetes version, agent version, and number of nodes visible on the Arc enabled Kubernetes resource as metadata.
 
 ## Data exchange between cluster environment and Azure
 
@@ -59,11 +59,11 @@ The sequence of steps involved in this is as follows:
 | Audit and compliance status of in-cluster policy enforcements | Azure Policy | Agent pushes to Azure |
 | Metrics and logs of customer workloads | Azure Monitor | Agent pushes to Log Analytics workspace resource in customer's tenant and subscription |
 
-## Connectivity pattern - Fully connected, semi-connected and disconnected clusters
+## Connectivity pattern - Fully connected, semi-connected, and disconnected clusters
 
 **Fully connected:** Azure Arc enabled Kubernetes works seamlessly for fully connected mode of deployed where agents are always able to reach out to Azure.
 
-**Semi-connected:** The managed service identity (MSI) certificate pulled down by the `clusteridentityoperator` is valid for a maximum of 90 days before the certificate expires. Once the certificate expires, the Arc enabled Kubernetes resource stops working and the only way to get all the Arc features working on the cluster again is to delete the Arc enabled Kubernetes resource and agents and create them again. Note that while the certificate is valid for a maximum of 90 days, it is strongly recommended to connect the cluster at least once every 30 days.
+**Semi-connected:** The managed service identity (MSI) certificate pulled down by the `clusteridentityoperator` is valid for a maximum of 90 days before the certificate expires. Once the certificate expires, the Arc enabled Kubernetes resource stops working and the only way to get all the Arc features working on the cluster again is to delete the Arc enabled Kubernetes resource and agents and create them again. While the certificate is valid for a maximum of 90 days, it is strongly recommended to connect the cluster at least once every 30 days.
 
-**Completely disconnected:** Kubernetes clusters in completely disconnected environments not having any access to Azure is currently not supported by Azure Arc enabled Kubernetes. If this is of interest to you, please submit/up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
+**Disconnected:** Kubernetes clusters in completely disconnected environments not having any access to Azure is currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit/up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
 
