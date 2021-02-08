@@ -19,19 +19,19 @@ ms.author: aahi
 The following entity categories are returned when you're sending requests to the `/v3.1-preview.2/entities/recognition/pii` endpoint.
 
 
-| Category   | Description                          | Starting model version | Notes |
-|------------|--------------------------------------|------------------------|---|
-| Person     | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
-| PersonType | Job types or roles held by a person. | `2020-02-01` | |
-| PhoneNumber | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
-|Organization  | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
-| Address  | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
-| EU GPS Coordinates | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
-| Email | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
-| URL  | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
-| IP  | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
-| DateTime | Dates and times of day. | `2019-10-01` |  | 
-| Quantity | Numbers and numeric quantities. | `2019-10-01` |  |
+| Category   |  Description                          | Starting model version | Notes |
+|------------|-------------|--------------------------------------|------------------------|---|
+| [Person](#category-person)      |  Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
+| [PersonType](#category-persontype) | N/A         | Job types or roles held by a person. | `2020-02-01` | |
+| [Phone number](#category-phonenumber) | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
+| [Organization](#category-organization)  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. This category includes sub-categories of entities, such as *Stock*, and *Medical*.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
+| [Address](#category-address)  | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
+| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
+| [Email](#category-email) | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
+| [URL](#category-url) | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
+| [IP](#category-ip) | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
+| [DateTime](#category-datetime) | N/A | Dates and times of day. This category includes sub-categories of entities, such as *Date*. | `2019-10-01` |  | 
+| [Quantity](#category-quantity) | N/A | Numbers and numeric quantities.  This category includes sub-categories of entities, such as *age*. | `2019-10-01` |  |
 
 
 ### Category: Person
@@ -54,7 +54,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, <br> `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`     
       
    :::column-end:::
 :::row-end:::
@@ -131,7 +131,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`     
       
    :::column-end:::
 :::row-end:::
@@ -367,6 +367,31 @@ This category contains the following entities:
       **Supported document languages**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Age
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Ages.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
       
    :::column-end:::
 :::row-end:::
