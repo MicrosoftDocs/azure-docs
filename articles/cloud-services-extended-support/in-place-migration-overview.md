@@ -12,7 +12,7 @@ ms.custom:
 
 # Platform supported migration of Cloud Services (classic) to Azure Resource Manager
 
-This article provides an overview on the platform-supported migration tool, how to move your [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-md.md) to [Azure Cloud Services (extended support)](overview.md). Cloud Services (extended support) is a new Azure Resource Manager (ARM) based deployment model for Azure Cloud Services.
+This article provides an overview on the platform-supported migration tool, how to move your [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md). Cloud Services (extended support) is a new Azure Resource Manager (ARM) based deployment model for Azure Cloud Services.
 
 The migration tool utilizes the same APIs and has the same experience via Portal, Power Shell and CLI as that for Classic IaaS VM migration. 
 Add Banner: Preview Product: we do not recommend using it to migrate production workload yet. 
@@ -23,7 +23,7 @@ The platform supported migration provides following key benefits:
 2.	Provides seamless no downtime migration.
 3.	Provides easy & fast migration compared to other migration paths by minimizing manual tasks. 
 
-Learn more about benefits of [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../../azure-resource-manager/management/overview.md). 
+Learn more about benefits of [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## Before you begin
 1. Register your subscription for Classic Infrastructure.
