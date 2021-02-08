@@ -187,4 +187,4 @@ Now that you've covered using Application Gateway to protect a web app running o
 
 - [Configuring Azure Application Gateway for different scenarios](../application-gateway/configuration-overview.md).
 - [Deploying Traffic Manager to balance Azure VMware Solution workloads](deploy-traffic-manager-balance-workloads.md).
-- [Integrating Azure NetApp Files with Azure VMware Solution-based workloads](netapp-files-with-azure-vmware-solution).md.
+- [Integrating Azure NetApp Files with Azure VMware Solution-based workloads](netapp-files-with-azure-vmware-solution.md).
