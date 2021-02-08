@@ -55,7 +55,7 @@
     href: faq.md
 - name: How To
   items:
-  - name: Migrate
+  - name: Migration
     items: 
     - name: Migration Overview
       href: in-place-migration-overview.md
