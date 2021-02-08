@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/08/20201
+ms.date: 02/08/2021
 ms.author: b-juche
 ---
 # Benefits of using Azure NetApp Files with SQL Server Deployment
