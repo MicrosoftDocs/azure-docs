@@ -135,7 +135,7 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ## Add new kernels
 
-TThe notebook will automatically find all Jupyter kernels installed on the connected compute instance.   [Use the terminal ](how-to-use-terminal.md#add-new-kernels) to create and add new kernels to your compute instance.
+TThe notebook will automatically find all Jupyter kernels installed on the connected compute instance.   [Use the terminal ](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance.
 
 >
 ### Status indicators

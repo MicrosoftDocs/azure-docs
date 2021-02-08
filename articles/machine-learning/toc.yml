@@ -286,7 +286,7 @@
             - name: Run Jupyter Notebooks
               href: how-to-run-jupyter-notebooks.md
             - name: Use a terminal
-              href: how-to-use-terminal.md
+              href: how-to-access-terminal.md
               displayName: git, github, clone, kernel, package
         - name: Set up software environments
           displayName: pip, Conda, anaconda

@@ -46,7 +46,7 @@ To create a new file in a different folder, select the "..." at the end of the f
 
 ## Manage files with Git
 
-[Use a compute instance terminal](how-to-use-terminal.md#git) to clone and manage Git repositories.
+[Use a compute instance terminal](how-to-access-terminal.md#git) to clone and manage Git repositories.
 
 ## Clone samples
 
@@ -65,5 +65,5 @@ You *can't* delete the **Sample notebooks** files.  These files are part of the 
 You *can* delete files found in your **Files** section in any of these ways:
 
 * In the studio, select the **...** at the end of a folder or file.  Make sure to use a supported browser (Microsoft Edge, Chrome, or Firefox).
-* [Use a terminal](how-to-use-terminal.md) from any compute instance in your workspace. The folder **~/cloudfiles** is mapped to storage on your workspace storage account.
+* [Use a terminal](how-to-access-terminal.md) from any compute instance in your workspace. The folder **~/cloudfiles** is mapped to storage on your workspace storage account.
 * In either Jupyter or JupyterLab with their tools.

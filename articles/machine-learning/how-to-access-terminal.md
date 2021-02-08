@@ -1,7 +1,7 @@
 ---
-title: How to use a compute instance terminal in your workspace
+title: How to access a compute instance terminal in your workspace
 titleSuffix: Azure Machine Learning
-description: Use the terminal on a compute instance for Git operations, to install packages and add kernels.
+description: Use the terminal on a compute instance for Git operations, to install packages, and add kernels.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -14,13 +14,13 @@ ms.date: 02/05/2021
 # As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio
 ---
 
-# Use the compute instance terminal in your workspace
+# Access a compute instance terminal in your workspace
 
 Access the terminal of a compute instance in your workspace to:
 
 * Use files from Git and version files. These files are stored in your workspace file system, not restricted to a single compute instance.
 * Install packages on the compute instance.
-* Create additional kernels on the compute instance.
+* Create extra kernels on the compute instance.
 
 ## Prerequisites
 
@@ -34,9 +34,11 @@ To access the terminal:
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
 1. Select the **Open terminal** image.
+
     :::image type="content" source="media/how-to-use-terminal/open-terminal-window.png" alt-text="Open terminal window":::
-1. If a compute instance is running, the terminal window for that compute instance appears.
-1. If a compute instance is not running, use the **Compute** section on the right to start or create a compute instance.
+
+1. When a compute instance is running, the terminal window for that compute instance appears.
+1. When no compute instance is running, use the **Compute** section on the right to start or create a compute instance.
     :::image type="content" source="media/how-to-use-terminal/start-or-create-compute.png" alt-text="Start or create a compute instance":::
 
 In addition to the steps above, you can also access the terminal from:

@@ -233,6 +233,6 @@ These actions can be controlled by Azure RBAC:
 
 ## Next steps
 
-* [Access the compute instance terminal](how-to-use-terminal.md)
+* [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Submit a training run](how-to-set-up-training-targets.md)

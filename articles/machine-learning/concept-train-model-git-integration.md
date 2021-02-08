@@ -22,7 +22,7 @@ Since Azure Machine Learning tracks information from a local git repo, it isn't 
 
 ## Clone Git repositories into your workspace file system
 Azure Machine Learning provides a shared file system for all users in the workspace.
-To clone a Git repository into this file share, we recommend that you create a compute instance & [open a terminal](how-to-use-terminal.md).
+To clone a Git repository into this file share, we recommend that you create a compute instance & [open a terminal](how-to-access-terminal.md).
 Once the terminal is opened, you have access to a full Git client and can clone and work with Git via the Git CLI experience.
 
 We recommend that you clone the repository into your users directory so that others will not make collisions directly on your working branch.
@@ -33,7 +33,7 @@ For more information about cloning, see the guide on [how to use Git CLI](https:
 
 ## Authenticate your Git Account with SSH
 ### Generate a new SSH key
-1) [Open the terminal window](./how-to-use-terminal.md) in the Azure Machine Learning Notebook Tab.
+1) [Open the terminal window](./how-to-access-terminal.md) in the Azure Machine Learning Notebook Tab.
 
 2) Paste the text below, substituting in your email address.
 
