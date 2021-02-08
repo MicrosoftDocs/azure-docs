@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/01/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -36,6 +36,20 @@ Azure Storage includes data protection features that enable you to prevent accid
 | My scenario requires complete coverage, regardless of cost |  |
 | I need to balance coverage with costs |   |
 
+### Recommendations
+
+- Enable soft delete for containers
+- Enable blob versioning
+- Enable soft delete for blobs
+
+Microsoft recommends enabling soft delete for both containers and blobs for optimal protection against data deletion or corruption. Container soft delete protects the entire contents of a container, while blob soft delete protects an individual blob.
+
+In a scenario where you need to recover a deleted blob, it's important to have blob soft delete enabled. Suppose you have only container soft delete enabled for your storage account, and you need to recover a deleted blob. If the parent container has not actually been deleted, then you cannot restore it, and so cannot restore the blob. You can also use soft delete for blobs to recover a deleted blob version.
+
+And in a scenario where you need to recover a deleted container, it's important to have container soft delete enabled so that you can restore all of the blobs in the container as well as the container metadata. For example, suppose a deleted container has a large number of blobs. If you have blob soft delete enabled for the storage account, but not container soft delete, then you would need to restore each blob individually, which could be time consuming. You also would not be able to restore container metadata. If container soft delete is enabled, then you can restore all of the deleted blobs by simply restoring the container.
+
+Microsoft recommends enabling [blob versioning](#blob-versioning) together with soft delete.
+
 ## Scenario: Recover data that has been overwritten
 
 | If your scenario requires... | Then configure these data protection features... |
@@ -46,77 +60,49 @@ Azure Storage includes data protection features that enable you to prevent accid
 ## Scenario: Restore data to a previous point in time
 
 
+## Scenario: Track write and delete operations
+
+Microsoft recommends enabling change feed so that you can track all write operations to your blob data.
+
 ## Scenario: Prevent all updates and deletes
 
 
-## Azure Storage data protection features
+## Options for data protection in Azure Storage
 
 ### Soft delete
 
 Soft delete protects your blob data from accidental or malicious deletion or from corruption by maintaining the deleted data for a period of time after it has been deleted. If needed, you can restore the deleted data during that interval. Soft delete is available for both [containers](#container-soft-delete) and [blobs](#blob-soft-delete).
 
-Microsoft recommends enabling soft delete for both containers and blobs for optimal protection against data deletion or corruption. Container soft delete protects the entire contents of a container, while blob soft delete protects an individual blob.
-
-Why enable both? In a scenario where you need to recover a deleted blob, it's important to have blob soft delete enabled. Suppose you have only container soft delete enabled for your storage account, and you need to recover a deleted blob. If the parent container has not actually been deleted, then you cannot restore it, and so cannot restore the blob.
-
-And in a scenario where you need to recover a deleted container, it's important to have container soft delete enabled so that you can restore all of the blobs in the container as well as the container metadata. For example, suppose a deleted container has a large number of blobs. If you have blob soft delete enabled for the storage account, but not container soft delete, then you would need to restore each blob individually, which could be time consuming. You also would not be able to restore container metadata. If container soft delete is enabled, then you can restore all of the deleted blobs by simply restoring the container.
-
-Microsoft recommends enabling [blob versioning](#blob-versioning) together with soft delete.
-
-### Container soft delete
-
-When you enable container soft delete (preview) for your storage account, you can quickly recover a container and its contents and metadata if it is deleted. The container may be recovered during a retention interval that you specify. The retention period for deleted containers can be between 1 and 365 days.
+Microsoft recommends using blob versioning together with soft delete for superior data protection. Soft delete protects a blob's previous versions as well as the current version, so that any version of the blob that is deleted can be restored throughout the soft-delete retention period. For additional information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
 Restoring a soft-deleted container restores all of the blobs within it to their state when the container was deleted. However, it's important to also enable blob soft delete (or versioning) so that you can restore an individual blob in the container if it is deleted.
 
-To recover a deleted container and its blobs, call the **Undelete Container** operation.
+#### Container soft delete
 
-After the retention period has expired, the container and its blobs are permanently deleted.
+When you enable container soft delete (preview) for your storage account, you can quickly recover a container and its contents and metadata if it is deleted. The container may be recovered during a retention interval that you specify, up to one year. After the retention period has expired, the container and its blobs are permanently deleted. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
-For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
+#### Blob soft delete
 
-### Blob soft delete
-
-Blob soft delete protects an individual blob and its metadata from deletion. When blob soft delete is enabled for a storage account, a deleted blob may be recovered during a retention interval that you specify. The retention period for a deleted blob can be between 1 and 365 days. To recover a deleted blobs, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation.
-
-After the retention period has expired, the blob is permanently deleted.
-
-For more information, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete protects an individual blob, its versions, and its metadata from deletion. When blob soft delete is enabled for a storage account, a deleted blob may be recovered during a retention interval that you specify, up to one year. After the retention period has expired, the blob is permanently deleted. For more information, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
 ### Blob versioning
 
-When blob versioning is enabled for a storage account, Azure Storage automatically stores the previous version of a blob each time it is modified or deleted. If a blob is erroneously modified or deleted, you can restore an earlier version to recover your data.
-
-Microsoft recommends using blob versioning together with soft delete for superior data protection. Soft delete protects a blob's previous versions as well as the current version, so that any version of the blob that is deleted can be restored throughout the soft-delete retention period. For additional information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
+When blob versioning is enabled for a storage account, Azure Storage automatically stores the previous version of a blob each time it is modified or deleted. If a blob is erroneously modified or deleted, you can restore an earlier version to recover your data. For more information about blob versioning, see [Blob versioning](versioning-overview.md).
 
 > [!NOTE]
-> When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application. For more information, see [Blob versioning and blob snapshots](versioning-overview.md#blob-versioning-and-blob-snapshots).
->
-> Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs. If versioning is enabled for your storage account, all block blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity.
-
-For more information about blob versioning, see [Blob versioning](versioning-overview.md).
+> When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs. For more information, see [Blob versioning and blob snapshots](versioning-overview.md#blob-versioning-and-blob-snapshots).
 
 ### Blob snapshots
 
-A blob snapshot is a copy of a blob taken at a given point in time by your application code. Blob snapshots are similar to blob versions, except that they are manually generated. Versions are created automatically on every blob write or delete operation after versioning is enabled for the storage account.
-
-To create a blob snapshot, call the [Snapshot Blob](/rest/api/storageservices/snapshot-blob) operation.
-
-For more information about blob snapshots, see [Blob snapshots](snapshots-overview.md).
+A blob snapshot is a copy of a blob taken at a given point in time by your application code. Blob snapshots are similar to blob versions, except that they are manually generated, while blob versions are created automatically on every blob write or delete operation after versioning is enabled for the storage account. For more information about blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
 ### Point-in-time restore
 
-When point-in-time restore is enabled for your storage account, you can restore block blobs to an earlier state within a specified retention period. Point-in-time restore is useful in scenarios where a user or application accidentally or maliciously deletes or updates data, or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
-
-You can use a point-in-time restore operation to restore all of the containers in a storage account, or a lexicographical range of containers or blobs.
-
-For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+When point-in-time restore is enabled for your storage account, you can restore block blobs to an earlier state within a specified retention period. Point-in-time restore is useful in scenarios where a user or application accidentally or maliciously deletes or updates data, or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests. For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 ### Change feed
 
 The blob change feed provides transaction logs of all write and delete operations on blobs and blob metadata in your storage account. The change feed provides an ordered, guaranteed, durable, immutable, read-only log of these changes. Your applications can consume the change feed to track changes to blob data. 
-
-Microsoft recommends enabling change feed so that you can track all write operations to your blob data.
 
 For more information about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md).
 
@@ -126,8 +112,6 @@ Immutable blob storage stores business-critical data in a Write Once, Read Many 
 
 - A time-based retention policy prevents write operations for a specified period of time.
 - A legal hold prevents write operations until the legal hold is explicitly cleared.
-
-A container can have either or both types of immutability policy.
 
 For more information, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
 
