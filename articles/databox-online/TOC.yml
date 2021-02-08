@@ -209,7 +209,9 @@
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
         - name: Deploy stateless app via GitOps
-          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md              
+          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
+        - name: Deploy Azure Arc Data Controller
+          href: azure-stack-edge-gpu-deploy-arc-data-controller           
     - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
