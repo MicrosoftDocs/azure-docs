@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
 ---
 
@@ -160,6 +160,7 @@ Most tasks and services can be performed on delegated resources across managed t
 Support requests:
 
 - [Open support requests from **Help + support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) in the Azure portal for delegated resources (selecting the support plan available to the delegated scope)
+- Use the [Azure Quota API](/rest/api/reserved-vm-instances/quotaapi) to view and manage Azure service quotas for delegated customer resources
 
 ## Current limitations
 
