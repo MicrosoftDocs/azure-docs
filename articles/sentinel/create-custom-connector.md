@@ -24,6 +24,22 @@ Azure Sentinel provides a wide range of [built-in connectors for Azure services 
 
 If you are unable to connect your data source to Azure Sentinel using any of the existing solutions available, consider creating your own data source connector using the methods described in this article.
 
+## Compare methods for creating custom connectors
+
+The following table compares essential details about each method for creating custom connectors described in this article:
+
+|Method  | Serverless  |Cost  |Complexity  |Best for |
+|---------|---------|---------|---------|---------|
+|[**Logstash**](#use-logstash-to-create-your-connector)     |   No, requires a VM or a VM cluster      |     Low    |   Low, supports many scenarios with available plugins      |On-premises and IaaS sources <br><br> Any source for which an input plugin is available <br><br>Organizations that are already familiar with Logstash |
+|[**Logic Apps**](#using-logic-apps-to-create-your-connector) |  Yes       | High, may be prohibitive for high volume data sources         |    Low, simple, code-less development    |Low-volume cloud sources |
+|[**Azure Function**](#use-azure-functions-to-create-your-custom-connector)     | Yes        |Low         | High, requires programming knowledge        | High-volume cloud sources|
+|[**PowerShell**](#use-powershell-to-create-your-custom-connector)     |   No      |    Low     |  Medium       |Prototyping and periodic file uploads |
+|     |         |         |         | |
+
+For comparisons of using Logic Apps and Azure Functions for the same connector, see:
+
+- [Ingest Fastly Web Application Firewall logs into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+- Office 365 (Azure Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 ## Azure Monitor Log Analytics agent
 
 If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
@@ -38,7 +54,17 @@ If you're familiar with [Logstash](https://www.elastic.co/logstash), you may wan
 
 With the Azure Sentinel Logstash Output plugin, you can use any Logstash input and filtering plugins, and configure Azure Sentinel as the output for a Logstash pipeline. Logstash's large library of plug-ins enables input from sources such as Event Hubs, Apache Kafka, Files, Databases, and Cloud services. Use filtering plug-ins to parse events, filter unnecessary events, obfuscate values, and more.
 
-For an example of using Logstash as a custom connector, see [Collecting AWS CloudWatch data](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (*Ingest S3 Logs to Azure Sentinel via Logstash*).
+For examples of using Logstash as a custom connector, see:
+
+- [Hunting for Capital One Breach TTPs in AWS logs using Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (blog)
+- [Radware Azure Sentinel implementation guide](https://support.radware.com/ci/okcsFattach/get/1025459_3)
+
+For examples of useful Logstash plugins, see:
+
+- [Cloudwatch input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-cloudwatch.html)
+- [Azure Event Hubs plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-azure_event_hubs.html)
+- [Google Cloud Storage input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-google_cloud_storage.html)
+- [Google_pubsub input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-google_pubsub.html)
 
 > [!TIP]
 > Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
@@ -85,6 +111,8 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
 For examples of how you can create a custom connector for Azure Sentinel using Logic Apps, see:
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
+- [Palo Alto Prisma Logic App connector using a webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Azure Sentinel GitHub community)
+- [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
 - [Ingesting AlienVault OTX threat indicators into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
 - [Sending Proofpoint TAP logs to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
 
@@ -146,9 +174,13 @@ Use Azure Functions to create a serverless, custom connector using the RESTful A
 
 For examples of this method, see:
 
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](connect-vmware-carbon-black.md)
+- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](connect-okta-single-sign-on.md)
+- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](connect-proofpoint-tap.md)
+- [Connect your Qualys VM to Azure Sentinel with Azure Function](connect-qualys-vm.md)
 - [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
-- [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (GitHub)
+- [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure Sentinel GitHub community)
 
 ## Parsing your custom connector data
 
