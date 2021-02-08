@@ -44,11 +44,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prepare VMs
 
-2. After checking that VMs meet requirements, make sure that VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
-3. Make sure VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
+1. After checking that VMs meet requirements, make sure that VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
+1. Make sure VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
     - On Windows VMs, install the latest Windows updates.
     - On Linux VMs, follow distributor guidance so that machines have the latest certificates and CRL. 
-4. Allow outbound connectivity from VMs:
+1. Allow outbound connectivity from VMs:
     - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - If you're using network security group (NSG) rules to control outbound connectivity, create these [service tag rules](support-matrix-move-region-azure-vm.md#nsg-rules).
 
