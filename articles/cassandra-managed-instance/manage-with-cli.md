@@ -21,7 +21,7 @@ The following guide describes common commands to automate management of your Azu
 
 ## Azure Managed Instance for Apache Cassandra clusters
 
-The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra hybrid clusters, including:
+The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra clusters, including:
 
 * [Create a managed Cassandra cluster](#create-a-managed-cassandra-cluster)
 * [Delete a managed Cassandra cluster](#delete-a-managed-cassandra-cluster)
