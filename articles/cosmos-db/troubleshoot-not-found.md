@@ -97,7 +97,7 @@ Wait for the indexing to catch up or change the indexing policy.
 The database or container that the item exists in was deleted.
 
 #### Solution:
-1. [Restore](./online-backup-and-restore.md#request-data-restore-from-a-backup) the parent resource, or re-create the resources.
+1. [Restore](./configure-periodic-backup-restore.md#request-restore) the parent resource, or re-create the resources.
 1. Create a new resource to replace the deleted resource.
 
 ### 7. Container/Collection names are case-sensitive

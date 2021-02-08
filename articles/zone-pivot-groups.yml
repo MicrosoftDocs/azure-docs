@@ -950,6 +950,8 @@ groups:
   pivots:
   - id: platform-azp
     title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell

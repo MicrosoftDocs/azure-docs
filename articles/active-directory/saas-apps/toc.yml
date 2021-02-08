@@ -563,6 +563,8 @@
         href: empactis-tutorial.md
       - name: EmpCenter
         href: empcenter-tutorial.md
+      - name: Enablon
+        href: enablon-tutorial.md
       - name: Encompass
         href: encompass-tutorial.md
       - name: Envi MMIS
@@ -708,6 +710,8 @@
         href: glassfrog-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
+      - name: GlobeSmart
+        href: globesmart-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
@@ -968,6 +972,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kendis-Scaling Agile Platform
+        href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -1350,6 +1356,8 @@
         href: podbean-tutorial.md
       - name: PolicyStat
         href: policystat-tutorial.md
+      - name: PoolParty Semantic Suite
+        href: poolparty-semantic-suite-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
       - name: Powerschool Performance Matters
@@ -2109,6 +2117,8 @@
         href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
+      - name: getAbstract
+        href: getabstract-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE

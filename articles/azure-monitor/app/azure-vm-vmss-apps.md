@@ -23,7 +23,7 @@ This article walks you through enabling Application Insights monitoring using th
 
 There are two ways to enable application monitoring for Azure virtual machines and Azure virtual machine scale sets hosted applications:
 
-### Auto-inctrumentation via Application Insights Agent
+### Auto-instrumentation via Application Insights Agent
 
 * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring.
 

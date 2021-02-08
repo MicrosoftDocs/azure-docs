@@ -2,6 +2,41 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/windows/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/docker-machine.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mysql-on-opensuse.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/mysql-on-opensuse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitor.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/postgresql-install.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/postgresql-install",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
       "redirect_document_id": false
@@ -16117,6 +16152,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/prepay-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-prepay-databricks-reserved-capacity.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-databricks-reserved-capacity",
       "redirect_document_id": true
@@ -16136,6 +16176,12 @@
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-app-service",
+      "redirect_document_id": true
+    },
+
     {
       "source_path_from_root": "/articles/billing/billing-how-reservation-discount-is-applied-to-azure-sql-dw.md",
       "redirect_url": "/azure/cost-management-billing/reservations/reservation-discount-azure-sql-dw",
@@ -17617,6 +17663,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/asc-for-iot/quickstart-iot-hub-integration.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-iot-hub-integration",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/asc-for-iot/quickstart-onboard-iot-hub.md",
       "redirect_url": "/azure/defender-for-iot/quickstart-onboard-iot-hub",
       "redirect_document_id": false
@@ -17634,6 +17685,11 @@
     {
       "source_path_from_root": "/articles/asc-for-iot/security-agents.md",
       "redirect_url": "/azure/defender-for-iot/security-agents",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/asc-for-iot/security-baseline.md",
+      "redirect_url": "/azure/defender-for-iot/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -46002,6 +46058,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
+      "redirect_url": "http://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-playbook-building-blocks.md",
       "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
@@ -48602,7 +48668,11 @@
       "redirect_document_id": false
     },
     {
-
+      "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-relnotes.md",
+      "redirect_url": "https://github.com/microsoft/AzureStorageExplorer/releases",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
       "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
       "redirect_document_id": false
@@ -61614,13 +61684,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/data-factory/data-flow-reserved-capacity-overview.md",
-      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-factory/data-flow-understand-reservation-charges.md",
-      "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+      "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
+      "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
     }
   ]
