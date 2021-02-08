@@ -67,9 +67,13 @@ Create a new, dedicated namespace where you will deploy the Data Controller. You
 
 1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 1. Create a namespace. Type:
-	New-HcsKubernetesNamespace -Namespace <Name of namespace>
+
+	`New-HcsKubernetesNamespace -Namespace <Name of namespace>`
+
 1. Create a user. Type: 
-	New-HcsKubernetesUser -UserName <User name>
+
+	`New-HcsKubernetesUser -UserName <User name>`
+
 1. A config file is displayed in plain text. Copy this file and save it as a *config* file. 
 
     > [!IMPORTANT]
@@ -79,7 +83,8 @@ Create a new, dedicated namespace where you will deploy the Data Controller. You
 
     ![Location of config file on client](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
 1. Grant the user access to the namespace that you created. Type: 
-	Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>
+
+    `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`
 
 Here is a sample output of the preceding commands. In this example, we create a `myadstest` namespace, a `myadsuser` user and granted the user access to the namespace.
 
@@ -109,6 +114,23 @@ users:
 [10.100.10.10]: PS>Set-HcsKubernetesAzureArcDataController -SubscriptionId db4e2fdb-6d80-4e6e-b7cd-736098270664 -ResourceGroupName myasegpurg -Location "EastUS" -UserName myadsuser -Password "Password1" -DataControllerName "arctestcontroller" -Namespace myadstest
 [10.100.10.10]: PS>
 ```
+1. Add a DNS entry to the hosts file on your system. 
+
+    1. Run Notepad as administrator and open the `hosts` file located at `C:\windows\system32\drivers\etc\hosts`. 
+    2. Use the information that you saved from the **Device** page in the local UI (prerequisite) to create the entry in the hosts file. 
+
+        For example, copy this endpoint `https://compute.myasegpudev.microsoftdatabox.com/[10.100.10.10]` to create the following entry with device IP address and DNS domain: 
+
+        `10.100.10.10 compute.myasegpudev.microsoftdatabox.com`
+
+9. To verify that you can connect to the Kubernetes pods, start a cmd prompt or a PowerShell session. Type:
+    
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl get pods -n "myadstest"
+    No resources found.
+    PS C:\WINDOWS\system32>
+    ```
+You can now deploy your data controller and data services applications in the namespace, then view the applications and their logs.
 
 ### Create Data Controller
 
