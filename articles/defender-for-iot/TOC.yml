@@ -171,8 +171,10 @@
         href: how-to-manage-the-alert-event.md
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
+        displayName: custom, alerts, comments, groups
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
+        displayName: integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email 
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Work with alerts on the on-premises management console
@@ -205,6 +207,7 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
+      displayName: health
     - name: Integrate with partners
       items:
       - name: Cisco ISE pxGrid integration
@@ -240,11 +243,9 @@
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
       displayName: investigation, queries, investigate
+      href: how-to-configure-agent-based-solution.md
+    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
-    - name: Investigate security recommendations
-      href: quickstart-investigate-security-recommendations.md
-    - name: Investigate security alerts
-      href: quickstart-investigate-security-alerts.md
     - name: Create custom alerts
       displayName: security group
       href: quickstart-create-custom-alerts.md
@@ -276,6 +277,7 @@
       - name: Send your own security messages
         href: how-to-send-security-messages.md
       - name: Access raw security data
+
         displayName: log analytics, alerts, 
         href: how-to-security-data-access.md
       - name: Investigate a device
