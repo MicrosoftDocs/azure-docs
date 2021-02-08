@@ -129,7 +129,7 @@ Configure the tool to use the model files you downloaded previously. From the ho
 
 To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
 
-## Remove the resources
+## Clean up resources
 
 You can use the IoT hub and DPS instance for all the IoT Plug and Play quickstarts and tutorials, so you only need to complete the steps in this article once. When you're finished, you can remove them from your subscription with the following command:
 
