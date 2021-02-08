@@ -301,6 +301,11 @@ If a password is changed outside the corporate network (for example, by using Az
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
 - For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
 
+For Windows 10 devices, if needed, this process can be automated with the WPJ removal tool that can be downloaded here: [WPJCleanUp.zip](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.
+
 ---
 ### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
 
