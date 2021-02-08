@@ -11,7 +11,7 @@ ms.date: 01/11/2021
 
 # Quickstart: Send telemetry from a device to IoT Central (Python)
 
-***Applies to**: device application developers*   
+***Applies to**: Device application developers*   
 
 
 In this quickstart, you learn a basic IoT development workflow for securely connecting a device to the cloud, and sending telemetry. First you use Azure IoT Central to create a cloud application. Then you use the Azure IoT Python SDK to build a simulated device, connect to IoT Central, and send device-to-cloud telemetry. 
@@ -54,7 +54,7 @@ To create a new device:
 1. Leave **Device template** set to *Unassigned*.
 
     > [!NOTE]
-    > Later you'll learn more about creating and using device templates. In this quickstart for simplicity, you'll attach a simulated device that uses an unassigned template. For an overview of working with device templates, see [Quickstart: Add a simulated device to your IoT Central application](../iot-central/core/quick-create-simulated-device.md)
+    > In this quickstart for simplicity, you connect a simulated device that uses an unassigned template. If you continue using IoT Central to manage devices, you'll learn about using device templates. For an overview of working with device templates, see [Quickstart: Add a simulated device to your IoT Central application](../iot-central/core/quick-create-simulated-device.md).
 1. Set a friendly **Device name** and **Device ID**. Optionally, use the generated values.
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-create-device.png" alt-text="IoT Central new device dialog":::
 1. Select **Create**.
@@ -163,53 +163,23 @@ origin: <your Device name>
 payload: This is a message that is being sent
 ```
 
-Your device is now securely connected and sending telemetry to Azure IoT Hub.
-
-## View messaging metrics
-IoT Central enables you to manage all aspects of your application and devices. In a typical IoT Hub application that ingests telemetry from devices, you might want to monitor devices or view metrics on device telemetry. 
-
-To visualize messaging metrics in the Azure portal:
-1. In the left navigation menu on the portal, select **All Resources**. This lists all resources in your subscription, including the IoT hub you created. 
-
-1. Select the link on the IoT hub you created. The portal displays the overview page for the hub.
-
-1. Select **Metrics** in the left pane of your IoT Hub. 
-
-    ![IoT Hub messaging metrics](media/quickstart-send-telemetry-python/iot-hub-portal-metrics.png)
-
-1. Enter your IoT hub name in **Scope**.
-
-2. Select *Iot Hub Standard Metrics* in **Metric Namespace**.
-
-3. Select *Telemetry messages sent* in **Metric**. 
-
-4. Hover your mouse pointer over the area of the timeline in which your device sent messages. The total number of messages at a point in time appears in the lower left corner of the timeline.
-
-    ![View Azure IoT Hub metrics](media/quickstart-send-telemetry-python/iot-hub-portal-view-metrics.png)
-
-5. Optionally, use the **Metric** dropdown to display other metrics on your simulated device.  
+Your device is securely connected and sending telemetry to Azure IoT Hub.
 
 ## Clean up resources
-If you no longer need the Azure resources created in this quickstart, you can use IoT Central delete them.
+If you no longer need the IoT Central resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you plan to continue following the documentation in this guide, you can keep the resources you've already created and reuse them.
 
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+To keep the Azure IoT Central sample application but remove only specific devices:
+1. In the left pane select **Devices**.
+1. Select a specific device or devices to delete from the **All devices** list.
+1. Select **Delete**.
 
-To delete a resource group by name:
-1. Run the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. This removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli
-    az group delete --name MyResourceGroup
-    ```
-1. Run the [az group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) command to confirm the resource group is deleted.  
-
-    ```azurecli
-    az group list
-    ```
+To remove the entire Azure IoT Central sample application and all its devices and resources:
+1. Select **Administration** > **Your application**.
+1. Select **Delete**.
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used the Azure CLI to create an IoT hub and a simulated device, then you used the Azure IoT Python SDK to access the device and send telemetry to the hub. You also used the Azure portal to visualize device metrics.
+In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used the Azure IoT Central to create an application and a device, then you used the Azure IoT Python SDK to create a simulated device and send telemetry. You also used IoT Central to monitor the telemetry.
 
 As a next step, explore the Azure IoT Python SDK through application samples.
 
