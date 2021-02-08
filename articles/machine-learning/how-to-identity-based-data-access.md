@@ -161,6 +161,8 @@ Create a datastore with identity based data access with the following steps.
 
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
 
+![Diagram shows the create datastore form from Azure Machine Learning studio.](./media/how-to-identity-based-data-access/create-identity-based-datastore.png)
+
 ## Use data in storage
 
 After you create a datastore, create an [Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data.
