@@ -1307,13 +1307,13 @@ productDirectory:
         - security
       url: security-center/azure-defender.md
     # Card
-    - title: Azure Defender for IoT (Preview)
+    - title: Azure Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:
         - security
         - iot
-      url: ./security-center/azure-defender.md
+      url: ./defender-for-iot/index.yml
     # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks
