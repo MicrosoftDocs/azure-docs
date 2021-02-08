@@ -20,7 +20,7 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 >[!IMPORTANT]
 > The functionalities presented in this article are in preview, and should be considered [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features that may change at any time.
 
-In this article, learn how to connect to storage services on Azure with Azure Machine Learning datastores and identity-based data access.  When you create a datastore that uses identity-based data access, your [Azure Active Directory](./active-directory/fundamentals/active-directory-whatis.md) token is used to confirm that you have permission to access the storage service.
+In this article, learn how to connect to storage services on Azure with Azure Machine Learning datastores and identity-based data access.  When you create a datastore that uses identity-based data access, your [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) token is used to confirm that you have permission to access the storage service.
 
 Datastores securely connect to your storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization, in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. This way you can access your storage without having to hard code that information in your scripts. To understand where datastores fit in Azure Machine Learning's overall data access workflow, see the [Securely access data](concept-data.md#data-workflow) article.
 
@@ -41,7 +41,11 @@ Conduct eyes-off training on private data| Certain machine learning scenarios in
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-- An Azure storage account with a [supported storage type](#matrix).
+- An Azure storage account with a supported storage type.
+    - Currently the following storage types are supported
+        - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
+        - [Azure Data Lake Gen 1](../data-lake-store/index.yml)
+        - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -62,9 +66,9 @@ Conduct eyes-off training on private data| Certain machine learning scenarios in
 
 To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you have permission to access the corresponding data storage.
 
-Managed identity for data access only supports the following storage services:
+Identity based data access only supports connections to the following storage services:
 
-* Azure blob container
+* Azure Blob Storage
 * Azure Data Lake Generation 1
 * Azure Data Lake Generation 2
 
@@ -83,9 +87,9 @@ Storage accounts can be configured to allow access only from within specific vir
 
 **For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage.  
 
-**For Azure Machine Learning studio users**, several features rely on being able to read data from a dataset; such as dataset previews, profiling and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
+**For Azure Machine Learning studio users**, several features rely on being able to read data from a dataset; such as dataset previews, profiling and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 
-Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link).
+Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link.md).
 
 <a name="python"></a>
 ## Create and register datastores with the SDK
@@ -104,7 +108,7 @@ To register an Azure blob container as a datastore, use [`register_azure_blob_co
 The following code creates and registers the `credentialless_blob`datastore to the `ws` workspace and assigns it to the variable, `blob_datastore`. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
 
 ```Python
-# create blob datatastore without credentials
+# create blob datastore without credentials
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                       datastore_name='credentialless_blob',
                                                       container_name='my_container_name',
@@ -113,7 +117,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure Data Lake Storage Generation 1
 
-For an Azure Data Lake Storage Generation 1 (ADLS Gen 1) datastore, use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) to register a datastore that connects to an Azure DataLake Generation 1 storage.
+For an Azure Data Lake Storage Generation 1 (ADLS Gen 1) datastore, use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) to register a datastore that connects to an Azure DataLake Generation 1 storage.
 
 The following code creates and registers the `credentialless_adls1` datastore to the `workspace` workspace and assigns it to the variable, `adls_dstore`. This datastore accesses the `adls_storage` Azure Data Lake Store storage account.
 
@@ -156,7 +160,8 @@ Create a datastore with identity-based data access with the following steps.
 1. Enter the name of your storage account or data lake.
 1. For **Save credentials with the datastore for data access (Preview)**, select **No**.
 1. For **Use workspace managed identity for data preview and profiling in Azure Machine Learning studio**,
-    1. If your particular scenario involves a virtual network, select **Yes**. Otherwise, select **No**
+    1. If your particular scenario involves a virtual network, select **Yes**.
+    1. Otherwise, select **No**
 1. Select **Create**.
 
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
@@ -181,6 +186,6 @@ The compute identity must be granted with at least **Storage Blob Data Reader** 
 
 ## Next steps
 
-* [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
-* [Train a model](how-to-set-up-training-targets.md)
-* [Deploy a model](how-to-deploy-and-where.md)
+* [Create an Azure machine learning dataset](how-to-create-register-datasets.md).
+* [Train with datasets](how-to-train-with-datasets.md).
+* [Create a datastore with key-based data access](how-to-access-data.md).
