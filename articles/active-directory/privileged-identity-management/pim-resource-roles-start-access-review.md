@@ -27,6 +27,8 @@ This article describes how to create one or more access reviews for privileged A
 
 [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator)
 
+To create access review for Azure resources you need to have 'owner' or 'user access administrator' roles to the resource on the subscription level.
+
 ## Open access reviews
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the Privileged Role Administrator role.
