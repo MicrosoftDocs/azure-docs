@@ -155,7 +155,8 @@ The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. Th
 
 Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
-La bande 5150–5250 MHz est réservée uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux.
+![Regulatory information warning - indoor use](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
+
 
 Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz, and these radars could cause interference and/or damage to LE-LAN devices.
 
