@@ -1,7 +1,7 @@
 ---
 title: How to create and manage files in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how use create and manage files in your workspace in Azure Machine Learning studio.
+description: Learn how create and manage files in your workspace in Azure Machine Learning studio.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -25,7 +25,7 @@ Learn how to create and manage the files in your Azure Machine Learning workspac
 
 ## <a name="create"></a> Create files
 
-To create a new file in your default folder (Users > yourname):
+To create a new file in your default folder (`Users > yourname`):
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
@@ -37,9 +37,11 @@ To create a new file in your default folder (Users > yourname):
 1. Select a file type.
 1. Select **Create**.
 
-Notebooks and most text file types display in the preview section.  No preview is available for most other file types.
+Notebooks and most text file types display in the preview section.  Most other file types don't have a preview.
 
-To create a new file in a different folder, select the "..." at the end of the folder, then select **Create new file**.
+To create a new file in a different folder:
+1. Select the "..." at the end of the folder
+1. Select **Create new file**.
 
 > [!IMPORTANT]
 > Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
@@ -50,7 +52,7 @@ To create a new file in a different folder, select the "..." at the end of the f
 
 ## Clone samples
 
-Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.  You can clone these notebooks into your own folder on your workspace storage container.  
+Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   lone these notebooks into your own folder to run and edit them.  
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
