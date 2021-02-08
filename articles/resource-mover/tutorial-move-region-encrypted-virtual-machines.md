@@ -206,7 +206,7 @@ Assign manually as follows:
 
 At this stage both the disk encryption set and the key vault status turns to *Commit move pending*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" alt-text="Page to select prepare for other resources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" alt-text="Page to select prepare for other resources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
 
 To commit and finish the move process for encryption resources.
 
