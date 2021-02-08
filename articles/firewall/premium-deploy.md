@@ -23,12 +23,12 @@ ms.author: victorh
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
-For more information, see [Azure Firewall Premium features](premium-features.md)
+For more information, see [Azure Firewall Premium features](premium-features.md).
 
 You'll deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
 - a worker subnet (10.0.10.0/24)
 - a server subnet (10.0.20.0/24)
-- and a firewall subnet (10.0.100.0/24)
+- a firewall subnet (10.0.100.0/24)
 
 A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
@@ -130,7 +130,7 @@ Now you can install the root certificate on the worker virtual machine.
 1. Use RDP to connect to the **WorkerVM** virtual machine.
 2. Create a folder named **C:\Certs** on WorkerVM.
 3. Copy and paste the `rootCA.crt` file from your local machine to the virtual machine **C:\Certs** folder.
-4. Open an administrator Windows PowerShell window.
+4. Open an administrator Windows PowerShell window on **WorkerVM**..
 5. Run the following PowerShell cmdlet to install the root certificate to the local machine trusted root certificates folder:<br>
    `Import-Certificate -FilePath c:\certs\rootCA.crt  -CertStoreLocation 'Cert:\LocalMachine\Root' -Verbose`
 
@@ -236,13 +236,16 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="Alert message":::
 
+   > [!NOTE]
+   > It can take some time for the data to begin showing logs. Give it at least 20 minutes to allow for the logs to begin showing the data.
 5. Add a signature rule for signature 2008983:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS(preview)**.
    1. Select the **Signature rules** tab.
    1. Under **Signature ID**, in the open text box type *2008983*.
-   1. Under **State**, select **Deny**.
+   1. Under **Mode**, select **Deny**.
    1. Select **Save**.
+   1. Wait for the deployment to complete before proceeding.
 
 
 
@@ -254,7 +257,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    `read tcp 10.0.100.5:55734->10.0.20.10:80: read: connection reset by peer`
 
-7. Go to the Monitor logs in the Azure portal and identify the message for the blocked request.
+7. Go to the Monitor logs in the Azure portal and find the message for the blocked request.
 <!---8. Now you can bypass the IDPS function using the **Bypass list**.
 
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
@@ -276,8 +279,8 @@ Use the following steps to test TLS Inspection with URL filtering.
 
 1. Edit the firewall policy application rule and add a new target URL `www.nytimes.com/section/world` to the **AllowWeb** application rule.
 
-3. Open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
-4. In the Azure portal, you can view the entire URL in the Monitoring logs:
+3. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
+4. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
 
       :::image type="content" source="media/premium-deploy/alert-message-url.png" alt-text="Alert message showing the URL":::
 
@@ -292,8 +295,7 @@ Some HTML pages may look incomplete because they refer to other URLs that are de
 
 ### Web categories testing
 
-Let's create an application rule to allow access to Sports web sites.
-
+Let's create an application rule to allow access to sports web sites.
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
 2. Select **Application Rules**, and then **Add a rule collection**.
 3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
@@ -301,10 +303,10 @@ Let's create an application rule to allow access to Sports web sites.
 5. Select **Add**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::
-6. Go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
+6. When the deployment completes, go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
 
-You should see the NFL web page.
+   You should see the NFL web page, and the Application rule log shows that a **Web Category: Sports** rule was matched and the request was allowed.
 
 ## Next steps
 
-- [Learn about Azure Firewall](overview.md)
+- [Azure Firewall Premium Preview in the Azure portal](premium-portal.md)
