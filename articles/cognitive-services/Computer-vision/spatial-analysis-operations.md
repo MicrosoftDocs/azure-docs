@@ -960,7 +960,7 @@ In order to get the best performance and utilization of the GPUs, you can deploy
   ```
 | Name | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | If all of the cameras have the same resolution, set `batch_size` to the number of cameras that will be used in that operation. If they do not have the same resolution, then set `batch_size` to 1 or leave it as default (1), which indicates no batch is supported. |
+| `batch_size` | int | If all of the cameras have the same resolution, set `batch_size` to the number of cameras that will be used in that operation, otherwise, set `batch_size` to 1 or leave it as default (1), which indicates no batch is supported. |
 
 ## Next steps
 
