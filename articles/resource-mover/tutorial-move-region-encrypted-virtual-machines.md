@@ -56,16 +56,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you're moving VMs that have Azure disk encryption enabled, in the key vaults in the source and destination regions, verify/set permissions to ensure that moving encrypted VMs will work as expected. 
 
 1. In the Azure portal, open the key vault in the source region.
-1. Under **Settings**, select **Access policies**.
+2. Under **Settings**, select **Access policies**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="image-file-expanded.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
 3. If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions.
 
     - If VMs you want to move are enabled with Azure disk encryption (ADE), In **Key Permissions** > **Key Management Operations**, select **Get** and **List** if they're not selected.
     - If you're using customer-managed keys (CMKs) to encrypt disk encryption keys used for encryption-at-rest (server-side encryption), in **Key Permissions** > **Key Management Operations**, select **Get** and **List**. Additionally, in **Cryptographic Operations**, select **Decrypt** and **Encrypt**
  
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Dropdown list to select key vault permissions." lightbox="image-file-expanded.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Dropdown list to select key vault permissions." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
 
 4. In **Secret permissions**,  **Secret Management Operations**, select **Get**, **List**, and **Set**. 
 5. If you're assigning permissions to a new user account, in **Select principal**, select the user to whom you're assigning permissions.
@@ -91,7 +91,8 @@ Run as follows:
 4. Sign into Azure.
 5. In the **User Input** pop-up, select the source subscription, resource group, and source VM. Then select the target location, and the target vaults for disk and key encryption.
 
-    ![Pop up to input script values.](./media/tutorial-move-region-encrypted-virtual-machines/script-input.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Pop up to input script values." :::
+
 
 6. When the script completes, screen output indicates that CopyKeys succeeded.
 
@@ -115,41 +116,43 @@ Select resources as follows:
 
 1. In the Azure portal, search for *resource mover*. Then, under **Services**, select **Azure Resource Mover**.
 
-    ![Search results for resource mover in the Azure portal.](./media/tutorial-move-region-virtual-machines/search.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Search results for resource mover in the Azure portal." :::
+
 
 2. In **Overview**, click **Move across regions**.
 
-    ![Button to add resources to move to another region.](./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Button to add resources to move to another region." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
 3. In **Move resources** > **Source + destination**, select the source subscription and region.
 4. In **Destination**, select the region to which you want to move the VMs. Then click **Next**.
 
-    ![Page to select source and destination region.](./media/tutorial-move-region-encrypted-virtual-machines/source-target.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Page to select source and destination region.." :::
 
-6. In **Resources to move**, click **Select resources**.
+5. In **Resources to move**, click **Select resources**.
 
-    ![Button to select resource to move.](./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png) 
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Button to select resource to move.]." :::
 
-1. In **Select resources**, select the VMs. You can only add resources that are [supported for move](#prepare-vms). Then click **Done**.
+6. In **Select resources**, select the VMs. You can only add resources that are [supported for move](#prepare-vms). Then click **Done**.
 
-    ![Page to select VMs to move.](./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Page to select VMs to move." :::
 
     > [!NOTE]
     >  In this tutorial we're selecting a VM that uses server-side encryption (rayne-vm) with a customer-managed key, and a VM with disk encryption enabled (rayne-vm-ade).
 
-8.  In **Resources to move**, click **Next**.
-9. In **Review**, check the source and destination settings. 
+7.  In **Resources to move**, click **Next**.
+8. In **Review**, check the source and destination settings. 
 
-    ![Page to review settings and proceed with move.](./media/tutorial-move-region-encrypted-virtual-machines/review.png)
-10. Click **Proceed**, to begin adding the resources.
-11. Select the notifications icon to track progress. After the add process finishes successfully, select **Added resources for move** in the notifications.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Page to review settings and proceed with move." :::
 
-    ![Notification to confirm resources were added successfully.](./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png)
+9. Click **Proceed**, to begin adding the resources.
+10. Select the notifications icon to track progress. After the add process finishes successfully, select **Added resources for move** in the notifications.
+
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Notification to confirm resources were added successfully." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
     
     
-2. After clicking the notification, review the resources on the **Across regions** page.
+11. After clicking the notification, review the resources on the **Across regions** page.
 
-    ![Pages showing added resources with prepare pending.](./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Pages showing added resources with prepare pending." :::
 
 > [!NOTE]
 > - Resources you add are placed into a *Prepare pending* state.
@@ -162,12 +165,12 @@ Select resources as follows:
 
 1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button.
 
-    ![Button to check dependencies.](./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="NButton to check dependencies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
     The validation process begins.
 2. If dependencies are found, click **Add dependencies**  
 
-    ![Button to add dependencies].(./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Button to add dependencies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
 
 
 3. In **Add dependencies**, leave the default **Show all dependencies** option.
@@ -177,11 +180,11 @@ Select resources as follows:
  
 4. Select the dependent resources you want to add > **Add dependencies**.
 
-    ![Select dependencies from dependencies list.](./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Select dependencies from dependencies list." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
 5. Validate dependencies again. 
 
-    ![Page to validate again.](./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Page to validate again." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 
 ## Assign destination resources
 
@@ -197,14 +200,14 @@ Assign manually as follows:
 2. In **Configuration settings**, select the destination disk encryption set. Then select **Save changes**.
 3. You can select to save and validate dependencies for the resource you're modifying, or you can just save the changes, and validate everything you modify in one go.
 
-    ![Page to select disk encryption set in destination region.](./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Page to select disk encryption set in destination region." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
 
     After adding the destination resource, the status of the disk encryption set turns to *Commit move pending*.
 3. In the key vault entry, select **Resource not assigned** in the **Destination configuration** column. **Configuration settings**, select the destination key vault. Save the changes. 
 
 At this stage both the disk encryption set and the key vault status turns to *Commit move pending*.
 
-![Page to select prepare for other resources.](./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" alt-text="Page to select prepare for other resources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)":::
 
 To commit and finish the move process for encryption resources.
 
@@ -227,9 +230,9 @@ Prepare as follows:
 
 1. In **Across regions**, select the source resource group > **Prepare**.
 
-    ![Prepare resource group.](./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Prepare resource group." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
 
-1. In **Prepare resources**, click **Prepare**.
+2. In **Prepare resources**, click **Prepare**.
 
 > [!NOTE]
 > After preparing the resource group, it's in the *Initiate move pending* state. 
@@ -241,12 +244,12 @@ Initiate the move as follows:
 
 1. In **Across regions**, select the resource group > **Initiate Move**
 
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Button to initiate move." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
 
-    ![Button to initiate move.](./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png)
 2. ln **Move Resources**, click **Initiate move**. The resource group moves into an *Initiate move in progress* state.   
 3. After initiating the move, the target resource group is created, based on the generated ARM template. The source resource group moves into a *Commit move pending* state.
 
-    ![Review the commit move pending state.](./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Review the commit move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
 
 To commit and finish the move process:
 
@@ -256,7 +259,7 @@ To commit and finish the move process:
 > [!NOTE]
 > After committing the move, the source resource group is in a *Delete source pending* state.
 
-![Review the delete move pending state.](./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png)
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Review the delete move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## Prepare resources to move
 
@@ -274,7 +277,8 @@ Now that the encryption resources and the source resource group are moved, you c
 
 After preparing resources, they're in an *Initiate move pending* state.
 
-![Page showing resources in initiate move pending state.](./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png)
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Page showing resources in initiate move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
+
 
 
 ## Initiate the move
@@ -284,7 +288,8 @@ With resources prepared, you can now initiate the move.
 1. In **Across regions**, select resources with state *Initiate move pending*. Then click **Initiate move**.
 2. In **Move resources**, click **Initiate move**.
 
-    ![Click for the initiate move button.](./media/tutorial-move-region-virtual-machines/initiate-move.png)
+    ![](./media/tutorial-move-region-virtual-machines/)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move.png" alt-text="Click the initiate move button." :::
 
 3. Track move progress in the notifications bar.
 
@@ -292,7 +297,7 @@ With resources prepared, you can now initiate the move.
     - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
     - After moving resources, they're in an *Commit move pending* state.
 
-![Page showing resources in a Commit move pending state.](./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png)
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Page showing resources in a Commit move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png":::
 
 
 ## Discard or commit?
@@ -322,7 +327,7 @@ If you want to complete the move process, commit the move.
 1. In **Across regions**, select resources with state *Commit move pending*, and click **Commit move**.
 2. In **Commit resources**, click **Commit**.
 
-    ![Page to commit resources to finalize move.](./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png)
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Page to commit resources to finalize move." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/rresources-commit-move.png:::
 
 3. Track the commit progress in the notifications bar.
 
@@ -331,7 +336,8 @@ If you want to complete the move process, commit the move.
 > - Commit doesn't impact source networking resources.
 > - After committing the move, resources are in a *Delete source pending* state.
 
-![Page showing resources in Delete source pending state.](./media/tutorial-move-region-virtual-machines/delete-source-pending.png)
+
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/delete-source-pending.png)" alt-text="Page showing resources in Delete source pending state." :::
 
 
 ## Configure settings after the move
