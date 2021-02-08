@@ -211,5 +211,5 @@ The results can then be exported to Excel for further review.
 
 ## Next steps
 
-Use [Azure Monitor log queries](../log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
+Use [Azure Monitor log queries](../logs/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
 

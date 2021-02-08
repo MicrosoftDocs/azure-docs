@@ -228,5 +228,5 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Azure diagnostics data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure diagnostics data.
 

@@ -260,7 +260,7 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 ## Log queries in Azure Monitor
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../logs/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 

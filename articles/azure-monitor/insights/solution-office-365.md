@@ -114,7 +114,7 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log queries](../logs/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 
 ## Uninstall
@@ -469,6 +469,6 @@ The following table provides sample log queries for update records collected by 
 
 ## Next steps
 
-* Use [log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed update data.
+* Use [log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

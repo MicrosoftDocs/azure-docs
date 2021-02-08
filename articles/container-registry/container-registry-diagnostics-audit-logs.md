@@ -77,7 +77,7 @@ The following image shows sample output:
 
 For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), or try the Log Analytics [Demo environment](https://portal.loganalytics.io/demo). 
 
-For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Query examples
 

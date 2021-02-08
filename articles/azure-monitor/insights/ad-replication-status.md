@@ -106,7 +106,7 @@ When you click any item in one of the lists, you see additional details about it
 
 ![AD replication status errors in query results](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-From here, you can filter further, modify the log query, and so on. For more information about using the log queries in Azure Monitor, see [Analyze log data in Azure Monitor](../log-query/log-query-overview.md).
+From here, you can filter further, modify the log query, and so on. For more information about using the log queries in Azure Monitor, see [Analyze log data in Azure Monitor](../logs/log-query-overview.md).
 
 The **HelpLink** field shows the URL of a TechNet page with additional details about that specific error. You can copy and paste this link into your browser window to see information about troubleshooting and fixing the error.
 
@@ -151,5 +151,5 @@ If you need assistance connecting one of your domain controllers, you can view d
 If you don't want to connect any of your domain controllers directly to Azure Monitor or to System Center Operations Manager, see [Enable non-domain controller](#enable-non-domain-controller).
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Active Directory Replication status data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Active Directory Replication status data.
 

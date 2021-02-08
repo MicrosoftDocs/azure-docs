@@ -461,5 +461,5 @@ Legacy table: traces
 ## Next steps
 
 * [Explore metrics](../essentials/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 

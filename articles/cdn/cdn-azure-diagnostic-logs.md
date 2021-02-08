@@ -367,5 +367,5 @@ Example properties:
 
 * [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
 * [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
-* [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
 * [Azure Log Analytics REST API](/rest/api/loganalytics)

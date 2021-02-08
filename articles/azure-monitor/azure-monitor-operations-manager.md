@@ -107,7 +107,7 @@ Use Azure Monitor fo VMs to enhance your current monitoring even if it doesn't i
 
 - Discover and monitor relationships between virtual machines and their external dependencies.
 - View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
-- Use [log queries](log-query/log-query-overview.md) to interactively analyze telemetry from your virtual machines with data from your other Azure resources.
+- Use [log queries](logs/log-query-overview.md) to interactively analyze telemetry from your virtual machines with data from your other Azure resources.
 - Create [log alert rules](alerts/alerts-log-query.md) based on complex logic across multiple virtual machines.
 
 [![Azure Monitor for VMs map](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
@@ -127,7 +127,7 @@ If your monitoring of a business application is limited to functionality provide
 - Detect exceptions and drill into stack trace and related requests.
 - Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
-- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
+- Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
 

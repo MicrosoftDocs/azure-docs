@@ -17,7 +17,7 @@ After you set up B2B communication between trading partners in your integration 
 * Correlations between messages and acknowledgments
 * Detailed error descriptions for failures
 
-Azure Monitor lets you create [log queries](../azure-monitor/log-query/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), such as Azure Storage and Azure Event Hubs.
+Azure Monitor lets you create [log queries](../azure-monitor/logs/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), such as Azure Storage and Azure Event Hubs.
 
 To set up logging for your integration account, [install the Logic Apps B2B solution](#install-b2b-solution) in the Azure portal. This solution provides aggregated information for B2B message events. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
 
@@ -159,7 +159,7 @@ After your logic app runs, you can view the status and data about those messages
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->

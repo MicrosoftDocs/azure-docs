@@ -119,7 +119,7 @@ Learn how to [route data to your storage account](./quickstart-azure-monitor-rou
 
 #### Send logs to Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) consolidate monitoring data from different sources. It also provides a query language and analytics engine that gives you insights into the operation of your applications and use of resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor, and alert on collected data. Use this method when you don't have an existing SIEM solution that you want to send your data to directly but do want queries and analysis. Once your data is in Azure Monitor logs, you can then send it to event hub and from there to a SIEM if you want to.
+[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) consolidate monitoring data from different sources. It also provides a query language and analytics engine that gives you insights into the operation of your applications and use of resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor, and alert on collected data. Use this method when you don't have an existing SIEM solution that you want to send your data to directly but do want queries and analysis. Once your data is in Azure Monitor logs, you can then send it to event hub and from there to a SIEM if you want to.
 
 Learn how to [send data to Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
 

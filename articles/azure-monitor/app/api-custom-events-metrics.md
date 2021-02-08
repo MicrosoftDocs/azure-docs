@@ -141,7 +141,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Analytics
 
-The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../log-query/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
+The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../logs/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
 
  
 
@@ -201,7 +201,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the `customMetrics` table in [Application Insights Analytics](../log-query/log-query-overview.md). Each row represents a call to `trackMetric(..)` in your app.
+The telemetry is available in the `customMetrics` table in [Application Insights Analytics](../logs/log-query-overview.md). Each row represents a call to `trackMetric(..)` in your app.
 
 * `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount` - The number of measurements that were aggregated into this `trackMetric(..)` call.
@@ -271,7 +271,7 @@ The resulting page load durations displayed in Metrics Explorer are derived from
 
 ### Page telemetry in Analytics
 
-In [Analytics](../log-query/log-query-overview.md) two tables show data from browser operations:
+In [Analytics](../logs/log-query-overview.md) two tables show data from browser operations:
 
 * The `pageViews` table contains data about the URL and page title
 * The `browserTimings` table contains data about client performance, such as the time taken to process the incoming data
@@ -307,7 +307,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../log-query/log-query-overview.md), you can easily find any events associated with the request using its operation ID.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request using its operation ID.
 
 See [Telemetry correlation in Application Insights](./correlation.md) for more details on correlation.
 
@@ -345,7 +345,7 @@ See [Track custom operations with Application Insights .NET SDK](./custom-operat
 
 ### Requests in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), requests show up in the `requests` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), requests show up in the `requests` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
@@ -427,7 +427,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 ### Exceptions in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), exceptions show up in the `exceptions` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), exceptions show up in the `exceptions` table.
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
@@ -522,7 +522,7 @@ In [Search](./diagnostic-search.md), you can then easily filter out all the mess
 
 ### Traces in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
 
@@ -604,7 +604,7 @@ To turn off the standard dependency-tracking module in C#, edit [ApplicationInsi
 
 ### Dependencies in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
@@ -813,7 +813,7 @@ telemetry.TrackEvent(event);
 
 ### Custom measurements and properties in Analytics
 
-In [Analytics](../log-query/log-query-overview.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
+In [Analytics](../logs/log-query-overview.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
 
 For example, if you have added a property named "game" to your request telemetry, this query counts the occurrences of different values of "game", and show the average of the custom metric "score":
 

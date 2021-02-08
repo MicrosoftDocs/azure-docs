@@ -108,5 +108,5 @@ The following table shows the schema differences between Log Analytics and Appli
 
 ## Next steps
 
-Use [Log Search](./log-query-overview.md) to view detailed information for your Application Insights apps.
+Use [Log Search](../logs/log-query-overview.md) to view detailed information for your Application Insights apps.
 
