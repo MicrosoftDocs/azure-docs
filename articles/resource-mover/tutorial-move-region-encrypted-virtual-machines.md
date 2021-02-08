@@ -68,7 +68,8 @@ If you're moving VMs that have Azure disk encryptione enabled, in the key vaults
 
 4. In **Secret permissions**,  **Secret Management Operations**, select **Get**, **List**, and **Set**. 
 5. If you're assigning permissions to a new user account, in **Select principal**, select the user to whom you're assigning permissions.
-6. Repeat the procedure for the key vault in the destination region.
+6. In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled.
+7. Repeat the procedure for the key vault in the destination region.
 
 
 ### Copy the keys to the destination key vault
