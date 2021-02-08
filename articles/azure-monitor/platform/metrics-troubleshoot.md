@@ -14,18 +14,6 @@ ms.subservice: metrics
 
 Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
-## Can't find your resource to select it
-
-You clicked on the **Select a resource** button, but don't see your resource in the resource picker dialog.
-
-**Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see your resource:
-
-1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, click on the  **Directory + Subscription settings** and add a subscription with your resource.
-
-1. Ensure that you've selected the correct resource group.
-    > [!WARNING]
-    > For best performance, when you first open metrics explorer, the **Resource group** dropdown has no pre-selected resource groups. You must pick at least one group before you can see any resources.
-
 ## Chart shows no data
 
 Sometimes the charts might show no data after selecting correct resources and metrics. This behavior can be caused by several of the following reasons:
@@ -56,7 +44,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### All metric values were outside of the locked y-axis range
 
-By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of-chart-y-axis), you can unintentionally  make the chart display area not show the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
+By [locking the boundaries of chart y-axis](metrics-charts.md#locking-the-range-of-the-y-axis), you can unintentionally  make the chart display area not show the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
 
 **Solution:** Verify that the y-axis boundaries of the chart aren’t locked outside of the range of the metric values. If the y-axis boundaries are locked, you may want to temporarily reset them to ensure that the metric values don’t fall outside of the chart range. Locking the y-axis range isn’t recommended with automatic granularity for the charts with **sum**, **min**, and **max** aggregation because their values will change with granularity by resizing browser window or going from one screen resolution to another. Switching granularity may leave the display area of your chart empty.
 

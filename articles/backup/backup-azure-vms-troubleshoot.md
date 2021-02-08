@@ -70,6 +70,16 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
+If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the ```MountsToSkip``` property as follows.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
 Error code: ExtensionSnapshotFailedCOM <br/>

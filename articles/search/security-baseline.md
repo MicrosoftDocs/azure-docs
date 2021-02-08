@@ -338,7 +338,7 @@ Establish a process to reduce the number of identities and credentials by enabli
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication (MFA) configured to log into and access Azure resources.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)

@@ -340,7 +340,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *TLS 1.2* folder, which contains a custom setup script (*main.cmd*) to use strong cryptography and more secure network protocol (TLS 1.2) on each node of your Azure-SSIS IR. The script also disables older SSL/TLS versions.
 
-      * A *ZULU OPENJDK* folder, which contains a custom setup script (*main.cmd*) and PowerShell file (*install_openjdk.ps1*) to install the Zulu OpenJDK on each node of your Azure-SSIS IR. This setup lets you use Azure Data Lake Store and Flexible File connectors to process ORC and Parquet files. For more information, see [Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
+      * A *ZULU OPENJDK* folder, which contains a custom setup script (*main.cmd*) and PowerShell file (*install_openjdk.ps1*) to install the Zulu OpenJDK on each node of your Azure-SSIS IR. This setup lets you use Azure Data Lake Store and Flexible File connectors to process ORC and Parquet files. For more information, see [Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#dependency-on-java). 
       
         First, [download the latest Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (for example, *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), and then upload it together with *main.cmd* and *install_openjdk.ps1* to your container.
 

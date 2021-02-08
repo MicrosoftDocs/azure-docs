@@ -70,7 +70,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable Monitoring and Protection of App Service](/azure/security-center/defender-for-app-service-introduction)
+- [How to Enable Monitoring and Protection of App Service](../security-center/defender-for-app-service-introduction.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -167,7 +167,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
+- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +204,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
+- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -220,7 +220,7 @@ Apply any of the built-in Azure Policy definitions related to tagging effects, s
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restrictions)
+- [Azure App Service Access Restrictions](./app-service-ip-restrictions.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -436,7 +436,7 @@ Implement multifactor authentication for Azure AD. Administrators need to ensure
 
 **Guidance**: Use Privileged Access Workstations (PAW) with multifactor authentication configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -1114,7 +1114,7 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts Sentinel as per business needs.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts to Azure Sentinel as per business needs.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

@@ -5,7 +5,6 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.date: 10/05/2020
 ---
 

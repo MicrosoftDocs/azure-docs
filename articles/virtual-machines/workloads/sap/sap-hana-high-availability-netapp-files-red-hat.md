@@ -11,7 +11,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
 ---
 
@@ -86,6 +86,7 @@ Read the following SAP Notes and papers first:
 	- [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure.](https://access.redhat.com/solutions/3193782)
 	- [Configure SAP HANA scale-up system replication up Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
+- [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## Overview
 
@@ -689,3 +690,10 @@ This section describes how you can test your setup.
     ```
 
    We recommend to thoroughly test the SAP HANA cluster configuration, by also performing the tests described in [Setup SAP HANA System Replication on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+
+## Next steps
+
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

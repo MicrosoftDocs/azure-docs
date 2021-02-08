@@ -38,16 +38,14 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Requirement** | **Details**
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which VMs are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull VM metadata and performance data, using a Common Information Model (CIM) session.
-**Appliance deployment** | Hyper-v host needs resources to allocate a VM for the appliance:<br/><br/> - Windows Server 2016<br/><br/> -16 GB of RAM<br/><br/> - Eight vCPUs<br/><br/> - Around 80 GB of disk storage.<br/><br/> - An external virtual switch.<br/><br/> - Internet access on for the VM, directly or via a proxy.
+**Appliance deployment** | Hyper-V host needs resources to allocate a VM for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance VM, directly or via a proxy.
 **VMs** | VMs can be running any Windows or Linux operating system. 
-
-Before you start, you can [review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
 
 ## Prepare an Azure user account
 
 To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Azure Active Directory(AAD) apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -67,24 +65,55 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. In the portal, search for users, and under **Services**, select **Users**.
-8. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App(s). [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare Hyper-V hosts
 
-Set up an account with Administrator access on the Hyper-V hosts. The appliance uses this account for discovery.
+You can prepare Hyper-V hosts manually, or using a script. The preparation steps are summarized in the table. The script prepares these automatically.
 
-- Option 1: Prepare an account with Administrator access to the Hyper-V host machine.
-- Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
+**Step** | **Script** | **Manual**
+--- | --- | ---
+Verify host requirements | Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.<br/><br/>Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection). | The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull VM metadata and performance data, using a Common Information Model (CIM) session.<br/><br/> The script isn't currently supported on hosts with a non-English locale.  
+Verify PowerShell version | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
+Create an account | Verifies that you have the correct permissions on the Hyper-V host.<br/><br/> Allows you to to create a local user account with the correct permissions. | Option 1: Prepare an account with Administrator access to the Hyper-V host machine.<br/><br/> Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
+Enable PowerShell remoting | Enables PowerShell remoting on the host , so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection. | To set up, on each host, open a PowerShell console as admin, and run this command: ``` powershell Enable-PSRemoting -force ```
+Set up Hyper-V integration services | Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host. | [Enable Hyper-V Integration Services](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
+Delegate credentials if VM disks are located on remote SMB shares | Delegates credentials | Run this command to enable CredSSP to delegate credentials on hosts running Hyper-V VMs with disks on SMB shares: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> You can run this command remotely on all Hyper-V hosts.<br/><br/> If you add new host nodes on a cluster they're automatically added for discovery, but you need to enable CredSSP manually.<br/><br/> When you set up the appliance, you finish setting up CredSSP by [enabling it on the appliance](#delegate-credentials-for-smb-vhds). 
 
+### Run the script
+
+1. Download the script from the [Microsoft Download Center](https://aka.ms/migrate/script/hyperv). The script is cryptographically signed by Microsoft.
+2. Validate the script integrity using either MD5, or SHA256 hash files. Hashtag values are below. Run this command to generate the hash for the script:
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Example usage:
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+Hash values are:
+
+**Hash** |	**Value**
+--- | ---
+MD5	| 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## Set up a project
 
-et up a new Azure Migrate project.
+Set up a new Azure Migrate project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -95,26 +124,28 @@ et up a new Azure Migrate project.
    ![Boxes for project name and region](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Select **Create**.
-8. Wait a few minutes for the Azure Migrate project to deploy.
-
-The **Azure Migrate: Server Assessment** tool is added by default to the new project.
+8. Wait a few minutes for the Azure Migrate project to deploy.The **Azure Migrate: Server Assessment** tool is added by default to the new project.
 
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of VMs.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Set up the appliance
 
+Azure Migrate: Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM configuration and performance metadata to Azure Migrate. The appliance can be set up by deploying a VHD file that can be downloaded from the Azure Migrate project.
+
+> [!NOTE]
+> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 This tutorial sets up the appliance on a Hyper-V VM, as follows:
 
-- Provide an appliance name and generate an Azure Migrate project key in the portal.
-- Download a compressed Hyper-V VHD from the Azure portal.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
-- Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
-> [!NOTE]
-> If for some reason you can't set up the appliance using a template, you can set it up using a PowerShell script. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+1. Download a compressed Hyper-V VHD from the Azure portal.
+1. Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
+1. Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
 
-
-### Generate the Azure Migrate project key
+### 1. Generate the Azure Migrate project key
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
@@ -123,10 +154,9 @@ This tutorial sets up the appliance on a Hyper-V VM, as follows:
 1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-### Download the VHD
+### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**. 
-
+In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
 ### Verify security
 
@@ -152,7 +182,7 @@ Check that the zipped file is secure, before you deploy it.
         --- | --- | ---
         Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### Create the appliance VM
+### 3. Create the appliance VM
 
 Import the downloaded file, and create the VM.
 
@@ -173,7 +203,7 @@ Import the downloaded file, and create the VM.
 
 Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
-### Configure the appliance
+### 4. Configure the appliance
 
 Set up the appliance for the first time.
 
@@ -210,8 +240,6 @@ Set up the appliance for the first time.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 4. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-
-
 
 ### Delegate credentials for SMB VHDs
 

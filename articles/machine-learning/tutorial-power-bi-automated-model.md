@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Create the predictive model using automated ML (part 1 of 2)"
+title: "Tutorial: Create the predictive model by using automated ML (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy automated ML models, so you can use the best model to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy automated machine learning models so you can use the best model to predict outcomes in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,123 +12,123 @@ ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ---
 
-# Tutorial: Power BI integration - create the predictive model using automated machine learning (part 1 of 2)
+# Tutorial: Power BI integration - Create the predictive model by using automated machine learning (part 1 of 2)
 
-In the first part of this tutorial, you train and deploy a predictive machine learning model using automated machine learning in the Azure Machine Learning studio.  In part 2, you'll then use the best performing model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model. You use automated machine learning (ML) in Azure Machine Learning Studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create an Azure Machine Learning compute cluster
-> * Create a dataset
-> * Create an automated ML run
-> * Deploy the best model to a real-time scoring endpoint
+> * Create an Azure Machine Learning compute cluster.
+> * Create a dataset.
+> * Create an automated machine learning run.
+> * Deploy the best model to a real-time scoring endpoint.
 
 
-There are three different ways to create and deploy the model you'll use in Power BI.  This article covers Option C: Train and deploy models using automated ML in the studio.  This option shows a no-code authoring experience that fully automates the data preparation and model training. 
+There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated machine learning in the studio."  This option is a no-code authoring experience. It fully automates data preparation and model training. 
 
-You could instead use:
+But you could instead use one of the other options:
 
-* [Option A: Train and deploy models using Notebooks](tutorial-power-bi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
-* [Option B: Train and deploy models using designer](tutorial-power-bi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
+* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning Studio.
+* [Option B: Train and deploy models by using the Azure Machine Learning designer](tutorial-power-bi-designer-model.md). This low-code authoring experience uses a drag-and-drop user interface.
 
 ## Prerequisites
 
-- An Azure subscription ([a free trial is available](https://aka.ms/AMLFree)). 
-- An Azure Machine Learning workspace. If you do not already have a workspace, follow [how to create an Azure Machine Learning Workspace](./how-to-manage-workspace.md#create-a-workspace).
+- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://aka.ms/AMLFree). 
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
 
-## Create compute cluster
+## Create a compute cluster
 
-Automated ML automatically trains lots of different machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the execution of the model training over a compute cluster.
+Automated machine learning trains many machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
 
-In the [Azure Machine Learning Studio](https://ml.azure.com), select **Compute** in the left-hand menu followed by **Compute Clusters** tab. Select **New**:
+To begin, in [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Compute**. Open the **Compute clusters** tab. Then select **New**:
 
-:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster":::
+:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster.":::
 
-In the **Create compute cluster** screen:
+On the **Create compute cluster** page:
 
-1. Select a VM size (for the purposes of this tutorial a `Standard_D11_v2` machine is fine).
-1. Select **Next**
-1. Provide a valid compute name
-1. Keep **Minimum number of nodes** at 0
-1. Change **Maximum number of nodes** to 4
-1. Select **Create**
+1. Select a VM size. For this tutorial, a **Standard_D11_v2** machine is fine.
+1. Select **Next**.
+1. Provide a valid compute name.
+1. Keep **Minimum number of nodes** at `0`.
+1. Change **Maximum number of nodes** to `4`.
+1. Select **Create**.
 
-You can see that the status of your cluster has changed to **Creating**.
+The status of your cluster changes to **Creating**.
 
 >[!NOTE]
-> When the cluster is created it will have 0 nodes, which means no compute costs are incurred. You only incur costs when the automated ML job runs. The cluster will scale back to 0 automatically for you after 120 seconds of idle time.
+> The new cluster has 0 nodes, so no compute costs are incurred. You incur costs only when the automated machine learning job runs. The cluster scales back to 0 automatically after 120 seconds of idle time.
 
 
-## Create dataset
+## Create a dataset
 
-In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), which is made available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
+In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset is available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
-To create the dataset, select **Datasets** left-hand menu followed by **Create Dataset** - you will see the following options:
+To create the dataset, in the menu on the left, select **Datasets**. Then select **Create dataset**. You see the following options:
 
-:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset.":::
 
-Select **From Open Datasets**, and then in **Create dataset from Open Datasets** screen:
+Select **From Open Datasets**. Then on the **Create dataset from Open Datasets** page:
 
-1. Search for *diabetes* using the search bar
-1. Select **Sample: Diabetes**
-1. Select **Next**
-1. Provide a name for your dataset - *diabetes*
-1. Select **Create**
+1. Use the search bar to find *diabetes*.
+1. Select **Sample: Diabetes**.
+1. Select **Next**.
+1. Name your dataset *diabetes*.
+1. Select **Create**.
 
-You can explore the data by selecting the Dataset followed by **Explore**:
+To explore the data, select the dataset and then select **Explore**:
 
-:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot showing how to explore dataset":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot showing how to explore a dataset.":::
 
-The data has 10 baseline input variables (such as age, sex, body mass index, average blood pressure, and six blood serum measurements), and one target variable named **Y** (a quantitative measure of diabetes progression one year after baseline).
+The data has 10 baseline input variables, such as age, sex, body mass index, average blood pressure, and six blood serum measurements. It also has one target variable, named **Y**. This target variable is a quantitative measure of diabetes progression one year after the baseline.
 
-## Create automated ML run
+## Create an automated machine learning run
 
-In the [Azure Machine Learning Studio](https://ml.azure.com) select **Automated ML** in the left-hand menu followed by **New Automated ML Run**:
+In [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML run**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot showing how to create a new automated ML run":::
+:::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot showing how to create a new automated machine learning run.":::
 
-Next, select the **diabetes** dataset you created earlier and select **Next**:
+Next, select the **diabetes** dataset you created earlier. Then select **Next**:
 
-:::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot showing how to select a dataset":::
+:::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot showing how to select a dataset.":::
  
-In the **Configure run** screen:
+On the **Configure run** page:
 
-1. Under **Experiment name,** select **Create new**
-1. Provide an experiment a name
-1. In the Target column field, select **Y**
-1. In the **Select compute cluster** field select the compute cluster you created earlier. 
+1. Under **Experiment name**, select **Create new**.
+1. Name the experiment.
+1. In the **Target column** field, select **Y**.
+1. In the **Select compute cluster** field, select the compute cluster you created earlier. 
 
-Your completed form should look similar to:
+Your completed form should look like this:
 
-:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated ML":::
+:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated machine learning.":::
 
-Finally, you need to select the machine learning task to perform, which is **Regression**:
+Finally, select a machine learning task. In this case, the task is **Regression**:
 
-:::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot showing how to configure task":::
+:::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot showing how to configure a task.":::
 
 Select **Finish**.
 
 > [!IMPORTANT]
-> It will take around 30 minutes for automated ML to finish training the 100 different models.
+> Automated machine learning takes around 30 minutes to finish training the 100 models.
 
 ## Deploy the best model
 
-Once the automated ML run has completed, you can see the list of all the different machine learning models that have been tried by selecting the **Models** tab. The models are ordered in performance order - the best performing model will be shown first. When you select the best model, the **Deploy** button will be enabled:
+When automated machine learning finishes, you can see all the machine learning models that have been tried by selecting the **Models** tab. The models are ordered by performance; the best-performing model is shown first. After you select the best model, the **Deploy** button is enabled:
 
-:::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot showing the list of models":::
+:::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot showing the list of models.":::
 
-Selecting **Deploy**, will present a **Deploy a model** screen:
+Select **Deploy** to open a **Deploy a model** window:
 
-1. Provide a name for your model service - use **diabetes-model**
-1. Select **Azure Container Service**
-1. Select **Deploy**
+1. Name your model service *diabetes-model*.
+1. Select **Azure Container Service**.
+1. Select **Deploy**.
 
-You should see a message that states the model has been deployed successfully.
+You should see a message that states that the model was deployed successfully.
 
 ## Next steps
 
-In this tutorial, you saw how to train and deploy a machine learning model using automated ML. In the next tutorial you are shown how to consume (score) this model from Power BI.
+In this tutorial, you saw how to train and deploy a machine learning model by using automated machine learning. In the next tutorial, you'll learn how to consume (score) this model in Power BI.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

@@ -335,7 +335,7 @@ For more information, see [Nvidia GPU driver extension for Windows](../virtual-m
 
 ### GPU extension for Linux
 
-To deploy Nvidia GPU drivers for an existing VM, edit the `addGPUExtLinuxVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
+To deploy Nvidia GPU drivers for an existing VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`. There are specific parameters files for Ubuntu and Red Hat Enterprise Linux (RHEL) as discussed in the following sections.
 
 #### Edit parameters file
 
@@ -368,8 +368,7 @@ If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following
 	}
 	}
 ```
-If using Red Hat Enterprise Linux (RHEL), file takes the following parameters:
-
+If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.json` file takes the following parameters:
 
 ```powershell
 {
@@ -638,4 +637,4 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

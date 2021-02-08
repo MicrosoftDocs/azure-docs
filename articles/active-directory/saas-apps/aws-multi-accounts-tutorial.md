@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
 ---
 
@@ -84,11 +84,11 @@ In Amazon Web Services (AWS), assign the value of the **user name** in Azure AD 
 
 To configure and test Azure AD single sign-on with Amazon Web Services (AWS), perform the following steps:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** - to configure the Single Sign-On settings on application side.
+3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Amazon Web Services (AWS) application.
 
@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click **pencil** icon to open **Basic SAML Configuration** dialog.
 
     ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -138,11 +138,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. Click **Save**.
 
+    >[!NOTE]
+    >For more information about roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and save it on your computer.
 
     ![The Certificate download link](common/metadataxml.png)
 
-### Configure Amazon Web Services (AWS) Single Sign-On
+### Configure Amazon Web Services (AWS) SSO
 
 1. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
 
@@ -226,7 +229,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Screenshot shows where the account I D appears in the A W S window.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Now sign into [Azure portal](https://portal.azure.com/) and navigate to **Groups**.
+1. Now sign into Azure portal and navigate to **Groups**.
 
 1. Create new groups with the same name as that of IAM Roles created earlier and note down the **Object IDs** of these new groups.
 
@@ -342,11 +345,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!Note]
     > Please note that you need to refresh your session in Azure portal to see new roles.
 
-### Test single sign-on
+### Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration using the My Apps.
 
-When you click the Amazon Web Services (AWS) tile in the Access Panel, you should get Amazon Web Services (AWS) application page with option to select the role.
+When you click the Amazon Web Services (AWS) tile in the My Apps, you should get Amazon Web Services (AWS) application page with option to select the role.
 
 ![Test single sign-on1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -354,7 +357,7 @@ You can also verify the SAML response to see the roles being passed as claims.
 
 ![Test single sign-on2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

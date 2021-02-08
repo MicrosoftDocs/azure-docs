@@ -39,7 +39,7 @@ To locate your Log Analytics workspace for data storage:
 
 Following configuration, do the following to access data stored in your Log Analytics workspace:
 
-1. Select and click on an Defender for IoT alert in your IoT Hub.
+1. Select and click on a Defender for IoT alert in your IoT Hub.
 1. Click **Further investigation**.
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 

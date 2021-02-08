@@ -1,9 +1,6 @@
 ---
 title: Cluster management best practices - Azure HDInsight
 description: Learn best practices for managing HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -3,14 +3,15 @@
 title: Security technical capabilities in Azure - Microsoft Azure
 description: Introduction to security services in Azure that help you protect you data, resources, and applications in the cloud.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
 
 ---
@@ -178,7 +179,7 @@ For organizations that need to secure access from multiple workstations located 
 
 For organizations that need to secure access from one workstation located on-premises to Azure, use [Point-to-Site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
+Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) or other protocols for added protection.
 
 If you are interacting with Azure Storage through the Azure Portal, all transactions occur via HTTPS. [Storage REST API](/rest/api/storageservices/) over HTTPS can also be used to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
@@ -428,20 +429,6 @@ Resource Manager provides several benefits:
 > [!Note]
 > Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
-## Next steps
+## Next step
 
-Find out more about security by reading some of our in-depth security topics:
-
-- [Auditing and logging](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Design and operational security](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Encryption](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Identity and access management](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Network security](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Threat management](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of security recommendations you can use to help secure the services you use in Azure.

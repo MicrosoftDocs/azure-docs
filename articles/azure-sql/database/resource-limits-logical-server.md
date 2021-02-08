@@ -10,7 +10,7 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
+ms.date: 02/02/2021
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
@@ -64,7 +64,8 @@ When encountering high space utilization, mitigation options include:
 
 - Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space isn't shared with other databases.
-- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md)
+- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
+- Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
 
 ### Sessions and workers (requests)
 
@@ -75,7 +76,7 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
-- Optimizing query workload to reduce number of occurrences and duration of query blocking.
+- Optimizing query workload to reduce number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 ### Memory
 

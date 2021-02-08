@@ -145,6 +145,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     ```rust
     use std::collections::HashMap;
     use std::env;
+    use std::net::Ipv4Addr;
     use warp::{http::Response, Filter};
 
     #[tokio::main]
@@ -164,7 +165,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
             Err(_) => 3000,
         };
 
-        warp::serve(example1).run(([127, 0, 0, 1], port)).await
+        warp::serve(example1).run((Ipv4Addr::UNSPECIFIED, port)).await
     }
     ```
 
@@ -220,7 +221,7 @@ You can run this project on your local development computer before you publish t
 
 1. A response is returned, which looks like the following in a browser:
 
-    ![Browser - localhost example output](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Browser - localhost example output](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. Information about the request is shown in **Terminal** panel.
 
@@ -256,7 +257,7 @@ In this section, you publish your project to Azure in a function app running Lin
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
@@ -302,7 +303,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 
-    ![Publish your project to Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publish your project to Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Provide the following information at the prompts:
 
@@ -331,19 +332,17 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select an Application Insights resource**: Choose `+ Create Application Insights resource`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
 
-    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
+    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.The extension shows the status of individual resources as they are being created in Azure in the notification area.
 
-1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
 
-    + A resource group, which is a logical container for related resources.
-    + A standard Azure Storage account, which maintains state and other information about your projects.
-    + A consumption plan, which defines the underlying host for your serverless function app. 
-    + A function app, which provides the environment for executing your function code. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources within the same hosting plan.
-    + An Application Insights instance connected to the function app, which tracks usage of your serverless function.
+1. When completed, the following Azure resources are created in your subscription:
+
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     A notification is displayed after your function app is created and the deployment package is applied. 
 
-1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 

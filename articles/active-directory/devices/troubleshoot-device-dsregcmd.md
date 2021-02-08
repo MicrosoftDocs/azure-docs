@@ -302,10 +302,10 @@ This section displays the output of sanity checks performed on a device joined t
 
 ## NGC prerequisite check
 
-This section performs the perquisite checks for the provisioning of Windows Hello for Business (WHFB). 
+This section performs the prerequisite checks for the provisioning of Windows Hello for Business (WHFB). 
 
 > [!NOTE]
-> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured WHFB.
+> You may not see NGC prerequisite check details in dsregcmd /status if the user already successfully configured WHFB.
 
 - **IsDeviceJoined:** - Set to “YES” if the device is joined to Azure AD.
 - **IsUserAzureAD:** - Set to “YES” if the logged in user is present in Azure AD .

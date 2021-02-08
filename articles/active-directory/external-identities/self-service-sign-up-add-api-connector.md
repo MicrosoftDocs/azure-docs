@@ -34,7 +34,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
-   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789`).
 
    ![Configure a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Select **Save**.
@@ -315,7 +315,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-premium-plan.md). 
 
 
 ### Use logging

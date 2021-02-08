@@ -13,7 +13,7 @@ ms.custom: github-actions-azure
 
 # Use GitHub Actions to connect to Azure SQL Database
 
-Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) by using a workflow to deploy database updates to [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## Prerequisites
 

@@ -38,7 +38,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
       ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019).
+      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
     b. Add the following `SinksConfig` section as a child element of `WadCfg`:  
 

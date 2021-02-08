@@ -128,7 +128,9 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla].
+AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla]. 
+
+The Free SLA offered by default doesn't guarantee a highly available API Server endpoint (our Service Level Objective is 99.5%). It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, etc... If your workload doesn't tolerate APIServer restarts, then we suggest using Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -142,7 +144,7 @@ Moving your AKS cluster between tenants is currently unsupported.
 
 Movement of clusters between subscriptions is currently unsupported.
 
-## Can I move my AKS clusters from the current Azure subscription to another? 
+## Can I move my AKS clusters from the current Azure subscription to another?
 
 Moving your AKS cluster and its associated resources between Azure subscriptions isn't supported.
 
@@ -150,7 +152,7 @@ Moving your AKS cluster and its associated resources between Azure subscriptions
 
 Moving or renaming your AKS cluster and its associated resources isn't supported.
 
-## Why is my cluster delete taking so long? 
+## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take additional time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
@@ -162,7 +164,7 @@ You can, but AKS doesn't recommend this. Upgrades should be performed when the s
 
 No, delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
 
-## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed` 
+## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed`
 
 Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Remove them and attempt the delete again.
 
@@ -170,7 +172,7 @@ Most commonly, this is caused by users having one or more Network Security Group
 
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
-## My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.? 
+## My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.?
 
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
@@ -250,6 +252,25 @@ Below is an example ip route setup of transparent mode, each Pod's interface wil
 - One of the corner cases in bridge mode is that the Azure CNI can't keep updating the custom DNS server lists users add to either VNET or NIC. This results in the CNI picking up only the first instance of the DNS server list. Solved in Transparent mode as CNI doesn't change any eth0 properties. See more [here](https://github.com/Azure/azure-container-networking/issues/713).
 - Provides better handling of UDP traffic and mitigation for UDP flood storm when ARP times out. In bridge mode, when bridge doesn't know a MAC address of destination pod in intra-VM Pod-to-Pod communication, by design, this results in storm of the packet to all ports. Solved in Transparent mode as there are no L2 devices in path. See more [here](https://github.com/Azure/azure-container-networking/issues/704).
 - Transparent mode performs better in Intra VM Pod-to-Pod communication in terms of throughput and latency when compared to bridge mode.
+
+## How to avoid permission ownership setting slow issues when the volume has a lot of files?
+
+Traditionally if your pod is running as a non-root user (which you should), you must specify a `fsGroup` inside the pod’s security context so that the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+
+But one side-effect of setting `fsGroup` is that, each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume - with a few exceptions noted below. This happens even if group ownership of the volume already matches the requested `fsGroup`, and can be pretty expensive for larger volumes with lots of small files, which causes pod startup to take a long time. This scenario has been a known problem before v1.20 and the workaround is setting the Pod run as root:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
 
 
 <!-- LINKS - internal -->
