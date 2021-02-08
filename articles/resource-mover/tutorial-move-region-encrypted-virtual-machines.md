@@ -52,7 +52,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Verify key vault permissions (Azure Disk Encryption)
 
-If you're moving VMs that have Azure disk encryptione enabled, in the key vaults in the source and destination regions, verify/set permissions to ensure that moving encrypted VMs will work as expected. 
+If you're moving VMs that have Azure disk encryption enabled, in the key vaults in the source and destination regions, verify/set permissions to ensure that moving encrypted VMs will work as expected. 
 
 1. In the Azure portal, open the key vault in the source region.
 1. Under **Settings**, select **Access policies**.
@@ -82,6 +82,8 @@ You need to copy the encryption secrets and keys from the source key vault to th
     - Az.KeyVault (version 3.0.0
     - Az.Accounts (version 2.2.3)
 
+Run as follows:
+
 1. Navigate to the [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) in github.
 2. Copy the contents of the script to a local file, and name it *Copy-keys.ps1*.
 3. Run the script.
@@ -90,9 +92,8 @@ You need to copy the encryption secrets and keys from the source key vault to th
 
     ![Pop up to input script values](./media/tutorial-move-region-encrypted-virtual-machines/script-input.png)
 
+6. When the script completes, screen output indicates that CopyKeys succeeded.
 
-    ![Screenshot for script that runs successfully](./media/tutorial-move-region-encrypted-virtual-machines/script-output.png)
- 
 ## Prepare VMs
 
 1. After [checking that VMs meet requirements](#prerequisites), make sure that VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
@@ -105,10 +106,11 @@ You need to copy the encryption secrets and keys from the source key vault to th
 
 ## Select resources to move
 
-Select the resources you want to move.
 
 - You can select any supported resource type in any of the resource groups in the source region you select.  
 - You move resources to a target region that's in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
+
+Select resources as follows:
 
 1. In the Azure portal, search for *resource mover*. Then, under **Services**, select **Azure Resource Mover**.
 
