@@ -277,9 +277,9 @@
           - name: Azure CLI
             href: configure-routing-preference-virtual-machine-cli.md
         - name: Configure mixed Routing Preference for a VM
-        - href: routing-preference-mix-nic-portal.md
+          href: routing-preference-mix-nic-portal.md
         - name: Configure Routing Preference for an AKS cluster
-        - href: routing-preference-aks-cli.md
+          href: routing-preference-aks-cli.md
 
   - name: Security
     items:

@@ -33,7 +33,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 ```
 ## Create a public IP address
 
-Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create).
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
@@ -52,21 +52,30 @@ az network public-ip create \
 
 ## Get the ID of public IP address
 
-The following command returns the public ip address ID created above
+The following command returns the public IP address ID created in the previous section:
 ```azurecli
-az network public-ip show --resource-group myResourceGroup --name myRoutingPrefIP --query id
+az network public-ip show \
+--resource-group myResourceGroup \
+--name myRoutingPrefIP \
+--query id
 ```
 ## Create Kubernetes cluster with the public ip
 
+The following command creates the AKS cluster with the public IP created in the previous section:
+
 ```azurecli
-The following command creates the AKS cluster with the public ip created above
-az aks create --resource-group MyResourceGroup --name MyAKSCluster --load-balancer-outbound-ips "Enter the public IP ID from previous step" --generate-ssh-key
+az aks create \
+--resource-group MyResourceGroup \
+--name MyAKSCluster \
+--load-balancer-outbound-ips "Enter the public IP ID from previous step" --generate-ssh-key
 ```
 
-In few minutes, AKS cluster will be created.
-To validate, search for the public IP created in earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown in the picture that follows.
+![NOTE]
+It takes a few minutes to deploy the AKS cluster.
 
- ![Routing preference public ip for Kubernetes](./media/routing-preference-aks/rp-kubernetes.png)
+To validate, search for the public IP created in the earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown below:
+
+ ![Routing preference public ip for Kubernetes](./media/routing-preference-aks-cli/rp-kubernetes.png)
 
 
 ## Next steps
