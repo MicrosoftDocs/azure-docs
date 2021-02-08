@@ -44,7 +44,7 @@ Disabling container soft delete does not result in permanent deletion of contain
 
 ## About the preview
 
-Container soft delete is available in preview in all public Azure regions.
+Container soft delete is available in preview in all Azure regions.
 
 > [!IMPORTANT]
 > The container soft delete preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
