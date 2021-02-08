@@ -175,6 +175,26 @@ For subnets, five IP addresses are reserved by Azure, and at least four addresse
 
 For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
 
+## Bring your own route table
+
+Azure Spring Cloud supports using existing subnets and route tables.
+
+If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, when you create your instance, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
+
+> [!Warning] 
+> Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud that must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules that only your custom rules are being modified.
+
+
+### Route table requirements
+
+The route tables to which your custom vnet is associated must meet the following requirements:
+
+* You can associate your Azure route tables with your vnet only when you create a new Azure Spring Cloud service instance. You cannot change to use another route table after Azure Spring Cloud has been created.
+* Both the microservice application subnet and the service runtime subnet must associate with different route tables or neither of them.
+* Permissions must be assigned before instance creation. Be sure to grant Azure *Spring Cloud Owner* permission to your route tables.
+* The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
+* You cannot reuse a route table with multiple instances due to potential conflicting routing rules.
+
 ## Next steps
 
 [Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
