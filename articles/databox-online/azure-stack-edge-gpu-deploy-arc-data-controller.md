@@ -86,34 +86,34 @@ Create a new, dedicated namespace where you will deploy the Data Controller. You
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`
 
-Here is a sample output of the preceding commands. In this example, we create a `myadstest` namespace, a `myadsuser` user and granted the user access to the namespace.
-
-```powershell
-[10.100.10.10]: PS>New-HcsKubernetesNamespace -Namespace myadstest
-[10.100.10.10]: PS>New-HcsKubernetesUser -UserName myadsuser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBD=======//snipped//=======VSVElGSUNBVEUtLS0tLQo=
-    server: https://compute.myasegpudev.wdshcsso.com:6443
-  name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: myadsuser
-  name: myadsuser@kubernetes
-current-context: myadsuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: myadsuser
-  user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRV=========//snipped//=====EE9PQotLS0kFURSBLRVktLS0tLQo=
-
-[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace myadstest -UserName myadsuser
-[10.100.10.10]: PS>Set-HcsKubernetesAzureArcDataController -SubscriptionId db4e2fdb-6d80-4e6e-b7cd-736098270664 -ResourceGroupName myasegpurg -Location "EastUS" -UserName myadsuser -Password "Password1" -DataControllerName "arctestcontroller" -Namespace myadstest
-[10.100.10.10]: PS>
-```
+    Here is a sample output of the preceding commands. In this example, we create a `myadstest` namespace, a `myadsuser` user and granted the user access to the namespace.
+    
+    ```powershell
+    [10.100.10.10]: PS>New-HcsKubernetesNamespace -Namespace myadstest
+    [10.100.10.10]: PS>New-HcsKubernetesUser -UserName myadsuser
+    apiVersion: v1
+    clusters:
+    - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBD=======//snipped//=======VSVElGSUNBVEUtLS0tLQo=
+        server: https://compute.myasegpudev.wdshcsso.com:6443
+      name: kubernetes
+    contexts:
+    - context:
+        cluster: kubernetes
+        user: myadsuser
+      name: myadsuser@kubernetes
+    current-context: myadsuser@kubernetes
+    kind: Config
+    preferences: {}
+    users:
+    - name: myadsuser
+      user:
+        client-certificate-data: LS0tLS1CRUdJTiBDRV=========//snipped//=====EE9PQotLS0kFURSBLRVktLS0tLQo=
+    
+    [10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace myadstest -UserName myadsuser
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcDataController -SubscriptionId db4e2fdb-6d80-4e6e-b7cd-736098270664 -ResourceGroupName myasegpurg -Location "EastUS" -UserName myadsuser -Password "Password1" -DataControllerName "arctestcontroller" -Namespace myadstest
+    [10.100.10.10]: PS>
+    ```
 1. Add a DNS entry to the hosts file on your system. 
 
     1. Run Notepad as administrator and open the `hosts` file located at `C:\windows\system32\drivers\etc\hosts`. 
@@ -123,7 +123,7 @@ users:
 
         `10.100.10.10 compute.myasegpudev.microsoftdatabox.com`
 
-9. To verify that you can connect to the Kubernetes pods, start a cmd prompt or a PowerShell session. Type:
+1. To verify that you can connect to the Kubernetes pods, start a cmd prompt or a PowerShell session. Type:
     
     ```powershell
     PS C:\WINDOWS\system32> kubectl get pods -n "myadstest"
@@ -132,7 +132,7 @@ users:
     ```
 You can now deploy your data controller and data services applications in the namespace, then view the applications and their logs.
 
-### Create Data Controller
+### Create data controller
 
 The data controller is a collection of pods that are deployed to your Kubernetes cluster to provide an API, the controller service, the bootstrapper, and the monitoring databases and dashboards. Follow these steps to create a data controller on the Kubernetes cluster that exists on your Azure Stack Edge device in the namespace that you created earlier.   
 
@@ -333,12 +333,6 @@ To remove the data controller, delete the dedicated namespace in which you deplo
 
 ```powershell
 kubectl delete ns <Name of your namespace>
-```
-Here is a sample output of the preceding command.
-
-
-```powershell
-
 ```
 
 
