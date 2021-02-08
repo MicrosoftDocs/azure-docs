@@ -141,12 +141,7 @@ For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://
 
 ## Next steps
 
-In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Plug and Play, see:
-
-> [!div class="nextstepaction"]
-> [Architecture](concepts-architecture.md)
-
-To learn more about IoT Hub support for the MQTT protocol, see:
+In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Hub support for the MQTT protocol, see:
 
 > [!div class="nextstepaction"]
 > [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)
