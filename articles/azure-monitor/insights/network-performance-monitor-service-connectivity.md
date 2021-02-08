@@ -11,6 +11,9 @@ ms.date: 02/20/2018
 
 # Service Connectivity Monitor
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in existing workspace or enable new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, please [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
+
 You can use the Service Connectivity Monitor capability in [Network Performance Monitor](network-performance-monitor.md) to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
 You can perform the following functions with Service Connectivity Monitor: 

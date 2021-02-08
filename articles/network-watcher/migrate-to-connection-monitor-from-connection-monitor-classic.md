@@ -16,6 +16,9 @@ ms.author: vinigam
 ---
 # Migrate to Connection Monitor from Connection Monitor (Classic)
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, please migrate from Connection Monitor (classic) to the new Connection Monitor in Azure Network Watcher before 29 February 2024
+
 You can migrate existing connection monitors to new, improved Connection Monitor with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
 ## Key points to note
