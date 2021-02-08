@@ -173,6 +173,8 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ### Use REST API
 
+<!---What is this section? It doesn't tell me how to use this new property. Also, a one-row table is kind of pointless.--->
+
 The existing REST API for Host Pools – Update or Update ([Host Pools - Create Or Update (Azure Desktop Virtualization) \| Microsoft Docs](/rest/api/desktopvirtualization/hostpools/createorupdate)) is going to be enhanced by the following property
 
 | **Name**                    | **Required** | **Type** | **Description**                                                 |
@@ -180,17 +182,17 @@ The existing REST API for Host Pools – Update or Update ([Host Pools - Create 
 
 ## User experience
 
-When a user connects to a deallocated VM the time to connect is increased as the VM needs to wake up. It is similar to the experience powering on a physical machine. Once the user selected the desktop they want to connect too the remote desktop client indicates that the remote PC is started.
+The time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, you can connect to it much more quickly.
 
 ![Graphical user interface, application Description automatically generated](media/b792bddf34a2bddff0feaf7a094a657c.png)
 
-Once the VM is powered on the connection sequence will continue for the regular connection.
+Once the VM is turned on, the connection should work as normal.
 
 ## Troubleshooting
 
-To troubleshoot connectivity issues we recommend to leverage our [diagnostics feature](diagnostics-log-analytics.md). In the case a failed connection attempt error messages are available on the errors table. We recommend to review the message for details.
+If the feature runs into any issues, we recommend you use the Windows Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and copy down the name somewhere you can find it later, for reference.
 
-For customers leveraging [Use Monitor Windows Virtual Desktop Monitor preview - Azure \| Microsoft Docs](azure-monitor.md) will be able to review issues for VM starts here.
+You can also use [Azure Monitor for Windows Virtual Desktop](azure-monitor.md) to get suggestions for how to resolve issues.
 
 ## Next steps
 
