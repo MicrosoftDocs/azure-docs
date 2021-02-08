@@ -30,6 +30,9 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
+## Migrate a Text Analytics resource to different instance
+To migrate from S0-S4 Text Analytics resource to Standard (S) instance, please create a new resource by selecting S as your pricing tier & replace the previous key with the new key.
+
 ## Using the API synchronously
 
 You can call Text Analytics synchronously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
