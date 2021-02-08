@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.author: victorh
 ---
 
@@ -255,12 +255,12 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
    `read tcp 10.0.100.5:55734->10.0.20.10:80: read: connection reset by peer`
 
 7. Go to the Monitor logs in the Azure portal and identify the message for the blocked request.
-8. Now you can bypass the IDPS function using the **Bypass list**.
+<!---8. Now you can bypass the IDPS function using the **Bypass list**.
 
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
    2. Edit **MyRule** and set **Destination** to *10.0.20.10, which is the ServerVM private IP address.
    3. Select **Save**.
-1. Run the test again: `curl -A "BlackSun" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert.
+1. Run the test again: `curl -A "BlackSun" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert. --->
 
 #### To test IDPS for HTTPS traffic
 
