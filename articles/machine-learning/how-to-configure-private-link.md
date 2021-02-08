@@ -174,6 +174,10 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
 
+# [Portal](#tab/azure-portal)
+
+Currently there is no way to enable this functionality using the portal.
+
 ---
 
 
