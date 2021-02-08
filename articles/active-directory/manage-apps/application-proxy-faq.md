@@ -101,6 +101,11 @@ The default length is 85 seconds. The "long" setting is 180 seconds. The timeout
 
 No, this is currently not supported.
 
+### What happens if I delete the CWAP_AuthSecret (client secret) in the app registration?
+
+The client secret called CWAP_AuthSecret will be added to the application object (app registration) automatically during the Azure AD Application Proxy app creation.
+This is valid for 1 year. A new client secret will be created for another 1 year automatically, sometime before the currently valid client secret expires. There are always 3 CWAP_AuthSecret kept in the application object. Deleting the CWAP_AuthSecret breaks the pre-authentication for Azure AD Application Proxy. Please don't do this!
+
 ### How do I change the landing page my application loads?
 
 From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](./application-proxy-configure-custom-home-page.md)
