@@ -13,7 +13,7 @@ ms.date: 02/08/2021
 
 # How to reset and run indexers, skills, or documents
 
-Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocessing of data, almost as if it was the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
+Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocessing of data, almost as if it were the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
 
 The Reset APIs are primarily used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios). A secondary reason might be to force data synchronization between the underlying data source and search index, if somehow the documents appear to be mismatched. Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
