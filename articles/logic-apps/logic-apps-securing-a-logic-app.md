@@ -538,6 +538,8 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### Secure data in run history by using obfuscation
