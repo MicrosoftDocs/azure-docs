@@ -211,7 +211,7 @@
         - name: Deploy stateless app via GitOps
           href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
         - name: Deploy Azure Arc Data Controller
-          href: azure-stack-edge-gpu-deploy-arc-data-controller           
+          href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
     - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
