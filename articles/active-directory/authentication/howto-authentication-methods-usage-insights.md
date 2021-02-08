@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 
 ms.author: justinha
 author: sopand
@@ -40,6 +40,8 @@ To access authentication method usage and insights:
 
 ![Authentication Methods Activity overview](media/howto-authentication-methods-usage-insights/registration-usage-tabs.png)
 
+## Registration details
+
 You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
 
 Click **Users capable of Azure multi-factor authentication**, **Users capable of passwordless authentication**, or **Users capable of self-service password reset**, or insights can pre-filter a list of user registration details.
@@ -58,7 +60,7 @@ The **Recent Registration by Authentication Method** chart on the **Registration
 
 ![Screenshot of Recently Registered](media/howto-authentication-methods-usage-insights/recently-registered.png)
 
-### Usage details
+## Usage details
 
 The **Usage** tab of the report shows which authentication methods users are using to sign-in and reset their passwords.
 
@@ -80,7 +82,7 @@ The **Password resets by authentication method** chart on the **Usage** tab show
 
 ![Screenshot of Resets by method](media/howto-authentication-methods-usage-insights/resets-by-method.png)
 
-### User registration details 
+## User registration details 
 
 Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
@@ -97,7 +99,7 @@ The registration details report shows the following information for each user:
 
 ![Screenshot of Usage page](media/howto-authentication-methods-usage-insights/registration-details.png)
 
-### Registration and Reset Logs 
+## Registration and Reset Logs 
 
 The Registration and reset logs shows registration and reset events from the last 24 hours, last 7 days or last 30 days including:
 
