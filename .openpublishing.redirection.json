@@ -61690,7 +61690,7 @@
     },
     {
       "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/teams-interop.md",
-      "redirect_url": "/articles/communication-services/concepts/teams-interop",
+      "redirect_url": "/azure/communication-services/concepts/teams-interop",
       "redirect_document_id": false
     }
   ]
