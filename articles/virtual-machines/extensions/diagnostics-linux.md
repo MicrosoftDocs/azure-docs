@@ -134,7 +134,7 @@ sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
-# Finallly tell Azure to install and enable the extension
+# Finally tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 #### Azure CLI sample for Installing LAD 4.0 extension on the virtual machine scale set instance
@@ -250,7 +250,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![Screenshot shows the Shared access signature page with Generate S A S.](./media/diagnostics-linux/make_sas.png)
+:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Screenshot shows the Shared access signature page with Generate S A S.":::
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
@@ -276,7 +276,7 @@ Element | Value
 name | A string used to refer to this sink elsewhere in the extension configuration.
 type | The type of sink being defined. Determines the other values (if any) in instances of this type.
 
-Version 3.0 of the Linux Diagnostic Extension supports two sink types: EventHub, and JsonBlob.
+Version 4.0 of the Linux Diagnostic Extension supports two sink types: EventHub, and JsonBlob.
 
 #### The EventHub sink
 
@@ -805,7 +805,7 @@ The `resourceId` in the configuration must match that of the VM or the virtual m
 
 Use the Azure portal to view performance data or set alerts:
 
-![Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.](./media/diagnostics-linux/graph_metrics.png)
+:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.":::
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
@@ -818,7 +818,7 @@ In addition, you can use these UI tools to access the data in Azure Storage:
 
 This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows the Azure Storage Explorer.":::
 
 See the relevant [EventHubs documentation](../../event-hubs/event-hubs-about.md) to learn how to consume messages published to an EventHubs endpoint.
 
