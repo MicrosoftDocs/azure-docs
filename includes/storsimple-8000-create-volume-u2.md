@@ -2,14 +2,15 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 10/26/2018
 ms.author: alkohli
 ---
 
 #### To create a volume
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.
 
-    ![Add a new volume](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
+    ![Add a new volume](./media/storsimple-8000-create-volume-u2/step5createvol1
+.png)
 
 2. In the **Add a volume** blade:
    
@@ -33,7 +34,7 @@ ms.author: alkohli
 
       1. In the **Connected hosts** field, click the arrow. 
 
-         ![Connected hosts](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
+         ![Connected hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
       1. In the **Connected hosts** blade, choose an existing ACR or add a new ACR by performing the following steps:
 
@@ -42,7 +43,7 @@ ms.author: alkohli
 
       1. Click **Create**. A volume is created with the specified settings.
 
-         ![Click Create](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
+         ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
          > [!NOTE]
          > Be aware that the volume you have created here is not protected. You will need to create and associate backup policies with this volume to take scheduled backups. 
