@@ -29,7 +29,7 @@ This workbook enables administrators to monitor authentication requests for appl
 * Compare trends over a period, for example week over week, which is the workbook’s default setting.
 
 > [!NOTE]
-> To see all available workbooks, and the prerequisites for using them, please see [How to use Azure Monitor workbooks for reports.](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+> To see all available workbooks, and the prerequisites for using them, please see [How to use Azure Monitor workbooks for reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
 
 During an impacting event, two things may happen:
 
@@ -95,18 +95,18 @@ For more information on how to create, view, and manage log alerts using Azure M
  
 1. In the workbook, select **Edit**, then select the **query icon** just above the right-hand side of the graph.   
 
-   ![Screenshot showing edit workbook.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
+   [![Screenshot showing edit workbook.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    The query log opens.
 
-   ![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)
+  [![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
 2. Copy one of the following sample scripts for a new Kusto query.
 
 **Kusto query for drop in usage**
 
-'''Kusto
+```Kusto
 
 let thisWeek = SigninLogs
 
@@ -152,13 +152,14 @@ on rn
 
 | where (difference * 2.0) / max > 0.9
 
-'''
+```
 
  
 
 **Kusto query for increase in failure rate**
 
-'''kusto
+
+```kusto
 
 let thisWeek = SigninLogs
 
@@ -200,21 +201,21 @@ thisWeek
 
 | where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
 
-''' 
+```
 
 3. Paste the query in the window and select **Run**. Ensure you see the Completed message shown in the image below, and results below that message.
 
-   ![Screenshot showing the run query results.](./media/monitor-sign-in-health-for-resilience/run-query.png)
+   [![Screenshot showing the run query results.](./media/monitor-sign-in-health-for-resilience/run-query.png)](./media/monitor-sign-in-health-for-resilience/run-query.png)
 
 4. Highlight the query, and select + **New alert rule**. 
  
-   ![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
+   [![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
 
 
 5. Configure alert conditions. 
 ‎In the Condition section, select the link **Whenever the average custom log search is greater than logic defined count**. In the configure signal logic pane, scroll to Alert logic
 
-   ![Screenshot showing configure alerts screen.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
+   [![Screenshot showing configure alerts screen.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
  
    * **Threshold value**: 0. This value will alert on any results.
 
@@ -226,7 +227,7 @@ thisWeek
 
 6. In the **Actions** section, configure these settings:  
 
-    ![Screenshot showing the Create alert rule page.](./media/monitor-sign-in-health-for-resilience/create-alert-rule.png)
+    [![Screenshot showing the Create alert rule page.](./media/monitor-sign-in-health-for-resilience/create-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/create-alert-rule.png)
 
    * Under **Actions**, choose **Select action group**, and add the group you want to be notified of alerts.
 
@@ -248,7 +249,7 @@ thisWeek
 
 9. Select **Save**, enter a name for the query, **Save as a Query with a category of Alert**. Then select **Save** again.  
 
-   ![Screenshot showing the save query button.](./media/monitor-sign-in-health-for-resilience/save-query.png)
+   [![Screenshot showing the save query button.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
 
 
