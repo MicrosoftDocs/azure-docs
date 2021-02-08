@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.date: 02/08/2021
 ---
 
-# Cognitive Services docs: What's new for December 1, 2020 - December 31, 2020
+# Cognitive Services docs: What's new for January 1, 2021 - January 31, 2021
 
 Welcome to what's new in the Cognitive Services docs from January 1, 2021 through January 31, 2021. This article lists some of the major changes to docs during this period.
 
