@@ -30,13 +30,22 @@ In this tutorial, you'll learn to:
 
 You need an Azure subscription to get started.  If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free/).
 
-### Get your tenant ID
+### Get your tenant ID and subscription ID
 
-### Get your subscription ID
+If you don't know how to get your tenant ID and subscription ID, see [How to find your tenant ID](how-to-set-azure-tenant.md) and [Find your tenant ID](how-to-set-azure-tenant.md)
 
 ### Create a service principal and secret
 
-### Do something with Key Vault
+If you don't know how to create a service principal and secret, see [Get credentials to access Media Services API](access-api-howto.md).
+
+### Set up Key Vault
+
+To create a Key Vault, see [How to create a Key Vault in the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+
+You will use the following variables later:
+
+*@keyVaultName* = name of the key vault you created<br/>
+*@keyName* = name of the key you created<br/>
 
 ## Get and set variables
 
@@ -75,8 +84,8 @@ Depending on the REST client, you are using, you may need to change the paths be
 @resourceGroup = name of the resource group you'll be creating
 @storageName = storage account name you'll be creating
 @accountName = AMS account name you want to use
-@keyVaultName = key vault
-@keyName = key name
+@keyVaultName = name of the key vault you created
+@keyName = name of the key you created
 @resourceLocation = location in which to create the resource group
 @index = I don't know what this is. (was set at 4)
 ```
