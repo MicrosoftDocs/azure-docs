@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 ms.author: alkohli
 ---
 
@@ -12,6 +12,6 @@ Here is a list of the browsers supported for the local web UI for the virtual de
 |---------|---------|---------|
 |Google Chrome   |Latest version         |        |
 |Microsoft Edge    | Latest version        |         |
-|Internet Explorer     | Latest version        | If Enhanced Security features are enabled, you may not be able to access local web UI pages. Disable enhanced security, and restart your browser.|
+|Internet Explorer     | Latest version        | If enhanced security features are enabled, you may not be able to access local web UI pages. Disable enhanced security, and restart your browser.|
 |FireFox    |Latest version         |         |
 |Safari on Mac    |Latest version         |         |

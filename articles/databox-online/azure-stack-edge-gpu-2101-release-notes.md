@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 ms.author: alkohli
 ---
 
@@ -74,7 +74,7 @@ The following table provides a summary of known issues carried over from the pre
 |**17.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
 |**18.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
 |**19.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |Using the newer builds should help avoid this issue. If you still see this issue, the workaround is to retry the upgrade, and it should work.|
-**20**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. Disable enhanced security, and restart your browser.|
+|**20**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
