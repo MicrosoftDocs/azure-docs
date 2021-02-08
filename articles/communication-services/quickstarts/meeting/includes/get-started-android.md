@@ -151,17 +151,17 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUserCredential;
-import com.azure.android.communication.MeetingSDK.MeetingSDK;
-import com.azure.android.communication.MeetingSDK.JoinOptions;
+import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.ui.meetings.MeetingUIClient;
+import com.azure.android.communication.ui.meetings.JoinOptions;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String displayName = "John Smith";
-    
-    private CommunicationUserCredential communicationUserCredential;
+
+    private MeetingUIClient meetingUIClient;
     private JoinOptions joinOptions;
 
     @Override
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
         joinOptions = new JoinOptions();
         joinOptions.displayName = displayName;
-
+        
         getAllPermissions();
         createMeetingClient();
 
@@ -224,9 +224,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| MeetingClient| The MeetingClient is the main entry point to the Meeting library.|
-| JoinOptions | JoinOptions are used for configurable options such as display name, and microphone muted state, etc.|
-| CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended.|
+| MeetingClient| The MeetingClient is the main entry point to the Meeting library. |
+| JoinOptions | JoinOptions are used for configurable options such as display name. |
+| CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
 ## Create a MeetingClient from the user access token
 
@@ -236,12 +236,10 @@ With the user token an authenticated meeting client can be instantiated. General
 /**
  * Create the meeting client for joining meetings
  */
-private void createAgent() {
-    String userToken = "<User_Access_Token>";
-
+private void createMeetingClient() {
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
-        MeetingSDK.initialize(credential);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential("<User_Access_Token>");
+        meetingUIClient = new MeetingUIClient(credential);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create meeting client.", Toast.LENGTH_SHORT).show();
     }
@@ -264,9 +262,9 @@ Joining a meeting can be done via the MeetingClient, and just requires a meeting
  */
 private void joinMeeting() {
     try {
-        MeetingSDK.joinMeetingWith("<Meeting_URL>", joinOptions);
+        meetingUIClient.joinMeeting(meetingUrl, joinOptions);
     } catch (Exception e) {
-        Toast.makeText(getApplicationContext(), "Failed to joing meeting.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to join meeting.", Toast.LENGTH_SHORT).show();
     }
 }
 ```

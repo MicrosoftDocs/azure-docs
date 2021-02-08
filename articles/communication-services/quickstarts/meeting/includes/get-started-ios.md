@@ -78,7 +78,6 @@ Replace the implementation of the `ViewController` class with a simple button to
 ```swift
 class ViewController: UIViewController {
 
-    private let joinOptions = JoinOptions(displayName: "John Smith", isMicrophoneMuted: false, isVideoOff: false)
     private var meetingClient: MeetingClient?
     private var communicationTokenCredential: CommunicationTokenCredential?
     
@@ -104,9 +103,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| MeetingClient | The MeetingClient is the main entry point to the Meeting library.|
-| MeetingClientDelegate | The meeting client delegate is used to receive events, such as changes in call state.  |
-| JoinOptions | JoinOptions are used for configurable options such as display name, and is the microphone muted, etc. | 
+| MeetingClient | The MeetingClient is the main entry point to the Meeting library. |
+| MeetingClientDelegate | The meeting client delegate is used to receive events, such as changes in call state. |
+| JoinOptions | JoinOptions are used for configurable options such as display name. | 
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
 ## Authenticate the client
@@ -136,15 +135,15 @@ The `joinMeeting` method is set as the action that will be performed when the *J
 
 ```swift
 private func joinMeeting() {
-    meetingClient?.joinMeeting(with: meetingURL, joinOptions: joinOptions, completionHandler: { (error: Error?) in
-        if (error != nil) {
-            print("Join meeting failed: \(error!)")
-        }
-    })
+        let joinOptions = JoinOptions(displayName: "John Smith")
+        
+        meetingClient?.joinMeeting(with: meetingURL, joinOptions: joinOptions, completionHandler: { (error: Error?) in
+            if (error != nil) {
+                print("Join meeting failed: \(error!)")
+            }
+        })
 }
 ```
-
-You also can use the properties in `JoinOptions` to set the initial options for the meeting (i.e. it allows starting the meeting with the microphone muted).
 
 ## Run the code
 
