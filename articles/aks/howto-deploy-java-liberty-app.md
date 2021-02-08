@@ -61,7 +61,7 @@ After a short time, you should see a JSON output that contains:
 
 ### Connect to the ACR instance
 
-To push an image to the ACR instance, you need to log into it first. Run the following commands to verify the connection:
+You will need to log into the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
 ```azurecli-interactive
 LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
