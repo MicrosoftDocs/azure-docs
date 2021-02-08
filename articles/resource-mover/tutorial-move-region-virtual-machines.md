@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -234,12 +234,16 @@ If you want to complete the move process, commit the move.
 - The Mobility service isn't uninstalled automatically from VMs. Uninstall it manually, or leave it if you plan to move the server again.
 - Modify Azure role-based access control (Azure RBAC) rules after the move.
 
+
 ## Delete source resources after commit
 
 After the move, you can optionally delete resources in the source region. 
 
-1. In **Across Regions**, click the name of each source resource that you want to delete.
-2. In the properties page for each resource, select **Delete**.
+> [!NOTE]
+> A few resources, for example key vaults and SQL Server servers, can't be deleted from the portal, and must be deleted from the resource property page.
+
+1. In **Across Regions**, click the name of the source resource that you want to delete.
+2. Select **Delete source**.
 
 ## Delete additional resources created for move
 
