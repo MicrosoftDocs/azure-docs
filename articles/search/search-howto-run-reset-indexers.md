@@ -13,9 +13,9 @@ ms.date: 02/08/2021
 
 # How to reset and run indexers, skills, or documents
 
-Reset APIs are used to reset [an indexer](search-indexer-overview.md), triggering a full reprocessing of data, almost as if it was the initial run. Reset APIs set the status and scope of the next indexer run, which could be either on demand invocation, or the next scheduled run.
+Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocessing of data, almost as if it was the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
 
-Reset is necessary because over time, certain indexers will selectively process just the changes in the underlying data. Whether the indexer does this will vary by data source. For example, Blob storage stamps objects with datetime information, which the blob indexer uses to pick up changed documents in the container. If you wanted to reindex a blob container, you would need a Reset API to force a full process.
+The Reset APIs are useful for data sources that provide change tracking. When change tracking is enabled, indexers will process just the changes. Whether an indexer supports change tracking will vary by data source. Azure SQL and Cosmos DB implement change detection. Blob storage stamps objects with datetime information, which the blob indexer uses to pick up changed documents in the container. If you wanted to reindex a blob container, you would need a Reset API to force a full reprocessing of all its documents.
 
 Reset APIs are available for the following objects:
 
