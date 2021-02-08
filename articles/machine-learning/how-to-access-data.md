@@ -18,7 +18,7 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 
 # Connect to storage services on Azure
 
-In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK]((/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)).
+In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 Datastores securely connect to your storage service  on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
 
