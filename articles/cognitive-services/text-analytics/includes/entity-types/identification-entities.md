@@ -300,7 +300,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `fr`, `de`
+      `en`, `fr`, `de`
       
    :::column-end:::
 :::row-end:::
@@ -312,7 +312,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `fr`, `de`
+      `en`, `fr`, `de`
       
    :::column-end:::
 :::row-end:::
@@ -330,7 +330,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `pt-pt`, `pt-br`
+      `en`, `pt-pt`, `pt-br`
       
    :::column-end:::
 :::row-end:::
@@ -342,7 +342,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `pt-pt`, `pt-br`
+      `en`, `pt-pt`, `pt-br`
       
    :::column-end:::
 :::row-end:::
@@ -354,7 +354,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `pt-pt`, `pt-br`
+      `en`, `pt-pt`, `pt-br`
       
    :::column-end:::
 :::row-end:::
@@ -371,7 +371,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `hr`
+      `en`, `hr`
       
    :::column-end:::
 :::row-end:::
@@ -465,7 +465,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `es`
+      `en`, `es`
       
    :::column-end:::
 :::row-end:::
@@ -482,7 +482,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `zh-hans`
+      `en`, `zh-hans`
       
    :::column-end:::
 :::row-end:::
@@ -499,7 +499,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `hr`
+      `en`, `hr`
       
    :::column-end:::
 :::row-end:::
@@ -511,7 +511,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `hr`
+      `en`, `hr`
       
    :::column-end:::
 :::row-end:::
@@ -523,7 +523,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `hr`
+      `en`, `hr`
       
    :::column-end:::
 :::row-end:::
@@ -541,7 +541,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `el`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -553,7 +553,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `el`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -570,7 +570,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `cs`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -588,7 +588,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `da`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -605,7 +605,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `et`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -699,7 +699,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `fi` 
+      `en` 
       
    :::column-end:::
 :::row-end:::
@@ -711,7 +711,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `fi` 
+      `en` 
       
    :::column-end:::
 :::row-end:::
@@ -723,7 +723,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `fi` 
+      `en` 
       
    :::column-end:::
 :::row-end:::
@@ -894,7 +894,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `el` 
+      `en` 
       
    :::column-end:::
 :::row-end:::
@@ -906,7 +906,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `el` 
+      `en` 
       
    :::column-end:::
 :::row-end:::
@@ -952,7 +952,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `en`, `hu`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -964,7 +964,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `en`, `hu` 
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -1011,7 +1011,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `in`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -1045,7 +1045,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
       **Supported document languages**
 
-      `en`, `he`
+      `en`
       
    :::column-end:::
 :::row-end:::
@@ -1057,94 +1057,623 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `en`, `he`
+      `en`
       
    :::column-end:::
 :::row-end:::
 
-* Israel National ID
-* Israel Bank Account Number
+#### Italy
 
-Italy
-* Italy Driver's License ID
-* Italy Fiscal Code
-* Italy Value Added Tax Number
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Japan
-* Japan Bank Account Number
-* Japan Driver's License Number
-* Japanese My Number Personal
-* Japanese My Number Corporate
-* Japan Resident Registration Number
-* Japanese Residence Card Number
-* Japan Social Insurance Number (SIN)
-* Japan Passport Number
+        Italy Driver's License ID
 
-Latvia
-* Latvia Personal Code
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-Lithuania
-* Lithuania Personal Code
+      `en`,  `it`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Luxemburg
-* Luxemburg National Identification Number (Natural persons)
-* Luxemburg National Identification Number (Non-natural persons)
+        Italy Fiscal Code
 
-Malaysia
-* Malaysia Identity Card Number
+    :::column-end:::
+    :::column span="2":::
 
-Malta
-* Malta Identity Card Number
-* Malta Tax Identification Number
+      `en`,  `it`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Netherlands
-* Netherlands Citizen's Service (BSN) Number
-* Netherlands Tax Identification Number
-* Netherlands Value Added Tax Number
+        Italy Value Added Tax Number
 
-New Zealand
-* New Zealand Bank Account Number
-* New Zealand Driver's License Number
-* New Zealand Inland Revenue Number
-* New Zealand Ministry of Health Number
-* New Zealand Social Welfare Number
+    :::column-end:::
+    :::column span="2":::
 
-Norway
-* Norway Identity Number
+      `en`,  `it`
+      
+   :::column-end:::
+:::row-end:::
 
-Philippines
-* Philippines Unified Multi-Purpose ID Number
 
-Poland
-* Poland Identity Card
-* Poland National ID (PESEL)
-* Poland Passport Number
-* Poland REGON Number
-* Poland Tax Identification Number
+#### Japan
 
-Portugal 
-* Portugal Citizen Card Number
-* Portugal Tax Identification Number
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Romania
-* Romania Personal Numerical Code (CNP)
+        Japan Bank Account Number
 
-Russia
-* Russian Passport Number (Domestic)
-* Russian Passport Number (International)
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan Driver's License Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan "My Number" (personal)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan "My Number" (Corporate)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan Resident Registration Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan Residence Card Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan Social Insurance Number (SIN)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japan Passport Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`,  `ja`
+      
+   :::column-end:::
+:::row-end:::
+ 
+#### Latvia
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Latvia Personal Code
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Lithuania
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Lithuania Personal Code
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Luxembourg
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Luxembourg National Identification Number (Natural persons)
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `fr`, `de`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Luxembourg National Identification Number (Non-natural persons)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `fr`, `de`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Malaysia
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Malaysia Identity Card Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Malta
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Malta Identity Card Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Malta Tax Identification Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Netherlands
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Netherlands Value Added Tax Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Netherlands Citizen's Service (BSN) Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Netherlands Tax Identification Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+
+#### New Zealand
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        New Zealand Bank Account Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        New Zealand Driver's License Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        New Zealand Inland Revenue Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        New Zealand Ministry of Health Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       New Zealand Social Welfare Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Norway
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Norway Identity Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Philippines
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Philippines Unified Multi-Purpose ID Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Poland
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Poland Identity Card
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Poland National ID (PESEL)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+      Poland Passport Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Poland REGON Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Poland Tax Identification Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Portugal 
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Portugal Citizen Card Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `pt-pt`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Portugal Tax Identification Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `pt-pt`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Romania
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Romania Personal Numerical Code (CNP)
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Russia
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Russian Passport Number (Domestic)
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+      Russian Passport Number (International)
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `pt-pt`
+      
+   :::column-end:::
+:::row-end:::
 
 Saudi Arabia
-* Saudi Arabia National ID
 
-Singapore
-* Singapore National Registration ID Card (NRIC) Number
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Slovakia 
-* Slovakia Personal Number
+        Saudi Arabia National ID
 
-Slovenia
-* Slovenia Tax Identification Number
-* Slovenia Unique Master Citizen Number
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Singapore
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Singapore National Registration ID Card (NRIC) Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `zh-hans`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Slovakia 
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Slovakia Personal Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Slovenia
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Slovenia Tax Identification Number
+
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+      Slovenia Unique Master Citizen Number
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
+:::row-end:::
 
 South Africa
 * South Africa Identification Number

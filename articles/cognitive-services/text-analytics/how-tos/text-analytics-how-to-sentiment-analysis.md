@@ -67,7 +67,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
 
-#### [Version 3.1-preview.3](#tab/version-3-1)
+#### [Version 3.1-preview](#tab/version-3-1)
 
 [Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -84,17 +84,17 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 > [!NOTE]
 > You can find your key and endpoint for your Text Analytics resource on the Azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-#### [Version 3.1-preview.3](#tab/version-3-1)
+#### [Version 3.1-preview](#tab/version-3-1)
 
 **Sentiment Analysis**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **Opinion Mining**
 
 To get Opinion Mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 This parameter is set to `false` by default. 
 
@@ -137,7 +137,7 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 3.1-preview.3](#tab/version-3-1)
+#### [Version 3.1-preview](#tab/version-3-1)
 
 ### Sentiment Analysis and Opinion Mining example response
 
