@@ -17,6 +17,10 @@ The following video gives a walkthrough of how to use the _video analytics - obj
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
 
+## Prerequisites
+
+An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+
 ## Deploy the application
 
 Complete the following steps to deploy an IoT Central application using the video analytics application template:
