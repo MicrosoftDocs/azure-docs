@@ -1,0 +1,76 @@
+---
+title: Configure routing preference for an Azure Kubernetes service using Azure CLI
+titlesuffix: Azure Virtual Network
+description: Learn how to configure a AKS cluster with routing preference by using the Azure CLI.
+services: virtual-network
+documentationcenter: na
+author: KumudD
+manager: mtillman
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: how-to
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/22/2021
+ms.author: mnayak 
+
+---
+# Configure routing preference for a Kubernetes cluster using Azure CLI
+
+This article shows you how to configure routing preference via ISP network (**Internet** option) for a kubernetes cluster using Azure CLI. This is achieved by creating a public ip address of routing preference type **Internet****, and then use it while creating the AKS clsuter.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+## Create a resource group
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
+
+```azurecli
+  az group create --name myResourceGroup --location eastus
+```
+## Create a public IP address
+
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
+
+The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
+
+```azurecli
+az network public-ip create \
+--name MyRoutingPrefIP \
+--resource-group MyResourceGroup \
+--location eastus \
+--ip-tags 'RoutingPreference=Internet' \
+--sku STANDARD \
+--allocation-method static \
+--version IPv4
+```
+> [!NOTE]
+>  Currently, routing preference only supports IPV4 public IP addresses.
+
+## Get the ID of public IP address
+
+The following command returns the public ip address ID created above
+```azurecli
+az network public-ip show --resource-group myResourceGroup --name myRoutingPrefIP --query id
+```
+## Create Kubernetes cluster with the public ip
+
+```azurecli
+The following command creates the AKS cluster with the public ip created above
+az aks create --resource-group MyResourceGroup --name MyAKSCluster --load-balancer-outbound-ips "Enter the public IP ID from previous step" --generate-ssh-key
+```
+
+In few minutes, AKS cluster will be created.
+To validate, search for the public IP created in earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown in the picture that follows.
+
+ ![Routing preference public ip for Kubernetes](./media/routing-preference-aks/rp-kubernetes.png)
+
+
+## Next steps
+
+- Learn more about [routing preference in public IP addresses](routing-preference-overview.md). 
+- [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md).
+

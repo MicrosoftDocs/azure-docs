@@ -98,7 +98,9 @@
     - name: Public IPv6 address prefix
       href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
-      href: routing-preference-overview.md 
+      href: routing-preference-overview.md
+    - name: Routing preference Unmetered
+      href: routing-preference-unmetered.md   
     - name: Public IP security baseline
       href: public-ip-security-baseline.md
   - name: Security
@@ -274,6 +276,10 @@
             href: configure-routing-preference-virtual-machine-powershell.md
           - name: Azure CLI
             href: configure-routing-preference-virtual-machine-cli.md
+        - name: Configure mixed Routing Preference for a VM
+        - href: routing-preference-mix-nic-portal.md
+        - name: Configure Routing Preference for an AKS cluster
+        - href: routing-preference-aks-cli.md
 
   - name: Security
     items:
