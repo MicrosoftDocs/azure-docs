@@ -175,9 +175,13 @@ Before you enable Azure AD OAuth, review these considerations:
    }
    ```
 
+#### [Portal](#tab/azure-portal)
+
 <a name="define-authorization-policy-portal"></a>
 
+<!---
 #### Define authorization policy in Azure portal
+---->
 
 To enable Azure AD OAuth for your logic app in the Azure portal, follow these steps to add one or more authorization policies to your logic app:
 
@@ -209,9 +213,13 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
+#### [Resource Manager Template](#tab/azure-resource-manager)
+
 <a name="define-authorization-policy-template"></a>
 
+<!---
 #### Define authorization policy in Azure Resource Manager template
+---->
 
 To enable Azure AD OAuth in the ARM template for deploying your logic app, follow these steps and the syntax below:
 
@@ -318,15 +326,15 @@ When you use the portal to restrict inbound IP addresses for your logic app, the
 1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, choose the path for your scenario:
 
    * To make your logic app callable only as a nested logic app by using the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), select **Only other Logic Apps**, which works *only* when you use the **Azure Logic Apps** action to call the nested logic app.
-   
+
      This option writes an empty array to your logic app resource and requires that only calls from parent logic apps that use the built-in **Azure Logic Apps** action can trigger the nested logic app.
 
    * To make your logic app callable only as a nested app by using the HTTP action, select **Specific IP ranges**, *not* **Only other Logic Apps**. When the **IP ranges for triggers** box appears, enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
-   
+
      > [!NOTE]
      > If you use the **Only other Logic Apps** option and the HTTP action to call your nested logic app, 
      > the call is blocked, and you get a "401 Unauthorized" error.
-        
+
    * For scenarios where you want to restrict inbound calls from other IPs, when the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
 
 1. Optionally, under **Restrict calls to get input and output messages from run history to the provided IP addresses**, you can specify the IP address ranges for inbound calls that can access input and output messages in run history.
