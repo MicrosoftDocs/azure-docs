@@ -82,7 +82,7 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
  
 > [!IMPORTANT]
 > To see and configure a certificate from the Azure portal, you must add your Azure user account to the Key Vault Access policy. Give your user account **Get** and **List** under **Secret Permissions**.
-   :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Firewall Premium overview diagram":::
+   :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault Access policy":::
 
 
 ## Troubleshooting
