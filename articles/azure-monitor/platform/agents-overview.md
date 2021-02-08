@@ -179,6 +179,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
 
 <sup>1</sup> Requires Python 3 to be installed on the machine.
+
 <sup>2</sup> Known issue collecting Syslog events. Only performance data is currently supported.
 #### Dependency agent Linux kernel support
 
