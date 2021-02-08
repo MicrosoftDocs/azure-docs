@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 08/02/2021
 ms.author: jeedes
 ---
 
@@ -168,7 +168,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On Choose File](./media/salesforce-tutorial/xmlchoose.png)
 
-1. On the **SAML Single Sign-On Settings** page, fields populate automatically, select the **User Provisioning Enabled** and then click **Save**.
+1. On the **SAML Single Sign-On Settings** page, fields populate automatically,
+ 
+    a. Select the **User Provisioning Enabled**, if the **SAML Identity Type** as **Assertion contains the User's Salesforce username**.
+
+    b.Unselect the **User Provisioning Enabled**, if the **SAML Identity Type** as **Assertion contains the Federation ID from the User object**. 
+    
+    c. Click **Save**.
 
     ![Configure Single Sign-On User Provisioning Enabled](./media/salesforce-tutorial/salesforcexml.png)
 
@@ -180,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On Authentication Configuration](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-1. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Service** of your SAML SSO configuration, and then click **Save**.
+1. In the **Authentication Configuration** section, Check the **Login Page** and  **AzureSSO** as **Authentication Service** of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On Authentication Service](./media/salesforce-tutorial/sf-auth-config.png)
 
