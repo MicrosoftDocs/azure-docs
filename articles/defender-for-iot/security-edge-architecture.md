@@ -40,7 +40,7 @@ Defender for IoT security module for IoT Edge offers the following features:
 
 - Remove configuration through use of the security module twin.
 
-  See [Configure an Defender for IoT agent](how-to-agent-configuration.md) to learn more.
+  See [Configure a Defender for IoT agent](how-to-agent-configuration.md) to learn more.
 
 Defender for IoT security module for IoT Edge runs in a privileged mode under IoT Edge.
 Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
