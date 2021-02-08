@@ -870,6 +870,24 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-web-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+  - id: platform-android
+    title: Android
+- id: acs-web-ios
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -932,6 +950,8 @@ groups:
   pivots:
   - id: platform-azp
     title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell

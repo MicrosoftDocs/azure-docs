@@ -23,7 +23,7 @@ When developing applications with the Microsoft identity platform, you'll need t
 In this article, you will:
 
 - Learn about the two kinds of user accounts managed by Microsoft and how to refer to Azure AD accounts in your application
-- Find out what you need to do to add the Microsoft logo for use in your app
+- Learn the requirements for using the Microsoft logo in your app
 - Download the official **Sign in** or **Sign in with Microsoft** images to use in your app
 - Learn about the branding and navigation do's and don'ts
 

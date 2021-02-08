@@ -56,7 +56,8 @@ When you copy binary files between storage stores, you can enable fault toleranc
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true		
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -81,6 +82,7 @@ skipErrorFile | A group of properties to specify the types of failures you want 
 fileMissing | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip files, which are being deleted by other applications when ADF is copying in the meanwhile. <br/> -True: you want to copy the rest by skipping the files being deleted by other applications. <br/> - False: you want to abort the copy activity once any files are being deleted from source store in the middle of data movement. <br/>Be aware this property is set to true as default. | True(default) <br/>False | No
 fileForbidden | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, when the ACLs of those files or folders require higher permission level than the connection configured in ADF. <br/> -True: you want to copy the rest by skipping the files. <br/> - False: you want to abort the copy activity once getting the permission issue on folders or files. | True <br/>False(default) | No
 dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent data between source and destination store. <br/> -True: you want to copy the rest by skipping inconsistent data. <br/> - False: you want to abort the copy activity once inconsistent data found. <br/>Be aware this property is only valid when you set validateDataConsistency as True. | True <br/>False(default) | No
+invalidFileName | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, when the file names are invalid for the destination store. <br/> -True: you want to copy the rest by skipping the files having invalid file names. <br/> - False: you want to abort the copy activity once any files have invalid file names. <br/>Be aware this property works when copying binary files from any storage store to ADLS Gen2 or copying binary files from AWS S3 to any storage store only. | True <br/>False(default) | No
 logSettings  | A group of properties that can be specified when you want to log the skipped object names. | &nbsp; | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you use to store the log file. | No
 path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
