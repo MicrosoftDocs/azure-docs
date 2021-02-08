@@ -55,7 +55,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum number of restores per day                           | 10      |
-| Maximum  number of files per restore                         | 10      |
+| Maximum  number of files per restore                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 
 ## Retention limits
