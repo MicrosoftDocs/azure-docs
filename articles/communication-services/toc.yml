@@ -51,6 +51,8 @@
   items:
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
+  - name: Sign an HTTP request with an HMAC signature using C#
+    href: tutorials/hmac-header-tutorial.md
   - name: Prepare a web app for Communication Services (Node.js)
     href: tutorials/building-app-start.md
 - name: Concepts
@@ -88,6 +90,8 @@
     href: concepts/client-and-server-architecture.md
   - name: Call flows
     href: concepts/call-flows.md
+  - name: Call flow topologies
+    href: concepts/detailed-call-flows.md
   - name: Client libraries and REST APIs
     href: concepts/sdk-options.md 
   - name: Pricing model
@@ -108,6 +112,8 @@
     href: concepts/metrics.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Known issues
+    href: concepts/known-issues.md
 - name: Samples
   items:
   - name: Group calling hero sample

@@ -169,7 +169,7 @@ for the specific task that you're recording.
 
 1. From the **Session** menu, select **Disconnect**.
 
-1. To stop recording, from the **Recording** menu, select **Stop Recording**. (Keyboard: Ctrl + Shift + F5)
+1. To stop recording, from the **Recording** menu, select **Stop Recording**. (Keyboard: Ctrl + Shift + E)
 
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Some notes 
@@ -497,7 +497,7 @@ can upload to your integration account. The 3270
 Design Tool creates the HIDX file in a new 
 subfolder where you saved your RAP file.
 
-1. In the 3270 Design Tool, from the **Tools** menu, select **Generate Definitions**.
+1. In the 3270 Design Tool, from the **Tools** menu, select **Generate Definitions**. (Keyboard: F6)
 
 1. Go to the folder that contains your RAP file, and open the 
 subfolder that the tool created after generating your HIDX file. 
