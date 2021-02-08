@@ -286,10 +286,12 @@
 - name: Troubleshooting
   items:
   - name: Defender IoT micro agent troubleshooting (Preview)
+    displayName: service status, review logs
     href: troubleshoot-defender-micro-agent.md
 - name: Feature support and retirement
   items:
   - name: Feature support and retirement
+    displayName: C, C#, deprecation, support
     href: edge-security-module-deprecation.md
 - name: References
   items:
@@ -310,10 +312,13 @@
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS API
+      displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions - service
+      displayName: regulation, internet, connection, hardware, appliances, ports, logs 
       href: resources-frequently-asked-questions.md
     - name: Frequently asked questions- agent
+      displayName: embedded, dependencies, data, quota, internet, 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity
