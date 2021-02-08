@@ -274,6 +274,8 @@ Here's the syntax to follow:
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### Include 'Authorization' header in request trigger outputs
