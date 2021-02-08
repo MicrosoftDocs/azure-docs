@@ -223,7 +223,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 # [Python](#tab/python)
 
-For Python, [OpenCensus Python telemetry processors](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors) can be used.
+For Python, [OpenCensus Python telemetry processors]((api-filtering-sampling.md#opencensus-python-telemetry-processors) can be used.
 
 ```python
 def callback_function(envelope):
