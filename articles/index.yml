@@ -80,8 +80,8 @@ productDirectory:
         - analytics
       url: /azure/databricks/
     # Card
-    - title: Azure Health Bot
-      summary: Empowers healthcare organizations to build and deploy, AI-powered virtual health assistants and chatbots that can be used to enhance their processes, self-service, and cost reduction efforts.
+    - title: Health Bot
+      summary: A managed service purpose-built for development of virtual healthcare assistants.
       imageSrc: media/index/health-bot-logo.svg
       azureCategories:
         - ai-machine-learning
