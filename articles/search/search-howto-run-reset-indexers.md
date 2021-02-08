@@ -30,7 +30,7 @@ A reset flag is cleared after the run is finished. Change detection logic will r
 > [!NOTE]
 > Reset cannot be used to synchronize deleted content. If the index contains an orphaned search document, a reset will not cause the removal of that document from the index. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
-<a name="reset-indexer"></a>
+<a name="reset-indexers"></a>
 
 ## Reset an indexer
 
@@ -38,7 +38,7 @@ On an indexer, refresh is all encompassing. Any document that is populated and r
 
 You can use the portal, [Reset Indexer (REST)](/rest/api/searchservice/reset-indexer), or an [ResetIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) on an Azure SDK to reset an indexer.
 
-<a name="reset-skill"></a>
+<a name="reset-skills"></a>
 
 ## Reset individual skills (preview)
 
