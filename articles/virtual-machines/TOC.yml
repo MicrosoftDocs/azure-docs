@@ -107,26 +107,12 @@
     href: ./workloads/mainframe-rehosting/overview.md
   - name: Databases
     items:
-    - name: MySQL on SUSE
-      href: ./linux/mysql-on-opensuse.md
     - name: MongoDB
-      items:
-      - name: Linux
-        href: ./linux/install-mongodb.md
-      - name: Windows
-        href: ./windows/install-mongodb.md
-    - name: PostgreSQL
-      href: ./linux/postgresql-install.md
     - name: MS SQL on Linux
       href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
   - name: Containers
-    items:
-    - name: Use Docker Machine
-      href: ./linux/docker-machine.md
-    - name: Use Docker Compose
-      href: ./linux/docker-compose-quickstart.md
   - name: Visual Studio
     href: ./windows/using-visual-studio-vm.md
 - name: Instances
@@ -979,10 +965,18 @@
     href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Azure Disk Backup
+      items:
+      - name: Overview
+        href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+      - name: Configure Azure Disk Backup
+        href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+      - name: Restore disks with Azure Disk Backup
+        href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
     - name: Snapshot a disk - PowerShell
@@ -1281,8 +1275,6 @@
     href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
   - name: Monitoring VMs
     items:
-    - name: Linux
-      href: ./linux/tutorial-monitor.md
     - name: Windows
       href: ./windows/tutorial-monitor.md
   - name: Agents
