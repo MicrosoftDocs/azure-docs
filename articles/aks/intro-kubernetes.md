@@ -25,7 +25,7 @@ To get started, complete the AKS Quickstart [in the Azure Portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and:
+For improved security and management, AKS lets you integrate with Azure Active Directory (Azure AD) and:
 * Use Kubernetes role-based access control (Kubernetes RBAC). 
 * Monitor the health of your cluster and resources.
 
@@ -33,7 +33,7 @@ For improved security and management, AKS lets you integrate with Azure Active D
 
 To limit access to cluster resources, AKS supports [Kubernetes RBAC][kubernetes-rbac]. Kubernetes RBAC lets you control access and permissions to Kubernetes resources and namespaces.  
 
-You can also configure an AKS cluster to integrate with Azure Active Directory (Azure AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided with an integrated sign-on experience and access to AKS resources.  
+You can also configure an AKS cluster to integrate with Azure AD. With Azure AD integration, you can configure Kubernetes access based on existing identity and group membership. Your existing Azure AD users and groups can be provided with an integrated sign-on experience and access to AKS resources.  
 
 For more information on identity, see [Access and identity options for AKS][concepts-identity].
 
@@ -71,13 +71,13 @@ For more information, see [Using GPUs on AKS][aks-gpu].
 
 ### Confidential computing nodes (public preview)
 
-AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware-based trusted execution environment (enclaves). Isolation between containers, combined with code integrity through attestation, can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing Docker apps) and enclave-aware containers.
+AKS supports the creation of Intel SGX-based, confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware-based, trusted execution environment (enclaves). Isolation between containers, combined with code integrity through attestation, can help with your defense-in-depth container security strategy. Confidential computing nodes support both confidential containers (existing Docker apps) and enclave-aware containers.
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 ### Storage volume support
 
-To support application workloads, you can mount storage volumes for persistent data. Both static and dynamic volumes can be used. Depending on how many connected pods are to share the storage, you can use storage backed by either Azure Disks for single pod access, or Azure Files for multiple concurrent pod access.
+To support application workloads, you can mount storage volumes for persistent data. You can use both static and dynamic volumes. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by either Azure Disks for single pod access, or Azure Files for multiple concurrent pod access.
 
 For more information, see [Storage options for applications in AKS][concepts-storage].
 
@@ -85,7 +85,7 @@ Get started with dynamic persistent volumes using [Azure Disks][azure-disk] or [
 
 ## Virtual networks and ingress
 
-An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster and other nodes in the virtual network. Pods can also connect to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.  
+An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster and other nodes in the virtual network. Pods can also connect to other services in a peered virtual network and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.  
 
 For more information, see the [Network concepts for applications in AKS][aks-networking].
 
@@ -93,7 +93,7 @@ For more information, see the [Network concepts for applications in AKS][aks-net
 
 The HTTP application routing add-on makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster.  
 
-As applications are deployed, publicly accessible DNS names are auto configured. The HTTP application routing configures sets up a DNS zone and integrates it with the AKS cluster. You can then deploy Kubernetes ingress resources as normal.  
+As applications are deployed, publicly accessible DNS names are autoconfigured. The HTTP application routing sets up a DNS zone and integrates it with the AKS cluster. You can then deploy Kubernetes ingress resources as normal.  
 
 To get started with ingress traffic, see [HTTP application routing][aks-http-routing].
 
@@ -101,11 +101,15 @@ To get started with ingress traffic, see [HTTP application routing][aks-http-rou
 
 Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include Helm and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.  
 
-Additionally, Azure offers several tools that help streamline Kubernetes, such as Azure Dev Spaces and DevOps Starter.  
+Additionally, Azure provides several tools that help streamline Kubernetes, such as Azure Dev Spaces and DevOps Starter.  
 
 Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
 
-DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically creates Azure resources (such as AKS), configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then generates an Azure Application Insights resource for monitoring.  
+DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically:
+* Creates Azure resources (such as AKS); 
+* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI; 
+* Sets up a release pipeline for CD; and, 
+* Generates an Azure Application Insights resource for monitoring. 
 
 For more information, see [DevOps Starter][azure-devops].
 
@@ -125,7 +129,7 @@ AKS is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see [O
 
 ## Next steps
 
-Learn more about deploying and managing AKS with the Azure CLI quickstart.
+Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 
 > [!div class="nextstepaction"]
 > [AKS quickstart][aks-cli]
