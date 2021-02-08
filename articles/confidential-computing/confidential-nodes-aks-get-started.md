@@ -4,7 +4,7 @@ description: Learn to create an AKS cluster with confidential nodes and deploy a
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 2/5/2020
 ms.author: amgowda
 ---
 
@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### Azure Confidential Computing feature registration on Azure (optional but recommended)
-Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
+Registering the AKS-ConfidentialComputingAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
 1. SGX Device Driver Plugin
 2. SGX Attestation Quote Helper
 
@@ -80,7 +80,7 @@ az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.
 It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
 
@@ -138,12 +138,12 @@ This section assumes you have an AKS cluster running already that meets the crit
 First, lets add the feature to Azure Subscription
 
 ```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
 ```
 It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
 
