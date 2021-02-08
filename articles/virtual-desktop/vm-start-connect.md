@@ -52,28 +52,33 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 
 ![Graphical user interface, text, application Description automatically generated](media/82f8a5dc3a3264d7d59cd8438750932c.png)
 
-3. Next name the custom role and add a description. We recommend to name it “start VM on connect” In the following we continue with instructions when starting from scratch. If you would like to leverage our sample JSON see next chapter.
+3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
 
-4. On the “Permissions” tab add the following permissions: on the subscription: "Microsoft.Compute/virtualMachines/start/action",  "Microsoft.Compute/virtualMachines/read"
+4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to: 
+ 
+   - Microsoft.Compute/virtualMachines/start/action
+   - Microsoft.Compute/virtualMachines/read
 
-5. Complete the role creation.
+6. When you're finished, select **Ok**.
 
-Next grant Access to “Windows Virtual Desktop” app by assigning the new role.
+After that, you'll need to assign the role to grant access to Windows Virtual Desktop.
 
-6. In Access control (IAM) blade select Add Role Assignments.
+To grant access:
 
-7. Select the new created role.
+1. In the **Access control (IAM) tab**, select **Add role assignments**.
 
-8. Move to select field and search for Windows Virtual Desktop.
+2. Select the role you just created.
 
->[!NOTE]
->You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both app you see.
+3. In the search bar, enter and select **Windows Virtual Desktop**.
+
+      >[!NOTE]
+      >You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both app you see.
 
 ![Graphical user interface, application Description automatically generated](media/9bf688fba5f66f4a88c0ca706b2ac795.png)
 
 ### Sample JSON file for creating custom role
 
-Use this JSON example when creating your role. Don’t forget to replace the subscription ID in this sample.:
+If you're using JSON to create the custom role, the following example shows a basic template. Make sure you replace the subcription ID value with the subscription ID you want to assign the role to.
 
 ```json
 {
@@ -120,48 +125,53 @@ Use this JSON example when creating your role. Don’t forget to replace the sub
 
 ## Configure the Start VM on Connect feature
 
+Now that you've assigned your subscription the role, it's time to configure the Start VM on Connect feature!
+
 ### Deployment considerations 
 
-Start VM on connect is a setting on host pool level. If you would like to restrict this functionality to a specific set of users, we recommend to review assignments within the selected host pools.
+Start VM on Connect is a host pool setting. If you only want a select group of users has this feature, make sure you only assign the required role to the users you want to add.
 
 >[!IMPORTANT]
-> This feature can be set only for existing host pools. The setting is not available when creating a host pool.
+> You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
 
-### Using Azure Portal
+### Using the Azure portal
 
-Open a browser, preferably InPrivate browsing mode and load the following URL:
-<https://portal.azure.com/?feature.startVMonConnect=true#home>
+To use the Azure portal to configre Start VM on Connect:
 
-Next in the Azure Portal:
+1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you use an InPrivate window.
 
-1. Navigate to “Windows Virtual Desktop”
+2. In the Azure portal, go to **Windows Virtual Desktop**.
 
-2. Select “Host Pools” and locate the pool for personal desktops you set-up.
+3. Select **Host pools**, then find the host pool for personal desktops you assigned the role to.
 
    >[!NOTE]
-   > If you do not have the proper configured host pool set-up one that contains Personal Desktops with direct assignment.
+   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the host pool doesn't have correctly configured desktops, the configuration process won't work.
 
-3. On the host pool select “Properties” and switch Start VM on connect to “Yes” and select “Save” to apply the setting. It is applied instantly.
+4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
 
    ![Graphical user interface, text, application Description automatically generated](media/97ad4e38e505f73cf72fc5169e9d7ae9.png)
 
-### Using PowerShell
+### Use PowerShell
 
-For the host pool you want to update you need to have the resource group name and host pool name ready. This minimum version of the PowerShell module required is 2.1.0 <https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0>
+To configure this setting with PowerShell, you need to make sure you have the names of the resource group and host pools you want to configure. You'll also need to have [the Azure module (version 2.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0) installed.
 
-For enabling Start VM on Connect use the following:
+To configure the feature with Powershell:
+
+1. Open a PowerShell command window.
+
+2. Run the following cmldet to enable Start VM on Connect:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:\$true
 ```
 
-For disabling Start VM on Connect use the following:
+3. Run the following cmdlet to disable Start VM on Connect:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:\$false
 ```
 
-### Using REST API
+### Use REST API
 
 The existing REST API for Host Pools – Update or Update ([Host Pools - Create Or Update (Azure Desktop Virtualization) \| Microsoft Docs](/rest/api/desktopvirtualization/hostpools/createorupdate)) is going to be enhanced by the following property
 
