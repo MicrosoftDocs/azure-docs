@@ -13,9 +13,9 @@ ms.author: yelevin
 
 Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement. 
 
-The Azure SQL database connector lets you stream your databases' auditing and diagnostic logs into Sentinel, allowing you to continuously monitor activity in all your instances.
+The Azure SQL database connector lets you stream your databases' auditing and diagnostic logs into Azure Sentinel, allowing you to continuously monitor activity in all your instances.
 
-- Connecting diagnostics logs allows you to send database diagnostics logs of different data types to your Sentinel workspace.
+- Connecting diagnostics logs allows you to send database diagnostics logs of different data types to your Azure Sentinel workspace.
 
 - Connecting auditing logs allows you to stream security audit logs from all your Azure SQL databases at the server level.
 

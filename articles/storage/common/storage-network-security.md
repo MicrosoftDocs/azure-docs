@@ -533,11 +533,11 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## Grant access to Azure services 
+## Grant access to trusted Azure services 
 
-Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your storage account. 
+Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your storage account.
 
-You can grant access to trusted Azure services by creating a network rule exception. For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. 
+You can grant access to trusted Azure services by creating a network rule exception. For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article.
 
 When you grant access to trusted Azure services, you grant the following types of access:
 
@@ -578,17 +578,23 @@ The following table lists services that can have access to your storage account 
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
-| Azure Cognitive Services       | Microsoft.CognitiveService             | Enables Cognitive Services to access storage accounts. |
+| Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
+| Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Allows access to storage accounts through DevTest Labs. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
-| Azure SQL Database       | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Azure Synapse Analytics. |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Media Services           | Microsoft.Media/mediaservices          | Allows access to storage accounts through Media Services. |
+| Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Allows access to storage accounts through Azure Migrate. |
+| Azure Purview                  | Microsoft.Purview/accounts             | Allows Purview to access storage accounts. |
+| Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
+| Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
+| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics              | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 
 ## Grant access to storage analytics
 

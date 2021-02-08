@@ -11,13 +11,13 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walk through a smart inventory management application template
 
-
-
 This tutorial shows you how to get started by deploying an IoT Central **smart inventory management** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
-In this tutorial, you learn how to, 
-* create smart inventory management application 
-* walk through the application 
+In this tutorial, you learn how to,
+
+> [!div class="checklist"]
+> create smart inventory management application 
+> walk through the application 
 
 ## Prerequisites
 

@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness - Compliance
-      href: compliance.md
+    - name: Enterprise readiness 
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            items:
+            - name: Resource model overview
+              href: continuous-backup-restore-resource-model.md
+            - name: Restorable accounts - List
+              href: restorable-database-accounts-list.md
+            - name: Restorable accounts - List by location
+              href: restorable-database-accounts-list-by-location.md
+            - name: Restorable SQL resources - List
+              href: restorable-sql-resources-list.md
+            - name: Restorable SQL databases - List
+              href: restorable-sql-databases-list.md
+            - name: Restorable SQL containers - List
+              href: restorable-sql-containers-list.md
+            - name: Restorable MongoDB resources - List
+              href: restorable-mongodb-resources-list.md
+            - name: Restorable MongoDB collections - List
+              href: restorable-mongodb-collections-list.md
+            - name: Restorable MongoDB databases - List
+              href: restorable-mongodb-databases-list.md
+        - name: Compliance
+          href: compliance.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -966,8 +996,6 @@
               href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra-migrate-cosmos-db-databricks.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-              href: cassandra-migrate-cosmos-db-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
         - name: Change feed
@@ -1367,8 +1395,20 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Online backup and on-demand restore
-          href: online-backup-and-restore.md
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - ARM
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor

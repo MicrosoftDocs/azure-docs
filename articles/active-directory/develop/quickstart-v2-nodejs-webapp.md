@@ -42,7 +42,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Select **Add a platform** > **Web**. 
 1. In the **Redirect URIs** section,  enter `http://localhost:3000/auth/openid/return`.
 1. Enter a **Front-channel logout URL** `https://localhost:3000`.
-1. In the Implicit grant section, check **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
 1. Select **Configure**.
 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 1. Enter a key description (for instance app secret).

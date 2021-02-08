@@ -6,13 +6,13 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: alkohli
 ---
 
 # Azure Stack Edge Pro with FPGA 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
+The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with a built-in Field Programmable Gate Array (FPGA).
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.  
 
@@ -33,7 +33,6 @@ This release also contains the following updates:
 
 - All cumulative Windows updates and .NET framework updates released through October 2020.
 - The baseboard management controller (BMC) firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory install to address incompatibility with newer Dell power supply units.
-- The static IP address for Azure Data Box Gateway is retained across software updates.
 - This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.
 
 ## Known issues in this release

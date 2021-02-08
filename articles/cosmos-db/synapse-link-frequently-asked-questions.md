@@ -105,9 +105,9 @@ Currently Terraform doesn’t support analytical store containers. Please check 
 
 ## Analytical Time to live (TTL)
 
-### Is TTl for analytical data supported at both container and item level?
+### Is TTL for analytical data supported at both container and item level?
 
-At this time, TTl for analytical data can only be configured at container level and there is no support to set analytical TTL at item level.
+At this time, TTL for analytical data can only be configured at container level and there is no support to set analytical TTL at item level.
 
 ### After setting the container level  analytical TTL on an Azure Cosmos DB container, can I change to a different value later?
 

@@ -1,6 +1,6 @@
 ---
-title: Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
-description: Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
+title: Tutorial - Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
+description: Tutorial - Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
@@ -11,7 +11,7 @@ services: iot-pnp
 # As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
-# Preview tutorial: Create and configure a Time Series Insights Gen2 environment
+# Tutorial: Create and configure a Time Series Insights Gen2 environment
 
 In this tutorial, you learn how to create and configure an [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) environment to integrate with your IoT Plug and Play solution. Use Time Series Insights to collect, process, store, query, and visualize time series data at the scale of Internet of Things (IoT).
 
