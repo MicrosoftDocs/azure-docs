@@ -16,6 +16,21 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## February 2021
+
+### Read API v3.2 Public Preview with OCR support for 73 languages
+Computer Vision's Read API v3.2 public preview includes these capabilities:
+* OCR for a total of [73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and major Latin languages.
+* Choose whether to output the text lines in the left-right and top-bottom (default) order or a more natural reading order.
+* For each text line output, indicate whether its handwriting style or not along with a confidence score (Latin languages only).
+* For a multi-page document extract text only for selected pages or page range.
+
+See the [Read API overview](concept-recognizing-text.md) to learn more.
+
+> [!div class="nextstepaction"]
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
+
 ## January 2021
 
 ### Spatial analysis container update

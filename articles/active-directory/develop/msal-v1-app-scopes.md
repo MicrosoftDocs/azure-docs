@@ -34,7 +34,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-To read and write with MSAL.NET Azure AD using the Microsoft Graph API (https:\//graph.microsoft.com/), you need to create a list of scopes as shown in the following examples:
+To read and write with MSAL.NET Azure AD using the Microsoft Graph API (https:\//graph.microsoft.com/), create a list of scopes as shown in the following examples:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -46,7 +46,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-To write the scope corresponding to the Azure Resource Manager API (https:\//management.core.windows.net/), you need to request the following scope (note the two slashes):
+To write the scope corresponding to the Azure Resource Manager API (https:\//management.core.windows.net/), request the following scope (note the two slashes):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -56,7 +56,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> You need to use two slashes because the Azure Resource Manager API expects a slash in its audience claim (aud), and then there is a slash to separate the API name from the scope.
+> Use two slashes because the Azure Resource Manager API expects a slash in its audience claim (aud), and then there is a slash to separate the API name from the scope.
 
 The logic used by Azure AD is the following:
 

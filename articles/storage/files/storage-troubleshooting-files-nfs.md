@@ -51,7 +51,7 @@ Connect-AzAccount
 $context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
 Set-AzContext $context
 
-Register-AzProviderFeature -FeatureName AllowNfsFileShares - ProviderNamespace Microsoft.Storage
+Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
