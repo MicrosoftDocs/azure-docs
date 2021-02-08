@@ -61687,6 +61687,11 @@
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/teams-interop.md",
+      "redirect_url": "/articles/communication-services/concepts/teams-interop.md",
+      "redirect_document_id": false
     }
   ]
 }
