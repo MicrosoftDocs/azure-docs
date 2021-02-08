@@ -32,7 +32,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Step 1: Configure your application in the Azure portal
->  This quickstart's sample code requires a redirect URI compatible with the Auth broker.
+> For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
