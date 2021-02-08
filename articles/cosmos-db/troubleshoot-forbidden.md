@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 The HTTP status code 403 represents the request is forbidden to complete.
 
-### Firewall blocking requests
+## Firewall blocking requests
 On this scenario, it's common to see errors like the ones below:
 
 ```
@@ -26,7 +26,7 @@ Request originated from client IP {...} through public internet. This is blocked
 Request is blocked. Please check your authorization token and Cosmos DB account firewall settings
 ```
 
-#### Solution:
+### Solution
 Verify that your current [firewall settings](how-to-configure-firewall.md) are correct and include the IPs or networks you are trying to connect from.
 If you recently updated them, keep in mind that changes can take **up to 15 minutes to apply**.
 
