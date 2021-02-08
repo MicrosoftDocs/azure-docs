@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 ms.author: alkohli
 ---
 # Deploy Azure Data Services on your Azure Stack Edge Pro GPU device
@@ -15,9 +15,9 @@ ms.author: alkohli
 
 This article describes the process of creating an Azure Arc Data Controller and then deploying Azure Data Services on your Azure Stack Edge Pro GPU device. 
 
-Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services such as SQL Managed Instance (Preview) on that data controller.
+Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer-managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services such as SQL Managed Instance (Preview) on that data controller.
 
-The procedure to create Data Controller and then deploy an SQL Managed Instance involves use PowerShell and `kubectl` - a native tool that provides command line access to the Kubernetes cluster on the device.
+The procedure to create Data Controller and then deploy an SQL Managed Instance involves use PowerShell and `kubectl` - a native tool that provides command-line access to the Kubernetes cluster on the device.
 
 
 ## Prerequisites
@@ -36,24 +36,31 @@ Before you begin, make sure that:
         1. Identify the Kubernetes server version installed on the device. In the local UI of the device, go to **Software updates** page. Note the **Kubernetes server version** in this page.
         1. Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew).
     
-1. Optionally, [Install client tools for deploying and managing Azure Arc enabled data services](../azure-arc/data/install-client-tools.md). These tool are not required but recommended.  
+1. Optionally, [Install client tools for deploying and managing Azure Arc enabled data services](../azure-arc/data/install-client-tools.md). These tools are not required but recommended.  
+1. Make sure you have enough resources available on your device to provision a data controller and one SQL Managed Instance. For data controller and one SQL Managed Instance, you will need a minimum of 16 GB of RAM and 4 CPU cores. For detailed guidance, go to [Minimum requirements for Azure Arc enabled data services deployment](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
 
-1. For detailed sizing guidance, go to the storage requirements before you create the data controller.
 
+## Configure Kubernetes external service IPs
 
-## Configure Kubernetes service IPs
-
-1. Go the local web UI of the device and then go to Compute.
+1. Go the local web UI of the device and then go to **Compute**.
 1. Select the network enabled for compute. 
-1. Make sure that you have provided 4 Kubernetes service IPs. The data controller will use 3 services IPs and the 4th IP is used when you create a SQL managed instance. You will need 1 IP for each additional Data Service you will deploy. 
+
+    ![Compute page in local UI 2](./media/azure-stack-edge-gpu-deploy-arc-data-controller/compute-network-1.png)
+
+1. Make sure that you provide four additional Kubernetes external service IPs (in addition to the IPs you have already configured for other external services or containers). The data controller will use three services IPs and the fourth IP is used when you create a SQL Managed Instance. You will need one IP for each additional Data Service you will deploy. 
+
+    ![Compute page in local UI 3](./media/azure-stack-edge-gpu-deploy-arc-data-controller/compute-network-2.png)
+
 1. Apply the settings and these new IPs will immediately take effect on an already existing Kubernetes cluster. 
 
 
 ## Deploy Azure Arc Data Controller
 
+Before you deploy a data controller, you'll need to create a namespace.
+
 ### Create namespace 
 
-Create a new, dedicated namespace where you will deploy the Data Controller. You'll also create a user and then grant user the access to the namespace that you just created. 
+Create a new, dedicated namespace where you will deploy the Data Controller. You'll also create a user and then grant user the access to the namespace that you created. 
 
 > [!NOTE]
 > For both namespace and user names, the [DNS subdomain naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) apply.
@@ -105,22 +112,21 @@ users:
 
 ### Create Data Controller
 
-Create an Azure Arc Data Controller that you wish to deploy in the namespace that you created earlier. This Azure Arc Data Controller runs on the Kubernetes cluster that exists on your Azure Stack Edge device.  
+The data controller is a collection of pods that are deployed to your Kubernetes cluster to provide an API, the controller service, the bootstrapper, and the monitoring databases and dashboards. Create a data controller that runs on the Kubernetes cluster that exists on your Azure Stack Edge device in the namespace that you created earlier.   
 
 1. Gather the following information that you'll need to create a data controller:
 
     
     |Column1  |Column2  |
     |---------|---------|
-    |Data controller name     |A descriptive name for your data controller - e.g. "Production data controller", "Seattle data controller".         |
-    |Data controller username     |Any username for the data controller administrator user.         |
-    |Data controller password     |A password for the data controller administrator user. The data controller administrator username and password is used to authenticate to the data controller API to perform administrative functions.         |
+    |Data controller name     |A descriptive name for your data controller. For example, `arctestdatacontroller`.         |
+    |Data controller username     |Any username for the data controller administrator user. The data controller username and password are used to authenticate to the data controller API to perform administrative functions.          |
+    |Data controller password     |A password for the data controller administrator user. Choose a secure password and share it with only those that need to have cluster administrator privileges.         |
     |Name of your Kubernetes namespace     |The name of the Kubernetes namespace that you want to create the data controller in.         |
     |Azure subscription ID     |The Azure subscription GUID for where you want the data controller resource in Azure to be created.         |
     |Azure resource group name     |The name of the resource group where you want the data controller resource in Azure to be created.         |
     |Azure location     |The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see Azure global infrastructure / Products by region.|
 
-        <!--Did not see the option of specifying a connectivity mode for the data controller that we are creating? Looks like Azure Arc enabled data services provide you the option to connect to Azure in two different connectivity modes: Directly connected and Indirectly connected-->
 
 1. Connect to the PowerShell interface. To create the data controller, type: 
 
@@ -156,10 +162,147 @@ Create an Azure Arc Data Controller that you wish to deploy in the namespace tha
     arctestcontroller   Ready
     PS C:\WINDOWS\system32>
     ```
+1. To identify the IPs assigned to the external services running on the data controller, use the `kubectl get svc -n <namespace>` command. Here is a sample output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl get svc -n myadstest
+    NAME                      TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                       AGE
+    controldb-svc             ClusterIP      172.28.157.130   <none>        1433/TCP,8311/TCP,8411/TCP                    3d21h
+    controller-svc            ClusterIP      172.28.123.251   <none>        443/TCP,8311/TCP,8301/TCP,8411/TCP,8401/TCP   3d21h
+    controller-svc-external   LoadBalancer   172.28.154.30    10.57.48.63   30080:31090/TCP                               3d21h
+    logsdb-svc                ClusterIP      172.28.52.196    <none>        9200/TCP,8300/TCP,8400/TCP                    3d20h
+    logsui-svc                ClusterIP      172.28.85.97     <none>        5601/TCP,8300/TCP,8400/TCP                    3d20h
+    metricsdb-svc             ClusterIP      172.28.255.103   <none>        8086/TCP,8300/TCP,8400/TCP                    3d20h
+    metricsdc-svc             ClusterIP      172.28.208.191   <none>        8300/TCP,8400/TCP                             3d20h
+    metricsui-svc             ClusterIP      172.28.158.163   <none>        3000/TCP,8300/TCP,8400/TCP                    3d20h
+    mgmtproxy-svc             ClusterIP      172.28.228.229   <none>        443/TCP,8300/TCP,8311/TCP,8400/TCP,8411/TCP   3d20h
+    mgmtproxy-svc-external    LoadBalancer   172.28.166.214   10.57.48.64   30777:30621/TCP                               3d20h
+    sqlex-svc                 ClusterIP      None             <none>        1433/TCP                                      3d20h
+    PS C:\WINDOWS\system32>
+    ```
+
+## Deploy SQL managed instance
+
+After you have successfully created the data controller, you can use a template to deploy a SQL Managed Instance on the data controller.
+
+### Deployment template
+
+Use the following deployment template to deploy a SQL Managed Instance on the data controller on your device.
+
+```yml
+apiVersion: v1
+data:
+    password: UGFzc3dvcmQx
+    username: bXlhZHN1c2Vy
+kind: Secret
+metadata:
+    name: sqlex-login-secret
+type: Opaque
+---
+apiVersion: sql.arcdata.microsoft.com/v1alpha1
+kind: sqlmanagedinstance
+metadata:
+    name: sqlex
+spec:
+    limits:
+    memory: 4Gi
+    vcores: "4"
+    requests:
+    memory: 2Gi
+    vcores: "1"
+    service:
+    type: LoadBalancer
+    storage:
+    backups:
+        className: ase-node-local
+        size: 5Gi
+    data:
+        className: ase-node-local
+        size: 5Gi
+    datalogs:
+        className: ase-node-local
+        size: 5Gi
+    logs:
+        className: ase-node-local
+        size: 1Gi
+```
 
 
-## 
+#### Metadata name
+	
+The metadata name is the name of the SQL Managed Instance. The associated pod in the preceding `deployment.yaml` will be name as `sqlex-n` (`n` is the number of pods associated with the application).	
+	
+#### Password and username data
 
+The data controller username and password are used to authenticate to the data controller API to perform administrative functions. The Kubernetes secret for the data controller username and password in the deployment template are base64 encoded strings. 
+
+You can use an online tool to base64 encode your desired username and password or you can use built in CLI tools depending on your platform. When using an online Base64 encode tool, provide the user name and password strings (that you entered while creating the data controller) in the tool and the tool will generate the corresponding Base64 encoded strings.
+	
+#### Service type
+
+Service type should be set to `LoadBalancer`.
+	
+#### Storage class name
+
+You can identify the storage class on your Azure Stack Edge device that the deployment will use for data, backups, data logs and logs. Use the  `kubectl get storageclass` command to get the storage class deployed on your device.
+
+```powershell
+PS C:\WINDOWS\system32> kubectl get storageclass
+NAME             PROVISIONER      RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION   AGE
+ase-node-local   rancher.io/local-path   Delete  WaitForFirstConsumer  false                  5d23h
+PS C:\WINDOWS\system32>
+```
+In the preceding sample output, the storage class `ase-node-local` on your device should be specified in the template.
+ 
+#### Spec
+
+To create an SQL Managed Instance on your Azure Stack Edge device, you can specify your memory and CPU requirements in the spec section of the `deployment.yaml`. Each SQL managed instance must request a minimum of 2-GB memory and 1 CPU core as shown in the following example. 
+
+```yml
+spec:
+    limits:
+    memory: 4Gi
+    vcores: "4"
+    requests:
+    memory: 2Gi
+    vcores: "1"
+```  
+
+For detailed sizing guidance for data controller and 1 SQL Managed Instance, review [SQL managed instance sizing details](../azure-arc/data/sizing-guidance.md#sql-managed-instance-sizing-details).
+
+### Run deployment template
+
+Run the `deployment.yaml` using the following command:
+
+```powershell
+kubectl create -n <Name of namespace that you created> -f <Path to the deployment yaml> 
+```
+
+Here is a sample output of the following command:
+
+```powershell
+PS C:\WINDOWS\system32> kubectl get pods -n "myadstest"
+No resources found.
+PS C:\WINDOWS\system32> 
+PS C:\WINDOWS\system32> kubectl create -n myadstest -f C:\azure-arc-data-services\sqlex.yaml  secret/sqlex-login-secret created
+sqlmanagedinstance.sql.arcdata.microsoft.com/sqlex created
+PS C:\WINDOWS\system32> kubectl get pods --namespace myadstest
+NAME                 READY   STATUS    RESTARTS   AGE
+bootstrapper-mv2cd   1/1     Running   0          83m
+control-w9s9l        2/2     Running   0          78m
+controldb-0          2/2     Running   0          78m
+controlwd-4bmc5      1/1     Running   0          64m
+logsdb-0             1/1     Running   0          64m
+logsui-wpmw2         1/1     Running   0          64m
+metricsdb-0          1/1     Running   0          64m
+metricsdc-fb5r5      1/1     Running   0          64m
+metricsui-56qzs      1/1     Running   0          64m
+mgmtproxy-2ckl7      2/2     Running   0          64m
+sqlex-0              3/3     Running   0          13m
+PS C:\WINDOWS\system32>
+```
+
+The `sqlex-0` pod in the sample output indicates the status of the SQL Managed Instance.
 
 ## Remove data controller
 
@@ -176,7 +319,6 @@ Here is a sample output of the preceding command.
 
 ```
 
-  
 
 ## Next steps
 
