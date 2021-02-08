@@ -22,18 +22,18 @@ In this tutorial, you'll learn how to integrate SAML SSO for Confluence by resol
 
 ## Prerequisites
 
-o get started, you need the following items:
+To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SAML SSO for Confluence by resolution GmbH single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-IIn this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SAML SSO for Confluence by resolution GmbH supports **SP and IDP** initiated SSO
 
-## Adding SAML SSO for Confluence by resolution GmbH from the gallery
+## Add SAML SSO for Confluence by resolution GmbH from the gallery
 
 To configure the integration of SAML SSO for Confluence by resolution GmbH into Azure AD, you need to add SAML SSO for Confluence by resolution GmbH from the gallery to your list of managed SaaS apps.
 
