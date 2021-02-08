@@ -48,7 +48,7 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Manage QnA Maker Resource Access
+  - name: Manage QnA Maker resource access
     href: How-To/manage-qna-maker-app.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
