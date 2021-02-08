@@ -211,9 +211,6 @@ In this tutorial, you learned how to:
 * Add relationships.
 * Publish your device template.
 
-> [!NOTE]
-> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
-
 Next, as a device developer, you can learn how to:
 
 > [!div class="nextstepaction"]
