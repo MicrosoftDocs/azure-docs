@@ -168,7 +168,7 @@ When you need a full understanding of how each node executed the score script, l
     - The total number of items, successfully processed items count, and failed item count.
     - The start time, duration, process time and run method time.
 
-You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this directory:
+You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this folder:
 
 - `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
 
