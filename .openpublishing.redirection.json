@@ -2,6 +2,11 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/windows/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
       "redirect_document_id": false
