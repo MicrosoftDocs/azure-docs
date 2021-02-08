@@ -38,7 +38,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.AVS](#microsoftavs)
 > - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
+> - [Microsoft.AzureArcData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
@@ -392,7 +392,7 @@ Jump to a resource provider namespace:
 > | b2ctenants | No |
 > | guestUsages | Yes |
 
-## Microsoft.AzureData
+## Microsoft.AzureArcData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |

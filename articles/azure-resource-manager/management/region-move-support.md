@@ -30,7 +30,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AVS](#microsoftavs)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
+> - [Microsoft.AzureArcData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
@@ -352,7 +352,7 @@ Jump to a resource provider namespace:
 > | b2cdirectories | No | 
 > | b2ctenants | No | 
 
-## Microsoft.AzureData
+## Microsoft.AzureArcData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
