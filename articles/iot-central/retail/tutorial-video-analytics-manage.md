@@ -189,7 +189,7 @@ You can pause live video analytics processing in the application:
     * Click on the **Streaming Endpoint** resource.
     * On the **Streaming endpoint details** page, select **Stop**.
 
-## Tidy up
+## Clean up resources
 
 If you've finished with the application, you can remove all the resources you created as follows:
 
