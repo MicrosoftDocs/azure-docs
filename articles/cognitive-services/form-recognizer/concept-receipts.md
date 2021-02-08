@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Form Recognizer prebuilt receipt model
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with receipt understanding deep learning models to extract key information from receipts in English. The Receipt API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with receipt understanding deep learning models to extract key information from receipts in English. The Receipt API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
 
 ## Understanding Receipts 
 
@@ -464,7 +464,7 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 
 ## Next steps
 
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

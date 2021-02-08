@@ -45,31 +45,12 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
     |SqlPassword| Choose a secure password.|
     |||
 
-2. Create a resource group as a container for your Azure Synapse workspace:
+1. Create a resource group as a container for your Azure Synapse workspace:
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. Retrieve the ADLS Gen 2 Storage Account key:
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. Retrieve the ADLS Gen 2 Storage Endpoint URL:
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. (Optional) You can always check what your ADLS Gen2 Storage Account key and endpoint are:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Create an Azure Synapse Workspace:
+1. Create an Azure Synapse Workspace:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -81,14 +62,14 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
       --location $Region
     ```
 
-7. Get Web and Dev URL for Azure Synapse Workspace:
+1. Get Web and Dev URL for Azure Synapse Workspace:
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. Create a Firewall Rule to allow your access to Azure Synapse Workspace from your machine:
+1. Create a Firewall Rule to allow your access to Azure Synapse Workspace from your machine:
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -98,7 +79,7 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. Open the Azure Synapse Workspace Web URL address stored in environment variable `WorkspaceWeb` to access your workspace:
+1. Open the Azure Synapse Workspace Web URL address stored in environment variable `WorkspaceWeb` to access your workspace:
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"

@@ -2,7 +2,7 @@
 title: Tutorial - Peer on-premises environments to a private cloud
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in an Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 1/5/2021
+ms.date: 01/27/2021
 ---
 
 # Tutorial: Peer on-premises environments to a private cloud
@@ -28,7 +28,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 - Established connectivity to and from an Azure VMware Solution private cloud with its ExpressRoute circuit peered with an ExpressRoute gateway in an Azure virtual network (VNet) – which is _circuit 2_ from peering procedures.  
 - A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure – which is _circuit 1_ from the peering procedures' perspective.
 - A /29 non-overlapping [network address block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) for the ExpressRoute Global Reach peering.
-- Make sure that all routers including the ExpressRoute provider's service supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs to advertise routes.
+- Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 > [!TIP]
 > In the context of these prerequisites, your on-premises ExpressRoute circuit is _circuit 1_, and your private cloud ExpressRoute circuit is in a different subscription and labeled _circuit 2_. 

@@ -27,37 +27,37 @@ Welcome to what's new in the Cognitive Services docs from December 1, 2020 throu
 
 ### Updated articles
 
-- [Anomaly Detector REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+- [Anomaly Detector REST API quickstart](./anomaly-detector/quickstarts/client-libraries.md?pivots=rest-api&tabs=windows)
 
 ## Bing Visual Search
 
 ### Updated articles
 
-- [Use an insights token to get insights for an image](/azure/cognitive-services/bing-visual-search/use-insights-token)
+- [Use an insights token to get insights for an image](./bing-visual-search/use-insights-token.md)
 
 ## Containers
 
 ### Updated articles
 
-- [Deploy and run container on Azure Container Instance](/azure/cognitive-services/containers/azure-container-instance-recipe)
+- [Deploy and run container on Azure Container Instance](./containers/azure-container-instance-recipe.md)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/)
-- [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [Form Recognizer landing page](./form-recognizer/index.yml)
+- [Quickstart: Use the Form Recognizer client library](./form-recognizer/quickstarts/client-library.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [Example: How to extract key phrases using Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
-- [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/)
-- [Quickstart: Use the Text Analytics client library and REST API](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [How to call the Text Analytics REST API](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [How to use Named Entity Recognition in Text Analytics](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Example: How to extract key phrases using Text Analytics](./text-analytics/how-tos/text-analytics-how-to-keyword-extraction.md)
+- [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](./text-analytics/index.yml)
+- [Quickstart: Use the Text Analytics client library and REST API](./text-analytics/quickstarts/client-libraries-rest-api.md)
 
 ## Community contributors
 

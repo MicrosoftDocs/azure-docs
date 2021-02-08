@@ -3,7 +3,7 @@ title: Backup and restore - Azure Database for MariaDB
 description: Learn about automatic backups and restoring your Azure Database for MariaDB server.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
 ---

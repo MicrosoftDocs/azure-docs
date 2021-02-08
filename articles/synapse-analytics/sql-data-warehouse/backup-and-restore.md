@@ -66,8 +66,16 @@ When you drop a dedicated SQL pool, a final snapshot is created and saved for se
 
 A geo-backup is created once per day to a [paired data center](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where dedicated SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
+If you do not require geo-backups for your dedicated SQL pool, you can disable them and save on disaster recovery storage costs. To do so, refer to [How to guide: Disable geo-backups for a dedicated SQL pool (formerly SQL DW)](disable-geo-backup.md). Note that if you disable geo-backups, you will not be able to recover your dedicated SQL pool to your paired Azure region if your primary Azure data center is unavailable. 
+
 > [!NOTE]
 > If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
+
+## Data residency 
+
+If your paired data center is located outside of your geographical boundary, you can ensure that your data stays within your geographical boundary by opting out of geo-redundant storage. This can be done when provisioning your dedicated SQL pool (formerly SQL DW) through the  geo-redundant storage option when creating or restoring a dedicated SQL pool (formerly SQL DW). 
+
+To confirm that your paired data center is in a different country, refer to [Azure Paired Regions](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Backup and restore costs
 

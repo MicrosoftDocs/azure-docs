@@ -10,7 +10,7 @@ ms.subservice: imaging
 ---
 # Preview: Create a Windows image and distribute it to a Shared Image Gallery 
 
-This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
+This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
 We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 

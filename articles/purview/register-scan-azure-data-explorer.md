@@ -83,7 +83,7 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="register sources options" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 
 ## Next steps
 

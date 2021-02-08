@@ -33,7 +33,7 @@ registration](../../automation/automation-dsc-onboarding.md#enable-machines-secu
 The following snippet goes in the **Resource** section of the template.
 The DSC extension inherits default extension properties.
 For more information, see
-[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
@@ -88,7 +88,7 @@ Under **extensions**, add the details for DSC Extension.
 
 The DSC extension inherits default extension properties.
 For more information,
-see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

@@ -252,7 +252,7 @@ If you advertise default routes, we force traffic to services offered over Micro
 
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 
-Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other. We recommend setting up [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to facilitate this communication.
+Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other. We recommend setting up [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to facilitate this communication.
 
 ### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
 

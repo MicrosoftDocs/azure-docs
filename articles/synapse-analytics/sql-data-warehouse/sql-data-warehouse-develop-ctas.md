@@ -203,7 +203,7 @@ DROP TABLE CTAS_acs;
 
 ## ANSI join replacement for MERGE 
 
-In Azure Synapse Analytics, [MERGE](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (preview) with NOT MATCHED BY TARGET requires the target to be a HASH distributed table.  Users can use the ANSI JOIN with [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) or [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) as a workaround to modify target table data based on the result from joining with another table.  Here is an example.
+In Azure Synapse Analytics, [MERGE](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (preview) with NOT MATCHED BY TARGET requires the target to be a HASH distributed table.  Users can use the ANSI JOIN with [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) or [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) as a workaround to modify target table data based on the result from joining with another table.  Here is an example.
 
 ```sql
 CREATE TABLE dbo.Table1   

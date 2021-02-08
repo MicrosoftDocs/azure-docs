@@ -112,6 +112,21 @@ You can access Video Indexer capabilities in three ways:
 
 If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
 
+## Supported browsers
+
+The following list shows the supported browsers that you can use for the Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
+
+- Edge, version: 16
+- Firefox, version: 54
+- Chrome, version: 58
+- Safari, version: 11
+- Opera, version: 44
+- Opera Mobile, version: 59
+- Android Browser, version: 81
+- Samsung Browser, version: 7
+- Chrome for Android, version: 87
+- Firefox for Android, version: 83
+
 ## Next steps
 
 You're ready to get started with Video Indexer. For more information, see the following articles:

@@ -7,7 +7,7 @@ author: ricmmartins
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 02/03/2021
 ms.author: ricmart
 
 ---
@@ -39,6 +39,8 @@ Create a VPN gateway for your virtual network. For instructions, see [Tutorial: 
 
 The following example values and settings are used in this article:
 
+* **Gateway name:** vpn-azure-aws
+* **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
 * **SKU:** VpnGw1
@@ -170,15 +172,13 @@ In this section, you create a second connection to ensure high availability.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-tunnels.png" alt-text="Azure connection status":::
 
-1. View the AWS connections.
+1. View the AWS connections. In this example, you can see that the connections are now established.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-tunnels.png" alt-text="AWS connection status":::
 
-The connections are now established.
+## To test connections
 
-## Test connections
-
-1. Add an Internet Gateway to the VPC at AWS. The Internet Gateway is a logical connection between an Amazon VPN and the Internet. This resource allows you to connect through the test VM from the AWS public IP through the Internet. This resource is not required for the VPN connection. We are only using it to test.
+1. Add an **internet gateway** to the VPC on AWS. The internet gateway is a logical connection between an Amazon VPN and the Internet. This resource allows you to connect through the test VM from the AWS public IP through the Internet. This resource is not required for the VPN connection. We are only using it to test.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/create-igw.png" alt-text="Create the Internet gateway":::
 
@@ -186,11 +186,11 @@ The connections are now established.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw.png" alt-text="Attaching the Internet Gateway to VPC":::
 
-1. Select a VPC and **Attach the Internet gateway**.
+1. Select a VPC and **Attach internet gateway**.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw-2.png" alt-text="Attach the gateway":::
 
-1. Create a route to allow connections to **0.0.0.0/0** (Internet) through the Internet Gateway.
+1. Create a route to allow connections to **0.0.0.0/0** (Internet) through the internet gateway.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/allow-internet-igw.png" alt-text="Configure the route through the gateway":::
 
@@ -198,11 +198,11 @@ The connections are now established.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="Check the effective routes":::
 
-1. From a Linux VM on Azure, the environment is similar to the following example.
+1. You can test this from a Linux VM on Azure. The result will appear similar to the following example.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Azure overview from Linux VM":::
 
-1. From a Linux VM on AWS, the environment is similar to the following example.
+1. You can also test this from a Linux VM on AWS. The result will appear similar to the following example.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="AWS overview from Linux VM":::
 
@@ -216,4 +216,6 @@ The connections are now established.
 
 ## Next steps
 
-For more information about AWS support for IKEv2, see the [AWS article](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+* For more information about AWS support for IKEv2, see the [AWS article](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+
+* For more information about building a multicloud VPN at scale, see the video [Build the Best MultiCloud VPN at Scale](https://www.youtube.com/watch?v=p7h-frLDFE0).

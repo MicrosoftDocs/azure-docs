@@ -72,7 +72,7 @@ Azure Backup uses system assigned managed identity to authenticate the Recovery 
 
 **With PowerShell:**
 
-Use the [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) command to enable system-assigned managed identity for the recovery services vault.
+Use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) command to enable system-assigned managed identity for the recovery services vault.
 
 Example:
 
@@ -116,7 +116,7 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 **With PowerShell**:
 
-Use the [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
 
 Example:
 
@@ -285,7 +285,7 @@ The Disk Encryption Set is specified under Encryption Settings in the restore pa
 
 **With PowerShell**:
 
-Use the [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) to be used for encrypting the restored disk. For more information about restoring disks from VM backup, see [this article](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Use the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/powershell/module/az.compute/get-azdiskencryptionset) to be used for encrypting the restored disk. For more information about restoring disks from VM backup, see [this article](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Example:
 
