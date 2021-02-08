@@ -38,6 +38,10 @@
     href: fxt-specs.md
   - name: Additional documentation
     href: fxt-additional-doc.md
+  - name: Supported ciphers
+    href: fxt-supported-ciphers.md
+  - name: Network ports
+    href: fxt-port-list.md
   - name: Open a support ticket
     href: fxt-support-ticket.md
 
