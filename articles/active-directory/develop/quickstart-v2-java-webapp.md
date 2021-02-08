@@ -64,7 +64,7 @@ To run this sample, you need:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 >
-> To use the code sample in this quickstart, you need to:
+> To use the code sample in this quickstart:
 >
 > 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Create a client secret.
@@ -157,7 +157,7 @@ To run the web application from an IDE, select run, and then go to the home page
 
 ##### Running the project from Tomcat
 
-If you want to deploy the web sample to Tomcat, you need to make a couple changes to the source code.
+If you want to deploy the web sample to Tomcat, make a couple changes to the source code.
 
 1. Open *ms-identity-java-webapp/pom.xml*.
     - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.

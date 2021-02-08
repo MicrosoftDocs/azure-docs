@@ -102,11 +102,11 @@ Upon saving a query function, it may be necessary to close the query explorer an
 
 #### Using the parsers
 
-Once enabled, you can use the meta-parser to query a unified view on all currently enabled parsers. To do so, go to the Sentinel logs page and query the meta-parser:
+Once enabled, you can use the meta-parser to query a unified view on all currently enabled parsers. To do so, go to the Azure Sentinel logs page and query the meta-parser:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Query the parser":::
  
-You can also access the meta-parser or the individual parsers using query explorer in the Sentinel logs page, by clicking on ‘Query explorer’:
+You can also access the meta-parser or the individual parsers using query explorer in the logs page, by clicking on ‘Query explorer’:
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Query explorer":::
 

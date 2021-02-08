@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Azure Security Benchmark v1
 description: Details of the Azure Security Benchmark v1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 ms.custom: generated
 ---

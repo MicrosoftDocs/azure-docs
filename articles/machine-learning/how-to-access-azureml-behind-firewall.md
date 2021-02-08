@@ -88,6 +88,7 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
+    | **graph.windows.net** | Used by Azure Machine Learning compute instance/cluster. |
     | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
     | **\*.anaconda.org** | Used to get repo data. |
     | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
@@ -140,6 +141,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
+| Compute cluster/instance | graph.windows.net |  |  |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
 

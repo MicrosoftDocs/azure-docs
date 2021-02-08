@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
 
 ---
@@ -40,7 +40,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 - Prevent specific software that's banned by your organization
 - Increase oversight of apps that access sensitive data
 
-
+No enforcement options are available and none are planned. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
 
 ## Availability
 
@@ -231,7 +231,12 @@ Some of the functions that are available from the REST API:
    > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
 
+## FAQ - Adaptive application controls
 
+### Are there any options to enforce the application controls?
+No enforcement options are available and none are planned. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+
+ 
 
 ## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:

@@ -391,7 +391,7 @@ Open an SSH session again in the browser by navigating to `https://<app-name>.sc
 ```
 cd $APP_PATH
 source /antenv/bin/activate
-pip instal -r requirements.txt
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

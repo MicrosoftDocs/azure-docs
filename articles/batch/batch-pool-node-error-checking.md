@@ -19,7 +19,7 @@ This article describes ways to detect and avoid failures in the background opera
 
 ### Resize timeout or failure
 
-When creating a new pool or resizing an existing pool, you specify the target number of nodes. The create or resize operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes. You specify cam the resize timeout in the [create](/rest/api/batchservice/pool/add) or [resize](/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period, the pool goes into a steady state and reports resize errors.
+When creating a new pool or resizing an existing pool, you specify the target number of nodes. The create or resize operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes. You can specify the resize timeout in the [create](/rest/api/batchservice/pool/add) or [resize](/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period, the pool goes into a steady state and reports resize errors.
 
 The [ResizeError](/rest/api/batchservice/pool/get#resizeerror) property for the most recent evaluation lists the errors that occurred.
 
