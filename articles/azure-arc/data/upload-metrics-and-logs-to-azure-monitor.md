@@ -24,7 +24,7 @@ Periodically, you can export out usage information for billing purposes, monitor
 Before you can upload usage data, metrics, or logs you need to:
 
 * Install tools 
-* [Register the `Microsoft.AzureData` resource provider](#register-the-resource-provider) 
+* [Register the `Microsoft.AzureArcData` resource provider](#register-the-resource-provider) 
 * [Create the service principal](#create-service-principal)
 
 ## Install tools
