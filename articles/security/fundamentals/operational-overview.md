@@ -92,7 +92,7 @@ Security Center assesses the configuration of your resources to identify securit
 >[!Note]
 >To learn more about roles and allowed actions in Security Center, see [Permissions in Azure Security Center](../../security-center/security-center-permissions.md).
 
-Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/platform/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 

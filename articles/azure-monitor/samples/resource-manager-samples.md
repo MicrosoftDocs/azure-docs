@@ -46,7 +46,7 @@ az deployment group create \
 - [Application Insights](resource-manager-app-resource.md)
 - [Diagnostic settings](../essentials/resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
-- [Log Analytics Workspace](resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
+- [Log Analytics Workspace](../logs/resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
 - [Workbooks](resource-manager-workbooks.md) - Create workbooks.
 - [Azure Monitor for containers](resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
 - [Azure Monitor for VMs](../vm/resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.

@@ -48,7 +48,7 @@ You require at least one Log Analytics workspace to enable [Azure Monitor Logs](
 
 There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Manage usage and costs with Azure Monitor Logs](platform/manage-cost-storage.md) for details.  
 
-See [Create a Log Analytics workspace in the Azure portal](learn/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](platform/manage-access.md) to configure access. 
+See [Create a Log Analytics workspace in the Azure portal](learn/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md) to configure access. 
 
 ### Create diagnostic setting to collect tenant and subscription logs
 While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which is the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.

@@ -17,7 +17,7 @@ When you use Application Insights Profiler or Snapshot Debugger, artifacts gener
 With Bring Your Own Storage, these artifacts are uploaded into a storage account that you control. That means you control the encryption-at-rest policy, the lifetime management policy and network access. You will, however, be responsible for the costs associated with that storage account.
 
 > [!NOTE]
-> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../platform/private-link-security.md)
+> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../logs/private-link-security.md)
 >
 > If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../logs/customer-managed-keys.md).
 

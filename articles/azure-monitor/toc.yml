@@ -92,7 +92,7 @@
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
-      href: samples/resource-manager-workspace.md
+      href: logs/resource-manager-workspace.md
     - name: Log queries
       href: samples/resource-manager-log-queries.md
     - name: Workbooks
@@ -122,11 +122,11 @@
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
-      href: platform/private-link-security.md
+      href: logs/private-link-security.md
     - name: Private storage 
-      href: platform/private-storage.md
+      href: logs/private-storage.md
     - name: Personal log data handling
-      href: platform/personal-data-mgmt.md
+      href: logs/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
   - name: Alerts
@@ -214,27 +214,27 @@
         - name: Azure CLI
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
-          href: platform/powershell-workspace-configuration.md
+          href: logs/powershell-workspace-configuration.md
       - name: Design a workspace deployment
         href: logs/design-logs-deployment.md
       - name: Monitor a workspace
-        href: platform/monitor-workspace.md
+        href: logs/monitor-workspace.md
       - name: Delete and recover a workspace
         href: logs/delete-workspace.md
       - name: Manage access
         displayName: Log Analytics workspace
-        href: platform/manage-access.md
+        href: logs/manage-access.md
       - name: Move a workspace
-        href: platform/move-workspace.md
+        href: logs/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Dedicated clusters
-        href: log-query/logs-dedicated-clusters.md
+        href: logs/logs-dedicated-clusters.md
     - name: Log Analytics
       items:
       - name: Overview
         displayname: Log Analytics, log query, log queries, query, queries
-        href: log-query/log-analytics-overview.md
+        href: logs/log-analytics-overview.md
       - name: Tutorial
         displayname: Log Analytics workspace, log query, log queries, query, queries
         href: log-query/log-analytics-tutorial.md
@@ -252,15 +252,15 @@
       - name: Sample queries
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Standard columns
-        href: platform/log-standard-columns.md
+        href: logs/log-standard-columns.md
       - name: Audit queries
-        href: log-query/query-audit.md
+        href: logs/query-audit.md
       - name: Optimize queries
-        href: log-query/query-optimization.md
+        href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
       - name: Parse text data
-        href: log-query/parse-text.md
+        href: logs/parse-text.md
       - name: Computer groups
         href: logs/computer-groups.md
       - name: Cross resource queries
@@ -283,15 +283,15 @@
     - name: Data export
       items:
       - name: Workspace data export
-        href: platform/logs-data-export.md
+        href: logs/logs-data-export.md
       - name: Export with Logic Apps
-        href: platform/logs-export-logic-app.md
+        href: logs/logs-export-logic-app.md
       - name: Query data with Azure Data Explorer
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
-        href: log-query/log-excel.md
+        href: logs/log-excel.md
       - name: Send to Power BI
-        href: log-query/log-powerbi.md
+        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -350,7 +350,7 @@
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
-        href: platform/logicapp-flow-connector.md
+        href: logs/logicapp-flow-connector.md
       - name: Application Insights connector
         href: app/automate-with-logic-apps.md
   - name: Agents
@@ -1391,7 +1391,7 @@
   - name: Feature and API Retirement 
     items:
     - name: OperationalInsights API
-      href: platform/operationalinsights-api-retirement.md
+      href: logs/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
@@ -1403,7 +1403,7 @@
     - name: Application Insights Connector
       href: logs/app-insights-connector.md
     - name: OMS portal deprecation
-      href: platform/oms-portal-transition.md
+      href: logs/oms-portal-transition.md
     - name: Disk metrics deprecation
       href: essentials/portal-disk-metrics-deprecation.md
     - name: Change to blob storage format
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

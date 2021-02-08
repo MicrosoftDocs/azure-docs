@@ -79,14 +79,14 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
  p
 ### Can I delete data from a Log Analytics workspace?
-Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
 
 
 ### What is a Log Analytics workspace?
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
 
 ### Can you move an existing Log Analytics workspace to another Azure subscription?
-You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](platform/move-workspace.md).
+You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](logs/move-workspace.md).
 
 ### Why can't I see Query Explorer and Save buttons in Log Analytics?
 

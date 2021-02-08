@@ -58,7 +58,7 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  

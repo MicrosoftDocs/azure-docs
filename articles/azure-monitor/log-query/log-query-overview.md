@@ -14,11 +14,11 @@ Azure Monitor Logs is based on Azure Data Explorer, and log queries are written 
 
 Areas in Azure Monitor where you will use queries include the following:
 
-- [Log Analytics](../log-query/log-analytics-overview.md). Primary tool in the Azure portal for editing log queries and interactively analyzing their results. Even if you intend to use a log query elsewhere in Azure Monitor, you'll typically write and test it in Log Analytics before copying it to its final location.
+- [Log Analytics](../logs/log-analytics-overview.md). Primary tool in the Azure portal for editing log queries and interactively analyzing their results. Even if you intend to use a log query elsewhere in Azure Monitor, you'll typically write and test it in Log Analytics before copying it to its final location.
 - [Log alert rules](../platform/alerts-overview.md). Proactively identify issues from data in your workspace.  Each alert rule is based on a log query that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - [Workbooks](../visualizations/workbooks-overview.md). Include the results of log queries using different visualizations in interactive visual reports in the Azure portal.
 - [Azure Dashboards](../learn/tutorial-logs-dashboards.md). Pin the results of any query into an Azure dashboard which allow you to visualize log and metric data together and optionally share with other Azure users.
-- [Logic Apps](../platform/logicapp-flow-connector.md).  Use the results of a log query in an automated workflow using Logic Apps.
+- [Logic Apps](../logs/logicapp-flow-connector.md).  Use the results of a log query in an automated workflow using Logic Apps.
 - [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses Get-AzOperationalInsightsSearchResults.
 - [Azure Monitor Logs API](https://dev.loganalytics.io). Retrieve log data from the workspace from any REST API client.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
 

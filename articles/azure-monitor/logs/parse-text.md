@@ -184,4 +184,4 @@ MyCustomCSVLog
 
 
 ## Next steps
-* Learn about [log queries](log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

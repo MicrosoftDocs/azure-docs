@@ -96,7 +96,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
         > [!IMPORTANT]
         > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
 
-    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Get the resource ID for your Azure AD DS managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
 

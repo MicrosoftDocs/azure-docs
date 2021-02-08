@@ -21,7 +21,7 @@ Log Analytics in Azure Monitor can also be used by a service provider managing c
 
 ## Architectures for Service Providers
 
-Log Analytics workspaces provide a method for the administrator to control the flow and isolation of [log](../logs/data-platform-logs.md) data and create an architecture that addresses its specific business needs. [This article](../logs/design-logs-deployment.md) explains the design, deployment, and migration considerations for a workspace, and the [manage access](manage-access.md) article discusses how to apply and manage permissions to log data. Service providers have additional considerations.
+Log Analytics workspaces provide a method for the administrator to control the flow and isolation of [log](../logs/data-platform-logs.md) data and create an architecture that addresses its specific business needs. [This article](../logs/design-logs-deployment.md) explains the design, deployment, and migration considerations for a workspace, and the [manage access](../logs/manage-access.md) article discusses how to apply and manage permissions to log data. Service providers have additional considerations.
 
 There are three possible architectures for service providers regarding Log Analytics workspaces:
 
@@ -77,9 +77,9 @@ There are two options to implement logs in a central location:
 
 ## Next steps
 
-* Automate creation and configuration of workspaces using [Resource Manager templates](../samples/resource-manager-workspace.md)
+* Automate creation and configuration of workspaces using [Resource Manager templates](../logs/resource-manager-workspace.md)
 
-* Automate creation of workspaces using [PowerShell](./powershell-workspace-configuration.md)
+* Automate creation of workspaces using [PowerShell](../logs/powershell-workspace-configuration.md)
 
 * Use [Alerts](./alerts-overview.md) to integrate with existing systems
 

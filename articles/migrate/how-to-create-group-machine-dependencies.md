@@ -25,7 +25,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
         - [VMware](how-to-set-up-appliance-vmware.md) VMs.
         - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
         - [Physical servers](how-to-set-up-appliance-physical.md).
-- To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
+- To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/logs/manage-access.md) with an Azure Migrate project:
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.

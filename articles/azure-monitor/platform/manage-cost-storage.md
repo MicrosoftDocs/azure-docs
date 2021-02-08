@@ -35,7 +35,7 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   
 In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
 
-In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](../logs/custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
+In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](../logs/custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](../logs/log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
 
 Also, note that some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
@@ -90,7 +90,7 @@ To change the Log Analytics pricing tier of your workspace,
 
 3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
 
-You can also [set the pricing tier via Azure Resource Manager](../samples/resource-manager-workspace.md) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
+You can also [set the pricing tier via Azure Resource Manager](../logs/resource-manager-workspace.md) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
 
 ## Legacy pricing tiers
 
@@ -142,7 +142,7 @@ To set the default retention for your workspace,
 
 When the retention is lowered, there is a several day grace period before the data older than the new retention setting is removed. 
 
-The retention can also be [set via Azure Resource Manager](../samples/resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
+The retention can also be [set via Azure Resource Manager](../logs/resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
 
 Workspaces with 30 days retention may actually retain data for 31 days. If it is imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 
@@ -318,7 +318,7 @@ If the workspace has the Update Management solution installed, add the Update an
 
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](../log-query/query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
+> Use these `find` queries sparingly as scans across data types are [resource intensive](../logs/query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
 
 ## Understanding ingested data volume
 
@@ -336,7 +336,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](./log-standard-columns.md#_isbillable) about `_IsBillable`.
+Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](../logs/log-standard-columns.md#_isbillable) about `_IsBillable`.
 
 ### Data volume by solution
 
@@ -379,7 +379,7 @@ Usage
 
 ### Data volume by computer
 
-The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](./log-standard-columns.md#_billedsize), which provides the size in bytes:
+The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](../logs/log-standard-columns.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
@@ -389,7 +389,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | sort by BillableDataBytes nulls last
 ```
 
-The `_IsBillable` [property](./log-standard-columns.md#_isbillable) specifies whether the ingested data will incur charges. 
+The `_IsBillable` [property](../logs/log-standard-columns.md#_isbillable) specifies whether the ingested data will incur charges. 
 
 To see the **count** of billable events ingested per computer, use 
 
@@ -402,11 +402,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](../log-query/query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](../logs/query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
 
 ### Data volume by Azure resource, resource group, or subscription
 
-For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](./log-standard-columns.md#_resourceid), which provides the full path to the resource:
+For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](../logs/log-standard-columns.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -441,7 +441,7 @@ You can also parse the `_ResourceId` more fully if needed as well using
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](../log-query/query-optimization.md#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](../logs/query-optimization.md#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
 
 > [!WARNING]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
@@ -487,7 +487,7 @@ Some suggestions for reducing the volume of logs collected include:
 ### Getting nodes as billed in the Per Node pricing tier
 
 To get a list of computers which will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes which are sending **billed data types** (some data types are free). 
-To do this, use the `_IsBillable` [property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
+To do this, use the `_IsBillable` [property](../logs/log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
 data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto

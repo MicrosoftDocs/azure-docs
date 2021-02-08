@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Migrate Azure Monitor logs update deployments to Azure portal
 
-The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. This article provides the information you need to migrate to the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/logs/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. This article provides the information you need to migrate to the Azure portal.
 
 ## Key information
 
