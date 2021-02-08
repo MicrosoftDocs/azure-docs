@@ -216,9 +216,9 @@ The following example shows how to use the fairness package. We will upload mode
 
 
 
-    [![Fairness Dashboard](./media/how-to-machine-learning-fairness-aml/dashboard1.png)](./media/how-to-machine-learning-fairness-aml/dashboard1.png#lightbox)
+    [![Fairness Dashboard Allocation](./media/how-to-machine-learning-fairness-aml/dashboard1.png)](./media/how-to-machine-learning-fairness-aml/dashboard1.png#lightbox)
     
-    [![Fairness Dashboard](./media/how-to-machine-learning-fairness-aml/dashboard2.png)](./media/how-to-machine-learning-fairness-aml/dashboard2.png#lightbox)
+    [![Fairness Dashboard Quality of Service](./media/how-to-machine-learning-fairness-aml/dashboard2.png)](./media/how-to-machine-learning-fairness-aml/dashboard2.png#lightbox)
     * **Models pane**
     1. If you registered your original model by following the previous steps, you can select **Models** in the left pane to view it.
     1. Select a model, and then the **Fairness** tab to view the explanation visualization dashboard.
