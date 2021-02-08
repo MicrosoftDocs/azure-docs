@@ -5,7 +5,7 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: "include"
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: "include file"
 ---
@@ -20,7 +20,7 @@ ms.custom: "include file"
 | Maximum job stream limit|1 MiB|A single stream cannot be larger than 1 MiB.|
 | Maximum number of modules that can be imported every 30 seconds per Automation account |5 ||
 | Maximum size of a module |100 MB ||
-| Maximum size of a  node configuration file | 1 MB | For state configuration |
+| Maximum size of a  node configuration file | 1 MB | Applies to state configuration |
 | Job run time, Free tier |500 minutes per subscription per calendar month ||
 | Maximum amount of disk space allowed per sandbox<sup>1</sup> |1 GB |Applies to Azure sandboxes only.|
 | Maximum amount of memory given to a sandbox<sup>1</sup> |400 MB |Applies to Azure sandboxes only.|
