@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/05/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -433,6 +433,18 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > inbound webhook callbacks to the Logic Apps service, rather than specify inbound managed 
 > connector IP address prefixes for each region. These tags work across the regions where 
 > the Logic Apps service is available.
+>
+> The following connectors make inbound webhook callbacks to the Logic Apps service:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, 
+> Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, 
+> Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
+> Shifts for Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP**: The return caller depends on whether the deployment environment is either 
+> multi-tenant Azure or ISE. In the multi-tenant environment, the on-premises data gateway 
+> makes the call back to the Logic Apps service. In an ISE, the SAP connector makes the 
+> call back to the Logic Apps service.
 
 <a name="multi-tenant-inbound"></a>
 

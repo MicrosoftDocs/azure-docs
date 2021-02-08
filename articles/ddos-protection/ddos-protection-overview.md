@@ -47,6 +47,10 @@ Under a tenant, a single DDoS protection plan can be used across multiple subscr
 
 To learn about Azure DDoS Protection Standard pricing, see [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
+## Reference architectures
+
+DDoS Protection Standard is designed for [services that are deployed in a virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
