@@ -3,7 +3,7 @@ title: View and configure DDoS protection alerts for Azure DDoS Protection Stand
 description: Learn how to view and configure DDoS protection alerts for Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
