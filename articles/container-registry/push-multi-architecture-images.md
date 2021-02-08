@@ -10,7 +10,7 @@ ms.custom:
 
 This article introduces *multi-architecture* (*multi-arch*) images and how you can use Azure Container Registry features to help create, store, and use them. 
 
-A multi-arch image is a type of Docker container image that may combine variants for different architectures, and sometimes for different operating systems. When running an image with multi-architecture support, Docker will automatically select an image variant that matches your OS and architecture.
+A multi-arch image is a type of container image that may combine variants for different architectures, and sometimes for different operating systems. When running an image with multi-architecture support, container clients will automatically select an image variant that matches your OS and architecture.
 
 ## Manifests and manifest lists
 
@@ -18,7 +18,7 @@ Multi-arch images are based on image manifests and manifest lists.
 
 ### Manifest
 
-Each Docker image is represented by a [manifest](container-registry-concepts.md#manifest). A manifest is a JSON file that uniquely identifies the image, referencing its layers and their corresponding sizes. 
+Each container image is represented by a [manifest](container-registry-concepts.md#manifest). A manifest is a JSON file that uniquely identifies the image, referencing its layers and their corresponding sizes. 
 
 A basic manifest for a Linux `hello-world` image looks similar to the following:
 
@@ -45,14 +45,14 @@ You can view a manifest in Azure Container Registry using the Azure portal or to
 
 ### Manifest list
 
-A *manifest list* for a multi-arch image is a list of image layers, and you create a manifest list by specifying one or more image names. It includes details about each of the image layers such as the supported OS and architecture, size, and manifest digest. The manifest list can be used in the same way as an image name in `docker pull` and `docker run` commands. 
+A *manifest list* for a multi-arch image (known more generally as an [image index](https://github.com/opencontainers/image-spec/blob/master/image-index.md) for OCI images) is a collection (index) of images, and you create one by specifying one or more image names. It includes details about each of the images such as the supported OS and architecture, size, and manifest digest. The manifest list can be used in the same way as an image name in `docker pull` and `docker run` commands. 
 
-Docker manages manifests and manifest lists using the [docker manifest](https://docs.docker.com/engine/reference/commandline/manifest/) command.
+The `docker` CLI manages manifests and manifest lists using the [docker manifest](https://docs.docker.com/engine/reference/commandline/manifest/) command.
 
 > [!NOTE]
 > Currently, the `docker manifest` command and subcommands are experimental. See the Docker documentation for details about using experimental commands.
 
-You can view a manifest list using the `docker manifest inspect` command. The following is the output for the multi-arch image `mcr.microsoft.com/mcr/hello-world:latest`, which has three image layers: two for Linux OS architectures and one for a Windows architecture.
+You can view a manifest list using the `docker manifest inspect` command. The following is the output for the multi-arch image `mcr.microsoft.com/mcr/hello-world:latest`, which has three manifests: two for Linux OS architectures and one for a Windows architecture.
 ```json
 {
   "schemaVersion": 2,
@@ -90,7 +90,7 @@ You can view a manifest list using the `docker manifest inspect` command. The fo
 }
 ```
 
-When a multi-arch image is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az_acr_repository_how_manifests) command.
+When a multi-arch manifest list is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az_acr_repository_how_manifests) command.
 
 ## Import a multi-arch image 
 
@@ -144,16 +144,16 @@ The following example assumes that you have separate Dockerfiles for two archite
 version: v1.1.0
 
 steps:
-- build: -t {{.Run.Registry}}/multi-arch-samples/myimage:amd64 -f dockerfile.arm64 . 
-- build: -t {{.Run.Registry}}/multi-arch-samples/myyimage:arm64 -f dockerfile.amd64 . 
+- build: -t {{.Run.Registry}}/multi-arch-samples/myimage:{{.Run.ID}}-amd64 -f dockerfile.arm64 . 
+- build: -t {{.Run.Registry}}/multi-arch-samples/myyimage:{{.Run.ID}}-arm64 -f dockerfile.amd64 . 
 - push: 
-    - {{.Run.Registry}}/multi-arch-samples/myimage:arm64
-    - {{.Run.Registry}}/multi-arch-samples/myimage:amd64
+    - {{.Run.Registry}}/multi-arch-samples/myimage:{{.Run.ID}}-arm64
+    - {{.Run.Registry}}/multi-arch-samples/myimage:{{.Run.ID}}-amd64
 - cmd: >
     docker manifest create
     {{.Run.Registry}}/multi-arch-samples/myimage:latest
-    {{.Run.Registry}}/multi-arch-samples/myimage:arm64
-    {{.Run.Registry}}/multi-arch-samples/myimage:amf64
+    {{.Run.Registry}}/multi-arch-samples/myimage:{{.Run.ID}}-arm64
+    {{.Run.Registry}}/multi-arch-samples/myimage:{{.Run.ID}}-amd64
 - cmd: docker manifest push --purge {{.Run.Registry}}/multi-arch-samples/myimage:latest
 - cmd: docker manifest inspect {{.Run.Registry}}/multi-arch-samples/myimage:latest
 ```
