@@ -62889,6 +62889,36 @@
       "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-workspace.md",
       "redirect_url": "/azure/azure-monitor/logs/resource-manager-workspace",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-collect-activity-log-arm.md",
+      "redirect_url": "/azure/azure-monitor/essentials/quick-collect-activity-log-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-collect-activity-log-portal.md",
+      "redirect_url": "/azure/azure-monitor/essentials/quick-collect-activity-log-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-collect-azurevm.md",
+      "redirect_url": "/azure/azure-monitor/vm/quick-collect-azurevm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-collect-windows-computer.md",
+      "redirect_url": "/azure/azure-monitor/vm/quick-collect-windows-computer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-create-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/quick-create-workspace-cli.md",
+      "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace-cli",
+      "redirect_document_id": false
     }
   ]
 }

@@ -42,7 +42,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
     - Workspace-based Application Insights resources are not compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#configure-access-control-mode)
 
-    - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
+    - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
 - Continuous export is not supported for workspace-based resources and must be disabled.
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  

@@ -58,7 +58,7 @@ Activity logging is automatically enabled for every Resource Manager resource. E
      5. In the **Select event hub policy name** drop-down list, select the name.
      6. Select **OK**.
 
-   * **Send to Log Analytics**. You'll need to already have a log analytics workspace created and configured for this process. To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+   * **Send to Log Analytics**. You'll need to already have a log analytics workspace created and configured for this process. To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
      1. Select the **Send to Log Analytics** check box.
      2. In the **Subscription** drop-down list, select the subscription where your Log Analytics workspace is.
      3. In the **Log Analytics Workspace** drop-down list, select the workspace.

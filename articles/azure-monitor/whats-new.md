@@ -423,8 +423,8 @@ New and updated articles from restructure of Azure Monitor for VMs content
 ### Platform logs
 
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Fix for Activity log diagnostic setting.
-- [Send Azure Activity log to Log Analytics workspace using Azure portal](learn/quick-collect-activity-log-portal.md) - New article.
-- [Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template](learn/quick-collect-activity-log-arm.md) - New article.
+- [Send Azure Activity log to Log Analytics workspace using Azure portal](essentials/quick-collect-activity-log-portal.md) - New article.
+- [Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template](essentials/quick-collect-activity-log-arm.md) - New article.
 
 New and updated articles from restructure and consolidation of platform log content
 
@@ -520,8 +520,8 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Logs
 - [Create & configure Log Analytics with PowerShell](logs/powershell-workspace-configuration.md) - Added troubleshooting section.
-- [Create a Log Analytics workspace in the Azure portal](learn/quick-create-workspace.md) - Added troubleshooting section.
-- [Create a Log Analytics workspace using Azure CLI](learn/quick-create-workspace-cli.md) - Added troubleshooting section.
+- [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) - Added troubleshooting section.
+- [Create a Log Analytics workspace using Azure CLI](logs/quick-create-workspace-cli.md) - Added troubleshooting section.
 - [Delete and recover Azure Log Analytics workspace](logs/delete-workspace.md) - Updated information on recovering a deleted workspace.
 - [Functions in Azure Monitor log queries](logs/functions.md) - Removed note about functions not containing other functions.
 - [Structure of Azure Monitor Logs](./logs/data-platform-logs.md) - Clarified property descriptions for Application Insights table.

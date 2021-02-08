@@ -182,7 +182,7 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 There are three ways to add the Log Analytics agent to Red Hat OpenShift to start collecting container monitoring data.
 
 * [Install the Log Analytics agent for Linux](../vm/quick-collect-linux-computer.md) directly on each OpenShift node  
-* [Enable Log Analytics VM Extension](../learn/quick-collect-azurevm.md) on each OpenShift node residing in Azure  
+* [Enable Log Analytics VM Extension](../vm/quick-collect-azurevm.md) on each OpenShift node residing in Azure  
 * Install the Log Analytics agent as an OpenShift daemon-set  
 
 In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
@@ -505,9 +505,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md). For virtual machines running in Azure, connect them to Azure Monitor using the [virtual machine extension](../learn/quick-collect-azurevm.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md). For virtual machines running in Azure, connect them to Azure Monitor using the [virtual machine extension](../vm/quick-collect-azurevm.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](../learn/quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../agents/agent-windows.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](../vm/quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../agents/agent-windows.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -525,7 +525,7 @@ Data is collected every three minutes by the following agent types.
 
 - [Log Analytics agent for Linux](../vm/quick-collect-linux-computer.md)
 - [Windows agent](../agents/agent-windows.md)
-- [Log Analytics VM extension](../learn/quick-collect-azurevm.md)
+- [Log Analytics VM extension](../vm/quick-collect-azurevm.md)
 
 ### Container records
 

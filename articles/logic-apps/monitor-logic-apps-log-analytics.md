@@ -18,7 +18,7 @@ This article shows how to enable Log Analytics on new logic apps and existing lo
 
 ## Prerequisites
 
-Before you start, you need a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+Before you start, you need a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 

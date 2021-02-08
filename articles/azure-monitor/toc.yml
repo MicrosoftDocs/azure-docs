@@ -17,10 +17,10 @@
   - name: Send Activity log to a workspace
     items: 
     - name: Azure portal
-      href: learn/quick-collect-activity-log-portal.md
+      href: essentials/quick-collect-activity-log-portal.md
     - name: ARM template
       displayName: Resource Manager
-      href: learn/quick-collect-activity-log-arm.md
+      href: essentials/quick-collect-activity-log-arm.md
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
@@ -28,7 +28,7 @@
     - name: Linux computer
       href: vm/quick-collect-linux-computer.md
     - name: Windows computer
-      href: learn/quick-collect-windows-computer.md
+      href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
     - name: Node.js application
@@ -210,9 +210,9 @@
       - name: Create a workspace
         items:
         - name: Azure portal
-          href: learn/quick-create-workspace.md 
+          href: logs/quick-create-workspace.md 
         - name: Azure CLI
-          href: learn/quick-create-workspace-cli.md
+          href: logs/quick-create-workspace-cli.md
         - name: PowerShell
           href: logs/powershell-workspace-configuration.md
       - name: Design a workspace deployment
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

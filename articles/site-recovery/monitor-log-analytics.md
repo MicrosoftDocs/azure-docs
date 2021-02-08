@@ -30,7 +30,7 @@ Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** 
 Here's what you need:
 
 - At least one machine protected in a Recovery Services vault.
-- A Log Analytics workspace to store Site Recovery logs. [Learn about](../azure-monitor/learn/quick-create-workspace.md) setting up a workspace.
+- A Log Analytics workspace to store Site Recovery logs. [Learn about](../azure-monitor/logs/quick-create-workspace.md) setting up a workspace.
 - A basic understanding of how to write, run, and analyze log queries in Log Analytics. [Learn more](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 We recommend that you review [common monitoring questions](monitoring-common-questions.md) before you start.

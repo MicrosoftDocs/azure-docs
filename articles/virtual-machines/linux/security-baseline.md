@@ -206,7 +206,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center monitoring**: Yes
 
@@ -244,7 +244,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center monitoring**: Yes
 

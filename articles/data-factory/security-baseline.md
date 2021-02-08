@@ -231,7 +231,7 @@ Use diagnostic settings to configure diagnostic logs for noncompute resources in
 
 If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics.
 
-* [How to collect data from Azure Virtual Machines in Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [How to collect data from Azure Virtual Machines in Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Enabling Data Collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -261,7 +261,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Log Analytics schema](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [How to collect data from an Azure Virtual Machine with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [How to collect data from an Azure Virtual Machine with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

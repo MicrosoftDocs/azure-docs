@@ -32,7 +32,7 @@ The Azure Active Directory log analytics views helps you analyze and search the 
 
 To use the log analytics views, you need:
 
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
+* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
 * Download the views from the [GitHub repository](https://aka.ms/AADLogAnalyticsviews) to your local computer.
 

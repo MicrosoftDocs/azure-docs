@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 > [!div class="mx-imgBorder"]
 > ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
 
-If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
+If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
 
 **Workspace-based resources are currently available in all commercial regions and Azure Government**
 
