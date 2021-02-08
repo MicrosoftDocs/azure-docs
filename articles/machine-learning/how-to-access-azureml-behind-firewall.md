@@ -142,7 +142,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
-| Compute cluster/instance | graph.windows.net |  |  |
+| Compute cluster/instance | graph.windows.net | graph.microsoft.us | microsoftgraph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
 
