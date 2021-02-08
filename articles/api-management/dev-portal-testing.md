@@ -15,18 +15,17 @@ This article explains how to set up unit tests and end-to-end tests for your sel
 
 ## Unit tests
 
-### What is a unit test?
-
 A unit test is an approach to the validation of small pieces of functionality. It's done in isolation from other parts of the application.
 
 ### Example scenario
 
 In this scenario, you're testing a password input control. It only accepts passwords containing at least:
 
-- One letter
+- 1 letter
 
-- One number
-- One special character.
+- 1 number
+
+- 1 special character
  
 So, the test validating all these requirements will look like this:
 
@@ -45,7 +44,7 @@ expect(passwordInput.isValid.to.equal(true);
  
 ### Project structure
 
-It's a common case to keep a unit test next to the component it's supposed to validate.
+It's common to keep a unit test next to the component it's supposed to validate.
 
 ```console
 component.ts
@@ -69,9 +68,7 @@ httpClient.mock()
 
 ## End-to-end tests
 
-### What is an end-to-end test?
-
-An end-to-end test executes a particular user scenario taking exact steps that the user is expected to do. In a web application like Azure API Management developer portal, the user selects and scrolls through the content to achieve certain results. You can use browser manipulation helper libraries like [Puppeteer](https://github.com/puppeteer/puppeteer). It lets you simulate user actions and automate assumed scenarios. Puppeteer also automatically take screenshots of pages or components at any stage of the test. Compare them later with previous results to catch deviations and potential regressions.
+An end-to-end test executes a particular user scenario taking exact steps that you expect the user to carry out. In a web application like Azure API Management developer portal, the user scrolls through the content and selects options to achieve certain results. To replicate user navigation, you can use browser manipulation helper libraries like [Puppeteer](https://github.com/puppeteer/puppeteer). It lets you simulate user actions and automate assumed scenarios. Puppeteer also automatically takes screenshots of pages or components at any stage of the test. Compare them later with previous results to catch deviations and potential regressions.
 
 ### Example scenario
 
@@ -87,7 +84,7 @@ In this scenario, you need to validate a user sign-in flow. This scenario would 
 
 1. Verify that user got redirected to Home page.
 
-1. Verify that the page contains **Profile** menu item. It's one of the possible indicators that you successfully signed in.
+1. Verify that the page includes the **Profile** menu item. It's one of the possible indicators that you successfully signed in.
 
 To run the test automatically, we create a script with exactly the same steps:
 
@@ -108,17 +105,17 @@ await this.page.click("#signin");
 // 5. Verify that user got redirected to Home page.
 expect(page.url()).to.equal("https://contoso.com");
 
-// 6. Verify that the page contains Profile menu item.
+// 6. Verify that the page includes the Profile menu item.
 const profileMenuItem = await this.page.$("#profile");
 expect(profileMenuItem).not.equals(null);
 ```
 
 > [!NOTE]
-> Here strings like "#email", "#password" and "#signin" are CSS-like selectors that identify HTML elements on the page. See related [W3C specification](https://www.w3.org/TR/selectors-3/) to learn more.
+> Here strings like "#email", "#password" and "#signin" are CSS-like selectors that identify HTML elements on the page. See the [Selectors Level 3](https://www.w3.org/TR/selectors-3/) W3C specification to learn more.
 
 ### UI component maps
 
-User flows often go through the same pages or components. A good example of that is the main website menu that is present on every page. Create a UI component map to avoid configuring and updating the same selectors for every test. For example, steps 2 thorough 6 above could be replaced with just two lines:
+User flows often go through the same pages or components. A good example of that is the main website menu that is present on every page. Create a UI component map to avoid configuring and updating the same selectors for every test. For example, you could replace steps 2 through 6 above with just two lines:
 
 ```typescript
 const signInWidget = new SigninBasicWidget(page);
@@ -127,11 +124,11 @@ await signInWidget.signInWithBasic({ email: "...", password: "..." });
 
 ### Test configuration
 
-Certain scenarios may require pre-created data or configuration. For example, when we need to automate user sign-in with social accounts that, in most cases, cannot be created quickly or easily.
+Certain scenarios may require pre-created data or configuration. For example, you may need to automate user sign-in with social media accounts. In most cases, you can't create that data quickly or easily.
 
-For this purpose, you could add a special configuration file. The test scripts can pick up required data from the file. Depending on the build and test pipeline, the secrets can be pulled from a named secure store.
+For this purpose, you could add a special configuration file to your test scenario. The test scripts can pick up required data from the file. Depending on the build and test pipeline, the tests can pull the secrets from a named secure store.
 
-`src/validate.config.json`
+Here's an example of a `validate.config.json` that would be stored in the `src` folder of you project.
 
 ```json
 {
@@ -171,11 +168,11 @@ For this purpose, you could add a special configuration file. The test scripts c
 
 ### Headless vs normal tests
 
-Modern browsers like Chrome or Microsoft Edge allow you to run automation in both normal and headless modes. In the headless mode, the browser operates without a graphical user interface. It still carries out the same page and Document Object Model (DOM) manipulations. Running tests in headless mode is a great option in delivery pipelines. The browser UI usually isn't needed in delivery pipelines.
+Modern browsers like Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. In the headless mode, the browser operates without a graphical user interface. It still carries out the same page and Document Object Model (DOM) manipulations. Since the browser UI usually isn't needed in delivery pipelines, running tests in headless mode is a great option.
 
-In opposite, when you develop a test script, it would be useful to see what exactly is happening in the browser.
+When you develop a test script, it would be useful to see what exactly is happening in the browser. That's a good time to use normal mode.
 
-To switch between the modes, just change the option in `/tests/constants.ts` file:
+To switch between the modes, change the option `headless` option in the `constants.ts` file. It's in the `tests` folder in your project:
 
 ```typescript
 export const LaunchOptions = {
@@ -183,7 +180,7 @@ export const LaunchOptions = {
 };
 ```
 
-Another useful option is `slowMo`. It makes execution pause between each action:
+Another useful option is `slowMo`. It pauses the execution of the test between each action:
 
 ```typescript
 export const LaunchOptions = {
@@ -203,9 +200,9 @@ npm run test
 
 **Test Explorer**
 
-Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has convenient UI and an option to autorun tests on every change of the source code:
+Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has convenient UI and an option to run tests automatically on every change of the source code:
 
-![image](https://user-images.githubusercontent.com/2320302/93644489-eafc7880-f9b6-11ea-8744-363c83c4d302.png)
+![image](media/dev-portal/vc-code-test-explorer.png)
 
 ## Next steps
 
