@@ -37,38 +37,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-deploy-prep.md)
 * [Install and Setup](../../databox-online/azure-stack-edge-deploy-install.md)
 * [Connection and Activation](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-
-### Attach an IoT Hub to Azure Stack Edge
-
-1. In the [Azure portal](https://ms.portal.azure.com), go to your Azure Stack Edge resource and click on Overview. In the right-pane, on the Compute tile, select Get started.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge.png" alt-text="Azure Stack Edge":::
-1. On the Configure Edge compute tile, select Configure compute.
-1. On the Configure Edge compute blade, input the following:
-    
-    | Field|Value|
-    |---|---|
-    |IoT Hub|Choose from New or Existing.<br/>By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource.<br/>In each case, the IoT Hub resource uses the same subscription and resource group that is used the Azure Stack Edge resource.|
-    |Name|Enter a name for your IoT Hub resource.|
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge get started":::
-1. Select **Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="IoT Hub resource creation":::
-
-    > [!NOTE]
-    > If the Configure Compute dialog is closed before the IoT Hub is associated with the Azure Stack Edge resource, the IoT Hub gets created but is not shown in the compute configuration. Reload the page after a few minutes and see it appear.
-    
-    When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on the IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
-    
-    Once all information is filled, you will see the Configure Edge compute card something like this:
-    
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Configure Edge compute card ":::
- 
+* [Attach an IoT Hub to Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
 ### Enable Compute Prerequisites on the Azure Stack Edge Local UI
 
 Before you continue, make sure that:
@@ -141,7 +110,8 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
       ```
 
       > [!NOTE]
-      > The "Binds" section in the JSON has 2 entries. Feel free to update the edge device binds, but make sure that those directories exist.
+      > The "Binds" section in the JSON has 2 entries. The directories mentioned in the above bind section will automatically be created by LVA.  
+        Feel free to update the edge device binds, but if you do so, make sure that those directories exist on the device.
     
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": This is used to bind the persistent application configuration data from the container and store it on the edge device.
     * "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a media graph topology that supports storing of video clips on the edge device.
@@ -164,13 +134,14 @@ These steps cover creating a Gateway user and setting up file shares to view the
 1. Open Azure portal and go to the Azure Stack Edge resource.
 1. Create a **Gateway User** that can access shares.
     
-    1. In the left navigation pane, click on **Gateway->Users**.
-    1. Click on **+ Add User** to the set the username and password. (Recommended: `lvauser`).
+    1. In the left navigation pane, click on **Cloud storage gateway**.
+    1. Click on **Users** in the left navigation pane.
+    1. Click ion **+ Add User** to the set the username and password. (Recommended: `lvauser`).
     1. Click on **Add**.
     
 1. Create a **Local Share** for Live Video Analytics persistence.
 
-    1. Click on **Gateway->Shares**.
+    1. Click on **Cloud storage gateway->Shares**.
     1. Click on **+ Add Shares**.
     1. Set a share name. (Recommended: `lva`).
     1. Keep the share type as SMB.
@@ -180,12 +151,15 @@ These steps cover creating a Gateway user and setting up file shares to view the
     1. Click on **Create**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Local share":::
-    
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Local share":::  
+
+    > [!TIP]
+    > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
+
 1. Create a Remote Share for file sync storage.
 
-    1. First create a blob storage account in the same region.
-    1. Click on **Gateway->Shares**.
+    1. First create a blob storage account in the same region by clicking on **Cloud storage gateway->Storage accounts**.
+    1. Click on **Cloud storage gateway->Shares**.
     1. Click on **+ Add Shares**.
     1. Set a share name. (Recommended: media).
     1. Keep the share type as SMB.
@@ -200,37 +174,28 @@ These steps cover creating a Gateway user and setting up file shares to view the
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Remote share":::
     
-    > [!TIP]
-    > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).
     
 1. Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
 
    ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
-            }]
-        }
-    }
+      "createOptions": 
+         {
+             "HostConfig": 
+             {
+                 "Binds": 
+                 [
+                     "/var/lib/azuremediaservices:/var/lib/azuremediaservices"
+                 ],
+                 "Mounts": 
+                 [
+                     {
+                         "Target": "/var/media",
+                         "Source": "media",
+                         "Type": "volume"
+                     }
+                 ]
+             }
+         }
     ```
 
 ### Verify that the module is running

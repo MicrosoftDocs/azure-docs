@@ -223,6 +223,8 @@
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
+    - name: Automated publish
+      href: continuous-integration-deployment-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -758,6 +760,10 @@
       href: solution-template-databricks-notebook.md
   - name: Understanding pricing
     items:
+    - name: Data flow reserved capacity overview
+      href: data-flow-reserved-capacity-overview.md
+    - name: Data flow understand reservation charges
+      href: data-flow-understand-reservation-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
     - name: Pricing examples     

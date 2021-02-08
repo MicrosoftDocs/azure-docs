@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
 
 ---
@@ -248,8 +248,8 @@ Even though Security Center’s default security initiative is based on industry
     <td class="tg-lboi"; width=55%>- Adaptive Application Controls should be enabled on virtual machines<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)<br>- Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)<br>- Monitoring agent health issues should be resolved on your machines</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply data classification (max score 2)</p></strong>Classifying your organization's data by sensitivity and business impact allows you to determine and assign value to the data, and provides the strategy and basis for governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> can assist with data classification. It uses encryption, identity, and authorization policies to protect data and restrict data access. Some classifications that Microsoft uses are Non-business, Public, General, Confidential, and Highly Confidential.</td>
-    <td class="tg-lboi"; width=55%>- Sensitive data in your SQL databases should be classified (Preview)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply data classification (max score 0)</p></strong>Classifying your organization's data by sensitivity and business impact allows you to determine and assign value to the data, and provides the strategy and basis for governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> can assist with data classification. It uses encryption, identity, and authorization policies to protect data and restrict data access. Some classifications that Microsoft uses are Non-business, Public, General, Confidential, and Highly Confidential.</td>
+    <td class="tg-lboi"; width=55%>- Sensitive data in your SQL databases should be classified</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Protect applications against DDoS attacks (max score 2)</p></strong>Distributed denial-of-service (DDoS) attacks overwhelm resources and render applications unusable. Use <a href="/azure/virtual-network/ddos-protection-overview">Azure DDoS Protection Standard</a> to defend your organization from the three main types of DDoS attacks:<br>- <strong>Volumetric attacks</strong> flood the network with legitimate traffic. DDoS Protection Standard mitigates these attacks by absorbing or scrubbing them automatically.<br>- <strong>Protocol attacks</strong> render a target inaccessible, by exploiting weaknesses in the layer 3 and layer 4 protocol stack. DDoS Protection Standard mitigates these attacks by blocking malicious traffic.<br>- <strong>Resource (application) layer attacks</strong> target web application packets. Defend against this type with a web application firewall and DDoS Protection Standard.</td>

@@ -36,7 +36,7 @@
   items:
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Private cloud networking and inter-connectivity
+  - name: Private cloud networking and interconnectivity
     href: concepts-networking.md
   - name: Storage in private clouds
     href: concepts-storage.md

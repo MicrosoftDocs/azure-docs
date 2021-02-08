@@ -180,6 +180,10 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
+      - name: Modules from FPGA devices
+        href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+      - name: Module via Azure portal 
+        href: azure-stack-edge-gpu-deploy-compute-module-simple.md
     - name: Deploy Kubernetes workloads
       items:
       - name: Via kubectl
@@ -282,6 +286,8 @@
       items:
       - name: Using metric charts
         href: azure-stack-edge-monitor.md 
+      - name: Manage device event alerts
+        href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md 
       - name: Using Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
       - name: Using Azure Monitor

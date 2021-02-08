@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
 
 ---
@@ -13,13 +13,6 @@ ms.author: raynew
 # Common questions
 
 This article answers common questions about [Azure Resource Mover](overview.md).
-
-## General
-
-### Is Resource Mover generally available?
-
-Resource Mover is currently in public preview. Production workloads are supported.
-
 
 
 ## Moving across regions
@@ -41,10 +34,17 @@ Using Resource Mover, you can currently move the following resources across regi
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
 
+### Can I move disks across regions?
+
+You can't select disks as resources to the moved across regions. However, disks are moved as part of a VM move.
 
 ### Can I move resources across subscriptions when I move them across regions?
 
 You can change the subscription after moving resources to the destination region. [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md) about moving resources to a different subscription. 
+
+### Does Azure Resource Move service store customer data? 
+No. Resource Move service does not store customer data, it only stores metadata information which facilitates the tracking and progress of the resources selected for move, by the customer.
+
 
 ### Where is the metadata for moving across regions stored?
 
@@ -89,6 +89,12 @@ Subscription was moved to a different tenant. | Disable and then enable managed 
 ### How can I do multiple moves together?
 
 Change the source/target combinations as needed using the change option in the portal.
+
+### What happens when I remove a resource from a list of move resources?
+
+You can remove resources that you've added to move list. Behavior when you remove a resource from the list depends on the resource state. [Learn more](remove-move-resources.md#vm-resource-state-after-removing).
+
+
 
 ## Next steps
 
