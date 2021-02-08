@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 02/01/2020
+ms.date: 02/08/2020
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
@@ -69,7 +69,8 @@ foundation. This environment is composed of:
   enable encrypted traffic between an Azure virtual network and an on-premises location over the
   public Internet.
 
-> [!NOTE] The Azure Security Benchmark Foundation lays out a foundational architecture for
+> [!NOTE] 
+> The Azure Security Benchmark Foundation lays out a foundational architecture for
 > workloads. The architecture diagram above includes several notional resources to demonstrate
 > potential use of subnets. You still need to deploy workloads on this foundational architecture.
 
