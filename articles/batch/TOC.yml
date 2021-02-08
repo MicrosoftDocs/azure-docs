@@ -3,36 +3,48 @@
 - name: Overview
   items:
   - name: What is Azure Batch?
+    displayName: overview
     href: batch-technical-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Run a Batch job - CLI
+    displayName: quickstart, first, create
     href: quick-create-cli.md
   - name: Run a Batch job - Portal
+    displayName: quickstart, first, create
     href: quick-create-portal.md
   - name: Run a Batch job - .NET
+    displayName: quickstart, first, create, c#, csharp
     href: quick-run-dotnet.md
   - name: Run a Batch job - Python
+    displayName: quickstart, first, create
     href: quick-run-python.md
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
-    displayName: Resource Manager
+    displayName: Resource Manager, quickstart, first, create
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
+    displayName: tutorial, hpc, high-performance, large, c#, csharp
     href: tutorial-parallel-dotnet.md
   - name: Parallel file processing - Python
+    displayName: tutorial, hpc, high-performance, large
     href: tutorial-parallel-python.md
   - name: Scene rendering with Arnold
+    displayName: tutorial
     href: tutorial-rendering-cli.md
   - name: Rendering using Batch Explorer
+    displayName: tutorial
     href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
+    displayName: tutorial, doAzureParallel, rstudio
     href: tutorial-r-doazureparallel.md
   - name: OCR with Batch and Functions
+    displayName: trigger, optical
     href: tutorial-batch-functions.md
   - name: Python scripts with Data Factory
+    displayName: tutorial
     href: tutorial-run-python-batch-azure-data-factory.md
 - name: Samples
   items:
@@ -68,20 +80,20 @@
     - name: Security best practices
       href: security-best-practices.md
   - name: Batch service workflow and resources
-    displayName: developer features
+    displayName: developer features, core, component, overview
     href: batch-service-workflow-features.md
     items:
     - name: Batch accounts
       displayName: storage account
       href: accounts.md
     - name: Nodes and pools
-      displayName: compute node, application package, scaling, schedule, os
+      displayName: compute node, application package, scaling, schedule, os, configuration
       href: nodes-and-pools.md
     - name: Jobs and tasks
-      displayName: Batch job
+      displayName: Batch job, start task, environment 
       href: jobs-and-tasks.md
     - name: Files and directories
-      displayName: Batch file
+      displayName: Batch file, working directory
       href: files-and-directories.md
   - name: APIs and tools
     href: batch-apis-tools.md
