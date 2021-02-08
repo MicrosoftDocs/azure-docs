@@ -108,6 +108,6 @@ The workbooks provide several reports related to common scenarios involving audi
 
 ## Next steps
 
-* [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
+* [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
 * [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
 * [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

@@ -423,7 +423,7 @@ If you are using Azure SQL Analytics, you can monitor your data ingestion consum
 
 ## Metrics and logs available
 
-Monitoring telemetry available for single databases, pooled databases, elastic pools, managed instance, and instance databases is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](../../azure-monitor/log-query/get-started-queries.md) language.
+Monitoring telemetry available for single databases, pooled databases, elastic pools, managed instance, and instance databases is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](../../azure-monitor/logs/get-started-queries.md) language.
 
 ### Basic metrics
 

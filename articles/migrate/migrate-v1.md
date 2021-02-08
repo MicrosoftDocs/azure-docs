@@ -304,7 +304,7 @@ To run the Kusto queries:
 4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
-[Learn more](../azure-monitor/log-query/log-analytics-tutorial.md) about how to write Kusto queries. 
+[Learn more](../azure-monitor/logs/log-analytics-tutorial.md) about how to write Kusto queries. 
 
 ### Sample Azure Monitor logs queries
 

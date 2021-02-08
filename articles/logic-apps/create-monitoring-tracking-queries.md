@@ -40,7 +40,7 @@ To view or edit the query that produces the results in your workspace summary, f
 
 ## Create your own query
 
-To find or filter results based on specific properties or values, you can create your own query by starting from an empty query or use an existing query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+To find or filter results based on specific properties or values, you can create your own query by starting from an empty query or use an existing query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. In the [Azure portal](https://portal.azure.com), find and select your Log Analytics workspace.
 

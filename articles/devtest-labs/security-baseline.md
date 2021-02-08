@@ -104,7 +104,7 @@ For more information, see the following article: [How to alert on log analytics 
 **Guidance:** Azure DevTest Labs creates Azure Compute machines that are owned and managed by the customer. Use Microsoft Monitoring Agent on all supported Azure Windows VMs to log the process creation event and the `CommandLine` field. For supported Azure Linux VMs, you can manually configure console logging on a per-node basis and use Syslog to store the data. Also, use Azure Monitor's Log Analytics workspace to review logs and run queries on logged data from Azure VMs.
 
 - [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
-- [How to run custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to run custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 - [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring:** Yes

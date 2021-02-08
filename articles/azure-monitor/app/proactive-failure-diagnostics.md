@@ -444,7 +444,7 @@ These diagnostic tools help you inspect the data from your app:
 
 * [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
+* [Analytics - powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 

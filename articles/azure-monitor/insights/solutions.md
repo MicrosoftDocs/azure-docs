@@ -24,7 +24,7 @@ Use the dropdown boxes at the top of the screen to change the workspace or the t
 
 [![Screenshot shows the Azure portal menu with Solutions selected and solutions displayed in the Solutions pane.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../logs/log-query-overview.md).
+Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../logs/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../logs/log-query-overview.md).
 
 ## List installed monitoring solutions
 

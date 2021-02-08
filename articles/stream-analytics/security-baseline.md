@@ -180,9 +180,9 @@ For more information, see the [Azure security baselines overview](../security/be
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [For more information about the Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [For more information about the Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 

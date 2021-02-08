@@ -29,7 +29,7 @@ This tutorial walks you through the Log Analytics interface, gets you started wi
 This tutorial uses the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data supporting the sample queries. You can also use your own Azure subscription, but you may not have data in the same tables.
 
 ## Open Log Analytics
-Open the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) or select **Logs** from the Azure Monitor menu in your subscription. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to only records from that resource. See [Log query scope](scope.md) for details about the scope.
+Open the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) or select **Logs** from the Azure Monitor menu in your subscription. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to only records from that resource. See [Log query scope](../log-query/scope.md) for details about the scope.
 
 You can view the scope in the top left corner of the screen. If you're using your own environment, you'll see an option to select a different scope, but this option isn't available in the demo environment.
 

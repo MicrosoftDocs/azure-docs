@@ -52,7 +52,7 @@ To view the list of DMVs that apply to Synapse SQL, refer to this [documentation
 
 ## Metrics and diagnostics logging 
 
-Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/log-query/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes. For more details on the factors impacting latency, visit the following documentation.
+Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes. For more details on the factors impacting latency, visit the following documentation.
 
 ## Next steps
 

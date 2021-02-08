@@ -203,7 +203,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/logs/get-started-queries.md).
 
 
 ## Turn on logging by using PowerShell

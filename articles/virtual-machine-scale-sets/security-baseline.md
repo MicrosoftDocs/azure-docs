@@ -282,9 +282,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -338,7 +338,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 * [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
@@ -470,11 +470,11 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 * [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 

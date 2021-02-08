@@ -65,7 +65,7 @@ Azure Storage logs capture details about requests made against the storage accou
 
 To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](./monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 > [!NOTE]
 > The preview of Azure Storage logging in Azure Monitor is supported only in the Azure public cloud. Government clouds do not support logging for Azure Storage with Azure Monitor.

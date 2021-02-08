@@ -276,9 +276,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -324,7 +324,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: You can manually configure console logging on a per-node basis and use syslogs to store the data. Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on syslog data from Azure Virtual machines.
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 * [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
@@ -456,11 +456,11 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on auth syslog data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 * [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 

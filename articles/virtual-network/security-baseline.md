@@ -214,9 +214,9 @@ according to your organization's compliance regulations. Use Azure Storage accou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

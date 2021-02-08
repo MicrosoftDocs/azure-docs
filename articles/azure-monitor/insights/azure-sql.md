@@ -167,7 +167,7 @@ Once the new role is created, assign this role to each user that you need to gra
 
 ## Analyze data and create alerts
 
-Data analysis in Azure SQL Analytics is based on [Log Analytics language](../log-query/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](../logs/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Automated alerting in Azure SQL Analytics is based on writing a Log Analytics query that triggers an alert upon a condition met. Find below several examples on Log Analytics queries upon which alerting can be set up in Azure SQL Analytics.
 
