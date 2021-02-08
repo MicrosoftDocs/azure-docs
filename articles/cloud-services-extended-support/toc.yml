@@ -55,6 +55,10 @@
     href: faq.md
 - name: How To
   items:
+  - name: Migrate
+    items: 
+    - name: Migration Overview
+      href: in-place-migration-overview.md
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
