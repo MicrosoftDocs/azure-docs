@@ -1,10 +1,11 @@
-- name: Azure IoT Central for Retail Documentation
+- name: Azure IoT Central for Retail documentation
   href: index.yml
 - name: Overview
   items:
     - name: Building retail solutions with Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Tutorials
+  expanded: true
   items:
   - name : In-store analytics checkout
     items:

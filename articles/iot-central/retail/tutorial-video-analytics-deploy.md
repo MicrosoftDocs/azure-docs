@@ -1,15 +1,15 @@
 ---
-title: 'How to deploy the video analytics - object and motion detection Azure IoT Central application template'
-description: This guide summarizes the steps to deploy an Azure IoT Central application using the video analytics - object and motion detection application template.
+title: 'Tutorial: How to deploy the video analytics - object and motion detection Azure IoT Central application template'
+description: Tutorial - This guide summarizes the steps to deploy an Azure IoT Central application using the video analytics - object and motion detection application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ---
-# How to deploy an IoT Central application using the video analytics - object and motion detection application template
+# Tutorial: How to deploy an IoT Central application using the video analytics - object and motion detection application template
 
 For an overview of the key *video analytics - object and motion detection* application components, see [object and motion detection video analytics application architecture](architecture-video-analytics.md).
 
@@ -39,4 +39,10 @@ Complete the following steps to deploy an IoT Central application using the vide
 
 ## Next steps
 
-Now you have an overview of the steps to deploy and use the video analytics application template, see [Create a video analytics application in Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) or [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) to get started.
+Now you have an overview of the steps to deploy and use the video analytics application template, see
+
+> [!div class="nextstepaction"]
+> [Create a video analytics application in Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) or
+
+> [!div class="nextstepaction"]
+> [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) to get started.
