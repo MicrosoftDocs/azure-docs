@@ -21,11 +21,11 @@ A unit test is an approach to the validation of small pieces of functionality. I
 
 In this scenario, you're testing a password input control. It only accepts passwords containing at least:
 
-- 1 letter
+- One letter
 
-- 1 number
+- One number
 
-- 1 special character
+- One special character
  
 So, the test validating all these requirements will look like this:
 
@@ -124,11 +124,11 @@ await signInWidget.signInWithBasic({ email: "...", password: "..." });
 
 ### Test configuration
 
-Certain scenarios may require pre-created data or configuration. For example, you may need to automate user sign-in with social media accounts. In most cases, you can't create that data quickly or easily.
+Certain scenarios may require pre-created data or configuration. For example, you may need to automate user sign-in with social media accounts. It's hard to create that data quickly or easily.
 
 For this purpose, you could add a special configuration file to your test scenario. The test scripts can pick up required data from the file. Depending on the build and test pipeline, the tests can pull the secrets from a named secure store.
 
-Here's an example of a `validate.config.json` that would be stored in the `src` folder of you project.
+Here's an example of a `validate.config.json` that would be stored in the `src` folder of your project.
 
 ```json
 {
@@ -168,7 +168,7 @@ Here's an example of a `validate.config.json` that would be stored in the `src` 
 
 ### Headless vs normal tests
 
-Modern browsers like Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. In the headless mode, the browser operates without a graphical user interface. It still carries out the same page and Document Object Model (DOM) manipulations. Since the browser UI usually isn't needed in delivery pipelines, running tests in headless mode is a great option.
+Modern browsers like Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
 
 When you develop a test script, it would be useful to see what exactly is happening in the browser. That's a good time to use normal mode.
 
