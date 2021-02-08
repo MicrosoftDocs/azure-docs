@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.author: shhazam
 ---
 
@@ -24,13 +24,13 @@ This article lists new features and feature enhancements for Defender for IoT.
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 ## February 2021
 
-### Enhanced custom alert rules
+### Sensor - enhanced custom alert rules
 
 You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
 
 This feature is available on the sensor with the release of version 10.1.
 
-### Export alerts from on-premises management console
+### On-premises management console - export alerts
 
 Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
 
@@ -45,7 +45,7 @@ A new device builder module is available. The module, referred to as a micro-age
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
-The deprecated security module documentation will be moved to the Classic folder.
+The deprecated security module documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
 
 This feature set is available with the current public preview cloud release.
 
