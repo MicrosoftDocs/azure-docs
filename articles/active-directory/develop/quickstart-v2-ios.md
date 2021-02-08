@@ -66,7 +66,7 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> For the code sample for this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
