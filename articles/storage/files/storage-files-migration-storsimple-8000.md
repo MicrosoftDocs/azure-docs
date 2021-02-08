@@ -256,7 +256,6 @@ There are important aspects around choosing backups that need to be migrated:
 :::row:::
     :::column:::        
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups.png" alt-text="A screenshot of the new job creation form detailing the portion where StorSimple backups are selected for migration." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-expanded.png":::
-        *click to expand*
     :::column-end:::
     :::column:::
         To select backups of your StorSimple volume to be included in your migration job, click the link *Select volume backups* on the job creation form.
@@ -265,7 +264,6 @@ There are important aspects around choosing backups that need to be migrated:
 :::row:::
     :::column:::
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png" alt-text="An image showing that the upper half of the blade for selecting backups lists all available backups. A selected backup will be grayed-out in this list and added to a second list on the lower half of the blade. There it can also be deleted again." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png":::
-        *click to expand*
     :::column-end:::
     :::column:::
         When the backup selection blade opens, it is separated into two lists. In the first list, all available backups are displayed. You can expand and narrow the result set by filtering for a specific time range. (see next section) </br></br>A selected backup will display as grayed-out and it is added to a second list on the lower half of the blade. The second list displays all the backups selected for migration. A backup selected in error can also be removed again.
@@ -276,7 +274,6 @@ There are important aspects around choosing backups that need to be migrated:
 :::row:::
     :::column:::
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="A screenshot showing the selection of a time range of the backup selection blade." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
-        *click to expand*
     :::column-end:::
     :::column:::
         By default, the list is filtered to show the StorSimple volume backups within the past 7 days to make it easy to select the most recent backup. For backups further in the past, use the time range filter on to of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
@@ -357,7 +354,6 @@ On the job blade that opens, you can see your job runs in the lower list. Initia
 :::row:::
     :::column:::
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job.png" alt-text="An image showing the job run blade with a dropdown control opened, displaying the selected backups to be migrated. The oldest backup is highlighted, it needs to be selected first." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job-expanded.png":::
-        *click to expand*
     :::column-end:::
     :::column:::
         In this release, each job must be run several times. </br></br>**You must start with the oldest backup from your list of backups you wish to migrate.** (highlighted in the image)</br></br>You run the job again, as many times as you have backups selected, each time against a progressively newer backup.
