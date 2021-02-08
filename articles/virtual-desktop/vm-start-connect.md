@@ -42,8 +42,6 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 
 2. Go to **Access control (IAM)** and select **Add a custom role**.
 
-![Graphical user interface, text, application Description automatically generated](media/82f8a5dc3a3264d7d59cd8438750932c.png)
-
 3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
 
 4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to: 
@@ -51,7 +49,7 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
    - Microsoft.Compute/virtualMachines/start/action
    - Microsoft.Compute/virtualMachines/read
 
-6. When you're finished, select **Ok**.
+5. When you're finished, select **Ok**.
 
 After that, you'll need to assign the role to grant access to Windows Virtual Desktop.
 
@@ -66,53 +64,31 @@ To grant access:
       >[!NOTE]
       >You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both app you see.
 
-![Graphical user interface, application Description automatically generated](media/9bf688fba5f66f4a88c0ca706b2ac795.png)
-
 ### Sample JSON file for creating custom role
 
 If you're using JSON to create the custom role, the following example shows a basic template. Make sure you replace the subcription ID value with the subscription ID you want to assign the role to.
 
 ```json
 {
-
-"properties": {
-
-"roleName": "start VM on connect",
-
-"description": "Friendly description.",
-
-"assignableScopes": [
-
-"/subscriptions/\<SubscriptionID\>"
-
-],
-
-"permissions": [
-
-{
-
-"actions": [
-
-"Microsoft.Compute/virtualMachines/start/action",
-
-"Microsoft.Compute/virtualMachines/read"
-
-],
-
-"notActions": [],
-
-"dataActions": [],
-
-"notDataActions": []
-
+    "properties": {
+        "roleName": "start VM on connect",
+        "description": "Friendly description.",
+        "assignableScopes": [
+            "/subscriptions/<SubscriptionID>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/virtualMachines/start/action",
+                    "Microsoft.Compute/virtualMachines/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
-
-]
-
-}
-
-}
-
 ```
 
 ## Configure the Start VM on Connect feature
@@ -149,8 +125,6 @@ To use the Azure portal to configre Start VM on Connect:
 
 4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
 
-   ![Graphical user interface, text, application Description automatically generated](media/97ad4e38e505f73cf72fc5169e9d7ae9.png)
-
 ### Use PowerShell
 
 To configure this setting with PowerShell, you need to make sure you have the names of the resource group and host pools you want to configure. You'll also need to have [the Azure module (version 2.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0) installed.
@@ -162,31 +136,28 @@ To configure the feature with Powershell:
 2. Run the following cmldet to enable Start VM on Connect:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:\$true
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
 ```
 
 3. Run the following cmdlet to disable Start VM on Connect:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:\$false
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
 ```
 
 ### Use REST API
 
 <!---What is this section? It doesn't tell me how to use this new property. Also, a one-row table is kind of pointless.--->
 
-The existing REST API for Host Pools – Update or Update ([Host Pools - Create Or Update (Azure Desktop Virtualization) \| Microsoft Docs](/rest/api/desktopvirtualization/hostpools/createorupdate)) is going to be enhanced by the following property
+Follow the instructions in [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate) with the following property:
 
-| **Name**                    | **Required** | **Type** | **Description**                                                 |
-| Properties.startVMOnConnect |              | Boolean  | Configure if VM should start from deallocated or stopped state. |
+| **Name**  | **Required** | **Type** | **Description**     |
+|----|---|----|----|
+| `Properties.startVMOnConnect` |   No           | Boolean  | Configure if VM should start from deallocated or stopped state. |
 
 ## User experience
 
-The time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, you can connect to it much more quickly.
-
-![Graphical user interface, application Description automatically generated](media/b792bddf34a2bddff0feaf7a094a657c.png)
-
-Once the VM is turned on, the connection should work as normal.
+The time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, you can connect to it much more quickly. Once the VM is turned on, the connection should work as normal.
 
 ## Troubleshooting
 
