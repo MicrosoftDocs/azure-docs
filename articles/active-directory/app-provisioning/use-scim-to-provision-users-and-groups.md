@@ -29,7 +29,7 @@ To automate provisioning to an application will require building and integrating
 
    Identify the application's objects and attributes to determine how they map to the user and group schema supported by the AAD SCIM implementation.
 
-1. [Understand the AAD SCIM implementation](#understand-the-azure-ad-scim-implementation)
+1. [Understand the AAD SCIM implementation](#understand-the-aad-scim-implementation)
 
    Understand how the AAD SCIM client is implemented to model your SCIM protocol request handling and responses.
 
@@ -37,11 +37,11 @@ To automate provisioning to an application will require building and integrating
 
    An endpoint must be SCIM 2.0-compatible to integrate with the AAD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-1. [Integrate your SCIM endpoint with the AAD SCIM client](#integrate-your-scim-endpoint-with-the-azure-ad-scim-client) 
+1. [Integrate your SCIM endpoint with the AAD SCIM client](#integrate-your-scim-endpoint-with-the-aad-scim-client) 
 
    If your organization uses a third-party application to implement a profile of SCIM 2.0 that AAD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
 
-1. [Publish your application to the AAD application gallery](#publish-your-application-to-the-azure-ad-application-gallery) 
+1. [Publish your application to the AAD application gallery](#publish-your-application-to-the-aad-application-gallery) 
 
    Make it easy for customers to discover your application and easily configure provisioning. 
 
@@ -1146,7 +1146,7 @@ The object provided as the value of the resourceIdentifier argument has these pr
 
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Step 2: Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-aad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
@@ -1211,7 +1211,7 @@ If you're building an application that will be used by more than one tenant, you
 ### Gallery onboarding checklist
 Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
-> * Support a [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
+> * Support a [SCIM 2.0](#understand-the-aad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
