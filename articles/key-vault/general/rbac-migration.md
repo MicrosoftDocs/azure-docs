@@ -104,7 +104,7 @@ There are many differences between Azure RBAC and vault access policy permission
 1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. If an error, permission model can be switched back with all existing access policies remaining untouched.
 
 > [!NOTE]
-> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles.
+> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
 
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
