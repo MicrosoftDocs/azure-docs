@@ -33,7 +33,9 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) instance and the AKS cluster later. 
+An Azure resource group is a logical group in which Azure resources are deployed and managed.  
+
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=java-liberty-project
