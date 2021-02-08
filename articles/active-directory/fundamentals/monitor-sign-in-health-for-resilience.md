@@ -1,6 +1,6 @@
 ---
-title: Monitor application sign in health for resilience in Azure Active Directory
-description: Create queries and notifications to monitor the sign in health of your applications.
+title: Monitor application sign-in health for resilience in Azure Active Directory
+description: Create queries and notifications to monitor the sign-in health of your applications.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Monitoring application sign in health for resilience
+# Monitoring application sign-in health for resilience
 
-To increase infrastructure resilience, set up monitoring of application sign in health for your critical applications so that you receive an alert if an impacting incident occurs. To assist you in this effort, you can configure alerts based on the sign in health workbook. 
+To increase infrastructure resilience, set up monitoring of application sign-in health for your critical applications so that you receive an alert if an impacting incident occurs. To assist you in this effort, you can configure alerts based on the sign-in health workbook. 
 
 This workbook enables administrators to monitor authentication requests for applications in your tenant. It provides these key capabilities:
 
@@ -33,11 +33,11 @@ This workbook enables administrators to monitor authentication requests for appl
 
 During an impacting event, two things may happen:
 
-* The number of sign ins for an application may drop precipitously because users can't sign in.
+* The number of sign-ins for an application may drop precipitously because users can't sign in.
 
-* The number of sign in failures can increase. 
+* The number of sign-in failures can increase. 
 
-This article walks through setting up the sign in health workbook to monitor for disruptions to your users’ sign ins.
+This article walks through setting up the sign-in health workbook to monitor for disruptions to your users’ sign-ins.
 
 ## Prerequisites 
 
@@ -66,7 +66,7 @@ Once you use a workbook, it may appear in the Recently modified workbooks sectio
 ![Screenshot showing the workbooks gallery in the Azure portal.](./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png)
 
 
-The App sign in health workbook enables you to visualize what is happening with your sign ins. 
+The App sign in health workbook enables you to visualize what is happening with your sign-ins. 
 
 By default the workbook presents two graphs. These graphs compare what is happening to your app(s) now, versus the same period a week ago. The blue lines are current, and the orange lines are the previous week.
 
@@ -235,7 +235,7 @@ thisWeek
 
    * Add a **subject line**.
 
-7. Under **Alert rule details**, configure configure these settings:
+7. Under **Alert rule details**, configure these settings:
 
    * Add a descriptive name and a description.
 
