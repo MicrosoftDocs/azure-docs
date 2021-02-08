@@ -54,7 +54,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 > [!NOTE]
 > This section does not apply when using extension versions prior to 5.0.0. For those versions, there are no global configuration settings for blobs.
 
-This section describes the global configuration settings available for this binding when using [extension version 5.0.0 and higher](#storage-extension-5x-and-higher). The example host.json file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in Functions versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
+This section describes the global configuration settings available for this binding when using [extension version 5.0.0 and higher](#storage-extension-5x-and-higher). The example *host.json* file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in Functions versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
 
 ```json
 {
