@@ -422,6 +422,7 @@ The KVVM extension, as a provisioning agent, runs continuously on a predetermine
 You may have noticed the KVVM extension's 'linkOnRenewal' flag, and the fact that it is set to false. We're addressing here in depth the behavior controlled by this flag and its implications on the functioning of a cluster. Note this behavior is specific to Windows.
 
 According to its [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
