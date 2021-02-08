@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Agents and communication pattern
 
-[Kubernetes](https://kubernetes.io/) is an open-source container orchestration engine for automating deployment, scaling, and management of containerized applications. The emergence of Kubernetes as the go-to option for deploying containerized workloads across different hybrid and multi-cloud environments has led to the need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring, and security. Azure Arc enabled Kubernetes intends to solve this problem by allowing for customer managed Kubernetes clusters on any environment (on-prem or hybrid) to brought into the fold of [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This document provides an architectural overview of connecting a cluster to Azure Arc, the communication pattern followed by agents, and provides a tabulation of the data exchanged between cluster environment and Azure.
+[Kubernetes](https://kubernetes.io/) is an open-source container orchestration engine for automating deployment, scaling, and management of containerized applications. The emergence of Kubernetes as the go-to option for deploying containerized workloads across different hybrid and multi-cloud environments has led to the need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring, and security. Azure Arc enabled Kubernetes intends to solve this problem by allowing for customer managed Kubernetes clusters on any environment (on-prem or hybrid) to be brought into the fold of [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This document provides an architectural overview of connecting a cluster to Azure Arc, the communication pattern followed by agents, and provides a tabulation of the data exchanged between cluster environment and Azure.
 
 ## Deployment of agents on cluster
 
@@ -22,11 +22,11 @@ Most on-premise data centers have strict network rules in place that doesn't all
 
 Here's the sequence of steps involved in this process of connecting a cluster to Azure Arc:
 
-1. Customer spins up a Kubernetes cluster on their choice of infrastructure (vSphere, AWS, GCP,...). Currently Azure Arc enabled Kubernetes only supports attaching existing Kubernetes clusters to Azure Arc. At this moment, lifecycle management of the Kubernetes cluster itself needs to be done by the customer separately. Having said that, Azure Arc based cluster provisioning and lifecycle management is high on the future work items being prioritized by the Azure Arc team.
+1. Customer spins up a Kubernetes cluster on their choice of infrastructure (vSphere, AWS, GCP,...). Currently Azure Arc enabled Kubernetes only supports attaching existing Kubernetes clusters to Azure Arc. At this moment, lifecycle management of the Kubernetes cluster itself needs to be done by the customer separately. Having said that, Arc based cluster provisioning and lifecycle management are being prioritized by Azure Arc team.
 1. Customer uses Azure CLI on a machine having line of sight to this Kubernetes cluster to initiate registration of this cluster with Azure Arc. 
 1. The Azure CLI internally uses Helm to deploy the agent Helm chart on the cluster
 1. The images needed to spin up these agents are all pulled from Microsoft Container Registry. The image pull process is initiated by an outbound communication to the container registry initiated by the nodes of the cluster.
-1. The following agents get created in the `azure-arc` namespace of the during this process:
+1. The following agents get created in the `azure-arc` namespace during this process:
     * `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator makes the first outbound communication needed to fetch the managed service identity (MSI) certificate used by other agents for communication with Azure.
     * `deployment.apps/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
     * `deployment.apps/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
@@ -34,7 +34,7 @@ Here's the sequence of steps involved in this process of connecting a cluster to
     * `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
     * `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
     * `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
-1. At this stage, once all the Azure Arc enabled Kubernetes agents are up and running, the following events indicate the successful connection of cluster to Azure Arc :
+1. At this stage, once all the Azure Arc enabled Kubernetes agents are up and running, the following events indicate the successful connection of cluster to Azure Arc:
     1. Azure Arc enabled Kubernetes resource in Azure Resource Manager. This is a tracked resource in Azure acting as a projection of the customer managed Kubernetes cluster and is not the actual Kubernetes cluster itself.
     1. Cluster metadata like Kubernetes version, agent version, and number of nodes visible on the Arc enabled Kubernetes resource as metadata.
 
