@@ -821,7 +821,7 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
+If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the
 [Activity Log Analytics solution](../../../azure-monitor/essentials/activity-log.md) tied to your
 subscription, you can also view non-compliance results from the evaluation of new and updated

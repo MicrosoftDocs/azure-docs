@@ -44,7 +44,7 @@ Here is a video walkthrough on creating dashboards.
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including [Metrics Explorer](essentials/metrics-charts.md), [Log Analytics](logs/log-analytics-overview.md), and [Application Insights](app/app-insights-overview.md).
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [Metrics Explorer](essentials/metrics-charts.md), [Log queries](log-query/log-query-overview.md), and [maps](app/app-map.md) and availability in [Application Insights](app/app-insights-overview.md).
+- Combine data from multiple sources including output from [Metrics Explorer](essentials/metrics-charts.md), [Log queries](logs/log-query-overview.md), and [maps](app/app-map.md) and availability in [Application Insights](app/app-insights-overview.md).
 - Option for personal or shared dashboards. Integrated with [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh every hour, with a manual refresh option on demand by clicking the "refresh" icon on a given visualization, or by refreshing the full dashboard.
 - Parametrized metrics dashboards with timestamp and custom parameters.

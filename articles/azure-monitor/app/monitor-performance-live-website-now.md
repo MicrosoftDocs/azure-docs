@@ -319,7 +319,7 @@ View your telemetry:
 
 * [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](../log-query/log-query-overview.md) for more advanced queries
+* [Analytics](../logs/log-query-overview.md) for more advanced queries
 
 Add more telemetry:
 

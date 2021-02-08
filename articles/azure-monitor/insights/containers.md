@@ -582,7 +582,7 @@ Log Analytics opens, displaying information about the state of your containers.
 
 ![Log Analytics for containers](./media/containers/containers-log-search.png)
 
-From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about log queries, see [Log queries in Azure Monitor](../log-query/log-query-overview.md).
+From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about log queries, see [Log queries in Azure Monitor](../logs/log-query-overview.md).
 
 ## Troubleshoot by finding a failed container
 
@@ -635,5 +635,5 @@ After you create a query that you find useful, save it by clicking **Favorites**
 
 ## Next steps
 
-[Query logs](../log-query/log-query-overview.md) to view detailed container data records.
+[Query logs](../logs/log-query-overview.md) to view detailed container data records.
 

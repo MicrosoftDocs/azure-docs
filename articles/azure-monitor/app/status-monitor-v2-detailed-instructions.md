@@ -229,7 +229,7 @@ See the [API reference](./status-monitor-v2-api-reference.md#enable-applicationi
 
 - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](./diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
+- [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 
  Add more telemetry:

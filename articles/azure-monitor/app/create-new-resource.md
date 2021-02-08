@@ -153,7 +153,7 @@ For the full Azure CLI documentation for this command, and to learn how to retri
 ## Next steps
 * [Diagnostic Search](./diagnostic-search.md)
 * [Explore metrics](../essentials/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 
 <!--Link references-->
 

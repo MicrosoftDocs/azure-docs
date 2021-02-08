@@ -118,7 +118,7 @@ In the **VMware** dashboard view, blades are organized by:
 
 Click any blade to open Log Analytics search pane that shows detailed information specific for the blade.
 
-From here, you can edit the log query to modify it for something specific. For details on creating log queries, see [Find data using log queries in Azure Monitor](../log-query/log-query-overview.md).
+From here, you can edit the log query to modify it for something specific. For details on creating log queries, see [Find data using log queries in Azure Monitor](../logs/log-query-overview.md).
 
 #### Find ESXi host events
 A single ESXi host generates multiple logs, based on their processes. The VMware Monitoring solution centralizes them and summarizes the event counts. This centralized view helps you understand which ESXi host has a high volume of events and what events occur most frequently in your environment.
@@ -193,7 +193,7 @@ There can be multiple reasons:
      d. If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
-* Use [log queries](../log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
+* Use [log queries](../logs/log-query-overview.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing VMware host data.
 * [Create alerts](../platform/alerts-overview.md) when specific VMware host events occur.
 

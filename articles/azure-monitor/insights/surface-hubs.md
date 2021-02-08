@@ -73,5 +73,5 @@ When you click on the Surface Hub tile, your device's health is displayed.
 You can create [alerts](../platform/alerts-overview.md) based on existing or custom log searches. Using the data Azure Monitor collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Surface Hub data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Surface Hub data.
 * Create [alerts](../platform/alerts-overview.md) to notify you when issues occur with your Surface Hubs.

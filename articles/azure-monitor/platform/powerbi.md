@@ -17,12 +17,12 @@ ms.date: 05/01/2019
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Overview
-To import data from a [Log Analytics workspace](../logs/manage-access.md) in Azure Monitor into Power BI, you create a dataset in Power BI based on a [log query](../log-query/log-query-overview.md) in Azure Monitor.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](/powerquery-m/power-query-m-language-specification).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
+To import data from a [Log Analytics workspace](../logs/manage-access.md) in Azure Monitor into Power BI, you create a dataset in Power BI based on a [log query](../logs/log-query-overview.md) in Azure Monitor.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](/powerquery-m/power-query-m-language-specification).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
 
 ![Log Analytics to Power BI](media/powerbi/overview.png)
 
 ## Export query
-Start by creating a [log query](../log-query/log-query-overview.md) that returns the data that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](/powerquery-m/power-query-m-language-specification) which can be used by Power BI Desktop.
+Start by creating a [log query](../logs/log-query-overview.md) that returns the data that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](/powerquery-m/power-query-m-language-specification) which can be used by Power BI Desktop.
 
 > [!WARNING]
 > Be careful to [optimize your query](../logs/query-optimization.md) so that it doesn't take excessively long to run or it may timeout. Note the **timespan** value in the exported query which defines the timespan of data that the query will retrieve. Use the smallest timespan that you require to limit the amount of data that the query returns.
@@ -78,5 +78,5 @@ The dataset created in Power BI will have the same data that you previously saw 
 
 
 ## Next steps
-* Learn about [log searches](../log-query/log-query-overview.md) to build queries that can be exported to Power BI.
+* Learn about [log searches](../logs/log-query-overview.md) to build queries that can be exported to Power BI.
 * Learn more about [Power BI](https://powerbi.microsoft.com) to build visualizations based on Azure Monitor log exports.

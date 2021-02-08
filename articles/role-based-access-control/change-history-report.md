@@ -117,7 +117,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
+[Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools

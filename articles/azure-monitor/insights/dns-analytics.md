@@ -181,4 +181,4 @@ To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dns
 
 ## Next steps
 
-[Query logs](../log-query/log-query-overview.md) to view detailed DNS log records.
+[Query logs](../logs/log-query-overview.md) to view detailed DNS log records.

@@ -113,4 +113,4 @@ by bin(TimeGenerated, 10s), OperationName
   * [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md)
   * [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 * Read [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-* Read [Understand log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+* Read [Understand log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).

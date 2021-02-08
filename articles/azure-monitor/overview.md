@@ -17,7 +17,7 @@ Just a few examples of what you can do with Azure Monitor include:
 
 - Detect and diagnose issues across applications and dependencies with [Application Insights](app/app-insights-overview.md).
 - Correlate infrastructure issues with [Azure Monitor for VMs](vm/vminsights-overview.md) and [Azure Monitor for Containers](containers/container-insights-overview.md).
-- Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
+- Drill into your monitoring data with [Log Analytics](logs/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](visualizations/workbooks-overview.md).
 - Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./essentials/data-platform-metrics.md).
@@ -41,7 +41,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 ![Diagram shows Metrics data flowing into the Metrics Explorer to use in visualizations.](media/overview/metrics.png)
 
-Log data collected by Azure Monitor can be analyzed with [queries](log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](./log-query/log-query-overview.md) in the Azure portal. You can then either directly analyze the data using different tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
+Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](./logs/log-query-overview.md) in the Azure portal. You can then either directly analyze the data using different tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
 
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](log-query/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](log-query/sql-cheatsheet.md) and [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -143,5 +143,5 @@ Learn more about:
 
 * [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
 * [Data sources](agents/data-sources.md) for how the different components of your application send telemetry.
-* [Log queries](log-query/log-query-overview.md) for analyzing collected data.
+* [Log queries](logs/log-query-overview.md) for analyzing collected data.
 * [Best practices](/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

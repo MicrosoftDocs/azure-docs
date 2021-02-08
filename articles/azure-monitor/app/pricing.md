@@ -244,7 +244,7 @@ To set ingestion sampling, go to the  **Pricing** pane:
 > The **Data sampling** pane controls only the value of ingestion sampling. It doesn't reflect the sampling rate that's applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled in the SDK, ingestion sampling isn't applied.
 >
 
-To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](../log-query/log-query-overview.md). The query looks like this:
+To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](../logs/log-query-overview.md). The query looks like this:
 
 ```kusto
 requests | where timestamp > ago(1d)

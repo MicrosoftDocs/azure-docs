@@ -43,7 +43,7 @@ You can use **node** dimension when adding a filter or splitting the metrics, wh
 
 ## Analyze log data
 
-Here are some queries that you can enter in the Log search bar to help you monitor your Azure Blockchain Service members. These queries work with the [new language](../../azure-monitor/log-query/log-query-overview.md).
+Here are some queries that you can enter in the Log search bar to help you monitor your Azure Blockchain Service members. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
 To query the error conditions in the Blockchain application logs, use the below query:
 

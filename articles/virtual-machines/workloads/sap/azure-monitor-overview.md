@@ -89,7 +89,7 @@ The key components of the architecture are:
    - Log Analytics Workspace: the destination where the telemetry data resides.
       - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](../../../azure-monitor/visualizations/workbooks-overview.md). Customers can customize visualization. Customers can also pin their Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh capability with lowest granularity of 30 minutes.
       - Customers can use their existing workspace within the same subscription as SAP monitor resource by choosing this option at the time of deployment.
-      - Customers can use Kusto query language (KQL) to run [queries](../../../azure-monitor/log-query/log-query-overview.md) against the raw tables inside Log Analytics workspace. Look at *Custom Logs*.
+      - Customers can use Kusto query language (KQL) to run [queries](../../../azure-monitor/logs/log-query-overview.md) against the raw tables inside Log Analytics workspace. Look at *Custom Logs*.
 
 > [!Note]
 > Customers are responsible for patching and maintaining the VM, deployed in the managed resource group.
