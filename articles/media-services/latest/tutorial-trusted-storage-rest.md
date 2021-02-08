@@ -281,7 +281,8 @@ Content-Type: application/json; charset=utf-8
 
 ### Update the Media Services account to use Managed Identity storage authorization
 
-> [!NOTE] This request may need to be retried a few times as the storage role assignment can take a few minutes to propogate
+> [!NOTE]
+> This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate
 
 ```rest
 // @name updateMediaServicesAccountWithManagedStorageAuth
