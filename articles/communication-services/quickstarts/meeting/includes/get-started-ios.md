@@ -65,12 +65,12 @@ Download the framework from the latest release. Add the framework to the project
 
 ### Set up the app framework
 
-Open your project's **viewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingSDK`. 
+Open your project's **viewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingUIClient`. 
 
 ```swift
 import UIKit
 import AzureCommunication
-import MeetingSDK
+import MeetingUIClient
 ```
 
 Replace the implementation of the `ViewController` class with a simple button to allow the user to join a meeting. We will attach business logic to the button in this quickstart.
