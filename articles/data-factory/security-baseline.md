@@ -173,9 +173,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Data Factory instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -199,7 +199,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).You can also integrate Azure Data Factory with Git to leverage several source control benefits, such as the ability to track/audit changes and the ability to revert changes that introduce bugs.
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md)
+* [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -217,7 +217,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 Use diagnostic settings to configure diagnostic logs for noncompute resources in Azure Data Factory, such as metrics and pipeline-run data. Azure Data Factory stores pipeline-run data for 45 days. To retain this data for longer period of time, save your diagnostic logs to a storage account for auditing or manual inspection and specify the retention time in days. You can also stream the logs to Azure Event Hubs or send the logs to a Log Analytics workspace for analysis.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [Understand Azure Data Factory diagnostic logs](./monitor-using-azure-monitor.md)
 
@@ -231,7 +231,7 @@ Use diagnostic settings to configure diagnostic logs for noncompute resources in
 
 If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics.
 
-* [How to collect data from Azure Virtual Machines in Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [How to collect data from Azure Virtual Machines in Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Enabling Data Collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -261,7 +261,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Log Analytics schema](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [How to collect data from an Azure Virtual Machine with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [How to collect data from an Azure Virtual Machine with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -281,7 +281,7 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 * [All supported metrics page](../azure-monitor/platform/metrics-supported.md)
 
-* [How to configure alerts in Log Analytics Workspace](../azure-monitor/platform/alerts-log.md)
+* [How to configure alerts in Log Analytics Workspace](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -650,9 +650,9 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Data Factory and related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md)
 

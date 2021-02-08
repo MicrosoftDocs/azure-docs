@@ -459,9 +459,9 @@ You can streamline this process by creating diagnostic settings for Azure Active
 
 * [How to enable auditing in Customer Lockbox](./customer-lockbox-overview.md)
 
-* [How to view and retrieve Azure Activity Log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

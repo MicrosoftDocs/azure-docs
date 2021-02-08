@@ -38,9 +38,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -52,9 +52,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 Enable Diagnostic Settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## 2.4: Collect security logs from operating systems
 
@@ -64,7 +64,7 @@ Enable Diagnostic Settings on Azure resources for access to audit, security, and
 
 If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Understand Azure Security Center data collection](../../security-center/security-center-enable-data-collection.md)
 
@@ -146,7 +146,7 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 
 - [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-- [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+- [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 
 ## Next steps

@@ -11,7 +11,7 @@ ms.subservice: metrics
 
 # Azure Monitor Metrics metrics aggregation and display explained
 
-This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
+This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
 
 This is a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
 
@@ -29,7 +29,7 @@ Let's define a few terms clearly first:
 - **Aggregation type** – A type of statistic calculated from multiple metric values.  
 - **Aggregate** – The process of taking multiple input values and then using them to produce a single output value via the rules defined by the aggregation type. For example, taking an average of multiple values.  
 
-Metrics are a series of metric values captured at a regular time interval. When you plot a chart, the values of the selected metric are separately aggregated over the time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
+Metrics are a series of metric values captured at a regular time interval. When you plot a chart, the values of the selected metric are separately aggregated over the time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](../essentials/metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
 
 ## Aggregation types 
 
@@ -74,7 +74,7 @@ The time granularity allows you to adjust the "signal-to-noise" ratio on a chart
 
 This smoothing behavior is important when you send this data to other systems--for example, alerts. Typically, you usually don't want to be alerted by very short spikes in CPU time over 90%. But if the CPU stays at 90% for 5 minutes, that's likely important. If you set up an alert rule on CPU (or any metric), making the time granularity larger can reduce the number of false alerts you receive. 
 
-It is important to establish what's "normal" for your workload to know what time interval is best. This is one of the benefits of [dynamic alerts](alerts-dynamic-thresholds.md), which is a different topic not covered here.  
+It is important to establish what's "normal" for your workload to know what time interval is best. This is one of the benefits of [dynamic alerts](../alerts/alerts-dynamic-thresholds.md), which is a different topic not covered here.  
 
 ## How the system collects metrics
 
@@ -120,15 +120,15 @@ Using filtering allows us to clean up the chart to see what's really happening. 
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing Disk Write Bytes for all virtual machines in Contoso Hotels resource group split and filtered by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](metrics-charts.md#filters).
+For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](../essentials/metrics-charts.md#filters).
 
 ### NULL and zero values
 
 When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. 
 
-NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in the previous section. When calculating averages that include NULLs, there are fewer data points to take the average from.  This behavior can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
+NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](../essentials/metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in the previous section. When calculating averages that include NULLs, there are fewer data points to take the average from.  This behavior can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
 
-[Custom metrics](metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
+[Custom metrics](../essentials/metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
 
 Azure Monitor alerts use the values the resource provider writes to the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first.
 
@@ -278,5 +278,5 @@ You can also see that the NULLs give a better calculation of average than if zer
 
 ## Next steps
 
-- [Getting started with metrics explorer](metrics-getting-started.md)
-- [Advanced Metrics explorer](metrics-charts.md)
+- [Getting started with metrics explorer](../essentials/metrics-getting-started.md)
+- [Advanced Metrics explorer](../essentials/metrics-charts.md)

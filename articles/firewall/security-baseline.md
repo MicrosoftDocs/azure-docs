@@ -90,9 +90,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -130,7 +130,7 @@ Note: Both logs can be saved to a storage account, streamed to Event hubs and/or
 
 List of resource actions in activity logs: Azure Resource Manager Resource Provider operations
 
-- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -440,7 +440,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place in Azure Firewall.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

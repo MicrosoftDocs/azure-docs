@@ -190,13 +190,13 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 
     * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
     
-    * Optionally, configure the [Action Group](../azure-monitor/platform/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
+    * Optionally, configure the [Action Group](../azure-monitor/alerts/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
     ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
 
 You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).

@@ -203,9 +203,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Functions deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place. 
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -233,7 +233,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to set up Azure Functions with Azure Application Insights](./functions-monitoring.md)
 
@@ -251,7 +251,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 If you have built-in custom security/audit logging within your function app, enable the diagnostics setting "FunctionAppLogs" and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](./functions-monitor-log-analytics.md)
 
@@ -287,7 +287,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
@@ -307,7 +307,7 @@ Enable Application Insights for your function apps to collect log, performance, 
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
@@ -630,7 +630,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production function apps as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

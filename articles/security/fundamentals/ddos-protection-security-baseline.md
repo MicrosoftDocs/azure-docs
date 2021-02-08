@@ -24,7 +24,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../b
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure DDoS Protection plans at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -38,7 +38,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 - [View and configure DDoS diagnostic logging](../../ddos-protection/diagnostic-logging.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -60,9 +60,9 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 - [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry.md)
 
-- [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -78,7 +78,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -274,7 +274,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure DDoS Protection plans as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

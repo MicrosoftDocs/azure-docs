@@ -54,11 +54,11 @@ For certain resources (like virtual machines), you can specify multiple resource
 - Sev 3 = Informational
 - Sev 4 = Verbose 
 
-**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](./action-groups.md).
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../alerts/action-groups.md).
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](./data-sources.md). Signals include but aren't limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](./../agents/data-sources.md). Signals include but aren't limited to:
 
 - Metric values
 - Log search queries
@@ -130,7 +130,7 @@ Here's how to create a new alert rule:
 
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you're guided through defining the logic of the alert rule automatically.  
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](./alerts-metric.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../alerts/alerts-metric.md).
 
 Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../overview.md). 
 
@@ -194,9 +194,9 @@ The following sample request to the Resource Graph REST API returns the count of
 
 You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
 
-You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
+You can query the alerts for their [essential](../alerts/alerts-common-schema-definitions.md#essentials) fields.
 
-Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
+Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) to get more information about specific alerts, including their [alert context](../alerts/alerts-common-schema-definitions.md#alert-context) fields.
 
 ## Smart groups
 
@@ -205,7 +205,7 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 ## Next steps
 
 - [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Learn about action groups](./action-groups.md)
+- [Learn about action groups](../alerts/action-groups.md)
 - [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)

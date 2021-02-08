@@ -36,7 +36,7 @@ The following table outlines scenarios for each destination resource type.
 |:---|:---|
 |Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/learn/quick-create-workspace.md)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## Enable security audit events using the Azure portal
 
@@ -96,7 +96,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
         > [!IMPORTANT]
         > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
 
-    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Get the resource ID for your Azure AD DS managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
 

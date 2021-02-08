@@ -37,11 +37,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 > * An [Azure subscription](how-to-set-azure-subscription.md)
 > * A [Media Services](create-account-howto.md) account and resource group.
 > * An installation of [FFmpeg](https://ffmpeg.org/download.html) for your OS.
-> * A [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace
+> * A [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) workspace
 
 ## Subscribe to a Media Services event with Logic App
 
-1. In the Azure portal, if you haven't done so already, create a [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
+1. In the Azure portal, if you haven't done so already, create a [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
 
 1. Navigate to your Azure Media Services account and select **Events**. This will show all the methods for subscribing to Azure Media Services events.
     > [!div class="mx-imgBorder"]

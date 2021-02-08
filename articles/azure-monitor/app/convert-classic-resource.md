@@ -18,8 +18,8 @@ Workspace-based resources enables common Azure role-based access control (Azure 
 
 Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics including:
 
-* [Customer-Managed Keys (CMK)](../platform/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
-* [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
+* [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
+* [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
 * [Capacity Reservation tiers](../platform/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
 * Faster data ingestion via Log Analytics streaming ingestion.
@@ -40,12 +40,12 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
 - A Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
 
-    - Workspace-based Application Insights resources are not compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control, consult the [Log Analytics configure access control mode guidance](../platform/manage-access.md#configure-access-control-mode)
+    - Workspace-based Application Insights resources are not compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#configure-access-control-mode)
 
-    - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
+    - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
 - Continuous export is not supported for workspace-based resources and must be disabled.
-Once the migration is complete, you can use [diagnostic settings](../platform/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
+Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
 
@@ -205,7 +205,7 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 **Error message:** *The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI.* 
 
-In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions, consult the [Log Analytics configure access control mode guidance](../platform/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience will remain blocked.
+In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience will remain blocked.
 
 If you cannot change the access control mode for security reasons for your current target workspace, we recommend creating a new Log Analytics workspace to use for the migration. 
 
@@ -225,7 +225,7 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 - Once you have selected disable, you can navigate back to the migration UI. If the edit continuous export page prompts you that your settings won't be saved, you can select ok for this prompt as it does not pertain to disabling/enabling continuous export.
 
-- Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../platform/diagnostic-settings.md).
+- Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../essentials/diagnostic-settings.md).
 
 ### Retention settings
 
@@ -237,5 +237,5 @@ You can check your current retention settings for Log Analytics under **General*
 
 ## Next steps
 
-* [Explore metrics](../platform/metrics-charts.md)
+* [Explore metrics](../essentials/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)

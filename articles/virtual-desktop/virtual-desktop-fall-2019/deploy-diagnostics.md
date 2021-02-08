@@ -111,7 +111,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.

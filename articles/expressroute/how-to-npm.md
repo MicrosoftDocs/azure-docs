@@ -115,7 +115,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
 
 ### <a name="proxy"></a>2.3: Configure proxy settings (optional)
 
-If you are using a web proxy to access the Internet, use the following steps to configure proxy settings for the Microsoft Monitoring Agent. Perform these steps for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see [To configure proxy settings for the Microsoft Monitoring Agent using a script](../azure-monitor/platform/agent-windows.md).
+If you are using a web proxy to access the Internet, use the following steps to configure proxy settings for the Microsoft Monitoring Agent. Perform these steps for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see [To configure proxy settings for the Microsoft Monitoring Agent using a script](../azure-monitor/agents/agent-windows.md).
 
 To configure proxy settings for the Microsoft Monitoring Agent using the Control Panel:
 

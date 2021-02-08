@@ -114,7 +114,7 @@ Once you've imported the runbooks, add a webhook to the runbook so it can be tri
 ## Add an alert to your virtual machine scale set
 
 Below is a PowerShell script that shows how to add an alert to a virtual machine scale set. Refer to the following article to get the name of the metric to fire the alert on:
-[Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
+[Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com

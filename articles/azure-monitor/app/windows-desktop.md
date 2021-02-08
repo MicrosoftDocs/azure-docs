@@ -172,6 +172,6 @@ namespace WindowsFormsApp2
 ## Next steps
 * [Create a dashboard](./overview-dashboard.md)
 * [Diagnostic Search](./diagnostic-search.md)
-* [Explore metrics](../platform/metrics-charts.md)
+* [Explore metrics](../essentials/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
 

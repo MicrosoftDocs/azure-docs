@@ -15,7 +15,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This setting can be configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This setting can be configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 
 ## Access metrics in the portal
@@ -50,7 +50,7 @@ For a list of metrics supported by the service, see [Azure Event Hubs](../azure-
 ## Azure Monitor integration with SIEM tools
 Routing your monitoring data (activity logs, diagnostics logs, and so on.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
 
-- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 - [Introduction to Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 

@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > * Create an alert rule
 > * Configure an Action Group to send an e-mail notification
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../vm/quick-collect-azurevm.md).  
 
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 

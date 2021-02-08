@@ -214,9 +214,9 @@ Use Azure PowerShell or Azure CLI to look up or perform actions on resources bas
 
 Create alerts in Azure Monitor to notify you when critical resources are changed.
 
-- [How to view and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -238,13 +238,13 @@ Enable and on-board this data to Azure Sentinel or a third-party SIEM based on y
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Platform Activity logs](../azure-monitor/platform/activity-log.md)
+- [Platform Activity logs](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -429,7 +429,7 @@ To ensure customer data in Azure remains secure, Microsoft has implemented and m
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources, such as Load Balancers used for important production workloads.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

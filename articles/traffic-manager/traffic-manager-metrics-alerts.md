@@ -56,8 +56,8 @@ This metric can be shown either as an aggregate value representing the status of
 You can consume these metrics through [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)’s portal, [REST API](/rest/api/monitor/), [Azure CLI](/cli/azure/monitor), and [Azure PowerShell](/powershell/module/az.applicationinsights), or through the metrics section of Traffic Manager’s portal experience.
 
 ## Alerts on Traffic Manager metrics
-In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, see [Azure Monitor alerts documentation](../azure-monitor/platform/alerts-metric.md).
+In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, see [Azure Monitor alerts documentation](../azure-monitor/alerts/alerts-metric.md).
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)
-- Learn how to [create a chart using Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)
+- Learn how to [create a chart using Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md#create-your-first-metric-chart)

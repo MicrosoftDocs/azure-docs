@@ -34,7 +34,7 @@ You can also visualize the incidents synced against the affected computers in Se
 
 Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them: as interconnected systems that deliver critical services. 
 
-Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../insights/service-map.md).
+Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../vm/service-map.md).
 
 If you're using Service Map, you can view the service desk items created in IT Service Management (ITSM) solutions, as shown in this example:
 

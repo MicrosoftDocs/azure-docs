@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 
@@ -139,7 +139,7 @@ Because the cluster is a brand new cluster, the report doesn't show any activiti
 
 ## Configuring performance counters
 
-Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## Cluster auditing
 

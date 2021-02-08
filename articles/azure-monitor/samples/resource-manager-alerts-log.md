@@ -15,11 +15,11 @@ This article includes samples of [Azure Resource Manager templates](../../azure-
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 ## Number of results template (up to version 2018-04-16)
-The following sample creates a [number of results alert rule](../platform/alerts-unified-log.md#count-of-the-results-table-rows).
+The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#count-of-the-results-table-rows).
 
 ### Notes
 
-- This sample includes a [webhook payload](../platform/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
+- This sample includes a [webhook payload](../alerts/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
 
 ### Template file
 
@@ -108,7 +108,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 ```
 
 ## Metric measurement template (up to version 2018-04-16)
-The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
+The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
 
 ### Template file
 

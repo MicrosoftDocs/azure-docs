@@ -82,7 +82,7 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 ### [Portal](#tab/portal)
 
-Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.
+Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and where its data will be collected.
 
 1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**.
 1. Browse or search for a solution. You can also browse solutions from [this search link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
@@ -140,7 +140,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 ### Install a solution with the Azure CLI
 
-When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.  With the Azure CLI, you manage workspaces by using the [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) reference commands.  Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
+When you install a solution, you must select a [Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and where its data will be collected.  With the Azure CLI, you manage workspaces by using the [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) reference commands.  Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
 
 Use the [az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) to install a monitoring solution.  Parameters in square brackets are optional.
 
@@ -204,7 +204,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 ### Install a solution with Azure PowerShell
 
 When you install a solution, you must select a
-[Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and
+[Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and
 where its data will be collected. With Azure PowerShell, you manage workspaces by using the cmdlets
 in the [Az.MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell module. Follow
 the process described in
@@ -234,7 +234,7 @@ New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResource
 
 ## Log Analytics workspace and Automation account
 
-All monitoring solutions require a [Log Analytics workspace](../platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All monitoring solutions require a [Log Analytics workspace](../logs/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.

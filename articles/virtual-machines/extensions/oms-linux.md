@@ -32,7 +32,7 @@ Azure Monitor Logs provides monitoring, alerting, and alert remediation capabili
 
 ### Operating system
 
-For details about the supported Linux distributions, refer to the [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) article.
+For details about the supported Linux distributions, refer to the [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
@@ -71,7 +71,7 @@ The Log Analytics Agent extension for Linux requires that the target virtual mac
 
 ## Extension schema
 
-The following JSON shows the schema for the Log Analytics Agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the Log Analytics Agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
 ```json
 {

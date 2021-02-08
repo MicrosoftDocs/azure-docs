@@ -6,7 +6,7 @@ ms.date: 06/01/2020
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/platform-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
+This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/essentials/platform-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
 
 * Audit registry authentication events to ensure security and compliance 
 
@@ -39,15 +39,15 @@ For operations, log data includes:
   * Success or failure status
   * Start and end time stamps
 
-In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/platform-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
+In addition to resource logs, Azure provides an [activity log](../azure-monitor/essentials/platform-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
 
 ## Enable collection of resource logs
 
-Collection of resource logs for a container registry isn't enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
+Collection of resource logs for a container registry isn't enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
 For example, to view logs and metrics for a container registry in near real-time in Azure Monitor, collect the resource logs in a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
 
-1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
+1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/logs/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
 1. In the portal, select the registry, and select **Monitoring > Diagnostic settings > Add diagnostic setting**.
 1. Enter a name for the setting, and select **Send to Log Analytics**.
 1. Select the workspace for the registry diagnostic logs.
@@ -141,4 +141,4 @@ You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/
 ## Next steps
 
 * Learn more about using [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md).
-* See [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md) to learn about platform logs that are available at different layers of Azure.
+* See [Overview of Azure platform logs](../azure-monitor/essentials/platform-logs-overview.md) to learn about platform logs that are available at different layers of Azure.

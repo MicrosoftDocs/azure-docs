@@ -30,13 +30,13 @@ Use the following information to install and configure the solution.
 
 
 ### Install agents on domain controllers
-You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Azure Monitor. To understand how to connect Windows computers to Azure Monitor, see [Connect Windows computers to Azure Monitor](../platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Azure Monitor, see [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Azure Monitor. To understand how to connect Windows computers to Azure Monitor, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Azure Monitor, see [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 ### Enable non-domain controller
 If you don't want to connect any of your domain controllers directly to Azure Monitor, you can use any other computer in your domain connected to Azure Monitor to collect data for the AD Replication Status solution pack and have it send the data.
 
 1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
-2. [Connect the Windows computer to Azure Monitor](../platform/om-agents.md) or [connect it using your existing Operations Manager environment to Azure Monitor](../platform/om-agents.md), if it is not already connected.
+2. [Connect the Windows computer to Azure Monitor](../agents/om-agents.md) or [connect it using your existing Operations Manager environment to Azure Monitor](../agents/om-agents.md), if it is not already connected.
 3. On that computer, set the following registry key:<br>Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Value: **IsTarget**<br>Value Data: **true**
 
    > [!NOTE]
@@ -146,7 +146,7 @@ A: Normal user permissions to Active Directory are sufficient.
 ## Troubleshoot data collection problems
 In order to collect data, the AD Replication Status solution pack requires at least one domain controller to be connected to your Log Analytics workspace. Until you connect a domain controller, a message appears indicating that **data is still being collected**.
 
-If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Azure Monitor](../platform/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Azure Monitor](../platform/om-agents.md).
+If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Azure Monitor](../agents/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 If you don't want to connect any of your domain controllers directly to Azure Monitor or to System Center Operations Manager, see [Enable non-domain controller](#enable-non-domain-controller).
 

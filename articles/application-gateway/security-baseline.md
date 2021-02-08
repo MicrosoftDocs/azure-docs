@@ -186,9 +186,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Application Gateway deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -214,7 +214,7 @@ In addition to Activity Logs, you can configure diagnostic settings for your Azu
 
 Azure Application Gateway also offers built-in integration with Azure Application Insights. Application Insights collects log, performance, and error data. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your web apps are being used. You may enable continuous export to export telemetry from Application Insights into a centralized location to keep the data for longer than the standard retention period.
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure Application Gateway](./application-gateway-diagnostics.md)
 
@@ -234,7 +234,7 @@ In addition to Activity Logs, you can configure diagnostic settings for your Azu
 
 Azure Application Gateway also offers built-in integration with Azure Application Insights. Application Insights collects log, performance, and error data. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your web apps are being used. You may enable continuous export to export telemetry from Application Insights into a centralized location to keep the data for longer than the standard retention period.
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure Application Gateway](./application-gateway-diagnostics.md)
 
@@ -272,7 +272,7 @@ Use Azure Monitor for Networks for a comprehensive view of health and metrics fo
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure Application Gateway](./application-gateway-diagnostics.md)
 
@@ -292,7 +292,7 @@ Use Azure Monitor for Networks for a comprehensive view of health and metrics fo
 
 * [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure Application Gateway](./application-gateway-diagnostics.md)
 
@@ -589,7 +589,7 @@ Microsoft manages the underlying infrastructure for Azure Application Gateway an
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Application Gateway instances as well as other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

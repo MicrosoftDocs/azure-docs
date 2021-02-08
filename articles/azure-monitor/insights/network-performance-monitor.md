@@ -72,7 +72,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../agents/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 ### Where to install the agents 
 
@@ -268,7 +268,7 @@ All data that is exposed graphically through the Network Performance Monitor das
 
 Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../platform/alerts-overview.md).
 
-This means that all notifications are managed using [action groups](../platform/action-groups.md).  
+This means that all notifications are managed using [action groups](../alerts/action-groups.md).  
 
 If you are an NPM user creating an alert via Log Analytics: 
 1. You will see a link that will redirect you to Azure portal. Click it to access the portal.
@@ -278,8 +278,8 @@ If you are an NPM user creating an alert via Log Analytics:
 
 If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
-2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email ID is added to that action group.
-3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 

@@ -169,7 +169,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -183,7 +183,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to collect and analyze log data for Azure Cognitive Search](./search-monitor-logs.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -532,7 +532,7 @@ Microsoft manages the underlying infrastructure for Cognitive Search and has imp
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Cognitive Search and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to create alerts for Cognitive Search activities](./search-monitor-logs.md)
 

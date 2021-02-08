@@ -59,7 +59,7 @@ The following areas of Application Insights can be helpful when evaluating the b
 | ---- | ----------- |
 | **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues by viewing resource utilization and throughput per **Cloud role instances**. This performance data can be useful for debugging scenarios where functions are bogging down your underlying resources. |
-| **[Metrics](../azure-monitor/platform/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
+| **[Metrics](../azure-monitor/essentials/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
 | **[Live Metrics](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real time. |
 
 ## Query telemetry data

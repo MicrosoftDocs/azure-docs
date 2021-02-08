@@ -23,7 +23,7 @@ The metrics are organized by resource providers and resource type. For a list of
 
 You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
 1. Use the [metrics REST API](/rest/api/monitor/metrics/list)
-2. Use [diagnostics settings](diagnostic-settings.md) to route platform metrics to 
+2. Use [diagnostics settings](../essentials/diagnostic-settings.md) to route platform metrics to 
     - Azure Storage
     - Azure Monitor Logs (and thus Log Analytics)
     - Event hubs, which is how you get them to non-Microsoft systems 
@@ -42,9 +42,9 @@ Using diagnostic settings is the easiest way to route the metrics, but there are
 > **Host OS metrics ARE available and listed below.** They are not the same. The Host OS metrics relate to the Hyper-V session hosting your guest OS session. 
 
 > [!TIP]
-> Best practice is to use and configure the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest OS metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest OS metrics like platform metrics. Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on those metrics in combination with non-metric data. 
+> Best practice is to use and configure the [Azure Diagnostics extension](../essentials/diagnostics-extension-overview.md) to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest OS metrics through the [custom metrics](../essentials/metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest OS metrics like platform metrics. Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on those metrics in combination with non-metric data. 
 
-For important additional information, see [Monitoring Agents Overview](agents-overview.md).
+For important additional information, see [Monitoring Agents Overview](../agents/agents-overview.md).
 
 ## Table formatting
 
@@ -3225,4 +3225,4 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 - [Read about metrics in Azure Monitor](data-platform.md)
 - [Create alerts on metrics](alerts-overview.md)
-- [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
+- [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)

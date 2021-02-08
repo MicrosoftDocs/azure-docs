@@ -20,9 +20,9 @@ If the Azure Monitor configuration workbook isn't working, you can use these res
 
 - To manually enable diagnostics or access the Log Analytics workspace, see [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 - To install the Log Analytics extension on a host manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
-- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
-- To add or remove performance counters, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
-- To configure events for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/platform/data-sources-windows-events.md).
+- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- To add or remove performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
+- To configure events for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/agents/data-sources-windows-events.md).
 
 Alternatively, the problem could be caused by either a lack of resources or not having the required permissions.
 
@@ -36,7 +36,7 @@ If your data isn't displaying properly, something may have happened during the A
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. 
 
-If you don't see any setup errors and still don't see the data you expect, you may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15 minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+If you don't see any setup errors and still don't see the data you expect, you may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15 minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 Finally, if you're not missing any information but your data still doesn't appear, there may be an issue in the query or the data sources. You may need to contact Support to resolve the problem, if that's the case.
 
@@ -44,7 +44,7 @@ Finally, if you're not missing any information but your data still doesn't appea
 
 Azure Monitor for Windows Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
 
-Customized templates won't update when the product group updates the original template. This is by design in the workbooks tool, you will need to save a copy of the updated template and re-build your customizations to adopt updates. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+Customized templates won't update when the product group updates the original template. This is by design in the workbooks tool, you will need to save a copy of the updated template and re-build your customizations to adopt updates. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualizations/workbooks-overview.md).
 
 ## I can't interpret the data
 

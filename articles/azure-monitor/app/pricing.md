@@ -102,7 +102,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Note that this query can be used in an [Azure Log Alert](../platform/alerts-unified-log.md) to set up alerting on data volumes.  
+Note that this query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
 
 To learn more about your telemetry data changes, we can get the count of events by type using the query:
 
@@ -220,7 +220,7 @@ To [change the daily cap via Azure Resource Manager](./powershell.md), the prope
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../platform/alerts-activity-log.md#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../alerts/alerts-activity-log.md#create-with-the-azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 

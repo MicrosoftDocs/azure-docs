@@ -29,7 +29,7 @@ See the following article to learn about configuring time synchronization for Az
 ### 2.2: Configure central security log management
 **Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plane-level. Using Azure activity log data, you can determine "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
+For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Azure Security Center monitoring:** Currently not available
 
@@ -38,7 +38,7 @@ For more information, see [Create diagnostic settings to send platform logs and 
 ### 2.3: Enable audit logging for Azure resources
 **Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plane-level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
+For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Azure Security Center monitoring:** Currently not available
 
@@ -49,7 +49,7 @@ For more information, see [Create diagnostic settings to send platform logs and 
 
 For more information, see the following articles: 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
 **Azure Security Center monitoring:** Yes
@@ -70,8 +70,8 @@ For more information, see the following article: [How to set log retention param
 
 For more information, see the following articles:
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/diagnostic-settings.md)
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/diagnostic-settings.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -105,7 +105,7 @@ For more information, see the following article: [How to alert on log analytics 
 
 - [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 - [How to run custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-- [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
+- [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring:** Yes
 
@@ -348,7 +348,7 @@ By default, all lab OS and data disks are encrypted with a platform managed key.
 ### 4.9: Log and alert on changes to critical Azure resources
 **Guidance:** Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to DevTest Labs instances and other critical or related resources.
 
-- [How to create alerts for Azure activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 - [How to create alerts for DevTest Labs activity log events](create-alerts.md)
 
 **Azure Security Center monitoring:** Not applicable

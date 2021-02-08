@@ -132,7 +132,7 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 
 `"kind": "Metrics"`
 
-The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {

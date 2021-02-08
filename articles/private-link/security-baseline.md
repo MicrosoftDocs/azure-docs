@@ -26,9 +26,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -48,7 +48,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Logging and monitoring for Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -64,9 +64,9 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 **Guidance**: Enable Azure Monitor activity logs, which log operations taken on Private Link resources, such as, who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Logging and Monitoring for Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -191,7 +191,7 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -317,7 +317,7 @@ Make your service private for consumption from your other Virtual Networks (Azur
 
 - [Diagnostic logging for a network security group](private-link-overview.md#logging-and-monitoring)
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

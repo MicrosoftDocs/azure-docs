@@ -433,7 +433,7 @@ As shown, there are three different Azure Monitor exporters that support OpenCen
 Each exporter accepts the same arguments for configuration, passed through the constructors. You can see details about each one here:
 
 - `connection_string`: The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.
-- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../platform/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
+- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
 - `export_interval`: Used to specify the frequency in seconds of exporting.
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
@@ -453,7 +453,7 @@ In the list under **Active**:
 - For telemetry sent with the Azure Monitor metrics exporter, sent metrics appear under `customMetrics`.
 - For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
-For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../platform/data-platform-logs.md).
+For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 ## Learn more about OpenCensus for Python
 
@@ -474,5 +474,5 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 * [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 

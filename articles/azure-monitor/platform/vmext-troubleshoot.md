@@ -33,7 +33,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
    * If the log does not exist, the VM agent is not installed.
-   * [Install the Azure VM Agent](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Install the Azure VM Agent](../vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 3. Ensure the virtual machine can run PowerShell scripts
 4. Ensure permissions on C:\Windows\temp haven’t been changed
@@ -56,4 +56,4 @@ For more information, see [troubleshooting Linux extensions](../../virtual-machi
 
 ## Next steps
 
-For additional troubleshooting guidance related to the Log Analytics agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](agent-linux-troubleshoot.md).
+For additional troubleshooting guidance related to the Log Analytics agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](../agents/agent-linux-troubleshoot.md).

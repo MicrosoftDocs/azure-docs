@@ -144,7 +144,7 @@ Support for performance counters in ASP.NET Core is limited:
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
-Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../alerts/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
 

@@ -8,7 +8,7 @@ ms.custom: seodec18
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value.
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/essentials/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value.
 
 ## Batch metrics
 
@@ -63,7 +63,7 @@ To configure a metric alert in the Azure portal:
 5. In the **Alert rule details** section, enter an **Alert rule name** and **Description** and select the **Severity**
 6. Select **Create alert rule**.
 
-For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 You can also configure a near real-time alert using the Azure Monitor [REST API](/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
 
@@ -100,7 +100,7 @@ To create a new diagnostic setting in the Azure portal, follow the steps below.
 6. Select **ServiceLog**, **AllMetrics**, or both.
 7. Select **Save** to create the diagnostic setting.
 
-You can also [enable collection through Azure Monitor in the Azure portal](../azure-monitor/platform/diagnostic-settings.md) to configure diagnostic settings, by using a [Resource Manager template](../azure-monitor/samples/resource-manager-diagnostic-settings.md), or with Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md).
+You can also [enable collection through Azure Monitor in the Azure portal](../azure-monitor/essentials/diagnostic-settings.md) to configure diagnostic settings, by using a [Resource Manager template](../azure-monitor/essentials/resource-manager-diagnostic-settings.md), or with Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### Access diagnostics logs in storage
 
@@ -130,7 +130,7 @@ Below is an example of a `PoolResizeCompleteEvent` entry in a `PT1H.json` log fi
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). To access the logs in your storage account programmatically, use the Storage APIs.
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure resource logs to storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). To access the logs in your storage account programmatically, use the Storage APIs.
 
 ### Service log events
 

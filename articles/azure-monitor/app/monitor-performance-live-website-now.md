@@ -317,7 +317,7 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage
+* [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../log-query/log-query-overview.md) for more advanced queries
 

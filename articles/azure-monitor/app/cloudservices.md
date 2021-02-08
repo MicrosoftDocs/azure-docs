@@ -8,7 +8,7 @@ ms.date: 09/05/2018
 ---
 
 # Application Insights for Azure cloud services
-[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../platform/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../essentials/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
 
@@ -28,7 +28,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../platform/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
+Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](./monitor-web-app-availability.md) and [add code to your webpages](./javascript.md).
 
@@ -91,7 +91,7 @@ If you have decided to use a separate Application Insights resource for each bui
 
 This has the effect of inserting your Application Insights instrumentation keys into the files named *ServiceConfiguration.\*.cscfg*. Here is the [Sample code](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-If you want to vary the level of diagnostics information that's sent to Application Insights, you can do so [by editing the *.cscfg* files directly](../platform/diagnostics-extension-to-application-insights.md).
+If you want to vary the level of diagnostics information that's sent to Application Insights, you can do so [by editing the *.cscfg* files directly](../essentials/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Install the SDK in each project
 With this option, you can add custom business telemetry to any role. The option provides a closer analysis of how your app is used and performs.
@@ -163,7 +163,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Open the Application Insights resources that you created.
 
-   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../platform/metrics-charts.md).
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../essentials/metrics-charts.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -176,13 +176,13 @@ If there is no data, do the following:
 For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
-You can find the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) information in Application Insights in the following locations:
+You can find the [Azure Diagnostics](../essentials/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
 * Performance counters are displayed as custom metrics. 
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../platform/metrics-charts.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../essentials/metrics-charts.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
@@ -270,7 +270,7 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Configure sending Azure Diagnostics to Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Configure sending Azure Diagnostics to Application Insights](../essentials/diagnostics-extension-to-application-insights.md)
 * [Automatically create Application Insights resources](./powershell.md)
 * [Automate Azure Diagnostics](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

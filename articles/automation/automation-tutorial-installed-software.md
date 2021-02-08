@@ -74,7 +74,7 @@ After the feature is enabled, information about installed software and changes o
 
 To enable non-Azure machines for the feature:
 
-1. Install the [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) or [Log Analytics agent for Linux](automation-linux-hrw-install.md), depending on your operating system. 
+1. Install the [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) or [Log Analytics agent for Linux](automation-linux-hrw-install.md), depending on your operating system. 
 
 2. Navigate to your Automation account and go to **Inventory** or **Change tracking** under **Configuration Management**. 
 

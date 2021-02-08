@@ -36,9 +36,9 @@ You cannot associate a virtual network, subnet, or network security group direct
 
 - [How to enable auditing in Azure Sentinel](resources.md)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -340,7 +340,7 @@ Additionally, each Sentinel workbook is an Azure resource, and you can assign ro
 
 **Guidance**: Azure Sentinel and Azure Monitor Log Analytics workspaces currently use Microsoft-managed keys for encrypting any contained data at rest. The ability to bring your own key is not yet fully supported for Sentinel, but will be in the near future.
 
-- [Azure Monitor customer-managed key overview](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Azure Monitor customer-managed key overview](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Understand customer-managed keys in Azure Sentinel (Preview)](customer-managed-keys.md)
 

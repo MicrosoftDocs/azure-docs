@@ -10,7 +10,7 @@ ms.date: 12/03/2020
 ---
 
 # Resource Manager template samples for action groups in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create [action groups](../platform/action-groups.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create [action groups](../alerts/action-groups.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -117,5 +117,5 @@ The following sample creates an action group.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](resource-manager-samples.md).
-* [Learn more about action groups](../platform/action-groups.md).
+* [Learn more about action groups](../alerts/action-groups.md).
 

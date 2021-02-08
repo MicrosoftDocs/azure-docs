@@ -52,7 +52,7 @@ Availability tests in Application Insights allow you to automatically test your 
 
     ![Edit alert](media/tutorial-alert/edit-alert-001.png)
 
-6. Set failed locations to greater than or equal to 3. Create an [action group](../platform/action-groups.md) to configure who gets notified when your alert threshold is breached.
+6. Set failed locations to greater than or equal to 3. Create an [action group](../alerts/action-groups.md) to configure who gets notified when your alert threshold is breached.
 
     ![Save alert UI](media/tutorial-alert/save-alert-001.png)
 

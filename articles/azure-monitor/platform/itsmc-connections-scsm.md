@@ -38,7 +38,7 @@ Use the following procedure to connect your System Center Service Manager instan
 
 2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
 
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+	![New connection](media/itsmc-connections-scsm/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -58,7 +58,7 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Data Sync Scope** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, Log Analytics creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-![Service manager connection](media/itsmc-connections/service-manager-connection.png)
+![Service manager connection](media/itsmc-connections-scsm/service-manager-connection.png)
 
 **When successfully connected, and synced**:
 
@@ -107,14 +107,14 @@ Use the following procedure to configure the hybrid connection that connects the
 2. Click **Settings** > **Networking**.
 3. Under **Hybrid Connections**, click **Configure your hybrid connection endpoints**.
 
-    ![Hybrid connection networking](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Hybrid connection networking](media/itsmc-connections-scsm/itsmc-hybrid-connection-networking-and-end-points.png)
 4. In the **Hybrid Connections** blade, click **Add hybrid connection**.
 
-    ![Hybrid connection add](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
+    ![Hybrid connection add](media/itsmc-connections-scsm/itsmc-new-hybrid-connection-add.png)
 
 5. In the **Add Hybrid Connections** blade, click **Create new hybrid Connection**.
 
-    ![New Hybrid connection](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
+    ![New Hybrid connection](media/itsmc-connections-scsm/itsmc-create-new-hybrid-connection.png)
 
 6. Type the following values:
 
@@ -125,14 +125,14 @@ Use the following procedure to configure the hybrid connection that connects the
    - **Location**: select the location.
    - **Name**: Specify a name to the servicebus if you are creating it.
 
-     ![Hybrid connection values](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Hybrid connection values](media/itsmc-connections-scsm/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
     Once the Hybrid connection is created, it is displayed under the blade.
 
 7. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
 
-    ![New hybrid connection](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
+    ![New hybrid connection](media/itsmc-connections-scsm/itsmc-new-hybrid-connection-added.png)
 
 ### Configure the listener setup
 
@@ -150,14 +150,14 @@ Use the following procedure to configure the listener setup for the hybrid conne
 
 Your hybrid connection is successfully connected.
 
-![successful hybrid connection](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
+![successful hybrid connection](media/itsmc-connections-scsm/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 > 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in Azure.
 
 The following sample image shows the details of a successful connection:
 
-![Hybrid connection test](media/itsmc-connections/itsmc-hybrid-connection-test.png)
+![Hybrid connection test](media/itsmc-connections-scsm/itsmc-hybrid-connection-test.png)
 
 ## Next steps
 

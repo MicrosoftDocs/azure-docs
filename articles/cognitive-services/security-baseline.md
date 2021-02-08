@@ -173,9 +173,9 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use the Azure Activity log to monitor network resource configurations and detect changes for network resources related to your Azure Cognitive Services container. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -197,7 +197,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cognitive Services container at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure Cache for Redis instances.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -209,7 +209,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 Additionally, Azure Cognitive Services sends diagnostics events that can be collected and used for the purposes of analysis, alerting and reporting. You can configure diagnostics settings for a Cognitive Services container via the Azure portal. You can send one or more diagnostics events to a Storage Account, Event Hub, or a Log Analytics workspace.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [Using diagnostic settings to for Azure Cognitive Services](./diagnostic-logging.md)
 
@@ -239,9 +239,9 @@ Additionally, Azure Cognitive Services sends diagnostics events that can be coll
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Azure Cognitive Services.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-* [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
+* [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -255,7 +255,7 @@ Configure diagnostic settings for your Cognitive Services container and send log
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+* [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -568,7 +568,7 @@ You may also use Azure Key Vault to store your customer-managed keys. You can ei
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Cognitive Services and other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

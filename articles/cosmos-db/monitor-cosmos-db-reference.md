@@ -95,7 +95,7 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/resource-logs-schema.md). 
+For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/essentials/resource-logs-schema.md). 
 
 ## Azure Monitor Logs tables
 
@@ -104,4 +104,4 @@ Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these t
 ## See Also
 
 - See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -42,7 +42,7 @@ The underlying data stream that Provisioning sends log viewers is almost identic
 
 ## Azure Monitor workbooks
 
-Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/platform/workbooks-overview.md).
+Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/visualizations/workbooks-overview.md).
 
 Application provisioning comes with a set of pre-built workbooks. You can find them on the Workbooks page. To view the data, you'll need to ensure that all the filters (timeRange, jobID, appName) are populated. You'll also need to make sure you've provisioned an app, otherwise there won't be any data in the logs.
 
@@ -114,6 +114,6 @@ We're taking an open source and community-based approach to application provisio
 
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
 - [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
-- [Create and manage alert groups in the Azure portal](../../azure-monitor/platform/action-groups.md)
+- [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

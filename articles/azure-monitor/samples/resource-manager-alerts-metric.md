@@ -10,14 +10,14 @@ ms.subservice: alerts
 ---
 # Resource Manager template samples for metric alert rules in Azure Monitor
 
-This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../alerts/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
+See [Supported resources for metric alerts in Azure Monitor](../alerts/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../alerts/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -1088,7 +1088,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../platform/metrics-custom-overview.md).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../essentials/metrics-custom-overview.md).
 
 When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
@@ -1319,7 +1319,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Multiple resources

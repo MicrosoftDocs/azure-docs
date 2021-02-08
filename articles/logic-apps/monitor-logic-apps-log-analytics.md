@@ -10,7 +10,7 @@ ms.date: 09/24/2020
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
 
-To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
+To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
 
 To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, [set up Azure Monitor logs](#set-up-resource-logs).
 
@@ -18,7 +18,7 @@ This article shows how to enable Log Analytics on new logic apps and existing lo
 
 ## Prerequisites
 
-Before you start, you need a [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+Before you start, you need a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -82,7 +82,7 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 
 ## Set up Azure Monitor logs
 
-When you store information about runtime events and data in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information.
+When you store information about runtime events and data in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information.
 
 > [!NOTE]
 > After you enable diagnostics settings, diagnostics data might not flow for up to 30 minutes to the logs at the specified destination, 
@@ -176,8 +176,8 @@ After your logic app runs, you can view the data about those runs in your Log An
 
 Along with Azure Monitor logs, you can extend how you use your logic app's diagnostic data with other Azure services, for example:
 
-* [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+* [Archive Azure resource logs to storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
 You can then get real-time monitoring by using telemetry and analytics from other services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
