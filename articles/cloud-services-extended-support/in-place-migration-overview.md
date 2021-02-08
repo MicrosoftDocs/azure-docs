@@ -3,7 +3,7 @@ title: Platform supported migration of Cloud Services (classic) to Azure Resourc
 description: Overview of migration from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: overview
 ms.service: cloud-services-extended-support
-author: tagore
+author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
@@ -12,7 +12,8 @@ ms.custom:
 
 # Platform supported migration of Cloud Services (classic) to Azure Resource Manager
 
-This article provides an overview on the platform-supported migration tool, how to move your Azure Cloud Services (classic) to Azure Cloud Services (extended support). Cloud Services (extended support) is a new Azure Resource Manager (ARM) based deployment model for Azure Cloud Services.
+This article provides an overview on the platform-supported migration tool, how to move your [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-md.md) to [Azure Cloud Services (extended support)](overview.md). Cloud Services (extended support) is a new Azure Resource Manager (ARM) based deployment model for Azure Cloud Services.
+
 The migration tool utilizes the same APIs and has the same experience via Portal, Power Shell and CLI as that for Classic IaaS VM migration. 
 Add Banner: Preview Product: we do not recommend using it to migrate production workload yet. 
 Benefits 
@@ -22,16 +23,16 @@ The platform supported migration provides following key benefits:
 2.	Provides seamless no downtime migration.
 3.	Provides easy & fast migration compared to other migration paths by minimizing manual tasks. 
 
-Learn more about benefits of Cloud Services (extended support) & Azure Resource Manager. 
+Learn more about benefits of [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../../azure-resource-manager/management/overview.md). 
 
 ## Before you begin
-1. Register your subscription for Classic Infrastructure. This can be done via Power Shell or Portal:
+1. Register your subscription for Classic Infrastructure.
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
     ```
 
-2.	Register your subscription for Cloud Services (extended support). This can be done via Power Shell or Portal:
+2.	Register your subscription for Cloud Services (extended support).
 
     ```powershell
     Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
@@ -44,23 +45,23 @@ Learn more about benefits of Cloud Services (extended support) & Azure Resource 
     ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
-ASM supports two different compute products, Azure Virtual Machines (classic) & Azure Cloud Services (classic) or Web/Worker Roles.  The two products differ based on the deployment type that lies within the hosted service (Cloud service). Azure Cloud Services (classic) uses Hosted Service containing deployments with PaaS VMs. Azure Virtual Machines (classic) uses a hosted service containing deployments with IaaS VMs. 
-Due to difference in deployment type, the list of supported scenarios differ from Virtual Machines (classic) . 
+Azure Service Manager supports two different compute products, Azure Virtual Machines (classic) and Azure Cloud Services (classic). The two products differ based on the deployment type that lies within the hosted service (Cloud service). Azure Cloud Services (classic) uses Hosted Service containing deployments with PaaS VMs. Azure Virtual Machines (classic) uses a hosted service containing deployments with IaaS VMs. 
+Due to difference in deployment type, the list of supported scenarios differ from Virtual Machines (classic). 
 
 ## Migration steps for this tool
  
 Customers migrate their cloud service using the same four migration operations that exist today for VM (classic). 
-- Validate Migration - Performs fast validation of migration.
+1. Validate Migration - Performs fast validation of migration.
+2. Prepare Migration – Duplicates resource metadata in ARM. All resources are locks for create/update/delete operations to ensure resource metadata is in sync across RDFE & ARM. All read operations will work using both CS(classic) & CS -ES APIs. I.e. resources are visible on both CS (classic) & CS-ES.  
+3. Abort Migration - Removes resource metadata from ARM. Unlocks all resources for create/update/delete operations
+4. Commit Migration - Removes resource metadata from RDFE. Unlocks the resource for create/update/delete operations. Abort is no longer allowed after commit has been attempted.
+
 
 :::image type="content" source="media/in-place-migration-1.png" alt-text="Image shows diagram of steps associated with migration.":::
 
-- Prepare Migration – Duplicates resource metadata in ARM. All resources are locks for create/update/delete operations to ensure resource metadata is in sync across RDFE & ARM. All read operations will work using both CS(classic) & CS -ES APIs. I.e. resources are visible on both CS (classic) & CS-ES.  
-- Abort Migration - Removes resource metadata from ARM. Unlocks all resources for create/update/delete operations
-- Commit Migration - Removes resource metadata from RDFE. Unlocks the resource for create/update/delete operations. Abort is no longer allowed after commit has been attempted.
+If Validate or Prepare failed, use the error message to understand the issue and identify the unsupported scenario. Use the workaround mentioned for this unsupported scenario to fix the issue. Retry migration after the fix. Prepare, Abort & Commit are idempotent and therefore, if failed, retry should fix the issue.
 
-If Validate or Prepare failed, please use the error message to understand the issue and identify the unsupported scenario. Use the workaround mentioned for this unsupported scenario to fix the issue. Retry migration after the fix. Prepare, Abort & Commit are idempotent and therefore, if failed, retry should fix the issue.
-
-Since the tool is same for VM (classic), please refer VM (classic) migration documentation for more details on Migration flow & steps, how to plan for migration, how to migrate using Power shell or CLI & resource translations from classic to ARM representation. 
+Since the tool is same for Virtual Machine (classic), please refer Virtual Machine (classic) migration documentation for more details on Migration flow & steps, how to plan for migration, how to migrate using Power shell or CLI & resource translations from classic to ARM representation. 
 
 ## Supported resources & features associated with Cloud Services (classic)
 - 	Storage Accounts
@@ -88,7 +89,7 @@ Since the tool is same for VM (classic), please refer VM (classic) migration doc
 - 	Hypernet VNet (Will be available before Public Preview)
 
 ## Supported configurations / migration scenarios
-These are top scenarios involving combinations of resources, features & cloud services. List is not exhaustive.
+These are top scenarios involving combinations of resources, features and cloud services. This list is not exhaustive.
 
 | Service |	Configuration | Comments |
 |---|---|---|
@@ -102,7 +103,7 @@ These are top scenarios involving combinations of resources, features & cloud se
 | Virtual Network | Migration of deployment with roles in different subnet | | 
 	
 
-Unsupported resources & features associated with Cloud Services (classic)
+## Unsupported resources & features associated with Cloud Services (classic)
 | Resource | Next steps / work around | 
 |---|---|
 | Auto Scale Rules | Migration goes through but rules are dropped. Recreate the rules after migration on CS-ES | 
@@ -141,40 +142,14 @@ Cloud service deployments using legacy role sizes (such as Small or ExtraLarge).
 ## Post Migration Changes
 After the migration is completed, the Cloud Services (classic) deployment gets converted to a Cloud Service (extended support) deployment. Therefore, you must start using all the APIs and experience for Cloud Services (extended support) to manage your deployment. Please refer to Cloud Services (extended support) documentation for more details. 
 
-Post migration few changes are needed. 
-- 	Changes to deployment files
-Minor changes are made to customer’s Csdef & Cscfg to make the deployment files conform to the ARM & CS-ES requirements. Post migration please retrieve your new deployment files or update the existing files. This will be needed for update/delete operations. 
 
-1.	Virtual Network uses full ARM resource ID instead of just the resource name in the netcfg section of the .cscfg. Eg. /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name. 
-
-Note: For VNets belonging to the same resource group as the cloud service, you can choose to 	update the .cscfg back to using just the VNet name. 
-
-2.	Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names needs to be changed to their new names in Csdef, Cscfg. As part of migration, this change is automatically done. 
-
-Customers can use the Get API to get the latest copy of their deployment files.
-
-    1. 	Get the template using Portal, Powershell, CLI, Rest API
-    2. 	Get the Csdef using Portal, Powershell, CLI, Rest API
-    3. 	Get the Cscfg using Portal, Powershell, CLI, Rest API
-    
-- 	Changes to customer’s Automation, CI/CD pipeline, custom scripts, custom dashboards, custom tooling, etc. 
-Customers need to update their tooling and automation to start using the new APIs / commands to manage their deployment. Customer can easily adopt new features and capabilities of ARM/CS-ES as part of this change.
-
-- 	Changes to Resource & Resource Group names post migration 
-a.	As part of migration, the names of few resources like the Cloud Service, public IP, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. “Translation of Resource & its name after migration” section talks about these changes. Learn More
-
-## Relevant Documents:
+## Next steps
 -	How to migrate video:   In-Place-Migration.mp4
 -	(Internal Only) Support Trainings
 - Session 1: Go to your video now 
 - Session 2: Go to your video now 
-
 -	Migration Flow & Steps. Cloud Services (classic) follow the same migration flow as for VM (classic)
 -	How to migrate using Powershell. Cloud Services use the same process and commands as that for VM (classic). 
 -	Migrate Storage Accounts & Unassociated resources
 -	Resource Translation from classic to ARM representation
 -	How to plan for Migration
--	(Internal Only) Internal Wiki & TSGs
-
-
-## Next steps
