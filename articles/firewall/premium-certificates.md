@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/08/2021
 ms.author: victorh
 ---
 
@@ -60,12 +60,6 @@ Ensure your CA certificate complies with the following requirements:
 
 - The Path Length must be greater than or equal to one.
 
-## Configure a certificate in your policy
-
-To configure a CA certificate in your Firewall Premium policy, select your policy and then select **TLS inspection (preview)**. Select **Enabled** on the **TLS inspection** page. Then select your CA certificate in Azure Key Vault, as shown in the following figure:
-
-:::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Azure Firewall Premium overview diagram":::
- 
 ## Azure Key Vault
 
 [Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
@@ -79,6 +73,16 @@ To configure your key vault:
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
 
 You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
+
+## Configure a certificate in your policy
+
+To configure a CA certificate in your Firewall Premium policy, select your policy and then select **TLS inspection (preview)**. Select **Enabled** on the **TLS inspection** page. Then select your CA certificate in Azure Key Vault, as shown in the following figure:
+
+:::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Azure Firewall Premium overview diagram":::
+ 
+> [!IMPORTANT]
+> To see and configure a certificate from the Azure portal, you must add your Azure user account to the Key Vault Access policy. Give your user account **Get** and **List** under **Secret Permissions**.
+   :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Firewall Premium overview diagram":::
 
 
 ## Troubleshooting
