@@ -17,22 +17,22 @@ This article describes the process of creating an Azure Arc Data Controller and 
 
 Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer-managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services such as SQL Managed Instance (Preview) on that data controller.
 
-The procedure to create Data Controller and then deploy an SQL Managed Instance involves use PowerShell and `kubectl` - a native tool that provides command-line access to the Kubernetes cluster on the device.
+The procedure to create Data Controller and then deploy an SQL Managed Instance involves the use of PowerShell and `kubectl` - a native tool that provides command-line access to the Kubernetes cluster on the device.
 
 
 ## Prerequisites
 
 Before you begin, make sure that:
 
-1. You've access to an Azure Stack Edge Pro device and you've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+1. You've access to an Azure Stack Edge Pro device and you've activated your device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 1. You've enabled the compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)
+1. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
 1. You've access to a client that will connect to your device. 
-    1. This article uses a Windows client system running PowerShell 5.0 or later to access the device. You can use any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. 
-    1. Install `kubectl` on your client. To identify the client version to install:
+    1. This article uses a Windows client system running PowerShell 5.0 or later to access the device. You can use any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). 
+    1. Install `kubectl` on your client. For the client version:
         1. Identify the Kubernetes server version installed on the device. In the local UI of the device, go to **Software updates** page. Note the **Kubernetes server version** in this page.
         1. Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew).
     
@@ -47,7 +47,7 @@ Before you begin, make sure that:
 
     ![Compute page in local UI 2](./media/azure-stack-edge-gpu-deploy-arc-data-controller/compute-network-1.png)
 
-1. Make sure that you provide four additional Kubernetes external service IPs (in addition to the IPs you have already configured for other external services or containers). The data controller will use three services IPs and the fourth IP is used when you create a SQL Managed Instance. You will need one IP for each additional Data Service you will deploy. 
+1. Make sure that you provide three additional Kubernetes external service IPs (in addition to the IPs you have already configured for other external services or containers). The data controller will use two service IPs and the third IP is used when you create a SQL Managed Instance. You will need one IP for each additional Data Service you will deploy. 
 
     ![Compute page in local UI 3](./media/azure-stack-edge-gpu-deploy-arc-data-controller/compute-network-2.png)
 
@@ -112,7 +112,7 @@ users:
 
 ### Create Data Controller
 
-The data controller is a collection of pods that are deployed to your Kubernetes cluster to provide an API, the controller service, the bootstrapper, and the monitoring databases and dashboards. Create a data controller that runs on the Kubernetes cluster that exists on your Azure Stack Edge device in the namespace that you created earlier.   
+The data controller is a collection of pods that are deployed to your Kubernetes cluster to provide an API, the controller service, the bootstrapper, and the monitoring databases and dashboards. Follow these steps to create a data controller on the Kubernetes cluster that exists on your Azure Stack Edge device in the namespace that you created earlier.   
 
 1. Gather the following information that you'll need to create a data controller:
 
