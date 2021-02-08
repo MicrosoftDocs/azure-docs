@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: mnayak
 ---
 
@@ -31,9 +31,9 @@ Your CDN providers need to be part of this program. If your CDN provider is not 
 
 You need to configure Routing preference for your resources and set the Routing preference type to Internet. You can configure Routing preference while creating a public IP address, and then associate the public IP to resources such as Virtual machines, internet facing load balancers and more. [Learn how to configure routing preference for a public IP address using the Azure portal](routing-preference-portal.md)
 
-You can also also enable routing preference for your storage account and publish a second end point, that needs to be used by CDN provider to fetch data from storage origin. For example, publishing an Internet route-specific endpoint for the storage account *StorageAccountA* will publish the second end point for your storage services as shown below:
+You can also also enable routing preference for your storage account and publish a second endpoint, that needs to be used by CDN provider to fetch data from storage origin. For example, publishing an Internet route-specific endpoint for the storage account *StorageAccountA* will publish the second end point for your storage services as shown below:
 
-![Routing Preference Unmetered](media/routing-preference-unmetered/rp-storage-endpoints.png)
+![Routing Preference for storage accounts](media/routing-preference-unmetered/rp-storage-endpoints.png)
 
 
 ## Next steps

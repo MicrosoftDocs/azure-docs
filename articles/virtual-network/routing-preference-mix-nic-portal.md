@@ -14,7 +14,7 @@ ms.date: 02/22/2021
 ms.author: mnayak
 
 ---
-# Configure routing preference for a public IP address using the Azure portal
+# Configure both routing preference choices for a virtual machine
 
 This article shows you how to configure both [routing preference](./routing-preference-overview.md) choices for a virtual machine. This is achieved using two virtual network interfaces, one network interface with a public IP routed via Microsoft Global Network, and the other one with a public ip address routed via ISP network.
 
@@ -43,7 +43,7 @@ If you do not have a virtual machine with a public ip already created then you c
 
 1. [Attach the network interface created in the previous section to the virtual machine](./virtual-network-network-interface-vm.md).
 2. Now you should see two virtual network interfaces associated with the virtual machine, one nic with a public IP routed via Microsoft premium global network, and other one routed via with ISP network as shown below:
-    ![Associate the Public IP](./media/routing-preference-mix-nic-portal/rp-mixnic.png) 
+    ![Attach a network interface to a VM](./media/routing-preference-mix-nic-portal/rp-mixnic.png) 
 
 ## Next steps
 - Learn more about [public IP with routing preference](routing-preference-overview.md).
