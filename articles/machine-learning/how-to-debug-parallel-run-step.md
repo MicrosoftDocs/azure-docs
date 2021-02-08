@@ -168,15 +168,16 @@ When you need a full understanding of how each node executed the score script, l
     - The total number of items, successfully processed items count, and failed item count.
     - The start time, duration, process time and run method time.
 
-You can also find periodical checking results of the resource usage for each node here:
-- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximate to 10 minutes. Set the value to `0` to stop the monitoring. Each `<ip_address>` folder includes:
+You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this directory:
 
-    - `os/`: The information of all running processes in the node. In one check, it runs an operating system command and save the result to a file. On Linux, the command is 'ps'. On Windows, it is 'tasklist'.
-        - `%Y%m%d%H`: The sub folder has time to hour as its name.
+- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
+
+    - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, use `tasklist`.
+        - `%Y%m%d%H`: The sub folder name is the time to hour.
             - `processes_%M`: The file ends with the minute of the checking time.
-    - node_disk_usage.csv: Detailed disk usage of the node.
-    - node_resource_usage.csv: Resource usage overview of the node.
-    - processes_resource_usage.csv : Resource usage overview of each process.
+    - `node_disk_usage.csv`: Detailed disk usage of the node.
+    - `node_resource_usage.csv`: Resource usage overview of the node.
+    - `processes_resource_usage.csv`: Resource usage overview of each process.
 
 ### How do I log from my user script from a remote context?
 
