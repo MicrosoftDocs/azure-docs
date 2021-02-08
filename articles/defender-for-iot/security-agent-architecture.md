@@ -31,7 +31,7 @@ Security agents support the following features:
 
 - Aggregate raw security events into messages sent through IoT Hub.
 
-- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an Defender for IoT agent](how-to-agent-configuration.md).
+- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure a Defender for IoT agent](how-to-agent-configuration.md).
 
 Defender for IoT Security agents is developed as open-source projects, and are available from GitHub:
 

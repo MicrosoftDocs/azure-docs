@@ -130,7 +130,7 @@ Reset and re-run are independent tasks. After a reset, you will need to run the 
 
 ## Next steps
 
-Reset APIs are used to inform the scope of the next indexer run. For actual processing, you'll need to invoke an on-demand indexer run or allow a scheduled job to complete the work. After the run is finished, the indexer returns to normal processing, whether that is on a schedule or on demand processing.
+Reset APIs are used to inform the scope of the next indexer run. For actual processing, you'll need to invoke an on-demand indexer run or allow a scheduled job to complete the work. After the run is finished, the indexer returns to normal processing, whether that is on a schedule or on-demand processing.
 
 After you reset and re-run indexer jobs, you can monitor status from the search service, or obtain detailed information through diagnostic logging.
 
