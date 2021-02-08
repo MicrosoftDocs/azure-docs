@@ -1,5 +1,5 @@
 ---
-title: Building retail solutions with Azure IoT Central | Microsoft Docs
+title: What are the Azure IoT Central retail solutions | Microsoft Docs
 description: Learn about using Azure IoT Central application templates to build connected logistics, digital distribution center, in-store analytics, condition monitoring, checkout, smart inventory management, and retail solutions.
 author: avneet723
 ms.author: avneets 
@@ -10,7 +10,7 @@ ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Building retail solutions with Azure IoT Central
+# What are the IoT Central retail solutions?
 
 Azure IoT Central is an IoT app platform that reduces the burden and cost associated with developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with Azure IoT Central gives you the opportunity to focus your time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
