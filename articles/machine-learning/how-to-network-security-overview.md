@@ -133,7 +133,7 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 ### Limitations
 - AKS clusters must belong to the same VNet as the workspace and its associated resources. 
 
-## Public access for private workspace
+## Optional: Enable public access
 
 You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
 
