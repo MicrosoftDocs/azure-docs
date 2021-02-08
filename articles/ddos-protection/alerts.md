@@ -37,7 +37,7 @@ With these templates, you will be able to configure alerts for all public IP add
 
 ### Azure Monitor alert rule
 
-This [Azure Monitor alert rule](Aka.ms/DDOSmitigationstatus) will run a simple query to detect when an active DDoS mitigation is occurring. This indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
+This [Azure Monitor alert rule](https://aka.ms/DDOSmitigationstatus) will run a simple query to detect when an active DDoS mitigation is occurring. This indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
