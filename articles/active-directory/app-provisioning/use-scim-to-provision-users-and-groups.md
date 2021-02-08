@@ -25,23 +25,23 @@ The standard user object schema and rest APIs for management defined in SCIM 2.0
 
 To automate provisioning to an application will require building and integrating a SCIM endpoint with the Azure AD SCIM client. Use the following steps to start provisioning users and groups into your application. 
     
-1. [Design your user and group schema](#design-your-user-and-group-schema)
+1. Design your user and group schema
 
    Identify the application's objects and attributes to determine how they map to the user and group schema supported by the AAD SCIM implementation.
 
-1. [Understand the AAD SCIM implementation](#understand-the-aad-scim-implementation)
+1. Understand the AAD SCIM implementation
 
    Understand how the AAD SCIM client is implemented to model your SCIM protocol request handling and responses.
 
-1. [Build a SCIM endpoint](#build-a-scim-endpoint)
+1. Build a SCIM endpoint
 
    An endpoint must be SCIM 2.0-compatible to integrate with the AAD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-1. [Integrate your SCIM endpoint with the AAD SCIM client](#integrate-your-scim-endpoint-with-the-aad-scim-client) 
+1. Integrate your SCIM endpoint with the AAD SCIM client 
 
    If your organization uses a third-party application to implement a profile of SCIM 2.0 that AAD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
 
-1. [Publish your application to the AAD application gallery](#publish-your-application-to-the-aad-application-gallery) 
+1. Publish your application to the AAD application gallery 
 
    Make it easy for customers to discover your application and easily configure provisioning. 
 
