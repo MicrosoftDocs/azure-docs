@@ -1,5 +1,5 @@
 ---
-title: enefits of using Azure NetApp Files with SQL Server Deployment | Microsoft Docs
+title: Benefits of using Azure NetApp Files with SQL Server Deployment | Microsoft Docs
 description: Explains the solution Azure NetApp Files provides for SQL Server deployment. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -29,16 +29,16 @@ Read on to get a detailed cost analysis and then continue onward to see performa
 ## A Detailed Cost Analysis  
 
 By way of TCO example the two sets of graphics are shown below.  The number of and type of managed disks as well as the Azure NetApp Files service level and capacity shown for each scenario below have been selected based on achieving the best price-capacity-performance.  Each graphic is made up of grouped machines (D16 with Azure NetApp Files compared to D64 with managed disk by example) and prices are broken down for each machine type.  
-The first graphic shows the overall cost of the solution using a 1TiB database size, comparing the D16s_v3 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
+The first graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v3 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
  
-This second graphic shows the overall cost using a 50TiB database, otherwise the comparisons are the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
+This second graphic shows the overall cost using a 50-TiB database, otherwise the comparisons are the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
 
  
 ## Performance, and Lots of It
 
 To deliver on the 3X cost reduction assertion requires performance, and lots of it - the largest instances in the general Azure inventory support 80,000 disk IOPS by way of example.   The bar is set, and the gauntlet thrown down – prove a single Azure NetApp Files volume capable of achieving 80,000 database IOPS and instances such as the D16 able consume the same. Why the D16 instance size by the way?  Because the D16, normally capable of 25,600 disk IOPS, is ¼ the size of the D64.  Why the D64?  Because the D64s_v3 is capable of 80,000 disk IOPS and as such presents an excellent upper level comparison point.
 Can the D16s_v3 drive an Azure NetApp Files volume to 80,000 database IOPS?  A resounding yes, and then some.  As proven by the SQL Storage Benchmark 3SB (SSB) benchmarking tool (scan to the end of this blog for information on the testing tool), the D16 instance achieved a workload 125% greater than that achievable to disk from the D64 instance. 
-Using a 1TiB working set size and an 80% read 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all as the D2 and D64 instances themselves were excluded from testing. The former left out as it does not support accelerated networking and the latter because it is the comparison point itself.   See the graph below to understand the limits of  D4s_v3, D8s_v3, D16s_v3 and the D32s_v3 respectively.  Managed disk storage tests are not shown below, comparison values are drawn directly from the Azure Virtual Machine limits table for the D class instance type.
+Using a 1-TiB working set size and an 80% read 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all as the D2 and D64 instances themselves were excluded from testing. The former left out as it does not support accelerated networking and the latter because it is the comparison point itself.   See the graph below to understand the limits of  D4s_v3, D8s_v3, D16s_v3 and the D32s_v3 respectively.  Managed disk storage tests are not shown below, comparison values are drawn directly from the Azure Virtual Machine limits table for the D class instance type.
 The results as shown below, prove that with Azure NetApp Files each of the instances in the D class can meet or exceed the disk performance capabilities of instances two times larger.  Drive down software license costs as much as 4X with Azure NetApp Files.  
 
 * The D4 at 75% CPU utilization matched the disk capabilities of the D16.  
@@ -63,7 +63,7 @@ Having found over the years that the TPC-E benchmarking tool, by design, stresse
 The SSB tool generates a SELECT and UPDATE driven workload issuing said statements directly to the SQL Server database running within the Azure virtual machine.  For this project, the 3SSB workloads ramped from 1 to 100 SQL Server users, with 10 or 12 intermediate points at 15 minutes per user count.  All performance metrics from these runs were from the point of view of perfmon, for the purpose of repeatability SSB ran three times per scenario. 
 
 The tests themselves were run configured as 80% SELECT and 20% UPDATE statement, thus 90% random read.  The database itself – which SSB created – was 1000GB in size, comprised of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
-The SSB benchmark is an open-source tool and as such is freely available at the following github link, 
+The SSB benchmark is an open-source tool and as such is freely available at the following Github link.
 
 ## In Summary  
 
