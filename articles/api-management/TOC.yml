@@ -185,7 +185,7 @@
                     href: dev-portal-widget-contribution-guidelines.md
                   - name: Use community widgets
                     href: dev-portal-use-community-widgets.md
-                  - name: Testing
+                  - name: Testing the developer portal
                     href: dev-portal-testing.md
                   - name: Integrate Application Insights
                     href: dev-portal-integrate-application-insights.md
