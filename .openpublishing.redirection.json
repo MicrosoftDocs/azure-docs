@@ -61690,7 +61690,7 @@
     },
     {
       "source_path": "articles/service-fabric/upgrade-managed-disks.md",
-      "redirect_url": "azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_url": "/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     }
   ]
