@@ -297,12 +297,13 @@ SSH enables secure communication between a container and a client. In order for 
 
     ```Dockerfile
     RUN apk add openssh \
+         && ssh-keygen -A \
          && echo "root:Docker!" | chpasswd 
     ```
 
     This configuration doesn't allow external connections to the container. SSH is available only through `https://<app-name>.scm.azurewebsites.net` and authenticated with the publishing credentials.
 
-- Add [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) to your image repository, and use the [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction to copy the file to the */etc/ssh/* directory. For more information about *sshd_config* files, see [OpenBSD documentation](https://man.openbsd.org/sshd_config).
+- Add [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) to your image repository, and replace `SSH_PORT` with `2222`, which is the port we will define below. Use the [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction to copy the file to the */etc/ssh/* directory. For more information about *sshd_config* files, see [OpenBSD documentation](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
