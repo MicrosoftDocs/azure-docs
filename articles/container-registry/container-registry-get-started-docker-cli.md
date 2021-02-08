@@ -41,7 +41,7 @@ Both commands return `Login Succeeded` once completed.
 
 ## Pull a public Nginx image
 
-First, pull a public Nginx image to your local computer. This example pulls an image from Microsoft Container Image.
+First, pull a public Nginx image to your local computer. This example pulls an image from Microsoft Container Registry.
 
 ```
 docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
@@ -49,7 +49,7 @@ docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 
 ## Run the container locally
 
-Execute athe following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
+Execute the following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
 
 ```
 docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine

@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 ## Push image to registry
 
-To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull] command to pull an existing public image. For this example, pull the `hello-world` image.
+To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull] command to pull an existing public image. For this example, pull the `hello-world` image from Microsoft Container Registry.
 
 ```
 docker pull mcr.microsoft.com/hello-world
