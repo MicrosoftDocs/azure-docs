@@ -70,7 +70,7 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
 Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
-1. Create a new C# sharp class called **SignalRFunctions.cs** in the *SampleFunctionsApp* project.
+1. In the *SampleFunctionsApp* project, create a new C# class called **SignalRFunctions.cs**.
 
 1. Replace the contents of the class file with the following code:
     
