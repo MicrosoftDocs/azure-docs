@@ -121,7 +121,7 @@ part of a **table** in Resource Graph.
 - microsoft.azuredata/sqlinstances
 - microsoft.azuredata/sqlmanagedinstances
 - microsoft.azuredata/sqlserverinstances
-- microsoft.azuredata/sqlServerRegistrations (SQL Server registries)
+- Microsoft.AzureData/sqlServerRegistrations (SQL Server registries)
 - microsoft.azurestack/edgesubscriptions
 - microsoft.azurestack/linkedsubscriptions
 - Microsoft.Azurestack/registrations (Azure Stack Hubs)
