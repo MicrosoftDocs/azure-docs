@@ -19,7 +19,7 @@ In this quickstart, you learn a basic IoT development workflow for securely conn
 ## Prerequisites
 - [Python 3.7 or later](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
     - To check your version, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment for this SDK, use `pip3` to install all libraries. This ensures that the libraries are installed to your Python 3 runtime. 
-    - > [!IMPORTANT]
+        > [!IMPORTANT]
         > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the Python installation folder to the `PATH` environment variable. 
 - Port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot-hub/iot-hub-mqtt-support.md).
 
