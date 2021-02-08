@@ -822,7 +822,7 @@
         "articles/virtual-machine-scale-sets/**/*.md": ["Azure","Virtual Machine Scale Sets"],
         "articles/virtual-machine-scale-sets/**/*.yml": ["Azure","Virtual Machine Scale Sets"],
         "articles/defender-for-iot/**/*.md": ["Azure","Defender for IoT"],
-        "articles/ defender-for-iot/**/*.yml": ["Azure"," Defender for IoT "]
+        "articles/defender-for-iot/**/*.yml": ["Azure"," Defender for IoT "]
       },
       "titleSuffix": {
         "articles/advisor/**/*.md": "Azure Advisor",
