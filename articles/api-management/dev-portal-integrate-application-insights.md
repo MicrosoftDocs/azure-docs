@@ -18,7 +18,7 @@ A popular feature of Azure Monitor is Application Insights. It's an extensible A
 Follow the steps below to plug Application Insights into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> This steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
+> Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
 
 1. Install the **npm** package to add the Azure package:
 
@@ -56,7 +56,7 @@ Follow the steps below to plug Application Insights into your managed or self-ho
     }
     ```
 
-1. Extended the site configuration from the previous step with Application Insights configuration:
+1. Extend the site configuration from the previous step with Application Insights configuration:
 
     ```html
     PUT /contentTypes/document/contentItems/configuration
