@@ -10,7 +10,7 @@ ms.date: 02/08/2021
 ms.author: cherylmc
 
 ---
-# Working with User VPN client profiles
+# Working with User VPN client profile files
 
 The profile files contain information that is necessary to configure a VPN connection. This article helps you obtain and understand the information necessary for a User VPN client profile.
 
