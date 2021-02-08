@@ -39,6 +39,7 @@
       - name: 7 - Add revisions
         href: api-management-get-started-revise-api.md
       - name: 8 - Add multiple versions
+        displayName: Azure CLI, az apim api versionset
         href: api-management-get-started-publish-versions.md
       - name: 9 - Customize developer portal
         href: api-management-howto-developer-portal-customize.md

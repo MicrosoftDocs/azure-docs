@@ -7,7 +7,7 @@ author: johndowns
  
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
 ---
@@ -61,11 +61,11 @@ If you add a version to a non-versioned API, an `Original` version will be autom
 
 Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. A version set contains the display name of the versioned API and the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
 
-Each version of an API is maintained as its own API resource, which is then associated with a version set. A version set might contain APIs with different operations or policies. You might make significant changes between versions.
+Each version of an API is maintained as its own API resource, which is then associated with a version set. A version set might contain APIs with different operations or policies. You might make significant changes between versions in a set.
 
 The Azure portal creates version sets for you. You can modify the name and description for a version set in the Azure portal.
 
-You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), Resource Manager templates, or the Azure Resource Manager API.
+You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### Migrating a non-versioned API to a versioned API
 

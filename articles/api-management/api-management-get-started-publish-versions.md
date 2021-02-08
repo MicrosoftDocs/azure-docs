@@ -6,7 +6,7 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
 
 ---
@@ -84,9 +84,9 @@ For example, to add the version to the **Unlimited** product:
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Add version to product":::
 
-## Using version sets
+## Use version sets
 
-When you create multiple versions, the Azure portal creates a *version set*, which represents a set of versions for a single logical API. Select the name of an API with multiple versions. The Azure portal displays its **Version set**. You can customize the **Name** and **Description**.
+When you create multiple versions, the Azure portal creates a *version set*, which represents a set of versions for a single logical API. Select the name of an API that has multiple versions. The Azure portal displays its **Version set**. You can customize the **Name** and **Description** of a virtual set.
 
 You can interact directly with version sets by using the Azure CLI:
 
@@ -107,6 +107,8 @@ To see details about a version set, run the [az apim api versionset show](/api/v
 az apim api versionset show --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --version-set-id 00000000000000000000000
 ```
+
+For more information about version sets, see [Versions in Azure API Management](api-management-versions.md#how-versions-are-represented).
 
 ## Browse the developer portal to see the version
 
