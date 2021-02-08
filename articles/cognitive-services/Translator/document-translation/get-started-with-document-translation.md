@@ -293,11 +293,12 @@ gradle run
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Text;
-    using Newtonsoft.Json;
+    
 
     class Program
     {
 
+        static readonly string route = "/batches";
 
         private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
 
@@ -307,20 +308,17 @@ gradle run
         
         static async Task Main(string[] args)
         {
-            
-            string route = "/batches";
             using HttpClient client = new HttpClient();
             using HttpRequestMessage request = new HttpRequestMessage();
             {
             
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                // Create the request
+
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 request.Content = content;
                 
-                // Send the request and get response.
                 HttpResponseMessage  response = await client.SendAsync(request);
                 string result = response.Content.ReadAsStringAsync().Result;
                 if (response.IsSuccessStatusCode)
@@ -347,6 +345,7 @@ gradle run
 const axios = require('axios').default;
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let route = '/batches';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 
 let data = JSON.stringify({"inputs": [
@@ -369,7 +368,7 @@ let data = JSON.stringify({"inputs": [
 let config = {
   method: 'post',
   baseURL: endpoint,
-  url: '/batches',
+  url: route,
   headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-Type': 'application/json'
@@ -448,7 +447,7 @@ public class DocumentTranslation {
 
     public void post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,  "{ \"inputs\": [ {  \"source\": { \"sourceUrl\": \"https://YOUR-SOURCE-CONTAINER-URL-WITH-READ-ONLY-SAS\", \"storageSource\": \"AzureBlob\",  \"language\": \"en\", \"filter\":{ \"prefix\": \"Demo_1/\" }  },  \"targets\": [ { \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\": \"AzureBlob\", \"category\": \"general\",  \"language\": \"es\" }  ] } ]}");
+        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
@@ -522,7 +521,7 @@ if err != nil {
 
 If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
 
-## Retrieve job and document status via HTTP GET
+## Retrieve jobs and job status via HTTP GET
 
 ### [C#](#tab/csharp)
 
@@ -539,22 +538,29 @@ class Program
 
     private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    static readonly string route = "/batches";
 
-    string route = "/batches";
+    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
     static async Task Main(string[] args)
     {
 
-        using HttpClient client = new HttpClient();
+        HttpClient client = new HttpClient();
+            using HttpRequestMessage request = new HttpRequestMessage();
+            {
+                request.Method = HttpMethod.Get;
+                request.RequestUri = new Uri(endpoint + route);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "subscriptionKey");
-        HttpResponseMessage response = await client.GetAsync(endpoint + route);
-        var content = await client.GetStringAsync(endpoint + route);
-        Console.WriteLine(response.StatusCode);
-        Console.WriteLine(content);
-    }
 
+                HttpResponseMessage response = await client.SendAsync(request);
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Console.WriteLine($"Status code: {response.StatusCode}");
+                Console.WriteLine($"Response Headers: {response.Headers}");
+                Console.WriteLine();
+                Console.WriteLine(result);
+            }
 }
 ```
 
@@ -589,32 +595,34 @@ axios(config)
 ### [Java](#tab/java)
 
 ```java
-import okhttp3.Headers;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
 
-import java.io.IOException;
+public class GetJobs {
 
-public class DocumentTranslator {
+    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String url = endpoint + "/batches";
+    OkHttpClient client = new OkHttpClient();
+
+    public void get() throws IOException {
+        Request request = new Request.Builder().url(
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+        Response response = client.newCall(request).execute(); 
+            System.out.println(response.body().string());
+        }
 
     public static void main(String[] args) throws IOException {
-        OkHttpExample1 obj = new OkHttpExample1();
-        obj.sendGETSync();
+        try{
+            GetJobs jobs = new GetJobs();
+            jobs.get();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-
-OkHttpClient client = new OkHttpClient().newBuilder()
-  .build();
-String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
-String route = "/batches";
-
-Request request = new Request.Builder()
-  .url(endpoint + route)
-  .method("GET", null)
-  .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-  .build();
-Response response = client.newCall(request).execute();
+}
 
 ```
 
@@ -622,21 +630,22 @@ Response response = client.newCall(request).execute();
 
 ```python
 
-import requests
+import http.client
 
-endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1'
+host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
+parameters = '//translator/text/batch/v1.0-preview.1/batches'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
-path = '/batches'
-url = endpoint + path
-
-payload={}
+conn = http.client.HTTPSConnection(host)
+payload = ''
 headers = {
   'Ocp-Apim-Subscription-Key': subscriptionKey
 }
-
-response = requests.request("GET", url=endpoint, headers=headers, data=payload)
-
-print(response.text)
+conn.request("GET", parameters , payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(res.status)
+print()
+print(data.decode("utf-8"))
 ```
 
 ### [Go](#tab/go)
@@ -679,11 +688,15 @@ func main() {
     fmt.Println(err)
     return
   }
+  fmt.Println(res.StatusCode)
   fmt.Println(string(body))
 }
 ```
 
 ---
+### Response (GET)
+
+If successful, the GET method returns a `200 OK`  response code.
 
 ## Document Translation HTTP requests
 
@@ -717,6 +730,17 @@ Retrieve a list of supported file formats.
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/documents/formats/
 ```
 
+#### Response: GET Document Formats
+
+If successful, these methods return a `200 OK` response code and a JSON object with the following values:
+
+|Property|value|
+|---|---|
+|**format**|The file format.|
+|**fileExtensions**| List of supported file extensions.|
+|**contentType**| List of supported content types.|
+|**versions**|List of supported content type versions.|
+
 ### GET Glossary Formats
 
 #### Brief overview
@@ -729,7 +753,7 @@ Retrieve a list of supported glossary formats.
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats/
 ```
 
-#### Response: GET Document Formats and GET Glossary Formats
+#### Response: GET Glossary Formats
 
 If successful, these methods return a `200 OK` response code and a JSON object with the following values:
 
@@ -739,6 +763,22 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**fileExtensions**| List of supported file extensions.|
 |**contentType**| List of supported content types.|
 |**versions**|List of supported content type versions.|
+
+### POST Job
+
+#### Brief overview
+
+Submit a batch Document Translation request to the translation service.
+
+#### HTTP request
+
+```http
+POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+```
+
+#### Response: POST Job
+
+If successful, these methods return a `202 Accepted`  response code.
 
 ### GET Job Status
 
@@ -764,7 +804,6 @@ Retrieve a list and current status for all jobs in a Document Translation reques
 ```http
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
 ```
-
 
 ### DELETE Job
 
