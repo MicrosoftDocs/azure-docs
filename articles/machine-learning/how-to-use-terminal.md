@@ -14,18 +14,13 @@ ms.date: 02/05/2021
 # As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio
 ---
 
-# Use the terminal (preview) of compute instance in your workspace
+# Use the compute instance terminal in your workspace
 
 Access the terminal of a compute instance in your workspace to:
 
 * Use files from Git and version files. These files are stored in your workspace file system, not restricted to a single compute instance.
 * Install packages on the compute instance.
 * Create additional kernels on the compute instance.
-
-> [!IMPORTANT]
-> Access to the terminal is in preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -38,8 +33,7 @@ To access the terminal:
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
-1. Above the list of files, select the **+** image.
-1. Select **Open terminal (preview)**.
+1. Select the **Open terminal** image.
     :::image type="content" source="media/how-to-use-terminal/open-terminal-window.png" alt-text="Open terminal window":::
 1. If a compute instance is running, the terminal window for that compute instance appears.
 1. If a compute instance is not running, use the **Compute** section on the right to start or create a compute instance.
@@ -60,7 +54,7 @@ In addition to the steps above, you can also access the terminal from:
 
 ## <a name=git></a> Use files from Git and version files
 
-You can access all Git operations from the terminal. All Git files and folders will be stored in your workspace file system. This storage allows you to use the files on any compute instance in your workspace.
+Access all Git operations from the terminal. All Git files and folders will be stored in your workspace file system. This storage allows you to use these files from any compute instance in your workspace.
 
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
@@ -111,3 +105,5 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 ## Manage terminal sessions
 
  Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
+
+Close any unused sessions to preserve your compute instance's resources.
