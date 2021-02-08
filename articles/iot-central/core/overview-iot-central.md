@@ -151,9 +151,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 
 Now that you have an overview of IoT Central, here are some suggested next steps:
 
-- Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
-- Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
-- Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
