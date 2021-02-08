@@ -118,7 +118,6 @@ Select resources as follows:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Search results for resource mover in the Azure portal." :::
 
-
 2. In **Overview**, click **Move across regions**.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Button to add resources to move to another region." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
@@ -207,7 +206,7 @@ Assign manually as follows:
 
 At this stage both the disk encryption set and the key vault status turns to *Commit move pending*.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" alt-text="Page to select prepare for other resources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" alt-text="Page to select prepare for other resources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png)" :::
 
 To commit and finish the move process for encryption resources.
 
@@ -287,17 +286,13 @@ With resources prepared, you can now initiate the move.
 
 1. In **Across regions**, select resources with state *Initiate move pending*. Then click **Initiate move**.
 2. In **Move resources**, click **Initiate move**.
-
-    ![](./media/tutorial-move-region-virtual-machines/)
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move.png" alt-text="Click the initiate move button." :::
-
 3. Track move progress in the notifications bar.
 
     - For VMs, replica VMs are created in the target region. The source VM is shut down, and some downtime occurs (usually minutes).
     - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
     - After moving resources, they're in an *Commit move pending* state.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Page showing resources in a Commit move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Page showing resources in a Commit move pending state." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
 ## Discard or commit?
@@ -327,7 +322,7 @@ If you want to complete the move process, commit the move.
 1. In **Across regions**, select resources with state *Commit move pending*, and click **Commit move**.
 2. In **Commit resources**, click **Commit**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Page to commit resources to finalize move." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/rresources-commit-move.png:::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Page to commit resources to finalize move." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
 
 3. Track the commit progress in the notifications bar.
 
@@ -336,8 +331,6 @@ If you want to complete the move process, commit the move.
 > - Commit doesn't impact source networking resources.
 > - After committing the move, resources are in a *Delete source pending* state.
 
-
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/delete-source-pending.png)" alt-text="Page showing resources in Delete source pending state." :::
 
 
 ## Configure settings after the move
