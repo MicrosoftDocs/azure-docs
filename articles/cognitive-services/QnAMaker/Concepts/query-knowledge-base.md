@@ -24,7 +24,7 @@ The process is explained in the following table.
 |Step|Purpose|
 |--|--|
 |1|The client application sends the user query to the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
-|2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
+|2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers. The [stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) are filtered in this step.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
 |4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
 |5|QnA Maker uses syntactic and semantic based featurization to determine the similarity between the user query and the fetched QnA results.|
