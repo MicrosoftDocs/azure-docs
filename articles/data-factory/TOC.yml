@@ -209,7 +209,7 @@
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-- name: How-to guides
+- name: How-to guides 
   items:
   - name: Author
     items:
@@ -223,6 +223,8 @@
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
+    - name: Automated publish
+      href: continuous-integration-deployment-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -698,10 +700,12 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
-  - name: Lineage
+  - name: Data Catalog and Governance
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Discover and explore data in ADF using Purview
+      href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items:    
     - name: Data migration for data lake & EDW
@@ -714,6 +718,10 @@
         href: data-migration-guidance-hdfs-azure-storage.md
       - name: Migrate data from on-premises Netezza server to Azure
         href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Azure Machine Learning
+      items:
+      - name: Data ingestion
+        href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files
@@ -752,6 +760,10 @@
       href: solution-template-databricks-notebook.md
   - name: Understanding pricing
     items:
+    - name: Data flow reserved capacity overview
+      href: data-flow-reserved-capacity-overview.md
+    - name: Data flow understand reservation charges
+      href: data-flow-understand-reservation-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
     - name: Pricing examples     
@@ -796,10 +808,6 @@
     href: /python/api/overview/azure/datafactory
 - name: Resources
   items:
-  - name: Data flow reserved capacity overview
-    href: data-flow-reserved-capacity-overview.md
-  - name: Data flow understand reservation charges
-    href: data-flow-understand-reservation-charges.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

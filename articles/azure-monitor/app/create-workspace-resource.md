@@ -29,8 +29,8 @@ Workspace-based Application Insights allows you to take advantage of the latest 
 
 Sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource:
 
-[!div class="mx-imgBorder"]
-![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
+> [!div class="mx-imgBorder"]
+> ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
 
 If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
 

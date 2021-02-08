@@ -78,6 +78,9 @@ All the role assignments at the HSM level for a specific user **user1@contoso.co
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
+> [!NOTE]
+> When scope is / (or /keys) the list command only lists all the role assignments at the top level and does not show role assignments at individual key level.
+
 All role assignments for a specific user **user2@contoso.com** for a specific key **myrsakey**.
 
 ```azurecli-interactive

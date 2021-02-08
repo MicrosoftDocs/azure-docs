@@ -116,6 +116,7 @@ The following tables show the available metrics and details.
 >| Gen 0 GC count  | gen-0-gc-count | Count        | Number of Generation 0 garbage collections per second. |
 >| Gen 1 GC count  | gen-1-gc-count | Count        | Number of Generation 1 garbage collections per second. |
 >| Gen 2 GC count  | gen-2-gc-count | Count        | Number of Generation 2 garbage collections per second. |
+>| Time in GC      | timein-gc      | Percent      | The percent of time in garbage collection since the last garbage collection. |
 >| Gen 0 heap size | gen-0-size     | Bytes        | Generation 0 heap size. |
 >| Gen 1 heap size | gen-1-size     | Bytes        | Generation 1 heap size. |
 >| Gen 2 heap size | gen-2-size     | Bytes        | Generation 2 heap size. |

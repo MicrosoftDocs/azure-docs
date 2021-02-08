@@ -22,6 +22,7 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 
 *Except for Standard_DC8_v2
 

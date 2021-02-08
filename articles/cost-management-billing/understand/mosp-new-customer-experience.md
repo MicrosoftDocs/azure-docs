@@ -37,7 +37,7 @@ When your account is updated, a billing profile is automatically created for eac
 
 Roles on the billing profiles have permissions to view and manage invoices and payment methods. These roles should be assigned to users who pay invoices like members of the accounting team in an organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-When your account is updated, for each subscription on which you've given others permission to [view invoices](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), users who have an owner, a contributor, a reader, or a billing reader Azure role are given the reader role on the respective billing profile.
+When your account is updated, for each subscription on which you've given others permission to [view invoices](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice), users who have an owner, a contributor, a reader, or a billing reader Azure role are given the reader role on the respective billing profile.
 
 ## Invoice sections
 

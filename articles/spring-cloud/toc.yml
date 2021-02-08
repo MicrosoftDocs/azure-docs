@@ -45,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Security controls
-      href: spring-cloud-concept-security-controls.md
+    - name: Security
+      items:
+      - name: Security controls
+        href: spring-cloud-concept-security-controls.md
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy.md
     - name: Understand app status
       href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
@@ -99,6 +103,8 @@
           href: spring-cloud-howto-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: Structured application log
+          href: spring-cloud-structured-app-log.md
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
