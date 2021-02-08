@@ -4,6 +4,14 @@
   items:
   - name: About Arc enabled Kubernetes
     href: overview.md
+- name: Concepts
+  items:
+  - name: Agents and communication pattern
+    href: conceptual-agents-communication-pattern.md
+  - name: Configurations and GitOps
+    href: conceptual-configurations.md
+  - name: Frequently Asked Questions
+    href: faq.md
 - name: How-to guides
   items:
   - name: Connect to Azure Arc

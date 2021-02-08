@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Connect an Azure Arc-enabled Kubernetes cluster (Preview)
+# Connect an Azure Arc enabled Kubernetes cluster (Preview)
 
 This document covers the process of connecting any Cloud Native Computing Foundation (CNCF) certified Kubernetes cluster such as AKS-engine on Azure, AKS-engine on Azure Stack Hub, GKE, EKS and VMware vSphere cluster to Azure Arc.
 
@@ -238,15 +238,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
-
-* `deployment.apps/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
-* `deployment.apps/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
-* `deployment.apps/metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
-* `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
-* `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
-* `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
-* `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
+Verify that all pods are in a `Running` state.
 
 ## Delete a connected cluster
 

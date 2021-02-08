@@ -13,21 +13,13 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, c
 
 # Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
 
-GitOps, as it relates to Kubernetes, is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, etc.) in a Git repository followed by a polling and pull-based deployment of these configurations to the cluster using an operator. This document covers the setup of such workflows on Azure Arc enabled Kubernetes clusters.
-
-The connection between your cluster and a Git repository is created in Azure Resource Manager as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
-
-The `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource, for deploying a Flux operator to watch the Git repository for each `sourceControlConfiguration`, and applying any updates made to any `sourceControlConfiguration`. It is possible to create multiple `sourceControlConfiguration` resources on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy. You can create each `sourceControlConfiguration` with a different `namespace` scope to limit deployments to within the respective namespaces.
-
-The Git repository can contain YAML-format manifests that describe any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  It may also contain Helm charts for deploying applications. A common set of scenarios includes defining a baseline configuration for your organization, which might include common Azure roles and bindings, monitoring or logging agents, or cluster-wide services.
-
-The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you may have one repository that defines the baseline configuration for your organization and apply that to tens of Kubernetes clusters at once. [Azure policy can automate](use-azure-policy.md) the creation of a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc enabled Kubernetes resources under a scope (subscription or resource group).
-
-This getting started guide will walk you through applying a set of configurations with cluster-admin scope.
+This getting started guide will walk you through applying a set of configurations on an Azure Arc enabled Kubernetes cluster.
 
 ## Before you begin
 
 This article assumes that you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [connect a cluster quickstart](./connect-cluster.md).
+
+Also checkout the [conceptual doc](./conceptual-configurations.md) on configurations and GitOps to get an understanding of the benefits and overview architecture of this feature.
 
 ## Create a configuration
 
