@@ -112,7 +112,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to collect platform logs and metrics with Azure Monitor](essentials/diagnostic-settings.md)
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](vm/quick-collect-azurevm.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

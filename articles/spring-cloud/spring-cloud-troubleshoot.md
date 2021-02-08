@@ -221,7 +221,7 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/learn/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/logs/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## Next steps
 

@@ -47,7 +47,7 @@ Collection of resource logs for a container registry isn't enabled by default. E
 
 For example, to view logs and metrics for a container registry in near real-time in Azure Monitor, collect the resource logs in a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
 
-1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
+1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/logs/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
 1. In the portal, select the registry, and select **Monitoring > Diagnostic settings > Add diagnostic setting**.
 1. Enter a name for the setting, and select **Send to Log Analytics**.
 1. Select the workspace for the registry diagnostic logs.

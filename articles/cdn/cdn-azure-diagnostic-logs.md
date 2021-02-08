@@ -74,7 +74,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 

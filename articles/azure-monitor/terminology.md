@@ -24,7 +24,7 @@ Azure Monitor log data is still stored in a Log Analytics workspace and is still
 The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of [metrics explorer](essentials/metrics-charts.md), which is the page in the Azure portal used to analyze metric data.
 
 ### Log Analytics workspaces
-[Workspaces](logs/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** menu in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](learn/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
+[Workspaces](logs/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** menu in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](logs/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
 
 ### Management solutions
 [Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_, which better describes their functionality.

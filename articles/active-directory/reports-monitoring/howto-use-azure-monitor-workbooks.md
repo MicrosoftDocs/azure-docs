@@ -61,7 +61,7 @@ To use Monitor workbooks, you need:
 
 - An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md).
 
-- A [Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
+- A [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 - [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
 - Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)

@@ -29,7 +29,7 @@ When you set up diagnostic logging, you will be asked to specify a storage mecha
 
 Create resources in advance so that you can select one or more when configuring diagnostic logging.
 
-+ [Create a log analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
++ [Create a log analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Create a storage account](../storage/common/storage-account-create.md)
 

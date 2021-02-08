@@ -21,7 +21,7 @@ The following sections describe how to create a logging-enabled container group 
 
 To enable logging in your container instances, you need the following:
 
-* [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](../cloud-shell/overview.md))
 
 ## Get Log Analytics credentials

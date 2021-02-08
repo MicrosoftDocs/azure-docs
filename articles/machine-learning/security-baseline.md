@@ -212,7 +212,7 @@ You can also correlate Machine Learning service operation logs for security and 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Security Center to monitor the operating system. 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 

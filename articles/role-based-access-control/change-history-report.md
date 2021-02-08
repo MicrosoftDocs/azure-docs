@@ -126,7 +126,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 Here are the basic steps to get started:
 
-1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 1. [Configure the Activity Log Analytics solution](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
 

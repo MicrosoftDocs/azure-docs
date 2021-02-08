@@ -70,7 +70,7 @@ Both of these are described below.
     The plan will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
     >[!TIP] 
-    > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+    > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 
 1. Optionally, configure email notification for security alerts. 

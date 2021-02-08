@@ -49,7 +49,7 @@ For more information, see [Create diagnostic settings to send platform logs and 
 
 For more information, see the following articles: 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
 **Azure Security Center monitoring:** Yes
