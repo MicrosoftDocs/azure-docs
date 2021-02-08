@@ -108,9 +108,6 @@
   - name: Databases
     items:
     - name: MongoDB
-      items:
-      - name: Windows
-        href: ./windows/install-mongodb.md
     - name: MS SQL on Linux
       href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
@@ -1292,8 +1289,10 @@
         href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
       - name: Linux diagnostics extension
         items:
-        - name: Overview
+        - name: Version 4.0
           href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
         - name: Collect metrics with Telegraf
           href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
           displayname: diagnostics extension
