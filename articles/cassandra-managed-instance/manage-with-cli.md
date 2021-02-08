@@ -44,8 +44,8 @@ managementPrivateSubnetName = 'management'
 cassandraVersion='3.11'
 initialCassandraAdminPassword='myPassword'
 
-// You can override cluster name of the original name is not legal for an Azure resource
-// overrideClusterName='ClusterNameIllegalForAzureResource'
+# You can override cluster name of the original name is not legal for an Azure resource:
+# overrideClusterName='ClusterNameIllegalForAzureResource'
 
 az cassandra-mi cluster create\
     --clusterName $clusterName \
