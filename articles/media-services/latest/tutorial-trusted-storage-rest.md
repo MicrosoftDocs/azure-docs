@@ -28,15 +28,14 @@ However, if you want to use a firewall to secure your storage account and enable
 > [!IMPORTANT]
 > Use the 2020-05-01 API for all requests to Media Services.
 
-These are the general steps for creating trusted storage for Media Services.  See the comments in the code below for details:
+These are the general steps for creating trusted storage for Media Services:
 
 1. Create a resource group.
 1. Create a storage account.
 1. Poll the storage account until it's ready. When the storage account is ready, the request will return the service principal ID.
-1. Find the ID of the Storage Blob Data Contributor role.
+1. Find the ID of the *Storage Blob Data Contributor* role.
 1. Call the authorization provider and add a role assignment.
 1. Update the media services account to authenticate to the storage account using Managed Identity.
-    1. This action changes the access from system-managed identity to the Managed Identity. In this way, the storage account can access the storage account through a firewall as Azure services can access the storage account regardless of IP access rules (ACLs). (Hint: Look for "bypass" in the request bodies in the script.)
 1. Delete the resources if you don't want to continue to use them and be charged for them.
 
 <!-- Link to storage role contributor role access differences information -->
@@ -47,7 +46,7 @@ You need an Azure subscription to get started.  If you don't have an Azure subsc
 
 ### Get your tenant ID and subscription ID
 
-If you don't know how to get your tenant ID and subscription ID, see [How to find your tenant ID](how-to-set-azure-tenant.md) and [Find your tenant ID](how-to-set-azure-tenant.md)
+If you don't know how to get your tenant ID and subscription ID, see [How to find your tenant ID](how-to-set-azure-tenant.md) and [Find your tenant ID](how-to-set-azure-tenant.md).
 
 ### Create a service principal and secret
 
@@ -80,7 +79,7 @@ If you don't know how to create a service principal and secret, see [Get credent
 @index = 4
 ```
 
-## Get a token for Azure Resource Manager using the service principal name and secret
+## Get a token for Azure Resource Manager
 
 ```rest
 // @name getArmToken
@@ -91,7 +90,7 @@ Content-Type: application/x-www-form-urlencoded
 resource={{armResource}}&client_id={{servicePrincipalId}}&client_secret={{servicePrincipalSecret}}&grant_type=client_credentials
 ```
 
-## Get a token for the Graph API using the Service Principal name and secret
+## Get a token for the Graph API
 
 ```rest
 // @name getGraphToken
@@ -111,13 +110,13 @@ x-ms-client-request-id: cae3e4f7-17a0-476a-a05a-0dab934ba959
 Authorization:  Bearer {{getGraphToken.response.body.access_token}}
 ```
 
-## Store the service principal ID in a new variable
+## Store the service principal ID
 
 ```rest
 @servicePrincipalObjectId = {{getServicePrincipals.response.body.value[0].objectId}}
 ```
 
-## Create a resource group using the resource group variable and the location variable
+## Create a resource group
 
 ```rest
 // @name createResourceGroup
@@ -131,7 +130,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Create storage account using the storage account variable and the location variable
+## Create storage account
 
 ```rest
 // @name createStorageAccount
@@ -172,7 +171,7 @@ GET https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{reso
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 ```
 
-## Get a token for ARM using the service principal name and secret
+## Get a token for ARM
 
 ```rest
 // @name getStorageToken
@@ -211,15 +210,17 @@ Content-Type: application/json; charset=utf-8
 
 ## Get the storage Storage Blob Data role definition
 
+```rest
 // @name getStorageBlobDataContributorRoleDefinition
 GET https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}/providers/Microsoft.Authorization/roleDefinitions?$filter=roleName%20eq%20%27Storage%20Blob%20Data%20Contributor%27&api-version=2015-07-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
+```
 
-
-### Set the storage role assignment.
+### Set the storage role assignment
 
 The role assignment says that the service principal for the Media Services account has the storage role *Storage Blob Data Contributor*.  This may take a while and it's important to wait or the Media Services account win't be set up correctly.
 
+```rest
 PUT https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}/providers/Microsoft.Authorization/roleAssignments/{{$guid}}?api-version=2020-04-01-preview
 Authorization: Bearer {{getArmToken.response.body.access_token}}
 Content-Type: application/json; charset=utf-8
@@ -230,10 +231,13 @@ Content-Type: application/json; charset=utf-8
     "principalId": "{{createMediaServicesAccount.response.body.identity.principalId}}"
   }
 }
+```
 
+## Give Managed Identity bypass access to the storage account
 
-### Give Managed Identity bypass access ("bypass":"Azure Services") to the storage account. Again, wait until the role has been assigned in the storage account, or the Media Services account will be set up incorrectly.
+Again, wait until the role has been assigned in the storage account, or the Media Services account will be set up incorrectly.
 
+```rest
 // @name setStorageAccountFirewall
 PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}
     ?api-version=2019-06-01
@@ -256,10 +260,15 @@ Content-Type: application/json; charset=utf-8
       }
     }
 }
+```
 
+## Update the Media Services account to use the Managed Identity
 
-### Update the Media Services account to use Managed Identity storage authorization. This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate.
+This request may need to be retried a few times as the storage role assignment can take a few minutes to propagate.
 
+This action changes the access from system-managed identity to the Managed Identity. In this way, the storage account can access the storage account through a firewall as Azure services can access the storage account regardless of IP access rules (ACLs). (Hint: Look for "bypass" in the request bodies in the script.)
+
+```rest
 // @name updateMediaServicesAccountWithManagedStorageAuth
 PUT https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
 Authorization: Bearer {{getArmToken.response.body.access_token}}
@@ -282,6 +291,7 @@ Content-Type: application/json; charset=utf-8
   },
   "location": "{{resourceLocation}}"
 }
+```
 
 ### Create an Asset
 
@@ -318,4 +328,4 @@ Authorization: Bearer {{getArmToken.response.body.access_token}}
 
 ## Next steps
 
-<!-- next steps go here -->
+[How to create an Asset](how-to-create-asset.md)
