@@ -150,7 +150,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 --- | --- | ---
 NIC | Supported | Specify an existing resource in the target region, or  create a new resource during the Prepare process. 
 Internal load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
-Public load balancer | Not currently supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
+Public load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
 Public IP address | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.<br/><br/> The public IP address is region-specific, and won't be retained in the target region after the move. Keep this in mind when you modify networking settings (including load balancing rules) in the target location.
 Network security group | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.

@@ -89,13 +89,13 @@ You can now have knowledge bases in different languages within the same QnA Make
 
 ### Ingest data sources
 
-You can use one of the following ingested [data sources](../index.yml) to create a knowledge base:
+You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
 
-The ingestion process converts [supported content types](../index.yml) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### Data format considerations
 
@@ -119,7 +119,7 @@ You should design your conversational flow with a loop in mind so that a user kn
 
 Collaborators may be other developers who share the full development stack of the knowledge base application or may be limited to just authoring the knowledge base.
 
-Knowledge base authoring supports several [role-based access permissions](../index.yml) you apply in the Azure portal to limit the scope of a collaborator's abilities.
+Knowledge base authoring supports several [role-based access permissions](../reference-role-based-access-control.md) you apply in the Azure portal to limit the scope of a collaborator's abilities.
 
 ## Integration with client applications
 

@@ -243,8 +243,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.10" `
-    -Settings $settings    `
-    -ProtectedSettings $protectedSettings `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings;
 ```
 
 ### Running scripts from a local share

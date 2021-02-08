@@ -55,13 +55,13 @@ To change any of these settings, follow these steps:
    traceflag0 = 1204
    ```
 
-1. Copy `mssql-custom.conf` file to `/var/opt/mssql` in the `arc-sqlmi` container in the `master-0` pod. Replace `<namespaceName>` with the namespace this instance is deployed in.
+1. Copy `mssql-custom.conf` file to `/var/opt/mssql` in the `mssql-miaa` container in the `master-0` pod. Replace `<namespaceName>` with the big data cluster name.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. Restart the SQL managed instance.  Replace `<namespaceName>` with the namespace this instance is deployed in.
+1. Restart SQL Server instance.  Replace `<namespaceName>` with the big data cluster name.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

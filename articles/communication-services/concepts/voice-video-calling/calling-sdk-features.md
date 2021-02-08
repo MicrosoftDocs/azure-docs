@@ -91,7 +91,7 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video |
 |**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
 

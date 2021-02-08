@@ -62,9 +62,9 @@ const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential('your-token-here');
+    const tokenCredential = new AzureCommunicationTokenCredential('<USER ACCESS TOKEN with PSTN scope>');
     callAgent = await callClient.createCallAgent(tokenCredential);
-  //  callButton.disabled = false;
+  //  callPhoneButton.disabled = false;
 }
 
 init();

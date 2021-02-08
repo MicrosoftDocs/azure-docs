@@ -362,9 +362,9 @@ To change the name:
 
 1. Delete the sensor from the **Sensor Management** window.
 
-1. Register with the new name.
+1. Re-register with the new name.
 
-1. Download and new activation file.
+1. Download the new activation file.
 
 1. Sign in to the sensor and upload the new activation file.
 

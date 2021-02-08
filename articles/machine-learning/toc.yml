@@ -172,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: Responsible ML
       items: 
         - name: Responsible ML overview
@@ -609,6 +611,8 @@
       href: https://azure.microsoft.com/regions/services/
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products

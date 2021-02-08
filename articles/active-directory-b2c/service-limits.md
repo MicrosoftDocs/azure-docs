@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -36,23 +36,21 @@ The following table lists the administrative configuration limits in the Azure A
 |Category  |Limit  |
 |---------|---------|
 |Number of applications per Azure AD B2C tenant   |250           |
-|Number of policies per Azure AD B2C tenant       |200          |
-|Maximum policy file size      |400 KB          |
 |Number of scopes per application        |1000          |
-|Number of custom attributes per user <sup>1</sup>       |100         |
+|Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |100         |
 |Number of redirect URLs per application       |100         |
 |Number of sign out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
-|Number of policies per Azure AD B2C tenant      |200         |
-|Maximum policy file size      |400 KB         |
+|Number of policies per Azure AD B2C tenant      |200          |
+|Maximum policy file size      |400 KB          |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 
-- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling.md) 
+- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
 
 
