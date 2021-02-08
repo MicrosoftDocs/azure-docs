@@ -135,21 +135,37 @@ You can configure your app to use rules that implement a fallback route as shown
 }
 ```
 
-The following outcomes are possible with this rule.
+The example file structure below, the following outcomes are possible with this rule.
+
+```files
+├── images
+│   ├── logo.png
+│   ├── headshot.jpg
+│   └── screenshot.gif
+│
+├── css
+│   └── global.css
+│
+└── index.html
+```
 
 | Requests to... | returns... | with the status... |
 | --- | --- | --- |
-| */images/logos/header.png* | The image file  | `200` |
+| */about/* | The */index.html* file | `200` |
+| */images/logo.png* | The image file  | `200` |
 | */images/icon.svg* | The */index.html* file - since the *svg* file extension is not listed in the `/images/*.{png,jpg,gif}` filter   | `200` |
-| A non-existent file in any folder under */images* or */css* folders | File not found error  | `404` |
+| */images/unknown.png* | File not found error  | `404` |
+| */css/unknown.css* | File not found error  | `404` |
 | */css/global.css* | The stylesheet file | `200` |
 | Any other file outside the */images* or */css* folders | The */index.html* file | `200` |
 
 ## Global headers
 
-The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each request, unless overridden by a [route header](#route-headers) rule. See the [example configuration file](#example-configuration-file) for usage examples.
+The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each response, unless overridden by a [route header](#route-headers) rule, otherwise the union of both the headers from the route and the global headers is returned.
 
-To remove a header, set the value to an empty string or `null`.
+See the [example configuration file](#example-configuration-file) for usage examples.
+
+To remove a header, set the value to an empty string (`""`).
 
 Some common use cases for global headers include:
 
