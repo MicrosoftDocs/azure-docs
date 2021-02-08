@@ -66,49 +66,6 @@ When they select a knowledge base, their current role on that QnA Maker resource
 
 :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Screenshot of knowledge base in Edit mode with role name in parentheses next to knowledge base name in top-left corner of web page.":::
 
-## Upgrade runtime version to use active learning
-
-# [QnA Maker GA (stable release)](#tab/v1)
-
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
-
-# [QnA Maker managed (preview release)](#tab/v2)
-
-In QnA Maker managed (Preview), since the runtime is hosted by the QnA Maker service itself, there is no need to upgrade the runtime manually.
-
----
-
-## Turn on active learning for alternate questions
-
-# [QnA Maker GA (stable release)](#tab/v1)
-
-Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
-
-1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
-
-1. To turn active learning on in the QnA Maker portal, go to the top-right corner, select your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings).
-
-    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top-right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
-
-
-1. Find the QnA Maker service then toggle **Active Learning**.
-
-    > [!div class="mx-imgBorder"]
-    > [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
-    > [!Note]
-    > The exact version on the preceding image is shown as an example only. Your version may be different.
-    Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
-
-# [QnA Maker managed (preview release)](#tab/v2)
-
-By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
-
----
-
-## Review suggested alternate questions
-
-[Review alternate suggested questions](improve-knowledge-base.md) on the **Edit** page of each knowledge base.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

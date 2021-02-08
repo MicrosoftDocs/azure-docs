@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new in Azure Sentinel?
+  href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -94,8 +96,14 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
+      - name: Agari Phishing Defense and Brand Protection
+        href: connect-agari-phishing-defense.md
       - name: Alcide kAudit
         href: connect-alcide-kaudit.md
+      - name: Alsid for Active Directory
+        href: connect-alsid-active-directory.md
+      - name: Apache HTTP Server
+        href: connect-apache-http-server.md
       - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
@@ -104,6 +112,8 @@
         href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Umbrella
+        href: connect-cisco-umbrella.md
       - name: Cisco Unified Computing System
         href: connect-cisco-ucs.md
       - name: Citrix Analytics (Security)
@@ -162,6 +172,8 @@
           items:  
           - name: AI Vectra Detect
             href: connect-ai-vectra-detect.md
+          - name: Akamai Security Events
+            href: connect-akamai-security-events.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -180,6 +192,8 @@
             href: connect-fortinet.md
           - name: Illusive Networks AMS
             href: connect-illusive-attack-management-system.md
+          - name: Imperva WAF Gateway
+            href: connect-imperva-waf-gateway.md
           - name: One Identity Safeguard
             href: connect-one-identity.md
           - name: Palo Alto Networks

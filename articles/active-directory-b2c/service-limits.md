@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -50,7 +50,7 @@ The following table lists the administrative configuration limits in the Azure A
 
 ## Next steps
 
-- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling.md) 
+- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
 
 

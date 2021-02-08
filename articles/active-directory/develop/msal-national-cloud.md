@@ -37,7 +37,7 @@ Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
+[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, decide which authority endpoint you should choose for your scenario:
 
 - Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD Government.

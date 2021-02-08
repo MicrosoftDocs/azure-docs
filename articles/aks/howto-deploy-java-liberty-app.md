@@ -26,7 +26,7 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) instance and the AKS cluster later. 
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) instance and the AKS cluster later. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
@@ -34,7 +34,7 @@ az group create --name java-liberty-project --location eastus
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ```azurecli-interactive
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
@@ -65,7 +65,7 @@ You should see `Login Succeeded` at the end of command output if you have logged
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
@@ -82,13 +82,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
@@ -208,14 +208,14 @@ Wait until the *EXTERNAL-IP* address changes from *pending* to an actual public 
 
 Open a web browser to the external IP address and port of your service (`52.152.189.57:9080` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page, you will probably see a different pod name displayed due to load balancing provided by the AKS cluster.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="Java liberty application successfully deployed on AKS":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS":::
 
 >[!NOTE]
 > - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name java-liberty-project --yes --no-wait
