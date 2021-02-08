@@ -94,6 +94,46 @@ You can also use the following FQDNs to allow access to the required services fr
 
 When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
+## Understanding backup and restore throughput performance
+
+The backups (log and non-log) in SAP HANA Azure VM provided via Backint are streams to Azure Recovery services vault and hence it is important to understand this streaming methodology.
+
+The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by Azure backup service and transported to Azure recovery services vault. Azure Backup service also performs a check sum to validate the streams in addition to the backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
+
+Since the streams primarily deal with disks, one needs to understand the disk performance to gauge the backup and restore performance. Refer to [this article](https://docs.microsoft.com/azure/virtual-machines/disks-performance) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+
+**Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
+
+* Max Uncached disk throughput of the VM
+* Underlying disk type and it's throughput
+* The number of process which are trying to read and write into the same disk at the same time.
+
+> [!IMPORTANT]
+> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, one can be concerned that the entire disk IOPS are consumed by backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if the user wishes to throttle/limit the backup service consumption to the max limit, they can refer to the next section
+
+### Limiting backup throughput performance
+
+If users want to throttle backup service disk IOPS consumption to a max value then perform the following steps.
+
+1. Go to "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
+3. Add a key-value pair to the JSON file as follows:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. change the permissions and ownership of the file as follows:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
+
 ## What the pre-registration script does
 
 Running the pre-registration script performs the following functions:
