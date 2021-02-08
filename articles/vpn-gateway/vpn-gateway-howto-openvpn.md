@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ If you don't already have a functioning point-to-site environment, follow the in
 
 ## <a name="enable"></a>2. Enable OpenVPN on the gateway
 
-Enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the following commands:
+Enable OpenVPN on your gateway.
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name

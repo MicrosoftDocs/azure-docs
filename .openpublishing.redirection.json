@@ -2,6 +2,36 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/docker-machine.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mysql-on-opensuse.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/mysql-on-opensuse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitor.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/postgresql-install.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/postgresql-install",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
       "redirect_document_id": false
@@ -61646,6 +61676,11 @@
     {
       "source_path_from_root": "/articles/data-factory/data-flow-understand-reservation-charges.md",
       "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
+      "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
     }
   ]
