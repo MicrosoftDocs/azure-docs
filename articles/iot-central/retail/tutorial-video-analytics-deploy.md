@@ -41,6 +41,14 @@ Complete the following steps to deploy an IoT Central application using the vide
     - View captured video that shows detected objects.
     - Tidy up.
 
+## Clean up resources
+
+When you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
+
 ## Next steps
 
 Now you have an overview of the steps to deploy and use the video analytics application template, see

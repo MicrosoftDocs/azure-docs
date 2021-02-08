@@ -69,6 +69,13 @@ Open the local *live-video-analytics* repository folder with VS Code.
 
 1. The version of the **LvaEdgeGatewayModule** image increments every time the build completes. You need to use this version in the deployment manifest file.
 
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+
 ## Next steps
 
 Now that you've learned about the video analytics - object and motion detection application template and the LVA IoT Edge modules, the suggested next step is to learn more about:

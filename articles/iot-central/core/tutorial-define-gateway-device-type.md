@@ -196,6 +196,10 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 Select a gateway device template and gateway device instance, and select **Join**.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this tutorial, you learned how to:
