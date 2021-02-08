@@ -103,6 +103,8 @@
     href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
+  - name: Content format guidelines
+    href: reference-document-format-guidelines.md
   - name: Content and data formats
     items:
     - name: Content format guidelines

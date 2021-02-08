@@ -192,6 +192,8 @@
     items: 
     - name: Security baseline
       href: security-baseline.md
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
     - name: Authenticate event delivery to event handlers
       href: security-authentication.md
     - name: Authenticate publishing clients

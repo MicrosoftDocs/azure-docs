@@ -118,9 +118,8 @@
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
+      displayName: credential, certificate
       href: credential-access-key-vault.md
-    - name: Using certificates with Batch
-      href: batch-certificates.md
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes

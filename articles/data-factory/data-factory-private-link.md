@@ -44,7 +44,7 @@ With the support of Private Link for Azure Data Factory, you can:
 * Create a private endpoint in your virtual network.
 * Enable the private connection to a specific data factory instance. 
 
-The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. You don’t need to configure the preceding domain and port in a virtual network or your corporate firewall to provide a more secure way to protect your resources.  
+The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. 
 
 ![Diagram of Private Link for Azure Data Factory architecture.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -58,6 +58,9 @@ Enabling the Private Link service for each of the preceding communication channe
 
    > [!NOTE]
    > For functionality that's not currently supported, you still need to configure the previously mentioned domain and port in the virtual network or your corporate firewall. 
+
+   > [!NOTE]
+   > Connecting to Azure Data Factory via private endpoint is only applicable to self-hosted integration runtime in data factory. It's not supported in Synapse.
 
 > [!WARNING]
 > When you create a linked service, make sure that your credentials are stored in an Azure key vault. Otherwise, the credentials won't work when you enable Private Link in Azure Data Factory.

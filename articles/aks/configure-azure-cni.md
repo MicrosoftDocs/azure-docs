@@ -59,7 +59,7 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Yes (up to 250) |
 | Resource Manager template | 110 | 30 | Yes (up to 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 110 (configured in the Node Pools tab) | No |
 
 ### Configure maximum - new clusters
 

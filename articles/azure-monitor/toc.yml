@@ -329,6 +329,8 @@
         href: platform/data-sources-linux-applications.md
       - name: IIS logs
         href: platform/data-sources-iis-logs.md
+      - name: Event Tracing for Windows data
+        href: platform/data-sources-event-tracing-windows.md
       - name: Custom logs
         href: platform/data-sources-custom-logs.md
       - name: Custom fields
@@ -586,10 +588,12 @@
              href: platform/it-service-management-connector-secure-webhook-connections.md
            - name: Secure Export Azure Configuration
              href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
-           - name: BMC
-             href: platform/itsmc-secure-webhook-connections-bmc.md
-           - name: ServiceNow
-             href: platform/itsmc-secure-webhook-connections-servicenow.md
+           - name: ITSM Connector Partners Setup
+             items:
+              - name: BMC
+                href: platform/itsmc-secure-webhook-connections-bmc.md
+              - name: ServiceNow
+                href: platform/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -1040,6 +1044,8 @@
         href: insights/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for AKS with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Enable for Arc enabled cluster
         href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster

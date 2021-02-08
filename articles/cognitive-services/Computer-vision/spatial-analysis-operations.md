@@ -125,7 +125,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analys
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcount** this should be `count`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
-| `interval` | string| A time in seconds that the person count will be aggregated before an event is fired. The operation will continue to analyze the scene at a constant rate and returns the most common count over that interval. The aggregation interval is applicable to both `event` and `interval`.|
+| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`. |
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
 
 ### Line configuration for cognitiveservices.vision.spatialanalysis-personcrossingline
@@ -250,8 +250,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-persondistance** this should be `people_distance`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
-| `interval` | string | A time in seconds that the violations will be aggregated before an event is fired. The aggregation interval is applicable to both `event` and `interval`.|
-| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The output_frequency is applicable to both `event` and `interval`.|
+| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`.|
 | `minimum_distance_threshold` | float| A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|
 | `maximum_distance_threshold` | float| A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
