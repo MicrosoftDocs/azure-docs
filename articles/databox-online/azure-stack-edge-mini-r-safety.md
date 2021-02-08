@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/08/2021
 ms.author: alkohli
 ---
 
@@ -178,12 +178,16 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 
 ![Regulatory information warning 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
-CAN ICES-3(A)/NMB-3(A) <br>
-Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA <br>
-United States: (800) 426-9400 <br>
+CAN ICES-3(A)/NMB-3(A)
+
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
+
+United States: (800) 426-9400
+
 Canada: (800) 933-4750
 
-Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429 <br> 
+Netgear  A6150 WiFi USB Adapter FCC ID: PY318300429
+ 
 Netgear A6150 WiFi USB Adapter IC ID: 4054A-18300429
 
 The Netgear A6150 WiFi USB Adapter provided with this equipment is compliant with SAR for general population/uncontrolled exposure limits in IC RSS-102 and has been tested in accordance with the measurement methods and procedures specified in IEEE 1528. Maintain at least 10-mm distance for body-worn condition.
@@ -231,9 +235,11 @@ In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table p
 | 5250-5350   | 52-64   | 22.9 dBm (195 mW) with TPC <br> 19.9 dBm (97.7 mW) non-TPC |
 | 5470-5725   | 100-140 | 29.9 dBm (977 mW) with TPC <br> 29.6 dBm (490 mW) non-TPC |
 
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL <br>
-Telephone number: +353 1 295 3826 <br>
-Fax number: +353 1 706 4110 <br>
+Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+
+Telephone number: +353 1 295 3826
+
+Fax number: +353 1 706 4110
 
 #### SINGAPORE:
 
