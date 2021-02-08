@@ -34,14 +34,6 @@ We'll update this document when more clients are available. You can also check f
 
 Before you can configure the Start VM on Connect feature, you'll need to assign your VM a custom RBAC (role-based access control) role. This role will let Windows Virtual Desktop manage the VMs in your subscription. The service will also be able to turn on VMs, check their status, and report diagnostic info. If you want to know more about what roles are, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-There are three ways you can assign roles to your VM:
-
-- [The Azure portal]()
-- [PowerShell]()
-- [REST API]()
-
-Pick the method that works best for you, then go to the section and follow the instructions to assign the custom role to your VM.
-
 ### Use the Azure portal
 
 To use the Azure portal to assign a custom role for Start VM on Connect:
@@ -127,6 +119,14 @@ If you're using JSON to create the custom role, the following example shows a ba
 
 Now that you've assigned your subscription the role, it's time to configure the Start VM on Connect feature!
 
+There are three ways you can configure the feature:
+
+- [Use the Azure portal](#use-the-azure-portal)
+- [Use PowerShell](#use-powershell)
+- [Use REST API](#use-rest-api)
+
+Pick the method that works best for you, then go to that section and follow the instructions to configure Start VM on Connect.
+
 ### Deployment considerations 
 
 Start VM on Connect is a host pool setting. If you only want a select group of users has this feature, make sure you only assign the required role to the users you want to add.
@@ -134,7 +134,7 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 >[!IMPORTANT]
 > You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
 
-### Using the Azure portal
+### Use the Azure portal
 
 To use the Azure portal to configre Start VM on Connect:
 
