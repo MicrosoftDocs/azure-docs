@@ -62926,11 +62926,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/log-query/get-started-portal.md",
-      "redirect_url": "/azure/azure-monitor/logs/get-started-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/log-query/get-started-queries.md",
       "redirect_url": "/azure/azure-monitor/logs/get-started-queries",
       "redirect_document_id": false
