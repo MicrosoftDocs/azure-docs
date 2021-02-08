@@ -8,51 +8,53 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 02/08/2021
 ---
 
 # How to reset and run indexers, skills, or documents
 
-Reset is used to clear indexer history so that you can reprocess data almost as if it was the initial run. It sets the execution status and scope of the next indexer run, which can be either on demand or the next scheduled occurrence.
+Reset APIs are used to reset [an indexer](search-indexer-overview.md), triggering a full reprocessing of data, almost as if it was the initial run. Reset APIs set the status and scope of the next indexer run, which could be either on demand invocation, or the next scheduled run.
 
-When an indexer  is rerun over its data source, it can often selectively process just the changes in the underlying data. How the indexer does this will vary by data source. Some data sources, like Blob storage, hard code timestamp information on objects. The blob indexer uses this information to automatically process new and changed documents. Other data sources have to be configured for change tracking before an indexer can be made aware of just the change d content.
+Reset is necessary because over time, certain indexers will selectively process just the changes in the underlying data. Whether the indexer does this will vary by data source. For example, Blob storage stamps objects with datetime information, which the blob indexer uses to pick up changed documents in the container. If you wanted to reindex a blob container, you would need a Reset API to force a full process.
 
-Reset applies to:
+Reset APIs are available for the following objects:
 
 + [indexers](#reset-indexers)
 + [skills (preview)](#reset-skills)
 + [documents (preview)](#reset-docs)
 
-If specified, reset becomes the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that document will be processed; other changes are ignored. A reset flag is cleared after the run is finished, and change detection will resume on the next run, picking up any other new or updated values in the rest of the data set.
+If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
+
+A reset flag is cleared after the run is finished. Change detection logic will resume on the next run, picking up any other new or updated values in the rest of the data set. In the blob example
 
 > [!NOTE]
-> Reset cannot be used to synchronize deleted content. If the index contains an orphaned search document, a reset will not remove that document from the index.
+> Reset cannot be used to synchronize deleted content. If the index contains an orphaned search document, a reset will not cause the removal of that document from the index. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 <a name="reset-indexer"></a>
 
 ## Reset an indexer
 
-On an indexer, refresh is all encompassing. Any document that is populated and refreshed by an indexer, is marked for refresh. All fields, in all documents, are refreshed using current content in the data source. Any new documents in the underlying source are added to the index as search documents.
+On an indexer, refresh is all encompassing. Any document that is populated and refreshed by an indexer is marked for refresh. All fields, in all documents, are refreshed using the current content in the data source. Any new documents in the underlying source are added to the index as search documents.
 
-You can use the portal, [REST API](/rest/api/searchservice/reset-indexer), or an [ResetIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) on an Azure SDK to reset an indexer.
+You can use the portal, [Reset Indexer (REST)](/rest/api/searchservice/reset-indexer), or an [ResetIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) on an Azure SDK to reset an indexer.
 
 <a name="reset-skill"></a>
 
 ## Reset individual skills (preview)
 
 > [!IMPORTANT] 
-> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview, available through the preview REST API. Preview features are provided without a service level agreement, and aren't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-On skills (for indexers that have skillsets), you can reset specific skills to force processing of that skill and any downstream skills that depend on a specified skill. Any cached enrichments that are also refreshed.
+For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. Any [cached enrichments](search-howto-incremental-index.md) pertaining to the affected skills are also refreshed.
 
-[Reset Skills](/rest/api/searchservice/preview-api/reset-skills), using **`api-version=2020-06-30-Preview`**
+[Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is available through REST **`api-version=2020-06-30-Preview`**.
 
 <a name="reset-docs"></a>
 
 ## Reset individual documents (preview)
 
 > [!IMPORTANT] 
-> [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) are in public preview, available through the preview REST API. Preview features are provided without a service level agreement, and aren't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 On documents, refresh is just over the documents you've specified, using the document key.
 
