@@ -1,15 +1,15 @@
 ---
-title: Flatten transformation in mapping data flow
+title: Parse datae transformation in mapping data flow
 description: Denormalize hierarchical data using the flatten transformation
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/08/2021
 ---
 
-# Flatten transformation in mapping data flow
+# Parse transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -18,8 +18,6 @@ Use the flatten transformation to take array values inside hierarchical structur
 ## Configuration
 
 The flatten transformation contains the following configuration settings
-
-![Flatten settings](media/data-flow/flatten1.png "Flatten settings")
 
 ### Unroll by
 
@@ -166,5 +164,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## Next steps
 
-* Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
-* Use the [Unpivot transformation](data-flow-unpivot.md) to pivot columns to rows.
+* Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
+* Use the [Derived column transformation](data-flow-derived-column.md) to pivot columns to rows.
