@@ -70,7 +70,7 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
 Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
-1. Create a new C# sharp class called **SignalRFunctions.cs** in the *SampleFunctionsApp* project.
+1. In the *SampleFunctionsApp* project, create a new C# class called **SignalRFunctions.cs**.
 
 1. Replace the contents of the class file with the following code:
     
@@ -83,7 +83,9 @@ Next, start Visual Studio (or another code editor of your choice), and open the 
 
     This should resolve any dependency issues in the class.
 
-Next, publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial prereq, or create a new one—but you may want to use the same one to minimize duplication. Also, finish out the app publish with the following steps:
+Next, publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
+
+Next, finish out the app publish with the following steps:
 1. Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions are shown on the page, and the 'negotiate' function is also highlighted.":::
