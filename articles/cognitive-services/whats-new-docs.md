@@ -15,36 +15,36 @@ Welcome to what's new in the Cognitive Services docs from January 1, 2021 throug
 
 ## Cognitive Services
 
-### Updated articles
+**Updated articles**
 
 - [Plan and manage costs for Azure Cognitive Services](plan-manage-costs.md)
 - [Azure Cognitive Services containers](cognitive-services-container-support.md)
 
 ## Form Recognizer
 
-### New articles
+**New articles**
 
 - [Tutorial: Extract form data in bulk using Azure Data Factory](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
 
-### Updated articles
+**Updated articles**
 
 - [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
 
 ## Immersive Reader
 
-### Updated articles
+**Updated articles**
 
 - [Create an Immersive Reader resource and configure Azure Active Directory authentication](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
 
 ## Personalizer
 
-### Updated articles
+**Updated articles**
 
 - [Features are information about actions and context](/azure/cognitive-services/personalizer/concepts-features.md)
 
 ## Text Analytics
 
-### Updated articles
+**Updated articles**
 
 - [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support.md)
 - [Migrate to version 3.x of the Text Analytics API](/azure/cognitive-services/text-analytics/migration-guide.md)
