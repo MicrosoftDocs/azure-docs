@@ -4,7 +4,7 @@ description: Tutorial - Learn about a continuous patient monitoring solution arc
 author: philmea
 ms.author: philmea
 ms.date: 12/11/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
