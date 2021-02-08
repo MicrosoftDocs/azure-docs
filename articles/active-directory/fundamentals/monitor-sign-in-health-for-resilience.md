@@ -1,5 +1,5 @@
 ---
-title: Monitor application sign in health for resilience | Azure Active Directory
+title: Monitor application sign in health for resilience in Azure Active Directory
 description: Create queries and notifications to monitor the sign in health of your applications.
 services: active-directory
 author: BarbaraSelden
@@ -29,7 +29,7 @@ This workbook enables administrators to monitor authentication requests for appl
 * Compare trends over a period, for example week over week, which is the workbook’s default setting.
 
 > [!NOTE]
-> To see all available workbooks, and the prerequisites for using them, please see [How to use Azure Monitor workbooks for reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+> To see all available workbooks, and the prerequisites for using them, please see [How to use Azure Monitor workbooks for reports.](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
 
 During an impacting event, two things may happen:
 
@@ -51,7 +51,7 @@ This article walks through setting up the sign in health workbook to monitor for
 
 * Azure AD logs integrated with Azure Monitor logs
 
-   * Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+   * Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
  
 
@@ -63,7 +63,7 @@ You'll see workbooks under Usage, Conditional Access, and Troubleshoot. The App 
 
 Once you use a workbook, it may appear in the Recently modified workbooks section.
 
-![Screenshot showing the workbooks gallery in the Azure portal](./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png)
+![Screenshot showing the workbooks gallery in the Azure portal.](./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png)
 
 
 The App sign in health workbook enables you to visualize what is happening with your sign ins. 
@@ -106,7 +106,7 @@ For more information on how to create, view, and manage log alerts using Azure M
 
 **Kusto query for drop in usage**
 
-‘’’Kusto
+'''Kusto
 
 let thisWeek = SigninLogs
 
@@ -151,13 +151,14 @@ on rn
 | project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
 
 | where (difference * 2.0) / max > 0.9
-‘’’
+
+'''
 
  
 
 **Kusto query for increase in failure rate**
 
-‘’’kusto
+'''kusto
 
 let thisWeek = SigninLogs
 
@@ -199,16 +200,15 @@ thisWeek
 
 | where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
 
-‘’’  
-‎  
-‎  
+''' 
+
 3. Paste the query in the window and select **Run**. Ensure you see the Completed message shown in the image below, and results below that message.
 
    ![Screenshot showing the run query results.](./media/monitor-sign-in-health-for-resilience/run-query.png)
 
 4. Highlight the query, and select + **New alert rule**. 
  
-![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
+   ![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
 
 
 5. Configure alert conditions. 
@@ -261,9 +261,9 @@ Modify your queries and alerts for maximum effectiveness.
 
 * Ensure the email from which alerts come in your administrator’s email clients is added to allowed senders list. Otherwise you  may miss notifications due to a spam filter on your email client. 
 
-* Alerts query in Azure Monitor can only include results from past 48 hours. [This is a current limitation by design](https://github.com/MicrosoftDocs/azure-docs/issues/22637)
+* Alerts query in Azure Monitor can only include results from past 48 hours. [This is a current limitation by design](https://github.com/MicrosoftDocs/azure-docs/issues/22637).
 
-## Create processes to manage alerts.
+## Create processes to manage alerts
 
 Once you have set up the query and alerts, create business processes to manage the alerts.
 
@@ -274,7 +274,7 @@ Once you have set up the query and alerts, create business processes to manage t
 
 * If an outage occurs, what business processes need to be triggered?
 
-## Next Steps
+## Next steps
 
 [Learn more about workbooks](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
 
