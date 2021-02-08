@@ -50,10 +50,9 @@ A *manifest list* for a multi-arch image is a list of image layers, and you crea
 Docker manages manifests and manifest lists using the [docker manifest](https://docs.docker.com/engine/reference/commandline/manifest/) command.
 
 > [!NOTE]
-> Currently the `docker manifest` command and subcommands are experimental. See the Docker documentation for details about using experimental commands.
+> Currently, the `docker manifest` command and subcommands are experimental. See the Docker documentation for details about using experimental commands.
 
-You can view a manifest list using the `docker manifest inspect` command. The following is the output for the multi-arch image `mcr.microsoft.com/mcr/hello-world:latest`, which has three image layers:
-
+You can view a manifest list using the `docker manifest inspect` command. The following is the output for the multi-arch image `mcr.microsoft.com/mcr/hello-world:latest`, which has three image layers: two for Linux OS architectures and one for a Windows architecture.
 ```json
 {
   "schemaVersion": 2,
@@ -95,70 +94,73 @@ When a multi-arch image is stored in Azure Container Registry, you can also view
 
 ## Import a multi-arch image 
 
-An existing multi-arch image can be imported to an Azure container registry using the [az acr import](/cli/azure/acr#az_acr_import) command. The image import syntax is the same, and like import of a single-architecture image, import of a multi-arch image doesn't use Docker commands. 
+An existing multi-arch image can be imported to an Azure container registry using the [az acr import](/cli/azure/acr#az_acr_import) command. The image import syntax is the same as with a single-architecture image. Like import of a single-architecture image, import of a multi-arch image doesn't use Docker commands. 
 
 For details, see [Import container images to a container registry](container-registry-import-images.md).
 
 ## Push a multi-arch image
 
-When you have build workflows that build container images for different architectures, follow these steps to push a multi-arch image to your Azure container registry.
+When you have build workflows to create container images for different architectures, follow these steps to push a multi-arch image to your Azure container registry.
 
-1. Tag and push each architecture-specific image to your container registry. The following example assumes two architectures: arm64 and Windows. 
+1. Tag and push each architecture-specific image to your container registry. The following example assumes two Linux architectures: arm64 and amd64. 
 
- ```console
-  docker tag myimage:arm64 myregistry.azurecr.io/multi-arch-samples/myimage:arm64
+   ```console
+   docker tag myimage:arm64 \
+     myregistry.azurecr.io/multi-arch-samples/myimage:arm64
 
-  docker push myregistry.azurecr.io/multi-arch-samples/myimage:arm64
+   docker push myregistry.azurecr.io/multi-arch-samples/myimage:arm64
+ 
+   docker tag myimage:amd64 \
+     myregistry.azurecr.io/multi-arch-samples/myimage:amd64
 
-  docker tag myimage:windows myregistry.azurecr.io/multi-arch-samples/myimage:windows
+   docker push myregistry.azurecr.io/multi-arch-samples/myimage:amd64
+   ``` 
 
-  docker push myregistry.azurecr.io/multi-arch-samples/myimage:windows
-  ``` 
+1. Run `docker manifest create` to create a manifest list to combine the preceding images into a multi-arch image.
 
-1. Run `docker manifest create` to create a manifest list to merge the preceding images into a multi-arch image.
-
-  ```console
-  docker manifest create myregistry.azurecr.io/multi-arch-samples/myimage/multi \
+   ```console
+   docker manifest create myregistry.azurecr.io/multi-arch-samples/myimage:multi \
     myregistry.azurecr.io/multi-arch-samples/myimage:arm64 \
-    myregistry.azurecr.io/multi-arch-samples/myimage:windows
-  ```
+    myregistry.azurecr.io/multi-arch-samples/myimage:amd64
+   ```
 
 1. Push the manifest to your container registry using `docker manifest push`:
 
-  ```console
-  docker manifest push  myregistry.azurecr.io/multi-arch-samples/myimage/multi
-  ```
+   ```console
+   docker manifest push myregistry.azurecr.io/multi-arch-samples/myimage:multi
+   ```
 
-1. Use the `docker manifest inspect` command to view the manifest list. Sample command output is shown in a preceding section.
+1. Use the `docker manifest inspect` command to view the manifest list. An example of command output is shown in a preceding section.
 
 After you push the multi-arch manifest to your registry, work with the multi-arch image the same way that you do with a single-architecture image. For example, pull the image using `docker pull`, and use [az acr repository](/cli/azure/acr/repository#az_acr_repository) commands to view tags, manifests, and other properties of the image.
 
 ## Build and push a multi-arch image
 
-Using features of [ACR Tasks](container-registry-tasks-overview.md), you can build and push a multi-arch image to your registry. For example, define a [multi-step task](container-registry-tasks-multi-step.md) in a YAML file that builds a Linux multi-arch image.
+Using features of [ACR Tasks](container-registry-tasks-overview.md), you can build and push a multi-arch image to your Azure container registry. For example, define a [multi-step task](container-registry-tasks-multi-step.md) in a YAML file that builds a Linux multi-arch image.
 
-The following example assumes that you have defined separate Dockerfiles for two architectures, amd64 and arm64. It builds and pushes the architecture-specific images, then creates and pushes a multi-arch manifest with the `latest` tag:
+The following example assumes that you have separate Dockerfiles for two architectures, arm64 and amd64. It builds and pushes the architecture-specific images, then creates and pushes a multi-arch manifest that has the `latest` tag:
 
 ```yml
 version: v1.1.0
 
 steps:
-- build: -t {{.Run.Registry}}/multi-arch-samples/myimage:amd64 -f dockerfile.amd64 . 
-- build: -t {{.Run.Registry}}/multi-arch-samples/myyimage:arm64 -f dockerfile.arm64 . 
+- build: -t {{.Run.Registry}}/multi-arch-samples/myimage:amd64 -f dockerfile.arm64 . 
+- build: -t {{.Run.Registry}}/multi-arch-samples/myyimage:arm64 -f dockerfile.amd64 . 
 - push: 
-    - {{.Run.Registry}}/multi-arch-samples/myimage:amd64
     - {{.Run.Registry}}/multi-arch-samples/myimage:arm64
+    - {{.Run.Registry}}/multi-arch-samples/myimage:amd64
 - cmd: >
     docker manifest create
     {{.Run.Registry}}/multi-arch-samples/myimage:latest
-    {{.Run.Registry}}/multi-arch-samples/myimage:amd64
     {{.Run.Registry}}/multi-arch-samples/myimage:arm64
+    {{.Run.Registry}}/multi-arch-samples/myimage:amf64
 - cmd: docker manifest push --purge {{.Run.Registry}}/multi-arch-samples/myimage:latest
 - cmd: docker manifest inspect {{.Run.Registry}}/multi-arch-samples/myimage:latest
 ```
 
 ## Next steps
 
+* Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) to build container images for different architectures.
 * Learn about building multi-platform images using the experimental Docker [buildx](https://docs.docker.com/buildx/working-with-buildx/) plug-in.
 
 <!-- LINKS - external -->
