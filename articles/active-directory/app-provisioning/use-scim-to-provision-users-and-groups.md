@@ -40,11 +40,11 @@ To automate provisioning to an application will require building and integrating
 
    An endpoint must be SCIM 2.0-compatible to integrate with the AAD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-1. [Integrate your SCIM endpoint with the AAD SCIM client](#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client) 
+1. [Integrate your SCIM endpoint with the AAD SCIM client](#integrate-your-scim-endpoint-with-the-azure-ad-scim-client) 
 
    If your organization uses a third-party application to implement a profile of SCIM 2.0 that AAD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
 
-1. [Publish your application to the AAD application gallery](#step-5-publish-your-application-to-the-azure-ad-application-gallery) 
+1. [Publish your application to the AAD application gallery](#publish-your-application-to-the-azure-ad-application-gallery) 
 
    Make it easy for customers to discover your application and easily configure provisioning. 
 
@@ -60,7 +60,7 @@ The **core** user schema only requires three attributes (all other attributes ar
 
 - `id`, service provider defined identifier
 - `externalId`, client defined identifier
-- `meta`, read-only* metadata maintained by the service provider
+- `meta`, *read-only* metadata maintained by the service provider
 
 In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
 
@@ -83,6 +83,7 @@ To design your schema, follow these steps:
 |manager|manager|manager|
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
+
 **Example list of required attributes**
 
 ```json
@@ -140,6 +141,7 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | surname |name.familyName |
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
+
 **Example list of user and group attributes**
 
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
@@ -150,6 +152,7 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | members |members |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
+
 **Example list of group attributes**
 
 > [!NOTE]
@@ -165,6 +168,7 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 |/ResourceTypes|Specifies metadata about each resource|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+
 **Example list of endpoints**
 
 > [!NOTE]
@@ -411,7 +415,6 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
     "startIndex": 1,
     "itemsPerPage": 20
 }
-
 ```
 
 #### Update User [Multi-valued properties]
@@ -750,7 +753,6 @@ The only acceptable TLS protocol versions are TLS 1.2 and TLS 1.3. No other vers
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
 
-
 **Key Lengths**
 
 All services must use X.509 certificates generated using cryptographic keys of sufficient length, meaning:
@@ -773,7 +775,7 @@ TLS 1.2 Cipher Suites minimum bar:
 ### IP Ranges
 The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
-## Step 3: Build a SCIM endpoint
+## Build a SCIM endpoint
 
 Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM community.
 
@@ -944,10 +946,10 @@ private string GenerateJSONWebToken()
 
 ***Example 1. Query the service for a matching user***
 
-Azure Active Directory queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
+Azure Active Directory (AAD) queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in AAD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
 
 >[!NOTE]
-> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [AAD attribute mappings](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -977,7 +979,7 @@ In the sample query, for a user with a given value for the `externalId` attribut
 
 ***Example 2. Provision a user***
 
-If the response to a query to the web service for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
+If the response to a query to the web service for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then AAD requests that the service provision a user corresponding to the one in AAD.  Here is an example of such a request: 
 
 ```
 POST https://.../scim/Users HTTP/1.1
@@ -1146,7 +1148,7 @@ The object provided as the value of the resourceIdentifier argument has these pr
 
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Step 2: Understand the Azure AD SCIM implementation](#step-2-understand-the-azure-ad-scim-implementation).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Step 2: Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
