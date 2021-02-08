@@ -80,6 +80,13 @@ productDirectory:
         - analytics
       url: /azure/databricks/
     # Card
+    - title: Health Bot
+      summary: A managed service purpose-built for development of virtual healthcare assistants.
+      imageSrc: media/index/health-bot-logo.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/health-bot/
+    # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
       imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
