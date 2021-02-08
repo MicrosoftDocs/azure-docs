@@ -103,7 +103,7 @@ The python2 executable must be aliased to *python*. Following is one method that
 The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
 
 > [!NOTE]
-> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through Portal, CLI, Powershell, ARM etc.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
 
 #### Azure CLI sample
 
@@ -137,7 +137,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### Azure CLI sample for Installing LAD 4.0 extension on the VMSS instance
+#### Azure CLI sample for Installing LAD 4.0 extension on the virtual machine scale set instance
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -210,13 +210,12 @@ After you've changed your Protected or Public settings, deploy them to the VM by
 The latest version of the extension is **4.0 which is currently in Public Preview**. **Older versions of 3.x are still being supported while versions of 2.x are deprecated since July 31, 2018**.
 
 > [!IMPORTANT]
-
 > To migrate from 3.x to this new version of the extension, you must uninstall the old extension, then install version 4 of the extension (with the updated configuration for system assigned identity and sinks for sending metrics to Azure Monitor Sink.)
 
 Recommendations:
 
 * Install the extension with automatic minor version upgrade enabled.
-  * On classic deployment model VMs, specify '4.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell.
+  * On classic deployment model VMs, specify '4.*' as the version if you are installing the extension through Azure XPLAT CLI or PowerShell.
   * On Azure Resource Manager deployment model VMs, include '"autoUpgradeMinorVersion": true' in the VM deployment template.
 * Can use the same storage account for LAD 4.0 as with LAD 3.*. 
 
@@ -357,7 +356,7 @@ The remaining elements are described in detail in the following sections.
 
 This structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
 
-If you don't want to enable syslog or metrics collection, then you can simply speficy an empty structure for ladCfg element as shown below - 
+If you don't want to enable syslog or metrics collection, then you can simply specify an empty structure for ladCfg element as shown below - 
 
 ```json
 "ladCfg": {
@@ -487,8 +486,8 @@ This optional section controls enabling sending metrics to the Azure Monitor Sin
 
 > [!NOTE]
 > This requires System Assigned Identity to be enabled on the VMs/VMSS. 
-> This can be done through Portal, CLI, Powershell, ARM etc. Steps are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
-> The steps to enable this are also listed in the installation samples for AZ CLI, Powershell etc. above. 
+> This can be done through portal, CLI, PowerShell, and resource manager. Steps are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> The steps to enable this are also listed in the installation samples for AZ CLI, PowerShell etc. above. 
 
 ```json
   "sinksConfig": {
@@ -530,7 +529,8 @@ Either "table" or "sinks", or both, must be specified.
 
 ## Metrics supported by the builtin provider
 
-**NOTE**: The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non aggregated metrics, kindly refer to the newer Azure Monitor Sink metrics support.
+> [!NOTE]
+> The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non-aggregated metrics, kindly refer to the newer Azure Monitor Sink metrics support.
 
 The builtin metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
 
@@ -578,7 +578,7 @@ This class of metrics has only a single instance. The "condition" attribute has 
 
 ### builtin metrics for the Network class
 
-The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
+The Network class of metrics provides information about network activity on an individual network interface since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
 
 counter | Meaning
 ------- | -------

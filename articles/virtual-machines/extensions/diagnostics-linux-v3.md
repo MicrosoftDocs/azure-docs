@@ -129,7 +129,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### Azure CLI sample for Installing LAD 3.0 extension on the VMSS instance
+#### Azure CLI sample for Installing LAD 3.0 extension on the virtual machine scale set instance
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -203,7 +203,7 @@ The latest version of the extension is **3.0**. **Any old versions (2.x) are dep
 Recommendations:
 
 * Install the extension with automatic minor version upgrade enabled.
-  * On classic deployment model VMs, specify '3.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell.
+  * On classic deployment model VMs, specify '3.*' as the version if you are installing the extension through Azure XPLAT CLI or PowerShell.
   * On Azure Resource Manager deployment model VMs, include '"autoUpgradeMinorVersion": true' in the VM deployment template.
 * Use a new/different storage account for LAD 3.0. There are several small incompatibilities between LAD 2.3 and LAD 3.0 that make sharing an account troublesome:
   * LAD 3.0 stores syslog events in a table with a different name.
@@ -563,7 +563,7 @@ This class of metrics has only a single instance. The "condition" attribute has 
 
 ### builtin metrics for the Network class
 
-The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
+The Network class of metrics provides information about network activity on an individual network interface since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
 
 counter | Meaning
 ------- | -------
@@ -599,7 +599,8 @@ TransfersPerSecond | Read or write operations per second
 
 Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`. 
 
-**NOTE**: If using the Azure Portal instead of JSON, the correct condition field form is Name='/mnt'
+> [!NOTE]
+> If using the Azure portal instead of JSON, the correct condition field form is Name='/mnt'
 
 ### builtin metrics for the Disk class
 
