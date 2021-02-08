@@ -114,14 +114,14 @@ part of a **table** in Resource Graph.
 - Microsoft.AzureArcData/postgresInstances (Azure Database for PostgreSQL server groups - Azure Arc)
 - Microsoft.AzureArcData/sqlManagedInstances (SQL managed instances - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances (SQL Server - Azure Arc)
-- Microsoft.AzureArcData/datacontrollers
-- Microsoft.AzureArcData/hybriddatamanagers
-- Microsoft.AzureArcData/postgresinstances
-- Microsoft.AzureArcData/sqlbigdataclusters
-- Microsoft.AzureArcData/sqlinstances
-- Microsoft.AzureArcData/sqlmanagedinstances
-- Microsoft.AzureArcData/sqlserverinstances
-- Microsoft.AzureArcData/sqlServerRegistrations (SQL Server registries)
+- microsoft.azuredata/datacontrollers
+- microsoft.azuredata/hybriddatamanagers
+- microsoft.azuredata/postgresinstances
+- microsoft.azuredata/sqlbigdataclusters
+- microsoft.azuredata/sqlinstances
+- microsoft.azuredata/sqlmanagedinstances
+- microsoft.azuredata/sqlserverinstances
+- microsoft.azuredata/sqlServerRegistrations (SQL Server registries)
 - microsoft.azurestack/edgesubscriptions
 - microsoft.azurestack/linkedsubscriptions
 - Microsoft.Azurestack/registrations (Azure Stack Hubs)
