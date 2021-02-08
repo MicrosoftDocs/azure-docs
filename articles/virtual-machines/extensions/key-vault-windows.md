@@ -51,6 +51,7 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
     }
    ```
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
