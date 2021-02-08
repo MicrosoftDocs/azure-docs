@@ -108,9 +108,6 @@
   - name: Databases
     items:
     - name: MongoDB
-      items:
-      - name: Windows
-        href: ./windows/install-mongodb.md
     - name: MS SQL on Linux
       href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
