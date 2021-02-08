@@ -1144,7 +1144,7 @@ The object provided as the value of the resourceIdentifier argument has these pr
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
+## Integrate your SCIM endpoint with the AAD SCIM client
 
 Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-aad-scim-implementation).
 
@@ -1204,7 +1204,7 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 > [!NOTE]
 > The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
 
-## Step 5: Publish your application to the Azure AD application gallery
+## Publish your application to the AAD application gallery
 
 If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../develop/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
 
