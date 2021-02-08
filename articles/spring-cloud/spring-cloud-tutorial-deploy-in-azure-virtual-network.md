@@ -45,7 +45,7 @@ The virtual network to which you deploy your Azure Spring Cloud instance must me
     * One for your Spring Boot microservice applications.
     * There's a one-to-one relationship between these subnets and an Azure Spring Cloud instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
 * **Address space**: CIDR blocks up to */28* for both the service runtime subnet and the Spring Boot microservice applications subnet.
-* **Route table**: The subnets must not have an existing route table associated.
+* **Route table**: By default the subnets do not need existing route tables associated. But you have the option to [bring your own route table](#Bring-your-own-route-table).
 
 The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
 
