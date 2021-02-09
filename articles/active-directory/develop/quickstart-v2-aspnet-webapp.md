@@ -95,11 +95,12 @@ The following diagram shows how the sample app works:
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
 >    ```
 >    In that code:
-> - `Enter_the_Application_Id_here` is the application ID for the application that you registered.
-> - `Enter_the_Tenant_Info_Here` is one of the following options:
->   - If your application supports **My organization only**, replace this value with the tenant ID or tenant name (for example, `contoso.onmicrosoft.com`).
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
->   - If your application supports **All Microsoft account users**, replace this value with `common`.
+>
+>    - `Enter_the_Application_Id_here` is the application ID for the application that you registered.
+>    - `Enter_the_Tenant_Info_Here` is one of the following options:
+>      - If your application supports **My organization only**, replace this value with the tenant ID or tenant name (for example, `contoso.onmicrosoft.com`).
+>      - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
+>      - If your application supports **All Microsoft account users**, replace this value with `common`.
 >
 > > [!TIP]
 > > - To find the values of application ID, directory (tenant) ID, and supported account types, go to the **Overview** page.
@@ -177,7 +178,7 @@ public void Configuration(IAppBuilder app)
 > [!NOTE]
 > Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer. See the samples to understand how to do that.
 
-### Initiate an authentication challenge
+### Authentication challenge
 
 You can force a user to sign in by requesting an authentication challenge in your controller:
 
