@@ -17,7 +17,7 @@ ms.date: 11/09/2020
    ##### Add IPs to App Service allowlist
 
     1. Allow traffic only from Cognitive Service IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
-    2. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    2. Make sure you also allow other entry points like Azure Bot Service, QnA Maker portal, etc. for prediction "GenerateAnswer" API access.
     3. Please follow these steps to add the IP Address ranges to an allowlist:
 
      * Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
@@ -66,4 +66,3 @@ ms.date: 11/09/2020
 * [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
-
