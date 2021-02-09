@@ -119,11 +119,11 @@ Additionally, the service recognizes relations between the different concepts in
 
 ### Entities
 
-**GENE** – All mentions of genes. For example, MTRR, F2.
+**GENE_OR_PROTEIN** – All mentions of names and symbols of human genes and the proteins they encode, as well as chromosomes and parts of chromosomes. For example, MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
-**VARIANT** – All mentions of gene variations. For example, c.524C>T, (MTRR):r.1462_1557del96
+**VARIANT** – All mentions of gene variations and mutations. For example, c.524C>T, (MTRR):r.1462_1557del96
   
 ## Healthcare
 
