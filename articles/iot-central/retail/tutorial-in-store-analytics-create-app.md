@@ -13,8 +13,6 @@ ms.date: 11/12/2019
 
 # Tutorial: Create an in-store analytics application in Azure IoT Central
 
-
-
 The tutorial shows solution builders how to create an Azure IoT Central in-store analytics application. The sample application is for a retail store. It's a solution to the common business need to monitor and adapt to occupancy and environmental conditions.
 
 The sample application that you build includes three real devices: a Rigado Cascade 500 gateway, and two RuuviTag sensors. The tutorial also shows how to use the simulated occupancy sensor included in the application template for testing purposes. The Rigado C500 gateway serves as the communication hub in your application. It communicates with sensors in your store and manages their connections to the cloud. The RuuviTag is an environmental sensor that provides telemetry including temperature, humidity, and pressure. The simulated occupancy sensor provides a way to track motion and presence in the checkout areas of a store. 
@@ -269,7 +267,12 @@ To add an action to the rule:
 
     Within a few minutes, the specified email account should begin to receive emails. The application sends email each time a sensor indicates that the humidity level exceeded the value in your condition.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
+
 In this tutorial, you learned how to:
 
 * Use the Azure IoT Central **In-store analytics - checkout** template to create a retail store application

@@ -3,7 +3,7 @@ title: Change feed in Azure Blob Storage | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -16,9 +16,15 @@ The purpose of the change feed is to provide transaction logs of all the changes
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## How the change feed works
+
 The change feed is stored as [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
 You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files, which let you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
+
+The following diagram shows how records are added to the change feed:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagram showing how the change feed works to provide an ordered log of changes to blobs":::
 
 Change feed support is well-suited for scenarios that process data based on objects that have changed. For example, applications can:
 

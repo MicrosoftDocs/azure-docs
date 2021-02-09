@@ -2,6 +2,11 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/windows/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
       "redirect_document_id": false
@@ -17658,6 +17663,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/asc-for-iot/quickstart-iot-hub-integration.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-iot-hub-integration",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/asc-for-iot/quickstart-onboard-iot-hub.md",
       "redirect_url": "/azure/defender-for-iot/quickstart-onboard-iot-hub",
       "redirect_document_id": false
@@ -17675,6 +17685,11 @@
     {
       "source_path_from_root": "/articles/asc-for-iot/security-agents.md",
       "redirect_url": "/azure/defender-for-iot/security-agents",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/asc-for-iot/security-baseline.md",
+      "redirect_url": "/azure/defender-for-iot/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -61671,6 +61686,11 @@
     {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/upgrade-managed-disks.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     }
   ]
