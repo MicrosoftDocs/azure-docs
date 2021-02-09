@@ -123,7 +123,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### Use Mimic Explainer for computing and visualizing engineered feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also navigate to `https://ml.azure.com/` to view the dashboard visualization of the feature importance values of the generated engineered features by AutoML featurizers.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also sign in to [Azure Machine Learning Studio](https://ml.azure.com/) to view the dashboard visualization of the feature importance values of the generated engineered features by AutoML featurizers.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -132,7 +132,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ### Use Mimic Explainer for computing and visualizing raw feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the raw features. You can also use `https://ml.azure.com/` to view the dashboard visualization of the feature importance values of the raw features.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the raw features. In [Machine Learning Studio](https://ml.azure.com/), you can view the dashboard visualization of the feature importance values of the raw features.
 
 ```python
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
@@ -283,7 +283,7 @@ if service.state == 'Healthy':
 
 ### Visualize to discover patterns in data and explanations at training time
 
-You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
+You can visualize the feature importance chart in your workspace in [Machine Learning Studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
