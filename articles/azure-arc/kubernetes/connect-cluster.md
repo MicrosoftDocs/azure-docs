@@ -165,10 +165,10 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-You can also view this resource on the [Azure Portal](https://portal.azure.com/). Open the portal in your browser and navigate to the resource group and the Azure Arc-enabled Kubernetes resource, based on the resource name and resource group name inputs used earlier in the `az connectedk8s connect` command.
+You can also view this resource on the [Azure portal](https://portal.azure.com/). Open the portal in your browser and navigate to the resource group and the Azure Arc-enabled Kubernetes resource, based on the resource name and resource group name inputs used earlier in the `az connectedk8s connect` command.
 
 > [!NOTE]
-> After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc-enabled Kubernetes resource in Azure Portal.
+> After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc-enabled Kubernetes resource in Azure portal.
 
 ## Connect using an outbound proxy server
 
@@ -255,7 +255,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (operators) that run in yo
 
 ## Delete a connected cluster
 
-You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azure CLI or Azure Portal.
+You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azure CLI or Azure portal.
 
 
 * **Deletion using Azure CLI**: Use the following Azure CLI command to initiate deletion of the Azure Arc-enabled Kubernetes resource.
@@ -264,7 +264,7 @@ You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azur
   ```
   This command removes the `Microsoft.Kubernetes/connectedCluster` resource and any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses `helm uninstall` to remove the agents running on the cluster as well.
 
-* **Deletion on Azure Portal**: Deletion of the Azure Arc-enabled Kubernetes resource on Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource and any associated `sourcecontrolconfiguration` resources in Azure, but it *does not* remove the agents running on the cluster. 
+* **Deletion on Azure portal**: Deletion of the Azure Arc-enabled Kubernetes resource on Azure portal deletes the `Microsoft.Kubernetes/connectedcluster` resource and any associated `sourcecontrolconfiguration` resources in Azure, but it *does not* remove the agents running on the cluster. 
 
   To remove the agents running on the cluster, run the following command:
 
