@@ -35,7 +35,7 @@ The action is similar to replacing symlinks with their full paths.
 
 |Property | Value |
 |---|---|
-|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-alter-table-location-expand-adl-path-v01.sh`|
+|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-adl-expand-location-v01.sh`|
 |Node type(s)|Head|
 |Parameters||
 
