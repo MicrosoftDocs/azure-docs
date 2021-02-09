@@ -21,7 +21,7 @@ When the volume container has no associated volumes, backup policies, and cloud 
 
 1. Go to your StorSimple Device Manager service and click **Devices**. Select and click the device and then go to **Settings > Manage > Volume containers**.
 
-    ![Volume containers blade](./media/storsimple-8000-create-volume-container/create-volume-container-02.png)
+    ![Volume containers blade](./media/storsimple-8000-delete-volume-container/create-volume-container.png)
 
 2. From the tabular list of volume containers, select the volume container you want to delete, right click **...** and then select **Delete**.
 

@@ -107,9 +107,9 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
       
        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You can't create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
 
-    6. In the **Connected hosts** field, click the arrow, and then select each ACR you want to connect. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host.<!--Please verify new ACR steps and controls. Is this capability still available?--> 
+    6. In the **Connected hosts** field, click the arrow, and then select each ACR you want to connect. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host.<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
 
-        ![Add a connected host](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)
+        ![Add a connected host](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
 
    7. When you finish your settings, click **Create**. 
 
@@ -152,11 +152,11 @@ Modify a volume when you need to expand it or change the hosts that access the v
    3. Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
    4. Under **Connected hosts**, you can modify the ACR. To modify an ACR, the volume must be offline.
 
-       ![Review impact of taking volume offline 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)
+       ![Review impact of taking volume offline 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
 
-5. Click **Save** to save your changes. When prompted for confirmation, click **Yes**. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. Click **Save** to save your changes. When prompted for confirmation, click **Yes**. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-    ![Review impact of taking volume offline 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
+    ![Review impact of taking volume offline 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
    
