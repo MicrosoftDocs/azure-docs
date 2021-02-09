@@ -43,18 +43,6 @@ A workspace includes other Azure resources that are used by the workspace:
 
 You can share a workspace with others.
 
-### Create workspace
-
-The workflow to create a workspace:
-
-* You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
-* You call Azure Resource Manager to create the workspace. 
-* Azure Resource Manager contacts the Azure Machine Learning resource provider to provision the workspace.
-* If you don't specify existing resources, additional required resources are created in your subscription..
-
-You can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
-
-
 ## Computes
 
 <a name="compute-targets"></a>
