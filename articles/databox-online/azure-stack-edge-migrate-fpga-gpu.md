@@ -31,7 +31,7 @@ In this article, the Azure Stack Edge Pro FPGA device is referred to as the *sou
 
 This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical and differs only with respect to the hardware acceleration card and the storage capacity. 
 
-|                | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
+|    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
 | Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, power cord specifications are identical to the device with GPU.          |
 | Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
@@ -98,7 +98,7 @@ Edge cloud shares tier data from your device to Azure. Do these steps on your *s
 - Make a list of all the Edge cloud shares and users that you have on the source device.
 - Make a list of all the bandwidth schedules that you have. You will recreate these bandwidth schedules on your target device.
 - Depending on the network bandwidth available, configure bandwidth schedules on your device so as to maximize the data tiered to the cloud. This would minimize the local data on the device.
-- Ensure that the shares are fully tiered to the cloud. This can be confirmed by checking the share status in the Azure portal. Once the share is fully tiered, stop the data copy to those shares. 
+- Ensure that the shares are fully tiered to the cloud. This can be confirmed by checking the share status in the Azure portal.  
 
 #### Data in Edge local shares
 
