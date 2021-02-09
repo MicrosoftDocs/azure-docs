@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## January 2021
 
+- [Analytics rule wizard: Improved query editing experience (public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
 - [Improved incident comments](#improved-incident-comments)
@@ -35,13 +36,23 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+## Analytics rule wizard: Improved query editing experience (public preview)
+
+The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
+
+-	An expandable editing window, providing you with more screen space to view your query.
+-	Key word highlighting in your query code.
+-	Expanded auto-complete support.
+-	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
+
+For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
 
 The **Az.SecurityInsights** module supports common Azure Sentinel use cases, like interacting with incidents to change statues, severity, owner, and so on, adding comments and labels to incidents, and creating bookmarks.
 
-Although we recommend using [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is specifically targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
+Although we recommend using [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
 
 For more information, including a full list and description of the available cmdlets, parameter descriptions, and examples, see the [Az.SecurityInsights PowerShell documentation](/powershell/module/az.securityinsights/).
 
@@ -73,7 +84,7 @@ For more information, see [Azure Monitor logs dedicated clusters](https://docs.m
 
 ### Logic apps managed identities
 
-Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions to a directly to a specific playbook to operate on Azure Sentinel instead of creating extra identities.
+Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions directly to a specific playbook to operate on Azure Sentinel instead of creating extra identities.
 
 - **Without a managed identity**, the Logic Apps connector requires a separate identity with an Azure Sentinel RBAC role in order to run on Azure Sentinel. The separate identity can be an Azure AD user or a Service Principal, such as an Azure AD registered application.
 
@@ -118,7 +129,7 @@ This update for Azure Sentinel includes new hunting queries that provide coverag
 
 The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
 
-If, after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
+If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
 
 All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 

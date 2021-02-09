@@ -180,6 +180,8 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
+      - name: Modules from FPGA devices
+        href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
       - name: Module via Azure portal 
         href: azure-stack-edge-gpu-deploy-compute-module-simple.md
     - name: Deploy Kubernetes workloads
@@ -207,7 +209,9 @@
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
         - name: Deploy stateless app via GitOps
-          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md              
+          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
+        - name: Deploy Azure Arc Data Controller
+          href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
     - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell

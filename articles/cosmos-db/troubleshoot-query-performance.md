@@ -200,12 +200,15 @@ Most system functions use indexes. Here's a list of some common string functions
 - Left
 - Substring - but only if the first num_expr is 0
 
-Following are some common system functions that don't use the index and must load each document:
+Following are some common system functions that don't use the index and must load each document when used in a `WHERE` clause:
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Upper/Lower                         | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calculate the current time before query execution and use that string value in the `WHERE` clause. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
+
+When used in the `SELECT` clause, inefficient system functions will not affect how queries can use indexes.
 
 ### Improve string system function execution
 

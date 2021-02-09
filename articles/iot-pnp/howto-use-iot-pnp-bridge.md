@@ -277,6 +277,8 @@ After the bridge starts, use the Azure IoT explorer tool to verify it's working.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
+## Clean up resources
+
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps

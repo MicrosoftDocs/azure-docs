@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 2/2/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V11.2 Release - [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | February 2, 2021 | Supported - Flighting |
+| V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported - Flighting |
 | V11.1 Release - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |

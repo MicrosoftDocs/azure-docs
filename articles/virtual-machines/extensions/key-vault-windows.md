@@ -219,9 +219,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
     
     ```azurecli
        # Start the deployment
-         az vm extension set -name "KeyVaultForWindows" `
+         az vm extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -230,9 +230,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -name "KeyVaultForWindows" `
+        az vmss extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```

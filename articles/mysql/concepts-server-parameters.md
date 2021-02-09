@@ -25,8 +25,7 @@ Refer to the following sections below to learn more about the limits of the seve
 
 ### Thread pools
 
-MySQL traditionally assigns a thread for every client connection. As the number of concurrent users grows, there is a corresponding drop in 
-formance. Many active threads can impact the performance significantly due to increased context switching, thread contention, and bad locality for CPU caches.
+MySQL traditionally assigns a thread for every client connection. As the number of concurrent users grows, there is a corresponding drop in performance. Many active threads can impact the performance significantly due to increased context switching, thread contention, and bad locality for CPU caches.
 
 Thread pools which is a server side feature and distinct from connection pooling, maximize performance by introducing a dynamic pool of worker thread that can be used to limit the number of active threads running on the server and minimize thread churn. This helps ensure that a burst of connections will not cause the server to run out of resources or crash with an out of memory error. Thread pools are most efficient for short queries and CPU intensive workloads, for example OLTP workloads.
 
