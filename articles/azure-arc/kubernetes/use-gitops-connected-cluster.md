@@ -44,7 +44,7 @@ If you are associating a private repository with the `sourceControlConfiguration
 
 Use the Azure CLI extension for `k8sconfiguration` to link a connected cluster to the [example Git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
-```console
+```azurecli
 az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
@@ -134,7 +134,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version >= 1.2.0.  Version 1.2.0 is used by default.
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services managed clusters.
-> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### Additional Parameters
 
@@ -146,7 +146,7 @@ To customize the configuration, here are more parameters you can use:
 
 `--helm-operator-chart-version` : *Optional* chart version for Helm operator (if enabled). Default: '1.2.0'.
 
-`--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'
+`--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'. Max 23 characters.
 
 `--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -166,12 +166,6 @@ Options supported in  --operator-params
 
 * If '--git-user' or '--git-email' are not set (which means that you don't want Flux to write to the repo), then --git-readonly will automatically be set (if you have not already set it).
 
-* If enableHelmOperator is true, then operatorInstanceName + operatorNamespace strings cannot exceed 47 characters combined.  If you fail to adhere to this limit, you will get the following error:
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
-
 For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 
 > [!TIP]
@@ -181,7 +175,7 @@ For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 
 Using the Azure CLI validate that the `sourceControlConfiguration` was successfully created.
 
-```console
+```azurecli
 az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
@@ -247,7 +241,7 @@ While the provisioning process happens, the `sourceControlConfiguration` will mo
 
 ## Apply configuration from a private Git repository
 
-If you are using a private Git repo, then you need to configure the SSH public key in your repo. You can configure the public key either on the Git repo or the Git user that has access to the repo. The SSH public key will be either the one you provide or the one that Flux generates.
+If you are using a private Git repo, then you need to configure the SSH public key in your repo. You can configure the public key either on the specific Git repo or on the Git user that has access to the repo. The SSH public key will be either the one you provide or the one that Flux generates.
 
 **Get your own public key**
 
@@ -256,7 +250,7 @@ If you generated your own SSH keys, then you already have the private and public
 **Get the public key using Azure CLI (useful if Flux generates the keys)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
@@ -353,7 +347,7 @@ Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  Afte
 > After a sourceControlConfiguration with namespace scope is created, it's possible for users with `edit` role binding on the namespace to deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads.  If needed you can delete this namespace manually with kubectl.
 > Any changes to the cluster that were the result of deployments from the tracked Git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
-```console
+```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

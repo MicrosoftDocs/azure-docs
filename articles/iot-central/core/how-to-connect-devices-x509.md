@@ -194,7 +194,7 @@ The device is now provisioned with X.509 certificate.
 
 1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
-1. Modify the environment variables you used in  as follows:
+1. Modify the environment variables you used in the sample above as follows:
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary

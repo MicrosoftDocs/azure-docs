@@ -51,7 +51,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 * [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.md#diagnostics-and-logging)
+* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure Security Center monitoring**: Yes
 
@@ -98,7 +98,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 * [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.md#diagnostics-and-logging)
+* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -405,7 +405,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -1075,7 +1075,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 * [How to configure continuous export](../security-center/continuous-export.md)
 

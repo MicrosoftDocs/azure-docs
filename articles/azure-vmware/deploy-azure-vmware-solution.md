@@ -2,12 +2,15 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 12/24/2020
 ---
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. If you haven't defined the information, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
+In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. 
+
+>[!IMPORTANT]
+>If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
 ## Register the resource provider
 
@@ -35,7 +38,7 @@ After you deploy Azure VMware Solution, you'll create the virtual network's jump
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network you [identified or created as part of the deployment process](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), follow these instructions: 
+To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 

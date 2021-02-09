@@ -14,9 +14,7 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Query a knowledge base
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-  - name: Using REST
-    href: Quickstarts/quickstart-rest-curl.md
-  - name: Using SDK
+  - name: Using client libraries or REST API
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
@@ -105,6 +103,8 @@
     href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
+  - name: Content format guidelines
+    href: reference-document-format-guidelines.md
   - name: Content and data formats
     items:
     - name: Content format guidelines
@@ -115,6 +115,8 @@
       href: reference-data-guidelines.md
   - name: Display format
     href: reference-markdown-format.md
+  - name: Private Links
+    href: reference-private-endpoint.md
   - name: Batch testing format
     href: reference-tsv-format-batch-testing.md
   - name: Encryption	

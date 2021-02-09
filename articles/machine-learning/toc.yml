@@ -70,10 +70,6 @@
         - name: Label image data
           displayName: tag, tagging, images
           href: tutorial-labeling.md
-    - name: R SDK
-      items: 
-        - name: Create first ML experiment (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items: 
         - name: Train & deploy with CLI
@@ -110,7 +106,7 @@
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
     - name: Open Datasets (public)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Concepts
   items: 
     - name: Plan and manage costs
@@ -176,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: Responsible ML
       items: 
         - name: Responsible ML overview
@@ -357,14 +355,6 @@
         - name: Tune hyperparameters
           displayName: parameter, hyperparameter, hyperdrive
           href: how-to-tune-hyperparameters.md
-        - name: Work with MLflow
-          items: 
-            - name: Track experiments with MLflow
-              displayName: log, monitor, deploy, metrics,  model registry, register
-              href: how-to-use-mlflow.md
-            - name: Track Azure Databricks runs with MLflow
-              displayName: log, monitor, deploy, metrics, databricks
-              href: how-to-use-mlflow-azure-databricks.md              
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -407,6 +397,17 @@
           href: how-to-use-secrets-in-runs.md
         - name: Reinforcement learning
           href: how-to-use-reinforcement-learning.md
+    - name: Work with MLflow
+      items: 
+        - name: Track experiments with MLflow
+          displayName: log, monitor, metrics, model registry, register
+          href: how-to-use-mlflow.md
+        - name: Track Azure Databricks runs with MLflow
+          displayName: log, monitor, deploy, metrics, databricks
+          href: how-to-use-mlflow-azure-databricks.md              
+        - name: Deploy MLflow models
+          displayName: log, monitor, deploy, metrics, databricks, aci, aks
+          href: how-to-deploy-mlflow-models.md              
     - name: Automated machine learning
       displayName: automl, auto ml
       items: 
@@ -468,7 +469,7 @@
         - name: Use custom Docker image
           href: how-to-deploy-custom-docker-image.md
         - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshooting deployment
@@ -571,7 +572,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
@@ -579,7 +580,7 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: REST API
-      href: https://docs.microsoft.com/rest/api/azureml/
+      href: /rest/api/azureml/
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
@@ -609,7 +610,9 @@
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: User forum
-      href: https://docs.microsoft.com/answers/topics/azure-machine-learning.html
+      href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
@@ -619,4 +622,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md   
+      href: designer-accessibility.md

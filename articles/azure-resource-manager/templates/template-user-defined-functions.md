@@ -38,7 +38,7 @@ Your functions require a namespace value to avoid naming conflicts with template
 
 ## Use the function
 
-The following example shows a template that includes a user-defined function. It uses that function to get a unique name for a storage account. The template has a parameter named **storageNamePrefix** that it passes as a parameter to the function.
+The following example shows a template that includes a user-defined function. It uses that function to get a unique name for a storage account. The template has a parameter named `storageNamePrefix` that it passes as a parameter to the function.
 
 ```json
 {

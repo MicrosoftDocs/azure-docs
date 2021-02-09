@@ -75,7 +75,9 @@ The retention controls on top allow you to define specific events and time range
 
 ## Custom business events
 
-To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game.
+
+You can also use the [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md) to collect custom events.
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 

@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 01/28/2021
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -142,7 +142,7 @@ If you are not receiving Notifications on your *primary email*, then you can try
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
-Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md).
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -158,6 +158,7 @@ You may have a limited number of Logic App actions in an Action Group.
 
 > [!NOTE]
 > Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object Ids through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
 
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
@@ -312,7 +313,8 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 ### Webhook
 
 > [!NOTE]
-> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. 
+> If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
 
 Webhooks are processed using the following rules
 - A webhook call is attempted a maximum of 3 times.
@@ -321,139 +323,8 @@ Webhooks are processed using the following rules
 - The second and third attempts will wait 30 seconds for a response.
 - After the 3 attempts to call the webhook have failed no action group will call the endpoint for 15 minutes.
 
-Source IP address ranges:
+Please see [Action Group IP Addresses](../app/ip-addresses.md) for source IP address ranges.
 
- - 13.66.60.119/32
- - 13.66.143.220/30
- - 13.66.202.14/32
- - 13.66.248.225/32
- - 13.66.249.211/32
- - 13.67.10.124/30
- - 13.69.109.132/30
- - 13.71.199.112/30
- - 13.77.53.216/30
- - 13.77.172.102/32
- - 13.77.183.209/32
- - 13.78.109.156/30
- - 13.84.49.247/32
- - 13.84.51.172/32
- - 13.84.52.58/32
- - 13.86.221.220/30
- - 13.106.38.142/32
- - 13.106.38.148/32
- - 13.106.54.3/32
- - 13.106.54.19/32
- - 13.106.57.181/32
- - 13.106.57.196/31
- - 20.38.149.132/30
- - 20.42.64.36/30
- - 20.43.121.124/30
- - 20.44.17.220/30
- - 20.45.123.236/30
- - 20.72.27.152/30
- - 20.150.172.228/30
- - 20.192.238.124/30
- - 20.193.202.4/30
- - 40.68.195.137/32
- - 40.68.201.58/32
- - 40.68.201.65/32
- - 40.68.201.206/32
- - 40.68.201.211/32
- - 40.68.204.18/32
- - 40.115.37.106/32
- - 40.121.219.215/32
- - 40.121.221.62/32
- - 40.121.222.201/32
- - 40.121.223.186/32
- - 51.104.9.100/30
- - 52.183.20.244/32
- - 52.183.31.0/32
- - 52.183.94.59/32
- - 52.184.145.166/32
- - 191.233.50.4/30
- - 191.233.207.64/26
- - 2603:1000:4:402::178/125
- - 2603:1000:104:402::178/125
- - 2603:1010:6:402::178/125
- - 2603:1010:101:402::178/125
- - 2603:1010:304:402::178/125
- - 2603:1010:404:402::178/125
- - 2603:1020:5:402::178/125
- - 2603:1020:206:402::178/125
- - 2603:1020:305:402::178/125
- - 2603:1020:405:402::178/125
- - 2603:1020:605:402::178/125
- - 2603:1020:705:402::178/125
- - 2603:1020:805:402::178/125
- - 2603:1020:905:402::178/125
- - 2603:1020:a04:402::178/125
- - 2603:1020:b04:402::178/125
- - 2603:1020:c04:402::178/125
- - 2603:1020:d04:402::178/125
- - 2603:1020:e04:402::178/125
- - 2603:1020:f04:402::178/125
- - 2603:1020:1004:800::f8/125
- - 2603:1020:1104:400::178/125
- - 2603:1030:f:400::978/125
- - 2603:1030:10:402::178/125
- - 2603:1030:104:402::178/125
- - 2603:1030:107:400::f0/125
- - 2603:1030:210:402::178/125
- - 2603:1030:40b:400::978/125
- - 2603:1030:40c:402::178/125
- - 2603:1030:504:802::f8/125
- - 2603:1030:608:402::178/125
- - 2603:1030:807:402::178/125
- - 2603:1030:a07:402::8f8/125
- - 2603:1030:b04:402::178/125
- - 2603:1030:c06:400::978/125
- - 2603:1030:f05:402::178/125
- - 2603:1030:1005:402::178/125
- - 2603:1040:5:402::178/125
- - 2603:1040:207:402::178/125
- - 2603:1040:407:402::178/125
- - 2603:1040:606:402::178/125
- - 2603:1040:806:402::178/125
- - 2603:1040:904:402::178/125
- - 2603:1040:a06:402::178/125
- - 2603:1040:b04:402::178/125
- - 2603:1040:c06:402::178/125
- - 2603:1040:d04:800::f8/125
- - 2603:1040:f05:402::178/125
- - 2603:1040:1104:400::178/125
- - 2603:1050:6:402::178/125
- - 2603:1050:403:400::1f8/125
-
-To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
-
-You may have a limited number of Webhook actions in an Action Group.
-
-Frequent Updates to Source IP addresses can be quite time consuming in Webhook. Using **Service Tag** for *ActionGroup* helps with minimizing the complexity of frequent updates to IP addresses manually. Source IP addresses range prefixes shared above is auto managed by Microsoft encompassed by **Service Tag**.
-
-#### Service Tag
-A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules for an ActionGroup.
-
-1. In Azure portal under Azure Services search for *Network Security Group*.
-2. Click on **Add** and create a Network Security Group.
-
-   1. Add the Resource Group Name and then enter *Instance Details*.
-   1. Click on **Review + Create** and then click *Create*.
-   
-   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
-
-3. Go to Resource Group and then click on *Network Security Group* you have created.
-
-    1. Select *Inbound Security Rules*.
-    1. Click on **Add**.
-    
-    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
-
-4. A new window will open in right pane.
-    1.  Select Source: **Service Tag**
-    1.  Source Service Tag: **ActionGroup**
-    1.  Click **Add**.
-    
-    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
 
 ## Next steps
 * Learn more about [SMS alert behavior](./alerts-sms-behavior.md).  

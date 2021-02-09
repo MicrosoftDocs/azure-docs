@@ -104,6 +104,10 @@ landingContent:
             url: load-balancer-common-deployment-errors.md
           - text: Resolve common outbound connection issues
             url: troubleshoot-outbound-connection.md
+          - text: Health Probe status issues
+            url: load-balancer-troubleshoot-health-probe-status.md  
+          - text: Backend pool (VM) traffic
+            url: load-balancer-troubleshoot-backend-traffic.md
       - linkListType: video
         links:
           - text: Build & monitor highly available apps with Azure Load Balancer

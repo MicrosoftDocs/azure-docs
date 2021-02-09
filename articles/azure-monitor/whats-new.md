@@ -5,11 +5,69 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 12/04/2020
+ms.date: 01/11/2021
 ---
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## December 2020
+
+### General
+- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error messages.
+- [Partners who integrate with Azure Monitor](platform/partners.md) - Added section on Event Hub integration.
+
+### Agents
+- [Cross-resource query Azure Data Explorer by using Azure Monitor](platform/azure-monitor-data-explorer-proxy.md) - New article.
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added Oracle 8 support.
+
+### Alerts
+- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added troubleshooting for dynamic thresholds.
+- [IT Service Management Connector in Log Analytics](platform/itsmc-definition.md) - New article.
+- [IT Service Management Connector overview](platform/itsmc-overview.md) - Restructured troubleshooting information.
+- [Connect Cherwell with IT Service Management Connector](platform/itsmc-connections-cherwell.md) - New article.
+- [Connect Provance with IT Service Management Connector](platform/itsmc-connections-provance.md) - New article.
+- [Connect SCSM with IT Service Management Connector](platform/itsmc-connections-scsm.md) - New article.
+- [Connect ServiceNow with IT Service Management Connector](platform/itsmc-connections-servicenow.md) - New article.
+- [How to manually fix ServiceNow sync problems](platform/itsmc-resync-servicenow.md) - Restructured troubleshooting information.
+
+
+
+
+### Application Insights
+- [Azure Application Insights for JavaScript web apps](app/javascript.md) - Added connection string setup.
+- [Azure Application Insights standard metrics](app/standard-metrics.md) - New article.
+- [Azure Monitor Application Insights Java](app/java-in-process-agent.md) - Additional information on sending custom telemetry from your application.
+- [Continuous export of telemetry from Application Insights](app/export-telemetry.md) - Added diagnostic  settings based export.
+- [Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](app/snapshot-debugger-function-app.md) - New article.
+- [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) - Added IP addresses for Azure Government.
+- [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Added information on Diagnostic Services site extension' status page.
+- [Troubleshoot your Azure Application Insights availability tests](app/troubleshoot-availability.md) - Updates to troubleshooting for ping tests.
+- [Troubleshooting Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md) - New article.
+
+### Containers
+- [Reports in Azure Monitor for containers](insights/container-insights-reports.md) - New article.
+
+### Logs
+- [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - Added automated commands, methods to unlink and remove, and troubleshooting.
+- [Cross service query between Azure Monitor and Azure Data Explorer (preview)](platform/azure-data-explorer-monitor-cross-service-query.md) - New article.
+- [Log Analytics workspace data export in Azure Monitor (preview)](platform/logs-data-export.md) - Added ARM templates.
+
+### Metrics
+- [Advanced features of Azure Metrics Explorer](platform/metrics-charts.md) - Added information on resource scope picker.
+- [Viewing multiple resources in Metrics Explorer](platform/metrics-dynamic-scope.md) - New article.
+
+### Networks
+- [Azure Networking Analytics solution in Azure Monitor](insights/azure-networking-analytics.md) - Added information on Network Insights workbook.
+
+### Virtual Machines
+- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md) - New version of dependency agent.
+
+
+### Visualizations
+- [Azure Monitor workbook map visualizations](platform/workbooks-map-visualizations.md) - New article.
+- [Azure Monitor Workbooks bring your own storage](platform/workbooks-bring-your-own-storage.md) - New article.
+
 
 ## November 2020
 

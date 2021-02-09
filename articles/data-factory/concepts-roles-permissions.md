@@ -52,6 +52,12 @@ Permissions on Azure Repos and GitHub are independent of Data Factory permission
 > [!IMPORTANT]
 > Resource Manager template deployment with the **Data Factory Contributor** role does not elevate your permissions. For example, if you deploy a template that creates an Azure virtual machine, and you don't have permission to create virtual machines, the deployment fails with an authorization error.
 
+> [!IMPORTANT]
+> The permission **Microsoft.DataFactory/factories/write** is required in both modes within the publish context.
+
+- This permission is only required in Live mode when the customer modifies global parameters.
+- This  permission is always required in Git mode since every time after the customer publishes, because the factory object with the last commit id is updated.
+
 ### Custom scenarios and custom roles
 
 Sometimes you may need to grant different access levels for different data factory users. For example:

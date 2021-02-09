@@ -13,7 +13,7 @@
     items:
     - name: Using the web portal
       href: getting-started-build-a-classifier.md
-    - name: Using the Custom Vision SDK
+    - name: Using the Custom Vision SDK or REST API
       href: quickstarts/image-classification.md
   - name: Build an object detector
     items:

@@ -18,18 +18,14 @@ Get started with Azure Communication Services by connecting your chat solution t
 
 ## Prerequisites 
 
-1. A [Teams deployment](https://docs.microsoft.com/deployoffice/teams-install). 
+1. A [Teams deployment](/deployoffice/teams-install). 
 2. A working [chat app](./get-started.md). 
 
 ## Enable Teams interoperability 
 
 A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
 
-The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email acsfeedback@microsoft.com with: 
-1. The Subscription ID of the Azure subscription that contains your Communication Services resource. 
-2. Your Teams tenant ID. The easiest way to obtain this is to obtain and share a link to the Team. 
-
-You must be a member of the owning organization of both entities to use this feature. 
+You must be a member of the owning organization of both entities to use this feature.
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 

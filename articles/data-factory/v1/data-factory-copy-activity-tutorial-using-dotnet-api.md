@@ -36,7 +36,7 @@ In this tutorial, you create a pipeline with one activity in it: Copy Activity. 
 A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE] 
-> For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+> For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/overview/azure/data-factory).
 > 
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
@@ -516,7 +516,7 @@ You should have following four values from these steps:
 20. Verify that the two employee records are created in the **emp** table in the specified database.
 
 ## Next steps
-For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/overview/azure/data-factory).
 
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 

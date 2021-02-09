@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness - Compliance
-      href: compliance.md
+    - name: Enterprise readiness 
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            items:
+            - name: Resource model overview
+              href: continuous-backup-restore-resource-model.md
+            - name: Restorable accounts - List
+              href: restorable-database-accounts-list.md
+            - name: Restorable accounts - List by location
+              href: restorable-database-accounts-list-by-location.md
+            - name: Restorable SQL resources - List
+              href: restorable-sql-resources-list.md
+            - name: Restorable SQL databases - List
+              href: restorable-sql-databases-list.md
+            - name: Restorable SQL containers - List
+              href: restorable-sql-containers-list.md
+            - name: Restorable MongoDB resources - List
+              href: restorable-mongodb-resources-list.md
+            - name: Restorable MongoDB collections - List
+              href: restorable-mongodb-collections-list.md
+            - name: Restorable MongoDB databases - List
+              href: restorable-mongodb-databases-list.md
+        - name: Compliance
+          href: compliance.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -736,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: Troubleshoot unauthorized
                   href: troubleshoot-unauthorized.md
+                - name: Troubleshoot forbidden
+                  href: troubleshoot-forbidden.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -956,61 +988,63 @@
           href: cassandra-consistency.md
     - name: How-to guides
       items:
-      - name: Migrate to Cassandra API
-        items:
-        - name: Migrate - Oracle DB to Cassandra API using Striim
-          href: cosmosdb-cassandra-api-migrate-data-striim.md
-        - name: Migrate - Oracle DB to Cassandra API using Blitzz
-          href: oracle-migrate-cosmos-db-blitzz.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-          href: cassandra-migrate-cosmos-db-blitzz.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-          href: cassandra-migrate-cosmos-db-databricks.md          
-      - name: Change feed
-        href: cassandra-change-feed.md
-      - name: Create a container - Cassandra API
-        href: how-to-create-container-cassandra.md
-      - name: Provision throughput- Cassandra API
-        displayName: request units, RUs, RU, collection level
-        href: how-to-provision-throughput-cassandra.md
-      - name: Find request unit charge
-        displayName: request units, RUs, RU, charge, consumption
-        href: find-request-unit-charge-cassandra.md
-      - name: Store and manage Spring Data 
-        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
-      - name: Troubleshoot common issues
-        href: cassandra-troubleshoot.md
-      - name: Cassandra and Spark
-        items:
-        - name: Introduction
-          href: cassandra-spark-generic.md
-        - name: Connect using Databricks
-          href: cassandra-spark-databricks.md
-        - name: Connect using HDInsight
-          href: cassandra-spark-hdinsight.md
-        - name: Create keyspace and table
-          href: cassandra-spark-ddl-ops.md
-        - name: Insert data
-          href: cassandra-spark-create-ops.md
-        - name: Read data
-          href: cassandra-spark-read-ops.md
-        - name: Upsert data
-          href: cassandra-spark-upsert-ops.md
-        - name: Delete data
-          href: cassandra-spark-delete-ops.md
-        - name: Aggregation operations
-          href: cassandra-spark-aggregation-ops.md
-        - name: Copy table data
-          href: cassandra-spark-table-copy-ops.md
-      - name: Cassandra and Kafka
-        href: cassandra-kafka-connect.md
-      - name: Manage using Resource Manager templates
-        href: templates-samples-cassandra.md
-        displayName: ARM
-      - name: Manage using PowerShell
-        href: powershell-samples-cassandra.md
-      - name: Manage using Azure CLI
-        href: cli-samples-cassandra.md
+        - name: Migrate to Cassandra API
+          items:
+            - name: Migrate - Oracle DB to Cassandra API using Striim
+              href: cosmosdb-cassandra-api-migrate-data-striim.md
+            - name: Migrate - Oracle DB to Cassandra API using Blitzz
+              href: oracle-migrate-cosmos-db-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+              href: cassandra-migrate-cosmos-db-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+              href: cassandra-migrate-cosmos-db-databricks.md
+            - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
+              href: postgres-migrate-cosmos-db-kafka.md
+        - name: Change feed
+          href: cassandra-change-feed.md
+        - name: Create a container - Cassandra API
+          href: how-to-create-container-cassandra.md
+        - name: Provision throughput- Cassandra API
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-throughput-cassandra.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-cassandra.md
+        - name: Store and manage Spring Data
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+        - name: Troubleshoot common issues
+          href: cassandra-troubleshoot.md
+        - name: Cassandra and Spark
+          items:
+            - name: Introduction
+              href: cassandra-spark-generic.md
+            - name: Connect using Databricks
+              href: cassandra-spark-databricks.md
+            - name: Connect using HDInsight
+              href: cassandra-spark-hdinsight.md
+            - name: Create keyspace and table
+              href: cassandra-spark-ddl-ops.md
+            - name: Insert data
+              href: cassandra-spark-create-ops.md
+            - name: Read data
+              href: cassandra-spark-read-ops.md
+            - name: Upsert data
+              href: cassandra-spark-upsert-ops.md
+            - name: Delete data
+              href: cassandra-spark-delete-ops.md
+            - name: Aggregation operations
+              href: cassandra-spark-aggregation-ops.md
+            - name: Copy table data
+              href: cassandra-spark-table-copy-ops.md
+        - name: Cassandra and Kafka
+          href: cassandra-kafka-connect.md
+        - name: Manage using Resource Manager templates
+          href: templates-samples-cassandra.md
+          displayName: ARM
+        - name: Manage using PowerShell
+          href: powershell-samples-cassandra.md
+        - name: Manage using Azure CLI
+          href: cli-samples-cassandra.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1039,6 +1073,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
+        - name: Rust
+          href: create-mongodb-rust.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1118,6 +1154,10 @@
           href: find-request-unit-charge-mongodb.md
         - name: Troubleshoot query performance
           href: mongodb-troubleshoot-query.md
+        - name: Troubleshoot common issues
+          href: mongodb-troubleshoot.md
+        - name: Prevent rate-limiting errors
+          href: prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: MongoDB extension commands
@@ -1130,8 +1170,6 @@
           href: powershell-samples-mongodb.md
         - name: Manage using Azure CLI
           href: cli-samples-mongodb.md
-        - name: Troubleshoot common issues
-          href: mongodb-troubleshoot.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1359,8 +1397,20 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Online backup and on-demand restore
-          href: online-backup-and-restore.md
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - ARM
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor

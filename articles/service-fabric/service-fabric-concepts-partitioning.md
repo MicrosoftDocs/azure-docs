@@ -1,13 +1,15 @@
 ---
 title: Partitioning Service Fabric services 
-description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
-
+description: Learn how to partition Service Fabric stateless and stateful services
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
 ---
 # Partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. Partitioning enables data storage on the local machines so data and compute can be scaled together.
+
+> [!TIP]
+> A [complete sample](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) of the code in this article is available on GitHub.
 
 ## Partitioning
 Partitioning is not unique to Service Fabric. In fact, it is a core pattern of building scalable services. In a broader sense, we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well-known form of partitioning is [data partitioning][wikipartition], also known as sharding.
@@ -343,14 +345,14 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+The complete solution of the code used in this article is available here: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions.
 
 ## Next steps
-For information on Service Fabric concepts, see the following:
+Learn more about Service Fabric services:
 
+* [Connect and communicate with services in Service Fabric](service-fabric-connect-and-communicate-with-services.md)
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
-* [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

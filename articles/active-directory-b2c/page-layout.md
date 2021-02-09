@@ -20,6 +20,9 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Self-asserted page (selfasserted)
 
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+
 **2.1.1**
 
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
@@ -47,7 +50,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from the checkbox control. 
 - Added support for a display control for phone number verification.
-- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
@@ -66,6 +69,10 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+- Allowing the "forgot password" link to use as claims exchange like social IDP.
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.

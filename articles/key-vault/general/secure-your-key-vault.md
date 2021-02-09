@@ -91,7 +91,7 @@ You grant a user, group, or application access to execute specific operations fo
 You can see the full list of vault and secret operations here: [Key Vault Operation Reference](/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>
-Key Vault access policies grant permissions separately to keys, secrets, and certificate.  Access permissions for keys, secrets, and certificates are at the vault level. 
+Key Vault access policies grant permissions separately to keys, secrets, and certificates.  Access permissions for keys, secrets, and certificates are at the vault level. 
 
 For more information about using key vault access policies, see [Assign a Key Vault access policy](assign-access-policy-portal.md)
 
@@ -127,7 +127,7 @@ For more information about Key Vault firewall and virtual networks, see [Configu
 
 ## Private endpoint connection
 
-In case of a need of to completely block Key Vault exposure to public, an [Azure Private Endpoint](../../private-link/private-endpoint-overview.md) can be used. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+In case of a need to completely block Key Vault exposure to the public, an [Azure Private Endpoint](../../private-link/private-endpoint-overview.md) can be used. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 Common scenarios for using Private Link for Azure services:
 

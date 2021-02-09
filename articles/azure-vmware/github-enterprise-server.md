@@ -2,12 +2,12 @@
 title: Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 description: Learn how to Set up GitHub Enterprise Server on your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/03/2021
 ---
 
 # Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 
-In this article, we walk through the steps to setup GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario covered in this walk-through is for a GitHub Enterprise Server instance capable of serving up to 3,000 developers running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
+In this article, we walk through the steps to set up GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario covered in this walk-through is for a GitHub Enterprise Server instance capable of serving up to 3,000 developers running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
 ## Before you begin
 
@@ -56,7 +56,7 @@ Apply your settings.  While the instance restarts, you can continue with the nex
 
 Once the instance restarts, create a new admin account on the instance. Be sure to make a note of this user's password as well.
 
-### Additional configuration steps
+### Other configuration steps
 
 To harden your instance for production use, the following optional setup steps are recommended:
 
@@ -177,7 +177,7 @@ Here we will make it available to all organizations, but you can also limit acce
 
 ## (Optional) Configuring GitHub Connect
 
-Although this step is optional, we recommend it if you plan to consume open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
+Although this step is optional, we recommend it if you plan to consume open-source actions available on GitHub.com. It allows you to build on the work of others by referencing these reusable actions in your workflows.
 
 To enable GitHub Connect, follow the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
@@ -218,14 +218,12 @@ If everything ran successfully, you should see a new issue in your repo, entitle
 
 Congratulations! You just completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
 
-We are just scratching the surface of what you can do with GitHub Actions. For more inspiration, checkout the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
+In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. But we are just scratching the surface of what you can do with GitHub Actions. Check out the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 
 ## Next steps
 
-In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience. It builds on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
+Now that you've seen how to set up GitHub Enterprise Server on your Azure VMware Solution private cloud, you may want to learn about: 
 
-For further information, see the following resources:
-
-- [Getting started with GitHub Actions](https://docs.github.com/en/actions)
-- [Join the beta program](https://resources.github.com/beta-signup/)
-- [Learn more about the administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- [Getting started with GitHub Actions](https://docs.github.com/en/actions).
+- [Joining the beta program](https://resources.github.com/beta-signup/).
+- [Administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).

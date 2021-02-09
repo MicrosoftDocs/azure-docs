@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 01/29/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -77,6 +77,16 @@ Point-in-time restore is useful in multiple scenarios. For example, when a user 
 
 You may need to wait for the next transaction log backup to be taken before you can restore to a point in time within the last five minutes.
 
+If you want to restore a dropped table, 
+1. Restore source server using Point-in-time method.
+2. Dump the table using `pg_dump` from restored server.
+3. Rename source table on original server.
+4. Import table using psql command line on original server.
+5. You can optionally delete the restored server.
+
+>[!Note]
+> It is recommended not to create multiple restores for the same server at the same time. 
+
 ### Geo-restore
 
 You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgreSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
@@ -92,7 +102,7 @@ During geo-restore, the server configurations that can be changed include comput
 
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
-- If the new server is meant to replace the original server, redirect clients and client applications to the new server
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server. Also change the user name also to `username@new-restored-server-name`.
 - Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate

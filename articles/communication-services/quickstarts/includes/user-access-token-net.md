@@ -82,7 +82,7 @@ Add the following code to the `Main` method:
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-var client = new CommunicationIdentityClient(ConnectionString);
+var client = new CommunicationIdentityClient(connectionString);
 ```
 
 ## Create an identity

@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Alert Catalog | Microsoft Docs
 description: This document shows the catalog of all alerts in Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: ''
 ms.service: active-directory

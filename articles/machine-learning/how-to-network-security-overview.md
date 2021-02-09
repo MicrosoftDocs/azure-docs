@@ -148,7 +148,8 @@ If your storage is in a VNet, you first must perform additional configuration st
 To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
-- [ML assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
+
+[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
 
 ## Configure firewall settings
 

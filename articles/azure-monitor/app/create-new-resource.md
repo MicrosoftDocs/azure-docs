@@ -32,7 +32,8 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
-![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
 
 When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
 
@@ -90,7 +91,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### Azure CLI (preview)
 
@@ -147,7 +148,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## Next steps
 * [Diagnostic Search](./diagnostic-search.md)

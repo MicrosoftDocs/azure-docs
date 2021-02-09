@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics CI/CD tool
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
