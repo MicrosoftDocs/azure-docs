@@ -33,7 +33,7 @@ Migrations to Azure file shares from StorSimple volumes via migration jobs in a 
 * **Network egress:** Your StorSimple files live in a storage account within a specific Azure region. If you provision the Azure file shares you migrate into a storage account that's located in the same Azure region, no egress cost will occur. You can move your files to a storage account in a different region as part of this migration. In that case, egress costs will apply to you.
 * **Azure file share transactions:** When files are copied into an Azure file share (as part of a migration or outside of one), transaction costs apply as files and metadata are being written. As a best practice, start your Azure file share on the transaction optimized tier during the migration. Switch to your desired tier after the migration is finished. The following phases will call this out at the appropriate point.
 * **Change an Azure file share tier:** Changing the tier of an Azure file share costs transactions. In most cases, it will be more cost efficient to follow the advice from the previous point.
-* **Storage cost:** When this migration starts copying files into an Azure file share, Azure Files storage is consumed and billed. Migrated backups will become [Azure file share snapshots](storage-snapshots-files.md). Snapshots are efficient and only consume additional storage capacity for the differences they contain.
+* **Storage cost:** When this migration starts copying files into an Azure file share, Azure Files storage is consumed and billed. Migrated backups will become [Azure file share snapshots](storage-snapshots-files.md). File share snapshots only consume storage capacity for the differences they contain.
 * **StorSimple:** Until you have a chance to deprovision the StorSimple devices and storage accounts, StorSimple cost for storage, backups, and appliances will continue to occur.
 
 ### Direct-share-access vs. Azure File Sync
@@ -58,12 +58,12 @@ This article focuses on the migration steps. If you want to learn more about Azu
 
 When you first set up your StorSimple appliance, it generated a Service Data Encryption Key and instructed you to securely store the key. This key is used to encrypt all data in the associated Azure storage account where the StorSimple appliance stores your files.
 
-The Service Data Encryption Key is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
+The service data encryption key is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
 
 If you can't find the keys in your records, you can retrieve the key from the appliance. Each appliance has a unique encryption key. To retrieve the key:
 
-* File a support request with Microsoft Azure through the Azure portal. The content of the request should have the StorSimple device serial number(s) and the request to retrieve the "Service Data Encryption Key."
-* A StorSimple support engineer will contact you with a request for an online meeting.
+* File a support request with Microsoft Azure through the Azure portal. The request should contain your StorSimple device serial number(s) and a request to retrieve the "service data encryption key."
+* A StorSimple support engineer will contact you with a request for a virtual meeting.
 * Ensure that before the meeting begins, you connect to your StorSimple appliance [via a serial console](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) or through a [remote PowerShell session](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
 
 > [!CAUTION]
@@ -76,17 +76,17 @@ If you can't find the keys in your records, you can retrieve the key from the ap
 ### StorSimple volume backups
 
 StorSimple offers differential backups on the volume level. Azure file shares also have this ability, called share snapshots.
-Your migration jobs can only move backups, never data from the live volume. Therefore the most recent backup should always be part of the list of backups to be moved in a migration.
+Your migration jobs can only move backups, not data from the live volume. So the most recent backup should be on the list of backups moved in a migration.
 
-Decide if as part of your migration, you also have an obligation to move any older backups.
-Best practice is to keep this list as small as possible, such that your migration jobs complete faster.
+Decide if you need to move any older backups during your migration.
+Best practice is to keep this list as small as possible, so your migration jobs complete faster.
 
-To identify the most critical backups that need to be migrated, make a checklist of your backup policies that must be served. For instance:
+To identify critical backups that must be migrated, make a checklist of your backup policies that must be saved. For instance:
 * The most recent backup. (Note: The most recent backup should always be part of this list.)
 * One backup a month for 12 months.
 * One backup a year for three years. 
 
-Later on, when you create your migration jobs, you will use this list to identify the exact StorSimple volume backup that needs to be migrated in order to satisfy the requirements on your list.
+Later on, when you create your migration jobs, you can use this list to identify the exact StorSimple volume backups that must be migrated to satisfy the requirements on your list.
 
 > [!CAUTION]
 > Selecting more than **50** StorSimple volume backups is not supported.
@@ -104,22 +104,22 @@ If your file shares are highly active (utilized by many users or applications), 
 
 A best practice is to deploy storage accounts with one file share each. You can pool multiple Azure file shares into the same storage account, if you have archival shares in them.
 
-These considerations apply more to [direct cloud access](#direct-share-access-vs-azure-file-sync) (through an Azure VM or service) than to Azure File Sync. If you plan to exclusively use Azure File Sync on these shares, grouping several into a single Azure storage account is fine. Also consider that in the future you might want to lift and shift an app into the cloud that would then directly access a file share. Or you could start using a service in Azure that would also benefit from having higher IOPS and throughput numbers available.
+These considerations apply more to [direct cloud access](#direct-share-access-vs-azure-file-sync) (through an Azure VM or service) than to Azure File Sync. If you plan to exclusively use Azure File Sync on these shares, grouping several into a single Azure storage account is fine. In the future, you may want to lift and shift an app into the cloud that would then directly access a file share, this scenario would benefit from having higher IOPS and throughput. Or you could start using a service in Azure that would also benefit from having higher IOPS and throughput.
 
 If you've made a list of your shares, map each share to the storage account where it will reside.
 
 > [!IMPORTANT]
 > Decide on an Azure region, and ensure each storage account and Azure File Sync resource matches the region you selected.
-> Do not configure Network and Firewall settings for the storage accounts at this time. These configurations will make a migration impossible. Configure these Azure storage settings after the migration is complete.
+> Don't configure network and firewall settings for the storage accounts now. Making these configurations at this point would make a migration impossible. Configure these Azure storage settings after the migration is complete.
 
 ### Phase 1 summary
 
 At the end of Phase 1:
 
 * You have a good overview of your StorSimple devices and volumes.
-* The Data Manager service is ready to access your StorSimple volumes in the cloud because you've retrieved your Service Data Encryption key for each StorSimple device.
+* The Data Manager service is ready to access your StorSimple volumes in the cloud because you've retrieved your service data encryption key for each StorSimple device.
 * You have a plan for which volumes and backups (if any beyond the most recent) need to be migrated.
-* You also know how to map your volumes to the appropriate number of Azure file shares and storage accounts.
+* You know how to map your volumes to the appropriate number of Azure file shares and storage accounts.
 
 ## Phase 2: Deploy Azure storage and migration resources
 
@@ -130,7 +130,7 @@ This section discusses considerations around deploying the different resource ty
 You'll likely need to deploy several Azure storage accounts. Each one will hold a smaller number of Azure file shares, as per your deployment plan, completed in the previous section of this article. Go to the Azure portal to [deploy your planned storage accounts](../common/storage-account-create.md#create-a-storage-account). Consider adhering to the following basic settings for any new storage account.
 
 > [!IMPORTANT]
-> **Do not configure Network and Firewall settings for your storage accounts** at this time. These configurations will make a migration impossible. Configure these Azure storage settings after the migration is complete.
+> Do not configure network and firewall settings for your storage accounts now. Making those configurations at this point would make a migration impossible. Configure these Azure storage settings after the migration is complete.
 
 #### Subscription
 
@@ -148,7 +148,7 @@ The name of your storage account will become part of a URL and has certain chara
 
 The location or Azure region of a storage account is very important. If you use Azure File Sync, all of your storage accounts must be in the same region as your Storage Sync Service resource. The Azure region you pick should be close or central to your local servers and users. After your resource has been deployed, you can't change its region.
 
-Concerning the migration: You can pick a different region from where your StorSimple data (storage account) currently resides.
+You can pick a different region from where your StorSimple data (storage account) currently resides.
 
 > [!IMPORTANT]
 > If you pick a different region from your current StorSimple storage account location, [egress charges will apply](https://azure.microsoft.com/pricing/details/bandwidth) during the migration. Data will leave the StorSimple region and enter your new storage account region. No bandwidth charges apply if you stay within the same Azure region.
@@ -196,7 +196,7 @@ Opting for the large, 100-TiB-capacity file shares has several benefits:
 
 * Your performance is greatly increased as compared to the smaller 5-TiB-capacity file shares (for example, 10 times the IOPS).
 * Your migration will finish significantly faster.
-* You ensure that a file share will have enough capacity to hold all the data you'll migrate into it, also counting the storage capacity differential backups require.
+* You ensure that a file share will have enough capacity to hold all the data you'll migrate into it, including the storage capacity differential backups require.
 * Future growth is covered.
 
 ### Azure file shares
@@ -240,7 +240,7 @@ This section describes how to set up a migration job and carefully map the direc
         ![StorSimple 8000 series migration job.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "A screenshot of the new job creation form for a migration job.")
     :::column-end:::
     :::column:::
-        **Job definition name**</br>This name should indicate the set of files you're moving. Giving it a similar name as your Azure file share is a good practice. </br></br>**Location where the job runs**</br>When selecting a region, you must select the same region as your StorSimple storage account or, if that isn't available, then a region close to it. </br></br><h3>Source</h3>**Source subscription**</br>Select the subscription in which you store your StorSimple Device Manager resource. </br></br>**StorSimple resource**</br>Select your StorSimple Device Manager your appliance is registered with. </br></br>**Service data encryption key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key) in case you can't locate the key in your records. </br></br>**Device**</br>Select your StorSimple device that holds the volume where you want to migrate. </br></br>**Volume**</br>Select the source volume. Later you'll decide if you want to migrate the whole volume or subdirectories into the target Azure file share.</br></br> **Volume backups**</br>You can click *Select volume backups* to choose specific backups to move as part of this job. An upcoming, [dedicated section in this article](#selecting-volume-backups-to-migrate) steps through this process in detail.</br></br><h3>Target</h3>Select the subscription, storage account, and Azure file share as the target of this migration job.</br></br><h3>Directory mapping</h3>[A dedicated section follows in this article](#directory-mapping), discussing all relevant details.
+        **Job definition name**</br>This name should indicate the set of files you're moving. Giving it a similar name as your Azure file share is a good practice. </br></br>**Location where the job runs**</br>When selecting a region, you must select the same region as your StorSimple storage account or, if that isn't available, then a region close to it. </br></br><h3>Source</h3>**Source subscription**</br>Select the subscription in which you store your StorSimple Device Manager resource. </br></br>**StorSimple resource**</br>Select your StorSimple Device Manager your appliance is registered with. </br></br>**Service data encryption key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key) in case you can't locate the key in your records. </br></br>**Device**</br>Select your StorSimple device that holds the volume where you want to migrate. </br></br>**Volume**</br>Select the source volume. Later you'll decide if you want to migrate the whole volume or subdirectories into the target Azure file share.</br></br> **Volume backups**</br>You can select *Select volume backups* to choose specific backups to move as part of this job. An upcoming, [dedicated section in this article](#selecting-volume-backups-to-migrate) covers the process in detail.</br></br><h3>Target</h3>Select the subscription, storage account, and Azure file share as the target of this migration job.</br></br><h3>Directory mapping</h3>[A dedicated section in this article](#directory-mapping), discusses all relevant details.
     :::column-end:::
 :::row-end:::
 
@@ -248,17 +248,17 @@ This section describes how to set up a migration job and carefully map the direc
 
 There are important aspects around choosing backups that need to be migrated:
 
-1. Your migration jobs can only move backups, never data from a live volume. Therefore the most recent backup is closest to the live data and thus should always be part of the list of backups to be moved in a migration.
-1. Because of the previous point, ensure that the latest backup you have is fairly recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup *before* creating a migration job. A small delta to the live share will dramatically improve your migration experience. If this delta can be zero = no more changes to the StorSimple volume happened after the newest backup was taken in your list - then *Phase 5: User cut-over* will be drastically simplified and sped up.
-1. Backups must be played back into the Azure file share **from oldest to newest**. An older backup cannot be "sorted into" the list of backups on the Azure file share after a migration job has run. Therefore you must ensure that your list of backups is complete *before* you create a job. 
-1. This list of backups in a job cannot be modified once the job is created - even if the job never ran. 
+- Your migration jobs can only move backups, not data from a live volume. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration.
+- Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share will improve your migration experience. If this delta can be zero = no more changes to the StorSimple volume happened after the newest backup was taken in your list - then Phase 5: User cut-over will be drastically simplified and sped up.
+- Backups must be played back into the Azure file share **from oldest to newest**. An older backup cannot be "sorted into" the list of backups on the Azure file share after a migration job has run. Therefore you must ensure that your list of backups is complete *before* you create a job. 
+- This list of backups in a job cannot be modified once the job is created - even if the job never ran. 
 
 :::row:::
     :::column:::        
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups.png" alt-text="A screenshot of the new job creation form detailing the portion where StorSimple backups are selected for migration." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-expanded.png":::
     :::column-end:::
     :::column:::
-        To select backups of your StorSimple volume to be included in your migration job, click the link *Select volume backups* on the job creation form.
+        To select backups of your StorSimple volume for your migration job, select the *Select volume backups* on the job creation form.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -276,12 +276,12 @@ There are important aspects around choosing backups that need to be migrated:
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="A screenshot showing the selection of a time range of the backup selection blade." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
     :::column-end:::
     :::column:::
-        By default, the list is filtered to show the StorSimple volume backups within the past 7 days to make it easy to select the most recent backup. For backups further in the past, use the time range filter on to of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
+        By default, the list is filtered to show the StorSimple volume backups within the past seven days to make it easy to select the most recent backup. For backups further in the past, use the time range filter at the top of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
     :::column-end:::
 :::row-end:::
 
 > [!CAUTION]
-> Selecting more than **50** StorSimple volume backups is not supported. Jobs with a large number of backups might fail.
+> Selecting more than 50 StorSimple volume backups is not supported. Jobs with a large number of backups may fail.
 
 ### Directory mapping
 
@@ -344,12 +344,12 @@ Sorts multiple source locations into a new directory structure:
 > [!NOTE]
 > Contents of the *\System Volume Information* folder and the *$Recycle.Bin* on your StorSimple volume won't be copied by the migration job.
 
-### Running a migration job
+### Run a migration job
 
 Your migration jobs are listed under *Job definitions* in the Data Manager resource you've deployed to a resource group.
-From the list of job definitions, pick the job you like to run and click on it.
+From the list of job definitions, select the job you want to run.
 
-On the job blade that opens, you can see your job runs in the lower list. Initially, this list will be empty. On the top of the blade, there is a command called *Run job*. This command will not immediately run the job but bring up the here displayed job run blade.
+In the job blade that opens, you can see your job runs in the lower list. Initially, this list will be empty. At the top of the blade, there is a command called *Run job*. This command will not immediately run the job, it opens the **displayed job run** blade.
 
 :::row:::
     :::column:::
@@ -365,7 +365,7 @@ On the job blade that opens, you can see your job runs in the lower list. Initia
 
 ### Phase 3 summary
 
-At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). You will have run the same migration job several time, from oldest to newest backup that needed to be migrated. You can now focus on either setting up Azure File Sync for the share (after the migration jobs for a share have completed) or directing share access for your information workers and apps to the Azure file share.
+At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). You will have run the same migration job several time, from oldest to newest backups that must be migrated. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or directing share access for your information workers and apps to the Azure file share.
 
 ## Phase 4: Access your Azure file shares
 
