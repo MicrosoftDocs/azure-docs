@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/07/2021
+ms.date: 02/08/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -16,7 +16,7 @@ ms.custom: has-adal-ref
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common ways to troubleshoot problems with Azure Data Factory connectors.
-  
+
 ## Azure Blob Storage
 
 ### Error code: AzureBlobOperationFailed
@@ -105,7 +105,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 			
 ## Azure Cosmos DB (SQL API)
 
-### Error code:  CosmosDbSqlApiOperationFailed
+### Error code: CosmosDbSqlApiOperationFailed
 
 - **Message**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
@@ -157,17 +157,13 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
-- **Cause**: If Azure Data Lake Storage Gen2 throws this error, the operation has failed.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  Check the detailed error message thrown by Azure Data Lake Storage Gen2. If the error is a transient failure, retry the operation. For further help, contact Azure Storage support, and provide the request ID in error message.
-
-- **Cause**: If the error message contains the string "Forbidden," the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2.
-
-- **Recommendation**:  To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication).
-
-- **Cause**: If the error message contains the string "InternalServerError," the error is returned by Azure Data Lake Storage Gen2.
-
-- **Recommendation**:  The error might be caused by a transient failure. If so, retry the operation. If the issue persists, contact Azure Storage support and provide the request ID from the error message.
+  | Cause analysis                                               | Recommendation                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | If Azure Data Lake Storage Gen2 throws error indicating some operation failed.| Check the detailed error message thrown by Azure Data Lake Storage Gen2. If the error is a transient failure, retry the operation. For further help, contact Azure Storage support, and provide the request ID in error message. |
+  | If the error message contains the string "Forbidden", the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2. | To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication). |
+  | If the error message contains the string "InternalServerError", the error is returned by Azure Data Lake Storage Gen2. | The error might be caused by a transient failure. If so, retry the operation. If the issue persists, contact Azure Storage support and provide the request ID from the error message. |
 
 ### Request to Azure Data Lake Storage Gen2 account caused a timeout error
 
@@ -197,10 +193,10 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
         }
         ```
 
-			      
+		​	      
 ## Azure Files storage
 
-### Error code:  AzureFileOperationFailed
+### Error code: AzureFileOperationFailed
 
 - **Message**: `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
 
@@ -211,55 +207,34 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## Azure Synapse Analytics, Azure SQL Database, and SQL Server
 
-### Error code:  SqlFailedToConnect
+### Error code: SqlFailedToConnect
 
 - **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Cause**: For Azure SQL, if the error message contains the string "SqlErrorNumber=47073," it means that public network access is denied in the connectivity setting.
-
-- **Recommendation**: On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
-
-- **Cause**: For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide.
-
-- **Recommendation**: For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues).
-
-- **Cause**: Check to see whether port 1433 is in the firewall allow list.
-
-- **Recommendation**: For more information, see [Ports used by SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-).
-
-- **Cause**: If the error message contains the string "SqlException," SQL Database the error indicates that some specific operation failed.
-
-- **Recommendation**:  For more information, search by SQL error code in [Database engine errors](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support.
-
-- **Cause**: If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate.
-
-- **Recommendation**:  For more information, see [Pipelines and activities in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy).
-
-- **Cause**: If the error message contains the string "Client with IP address '...' is not allowed to access the server," and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue.
-
-- **Recommendation**:  In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-
-
-### Error code:  SqlOperationFailed
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
+    | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues). |
+    | Check to see whether port 1433 is in the firewall allow list. | For more information, see [Ports used by SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
+    | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy). |
+    | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure). |
+    
+### Error code: SqlOperationFailed
 
 - **Message**: `A database operation failed. Please search error to get more details.`
 
-- **Cause**: If the error message contains the string "SqlException," SQL Database throws an error indicating some specific operation failed.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  If the SQL error is not clear, try to alter the database to the latest compatibility level '150'. It can throw the latest version SQL errors. For more information, see the [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
-
-	For more information about troubleshooting SQL issues, search by SQL error code in [Database engine errors](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support.
-
-- **Cause**: If the error message contains the string "PdwManagedToNativeInteropException," it's usually caused by a mismatch between the source and sink column sizes.
-
-- **Recommendation**:  Check the size of both the source and sink columns. For further help, contact Azure SQL support.
-
-- **Cause**: If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data.
-
-- **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | If the error message contains the string "SqlException", SQL Database throws an error indicating some specific operation failed. | If the SQL error is not clear, try to alter the database to the latest compatibility level '150'. It can throw the latest version SQL errors. For more information, see the [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> For more information about troubleshooting SQL issues, search by SQL error code in [Database engine errors](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
+    | If the error message contains the string "PdwManagedToNativeInteropException", it's usually caused by a mismatch between the source and sink column sizes. | Check the size of both the source and sink columns. For further help, contact Azure SQL support. |
+    | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance). |
 
 
-### Error code:  SqlUnauthorizedAccess
+### Error code: SqlUnauthorizedAccess
 
 - **Message**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
@@ -268,7 +243,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check to ensure that the login account has sufficient permissions to access the SQL database.
 
 
-### Error code:  SqlOpenConnectionTimeout
+### Error code: SqlOpenConnectionTimeout
 
 - **Message**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
@@ -277,7 +252,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Retry the operation to update the linked service connection string with a larger connection timeout value.
 
 
-### Error code:  SqlAutoCreateTableTypeMapFailed
+### Error code: SqlAutoCreateTableTypeMapFailed
 
 - **Message**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
@@ -286,7 +261,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Update the column type in *mappings*, or manually create the sink table in the target server.
 
 
-### Error code:  SqlDataTypeNotSupported
+### Error code: SqlDataTypeNotSupported
 
 - **Message**: `A database operation failed. Check the SQL errors.`
 
@@ -299,7 +274,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Update the corresponding column type to the *datetime2* type in the sink table.
 
 
-### Error code:  SqlInvalidDbStoredProcedure
+### Error code: SqlInvalidDbStoredProcedure
 
 - **Message**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
@@ -308,7 +283,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Validate the stored procedure by using SQL Tools. Make sure that the stored procedure can return data.
 
 
-### Error code:  SqlInvalidDbQueryString
+### Error code: SqlInvalidDbQueryString
 
 - **Message**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
@@ -317,7 +292,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Validate the SQL query by using SQL Tools. Make sure that the query can return data.
 
 
-### Error code:  SqlInvalidColumnName
+### Error code: SqlInvalidColumnName
 
 - **Message**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
@@ -326,7 +301,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Verify the column in the query, *structure* in the dataset, and *mappings* in the activity.
 
 
-### Error code:  SqlBatchWriteTimeout
+### Error code: SqlBatchWriteTimeout
 
 - **Message**: `Timeouts in SQL write operation.`
 
@@ -335,7 +310,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Retry the operation. If the problem persists, contact Azure SQL support.
 
 
-### Error code:  SqlBatchWriteTransactionFailed
+### Error code: SqlBatchWriteTransactionFailed
 
 - **Message**: `SQL transaction commits failed.`
 
@@ -348,7 +323,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Retry the activity and review the SQL database side metrics.
 
 
-### Error code:  SqlBulkCopyInvalidColumnLength
+### Error code: SqlBulkCopyInvalidColumnLength
 
 - **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
@@ -357,7 +332,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
 
 
-### Error code:  SqlConnectionIsClosed
+### Error code: SqlConnectionIsClosed
 
 - **Message**: `The connection is closed by SQL Database.`
 
@@ -476,7 +451,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## Azure Table Storage
 
-### Error code:  AzureTableDuplicateColumnsFromSource
+### Error code: AzureTableDuplicateColumnsFromSource
 
 - **Message**: `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink.`
 
@@ -489,18 +464,18 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## DB2
 
-### Error code:  DB2DriverRunFailed
+### Error code: DB2DriverRunFailed
 
 - **Message**: `Error thrown from driver. Sql code: '%code;'`
 
-- **Cause**: If the error message contains the string "SQLSTATE=51002 SQLCODE=-805," follow the "Tip" in [Copy data from DB2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties).
+- **Cause**: If the error message contains the string "SQLSTATE=51002 SQLCODE=-805", follow the "Tip" in [Copy data from DB2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties).
 
 - **Recommendation**:  Try to set "NULLID" in the `packageCollection`  property.
 
 
 ## Delimited text format
 
-### Error code:  DelimitedTextColumnNameNotAllowNull
+### Error code: DelimitedTextColumnNameNotAllowNull
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
@@ -509,26 +484,22 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check the first row, and fix the value if it is empty.
 
 
-### Error code:  DelimitedTextMoreColumnsThanDefined
+### Error code: DelimitedTextMoreColumnsThanDefined
 
 - **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
-- **Cause**: The problematic row's column count is larger than the first row's column count. It might be caused by a data issue or incorrect column delimiter or quote char settings.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  Get the row count from the error message, check the row's column, and fix the data.
-
-- **Cause**: If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused Data Factory to parse your files incorrectly.
-
-- **Recommendation**:  Check the format settings to make sure they match your source files.
-
-- **Cause**: If your source is a folder, the files under the specified folder might have a different schema.
-
-- **Recommendation**:  Make sure that the files in the specified folder have an identical schema.
+  | Cause analysis                                               | Recommendation                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | The problematic row's column count is larger than the first row's column count. It might be caused by a data issue or incorrect column delimiter or quote char settings. | Get the row count from the error message, check the row's column, and fix the data. |
+  | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused Data Factory to parse your files incorrectly. | Check the format settings to make sure they match your source files. |
+  | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
 ## Dynamics 365, Common Data Service, and Dynamics CRM
 
-### Error code:  DynamicsCreateServiceClientError
+### Error code: DynamicsCreateServiceClientError
 
 - **Message**: `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
@@ -546,7 +517,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**: Manually add the columns in the mapping tab.
 
 
-### Error code:  DynamicsMissingTargetForMultiTargetLookupField
+### Error code: DynamicsMissingTargetForMultiTargetLookupField
 
 - **Message**: `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
@@ -557,7 +528,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   2. Add the target column in the column mapping. Ensure that the sink column is in the format *{fieldName}@EntityReference*.
 
 
-### Error code:  DynamicsInvalidTargetForMultiTargetLookupField
+### Error code: DynamicsInvalidTargetForMultiTargetLookupField
 
 - **Message**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
@@ -566,7 +537,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Provide a valid entity name for the multi-target lookup field.
 
 
-### Error code:  DynamicsInvalidTypeForMultiTargetLookupField
+### Error code: DynamicsInvalidTypeForMultiTargetLookupField
 
 - **Message**: `The provided target type is not a valid string. Field: '%fieldName;'.`
 
@@ -575,18 +546,18 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Provide a valid string in the multi-target lookup target column.
 
 
-### Error code:  DynamicsFailedToRequetServer
+### Error code: DynamicsFailedToRequetServer
 
 - **Message**: `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **Cause**: The Dynamics server is instable or inaccessible, or the network is experiencing issues.
 
 - **Recommendation**:  For more details, check network connectivity or check the Dynamics server log. For further help, contact Dynamics support.
-    
+  
 
 ## FTP
 
-### Error code:  FtpFailedToConnectToFtpServer
+### Error code: FtpFailedToConnectToFtpServer
 
 - **Message**: `Failed to connect to FTP server. Please make sure the provided server information is correct, and try again.`
 
@@ -597,7 +568,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## HTTP
 
-### Error code:  HttpFileFailedToRead
+### Error code: HttpFileFailedToRead
 
 - **Message**: `Failed to read data from http server. Check the error from http server：%message;`
 
@@ -623,31 +594,20 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## ORC format
 
-### Error code:  OrcJavaInvocationException
+### Error code: OrcJavaInvocationException
 
 - **Message**: `An error occurred when invoking Java, message: %javaException;.`
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Cause**: When the error message contains the strings "java.lang.OutOfMemory," "Java heap space," and "doubleCapacity," it's usually a memory management issue in an old version of integration runtime.
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | When the error message contains the strings "java.lang.OutOfMemory", "Java heap space", and "doubleCapacity", it's usually a memory management issue in an old version of integration runtime. | If you're using Self-hosted Integration Runtime, we recommend that you upgrade to the latest version. |
+    | When the error message contains the string "java.lang.OutOfMemory", the integration runtime doesn't have enough resources to process the files. | Limit the concurrent runs on the integration runtime. For Self-hosted IR, scale up to a powerful machine with memory equal to or larger than 8 GB. |
+    |When the error message contains the string "NullPointerReference", the cause might be a transient error. | Retry the operation. If the problem persists, contact support. |
+    | When the error message contains the string "BufferOverflowException", the cause might be a transient error. | Retry the operation. If the problem persists, contact support. |
+    | When the error message contains the string "java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable can't be cast to org.apache.hadoop.io.Text", the cause might be a type conversion issue inside Java Runtime. Usually, it means that the source data can't be handled well in Java Runtime. | This is a data issue. Try to use a string instead of char or varchar in ORC format data. |
 
-- **Recommendation**:  If you're using Self-hosted Integration Runtime, we recommend that you upgrade to the latest version.
-
-- **Cause**: When the error message contains the string "java.lang.OutOfMemory," the integration runtime doesn't have enough resources to process the files.
-
-- **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted IR, scale up to a powerful machine with memory equal to or larger than 8 GB.
-
-- **Cause**: When the error message contains the string "NullPointerReference," the cause might be a transient error.
-
-- **Recommendation**:  Retry the operation. If the problem persists, contact support.
-
-- **Cause**: When the error message contains the string "BufferOverflowException," the cause might be a transient error.
-
-- **Recommendation**:  Retry the operation. If the problem persists, contact support.
-
-- **Cause**: When the error message contains the string "java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable can't be cast to org.apache.hadoop.io.Text," the cause might be a type conversion issue inside Java Runtime. Usually, it means that the source data can't be handled well in Java Runtime.
-
-- **Recommendation**:  This is a data issue. Try to use a string instead of char or varchar in ORC format data.
-
-### Error code:  OrcDateTimeExceedLimit
+### Error code: OrcDateTimeExceedLimit
 
 - **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
@@ -658,24 +618,19 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## Parquet format
 
-### Error code:  ParquetJavaInvocationException
+### Error code: ParquetJavaInvocationException
 
 - **Message**: `An error occurred when invoking java, message: %javaException;.`
 
-- **Cause**: When the error message contains the strings "java.lang.OutOfMemory," "Java heap space," and "doubleCapacity," it's usually a memory management issue in an old version of Integration Runtime.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  If you are using Self-hosted IR and the version is earlier than 3.20.7159.1, we recommend that you upgrade to the latest version.
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | When the error message contains the strings "java.lang.OutOfMemory", "Java heap space", and "doubleCapacity", it's usually a memory management issue in an old version of Integration Runtime. | If you are using Self-hosted IR and the version is earlier than 3.20.7159.1, we recommend that you upgrade to the latest version. |
+    | When the error message contains the string "java.lang.OutOfMemory", the integration runtime doesn't have enough resources to process the files. | Limit the concurrent runs on the integration runtime. For Self-hosted IR, scale up to a powerful machine with memory that's equal to or greater than 8 GB. |
+    | When the error message contains the string "NullPointerReference", it might be a transient error. | Retry the operation. If the problem persists, contact support. |
 
-- **Cause**: When the error message contains the string "java.lang.OutOfMemory," the integration runtime doesn't have enough resources to process the files.
-
-- **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted IR, scale up to a powerful machine with memory that's equal to or greater than 8 GB.
-
-- **Cause**: When the error message contains the string "NullPointerReference," it might be a transient error.
-
-- **Recommendation**:  Retry the operation. If the problem persists, contact support.
-
-
-### Error code:  ParquetInvalidFile
+### Error code: ParquetInvalidFile
 
 - **Message**: `File is not a valid Parquet file.`
 
@@ -684,7 +639,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check to see whether the input is a valid Parquet file.
 
 
-### Error code:  ParquetNotSupportedType
+### Error code: ParquetNotSupportedType
 
 - **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
@@ -693,7 +648,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Double-check the source data by going to [Supported file formats and compression codecs by copy activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### Error code:  ParquetMissedDecimalPrecisionScale
+### Error code: ParquetMissedDecimalPrecisionScale
 
 - **Message**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
@@ -702,7 +657,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  The source doesn't return the correct precision and scale information. Check the issue column for the information.
 
 
-### Error code:  ParquetInvalidDecimalPrecisionScale
+### Error code: ParquetInvalidDecimalPrecisionScale
 
 - **Message**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
@@ -711,7 +666,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check the issue column for precision and scale.
 
 
-### Error code:  ParquetColumnNotFound
+### Error code: ParquetColumnNotFound
 
 - **Message**: `Column %column; does not exist in Parquet file.`
 
@@ -720,7 +675,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check the mappings in the activity. Make sure that the source column can be mapped to the correct sink column.
 
 
-### Error code:  ParquetInvalidDataFormat
+### Error code: ParquetInvalidDataFormat
 
 - **Message**: `Incorrect format of %srcValue; for converting to %dstType;.`
 
@@ -729,7 +684,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Double-check the source data or specify the correct data type for this column in the copy activity column mapping. For more information, see [Supported file formats and compression codecs by copy activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### Error code:  ParquetDataCountNotMatchColumnCount
+### Error code: ParquetDataCountNotMatchColumnCount
 
 - **Message**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
@@ -738,7 +693,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Double-check to ensure that the source column count is same as the sink column count in 'mapping'.
 
 
-### Error code:  ParquetDataTypeNotMatchColumnType
+### Error code: ParquetDataTypeNotMatchColumnType
 
 - **Message**: `The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.`
 
@@ -747,7 +702,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Specify a correct type in mapping.sink.
 
 
-### Error code:  ParquetBridgeInvalidData
+### Error code: ParquetBridgeInvalidData
 
 - **Message**: `%message;`
 
@@ -756,7 +711,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Retry the operation. If the issue persists, contact us.
 
 
-### Error code:  ParquetUnsupportedInterpretation
+### Error code: ParquetUnsupportedInterpretation
 
 - **Message**: `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
@@ -765,7 +720,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  'ParquetInterpretFor' should not be 'sparkSql'.
 
 
-### Error code:  ParquetUnsupportFileLevelCompressionOption
+### Error code: ParquetUnsupportFileLevelCompressionOption
 
 - **Message**: `File level compression is not supported for Parquet.`
 
@@ -774,7 +729,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Remove 'CompressionType' in the payload.
 
 
-### Error code:  UserErrorJniException
+### Error code: UserErrorJniException
 
 - **Message**: `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
 
@@ -814,7 +769,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## REST
 
-### Error code:  RestSinkCallFailed
+### Error code: RestSinkCallFailed
 
 - **Message**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
@@ -846,7 +801,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## SFTP
 
-#### Error code:  SftpOperationFail
+#### Error code: SftpOperationFail
 
 - **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -855,7 +810,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check the error details from SFTP.
 
 
-### Error code:  SftpRenameOperationFail
+### Error code: SftpRenameOperationFail
 
 - **Message**: `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
@@ -864,7 +819,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Set "useTempFileRename" as false in the copy sink to disable uploading to the temp file.
 
 
-### Error code:  SftpInvalidSftpCredential
+### Error code: SftpInvalidSftpCredential
 
 - **Message**: `Invalid SFTP credential provided for '%type;' authentication type.`
 
@@ -928,15 +883,15 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Resolution**: To determine whether the "AccMngr" column exists, double-check your dataset configuration by mapping the destination dataset column.
 
 
-### Error code:  SftpFailedToConnectToSftpServer
+### Error code: SftpFailedToConnectToSftpServer
 
 - **Message**: `Failed to connect to SFTP server '%server;'.`
 
-- **Cause**: If the error message contains the string "Socket read operation has timed out after 30000 milliseconds," one possible cause is that an incorrect linked service type is used for the SFTP server. For example, you might be using the FTP linked service to connect to the SFTP server.
+- **Cause**: If the error message contains the string "Socket read operation has timed out after 30,000 milliseconds", one possible cause is that an incorrect linked service type is used for the SFTP server. For example, you might be using the FTP linked service to connect to the SFTP server.
 
 - **Recommendation**:  Check the port of the target server. By default, SFTP uses port 22.
 
-- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification," one possible cause is that the SFTP server throttled the connection. Data Factory will create multiple connections to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
+- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Data Factory will create multiple connections to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
 
 - **Recommendation**:  
 
@@ -949,7 +904,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## SharePoint Online list
 
-### Error code:  SharePointOnlineAuthFailed
+### Error code: SharePointOnlineAuthFailed
 
 - **Message**: `The access token generated failed, status code: %code;, error message: %message;.`
 
@@ -960,7 +915,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## XML format
 
-### Error code:  XmlSinkNotSupported
+### Error code: XmlSinkNotSupported
 
 - **Message**: `Write data in XML format is not supported yet, choose a different format!`
 
@@ -969,7 +924,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Use a dataset in a different format from that of the sink dataset.
 
 
-### Error code:  XmlAttributeColumnNameConflict
+### Error code: XmlAttributeColumnNameConflict
 
 - **Message**: `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
 
@@ -978,7 +933,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Set a different value for the "attributePrefix" property.
 
 
-### Error code:  XmlValueColumnNameConflict
+### Error code: XmlValueColumnNameConflict
 
 - **Message**: `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
 
@@ -987,7 +942,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Set a different value for the "valueColumn" property.
 
 
-### Error code:  XmlInvalid
+### Error code: XmlInvalid
 
 - **Message**: `Input XML file '%file;' is invalid with parsing error '%error;'.`
 
@@ -998,7 +953,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ## General copy activity error
 
-### Error code:  JreNotFound
+### Error code: JreNotFound
 
 - **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -1007,7 +962,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Check your integration runtime environment, see [Use Self-hosted Integration Runtime](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime).
 
 
-### Error code:  WildcardPathSinkNotSupported
+### Error code: WildcardPathSinkNotSupported
 
 - **Message**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 

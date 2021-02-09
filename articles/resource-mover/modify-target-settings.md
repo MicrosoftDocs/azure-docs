@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
 #Customer intent: As an Azure admin,  I want modify target settings when moving resources to another region.
 
@@ -32,16 +32,16 @@ Configuration settings you can modify are summarized in the table.
 
 **Resource** | **Options** 
 --- | --- | --- 
-**VM Name** | Options:<br/><br/> - Create a new VM with the same name in the target region.<br/><br/> - Create a new VM with a different name in the target region.<br/><br/> - Use an existing VM in the target region.<br/><br/> If you create a new VM, with the exception of the settings you modify, the new target VM is assigned the same settings as the source.
-**VM availability zone** | The availability zone in which the target VM will be placed. This can be marked **NA** if you don’t want to change the source settings, or if you don’t want to place the VM in an availability zone.
+**VM name** | Options:<br/><br/> - Create a new VM with the same name in the target region.<br/><br/> - Create a new VM with a different name in the target region.<br/><br/> - Use an existing VM in the target region.<br/><br/> If you create a new VM, with the exception of the settings you modify, the new target VM is assigned the same settings as the source.
+**VM availability zone** | The availability zone in which the target VM will be placed. Select **Not applicable** if you don’t want to change the source settings, or if you don’t want to place the VM in an availability zone.
 **VM SKU** | The [VM type](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (available in the target region) that will be used for the target VM.<br/><br/> The selected target VM shouldn't be smaller than the source VM.
-**Networking resources** | Options for virtual networks (VNets)/network security groups/network interfaces:<br/><br/> - Create a new resource with the same name in the target region.<br/><br/> - Create a new resource with a different name in the target region.<br/><br/> - Use an existing networking resource in the target region.<br/><br/> If you create a new target resource, with the exception of the settings you modify, it's assigned the same settings as the source resource.
-**Public IP address name** | Specify the name.
-**Public IP address SKU** | Specify the [SKU](../virtual-network/public-ip-addresses.md#sku).
-**Public IP address zone** | Specify the [zone](../virtual-network/public-ip-addresses.md#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
-**Load balancer name** | Specify the name.
-**Load balancer SKU** | Basic or Standard. We recommend using Standard.
-**Load balancer zone** | Specify a zone for the load balancer. <br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
+**VM availability set | The availability set in which the target VM will be placed. Select **Not applicable**  you don’t want to change the source settings, or if you don’t want to place the VM in an availability set.
+**VM key vault** | The associated key vault when you enable Azure disk encryption on a VM.
+**Disk encryption set** | The associated disk encryption set if the VM uses a customer-managed key for server-side encryption.
+**Resource group** | The resource group in which the target VM will be placed.
+**Networking resources** | Options for network interfaces, virtual networks (VNets/), and network security groups/network interfaces:<br/><br/> - Create a new resource with the same name in the target region.<br/><br/> - Create a new resource with a different name in the target region.<br/><br/> - Use an existing networking resource in the target region.<br/><br/> If you create a new target resource, with the exception of the settings you modify, it's assigned the same settings as the source resource.
+**Public IP address name, SKU, and zone** | Specifies the name, [SKU](../virtual-network/public-ip-addresses.md#sku), and [zone](../virtual-network/public-ip-addresses.md#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
+**Load balancer name, SKU, and zone ** | Specifies the name, SKU (Basic or Standard), and zone for the load balancer.<br/><br/> We recommend using Standard sKU.<br/><br/> If you want it to be zone redundant, specify as **Zone redundant**.
 **Resource dependencies** | Options for each dependency:<br/><br/>- The resource uses source dependent resources that will move to the target region.<br/><br/> - The resource uses different dependent resources located in the target region. In this case, you can choose from any similar resources in the target region.
 
 ### Edit VM target settings
