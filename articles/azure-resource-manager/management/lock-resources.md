@@ -27,7 +27,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 Applying locks can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. Locks will prevent any operations that require a POST request to the Azure Resource Manager API. Some common examples of the operations that are blocked by locks are:
 
-* A read-only lock on a **storage account** prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
+* A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users must have permissions via Azure RBAC in order to access data in the account. For more information, see [Choose how to authorize access to blob data in the Azure portal](../../storage/blobs/authorize-data-operations-portal.md).
 
 * A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
