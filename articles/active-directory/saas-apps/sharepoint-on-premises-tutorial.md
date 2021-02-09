@@ -39,7 +39,7 @@ To configure the federation in Azure AD, you need to create a dedicated Enterpri
 
 ### Create the enterprise application
 
-1. Sign-in to the [Azure Active Directory portal](https://aad.portal.azure.com/).
+1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/).
 1. Go to **Enterprise applications**, and then select **All applications**.
 1. To add a new application, select **New application** at the top of the dialog box.
 1. In the search box, enter **SharePoint on-premises**. Select **SharePoint on-premises** from the result pane.
@@ -267,7 +267,7 @@ Let's create a security group in Azure Active Directory:
 
 Azure AD security groups are identified with their attribute `Id`, which is a GUID (for example, `E89EF0A3-46CC-45BF-93A4-E078FCEBFC45`).  
 Without a custom claims provider, users need to type the exact value (`Id`) of the group in the people picker, and select the corresponding claim type. This is not user-friendly nor reliable.  
-To avoid this, this article uses third party claims provider [AzureCP](https://yvand.github.io/AzureCP/) to find the group in a friendly way in SharePoint:
+To avoid this, this article uses third-party claims provider [AzureCP](https://yvand.github.io/AzureCP/) to find the group in a friendly way in SharePoint:
 
 ![People picker search Azure AD group](./media/sharepoint-on-premises-tutorial/sp-peoplepickersearch-aadgroup.png)
 
