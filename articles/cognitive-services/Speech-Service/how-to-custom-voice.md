@@ -65,9 +65,7 @@ To create your first project, select the **Text-to-Speech/Custom Voice** tab, th
 
 ## How to migrate to Custom Neural Voice
 
-Since the neural tier empowers users to build higher quality voice models while requiring less data, and provides measures to help you deploy AI responsibly, we recommend you move your existing voice models created with the non-neural training methods to Custom Neural Voice. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
-
-If you are using the non-neural (or standard) Custom Voice, consider to migrate to Custom Neural Voice immediately following the steps below. 
+If you are using the non-neural (or standard) Custom Voice, consider to migrate to Custom Neural Voice immediately following the steps below. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
 
 1. Learn more about our [policy on the limit access](https://aka.ms/gating-overview) and [apply here](https://aka.ms/customneural). Note that the access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria. Customers may gain access to the technology only after their application is reviewed and they have committed to using it in alignment with our [Responsible AI principles](https://microsoft.com/ai/responsible-ai) and the [code of conduct](https://aka.ms/custom-neural-code-of-conduct). 
 2. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to the [Custom Voice portal](https://speech.microsoft.com/customvoice) using the same Azure subscription that you provide in your application. 
