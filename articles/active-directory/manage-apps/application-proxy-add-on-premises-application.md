@@ -8,15 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3-portal
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
 
-Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant. To **view your apps and get up to speed quickly** with App Management in Azure, be sure to check out the [Quickstart Series](view-applications-portal.md).
+Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant. 
+
+To **view your apps and get up to speed quickly** with App Management in Azure, be sure to check out the [Quickstart Series](view-applications-portal.md).
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Application Proxy Overview Diagram" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
