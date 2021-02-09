@@ -106,7 +106,7 @@ initiative definition.
 
 ## Access Control and Passwords
 
-### 16.1.32 System User Identification
+### 16.1.32 System User Identitfication
 
 **ID**: NZISM Security Benchmark AC-2
 **Ownership**: Customer
