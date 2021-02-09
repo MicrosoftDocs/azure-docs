@@ -116,7 +116,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|
@@ -152,7 +153,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+* 1/21/2021 - Added support for core attribute "userName" for users.
 
 ## Additional resources
 

@@ -63,6 +63,8 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
+    - name: Create and manage virtual machine scale set
+      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -182,7 +184,7 @@
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
+      href: ../virtual-machines/disks-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md

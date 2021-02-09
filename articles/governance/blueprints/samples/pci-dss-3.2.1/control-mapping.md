@@ -1,7 +1,7 @@
 ---
 title: PCI-DSS v3.2.1 blueprint sample controls
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the PCI-DSS v3.2.1 blueprint sample

@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
 ---
 
@@ -26,7 +26,25 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-##  December 2020
+## January 2021
+
+### Video Indexer is deployed on US Government cloud 
+
+You can now create a Video Indexer paid account on US government cloud in Virginia and Arizona regions. 
+Video Indexer free trial offering isn't available in the mentioned region. For more information go to Video Indexer Documentation. 
+
+### Video Indexer deployed in the India Central region 
+
+You can now create a Video Indexer paid account in the India Central region. 
+
+### New Dark Mode for the Video Indexer website experience
+
+The Video Indexer website experiences is now available in dark mode. 
+To enable the dark mode open the settings panel and toggle on the **Dark Mode** option. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
+
+## December 2020
 
 ### Video Indexer deployed in the Switzerland West and Switzerland North
 
@@ -40,7 +58,7 @@ Video Indexer supports detection, grouping, and recognition of characters in ani
 
 ### Planned Video Indexer website authenticatication changes
 
-Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer](https://www.videoindexer.ai/) website using Facebook or LinkedIn.
+Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
 
 You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
 

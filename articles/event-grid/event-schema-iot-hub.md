@@ -2,7 +2,7 @@
 title: Azure IoT Hub as Event Grid source
 description: This article provides the properties and schema for Azure IoT Hub events. It lists the available event types, an example event, and event properties.  
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 01/13/2021
 ---
 
 # Azure IoT Hub as an Event Grid source
@@ -21,8 +21,6 @@ Azure IoT Hub emits the following event types:
 | Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. |
 | Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
 | Microsoft.Devices.DeviceTelemetry | Published when a telemetry message is sent to an IoT hub. |
-
-All device events except device telemetry events are generally available in all regions supported by Event Grid. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ### Example event
 

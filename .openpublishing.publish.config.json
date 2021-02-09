@@ -568,6 +568,11 @@
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples",
+      "url": "https://github.com/azure-samples/digital-twins-docs-code",
+      "branch": "main"
     }
   ],
   "branch_target_mapping": {

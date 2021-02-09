@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
 ---
 # Troubleshoot capacity pool issues
@@ -29,9 +29,6 @@ This article describes resolutions to issues you might have when managing capaci
 | Volume creation or modification fails with `Requested throughput not available` error | Available throughput for a volume is determined by its capacity pool’s size and the service level. If you do not have sufficient throughput, you should increase the pool size or adjust the existing volume throughput. | 
 
 ## Issues when changing the capacity pool of a volume 
-
-> [!IMPORTANT] 
-> The [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) public preview registration is on hold until further notice.
 
 |     Error condition    |     Resolution    |
 |-|-|

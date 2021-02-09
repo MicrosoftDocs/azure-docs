@@ -10,8 +10,6 @@ zone_pivot_groups: ams-lva-edge-programming-languages
 
 This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub. 
 
-This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart. 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/csharp/header.md)]
 ::: zone-end

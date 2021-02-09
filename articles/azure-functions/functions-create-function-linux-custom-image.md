@@ -351,7 +351,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
 - An Azure Storage account, which maintains state and other information about your projects.
-- An Azure functions app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 

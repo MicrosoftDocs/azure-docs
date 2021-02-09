@@ -13,9 +13,9 @@ ms.date: 08/17/2019
 ms.author: pafarley
 ---
 
-# Receipt concepts
+# Form Recognizer prebuilt receipt model
 
-Azure Form Recognizer can analyze receipts using one of its prebuilt models. The Receipt API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with receipt understanding deep learning models to extract key information from receipts in English. The Receipt API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
 
 ## Understanding Receipts 
 
@@ -23,32 +23,39 @@ Many businesses and individuals still rely on manually extracting data from thei
 
 Automatically extracting data from these Receipts can be complicated. Receipts may be crumpled and hard to read, printed or handwritten parts and smartphone images of receipts may be low quality. Also, receipt templates and fields can vary greatly by market, region, and merchant. These challenges in both data extraction and field detection make receipt processing a unique problem.  
 
-Using Optical Character Recognition (OCR) and our prebuilt receipt model, the Receipt API enables these receipt processing scenarios and extract data from the receipts e.g merchant name, tip, total, line items and more. With this API there is no need to train a model you just send the receipt to the Analyze Receipt API and the data is extracted.
+Using Optical Character Recognition (OCR) and our prebuilt receipt model, the Receipt API enables these receipt processing scenarios and extract data from the receipts e.g merchant name, tip, total, line items and more. With this API there is no need to train a model, just send the receipt image to the Analyze Receipt API and the data is extracted.
 
-![sample receipt](./media/contoso-receipt-small.png)
+![sample receipt](./media/receipts-example.jpg)
 
-## What does the Receipt API do? 
 
-The prebuilt Receipt API extracts the contents of sales receipts&mdash;the type of receipt you would commonly get at a restaurant, retailer, or grocery store.
+## What does the Receipt service do? 
+
+The prebuilt Receipt service extracts the contents of sales receipts&mdash;the type of receipt you would commonly get at a restaurant, retailer, or grocery store.
 
 ### Fields extracted
 
-* Merchant Name 
-* Merchant Address 
-* Merchant Phone Number 
-* Transaction Date 
-* Transaction Time 
-* Subtotal 
-* Tax 
-* Total 
-* Tip 
-* Line-item extraction (for example item quantity, item price, item name)
+|Name| Type | Description | Text | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| ReceiptType | string | Type of sales receipt | Itemized |  |
+| MerchantName | string | Name of the merchant issuing the receipt | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | 987-654-3210 | +19876543210 |
+| MerchantAddress | string | Listed address of merchant | 123 Main St Redmond WA 98052 |  |
+| TransactionDate | date | Date the receipt was issued | June 06, 2019 | 2019-06-26  |
+| TransactionTime | time | Time the receipt was issued | 4:49 PM | 16:49:00  |
+| Total | number | Full transaction total of receipt | $14.34 | 14.34 |
+| Subtotal | number | Subtotal of receipt, often before taxes are applied | $12.34 | 12.34 |
+| Tax | number | Tax on receipt, often sales tax or equivalent | $2.00 | 2.00 |
+| Tip | number | Tip included by buyer | $1.00 | 1.00 |
+| Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
+| Name | string | Item name | Surface Pro 6 | |
+| Quantity | number | Quantity of each item | 1 | |
+| Price | number | Individual price of each item unit | $999.00 | 999.00 |
+| Total Price | number | Total price of line item | $999.00 | 999.00 |
 
 ### Additional features
 
 The Receipt API also returns the following information:
 
-* Receipt Type (such as itemized, credit card, and so on)
 * Field confidence level (each field returns an associated confidence value)
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
@@ -457,7 +464,7 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 
 ## Next steps
 
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

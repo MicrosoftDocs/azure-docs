@@ -140,9 +140,15 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## Check or adjust communication settings
 
-The on-premises data gateway depends on [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus Messaging. The gateway has several communication settings, which you can adjust. For more information, see these topics:
+The on-premises data gateway depends on [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus Messaging. The gateway has several communication settings, which you can adjust.
+
+An example scenario is where you use custom connectors that access on-premises resources by using the on-premises data gateway resource in Azure. If you also have a firewall that limits traffic to specific IP addresses, you need to set up the gateway installation to allow access for the corresponding *managed connectors [outbound IP addresses](logic-apps-limits-and-config.md#outbound)*. *All* logic apps in the same region use the same IP address ranges.
+
+For more information, see these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)

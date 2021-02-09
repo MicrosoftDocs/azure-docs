@@ -3,13 +3,16 @@ title: Prepare and customize a master VHD image - Azure
 description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
 ---
 # Prepare and customize a master VHD image
 
 This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+
+>[!IMPORTANT]
+>We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the WIndows Virtual Desktop Agent installed on your device. Using a customized image with the Windows Virtual Desktop Agent can cause problems with the image.  
 
 ## Create a VM
 

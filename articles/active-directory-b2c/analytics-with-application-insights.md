@@ -1,7 +1,7 @@
 ---
 title: Track user behavior with Application Insights
 titleSuffix: Azure AD B2C
-description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies.
+description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,31 +9,44 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2020
+ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-
+zone_pivot_groups: b2c-policy-type
 ---
 # Track user behavior in Azure Active Directory B2C using Application Insights
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) supports sending event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C.  With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Azure Active Directory B2C (Azure AD B2C) supports sending event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
 * Measure performance.
 * Create notifications from Application Insights.
 
-## How it works
+## Overview
 
-The [Application Insights](application-insights-technical-profile.md) technical profile defines an event from Azure AD B2C. The profile specifies the name of the event, the claims that are recorded, and the instrumentation key. To post an event, the technical profile is then added as an orchestration step in a [user journey](userjourneys.md).
+To enable custom event logs, you add an Application Insights technical profile. In the technical profile, you define the Application Insights instrumentation key, event name, and the claims to record. To post an event, the technical profile is then added as an orchestration step in a [user journey](userjourneys.md).
 
-Application Insights can unify the events by using a correlation ID to record a user session. Application Insights makes the event and session available within seconds and presents many visualization, export, and analytical tools.
+When using the Application Insights, consider the following:
+
+- There is a short delay, typically less than five minutes, before new logs available in Application Insights.
+- Azure AD B2C allows you to choose the claims to be recorded. Don't include claims with personal data.
+- To record a user session, events can be unified by using a correlation ID. 
+- Call the Application Insights technical profile directly from a [user journey](userjourneys.md) or a [sub journeys](subjourneys.md). Don't use Application Insights technical profile as a [validation technical profile](validation-technical-profile.md).
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+[!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
 ## Create an Application Insights resource
 
@@ -98,11 +111,11 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 
 ## Add new technical profiles
 
-Technical profiles can be considered functions in the Identity Experience Framework of Azure AD B2C. This table defines the technical profiles that are used to open a session and post events.
+Technical profiles can be considered functions in the custom policy. This table defines the technical profiles that are used to open a session and post events. The solution uses the [technical profile inclusion](technicalprofiles.md#include-technical-profile) approach. Where a technical profile includes another technical profile to change settings or add new functionality.
 
 | Technical Profile | Task |
 | ----------------- | -----|
-| AppInsights-Common | The common set of parameters to be included in all Azure Insights technical profiles. |
+| AppInsights-Common | The common technical profile with the common set of configuration. Including, the Application Insights instrumentation key, collection of claims to record, and the developer mode. The following technical profiles include the common technical profile, and add more claims, such as the event name. |
 | AppInsights-SignInRequest | Records a `SignInRequest` event with a set of claims when a sign-in request has been received. |
 | AppInsights-UserSignUp | Records a `UserSignUp` event when the user triggers the sign-up option in a sign-up/sign-in journey. |
 | AppInsights-SignInComplete | Records a `SignInComplete` event on successful completion of an authentication, when a token has been sent to the relying party application. |
@@ -125,6 +138,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
       <InputClaims>
         <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
         <InputClaim ClaimTypeReferenceId="EventTimestamp" PartnerClaimType="{property:EventTimestamp}" DefaultValue="{Context:DateTimeInUtc}" />
+        <InputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="{property:TenantId}" DefaultValue="{Policy:TrustFrameworkTenantId}" />
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
@@ -151,6 +165,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
         <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="SignInComplete" />
         <InputClaim ClaimTypeReferenceId="federatedUser" PartnerClaimType="{property:FederatedUser}" DefaultValue="false" />
         <InputClaim ClaimTypeReferenceId="parsedDomain" PartnerClaimType="{property:FederationPartner}" DefaultValue="Not Applicable" />
+        <InputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="{property:IDP}" DefaultValue="Local" />
       </InputClaims>
       <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
     </TechnicalProfile>
@@ -213,28 +228,97 @@ Immediately after the `SendClaims` orchestration step, call `AppInsights-SignInC
 
 ## Upload your file, run the policy, and view events
 
-Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying party policy from your application or use **Run Now** in the Azure portal. In seconds, your events are available in Application Insights.
+Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying party policy from your application or use **Run Now** in the Azure portal. Wait a minute or so, and your events will be available in Application Insights.
 
 1. Open the **Application Insights** resource in your Azure Active Directory tenant.
-2. Select **Usage** > **Events**.
+2. Select **Usage**, then select **Events**.
 3. Set **During** to **Last hour** and **By** to **3 minutes**.  You might need to select **Refresh** to view results.
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
-## [Optional] Collect more data
+## Collect more data
 
-Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AppInsights-Common technical profile.
+To fit your business needs, you may want to record more claims. To add a claim, first [define a claim](#define-claims), then add the claim to the input claims collection. Claims that you add to the *AppInsights-Common* technical profile, will appear in all of the events. Claims that you add to a specific technical profile, will appear only in that event. The input claim element contains the following attributes:
 
-- **ClaimTypeReferenceId** is the reference to a claim type.
-- **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event.
-- **DefaultValue** use any string value or the claim resolver.
+- **ClaimTypeReferenceId** - is the reference to a claim type. 
+- **PartnerClaimType** - is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event.
+- **DefaultValue** - A predefined value to be recorded, such as event name. A claim that is used in the user journey, such as the identity provider name. If the claim is empty, the default value will be used. For example, the `identityProvider` claim is set by the federation technical profiles, such as Facebook. If the claim is empty, it indicates the user sign-in with a local account. Thus, the default value is set to *Local*. You can also record a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the application ID, or the user IP address.
+
+### Manipulating claims
+
+You can use [input claims transformations](custom-policy-trust-frameworks.md#manipulating-your-claims) to modify the input claims or generate new ones before sending to Application Insights. In the following example, the technical profile includes the *CheckIsAdmin* input claims transformation. 
 
 ```xml
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
-<InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
+<TechnicalProfile Id="AppInsights-SignInComplete">
+  <InputClaimsTransformations>  
+    <InputClaimsTransformation ReferenceId="CheckIsAdmin" />
+  </InputClaimsTransformations>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="isAdmin" PartnerClaimType="{property:IsAdmin}"  />
+    ...
+  </InputClaims>
+  <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
+</TechnicalProfile>
+```
+
+### Add events
+
+To add an event, create a new technical profile that includes the *AppInsights-Common* technical profile. Then add the technical profile as orchestration step to the [user journey](custom-policy-trust-frameworks.md#orchestration-steps). Use [precondition](userjourneys.md#preconditions) to trigger the event when desired. For example, report the event only when users run through MFA.
+
+```xml
+<TechnicalProfile Id="AppInsights-MFA-Completed">
+  <InputClaims>
+     <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="MFA-Completed" />
+  </InputClaims>
+  <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
+</TechnicalProfile>
+```
+
+Now that you have a technical profile, add the event to the user journey. Then renumber the steps sequentially without skipping any integers from 1 to N.
+
+```xml
+<OrchestrationStep Order="8" Type="ClaimsExchange">
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+    <Value>isActiveMFASession</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+  </Preconditions>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="TrackUserMfaCompleted" TechnicalProfileReferenceId="AppInsights-MFA-Completed" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
+
+## Enable developer mode
+
+When using the Application Insights to define events, you can indicate whether developer mode is enabled. Developer mode controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights. The default value is `false`. Don't enable developer mode in production environments.
+
+To enable developer mode, in the *AppInsights-Common* technical profile, change the `DeveloperMode` metadata to `true`: 
+
+```xml
+<TechnicalProfile Id="AppInsights-Common">
+  <Metadata>
+    ...
+    <Item Key="DeveloperMode">true</Item>
+  </Metadata>
+</TechnicalProfile>
+```
+
+## Disable telemetry
+
+To disable the Application insight logs, in the *AppInsights-Common* technical profile, change the `DisableTelemetry` metadata to `true`: 
+
+```xml
+<TechnicalProfile Id="AppInsights-Common">
+  <Metadata>
+    ...
+    <Item Key="DisableTelemetry">true</Item>
+  </Metadata>
+</TechnicalProfile>
 ```
 
 ## Next steps
 
-- Learn more about [Application Insights](application-insights-technical-profile.md) technical profile in the IEF reference. 
+- Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/learn/tutorial-app-dashboards.md). 
+
+::: zone-end

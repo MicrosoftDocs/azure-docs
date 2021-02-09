@@ -1,7 +1,7 @@
 ---
 title: Use brokers with Xamarin iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to setup Xamarin iOS applications that can use Microsoft Authenticator and Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn how to setup Xamarin iOS applications that can use the Microsoft Authenticator and the Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 
@@ -88,7 +88,7 @@ This method is invoked every time the application is started. It's used as an op
 
 ### Step 4: Set UIViewController()
 
-Still in the *AppDelegate.cs* file, you need to set an object window. You don't typically need to set the object window for Xamarin iOS, but you do need an object window to send and receive responses from the broker.
+Still in the *AppDelegate.cs* file, set an object window. You don't typically need to set the object window for Xamarin iOS, but you do need an object window to send and receive responses from the broker.
 
 To set up the object window:
 
@@ -234,7 +234,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### Step 4: Add a redirect URI to your app registration
 
-MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, you need to register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
+MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
 
 The format of the redirect URI for your application depends on the certificate used to sign the APK. For example:
 

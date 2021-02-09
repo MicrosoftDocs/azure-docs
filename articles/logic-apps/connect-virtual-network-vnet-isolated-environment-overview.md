@@ -3,14 +3,14 @@ title: Access to Azure virtual networks
 description: Overview about how integration service environments (ISEs) help logic apps access Azure virtual networks (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/11/2021
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service. Data in an ISE stays in the [same region where you create and deploy that ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 For example, some Azure virtual networks use private endpoints, which you can set up through [Azure Private Link](../private-link/private-link-overview.md), to provide access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
 

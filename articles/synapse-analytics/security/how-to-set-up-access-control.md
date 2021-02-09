@@ -70,8 +70,8 @@ The `workspace1_SQLAdmins` group will be used when you configure SQL permissions
 For a basic setup, these five groups are sufficient. Later, you can  add security groups to handle users who need more specialized access or to give users access only to specific resources.
 
 > [!NOTE]
->- Learn how to create a security group in [this article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
->- Learn how to add a security group from another security group in [this article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>- Learn how to create a security group in [this article](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Learn how to add a security group from another security group in [this article](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
 >Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships to determine which roles they've been granted.

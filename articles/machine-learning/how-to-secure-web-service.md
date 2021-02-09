@@ -5,7 +5,6 @@ description: Learn how to enable HTTPS with TLS version 1.2 to secure a web serv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/04/2021
@@ -24,6 +23,8 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web s
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
 >
 > Specifically, web services deployed through Azure Machine Learning support TLS version 1.2 for AKS and ACI. For ACI deployments, if you are on older TLS version, we recommend re-deploying to get the latest TLS version.
+>
+> TLS version 1.3 for Azure Machine Learning - AKS Inference is unsupported.
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 

@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q2
 ---
 
 # Known issues in Azure Digital Twins

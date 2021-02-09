@@ -39,6 +39,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: How Azure NetApp Files snapshots work
+    href: snapshots-introduction.md
   - name: Manual QoS capacity pool
     href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
@@ -63,6 +65,8 @@
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: What changing to volume hard quota means
+    href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files

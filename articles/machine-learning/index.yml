@@ -12,8 +12,8 @@ metadata:
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
+  ms.author: larryfr
+  author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
 
@@ -34,8 +34,6 @@ landingContent:
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Get started with R
-            url: tutorial-1st-r-experiment.md
 
 # GET STARTED
   - title: 'Get started: Low or no code'
@@ -66,7 +64,7 @@ landingContent:
         links:
         - text: Deploy your model to the cloud
           url: how-to-deploy-existing-model.md  
-        - text: Track & deploy MLflow models
+        - text: Track MLflow models
           url: how-to-use-mlflow.md
  
   # MLOps
@@ -78,6 +76,8 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
+          - text: Deploy MLflow models 
+            url: how-to-deploy-mlflow-models.md
       - linkListType: reference
         links:
           - text: Python SDK

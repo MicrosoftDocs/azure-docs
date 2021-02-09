@@ -48,7 +48,7 @@ Insert this code in the `RecognizeIntentAsync()` method. Make sure you update th
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
+This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
@@ -70,8 +70,8 @@ You need to associate a `LanguageUnderstandingModel` with the intent recognizer,
 This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model. 
 
 > [!NOTE]
-> You can create a LanguageUnderstandingModel by passing an endpoint URL to the FromEndpoint method.
-> Speech SDK only supports LUIS v2.0 endpoints, and
+> Speech SDK only supports LUIS v2.0 endpoints.
+> You must manually modify the v3.0 endpoint URL found in the example query field to use a v2.0 URL pattern.
 > LUIS v2.0 endpoints always follow one of these two patterns:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`

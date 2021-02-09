@@ -1,7 +1,7 @@
 ---
 title: Cross-resource query Azure Data Explorer by using Azure Monitor
 description: Use Azure Monitor to perform cross-product queries between Azure Data Explorer, Log Analytics workspaces, and classic Application Insights applications in Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
@@ -10,14 +10,14 @@ ms.date: 12/02/2020
 
 ---
 # Cross-resource query Azure Data Explorer by using Azure Monitor
-Azure Monitor supports cross-service queries between Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). You can then query your Azure Data Explorer cluster by using Log Analytics/Application Insights tools and refer to it in a cross-service query. The article shows how to make a cross-service query.
+Azure Monitor supports cross-service queries between Azure Data Explorer, [Application Insights](../app/app-insights-overview.md), and [Log Analytics](./data-platform-logs.md). You can then query your Azure Data Explorer cluster by using Log Analytics/Application Insights tools and refer to it in a cross-service query. The article shows how to make a cross-service query.
 
 The following diagram shows the Azure Monitor cross-service flow:
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between a user, Azure Monitor, a proxy, and Azure Data Explorer.":::
 
 >[!NOTE]
-> Azure Monitor cross-service query is in private preview. Allowlisting is required. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
+> Azure Monitor cross-service query is in public preview. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 
 ## Cross-query your Log Analytics or Application Insights resources and Azure Data Explorer
 
@@ -57,8 +57,8 @@ Cross-tenant queries between the services are not supported. You're signed in to
 
 If the Azure Data Explorer resource is in Tenant A and the Log Analytics workspace is in Tenant B, use one of the following methods:
 
-*  Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant B as an authorized user on the Azure Data Explorer cluster. Validate that the [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) property on the Azure Data Explorer cluster contains Tenant B. Run the cross-query fully in Tenant B.
-*  Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) to project the Azure Monitor resource into Tenant A.
+*  Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant B as an authorized user on the Azure Data Explorer cluster. Validate that the [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) property on the Azure Data Explorer cluster contains Tenant B. Run the cross-query fully in Tenant B.
+*  Use [Lighthouse](../../lighthouse/index.yml) to project the Azure Monitor resource into Tenant A.
 
 ## Connect to Azure Data Explorer clusters from different tenants
 
@@ -67,6 +67,6 @@ Kusto Explorer automatically signs you in to the tenant to which the user accoun
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## Next steps
-* [Write queries](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Query data in Azure Monitor by using Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Perform cross-resource log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Write queries](/azure/data-explorer/write-queries)
+* [Query data in Azure Monitor by using Azure Data Explorer](/azure/data-explorer/query-monitor-data)
+* [Perform cross-resource log queries in Azure Monitor](../log-query/cross-workspace-query.md)

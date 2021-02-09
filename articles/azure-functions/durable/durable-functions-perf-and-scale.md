@@ -98,7 +98,7 @@ Activity functions are stateless and scaled out automatically by adding VMs. Orc
   "extensions": {
     "durableTask": {
       "storageProvider": {
-          "partitionCount": 3
+        "partitionCount": 3
       }
     }
   }

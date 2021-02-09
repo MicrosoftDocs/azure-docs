@@ -21,8 +21,6 @@ ms.custom: devx-track-azurepowershell
 
 # Connect virtual networks with virtual network peering using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this article, you learn how to:
 
 * Create two virtual networks

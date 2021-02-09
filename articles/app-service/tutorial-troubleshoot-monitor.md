@@ -166,11 +166,11 @@ where ResultDescription  contains "error"
 
 In the `ResultDescription` column, you'll see the following error:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 ### Join AppServiceHTTPLogs and AppServiceConsoleLogs
 
@@ -196,11 +196,11 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 In the `ResultDescription` column, you'll see the following error at the same time as web server errors:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 The message states memory has been exhausted on line 20 of `process.php`. You've now confirmed that the application produced an error during the HTTP 500 error. Let's take a look at the code to identify the problem.
 

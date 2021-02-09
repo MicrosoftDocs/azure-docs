@@ -27,7 +27,7 @@ Virtual network service endpoint policies provide following benefits:
 
 - __Improved security for your Virtual Network traffic to Azure Storage__
 
-  [Azure service tags for network security groups](https://aka.ms/servicetags) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
+  [Azure service tags for network security groups](./network-security-groups-overview.md) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
   
   Endpoint policies allow you to specify the Azure Storage accounts that are allowed virtual network outbound access and restricts access to all the other storage accounts. This gives much more granular security control for protecting data exfiltration from your virtual network.
 

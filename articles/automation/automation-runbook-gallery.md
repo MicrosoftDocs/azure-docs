@@ -3,7 +3,7 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft and the community in PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 # Use runbooks and modules in PowerShell Gallery
@@ -11,7 +11,7 @@ ms.topic: conceptual
 Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community. You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#use-python-runbooks) from the Azure Automation GitHub organization. You can also contribute to the community by sharing [scenarios that you develop](#add-a-powershell-runbook-to-the-gallery).
 
 > [!NOTE]
-> The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation).
+> The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation) For more information, see [here](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## Runbooks in PowerShell Gallery
 
