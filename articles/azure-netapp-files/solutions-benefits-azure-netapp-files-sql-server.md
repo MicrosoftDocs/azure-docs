@@ -61,8 +61,9 @@ As shown below, the results prove that, with Azure NetApp Files, each of the ins
 * The D32 at 15% CPU utilization matched the disk capabilities of the D64 as well.  
     * The D64 as stated above is rate limited at 80,000 disk IOPS.  
 
-### S3B CPU Limits Test – Performance Versus Processing Power
+### S3B CPU limits test – Performance versus processing power
 
+The following diagram summarizes the S3B CPU limits test:
 
 
 Scalability is only part of the story. The other part is latency.  It’s one thing for smaller virtual machines to have the ability to drive much higher I/O rates. It’s another thing altogether to do so with low single-digit latencies as shown below.  
@@ -72,9 +73,9 @@ Scalability is only part of the story. The other part is latency.  It’s one th
 * The D16 drove 88,000 IOPS against Azure NetApp Files at 2.8 ms latency
 * The D32 drove 80,000 IOPS against Azure NetApp Files at 2.4 ms latency.  
 
-### S3B Per Instance Type Latency Results
+### S3B per instance type latency results
 
-
+The following diagram shows the latency for single-instance SQL Server over Azure NetApp Files:
 
 ## SSB testing tool 
  
