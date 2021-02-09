@@ -119,7 +119,7 @@ You should design your conversational flow with a loop in mind so that a user kn
 
 Collaborators may be other developers who share the full development stack of the knowledge base application or may be limited to just authoring the knowledge base.
 
-Knowledge base authoring supports several [role-based access permissions](./Concepts/reference-role-based-access-control.md) you apply in the Azure portal to limit the scope of a collaborator's abilities.
+Knowledge base authoring supports several [role-based access permissions](./reference-role-based-access-control) you apply in the Azure portal to limit the scope of a collaborator's abilities.
 
 ## Integration with client applications
 
