@@ -30,8 +30,15 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
-## Migrate a Text Analytics resource to different instance
-To migrate from S0-S4 Text Analytics resource to Standard (S) instance, please create a new resource by selecting S as your pricing tier & replace the previous key with the new key.
+## Change your pricing tier 
+
+If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you can update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/):
+
+1. Navigate to your Text Analytics resource in the [Azure portal](https://portal.azure.com/).
+2. Select **Pricing tier** in the left navigation menu. It will be below **RESOURCE MANAGEMENT**. 
+3. Choose the Standard (S) pricing tier. Then click **Select**.
+
+You can also create a new Text Analytics resource with the Standard (S) pricing tier, and migrate your applications to use the credentials for the new resource. 
 
 ## Using the API synchronously
 
