@@ -62,9 +62,8 @@ ms.date: 11/09/2020
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-* Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+* Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 * [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
-
 
