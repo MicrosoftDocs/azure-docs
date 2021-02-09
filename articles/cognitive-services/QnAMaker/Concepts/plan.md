@@ -119,17 +119,17 @@ You should design your conversational flow with a loop in mind so that a user kn
 
 Collaborators may be other developers who share the full development stack of the knowledge base application or may be limited to just authoring the knowledge base.
 
-Knowledge base authoring supports several [role-based access permissions](../reference-role-based-access-control.md) you apply in the Azure portal to limit the scope of a collaborator's abilities.
+Knowledge base authoring supports several [role-based access permissions](./reference-role-based-access-control.md) you apply in the Azure portal to limit the scope of a collaborator's abilities.
 
 ## Integration with client applications
 
-Integration with [client applications](../index.yml) is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
+Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
 To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
-Conversation flow in a [client application](../index.yml), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
+Conversation flow in a client application, such as an Azure bot, may require functionality before and after interacting with the knowledge base.
 
 Does your client application support conversation flow, either by providing alternate means to handle follow-up prompts or including chit-chit? If so, design these early and make sure the client application query is handled correctly by another service or when sent to your knowledge base.
 
