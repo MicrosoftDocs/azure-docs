@@ -279,7 +279,7 @@
                     href: ../service-fabric/service-fabric-api-management-overview.md
                   - name: Tutorial
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-            - name: Diagnose Issues in Production
+            - name: Diagnose issues in production
               href: diagnose-solve-problems.md
 - name: Reference
   items:
