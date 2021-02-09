@@ -209,9 +209,8 @@ A batch Document Translation request is submitted to your Translator service end
 >
 > See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
-
 <!-- markdownlint-disable MD024 -->
-#### POST request body without optional glossaryURL
+### POST request body without optional glossaryURL
 
 ```http
 
@@ -240,7 +239,7 @@ A batch Document Translation request is submitted to your Translator service end
 }
 ```
 
-#### POST request body with optional glossaryURL
+### POST request body with optional glossaryURL
 
 ```http
 
@@ -280,7 +279,6 @@ A batch Document Translation request is submitted to your Translator service end
 ### [C#](#tab/csharp)
 
 ```csharp
-
 
     using System;
     using System.Net.Http;
@@ -335,6 +333,7 @@ A batch Document Translation request is submitted to your Translator service end
 ### [Node.js](#tab/javascript)
 
 ```javascript
+
 const axios = require('axios').default;
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
@@ -426,6 +425,7 @@ print(f'response status code: {response.status_code}\nresponse status: {response
 ### [Java](#tab/java)
 
 ```java
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -639,6 +639,7 @@ print(data.decode("utf-8"))
 ### [Go](#tab/go)
 
 ```go
+
 package main
 
 import (
@@ -682,18 +683,13 @@ func main() {
 ```
 
 ---
+
 ## GET job status
 
 ### Brief overview
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
-
-#### HTTP request
-
-```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
-```
 
 ### [C#](#tab/csharp)
 
@@ -767,6 +763,7 @@ axios(config)
 ### [Java](#tab/java)
 
 ```java
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -823,6 +820,7 @@ print(data.decode("utf-8"))
 ### [Go](#tab/go)
 
 ```go
+
 package main
 
 import (
@@ -872,12 +870,6 @@ func main() {
 ### Brief overview
 
 Retrieve the status of a specific document in a Document Translation request. If successful, this method returns a `200 OK` response code.
-
-#### HTTP request
-
-```http
-GET  https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/document/{documentId}/
-```
 
 ### [C#](#tab/csharp)
 
@@ -951,6 +943,7 @@ axios(config)
 ### [Java](#tab/java)
 
 ```java
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -1007,6 +1000,7 @@ print(data.decode("utf-8"))
 ### [Go](#tab/go)
 
 ```go
+
 package main
 
 import (
@@ -1057,11 +1051,6 @@ func main() {
 
 Cancel currently processing or queued job. Only documents for which translation hasn't started will be canceled.
 
-#### HTTP request
-
-```http
-DELETEhttps://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/
-```
 ### [C#](#tab/csharp)
 
 ```csharp
@@ -1134,6 +1123,7 @@ axios(config)
 ### [Java](#tab/java)
 
 ```java
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -1190,6 +1180,7 @@ print(data.decode("utf-8"))
 ### [Go](#tab/go)
 
 ```go
+
 package main
 
 import (
