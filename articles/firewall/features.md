@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall features
 
-[Azure Firewall](overview.md) is a managed, cloud-based network security service that protects your Azure Virtual Network resources..
+[Azure Firewall](overview.md) is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 
 ![Firewall overview](media/overview/firewall-threat.png)
 
@@ -34,7 +34,7 @@ Azure Firewall includes the following features:
 
 ## Built-in high availability
 
-High availability is built in, so no additional load balancers are required and there's nothing you need to configure.
+High availability is built in, so no extra load balancers are required and there's nothing you need to configure.
 
 ## Availability Zones
 
@@ -42,7 +42,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no additional cost for a firewall deployed in an Availability Zone. However, there are additional costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no additional cost for a firewall deployed in an Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
@@ -92,7 +92,7 @@ You can associate [multiple public IP addresses](deploy-multi-public-ip-powershe
 This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
+- **SNAT** - More ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
 
 ## Azure Monitor logging
 
@@ -108,7 +108,7 @@ You can configure Azure Firewall to route all Internet-bound traffic to a design
 
 ## Web categories (preview)
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories is included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium Preview, see [Azure Firewall Premium Preview features](premium-features.md).
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium Preview, see [Azure Firewall Premium Preview features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
