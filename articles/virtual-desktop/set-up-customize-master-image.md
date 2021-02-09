@@ -210,3 +210,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+
+If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) for help.
