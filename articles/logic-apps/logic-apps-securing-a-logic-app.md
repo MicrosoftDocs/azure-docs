@@ -175,13 +175,11 @@ Before you enable Azure AD OAuth, review these considerations:
    }
    ```
 
-#### [Portal](#tab/azure-portal/enable-authorization-policy)
-
 <a name="define-authorization-policy-portal"></a>
 
-##### Add authorization policies through the Azure portal
+#### [Portal](#tab/azure-portal/authorization-policy-portal)
 
-To enable Azure AD OAuth for your logic app in the Azure portal, follow these steps to add one or more authorization policies to your logic app:
+To enable Azure AD OAuth for your logic app in the Azure portal, add one or more authorization policies to your logic app by following these steps:
 
 1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
 
@@ -211,11 +209,9 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
-#### [Resource Manager Template](#tab/azure-resource-manager/enable-authorization-policy)
-
 <a name="define-authorization-policy-template"></a>
 
-##### Define authorization policy through an ARM template
+#### [Resource Manager Template](#tab/azure-resource-manager/authorization-policy-template)
 
 To enable Azure AD OAuth in the ARM template for deploying your logic app, define an authorization policy by following these steps and the syntax below:
 
@@ -311,13 +307,19 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 
 Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
-#### [Portal](#tab/azure-portal/restrict-inbound-ip)
-
 <a name="restrict-inbound-ip-portal"></a>
 
-##### Restrict inbound IP ranges in the Azure portal
+#### [Portal](#tab/azure-portal/restrict-inbound-ip-portal)
 
-When you use the portal to restrict inbound IP addresses for your logic app, these restrictions affect both triggers *and* actions, despite the description in the portal under **Allowed inbound IP addresses**. To set up restrictions on triggers separately from actions, use the [`accessControl` object in your logic app's Azure Resource Manager template](#restrict-inbound-ip-template) or the [Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
+To restrict the inbound IP addresses for your logic app through the Azure portal, follow these steps:
+
+> [!NOTE]
+> Setting this filter through the portal affects both triggers *and* actions, 
+> contrary to the description in the portal under **Allowed inbound IP addresses**. 
+>
+> To set this filter on triggers separately from actions, use the 
+> [`accessControl` object in your logic app's Azure Resource Manager template](#restrict-inbound-ip-template) or the 
+> [Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -339,11 +341,9 @@ When you use the portal to restrict inbound IP addresses for your logic app, the
 
 1. Optionally, under **Restrict calls to get input and output messages from run history to the provided IP addresses**, you can specify the IP address ranges for inbound calls that can access input and output messages in run history.
 
-#### [Resource Manager Template](#tab/azure-resource-manager/restrict-inbound-ip)
-
 <a name="restrict-inbound-ip-template"></a>
 
-##### Restrict inbound IP ranges in Azure Resource Manager template
+#### [Resource Manager Template](#tab/azure-resource-manager/restrict-inbound-ip-template)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the permitted inbound IP address ranges in your logic app's resource definition by using the `accessControl` section. In this section, use the `triggers`, `actions`, and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the permitted IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
 
@@ -444,6 +444,8 @@ This example shows a resource definition for a nested logic app that permits inb
    "outputs": {}
 }
 ```
+
+---
 
 <a name="secure-operations"></a>
 
