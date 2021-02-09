@@ -22,11 +22,11 @@ This article explains how to manually configure database migration from SQL Serv
 In cases that DMS tool cannot be used for migration, LRS cloud service can be used directly with API, PowerShell or CLI cmdlets to manually build and orchestrate database migrations to the cloud. 
 
 You might want to consider using LRS cloud service in some of the following cases:
--	More control is needed for database migration project
+-	More control is needed for your database migration project
 -	There exists a very little tolerance for downtime for migration cutover
 -	DMS tool cannot be installed in your environment
 -	DMS tool does not have file access to database backups
--	No access to host OS is available or no administrator privileges
+-	No access to host OS is available, or no administrator privileges
 
 > [!NOTE]
 > Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using DMS tool. This tool is using the same LRS cloud service at the back end with log shipping enabled in no-recovery mode. You should consider manually using LRS only in cases when DMS tool does not fully support your migration scenario.
