@@ -165,8 +165,8 @@ Assuming you [set up your app for Application Insights][java], click Browse, sel
 
 Yes, provided your server can send telemetry to the Application Insights portal through the public internet.
 
-You may need to open some outgoing ports in your server's firewall to allow the SDK to send data to the portal.
-See https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses#outgoing-ports for details.
+You may need to [open some outgoing ports in your server's firewall](./ip-addresses.md#outgoing-ports)
+to allow the SDK to send data to the portal.
 
 ## Data retention
 **How long is data retained in the portal? Is it secure?**
