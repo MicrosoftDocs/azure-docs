@@ -103,10 +103,10 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
     - name: Enable a managed identity for routing events
       href: how-to-enable-managed-identities.md
     - name: Integrate with Azure Maps
