@@ -233,9 +233,11 @@ Remove-AzResourceGroup -Name 'myResourceGroupLB-CR'
 
 In this tutorial, you:
 
+* Created a global IP address.
 * Created a cross-region load balancer.
-* Added regional load balancers to the backend pool of the cross-region load balancer.
+* Created a health probe.
 * Created a load-balancing rule.
+* Added regional load balancers to the backend pool of the cross-region load balancer.
 * Tested the load balancer.
 
 
