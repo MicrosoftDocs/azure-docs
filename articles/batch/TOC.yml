@@ -143,26 +143,34 @@
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
+      displayName: scaling, dynamic, formula
       href: batch-automatic-scaling.md
     - name: Choose a VM size for compute nodes
       href: batch-pool-vm-sizes.md
     - name: Move from Cloud Service to Virtual Machine pools
+      displayName: migrate
       href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Configure access to compute nodes
+      displayName: rdp, ssh, network, remote
       href: pool-endpoint-configuration.md
     - name: Create a pool with the Shared Image Gallery
+      displayName: managed image, sig
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
     - name: Create a pool across Availability Zones
+      displayName: region, zonal policy
       href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
     - name: Create a pool in a virtual network
+      displayName: vNet
       href: batch-virtual-network.md
     - name: Create a pool with public IP addresses
+      displayName: static
       href: create-pool-public-ip.md
     - name: Create a pool without public IP addresses
+      displayName: private
       href: batch-pool-no-public-ip-address.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
@@ -173,10 +181,13 @@
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
     - name: Use low-priority VMs
+      displayName: preempted, surplus, capacity
       href: batch-low-pri-vms.md
     - name: Checking for pool and node errors
+      displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md
   - name: Create a CI/CD pipeline for Batch
+    displayName: Azure DevOps, devops, continuous
     href: batch-ci-cd.md
   - name: Manage jobs and tasks
     items:
