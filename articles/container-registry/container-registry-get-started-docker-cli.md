@@ -19,7 +19,7 @@ In the following steps, you download a public [Nginx image](https://store.docker
 
 ## Log in to a registry
 
-There are [several ways to authenticate](container-registry-authentication.md) to your private container registry. The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
+There are [several ways to authenticate](container-registry-authentication.md) to your private container registry. The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
 
 ```azurecli
 az login

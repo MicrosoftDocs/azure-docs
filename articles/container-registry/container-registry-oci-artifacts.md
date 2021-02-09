@@ -41,7 +41,7 @@ To read the password from Stdin, use `--password-stdin`.
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
+Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
 
 ```azurecli
 az login
