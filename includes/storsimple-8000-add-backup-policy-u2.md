@@ -12,7 +12,7 @@ ms.author: alkohli
 
 2. In the **Backup policy** blade, click **+ Add policy** from the command bar.
    
-    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-01.png)
 
 3. In the **Create backup policy** blade, do the following steps:
    
@@ -22,11 +22,11 @@ ms.author: alkohli
        
    3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
 
-       ![Add a backup policy 2](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Add a backup policy 2](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-02.png)<!--Replacement screen source: create-backup-policy-addvolumes.png-->
 
-   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
+   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:<!--Do the substeps remain the same? Can they follow without a screenshot?-->
 
-       ![Add a backup policy 3](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Add a backup policy 3](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-03.png)<!--Replacement screen source: create-backup-policy-first-schedule.png-->
 
        1. For **Snapshot type**, select **Cloud** or **Local**.
 
@@ -40,9 +40,9 @@ ms.author: alkohli
 
    5. Click **Create** to create a backup policy.
 
-       ![Add a backup policy 4](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Add a backup policy 4](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-04.png)<!--Either edit new 03, or eliminate this screen.-->
    
    6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
 
-       ![Add a backup policy 5](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Add a backup policy 5](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-07.png)
 
