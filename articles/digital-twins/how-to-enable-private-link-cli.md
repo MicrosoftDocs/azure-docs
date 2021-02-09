@@ -42,7 +42,7 @@ When using the [Azure CLI](/cli/azure/what-is-azure-cli), you can set up private
 
 ### Add a private endpoint to an existing instance
 
-To create a private endpoint and link it to an Azure Digital Twins instance, use the [**az network private-endpoint create**](/cli/azure/network/private-endpoint?view=azure-cli-latest#az_network_private_endpoint_create) command.
+To create a private endpoint and link it to an Azure Digital Twins instance, use the [**az network private-endpoint create**](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create) command.
 
 Here is an example that uses the command to create a private endpoint, with only the required parameters.
 
@@ -50,25 +50,25 @@ Here is an example that uses the command to create a private endpoint, with only
 az network private-endpoint create -g {resource_group} -n {name_for_private_endpoint} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource_group}/providers/Microsoft.Network/privateLinkServices/{private_link_service}" --connection-name {private_link_service_connection}
 ```
 
-For a full list of required and optional parameters, as well as more private endpoint creation examples, see the [**az network private-endpoint create** reference documentation](/cli/azure/network/private-endpoint?view=azure-cli-latest#az_network_private_endpoint_create).
+For a full list of required and optional parameters, as well as more private endpoint creation examples, see the [**az network private-endpoint create** reference documentation](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create).
 
 ### Manage private endpoints on an Azure Digital Twins instance
 
-Once a private endpoint has been created for your Azure Digital Twins instance, you can use the [**az dt network private-endpoint**](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest) commands to continue to manage it. Operations include:
+Once a private endpoint has been created for your Azure Digital Twins instance, you can use the [**az dt network private-endpoint**](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest&preserve-view=true) commands to continue to manage it. Operations include:
 * Show a private endpoint connection
 * Set the state of the private-endpoint connection
 * Delete the private-endpoint connection
 * List all the private-endpoint connections for an instance
 
-For more information and examples, see the [**az dt network private-endpoint** reference documentation](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest).
+For more information and examples, see the [**az dt network private-endpoint** reference documentation](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest&preserve-view=true).
 
 ### Manage other Private Link information on an Azure Digital Twins instance
 
-You can get additional information about the Private Link status of your instance with the [**az dt network private-link**](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest) commands. Operations include:
+You can get additional information about the Private Link status of your instance with the [**az dt network private-link**](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true) commands. Operations include:
 * List private links associated with an Azure Digital Twins instance
 * Show a private link associated with the instance
 
-For more information and examples, see the [**az dt network private-link** reference documentation](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest).
+For more information and examples, see the [**az dt network private-link** reference documentation](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true).
 
 ## Disable / enable public network access flags
 
@@ -80,7 +80,7 @@ This article shows how to update the value of the network flag using either the 
 
 ### Use the Azure CLI
 
-This is done by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create an instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists, instead of a new name for creating a new instance. (For more information about this command, see its [reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest#ext_azure_iot_az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+This is done by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create an instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists, instead of a new name for creating a new instance. (For more information about this command, see its [reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 To disable public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
 
