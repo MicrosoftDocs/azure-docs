@@ -64,7 +64,7 @@ Building a custom solution using LRS to migrate a database to the cloud requires
 > - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology for LRS is log shipping in no recovery mode.
 > - Log shipping standby mode is not\cannot be supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Server version.
 
-##Copy backups from SQL Server to Azure Blob storage
+## Copy backups from SQL Server to Azure Blob storage
 
 The following two approaches can be utilized to copy the backups to the blob storage in migrating databases to Managed Instance using LRS:
 -	Using SQL Server native BACKUP TO URL feature 
@@ -72,7 +72,7 @@ The following two approaches can be utilized to copy the backups to the blob sto
 
 
 
-##Generate SAS authentication token
+## Generate SAS authentication token
 
 > [!IMPORTANT]
 > Permissions for the SAS token for Azure Blob storage need to be read only and list. In case of any other permissions, LRS cloud service will fail to start. These security requirements are by design.
@@ -120,7 +120,7 @@ PS, CLI
 
 Complete je da podignes (recovery) bazu
 
-## Using API
+## Using LRS API
 
 
 
