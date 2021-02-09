@@ -136,7 +136,7 @@ az acr token create --name MyToken \
 The output shows details about the token. By default, two passwords are generated. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
 
 > [!NOTE]
-> To regenerate token passwords and set new password expiration dates, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
+> To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
 ## Create token - portal
 
@@ -377,7 +377,7 @@ The following example generates a new value for password1 for the *MyToken* toke
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
