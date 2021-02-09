@@ -78,23 +78,29 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select OS (Linux) from the drop-down 
 
-> [!IMPORTANT]
-> To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
-> ALso download the Node Exporter from [this](https://prometheus.io/download/#node_exporter) link only.
+   > [!IMPORTANT]
+   > To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter).
+   >
+   > Be sure to download Node Exporter only from [Prometheus](https://prometheus.io/download/#node_exporter).
+   >
 
-2. Input a name, which will be the identifier for the BareMetal Instance.
+2. Input a name, which will be the identifier for the BareMetal instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
 4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
 
->[Note]
-If Node Exporter is not able to connect with the OS provider on the BM or VM instance then please check the below settings.
+If Node Exporter can't connect with the OS provider on the BareMetal or VM instance, check the following settings:
 
-1.	Is the Azure monitor is in the same vnet as that of the host machine ?
-2.	Is firewall enabled on host for traffic on port 9100 ? Can be confirmed by running “curl http:<private-ip>:9100/metrics”  from a baremetal/vm running in the same vnet as the host with node_exporter running.
-a.	Incase its not, you can use below commands to enable it
-i.	firewall-cmd --permanent  --add-port=9100/tcp
-ii.	firewall-cmd –reload
-3. If it's a VM machine then please confirm if the NSGs are configured to allow traffic on port 9100. 
+- Is Azure Monitor in the same VNet as the host machine?
+- Is firewall enabled on the host for traffic on port 9100? You can check this by running `curl http:<private-ip>:9100/metrics` from a BareMetal/VM running in the same VNet as the host, with node_exporter running.
+   
+  If firewall isn't enabled for traffic on port 9100, use these commands to enable it:
+   
+  ```
+  firewall-cmd --permanent --add-port=9100/tcp
+  firewall-cmd –reload
+  ```
+   
+- For a VM, check that the NSGs are configured to allow traffic on port 9100. 
 
 ### Microsoft SQL Server provider
 
