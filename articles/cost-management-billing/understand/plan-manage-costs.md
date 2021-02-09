@@ -120,7 +120,7 @@ Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recom
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/usage-rate-card-overview.md).
+Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/consumption-api-overview.md#usage-details-api).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 

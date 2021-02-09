@@ -2,7 +2,7 @@
 title: Set up vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/26/2021
 ---
 
 # Set up vRealize Operations for Azure VMware Solution
@@ -22,8 +22,8 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 * Optionally, review the [vRealize Operations Remote Controller](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) product documentation for the on-premises vRealize Operations managing Azure VMware Solution deployment option. 
 
 
-
 ## Prerequisites
+* [vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) installed.
 * A VPN or an Azure ExpressRoute configured between on-premises and Azure VMware Solution SDDC.
 * An Azure VMware Solution private cloud has been deployed in Azure.
 
@@ -45,12 +45,13 @@ To extend the vRealize Operations capabilities to the Azure VMware Solution priv
 
 Another option is to deploy an instance of vRealize Operations Manager on a vSphere cluster in the private cloud. 
 
+>[!IMPORTANT]
+>This option isn't currently supported by VMware.
+
 :::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="vRealize Operations running on Azure VMware Solution" border="false":::
 
 Once the instance has been deployed, you can configure vRealize Operations to collect data from vCenter, ESXi, NSX-T, vSAN, and HCX. 
 
-> [!TIP]
-> Refer to the [VMware documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) for step-by-step guide for installing vRealize Operations Manager.
 
 
 ## Known limitations

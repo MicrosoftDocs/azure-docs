@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
 ---
 
@@ -26,21 +26,9 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ## Core quotas
 
-### Cores quotas in batch service mode
+### Cores quotas in Batch service mode
 
-The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of January 2021.
-
-Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below.
-
-With the existing mechanism being phased out, quota limits for VM series are not checked, only the total quota limit for the account is enforced. This means that it may be possible to allocate more cores for a VM series than is indicated by the VM series quota, up to the total account quota limit.
-
-The updated mechanism will enforce the VM series quotas, in addition to the total account quota. As part of the transition to the new mechanism, the VM series quota values may be updated to avoid allocation failures - any VM series used in recent months will have its VM series quota updated to match the total account quota. This change will not enable the use of any more capacity than was already available.
-
-It is possible to determine if VM series quota enforcement has been enabled for a Batch account by checking:
-
-* The Batch account [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) API property.
-
-* Text on the Batch account **Quotas** page in the portal.
+Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series as well as a total core quota limit for the entire Batch account. For low priority nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
 
 ### Cores quotas in user subscription mode
 

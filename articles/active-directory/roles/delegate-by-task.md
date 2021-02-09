@@ -3,14 +3,14 @@ title: Delegate roles by admin task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD organization more secure.

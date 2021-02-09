@@ -4,7 +4,7 @@ titleSuffix: Azure Active Directory
 description: Guidance on deploying an Azure Active Directory Application Proxy to protect your NDES server.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.tgt_pltfrm: na

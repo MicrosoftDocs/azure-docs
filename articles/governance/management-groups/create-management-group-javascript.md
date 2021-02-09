@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with JavaScript"
 description: In this quickstart, you use JavaScript to create a management group to organize your resources into a resource hierarchy.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---
@@ -23,7 +23,7 @@ directory. You receive a notification when the process is complete. For more inf
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- Before you start, make sure that the at least version 12 of [Node.js](https://nodejs.org/) is
+- Before you start, make sure that at least version 12 of [Node.js](https://nodejs.org/) is
   installed.
 
 - Any Azure AD user in the tenant can create a management group without the management group write

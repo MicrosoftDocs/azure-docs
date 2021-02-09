@@ -38,6 +38,11 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
 
+- Your Linux machine must have a minimum of **4 CPU cores and 8 GB RAM**.
+
+    > [!NOTE]
+    > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+
 - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 
 ## Run the deployment script
@@ -47,7 +52,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 1. Under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**, or from the text below (applying the Workspace ID and Primary Key in place of the placeholders):
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
+    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
@@ -90,8 +95,8 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Installs the Log Analytics agent.
@@ -156,8 +161,8 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Installs the Log Analytics agent.

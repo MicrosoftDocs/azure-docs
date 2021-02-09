@@ -2,10 +2,11 @@
 title: Troubleshoot Azure Automation feature deployment issues
 description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
+ms.subservice:
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ---
+
 # Troubleshoot feature deployment issues
 
 You might receive error messages when you deploy the Azure Automation Update Management feature or the Change Tracking and Inventory feature on your VMs. This article describes the errors that might occur and how to resolve them.
@@ -142,7 +143,7 @@ Remove the resources for the following features from your workspace if you're us
 After you remove the feature resources, you can unlink your workspace. It's important to clean up any existing artifacts from these  features from your workspace and your Automation account:
 
 * For Update Management, remove **Update Deployments (Schedules)** from your Automation account.
-* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management.md#remove-the-feature).
+* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management-remove.md).
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 

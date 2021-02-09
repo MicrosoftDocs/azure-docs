@@ -10,6 +10,8 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: January 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
     - name: November 2020 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/
     - name: October 2020 new and updated features
@@ -157,6 +159,8 @@
               href: howto-use-app-templates.md
             - name: Monitor application health
               href: howto-monitor-application-health.md
+            - name: Migrate V2 to V3 application
+              href: howto-migrate.md
             - name: About your application
               href: howto-get-app-info.md
             - name: Roll X.509 certificates

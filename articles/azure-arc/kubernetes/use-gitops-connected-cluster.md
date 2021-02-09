@@ -134,7 +134,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version >= 1.2.0.  Version 1.2.0 is used by default.
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services managed clusters.
-> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### Additional Parameters
 
@@ -144,17 +144,17 @@ To customize the configuration, here are more parameters you can use:
 
 `--helm-operator-params` : *Optional* chart values for Helm operator (if enabled).  For example, '--set helm.versions=v3'.
 
-`--helm-operator-chart-version` : *Optional* chart version for Helm operator (if enabled). Default: '1.2.0'.
+`--helm-operator-version` : *Optional* chart version for Helm operator (if enabled). Use '1.2.0' or greater. Default: '1.2.0'.
 
 `--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'. Max 23 characters.
 
-`--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
+`--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main' ```
 
 Options supported in  --operator-params
 
 | Option | Description |
 | ------------- | ------------- |
-| --git-branch  | Branch of Git repo to use for Kubernetes manifests. Default is 'master'. |
+| --git-branch  | Branch of Git repo to use for Kubernetes manifests. Default is 'master'. Newer repositories have root branch named 'main', in which case you need to set --git-branch=main. |
 | --git-path  | Relative path within the Git repo for Flux to locate Kubernetes manifests. |
 | --git-readonly | Git repo will be considered read-only; Flux will not attempt to write to it. |
 | --manifest-generation  | If enabled, Flux will look for .flux.yaml and run Kustomize or other manifest generators. |
@@ -222,16 +222,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-When the `sourceControlConfiguration` is created, a few things happen under the hood:
+When a `sourceControlConfiguration` is created or updated, a few things happen under the hood:
 
-1. The Azure Arc `config-agent` monitors Azure Resource Manager for new or updated configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`)
-1. `config-agent` notices the new `Pending` configuration
-1. `config-agent` reads the configuration properties and prepares to deploy a managed instance of `flux`
-    * `config-agent` creates the destination namespace
-    * `config-agent` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope)
-    * `config-agent` deploys an instance of `flux`
-    * `flux` generates an SSH key and logs the public key (if using the option of SSH with Flux-generated keys)
-1. `config-agent` reports status back to the `sourceControlConfiguration` resource in Azure
+1. The Azure Arc `config-agent` is monitoring Azure Resource Manager for new or updated configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`) and notices the new `Pending` configuration.
+1. The `config-agent` reads the configuration properties and creates the destination namespace.
+1. The Azure Arc `controller-manager` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope) and then deploys an instance of `flux`.
+1. If using the option of SSH with Flux-generated keys, `flux` generates an SSH key and logs the public key.
+1. The `config-agent` reports status back to the `sourceControlConfiguration` resource in Azure.
 
 While the provisioning process happens, the `sourceControlConfiguration` will move through a few state changes. Monitor progress with the `az k8sconfiguration show ...` command above:
 

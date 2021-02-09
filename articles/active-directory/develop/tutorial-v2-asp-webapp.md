@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 
 In this tutorial, you build an ASP.NET MVC web app that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
-When you've completed this guide, your application will be able to accept sign-ins of personal accounts from the likes of outlook.com and live.com. Additionally, work and school accounts from any company or organization that's integrated with Microsoft identity platform will be able to sign in to your app.
+When you've completed this guide, your application will be able to accept sign-ins of personal accounts from the likes of outlook.com and live.com. Additionally, work and school accounts from any company or organization that's integrated with the Microsoft identity platform will be able to sign in to your app.
 
 In this tutorial:
 
@@ -115,7 +115,7 @@ The following steps are used to create an OWIN middleware Startup class to confi
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -379,7 +379,7 @@ To register your application and add the app's registration information to your 
 1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Redirect URI**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
-1. In the **Implicit Grant** section, select **ID tokens**, and then select **Save**.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml
@@ -402,14 +402,13 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### Permissions and consent in the Microsoft identity platform endpoint
-
-Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+#### Permissions and consent in the Microsoft identity platform
+Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with the Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
 
 - The application developer adds any additional permissions that require **Admin consent**.
 - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
 
-For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](./v2-permissions-and-consent.md).
+For more information, refer to [Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
 
 ### View application results
 

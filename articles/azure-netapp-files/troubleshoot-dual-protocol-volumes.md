@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/12/2021
+ms.date: 01/22/2021
 ms.author: b-juche
 ---
 # Troubleshoot dual-protocol volumes
@@ -24,7 +24,7 @@ This article describes resolutions to error conditions you might have when creat
 
 |     Error conditions    |     Resolution    |
 |-|-|
-| Dual-protocol volume creation fails with the error `This Active Directory has no Server root CA Certificate`.    |     If this error occurs when you are creating a dual-protocol volume, make sure that the root CA certificate is uploaded in your NetApp account.    |
+| LDAP over TLS is enabled, and dual-protocol volume creation fails with the error `This Active Directory has no Server root CA Certificate`.    |     If this error occurs when you are creating a dual-protocol volume, make sure that the root CA certificate is uploaded in your NetApp account.    |
 | Dual-protocol volume creation fails with the error `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  The pointer (PTR) record of the AD host machine might be missing on the DNS server. You need to create a reverse lookup zone on the DNS server, and then add a PTR record of the AD host machine in that reverse lookup zone. <br> For example, assume that the IP address of the AD machine is `1.1.1.1`, the hostname of the AD machine (as found by using the `hostname` command) is `AD1`, and the domain name is `contoso.com`.  The PTR record added to the reverse lookup zone should be `1.1.1.1` -> `contoso.com`.   |
 | Dual-protocol volume creation fails with the error `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE`. | 	This error indicates that the AD password is incorrect when Active Directory is joined to the NetApp account. Update the AD connection with the correct password and try again. |
 | Dual-protocol volume creation fails with the error `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. | 	This error indicates that DNS is not reachable. The reason might be because DNS IP is incorrect, or there is a networking issue. Check the DNS IP entered in AD connection and make sure that the IP is correct. <br> Also, make sure that the AD and the volume are in same region and in same VNet. If they are in different VNETs, ensure that VNet peering is established between the two VNets.|

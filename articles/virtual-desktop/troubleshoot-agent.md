@@ -201,7 +201,7 @@ To resolve this issue, make space on your disk by:
 Open a PowerShell window as an administrator and run the following cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
 ```
 
 If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed

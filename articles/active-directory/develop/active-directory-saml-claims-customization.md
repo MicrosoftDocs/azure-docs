@@ -17,11 +17,11 @@ ms.custom: aaddev
 
 # How to: customize claims issued in the SAML token for enterprise applications
 
-Today, Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through Microsoft identity platform using the SAML 2.0 protocol, Microsoft identity platform sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as *claims*.
+Today, the Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as *claims*.
 
 A *claim* is information that an identity provider states about a user inside the token they issue for that user. In [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), this data is typically contained in the SAML Attribute Statement. The user’s unique ID is typically represented in the SAML Subject also called as Name Identifier.
 
-By default, Microsoft identity platform issues a SAML token to your application that contains a `NameIdentifier` claim with a value of the user’s username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains additional claims containing the user’s email address, first name, and last name.
+By default, the Microsoft identity platform issues a SAML token to your application that contains a `NameIdentifier` claim with a value of the user’s username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains additional claims containing the user’s email address, first name, and last name.
 
 To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **User Attributes & Claims** section.
 
@@ -43,9 +43,9 @@ To edit the NameID (name identifier value):
 
 ### NameID format
 
-If the SAML request contains the element NameIDPolicy with a specific format, then Microsoft identity platform will honor the format in the request.
+If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform will honor the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified Microsoft identity platform will use the default source format associated with the claim source selected.
+If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected.
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
@@ -163,9 +163,9 @@ To add a claim condition:
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. The last value which matches the expression will be emitted in the claim.
 
-For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Microsoft identity platform will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform will evaluate the conditions as follow.
 
-First, Microsoft identity platform verifies if Britta's user type is `All guests`. Since, this is true then Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, Microsoft identity platform verifies if Britta's user type is `AAD guests`, since this is also true then Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
+First, the Microsoft identity platform verifies if Britta's user type is `All guests`. Since, this is true then the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies if Britta's user type is `AAD guests`, since this is also true then the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
 ![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

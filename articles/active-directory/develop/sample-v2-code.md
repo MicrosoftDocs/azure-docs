@@ -1,6 +1,6 @@
 ---
 title: Code samples for Microsoft identity platform
-description: Provides an index of available Microsoft identity platform (v2.0 endpoint) code samples, organized by scenario.
+description: Provides an index of available Microsoft identity platform code samples, organized by scenario.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -17,14 +17,14 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform code samples (v2.0 endpoint)
 
-You can use Microsoft identity platform to:
+You can use the Microsoft identity platform to:
 
 - Add authentication and authorization to your web applications and web APIs.
 - Require an access token to access a protected web API.
 
-This article briefly describes and provides you with links to samples for the Microsoft identity platform endpoint. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
+This article briefly describes and provides you with links to samples for the Microsoft identity platform. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
 
-To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform endpoint](v2-app-types.md).
+To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform](v2-app-types.md).
 
 You can also contribute to the samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -117,7 +117,7 @@ The following samples show how to configure your application to accept sign-ins 
 
 ## Web APIs
 
-The following samples show how to protect a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
+The following samples show how to protect a web API with the Microsoft identity platform, and how to call a downstream API from the web API.
 
 | Platform | Sample |
 | -------- | ------------------- |
@@ -129,7 +129,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 
 ## Azure Functions as web APIs
 
-The following samples show how to protect an Azure Function using HttpTrigger and exposing a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
+The following samples show how to protect an Azure Function using HttpTrigger and exposing a web API with the Microsoft identity platform, and how to call a downstream API from the web API.
 
 | Platform | Sample |
 | -------- | ------------------- |

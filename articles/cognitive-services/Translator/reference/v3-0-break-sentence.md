@@ -3,14 +3,14 @@ title: Translator BreakSentence Method
 titleSuffix: Azure Cognitive Services
 description: The Translator BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: BreakSentence

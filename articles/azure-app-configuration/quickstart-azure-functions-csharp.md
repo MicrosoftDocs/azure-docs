@@ -40,7 +40,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## Connect to an App Configuration store
-This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) and add Azure App Configuration as an extra configuration source.
+This project will use [dependency injection in .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md) and add Azure App Configuration as an extra configuration source.
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 or later

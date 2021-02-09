@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/22/2021
+ms.date: 01/29/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -371,10 +371,10 @@ Azure Data Factory supports three ways to load data into Azure Synapse Analytics
 ![Azure Synapse Analytics sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
 - [Use PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
-- [Use COPY statement (preview)](#use-copy-statement)
+- [Use COPY statement](#use-copy-statement)
 - Use bulk insert
 
-The fastest and most scalable way to load data is through [PolyBase](/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) (preview).
+The fastest and most scalable way to load data is through [PolyBase](/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql).
 
 To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
@@ -383,7 +383,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | type              | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes                                           |
 | allowPolyBase     | Indicates whether to use PolyBase to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br/>Apply when using PolyBase.     |
 | polyBaseSettings  | A group of properties that can be specified when the `allowPolybase` property is set to **true**. | No.<br/>Apply  when using PolyBase. |
-| allowCopyCommand | Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) (preview) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
+| allowCopyCommand | Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
@@ -669,9 +669,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure Synapse Analytics.
 
-## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics (preview)
+## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics
 
-Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
+Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
 >[!NOTE]
 >Currently Data Factory only support copy from COPY statement compatible sources mentioned below.
@@ -792,9 +792,9 @@ SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2
 - Read Uncommitted
 - Repeatable Read
 - Serializable
-*- None (ignore isolation level)
+- None (ignore isolation level)
 
-![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+![Isolation Level](media/data-flow/isolationlevel.png)
 
 ### Sink transformation
 
