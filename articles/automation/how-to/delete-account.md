@@ -18,7 +18,7 @@ If you want to delete your Azure Automation account, you'll need to prepare the 
 
 1. [Disable your features.](#disable-features)
 1. [Unlink your workspace.](#unlink-your-workspace)
-1. [Delete the Automation account.](#delete-the-automation-account)
+1. [Delete the Automation account.](#delete-your-automation-account)
 
 >![NOTE]
 >Azure Automation allows you to move some resources to a new resource group or subscription. Automation accounts are among the resources that can be moved. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
@@ -36,7 +36,7 @@ To unlink your workspace from your Automation account, you must first remove the
 
     ![Screenshot of deleting feature resources from the Azure portal](../media/move-account/delete-solutions.png)
 
-If you prefer, you can delete the resources by using the [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-1.7.0) cmdlet:
+If you prefer, you can delete the resources by using the [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource) cmdlet:
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -75,7 +75,7 @@ For Start/Stop VMs during off-hours, you also need to remove the alert rules cre
 
     ![Screenshot of Action group page](../media/move-account/delete-action-group.png)
 
-If you prefer, you can delete your action group by using the [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-1.7.0) cmdlet:
+If you prefer, you can delete your action group by using the [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup) cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
