@@ -21,7 +21,7 @@ The start virtual machine (VM) on connect (preview) feature lets you save costs 
 
 ## Requirements and limitations
 
-The Start VM on Connect feature can only be enabled for personal host pools. To learn more about personal host pools, see [Windows Virtual Desktop environment](environment-setup#host-pools.md).
+The Start VM on Connect feature can only be enabled for personal host pools. To learn more about personal host pools, see [Windows Virtual Desktop environment](environment-setup.md#host-pools).
 
 The following remote desktop clients support the Start VM on Connect feature:
 
