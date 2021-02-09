@@ -165,6 +165,8 @@
         href: snapshots-overview.md
       - name: Point-in-time restore
         href: point-in-time-restore-overview.md
+      - name: Change feed
+        href: storage-blob-change-feed.md        
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
     - name: Redundancy and disaster recovery
@@ -405,6 +407,8 @@
         href: snapshots-manage-dotnet.md
       - name: Enable point-in-time restore
         href: point-in-time-restore-manage.md
+      - name: Process change feed logs
+        href: storage-blob-change-feed-how-to.md        
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
     - name: Manage redundancy and failover
