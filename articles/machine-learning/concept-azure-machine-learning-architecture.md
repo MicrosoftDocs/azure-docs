@@ -45,7 +45,7 @@ You can share a workspace with others.
 
 ### Create workspace
 
-The following diagram shows the create workspace workflow.
+The workflow to create a workspace:
 
 * You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
 * You call Azure Resource Manager to create the workspace. 
@@ -54,7 +54,6 @@ The following diagram shows the create workspace workflow.
 
 You can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
 
-[![Create workspace workflow](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## Computes
 
@@ -123,10 +122,6 @@ For example run configurations, see [Configure a training run](how-to-set-up-tra
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Snapshot**
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
-
-The following diagram shows the code snapshot workflow.
-
-[![Code snapshot workflow](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### Logging
 
