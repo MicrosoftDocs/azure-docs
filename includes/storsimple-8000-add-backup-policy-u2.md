@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ ms.author: alkohli
    
    1. **Select device** is automatically populated based on the device you selected.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters. Once the policy is created, you cannot rename the policy.
+   2. Specify a backup **Policy name** that has from 3 to 150 characters. Once the policy is created, you cannot rename the policy.
        
    3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
 
@@ -39,10 +39,7 @@ ms.author: alkohli
        5. Click **OK** to define the schedule.
 
    5. Click **Create** to create a backup policy.
-
-       ![Add a backup policy 4](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-04.png)<!--Either edit new 03, or eliminate this screen.-->
    
    6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
 
        ![Add a backup policy 5](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-07.png)
-
