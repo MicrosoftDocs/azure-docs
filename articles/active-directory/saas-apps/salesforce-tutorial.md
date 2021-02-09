@@ -168,13 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On Choose File](./media/salesforce-tutorial/xmlchoose.png)
 
-1. On the **SAML Single Sign-On Settings** page, fields populate automatically,
- 
-    a. Select the **User Provisioning Enabled**, if the **SAML Identity Type** as **Assertion contains the User's Salesforce username**.
-
-    b.Unselect the **User Provisioning Enabled**, if the **SAML Identity Type** as **Assertion contains the Federation ID from the User object**. 
-    
-    c. Click **Save**.
+1. On the **SAML Single Sign-On Settings** page, fields populate automatically, if you want to use SAML JIT, select the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the User's Salesforce username** otherwise, unselect the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the Federation ID from the User object**. Click **Save**.
 
     ![Configure Single Sign-On User Provisioning Enabled](./media/salesforce-tutorial/salesforcexml.png)
 
