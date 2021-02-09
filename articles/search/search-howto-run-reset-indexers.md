@@ -8,20 +8,20 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/09/2021
 ---
 
 # How to reset and run indexers, skills, or documents
 
-Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocessing of data, almost as if it were the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
+Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocess, almost as if it were the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
 
 The Reset APIs are primarily used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios). A secondary reason might be to force data synchronization between the underlying data source and search index, if somehow the documents appear to be mismatched. Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 Reset APIs are available for the following objects:
 
-+ [indexers](#reset-indexers)
-+ [skills (preview)](#reset-skills)
-+ [documents (preview)](#reset-docs)
++ The entire corpus (use [Reset Indexers](#reset-indexers))
++ A specific document or list of documents (use [Reset Skills (preview)](#reset-skills))
++ A specific skill or enrichment in a document (use [Reset Documents (preview)](#reset-docs))
 
 If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
 
@@ -120,9 +120,9 @@ After the documents are reprocessed, the indexer returns to the **`indexingAllDo
 
 ## Run an indexer job
 
-**Run** invokes indexer processing over all search index content marked by reset. Once the job is finished, any subsequent indexer run operates normally, refreshing search documents based on whether the content has changed, rather than being flagged by reset.
+**Run** invokes indexer processing over the content marked by reset (full search corpus, individual documents, or individual skills). Once the job is finished, any subsequent indexer run operates normally, refreshing search documents based on whether the content has changed, rather than being flagged by reset.
 
-Reset and rerun are independent tasks. After a reset, you will need to run the indexer using one of these approaches:
+Reset and run are independent tasks. After a reset, you will need to run the indexer using one of these approaches:
 
 + Azure portal, using the **Run** command on the indexer page
 + [Run Indexer (REST)](/rest/api/searchservice/run-indexer)
