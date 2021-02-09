@@ -184,18 +184,13 @@ You can [export an ARM template](../azure-resource-manager/templates/export-temp
 
 When exporting the template, in the ```"parameters":{ }``` section of the template you will notice that ```administratorLogin``` and ```administratorLoginPassword``` will not be included for security reasons. You **MUST** add these parameters to your template before deploying the template or the template will fail.
 
-```
-"parameters":
+```json
 "administratorLogin": {
       "type": "String"
     },
 "administratorLoginPassword": {
       "type": "SecureString"
-    },
-    "location": {
-      "type": "String"
-    },
-
+    },  
 ```
 
 ## Clean up resources
