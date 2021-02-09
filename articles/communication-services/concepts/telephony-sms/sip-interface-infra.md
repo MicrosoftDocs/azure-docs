@@ -145,14 +145,6 @@ SIP/TLS|SBC|SIP Proxy|Defined on the SBC|5061|
 
 The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC location and the datacenter performance metrics, the primary datacenter is selected. If the primary datacenter experiences an issue, the SBC will try the sip2.pstnhub.microsoft.com, which resolves to the second assigned datacenter, and, in the rare case that datacenters in two regions are not available, the SBC retries the last FQDN (sip3.pstnhub.microsoft.com), which provides the tertiary datacenter IP.
 
-The table below summarizes the relationships between primary, secondary, and tertiary datacenters:
-
-|If the primary datacenter is|EMEA|NOAM|ASIA|
-|:--- |:--- |:--- |:--- |
-|The secondary datacenter (sip2.pstnhub.microsoft.com)|US|EU|US|
-|The tertiary datacenter (sip3.pstnhub.microsoft.com)|ASIA|ASIA|EU|
-|||||
-
 ## Media traffic: IP and Port ranges
 
 The media traffic flows to and from a separate service called Media Processor. At the moment of publishing Media Processor for ACS can use any Azure IP address. 
