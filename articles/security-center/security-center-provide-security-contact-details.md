@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
 
 ---
@@ -43,8 +43,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 |||
 
 
-## Customize the security alerts email notifications<a name="email"></a>
-
+## Customize the security alerts email notifications via the portal<a name="email"></a>
 You can send email notifications to individuals or to all users with specific Azure roles.
 
 1. From Security Center's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
@@ -55,6 +54,28 @@ You can send email notifications to individuals or to all users with specific Az
     - Enter specific email addresses separated by commas. There's no limit to the number of email addresses that you can enter.
 
 1. To apply the security contact information to your subscription, select **Save**.
+
+## Customize the alerts email notifications through the API
+You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](https://docs.microsoft.com/he-il/rest/api/securitycenter/securitycontacts).
+
+This is an example request body:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
 
 
 ## See also
