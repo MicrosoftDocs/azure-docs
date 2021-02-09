@@ -64,7 +64,7 @@ Each of these options is described in the [detailed instructions](status-monitor
   - The [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
   - We recommend you use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
 
-  - You can also use [Log Analytics](../log-query/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
+  - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```

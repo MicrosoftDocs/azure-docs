@@ -529,7 +529,7 @@ You can access and read log data that's sent to your event hub by using security
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
 
-For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
+For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Data is stored in the **StorageBlobLog** table. Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLogs table. 
 

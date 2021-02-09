@@ -146,7 +146,7 @@ These steps only apply if you don't already have a SendGrid account configured.
 
 ## Next steps
 
-* Learn more about creating [Analytics queries](../log-query/get-started-queries.md).
+* Learn more about creating [Analytics queries](../logs/get-started-queries.md).
 * Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
 * Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Learn more about [Microsoft Power Automate](https://ms.flow.microsoft.com).

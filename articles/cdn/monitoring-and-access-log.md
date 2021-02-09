@@ -294,4 +294,4 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 * Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
-* Configure [Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configure [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

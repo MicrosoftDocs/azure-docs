@@ -92,9 +92,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 ## 2.7: Enable alerts for anomalous activities
 
@@ -144,7 +144,7 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 
 - [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-- [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 - [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 

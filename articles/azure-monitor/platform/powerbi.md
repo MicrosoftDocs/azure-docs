@@ -27,7 +27,7 @@ Start by creating a [log query](../logs/log-query-overview.md) that returns the 
 > [!WARNING]
 > Be careful to [optimize your query](../logs/query-optimization.md) so that it doesn't take excessively long to run or it may timeout. Note the **timespan** value in the exported query which defines the timespan of data that the query will retrieve. Use the smallest timespan that you require to limit the amount of data that the query returns.
 
-1. [Create the log query in Log Analytics](../log-query/log-analytics-tutorial.md) to extract the data for your dataset.
+1. [Create the log query in Log Analytics](../logs/log-analytics-tutorial.md) to extract the data for your dataset.
 2. Select **Export** > **Power BI Query (M)**.  This exports the query to a text file called **PowerBIQuery.txt**. 
 
     ![Export log search](media/powerbi/export-analytics.png)

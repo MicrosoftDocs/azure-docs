@@ -290,9 +290,9 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 * [How to monitor and review logs for Azure API Management](./api-management-howto-use-azure-monitor.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate with Azure Application Insights](./api-management-howto-app-insights.md)
 

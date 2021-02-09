@@ -145,7 +145,7 @@ After creating the group, we recommend that you install agents on all the machin
 You can query dependency data captured by Service Map in the Log Analytics workspace associated with the Azure Migrate project. Log Analytics is used to write and run Azure Monitor log queries.
 
 - [Learn how to](../azure-monitor/vm/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
-- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- [Get an overview](../azure-monitor/logs/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Run a query for dependency data as follows:
 

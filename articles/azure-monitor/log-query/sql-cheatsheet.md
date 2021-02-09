@@ -39,4 +39,4 @@ Join |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id =
 
 ## Next steps
 
-- Go through the lessons on [writing log queries in Azure Monitor](get-started-queries.md).
+- Go through the lessons on [writing log queries in Azure Monitor](../logs/get-started-queries.md).

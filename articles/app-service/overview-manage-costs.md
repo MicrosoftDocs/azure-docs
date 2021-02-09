@@ -34,7 +34,7 @@ Depending on which feature you use in App Service, the following cost-accruing r
 - **App Service plan**  Required to host an App Service app.
 - **Isolated tier**  A [Virtual Network](../virtual-network/index.yml) is required for an App Service environment.
 - **Backup**  A [Storage account](../storage/index.yml) is required to make backups.
-- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](../key-vault/index.yml).
 
 Other cost resources for App Service are (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/) for details):

@@ -121,5 +121,5 @@ For more information, see [Create, view, and manage metric alerts using Azure Mo
 
 ## See also
 
-* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 * [Create custom views by using View Designer in Azure Monitor](../azure-monitor/visualizations/view-designer.md)
