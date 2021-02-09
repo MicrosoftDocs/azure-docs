@@ -75,11 +75,11 @@ To configure a High-availability cluster provider, two primary steps are involve
 ## Provider type OS (Linux)
 Customers can configure one or more providers of provider type OS (Linux) to enable data collection from BareMetal or VM Node. The OS (Linux) provider connects to BareMetal or VM Nodes, using [Node_Exporter](https://github.com/prometheus/node_exporter) endpoint, pulls telemetry data from the Nodes and pushes it to Log Analytics workspace in the customer subscription. OS (Linux) provider collects data every 60 seconds for most of the metrics from Nodes. 
 
-In Private preview, customers can expect to see the following data with OS (Linux) provider: 
--CPU Usage, CPU Usage by Process 
--Disk Utilization, I/O Read & Write 
--Memory Distribution, Memory Usage, Swap Memory Usage 
--Network Usage, Network Inbound & outbound Traffic Details. 
+In Public preview, customers can expect to see the following data with OS (Linux) provider: 
+   - CPU Usage, CPU Usage by Process 
+   - Disk Utilization, I/O Read & Write 
+   - Memory Distribution, Memory Usage, Swap Memory Usage 
+   - Network Usage, Network Inbound & outbound Traffic Details. 
 
 To configure an OS (Linux) provider, two primary steps are involved:
 1. Install [Node_Exporter](https://github.com/prometheus/node_exporter) on each BareMetal or VM Nodes.
@@ -92,9 +92,11 @@ To configure an OS (Linux) provider, two primary steps are involved:
       - Name. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance. 
       - Node Exporter Endpoint. Usually http://<servername or ip address>:9100/metrics 
 
-Note:- 9100 is a Port Exposed for Node_Exporter Endpoint 
+> [!NOTE]
+> 9100 is a Port Exposed for Node_Exporter Endpoint.
 
-Warning:- Ensure Node Exporter keeps running after node reboot. 
+> [!Warning]
+> Ensure Node Exporter keeps running after node reboot. 
 
 
 ## Provider type Microsoft SQL server
