@@ -51,7 +51,7 @@ You can then use the bottom navigation buttons to continue with the rest of inst
 
 ### Add a system-managed identity to an existing instance
 
-In this section, you'll use the [Azure portal](https://portal.azure.com) to add a system-managed identity to an Azure Digital Twins instance that already exists.
+In this section, you'll add a system-managed identity to an Azure Digital Twins instance that already exists.
 
 1. First, navigate to the [Azure portal](https://portal.azure.com) in a browser.
 
