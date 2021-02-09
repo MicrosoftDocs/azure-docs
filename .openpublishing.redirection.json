@@ -62984,6 +62984,11 @@
       "source_path_from_root": "/articles/azure-monitor/log-query/log-analytics-tutorial.md",
       "redirect_url": "/azure/azure-monitor/logs/log-analytics-tutorial",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/upgrade-managed-disks.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
     }
   ]
 }

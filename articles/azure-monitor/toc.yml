@@ -1022,7 +1022,7 @@
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: vm/vminsights-log-search.md
-    - name: Monitor performance
+    - name: Alerts
       href: vm/vminsights-alerts.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
