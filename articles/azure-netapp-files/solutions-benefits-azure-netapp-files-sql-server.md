@@ -43,9 +43,9 @@ The second set of graphic shows the overall cost using a 50-TiB database. The co
 
 To deliver on the significant cost reduction assertion requires lots of performance - the largest instances in the general Azure inventory support 80,000 disk IOPS by example. A single Azure NetApp Files volume can achieve 80,000 database IOPS, and instances such as the D16 are able to consume the same. The D16, normally capable of 25,600 disk IOPS, is 25% the size of the D64.  The D64s_v3 is capable of 80,000 disk IOPS, and as such, presents an excellent upper level comparison point.
 
-The D16s_v3 can drive an Azure NetApp Files volume to 80,000 database IOPS. As proven by the SQL Storage Benchmark (SSB) benchmarking tool, the D16 instance achieved a workload 125% greater than that achievable to disk from the D64 instance.  See [SSB testing tool](#ssb-testing-tool) for details about the tool.
+The D16s_v3 can drive an Azure NetApp Files volume to 80,000 database IOPS. As proven by the SQL Storage Benchmark (SSB) benchmarking tool, the D16 instance achieved a workload 125% greater than that achievable to disk from the D64 instance.  See the [SSB testing tool](#ssb-testing-tool) section for details about the tool.
 
-Using a 1-TiB working set size and an 80% read, 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all, as the D2 and D64 instances themselves were excluded from testing. The former left out as it doesn't support accelerated networking, and the latter because it's the comparison point.   See the following graph to understand the limits of  D4s_v3, D8s_v3, D16s_v3, and D32s_v3, respectively.  Managed disk storage tests are not shown in the graph. Comparison values are drawn directly from the [Azure Virtual Machine limits table](../virtual-machines/dv3-dsv3-series.md) for the D class instance type.
+Using a 1-TiB working set size and an 80% read, 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all, as the D2 and D64 instances themselves were excluded from testing. The former was left out as it doesn't support accelerated networking, and the latter because it's the comparison point. See the following graph to understand the limits of  D4s_v3, D8s_v3, D16s_v3, and D32s_v3, respectively.  Managed disk storage tests are not shown in the graph. Comparison values are drawn directly from the [Azure Virtual Machine limits table](../virtual-machines/dv3-dsv3-series.md) for the D class instance type.
 
 With Azure NetApp Files, each of the instances in the D class can meet or exceed the disk performance capabilities of instances two times larger.  *You can reduce software license costs significantly with Azure NetApp Files.*  
 
@@ -66,9 +66,9 @@ The following diagram summarizes the S3B CPU limits test:
 
 Scalability is only part of the story. The other part is latency.  It’s one thing for smaller virtual machines to have the ability to drive much higher I/O rates, it’s another thing to do so with low single-digit latencies as shown below.  
 
-* The D4 drove 26,000 IOPS against Azure NetApp Files at 2.3-ms latency  
-* The D8 drove 51,000 IOPS against Azure NetApp Files at 2.0-ms latency  
-* The D16 drove 88,000 IOPS against Azure NetApp Files at 2.8-ms latency
+* The D4 drove 26,000 IOPS against Azure NetApp Files at 2.3-ms latency.  
+* The D8 drove 51,000 IOPS against Azure NetApp Files at 2.0-ms latency.  
+* The D16 drove 88,000 IOPS against Azure NetApp Files at 2.8-ms latency.
 * The D32 drove 80,000 IOPS against Azure NetApp Files at 2.4-ms latency.  
 
 ### S3B per instance type latency results
