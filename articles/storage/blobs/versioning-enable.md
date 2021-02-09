@@ -35,7 +35,7 @@ To enable blob versioning for a storage account in the Azure portal:
 
 # [PowerShell](#tab/powershell)
 
-To enable blob versioning for a storage account with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.3.0 or later. Then call the [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) command to enable versioning for the storage account, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+To enable blob versioning for a storage account with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.3.0 or later. Then call the [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
 
 ```powershell
 # Set resource group and account variables.
@@ -50,7 +50,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \
