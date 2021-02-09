@@ -4,75 +4,77 @@ titleSuffix: Azure API Management
 description: Learn how to plug Google Tag Manager into your managed or self-hosted developer portal.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 02/09/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Integrate Google Tag Manager
 
-Google Tag Manager is a tag management system created by Google to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots (such as LiveChat).
+Google Tag Manager is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
+
+## Add Application Insights to your portal
 
 Follow the steps below to plug Google Tag Manager into your managed or self-hosted developer portal.
 
-## 1. Add Google Tag Manager package
+> [!IMPORTANT]
+> Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
 
-**This step is not required for managed portals.**
+1. Install the **npm** package to add Google Tag Manager:
 
-Install *npm* package:
-```sh
-npm install @paperbits/gtm --save
-```
+    ```sh
+    npm install @paperbits/gtm --save
+    ```
 
-Import and register GTM module in `stratup.publish.ts`:
-```ts
-import { GoogleTagManagerPublishModule } from "@paperbits/gtm/gtm.publish.module";
-...
-injector.bindModule(new GoogleTagManagerPublishModule());
-```
+1. In the `startup.publish.ts` file in the `src` folder, import and register the GTM module:
 
-## 2. Fetch site configuration
+    ```typescript
+    import { GoogleTagManagerPublishModule } from "@paperbits/gtm/gtm.publish.module";
+    ...
+    injector.bindModule(new GoogleTagManagerPublishModule());
+    ```
+1. Retrieve the portal's configuration:
 
-Retrieve the portal's configuration.
+    ```html
+    GET /contentTypes/document/contentItems/configuration
+    ```
 
-`GET /contentTypes/document/contentItems/configuration`
-
-```json
-{
-    "nodes": [
-        {
-            "site": {
-                "title": "Microsoft Azure API Management - developer portal",
-                "description": "Discover APIs, learn how to use them, try them out interactively, and sign up to acquire keys.",
-                "keywords": "Azure, API Management, API, developer",
-                "faviconSourceId": null,
-                "author": "Microsoft Azure API Management"
-            }
-        }
-    ]
-}
-```
-
-## 3. Extend site configuration
-
-Extended the configuration from the previous step with Google Tag Manager configuration.
-
-`PUT /contentTypes/document/contentItems/configuration`
-
-```json
-{
-    "nodes": [
-        {
-            "site": { ... },
-            "integration": {
-                "googleTagManager": {
-                    "containerId": "GTM-..."
+    ```json
+    {
+        "nodes": [
+            {
+                "site": {
+                    "title": "Microsoft Azure API Management - developer portal",
+                    "description": "Discover APIs, learn how to use them, try them out interactively, and sign up to acquire keys.",
+                    "keywords": "Azure, API Management, API, developer",
+                    "faviconSourceId": null,
+                    "author": "Microsoft Azure API Management"
                 }
             }
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
+
+1. Extended the site configuration from the previous step with Google Tag Manager configuration:
+
+    ```html
+    PUT /contentTypes/document/contentItems/configuration
+    ```
+
+    ```json
+    {
+        "nodes": [
+            {
+                "site": { ... },
+                "integration": {
+                    "googleTagManager": {
+                        "containerId": "GTM-..."
+                    }
+                }
+            }
+        ]
+    }
+    ```
 
 ## Next steps
 
