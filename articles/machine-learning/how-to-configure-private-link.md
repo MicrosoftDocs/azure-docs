@@ -10,7 +10,7 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ---
 
 # Configure Azure Private Link for an Azure Machine Learning workspace
@@ -26,8 +26,9 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 ## Prerequisites
 
-If you plan on using a private link enabled workspace with a customer-managed key, you must request this feature using a support ticket. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* If you plan on using a private link enabled workspace with a customer-managed key, you must request this feature using a support ticket. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+* You must have an existing virtual network to create the private endpoint in. You must also [disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 ## Limitations
 
 * Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
@@ -77,10 +78,6 @@ The __Networking__ tab in Azure Machine Learning studio allows you to configure 
 ## Add a private endpoint to a workspace
 
 Use one of the following methods to add a private endpoint to an existing workspace:
-
-> [!IMPORTANT]
->
-> You must have an existing virtual network to create the private endpoint in. You must also [disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 
 > [!WARNING]
 >
