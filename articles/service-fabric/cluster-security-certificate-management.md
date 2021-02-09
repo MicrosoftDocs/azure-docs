@@ -454,7 +454,7 @@ As it emerged from the json snippets above, a specific sequencing of the operati
 
 To dispose the creation of a managed identity, or to assign it to another resource, the deployment operator must have the required role (ManagedIdentityOperator) in the subscription or the resource group, in addition to the roles required to manage the other resources referenced in the template. 
 
-From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regards to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
+From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regard to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
 
 ## Troubleshooting and frequently asked questions
 

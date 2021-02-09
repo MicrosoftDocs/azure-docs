@@ -30,11 +30,12 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 - PKCS #12
 - PEM
 
-## Prerequisities
+## Prerequisites
+
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
   - VM must have assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md)
   - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
-  -  VMSS should have the following identity setting:
+  -  Virtual Machine Scale Sets should have the following identity setting:
 
   ``` 
   "identity": {
