@@ -119,15 +119,21 @@ For more information the following tables below indicates T-SQL commands for man
 
 - Failover Groups are not supported. This means that customers migrating Azure Germany database(s) will need to manage connection strings themselves during failover.
 - No support for Azure portal, ARM APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage active geo-replication setup and failover through T-SQL.
-- Customers cannot create multiple geo-secondaries in public cloud for databases in Azure Germany.
+- Customers cannot create multiple geo-secondaries in the public cloud for databases in Azure Germany.
 - Creation of a geo secondary must be initiated from the Azure Germany region.
 - Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
 - Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
+- [Point-in-time restore (PITR)](../azure-sql/database/recovery-using-backups.md#point-in-time-restore) backups are only taken on the primary database, this is by design. When migrating databases from Azure Germany using Geo-DR, PITR backups will start happening on the new primary after failover. However, the existing PITR backups (on the previous primary in Azure Germany) will not be migrated. If you need PITR backups to support any point-in-time restore scenarios, you need to restore the database from PITR backups in Azure Germany and then migrate the recovered database to global Azure. 
+- If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on an Azure Germany database, you need to copy and recreate the LTR policy on the new database after migrating to a new region. Long-term retention policies are not migrated with the database. APIs to copy LTR backups to a new region should be released by the end of March.
 
 
 ### Requesting access
 
-To set up active geo-replication between Azure Germany and global Azure, you must request access for your subscription through the portal.
+To set up active geo-replication between Azure Germany and global Azure, you must request access for your subscription through the Azure portal.
+
+
+1. Open a new [support request ticket](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fportal.microsoftazure.de%2F%23create%2FMicrosoft.Support%2FParameters%2F%257B%250D%250A%2B%2B%2B%2B%2522pesId%2522%253A%2B%2522f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%2522%252C%250D%250A%2B%2B%2B%2B%2522supportTopicId%2522%253A%2B%25229fc72ed5-805f-3894-eb2b-b1f1f6557d2d%2522%252C%250D%250A%2B%2B%2B%2B%2522contextInfo%2522%253A%2B%2522Migration%2Bfrom%2Bcloud%2BGermany%2Bto%2BAzure%2Bglobal%2Bcloud%2B%2528Azure%2BSQL%2BDatabase%2529%2522%252C%250D%250A%2B%2B%2B%2B%2522caller%2522%253A%2B%2522NoSupportPlanCloudGermanyMigration%2522%252C%250D%250A%2B%2B%2B%2B%2522severity%2522%253A%2B%25223%2522%250D%250A%257D&data=04%7C01%7Csstein%40microsoft.com%7C8ffca68429d04f968aa908d8cc7d1747%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637484184920672952%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Waits1lT7h1760cT84sNU%2BTWrFw%2FCOsIAP%2BOaLP8eqk%3D&reserved=0).
+
 
 1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 1. In **Help + support**, select **New support request**.
