@@ -2,7 +2,7 @@
 title: Lifecycle management of Azure VMware Solution VMs
 description: Learn to manage all aspects of the lifecycle of your Azure VMware Solution VMs with Microsoft Azure native tools.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 02/08/2021
 ---
 
 # Lifecycle management of Azure VMware Solution VMs

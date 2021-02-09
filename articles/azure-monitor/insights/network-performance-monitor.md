@@ -13,6 +13,8 @@ ms.date: 02/20/2018
 
 ![Network Performance Monitor symbol](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
 
 Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. 
 
@@ -297,4 +299,3 @@ Information on pricing is available [online](network-performance-monitor-pricing
 
 ## Next steps 
 Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 
-

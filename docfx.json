@@ -193,6 +193,8 @@
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-government/**/*.md": "stevevi",
+        "articles/azure-monitor/app/*.md": "lgayhardt",
+        "articles/azure-monitor/containers/**/*.md": "bwren",
         "articles/azure-monitor/insights/container-insights*.md": "bwren",
         "articles/azure-monitor/log-query/*.md": "bwren",
         "articles/azure-monitor/platform/*.md": "rboucher",
@@ -534,7 +536,9 @@
         "articles/azure-arc/servers/**/*.md": "magoedte",
         "articles/azure-functions/**/*.md": "glenga",
         "articles/azure-government/**/*.md": "stevevi",
-        "articles/azure-monitor/insights/container-insights*.md": "magoedte",
+        "articles/azure-monitor/app/*.md": "lagayhar",
+        "articles/azure-monitor/containers/**/*.md": "bwren",
+        "articles/azure-monitor/insights/container-insights*.md": "bwren",
         "articles/azure-monitor/log-query/*.md": "robb",
         "articles/azure-monitor/platform/*.md": "robb",
         "articles/azure-monitor/app/*.md": "lagayhar",
@@ -845,7 +849,7 @@
         "articles/virtual-machine-scale-sets/**/*.md": ["Azure","Virtual Machine Scale Sets"],
         "articles/virtual-machine-scale-sets/**/*.yml": ["Azure","Virtual Machine Scale Sets"],
         "articles/defender-for-iot/**/*.md": ["Azure","Defender for IoT"],
-        "articles/ defender-for-iot/**/*.yml": ["Azure"," Defender for IoT "]
+        "articles/defender-for-iot/**/*.yml": ["Azure"," Defender for IoT "]
       },
       "titleSuffix": {
         "articles/advisor/**/*.md": "Azure Advisor",

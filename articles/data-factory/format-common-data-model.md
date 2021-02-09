@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: makromer
 ---
 
@@ -80,6 +80,7 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 2. Find the partitions.Location property 
 3. Change "blob.core.windows.net" to "dfs.core.windows.net"
 4. Fix any "%2F" encoding in the URL to "/"
+5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Synapse Data Flows
 
 ### CDM source data flow script example
 

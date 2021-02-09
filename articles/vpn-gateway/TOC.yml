@@ -161,13 +161,13 @@
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
-      - name: About the client VPN profile download file
+      - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
         href: vpn-profile-intune.md       
     - name: OpenVPN
       items:
-      - name: Configure OpenVPN for Point-to-Site connections
+      - name: Configure OpenVPN tunnel type
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md

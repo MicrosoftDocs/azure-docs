@@ -141,6 +141,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | X |
 | Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | X | X |   |
@@ -150,31 +151,36 @@ The following tables list the operating systems that are supported by the Azure 
 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:
-| Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X | X |   |
-| CentOS Linux 7                                           | X | X | X | X |
-| CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5+                                        |   | X | X | X |
-| Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X |   |
-| Debian 7                                                 |   |   |   | X |
-| OpenSUSE 13.1+                                           |   |   |   | X |
-| Oracle Linux 8                                           |   | X |   |   |
-| Oracle Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           |   | X |   |   |
-| Oracle Linux 6.4+                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
-| SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X | X |   |
-| Ubuntu 18.04 LTS                                         | X | X | X | X |
-| Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         |   | X |   | X |
+| Amazon Linux 2017.09                                        |   | X |   |   |
+| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 7                                              | X | X | X | X |
+| CentOS Linux 6                                              |   | X |   |   |
+| CentOS Linux 6.5+                                           |   | X | X | X |
+| Debian 10 <sup>1</sup>                                      | X |   |   |   |
+| Debian 9                                                    | X | X | x | X |
+| Debian 8                                                    |   | X | X |   |
+| Debian 7                                                    |   |   |   | X |
+| OpenSUSE 13.1+                                              |   |   |   | X |
+| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 7                                              | X | X |   | X |
+| Oracle Linux 6                                              |   | X |   |   |
+| Oracle Linux 6.4+                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
+| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
+| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12                             | X | X | X | X |
+| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 18.04 LTS                                            | X | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X |   | X |
 
+<sup>1</sup> Requires Python 3 to be installed on the machine.
+
+<sup>2</sup> Known issue collecting Syslog events. Only performance data is currently supported.
 #### Dependency agent Linux kernel support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.

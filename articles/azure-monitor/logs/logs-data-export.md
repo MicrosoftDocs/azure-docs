@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
+ms.date: 02/07/2021
 
 ---
 
@@ -24,8 +24,7 @@ All data from included tables is exported without a filter. For example, when yo
 ## Other export options
 Log Analytics workspace data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
 
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logic-app.md).
-- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces), see [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
@@ -43,16 +42,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - You can create two export rules in a workspace -- in can be one rule to event hub and one rule to storage account.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
-
-> [!NOTE]
-> Log Analytics data export writes data as append blob which is currently in preview for Azure Data Lake Storage Gen2. You must open a support request before configuring export to this storage. Use the following details for this request.
-> - Issue type: Technical
-> - Subscription: Your subscription
-> - Service: Data Lake Storage Gen2
-> - Resource: Your resource name
-> - Summary: Requesting subscription registration to accept data from Log Analytics Data Export.
-> - Problem type: Connectivity
-> - Problem subtype: Connectivity issue
+- Append blob support for Azure Data Lake Storage is now in [limited public preview](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
@@ -72,6 +62,9 @@ The storage account data format is [JSON lines](../essentials/resource-logs-blob
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> Append blob support for Azure Data Lake storage is now available in preview in all Azure regions. [Enroll to the limited public preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) before you create an export rule to Azure Data Lake storage. Export will not operate without this enrollment.
 
 ### Event hub
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
