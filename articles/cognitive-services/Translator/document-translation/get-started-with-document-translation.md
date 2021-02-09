@@ -17,10 +17,32 @@ ms.date: 02/09/2021
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
+* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
 
-## Get your subscription key
+> [!NOTE]
+> Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
+
+## Get your custom domain name and subscription key
+
+### Custom domain
+
+> [!IMPORTANT]
+>
+> * You can't use the endpoint found on the Keys and Endpoint portal page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> * **All API requests to the Document Translation service require a custom domain endpoint**.
+
+* The custom domain endpoint is formatted with your resource name, hostname, and Translator subdirectories:
+
+```http
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
+```
+
+* The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
+
+* ![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png).
+
+### Subscription key
 
 Requests to the Translator service require a read-only key for authenticating access.
 
@@ -28,27 +50,6 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
-
-> [!IMPORTANT]
-> You won't use the endpoint found on the Keys and Endpoint page for Document Translation. Instead, you will use a custom endpoint for Document Translation requests. *See* [Create your custom endpoint](#create-your-custom-endpoint), below.
-
-## Create your custom endpoint
-
-All API requests to the Document Translation service require a **custom endpoint** URL. **You can't use the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation**.
-
-### Custom endpoint for Document Translation
-
-* The custom endpoint URL is formatted with your resource name, hostname, and Translator subdirectories.
-
-* The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
-
-![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png)
-
-**Document Translation custom endpoint**:
-
-```http
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
-```
 
 ## Create Azure blob storage containers
 
@@ -83,159 +84,6 @@ The following headers are included with each Document Translator API request:
 |Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 |Content-Length|**Required**: the length of the request body.|
-
-## Submit a Document Translation request (POST)
-
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request.
-
-### POST request properties
-
-* The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs and can optionally contain a `glossaryURL` container address.
-* The `prefix` and `suffix` fields (optional) will be used to filter documents in the container including folders.
-* A value for the  `glossaries`  field (optional) will be applied when the document is being translated.
-* The `targetUrl` for each target language must be unique.
-
->[!NOTE]
-> If a file with the same name already exists in the destination, it will be overwritten.
-
-### POST Request URL and method
-
-The POST request URL is formatted with your custom endpoint appended with the `/batches` method.
-
-```http
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
-```
-
-#### Request body
-
-#### Inputs array
-
-The body of the POST request is a JSON array named **inputs**. The inputs array contains a **source** object and an array of **target** objects.
-
-#### Source object
-
-|property|description|
-|---|---|
-|**`sourceUrl`**| The URL for the container storing your uploaded source files and the SAS token with read-only access.|
-|**`storageSource`**|The type of cloud storage. Currently, only **"AzureBlob"** is supported. |
-|**`language`**   | Language of source files  |
-|**`filter`**   |**Optional**: Filter definitions:</br>&emsp;&bullet; **prefix**—used to filter blobs by the first parameter of file location path (optional). </br>&emsp;&bullet; **suffix**—To filter blobs by file type  (optional).  |
-
-#### Targets array object
-
-&emsp; Multiple targets can be defined.
-
-|property| description |
-|---|---|
-| **`targetUrl`**  | The URL for the container storing your translated documents along and the SAS token with write-only access.|
-|**`storageSource`**|The type of cloud storage. Currently, only **"AzureBlob"** is supported. |
-| **`category`**  |**Optional:** Custom model ID. A general translation model is used by default.|
-| **`language`**  | Target translation language.|
-| **`glossaries`**  |**Optional:** Multiple glossaries can be defined. </br> If the glossary is invalid or unreachable during translation time, an error will be indicated in the document status.|
-|**`glossaryUrl`**  | If a glossary is included, you'll need to provide the URL for the glossary blob.|
-| **`format`**  |**Optional:** Format of glossary file.|
-|**`version`** | **Optional:** Version of the format.|
-
-### Sample HTTP request
-
-#### Request and URL
-
-```http
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
-```
-
-#### Request headers
-
-```http
-Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
-Content-Type: application/json
-Content-Length: <YOUR-CONTENT-LENGTH>
-```
-<!-- markdownlint-disable MD024 -->
-#### Request body
-
-```http
-
-{
-    "inputs": [
-        {
-            "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
-            },
-            "targets": [
-                {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
-                    "language": "de"
-                }
-            ]
-        }
-    ]
-}
-```
-
-#### Response: 202 Accepted
-
-### Sample HTTP request with glossaryURL
-
-#### Request and URL
-
-```http
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
-```
-
-#### Request headers
-
-```http
-Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
-Content-Type: application/json
-Content-Length: <YOUR-CONTENT-LENGTH>
-```
-
-#### Request body
-
-```http
-
-{​​​​​​​​
-"inputs": [
-        {​​​​​​​​
-"source": {​​​​​​​​
-"sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-"storageSource": "AzureBlob",
-"filter": {​​​​​​​​
-"prefix": "simple",
-"suffix": ".docx"
-                }​​​​​​​​,
-"language": "en"
-            }​​​​​​​​,
-"targets": [
-                {​​​​​​​​
-"targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-"storageSource": "AzureBlob",
-"category": "general",
-"language": "ta",
-"glossaries": [
-                        {​​​​​​​​
-"glossaryUrl": "<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-"format": "xliff",
-"version": "1.2"
-                        }​​​​​​​​
-                    ]
-                }​​​​​​​​
-            ]
-        }​​​​​​​​
-    ]
-}​​​​​​​​
-
-```
 
 ## Platform setup
 
@@ -327,7 +175,22 @@ gradle run
 
 ---
 
-## Translate documents via HTTP POST
+## Document Translation requests
+
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
+
+### POST request properties
+
+* The POST request body is a JSON object named `inputs`.
+* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs and can optionally contain a `glossaryURL` container address.
+* The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
+* A value for the  `glossaries`  field (optional) is applied when the document is being translated.
+* The `targetUrl` for each target language must be unique.
+
+>[!NOTE]
+> If a file with the same name already exists in the destination, it will be overwritten.
+
+## POST a translation request
 
 > [!IMPORTANT]
 >
@@ -345,6 +208,74 @@ gradle run
 > * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
 >
 > See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+
+
+<!-- markdownlint-disable MD024 -->
+#### POST request body without optional glossaryURL
+
+```http
+
+{
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
+                "storageSource": "AzureBlob",
+                "filter": {
+                    "prefix": "News",
+                    "suffix": ".txt"
+                },
+                "language": "en"
+            },
+            "targets": [
+                {
+                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
+                    "storageSource": "AzureBlob",
+                    "category": "general",
+                    "language": "de"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### POST request body with optional glossaryURL
+
+```http
+
+{​​​​​​​​
+"inputs": [
+        {​​​​​​​​
+"source": {​​​​​​​​
+"sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
+"storageSource": "AzureBlob",
+"filter": {​​​​​​​​
+"prefix": "simple",
+"suffix": ".docx"
+                }​​​​​​​​,
+"language": "en"
+            }​​​​​​​​,
+"targets": [
+                {​​​​​​​​
+"targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
+"storageSource": "AzureBlob",
+"category": "general",
+"language": "ta",
+"glossaries": [
+                        {​​​​​​​​
+"glossaryUrl": "<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
+"format": "xliff",
+"version": "1.2"
+                        }​​​​​​​​
+                    ]
+                }​​​​​​​​
+            ]
+        }​​​​​​​​
+    ]
+}​​​​​​​​
+
+```
 
 ### [C#](#tab/csharp)
 
@@ -567,11 +498,6 @@ if err != nil {
     return
   }
   defer res.Body.Close()
-  if err != nil {
-    fmt.Println(err)
-    return
-  }
-  defer res.Body.Close()
   fmt.Println("response status:",  res.Status)
   fmt.Println("response headers",  res.Header)
 }
@@ -579,11 +505,11 @@ if err != nil {
 
 ---
 
-### Response (POST)
+## GET file formats
 
-If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
+### Brief overview
 
-## Get file formats via HTTP GET
+Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
 ### [C#](#tab/csharp)
 
@@ -662,7 +588,7 @@ import java.net.*;
 import java.util.*;
 import com.squareup.okhttp.*;
 
-public class GetJobs {
+public class GetFileFormats {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
@@ -756,99 +682,11 @@ func main() {
 ```
 
 ---
+## GET job status
 
-### Response (GET)
+### Brief overview
 
-If successful, the GET method returns a `200 OK`  response code.
-
-## Document Translation HTTP requests
-
-### GET Storage Sources
-
-#### Brief overview
-
-Retrieve a list of supported storage sources.
-
-#### HTTP request
-
-```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/storagesources/
-```
-
-#### Response: GET Storage Sources
-
-If successful, the GET method returns a `200 OK`  response code and the following value:
-|Property|value|
-|---|---|
-|**value**|List of supported storage sources (currently only AzureBlob is supported by the service).|
-
-### GET File Formats
-
-#### Brief overview
-
-Retrieve a list of supported file formats.
-
-#### HTTP request
-
-```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/documents/formats/
-```
-
-#### Response: GET File Formats
-
-If successful, this method returns a `200 OK` response code and a JSON object with the following values:
-
-|Property|value|
-|---|---|
-|**format**|The file format.|
-|**fileExtensions**| List of supported file extensions.|
-|**contentType**| List of supported content types.|
-|**versions**|List of supported content type versions.|
-
-### GET Glossary Formats
-
-#### Brief overview
-
-Retrieve a list of supported glossary formats.
-
-#### HTTP request
-
-```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats/
-```
-
-#### Response: GET Glossary Formats
-
-If successful, this method returns a `200 OK` response code and a JSON object with the following values:
-
-|Property|value|
-|---|---|
-|**format**|The file format.|
-|**fileExtensions**| List of supported file extensions.|
-|**contentType**| List of supported content types.|
-|**versions**|List of supported content type versions.|
-
-### POST Job
-
-#### Brief overview
-
-Submit a batch Document Translation request to the translation service.
-
-#### HTTP request
-
-```http
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
-```
-
-#### Response: POST Job
-
-If successful, these methods return a `202 Accepted`  response code.
-
-### GET Job Status
-
-#### Brief overview
-
-Get the current status for a single job and a summary of all jobs in a Document Translation request.
+Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
 
 #### HTTP request
@@ -857,52 +695,183 @@ Get the current status for a single job and a summary of all jobs in a Document 
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
-### GET Jobs
+### [C#](#tab/csharp)
 
-#### Brief Overview
+```csharp
+   
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-Retrieve a list and current status for all jobs in a Document Translation request.
 
-#### HTTP request
+class Program
+{
 
-```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+
+    static readonly string route = "/batches/{id}";
+
+    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+
+    static async Task Main(string[] args)
+    {
+
+        HttpClient client = new HttpClient();
+            using HttpRequestMessage request = new HttpRequestMessage();
+            {
+                request.Method = HttpMethod.Get;
+                request.RequestUri = new Uri(endpoint + route);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+
+                HttpResponseMessage response = await client.SendAsync(request);
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Console.WriteLine($"Status code: {response.StatusCode}");
+                Console.WriteLine($"Response Headers: {response.Headers}");
+                Console.WriteLine();
+                Console.WriteLine(result);
+            }
+}
 ```
 
-### DELETE Job
+### [Node.js](#tab/javascript)
 
-#### Brief overview
+```javascript
 
-Cancel currently processing or queued job.
+const axios = require('axios');
 
-#### HTTP request
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let route = '/batches/{id}';
 
-```http
-DELETEhttps://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/
+let config = {
+  method: 'get',
+  url: endpoint + route,
+  headers: { 
+    'Ocp-Apim-Subscription-Key': subscriptionKey
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
 ```
 
-#### Response
+### [Java](#tab/java)
 
-If possible, all documents for which translation hasn't started will be canceled.
+```java
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
 
-#### Response: GET Job Status, GET Jobs, and DELETE Job
+public class GetJobStatus {
 
-If successful, these methods return a `200 OK` response code and a JSON object with the following values:
+    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String url = endpoint + "/batches/{id}";
+    OkHttpClient client = new OkHttpClient();
 
-|Property|value|
-|---|---|
-|**id**|The job `id`  that you provided in the request.|
-|**createdDateTimeUtc**| Date and time in UTC when the job is created.|
-|**lastActionDateTimeUtc**| Date and time in UTC when the job status was last modified.|
-|**status**|Status of the request:|
-|**summary**|List of overall status|
-||&bullet; **total**—Total number of documents in the job.</br>&bullet; **failed**—Number of documents for which translation failed.</br>&bullet; **success**—Number of completed documents.</br>&bullet; **inProgress**—Number of documents in progress.</br>&bullet; **notYetStarted**—Number of documents pending translation.</br>&bullet; **canceled—Number of documents that have been canceled. |
+    public void get() throws IOException {
+        Request request = new Request.Builder().url(
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+        Response response = client.newCall(request).execute(); 
+            System.out.println(response.body().string());
+        }
 
-### GET Document Status
+    public static void main(String[] args) throws IOException {
+        try{
+            GetJobs jobs = new GetJobs();
+            jobs.get();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
 
-#### Brief overview
+```
 
-Retrieve the status of a specific document in a Document Translation request.
+### [Python](#tab/python)
+
+```python
+
+import http.client
+
+host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
+parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+conn = http.client.HTTPSConnection(host)
+payload = ''
+headers = {
+  'Ocp-Apim-Subscription-Key': subscriptionKey
+}
+conn.request("GET", parameters , payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(res.status)
+print()
+print(data.decode("utf-8"))
+```
+
+### [Go](#tab/go)
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  uri := endpoint + "/batches/{id}"
+  method := "GET"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, uri, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(res.StatusCode)
+  fmt.Println(string(body))
+}
+```
+
+---
+
+## GET document status
+
+### Brief overview
+
+Retrieve the status of a specific document in a Document Translation request. If successful, this method returns a `200 OK` response code.
 
 #### HTTP request
 
@@ -910,36 +879,362 @@ Retrieve the status of a specific document in a Document Translation request.
 GET  https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/document/{documentId}/
 ```
 
+### [C#](#tab/csharp)
 
-### GET documents
+```csharp
+   
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-#### Brief overview
 
-Retrieve the status of all documents in a Document Translation request.
+class Program
+{
+
+
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+
+    static readonly string route = "/{id}/document/{documentId}";
+
+    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+
+    static async Task Main(string[] args)
+    {
+
+        HttpClient client = new HttpClient();
+            using HttpRequestMessage request = new HttpRequestMessage();
+            {
+                request.Method = HttpMethod.Get;
+                request.RequestUri = new Uri(endpoint + route);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+
+                HttpResponseMessage response = await client.SendAsync(request);
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Console.WriteLine($"Status code: {response.StatusCode}");
+                Console.WriteLine($"Response Headers: {response.Headers}");
+                Console.WriteLine();
+                Console.WriteLine(result);
+            }
+}
+```
+
+### [Node.js](#tab/javascript)
+
+```javascript
+
+const axios = require('axios');
+
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let route = '/{id}/document/{documentId}';
+
+let config = {
+  method: 'get',
+  url: endpoint + route,
+  headers: { 
+    'Ocp-Apim-Subscription-Key': subscriptionKey
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+### [Java](#tab/java)
+
+```java
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
+
+public class GetDocumentStatus {
+
+    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String url = endpoint + "/{id}/document/{documentId}";
+    OkHttpClient client = new OkHttpClient();
+
+    public void get() throws IOException {
+        Request request = new Request.Builder().url(
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+        Response response = client.newCall(request).execute(); 
+            System.out.println(response.body().string());
+        }
+
+    public static void main(String[] args) throws IOException {
+        try{
+            GetJobs jobs = new GetJobs();
+            jobs.get();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+```
+
+### [Python](#tab/python)
+
+```python
+
+import http.client
+
+host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
+parameters = '//translator/text/batch/v1.0-preview.1/{id}/document/{documentId}'
+subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+conn = http.client.HTTPSConnection(host)
+payload = ''
+headers = {
+  'Ocp-Apim-Subscription-Key': subscriptionKey
+}
+conn.request("GET", parameters , payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(res.status)
+print()
+print(data.decode("utf-8"))
+```
+
+### [Go](#tab/go)
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  uri := endpoint + "/{id}/document/{documentId}"
+  method := "GET"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, uri, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(res.StatusCode)
+  fmt.Println(string(body))
+}
+```
+
+---
+
+## DELETE job
+
+### Brief overview
+
+Cancel currently processing or queued job. Only documents for which translation hasn't started will be canceled.
 
 #### HTTP request
 
 ```http
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/
+DELETEhttps://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/
+```
+### [C#](#tab/csharp)
+
+```csharp
+   
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+
+class Program
+{
+
+
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+
+    static readonly string route = "/batches/{id}";
+
+    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+
+    static async Task Main(string[] args)
+    {
+
+        HttpClient client = new HttpClient();
+            using HttpRequestMessage request = new HttpRequestMessage();
+            {
+                request.Method = HttpMethod.Delete;
+                request.RequestUri = new Uri(endpoint + route);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+
+                HttpResponseMessage response = await client.SendAsync(request);
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Console.WriteLine($"Status code: {response.StatusCode}");
+                Console.WriteLine($"Response Headers: {response.Headers}");
+                Console.WriteLine();
+                Console.WriteLine(result);
+            }
+}
 ```
 
+### [Node.js](#tab/javascript)
 
-#### Response: GET Documents and GET Document Status
+```javascript
 
-If successful, these methods return a `200 OK` response code and a JSON object with the following values:
+const axios = require('axios');
 
-|Property|value|
-|---|---|
-|**path**|The URL for the target container.|
-|**createdDateTimeUtc**| Date and time in UTC when the job is created.|
-|**lastActionDateTimeUtc**| Date and time in UTC when the job status was last modified.|
-|**status**|Status of the request.|
-|**detectedLanguage**|Source document language|
-|**to**|Target language|
-|**progress**| Progress of the request measured in decimals|
-|**id**|The job Id you provided in the request|
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let route = '/batches/{id}';
 
-## Content Limits
+let config = {
+  method: 'delete',
+  url: endpoint + route,
+  headers: { 
+    'Ocp-Apim-Subscription-Key': subscriptionKey
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+### [Java](#tab/java)
+
+```java
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import com.squareup.okhttp.*;
+
+public class DeleteJob {
+
+    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String url = endpoint + "/batches/{id}";
+    OkHttpClient client = new OkHttpClient();
+
+    public void get() throws IOException {
+        Request request = new Request.Builder().url(
+                url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+        Response response = client.newCall(request).execute(); 
+            System.out.println(response.body().string());
+        }
+
+    public static void main(String[] args) throws IOException {
+        try{
+            GetJobs jobs = new GetJobs();
+            jobs.get();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+```
+
+### [Python](#tab/python)
+
+```python
+
+import http.client
+
+host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
+parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+conn = http.client.HTTPSConnection(host)
+payload = ''
+headers = {
+  'Ocp-Apim-Subscription-Key': subscriptionKey
+}
+conn.request("DELETE", parameters , payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(res.status)
+print()
+print(data.decode("utf-8"))
+```
+
+### [Go](#tab/go)
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  uri := endpoint + "/batches/{id}"
+  method := "DELETE"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, uri, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(res.StatusCode)
+  fmt.Println(string(body))
+}
+```
+
+---
+
+## Content limits
 
 The table below lists the limits for data that you send to Document Translation.
 

@@ -96,10 +96,12 @@
     items:   
     - name: Get started with Document Translation
       href: document-translation/get-started-with-document-translation.md
-    - name:   Create SAS tokens with Azure Storage Explorer
-      href: document-translation/create-sas-azure-storage-explorer.md
-    - name:   Create SAS tokens with Azure Portal
-      href: document-translation/create-sas-azure-portal.md         
+    - name:   Create SAS tokens 
+      href: document-translation/create-sas-tokens.md
+  - name: Reference
+    items:
+    - name: Document Translation API
+      href:             
 - name: Custom Translator
   items:
   - name: Overview
