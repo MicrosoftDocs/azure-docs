@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable private access with Private Link (preview) - Azure portal
+# Enable private access with Private Link (preview): Azure portal
 
 [!INCLUDE [digital-twins-pl-selector.md](../../includes/digital-twins-pl-selector.md)]
 
 This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md#private-network-access-with-azure-private-link-preview) (currently in preview). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-This article walks through the process using the [Azure portal](https://portal.azure.com).
+This article walks through the process using the [**Azure portal**](https://portal.azure.com).
 
 Here are the steps that are covered in this article: 
 1. Turn on Private Link and configure a private endpoint for an Azure Digital Twins instance.

@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable a managed identity for routing Azure Digital Twins events (preview) - CLI
+# Enable a managed identity for routing Azure Digital Twins events (preview): Azure CLI
 
 [!INCLUDE [digital-twins-msi-selector.md](../../includes/digital-twins-msi-selector.md)]
 
 This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
-This article walks you through the process using the [Azure CLI](/cli/azure/what-is-azure-cli).
+This article walks you through the process using the [**Azure CLI**](/cli/azure/what-is-azure-cli).
 
 Here are the steps that are covered in this article: 
 
@@ -55,13 +55,13 @@ In this section, you'll add a system-managed identity to an Azure Digital Twins 
 
 This is also done with the `az dt create` command and `--assign-identity` parameter. Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists to update the value of `--assign-identity` for that instance.
 
-The command is the same as the command to create an instance with a system managed identity. All that changes is the value of the instance name parameter:
+The command to **enable** managed identity is the same as the command to create an instance with a system managed identity. All that changes is the value of the instance name parameter:
 
 ```azurecli-interactive
 az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity
 ```
 
-To **disable** managed identity on an instance where it's currently enabled, use the following command to set `--assign-identity` to `false`.
+To **disable** managed identity on an instance where it's currently enabled, use the following similar command to set `--assign-identity` to `false`.
 
 ```azurecli-interactive
 az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity false

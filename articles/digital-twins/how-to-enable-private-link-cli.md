@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable private access with Private Link (preview) - CLI
+# Enable private access with Private Link (preview): Azure CLI
 
 [!INCLUDE [digital-twins-pl-selector.md](../../includes/digital-twins-pl-selector.md)]
 
 This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md#private-network-access-with-azure-private-link-preview) (currently in preview). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-This article walks through the process using the [Azure CLI](/cli/azure/what-is-azure-cli).
+This article walks through the process using the [**Azure CLI**](/cli/azure/what-is-azure-cli).
 
 Here are the steps that are covered in this article: 
 1. Turn on Private Link and configure a private endpoint for an Azure Digital Twins instance.
@@ -31,9 +31,9 @@ Here are the steps that are covered in this article:
 
 Before you can set up a private endpoint, you'll need an [**Azure Virtual Network (VNet)**](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the Azure Virtual Network [quickstarts](../virtual-network/quick-create-portal.md) to set this up.
 
-## Add a private endpoint for an Azure Digital Twins instance 
+## Manage private endpoints for an Azure Digital Twins instance 
 
-When using the [Azure CLI](/cli/azure/what-is-azure-cli), you can set up private endpoints with Private Link on an Azure Digital Twins instance that already exists (it cannot be added as part of instance creation). 
+When using the [Azure CLI](/cli/azure/what-is-azure-cli), you can set up private endpoints with Private Link on an Azure Digital Twins instance that already exists (it cannot be added as part of instance creation). You can then continue to view and manage them through additional CLI commands. 
 
 >[!TIP]
 > You can also set up a Private Link endpoint through the Private Link service, instead of through your Azure Digital Twins instance. This also gives the same configuration options and the same end result.
@@ -80,9 +80,9 @@ This article shows how to update the value of the network flag using either the 
 
 ### Use the Azure CLI
 
-This is done by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create an instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists, instead of a new name for creating a new instance. (For more information about this command, see its [reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+In the Azure CLI, you can disable or enable public network access by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create a new instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists. (For more information about this command, see its [reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
-To disable public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
+To **disable** public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
 
 ```azurecli-interactive
 az dt create -n {name_of_existing_instance} -g {resource_group} --public-network-access Disabled
@@ -98,7 +98,7 @@ az dt create -n {name_of_existing_instance} -g {resource_group} --public-network
 
 With the [ARMClient command tool](https://github.com/projectkudu/ARMClient), public network access is enabled or disabled using the commands below. 
 
-To disable public network access:
+To **disable** public network access:
   
 ```cmd/sh
 armclient login 
@@ -106,7 +106,7 @@ armclient login 
 armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance>?api-version=2020-12-01 "{ 'properties': { 'publicNetworkAccess': 'disabled' } }"  
 ```
 
-To enable public network access:  
+To **enable** public network access:  
   
 ```cmd/sh
 armclient login 
