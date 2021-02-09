@@ -1,10 +1,10 @@
 ---
 title: Reference table for all Azure Security Center recommendations 
-description: This article lists Azure Security Center's security recommendations that help you protect your resources.
+description: This article lists Azure Security Center's security recommendations that help you harden and protect your resources.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 02/09/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -14,17 +14,19 @@ This article lists the recommendations you might see in Azure Security Center. T
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Security Center's recommendations are based on best practices. Some are aligned with the **Azure
-Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance
-best practices based on common compliance frameworks.
-[Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+Security Center's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
+and compliance best practices based on common compliance frameworks. This widely respected benchmark 
+builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
+and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
+cloud-centric security.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your Secure Score is based on the number of Security Center recommendations you've completed. To
+Your secure score is based on the number of Security Center recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential
-impact on your Secure Score.
+impact on your secure score.
 
 > [!TIP]
 > If a recommendation's description says "No related policy", it's usually because that

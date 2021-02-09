@@ -1,8 +1,8 @@
 ---
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
@@ -18,7 +18,7 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 
 ## Limitations
 
-**Support** | **Details**
+**Requirement** | **Details**
 --- | ---
 **Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and Hyper-V VMs, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
@@ -32,7 +32,7 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 **VMware** | **Details**
 --- | ---
 **vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, 6.7 or 7.0.<br/><br/> The discovery of VMware VMs by providing ESXi host details in the appliance is currently not supported.
-**Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account need privileges enable for **Virtual Machines** > **Guest Operations**.
+**Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account needs privileges enabled for **Virtual Machines** > **Guest Operations**.
 
 ## VM requirements
 **VMware** | **Details**
@@ -76,9 +76,9 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agentless dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agentless dependency analysis. 
 
-**Requirement** | **Details**
+**Support** | **Details**
 --- | --- 
 **Supported machines** | Currently supported for VMware VMs only.
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).<br/>Microsoft Windows Server 2008 (32-bit). 

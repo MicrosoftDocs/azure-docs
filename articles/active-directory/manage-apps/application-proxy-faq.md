@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -96,6 +96,10 @@ Here are some tips for troubleshooting this error:
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 
 The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
+
+### Can a service principal manage Application Proxy using Powershell or Microsoft Graph APIs?
+
+No, this is currently not supported.
 
 ### How do I change the landing page my application loads?
 

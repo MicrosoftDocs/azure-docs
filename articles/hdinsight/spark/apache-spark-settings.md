@@ -1,9 +1,6 @@
 ---
 title: Configure Spark settings - Azure HDInsight 
 description: How to view and configure Apache Spark settings for an Azure HDInsight cluster
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020

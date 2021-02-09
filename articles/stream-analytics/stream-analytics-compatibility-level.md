@@ -38,7 +38,7 @@ To update the compatibility level of the job in the Azure portal:
 4. Choose the compatibility level value that you want.
 5. Select **Save** at the bottom of the page.
 
-![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 When you update the compatibility level, the T-compiler validates the job with the syntax that corresponds to the selected compatibility level.
 

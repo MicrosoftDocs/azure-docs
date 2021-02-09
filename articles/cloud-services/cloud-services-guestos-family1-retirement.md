@@ -12,6 +12,7 @@ ms.author: raiye
 
 ---
 # Guest OS Family 1 retirement notice
+
 The retirement of OS Family 1 was first announced on June 1, 2013.
 
 **Sept 2, 2014** The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired. All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.

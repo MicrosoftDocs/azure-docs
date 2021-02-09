@@ -35,7 +35,8 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 2](tutorial-1st-experiment-hello-world.md) of the series.
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
+- Completion of [part1](tutorial-1st-experiment-sdk-setup-local.md) and [part 2](tutorial-1st-experiment-hello-world.md) of the series.
 
 ## Create training scripts
 
@@ -82,7 +83,7 @@ This environment has all the dependencies that your model and training script re
 
 ## <a name="test-local"></a> Test locally
 
-Use the following code to test your script locally in the new environment.  
+In a terminal or Anaconda Prompt window, use the following code to test your script locally in the new environment.  
 
 ```bash
 conda deactivate                                # If you are still using the tutorial environment, exit it

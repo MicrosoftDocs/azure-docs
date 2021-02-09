@@ -2,14 +2,11 @@
 title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
 services: automation
-ms.service: automation
 ms.subservice:
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
+ms.topic: troubleshooting
 ---
+
 # Troubleshoot Hybrid Runbook Worker issues
 
 This article provides information on troubleshooting and resolving issues with Azure Automation Hybrid Runbook Workers. For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
@@ -52,7 +49,7 @@ Check the **Microsoft-SMA** event log for a corresponding event with the descrip
 
 #### Issue
 
-The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -104,7 +101,7 @@ At line:3 char:1
 ```
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
@@ -232,7 +229,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice) for connection. 
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
 
@@ -244,7 +241,7 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
+​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​

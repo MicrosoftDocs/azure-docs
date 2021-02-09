@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 12/31/2020
 ---
 
 # Analyze with Apache Spark
@@ -18,25 +18,25 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 ## Analyze NYC Taxi data in blob storage using Spark
 
-1. In the **Data** hub, select **Add a new resource** (plus button above **Linked**) > **Browse gallery**.
-1. Select **NYC Taxi & Limousine Commission - yellow taxi trip records**.
-1. On the bottom of the page, select **Continue** > **Add dataset**.
-1. In the **Data** hub under **Linked**, right-click **Azure Blob Storage**, and then select **Sample Datasets** > **nyc_tlc_yellow**.
-1. Select **New notebook** to create a new notebook with the following code:
+1. In the **Data** hub, click the **+** button to **Add a new resource**, then click >> **Browse gallery**. 
+1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
+1. On the bottom of the page press **Continue**, then **Add dataset**. 
+1. After a moment, in **Data** hub under **Linked**, right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**, then **Load to Data Frame**.
+1. This will create a new Notebook with the following code:
+    ```
 
-    ```py
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
+    # Display 10 rows
     display(data_df.limit(10))
     ```
+1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
+1. Select **Run** on the cell
+1. If you just want to see the schema of the dataframe run a cell with the following code:
+    ```
 
-1. In the **Attach to** menu in the notebook, choose a serverless Spark pool.
-1. Select **Run** on the cell.
-1. If you want to see only the schema of the dataframe, run a cell with the following code:
-
-    ```py
     data_df.printSchema()
     ```
 
@@ -47,7 +47,8 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
 1. In Synapse Studio, go to the **Develop** hub.
 1. Select **+** > **Notebook**.
 1. On the top of the notebook, set the **Attach to** value to **Spark1**.
-1. Select **Add code** to add a notebook code cell, and then enter the following text:
+1. In the new notebook's first code cell, and then enter the following code:
+
 
     ```scala
     %%spark
@@ -56,16 +57,16 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. Select **Run** on the cell.
-1. On the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLPOOL1 (SQL)**
-    - **nyctaxi (Spark)**
+1. Run the script. It may take 2-3 minutes.
+1. On the **Data** hub, in the **Workspace** tab, right-click **Databases**, and then select **Refresh**. You should now see the database **nyctaxi (Spark)** in the list.
+
 
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Return to your notebook.
-1. Create a new code cell and enter the following text.
+1. Create a new code cell and enter the following code. 
+
 
    ```py
    %%pyspark
@@ -73,8 +74,9 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
    display(df)
    ```
 
-1. Run the cell to show the NYC Taxi data you loaded into the **nyctaxi** Spark database.
-1. Run the following code to do the same analysis that you did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves and displays the results of the analysis into a table named **nyctaxi.passengercountstats**.
+1. Run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
+1. Create a new code cell and enter the following code. Then run the cell to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves and displays the results of the analysis into a table called **nyctaxi.passengercountstats**.
+
 
    ```py
    %%pyspark
@@ -95,9 +97,9 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
 
 ## Load data from a Spark table into a dedicated SQL pool table
 
-Earlier you copied data from the dedicated SQL pool table **SQLPOOL1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then you aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now you'll copy the data from **nyctaxi.passengercountstats** into a dedicated SQL pool table named **SQLPOOL1.dbo.PassengerCountStats**.
+Earlier we copied data from the dedicated SQL pool table **SQLPOOL1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then you aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now you'll copy the data from **nyctaxi.passengercountstats** into a dedicated SQL pool table called **SQLPOOL1.dbo.PassengerCountStats**.
 
-Run the following cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
+1. Create a new code cell and enter the following code. Run the cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
 
 ```scala
 %%spark

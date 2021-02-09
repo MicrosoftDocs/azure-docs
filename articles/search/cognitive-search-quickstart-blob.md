@@ -18,7 +18,7 @@ In this quickstart, you'll combine services and data in the Azure cloud to creat
 
 ## Prerequisites
 
-Before you begin, create the following services:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 

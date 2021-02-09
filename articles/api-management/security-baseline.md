@@ -86,15 +86,11 @@ Combining API Management provisioned in an internal Vnet with the Application Ga
 
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-Enable Azure DDoS Protection Standard on the Vnet associated with your API Management deployment to protect from distributed denial of service (DDoS) attacks.
-
 Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
 * [How to integrate API Management in an internal VNET with Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Understand Azure Application Gateway](../application-gateway/index.yml)
-
-* [How to configure Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -180,8 +176,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
-- DDoS Protection Standard should be enabled
+**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. 
 
 You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
@@ -442,7 +437,7 @@ Alternatively, the sign-in/sign-up process can be further customized through del
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

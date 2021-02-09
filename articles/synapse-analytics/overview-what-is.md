@@ -21,12 +21,11 @@ Enterprise analytics must work at massive scale on any kind of data, whether raw
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
-
+* **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization 
+scenarios and extends T-SQL to address streaming and machine learning scenarios.
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### Industry-standard Apache Spark
 
@@ -72,7 +71,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 ## Engage with the Synapse engineering team
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
-- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 
 ## Next steps
 

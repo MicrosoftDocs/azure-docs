@@ -328,7 +328,7 @@ The following demonstrates hash existing attribute values.
 ### Extract
 
 The following example demonstrates using regex to create new attributes based on the value of another attribute.
-For example given http.url = http://example.com/path?queryParam1=value1,queryParam2=value2 the following attributes will be inserted:
+For example given http.url = 'http://example.com/path?queryParam1=value1,queryParam2=value2' the following attributes will be inserted:
 * httpProtocol: http
 * httpDomain: example.com
 * httpPath: path

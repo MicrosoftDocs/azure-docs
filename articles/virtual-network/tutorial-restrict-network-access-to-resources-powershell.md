@@ -22,8 +22,6 @@ ms.custom: devx-track-azurepowershell
 
 # Restrict network access to PaaS resources with virtual network service endpoints using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this article, you learn how to:
 
 * Create a virtual network with one subnet

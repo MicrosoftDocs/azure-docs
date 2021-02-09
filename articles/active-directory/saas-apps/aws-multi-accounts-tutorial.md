@@ -139,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     g. Click **Save**.
 
     >[!NOTE]
-    >For more information about roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+    >For more information about roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and save it on your computer.
 

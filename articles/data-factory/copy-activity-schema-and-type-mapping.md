@@ -182,6 +182,9 @@ You can define such mapping on Data Factory authoring UI:
 
 3. Map the needed fields to sink. Data Factory automatically determines the corresponding JSON paths for the hierarchical side.
 
+> [!NOTE]
+> For records where the array marked as collection reference is empty and the check box is selected, the entire record is skipped.
+
 ![Map hierarchical to tabular using UI](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
 You can also switch to **Advanced editor**, in which case you can directly see and edit the fields' JSON paths. If you choose to add new mapping in this view, specify the JSON path.

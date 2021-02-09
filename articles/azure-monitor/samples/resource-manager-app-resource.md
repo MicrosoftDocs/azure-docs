@@ -3,8 +3,8 @@ title: Resource Manager template samples for Application Insights Resources
 description: Sample Azure Resource Manager templates to deploy Application Insights resources in Azure Monitor.
 ms.subservice: application-insights
 ms.topic: sample
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 07/08/2020
 
 ---

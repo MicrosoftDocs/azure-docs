@@ -9,7 +9,7 @@ ms.date: 05/17/2018
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
-The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
+The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
 
   ![Overview of offline import workflow process](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
@@ -58,12 +58,12 @@ Before you start the offline backup workflow, complete the following prerequisit
         ![Register the resource provider](./media/backup-azure-backup-import-export/registerimportexport.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
-* When you send disks to Azure, use only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
+* When you send disks to Azure, use only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../import-export/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that BitLocker is enabled on the copy computer.
 
 ## Workflow
 
-This section describes the offline backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the import service or any aspect of the process, see the [Azure Import/Export service overview documentation](../storage/common/storage-import-export-service.md).
+This section describes the offline backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the import service or any aspect of the process, see the [Azure Import/Export service overview documentation](../import-export/storage-import-export-service.md).
 
 ## Initiate offline backup
 
@@ -196,7 +196,7 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 ### Monitor Azure import job status
 
-You can monitor the status of your import job from the Azure portal. Go to the **Import/Export jobs** page and select your job. For more information on the status of the import jobs, see [What is the Azure Import/Export service?](../storage/common/storage-import-export-service.md).
+You can monitor the status of your import job from the Azure portal. Go to the **Import/Export jobs** page and select your job. For more information on the status of the import jobs, see [What is the Azure Import/Export service?](../import-export/storage-import-export-service.md).
 
 ### Finish the workflow
 
@@ -212,4 +212,4 @@ After the initial backup is finished, you can safely delete the data imported to
 
 ## Next steps
 
-* For any questions about the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
+* For any questions about the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../import-export/storage-import-export-service.md).

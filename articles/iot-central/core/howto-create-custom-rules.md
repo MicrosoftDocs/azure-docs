@@ -244,7 +244,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
     | Event Hub namespace | Your Event Hub namespace |
     | Event Hub name | Use existing - **centralexport** |
 
-1. Under **Jobs topology**, select **Outputs**, choose **+ Add**, and then choose **Azure function**.
+1. Under **Jobs topology**, select **Outputs**, choose **+ Add**, and then choose **Azure Function**.
 1. Use the information in the following table to configure the output, then choose **Save**:
 
     | Setting | Value |

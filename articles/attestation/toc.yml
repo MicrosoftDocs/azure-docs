@@ -1,4 +1,4 @@
-- name: Microsoft Azure Attestation (preview)
+- name: Microsoft Azure Attestation 
   href: index.yml
 - name: Overview
   items:
@@ -11,12 +11,18 @@
     href: quickstart-template.md
   - name: PowerShell
     href: quickstart-powershell.md
+  - name: Portal
+    href: quickstart-portal.md
+  - name: CLI
+    href: quickstart-azure-cli.md
 - name: Tutorials
   items:
   - name: Authoring an attestation policy
     href: author-sign-policy.md
   - name: Create a Private Endpoint - PowerShell
     href: private-endpoint-powershell.md 
+  - name: Azure Diagnostic Monitoring
+    href: azure-diagnostic-monitoring.md
   - name: SGX attestation code samples
     href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
@@ -57,5 +63,5 @@
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
   - name: Troubleshoot issues
     href: troubleshoot-guide.md
-  - name: VBS attestation protocol
+  - name: TPM and VBS attestation protocol
     href: virtualization-based-security-protocol.md

@@ -247,7 +247,7 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
 
 ### Authorize publisher and subscriber clients
 
-To authorize the publisher and subscriber, edit the IoT Edge hub twin either via Azure CLI, Visual Studio or Visual Studio code to include the following authorization policy:
+To authorize the publisher and subscriber, edit the IoT Edge hub twin by creating an IoT Edge deployment either via Azure CLI, Visual Studio or Visual Studio code to include the following authorization policy:
 
 ```json
 {
