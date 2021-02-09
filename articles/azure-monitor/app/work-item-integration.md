@@ -35,13 +35,13 @@ Work item integration functionality allows you to easily create work items in Gi
 
 1. To create a work item go to End-to-end transaction details, select an event then select **Create work item** and choose your work item template.
 
-    :::image type="content" source="./media/work-item-integration/create-work-item.png" alt-text=" Screenshot of end to end transaction details tab with create work item selected.":::
+    :::image type="content" source="./media/work-item-integration/create-work-item.png" alt-text=" Screenshot of end to end transaction details tab with create work item selected." lightbox="./media/work-item-integration/create-work-item.png":::
 
 1. A new tab in your browser will open up to your select tracking system. In Azure DevOps you can create a bug or task, and in GitHub you can create a new issue in your repository. A new work item is automatically create with contextual information provided by Application Insights.
 
-    :::image type="content" source="./media/work-item-integration/github-work-item.png" alt-text=" Screenshot of automatically created GitHub issue":::
+    :::image type="content" source="./media/work-item-integration/github-work-item.png" alt-text=" Screenshot of automatically created GitHub issue" lightbox="./media/work-item-integration/github-work-item.png":::
 
-    :::image type="content" source="./media/work-item-integration/azure-devops-work-item.png" alt-text=" Screenshot of automatically create bug in Azure DevOps.":::
+    :::image type="content" source="./media/work-item-integration/azure-devops-work-item.png" alt-text=" Screenshot of automatically create bug in Azure DevOps." lightbox="./media/work-item-integration/azure-devops-work-item.png":::
 
 ## Edit a template
 
