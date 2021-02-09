@@ -3,7 +3,7 @@ title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
 services: container-service
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 02/09/2021
 
 ms.custom: mvc
 ---
