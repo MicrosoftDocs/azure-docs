@@ -61,6 +61,8 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     The first backup is initiated once the backup frequency interval elapses.
+    
+**NOTE : THE RDB files when backed up to storage are in form of Page Blobs**
 
 9. To enable AOF persistence, click **AOF** and configure the settings. 
    
