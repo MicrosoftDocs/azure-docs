@@ -444,14 +444,14 @@ The **IncludeTechnicalProfile** element contains the following attribute:
 The following example illustrates the use of the inclusion:
 
 - *REST-API-Common* - a common technical profile with the basic configuration.
-- *REST-ValidateProfile* - includes the *REST-API-Commom* technical profile, and specifies the input and output claims.
-- *REST-UpdateProfile* - includes the *REST-API-Commom* technical profile, specifies the input claims, and overwrites the `ServiceUrl` metadata.
+- *REST-ValidateProfile* - includes the *REST-API-Common* technical profile, and specifies the input and output claims.
+- *REST-UpdateProfile* - includes the *REST-API-Common* technical profile, specifies the input claims, and overwrites the `ServiceUrl` metadata.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="REST-API-Commom">
+    <TechnicalProfile Id="REST-API-Common">
       <DisplayName>Base REST API configuration</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -476,7 +476,7 @@ The following example illustrates the use of the inclusion:
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
@@ -488,7 +488,7 @@ The following example illustrates the use of the inclusion:
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
