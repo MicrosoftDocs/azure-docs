@@ -16,11 +16,20 @@ ms.date: 07/01/2019
 
 As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions.  
 
-Customers will be notified via email and in the Azure portal well in advance of any change to gateways available in each region. The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
+Customers will be notified via service health notifications well in advance of any change to gateways available in each region. Customers can [use the Azure portal to set up activity log alerts](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## February 2021
+New SQL Gateways are being added to the following regions:
+
+- Central US : 13.89.169.20
+
+These SQL Gateways shall start accepting customer traffic on 28 February 2021.
+
 ## January 2021
 New SQL Gateways are being added to the following regions:
 
@@ -35,7 +44,7 @@ New SQL Gateways are being added to the following regions:
 - Korea Central : 52.231.17.22 ,52.231.17.23
 - India West : 104.211.144.4
 
-These SQL Gateways shall start accepting customer traffic on 31 January 2021
+These SQL Gateways shall start accepting customer traffic on 31 January 2021.
 
 # [Completed](#tab/completed-ip)
 The following gateway migrations are complete: 

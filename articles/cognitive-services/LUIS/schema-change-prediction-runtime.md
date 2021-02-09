@@ -1,6 +1,6 @@
 ---
 title: Extend app at runtime - LUIS
-description:
+description: Learn how to extend an already published prediction endpoint to pass new information.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual

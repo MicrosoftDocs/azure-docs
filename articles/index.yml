@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/25/2020
+  ms.date: 01/29/2021
   featureFlags:
   - clicktale
 
@@ -79,6 +79,13 @@ productDirectory:
         - ai-machine-learning
         - analytics
       url: /azure/databricks/
+    # Card
+    - title: Health Bot
+      summary: A managed service purpose-built for development of virtual healthcare assistants.
+      imageSrc: media/index/health-bot-logo.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/health-bot/
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
@@ -524,6 +531,14 @@ productDirectory:
         - compute
         - containers
       url: aks/index.yml
+    # Card
+    - title: Azure Quantum (Preview)
+      summary: Experience quantum impact today on Azure
+      imageSrc: ./media/index/quantum.svg
+      azureCategories:
+        - compute
+        - featured
+      url: /azure/quantum/
     # Card
     - title: Azure Spring Cloud
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
@@ -1292,13 +1307,13 @@ productDirectory:
         - security
       url: security-center/azure-defender.md
     # Card
-    - title: Azure Defender for IoT (Preview)
+    - title: Azure Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:
         - security
         - iot
-      url: ./security-center/azure-defender.md
+      url: ./defender-for-iot/index.yml
     # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks

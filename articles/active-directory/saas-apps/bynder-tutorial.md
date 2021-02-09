@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company name>.getbynder.com`
     
     For a Custom Domain: 
-    `https;//<subdomain>.<domain>.com`
+    `https://<subdomain>.<domain>.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     

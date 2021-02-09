@@ -65,7 +65,7 @@ In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-b
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
 
-- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.md).
+- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.yml).
 - For the agent used to back up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## General backup
@@ -231,5 +231,5 @@ The key used to encrypt the backup data is present only on your site. Microsoft 
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+- [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
 - [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

@@ -1,12 +1,11 @@
 ---
-title: Create an Azure Media Services Job input from an HTTPS URL | Microsoft Docs
+title: Create a job input from an HTTPS URL
 description: This topic demonstrates how to create an Azure Media Services Job input from an HTTPS URL.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to

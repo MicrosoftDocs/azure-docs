@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 The Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
-One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assertion signed with a certificate that the application owns.
+One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns.
 
 ## Assertion format
 
@@ -97,12 +97,12 @@ In the Azure app registration for the client application:
 
 ### Updating the application manifest
 
-Having hold of a certificate, you need to compute:
+After acquiring a certificate, compute these values:
 
 - `$base64Thumbprint` - Base64-encoded value of the certificate hash
 - `$base64Value` - Base64-encoded value of the certificate raw data
 
-You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
+Provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application:
 1. Select **Manifest** to open the application manifest.

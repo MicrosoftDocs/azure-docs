@@ -73,6 +73,8 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
+          - text: Sample Templates
+            url: https://github.com/Azure-Samples/cloud-services-extended-support
           - text: Create a Cloud Service deployment
             url: sample-create-cloud-service.md
           - text: Retrieve information about a Cloud Service deployment

@@ -63,6 +63,15 @@ Depending on the configuration method you use, you should update the new version
     ```
 
 
+### More information
+If you have questions, get answers from [our tech community experts]( https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor). If you have a support plan and you need technical help, create a [support request]( https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+1.	Under *Issue type*, select **Technical**. 
+2.	Under *Subscription*, select your subscription. 
+3.	Under *Service*, select **My services**, then select **Log Analytics**. 
+4.	Under *Summary*, type a description of your issue. 
+5.	Under *Problem type*, select **Log Analytics workspace management**.  
+6.	Under *Problem subtype*, select **ARM templates, PowerShell and CLI**. 
+
 ## Next steps
 
 - See the [reference for the OperationalInsights workspace API](/rest/api/loganalytics/workspaces).

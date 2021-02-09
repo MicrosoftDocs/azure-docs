@@ -147,5 +147,5 @@ Now that you have an overview of the architecture of IoT Plug and Play bridge, t
 
 - [How to connect an IoT Plug and Play bridge sample running on Linux or Windows to IoT Hub](./howto-use-iot-pnp-bridge.md)
 - [Build and deploy IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
-- [Extend IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Extend IoT Plug and Play bridge](howto-author-pnp-bridge-adapter.md)
 - [IoT Plug and Play bridge on GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

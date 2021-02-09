@@ -670,4 +670,4 @@ Support Subtopic: Azure Image Builder
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).
