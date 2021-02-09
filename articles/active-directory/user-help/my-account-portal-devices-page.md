@@ -63,7 +63,7 @@ If you're locked out of your device or have a fatal error, you can go to another
 
     ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
+2. Select **View BitLocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## Next steps
 
