@@ -69,7 +69,7 @@ Yes, both in transit and at rest.
 - If you move resources across regions in the portal, this process happens automatically.
 - If you move resources using PowerShell, you run cmdlets to assign a system-assigned identity to the collection, and then assign a role with the correct subscription permissions to the identity principal. 
 
-### What managed identity permissions does Resource Mover need?
+### What managed identity permissions does Resource Mover need? 
 
 Azure Resource Mover managed identity needs at least these permissions: 
 
