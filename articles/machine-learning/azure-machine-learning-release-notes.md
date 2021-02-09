@@ -29,7 +29,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
   + **azureml-pipeline-steps**
     + [CommandStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?view=azure-ml-py) now GA and no longer experimental.
-    + ParallelRunConfig: add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. Error threshold has 3 flavors now:
+    + [ParallelRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py): add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. Error threshold has 3 flavors now:
        + error_threshold - the number of allowed failed mini batch items; 
        + allowed_failed_count - the number of allowed failed mini batches; 
        + allowed_failed_percent- the percent of allowed failed mini batches. 
