@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -73,7 +73,7 @@ This information only applies to Azure Stack device. The process to report hardw
     * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and solid-state drives are the only supported FRUs.
     * Only FRUs are replaced within the next business day, everything else requires a full system replacement (FSR) to be shipped.
 
-3. If a Support ticket is raised before 4:30 pm local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform a FRU replacement. A full system replacement typically will take much longer because the parts are shipped from our factory and could be subject to transportation and customs delays.
+3. If it is determined that a FRU replacement is needed by 1 PM local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform a FRU replacement. A full system replacement typically will take much longer because the parts are shipped from our factory and could be subject to transportation and customs delays.
 
 ## Manage a support request
 
@@ -94,4 +94,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box Gateway](data-box-gateway-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

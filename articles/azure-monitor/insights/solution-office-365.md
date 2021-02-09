@@ -105,7 +105,7 @@ ms.date: 03/30/2020
 > - If you don't offboard your solution manually by October 31, your data will be disconnected automatically, and the **OfficeActivity** table removed. Even so, you will still be able to restore the table when you enable the Office 365 connector in Azure Sentinel, as explained below.
 > 
 > ### Q: Will my data transfer to the new solution?
-> Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 
+> Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Azure Sentinel, the schema is restored to the workspace and any data already collected will become available. 
  
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.

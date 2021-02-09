@@ -1,12 +1,11 @@
 ---
-title: Create an Azure Media Services job with multiple transform outputs
+title: Create a job with multiple transform outputs
 description: This topic demonstrates how to create an  Azure Media Services job with multiple transform outputs.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to

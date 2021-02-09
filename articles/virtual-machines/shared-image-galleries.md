@@ -184,10 +184,10 @@ Image version:
 
 The following SDKs support creating Shared Image Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](/java/azure/?view=azure-java-stable)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [Java](/java/azure/)
 - [Node.js](/javascript/api/@azure/arm-compute)
-- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
 ## Templates
@@ -312,6 +312,11 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 ### Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?
 
 Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images.
+
+## Troubleshoot Shared Image Gallery issues
+If you have issues with performing any operations on the shared image gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
+
+In addition, you can post and tag your question with `azure-virtual-machines-images` at [Q&A](/answers/topics/azure-virtual-machines-images.html).
 
 ## Next steps
 

@@ -10,8 +10,8 @@ ms.author: rogarana
 |Area  |Target  |
 |---------|---------|
 |Minimum size increase/decrease    |1 GiB      |
-|Baseline IOPS    |1 IOPS per GiB, up to 100,000|
-|IOPS bursting    |3x IOPS per GiB, up to 100,000|
+|Baseline IOPS    |400 + 1 IOPS per GiB, up to 100,000|
+|IOPS bursting    |Max (4000,3x IOPS per GiB), up to 100,000|
 |Egress rate         |60 MiB/s + 0.06 * provisioned GiB        |
 |Ingress rate| 40 MiB/s + 0.04 * provisioned GiB |
 

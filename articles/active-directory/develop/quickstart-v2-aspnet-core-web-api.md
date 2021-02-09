@@ -93,7 +93,7 @@ The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that
 
 The `AddAuthentication()` method configures the service to add JwtBearer-based authentication.
 
-The line containing `.AddMicrosoftIdentityWebApi` adds Microsoft identity platform authorization to your web API. It's then configured to validate access tokens issued by the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line containing `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authorization to your web API. It's then configured to validate access tokens issued by the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

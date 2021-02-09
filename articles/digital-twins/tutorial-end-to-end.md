@@ -90,10 +90,7 @@ Query
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
-> ```sql
-> SELECT *
-> FROM DIGITALTWINS
-> ``` 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -121,50 +118,9 @@ This will open the NuGet Package Manager. Select the *Updates* tab and if there 
 
 ### Publish the app
 
-Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, from the *Solution Explorer* pane, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, locate the _**SampleFunctionsApp**_ project in the *Solution Explorer* pane.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
-
-In the *Publish* page that follows, leave the default target selection of **Azure** and hit *Next*. 
-
-For a specific target, choose **Azure Function App (Windows)** and hit *Next*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publish Azure function in Visual Studio: specific target":::
-
-On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
-
-Select your instance's resource group and hit *+* to create a new Azure Function.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publish Azure function in Visual Studio: Functions instance (before function app)":::
-
-In the *Function App (Windows) - Create new* window, fill in the fields as follows:
-* **Name** is the name of the consumption plan that Azure will use to host your Azure Functions app. This will also become the name of the function app that holds your actual function. You can choose your own unique value or leave the default suggestion.
-* Make sure the **Subscription** matches the subscription you want to use 
-* Make sure the **Resource group** to the resource group you want to use
-* Leave the **Plan type** as *Consumption*
-* Select the **Location** that matches the location of your resource group
-* Create a new **Azure Storage** resource using the *New...* link. Set the location to match your resource group, use the other default values, and hit "Ok".
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publish Azure function in Visual Studio: Function App (Windows) - Create new":::
-
-Then, select **Create**.
-
-This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Hit *Finish*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publish Azure function in Visual Studio: Functions instance (after function app)":::
-
-On the *Publish* pane that opens back in the main Visual Studio window, check that all the information looks correct and select **Publish**.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publish Azure function in Visual Studio: publish":::
-
-> [!NOTE]
-> If you see a popup like this: 
-> :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
-> Select **Attempt to retrieve credentials from Azure** and **Save**.
->
-> If you see a warning to *Upgrade Functions version on Azure* or that *Your version of the functions runtime does not match the version running in Azure*:
->
-> Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### Assign permissions to the function app
 
@@ -172,11 +128,13 @@ To enable the function app to access Azure Digital Twins, the next step is to co
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
+In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance. Fill in the placeholders with the details of your resources (remember that your Azure Digital Twins instance URL is its host name preceded by *https://*).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+The output is the list of settings for the Azure Function, which should now contain an entry called *ADT_SERVICE_URL*.
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
@@ -445,18 +403,15 @@ Here is a review of the scenario that you built out in this tutorial.
 
 ## Clean up resources
 
-If you no longer need the resources created in this tutorial, follow these steps to delete them. 
+After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
 
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+* **If you'd like to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you'd like to remove.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    This option will not remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, etc.). You can delete these individually using the [dt commands](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriate for each resource type.
 
-Finally, delete the project sample folder you downloaded to your local machine.
+You may also want to delete the project folder from your local machine.
 
 ## Next steps
 

@@ -271,17 +271,17 @@ This section discusses how to debug or diagnose issues with patch updates throug
 > [!NOTE]
 > To get many of the following called-out, self-diagnostic improvements, you should have POA version 1.4.0 or later installed.
 
-The Node Agent NTService creates [repair tasks](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) for installing updates on the nodes. Each task is then prepared by the Coordinator Service according to the task approval policy. Finally, the prepared tasks are approved by Repair Manager, which doesn't approve any task if the cluster is in an unhealthy state. 
+The Node Agent NTService creates [repair tasks](/dotnet/api/system.fabric.repair.repairtask) for installing updates on the nodes. Each task is then prepared by the Coordinator Service according to the task approval policy. Finally, the prepared tasks are approved by Repair Manager, which doesn't approve any task if the cluster is in an unhealthy state. 
 
 To help you understand how updates proceed on a node, let's go step by step:
 
 1. NodeAgentNTService, running on every node, looks for available Windows updates at the scheduled time. If updates are available, it downloads them on the node.
 
-1. After the updates are downloaded, the Node Agent NTService creates a corresponding repair task for the node with the name *POS___\<unique_id>*. You can view these repair tasks by using the [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet or using SFX in the node details section. After the repair task is created, it quickly moves to [*Claimed* state](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. After the updates are downloaded, the Node Agent NTService creates a corresponding repair task for the node with the name *POS___\<unique_id>*. You can view these repair tasks by using the [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask) cmdlet or using SFX in the node details section. After the repair task is created, it quickly moves to [*Claimed* state](/dotnet/api/system.fabric.repair.repairtaskstate).
 
 1. The Coordinator Service periodically looks for repair tasks in *Claimed* state and then updates them to *Preparing* state based on TaskApprovalPolicy. If TaskApprovalPolicy is configured to be NodeWise, a repair task that corresponds to a node is prepared only if no other repair task is currently in *Preparing*, *Approved*, *Executing*, or *Restoring* state. 
 
-   Similarly, in the case of UpgradeWise TaskApprovalPolicy, there are tasks in the preceding states only for nodes that belong to the same update domain. After a repair task is moved to *Preparing* state, the corresponding Service Fabric node is [disabled](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) with the intent set to *Restart*.
+   Similarly, in the case of UpgradeWise TaskApprovalPolicy, there are tasks in the preceding states only for nodes that belong to the same update domain. After a repair task is moved to *Preparing* state, the corresponding Service Fabric node is [disabled](/powershell/module/servicefabric/disable-servicefabricnode) with the intent set to *Restart*.
 
    POA versions 1.4.0 and later post events with the ClusterPatchingStatus property on CoordinatorService to display the nodes that are being patched. The updates are installed on _poanode_0, as shown in the following image:
 
@@ -300,7 +300,7 @@ To help you understand how updates proceed on a node, let's go step by step:
 
    [![Screenshot shows console window of Windows Update operation status with poanode_1 highlighted.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   You can also get the details by using PowerShell. To do so, you connect to the cluster and fetch the state of the repair task by using [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   You can also get the details by using PowerShell. To do so, you connect to the cluster and fetch the state of the repair task by using [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask). 
    
    In the following example, the "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in *DownloadComplete* state. It means that updates have been downloaded on the *poanode_2* node, and the installation will be attempted when the task moves to *Executing* state.
 
@@ -334,7 +334,7 @@ To help you understand how updates proceed on a node, let's go step by step:
 
 Patch orchestration application logs are collected as part of the Service Fabric runtime logs.
 
-You can capture logs by using the diagnostic tool or pipeline of your choice. POA uses the following fixed provider IDs to log events via [event source](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+You can capture logs by using the diagnostic tool or pipeline of your choice. POA uses the following fixed provider IDs to log events via [event source](/dotnet/api/system.diagnostics.tracing.eventsource):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A: POA does not install updates while the cluster is unhealthy. Try to bring you
 
 **Q: Should I set TaskApprovalPolicy as "NodeWise" or "UpgradeDomainWise" for my cluster?**
 
-A: The "UpgradeDomainWise" setting speeds up overall cluster repair by patching in parallel all the nodes that belong to an update domain. During the process, nodes that belong to an entire update domain are unavailable (in [*Disabled* state](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A: The "UpgradeDomainWise" setting speeds up overall cluster repair by patching in parallel all the nodes that belong to an update domain. During the process, nodes that belong to an entire update domain are unavailable (in [*Disabled* state](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)).
 
 In contrast, the "NodeWise" setting patches only one node at a time, which would imply that overall cluster patching might take longer. However, only one node at most would be unavailable (in *Disabled* state) during the patching process.
 
@@ -405,9 +405,9 @@ A: The time that's required to patch an entire cluster depends on:
     - For "NodeWise": ~20 hours.
     - For "UpgradeDomainWise": ~5 hours.
 
-- The cluster load. Each patching operation requires relocating the customer workload to other available nodes in the cluster. A node that's being patched would be in [*Disabling* state](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) during this time. If the cluster is running near peak load, the disabling process would take longer. Therefore, the overall patching process might appear to be slow in such stressed conditions.
+- The cluster load. Each patching operation requires relocating the customer workload to other available nodes in the cluster. A node that's being patched would be in [*Disabling* state](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling) during this time. If the cluster is running near peak load, the disabling process would take longer. Therefore, the overall patching process might appear to be slow in such stressed conditions.
 
-- Cluster health failures during patching. Any [degradation](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in the [health of the cluster](./service-fabric-health-introduction.md) would interrupt the patching process. This issue would add to the overall time required to patch the entire cluster.
+- Cluster health failures during patching. Any [degradation](/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error) in the [health of the cluster](./service-fabric-health-introduction.md) would interrupt the patching process. This issue would add to the overall time required to patch the entire cluster.
 
 **Q: Why do I see some updates in the Windows Update results that are obtained via REST API, but not under the Windows Update history on the machine?**
 

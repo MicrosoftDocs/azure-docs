@@ -31,9 +31,10 @@ Available to US government entities and their partners only. See more informatio
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.us/)
   - Text-to-speech
+    - Standard voice
+    - Neural voice
   - Speech translator
 - **Unsupported features:**
-  - Neural voice
   - Custom Voice
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
@@ -100,20 +101,13 @@ Available to organizations with a business presence in China. See more informati
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
   - Text-to-speech
+    - Standard voice
+    - Neural voice
   - Speech translator
 - **Unsupported features:**
-  - Neural voice
   - Custom Voice
 - **Supported languages:**
-  - Arabic (ar-*)
-  - Chinese (zh-*)
-  - English (en-*)
-  - French (fr-*)
-  - German (de-*)
-  - Hindi (hi-IN)
-  - Korean (ko-KR)
-  - Russian (ru-RU)
-  - Spanish (es-*)
+  - See the list of supported languages [here](language-support.md)
 
 ### Endpoint information
 

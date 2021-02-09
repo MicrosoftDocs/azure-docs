@@ -122,6 +122,8 @@ Total RUs consumed : 25022.58
 ```
 With the output statistics, you can calculate the effective RU/s used to upload the items. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
 
+You can save files (such as CSV or JSON files) to the local notebook workspace. We recommend that you add a cell in your notebook to save files. You can view these files from the integrated terminal in the notebook environment. You can use the "ls" command to view the saved files. However, these files are removed if you reset the workspace. So, it's best to use persistent storage such as GitHub or a storage account instead of the local workspace.
+
 ## Run another notebook in current notebook 
 You can use the ``%%run`` magic command to run another notebook in your workspace from your current notebook. Use the syntax:
 

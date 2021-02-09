@@ -95,7 +95,7 @@ conceptualContent:
           text: Speech service
         - url: https://speech.microsoft.com/
           itemType: overview
-          text: " - Customize with Speech Studio"
+          text: "Customize with Speech Studio"
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)

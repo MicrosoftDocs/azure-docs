@@ -60,7 +60,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ### [Anonymous access](#tab/public-access)
 
-You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources).
+You can access publicly available files placed on Azure storage accounts that [allow anonymous access](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -91,6 +91,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
+> [!NOTE]
+> The firewall feature on Storage is in public preview and is available in all public cloud regions. 
+
 #### User Identity
 
 To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
@@ -98,13 +101,14 @@ To access storage that is protected with the firewall via User Identity, you can
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
-1. Open PowerShell or [install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
-2. Install the updated Az. Storage Module: 
+1. Open PowerShell or [install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
+2. Install the Az.Storage 3.0.1 module and Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Make sure that you use version 3.0.1 or newer. You can check your Az.Storage version by running this command:  
+    > Make sure that you use **version 3.0.1**. You can check your Az.Storage version by running this command:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -118,16 +122,23 @@ Follow these steps to configure your storage account firewall and add an excepti
     - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
     - Account Name - name of storage account that is protected by firewall rules.
     - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
-    - Resource ID - you can find this in Azure portal in overview of Synapse workspace.
+    - Workspace Name - Name of the Synapse workspace.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Make sure that resource id matches this template.
+    > Make sure that resource id matches this template in the print of the resourceId variable.
     >
     > It's important to write **resourcegroups** in lower case.
     > Example of one resource id: 
@@ -142,7 +153,15 @@ Follow these steps to configure your storage account firewall and add an excepti
 6. Verify that rule was applied in your storage account: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
+        }
     ```
 
 #### Managed Identity

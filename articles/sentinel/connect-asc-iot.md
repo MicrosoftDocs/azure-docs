@@ -12,17 +12,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-
 ---
 
-
 # Connect your data from Azure Defender (formerly Azure Security Center) for IoT to Azure Sentinel 
-
-
-> [!IMPORTANT]
-> The Defender for IoT data connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 

@@ -63,5 +63,4 @@ After you have obtained the RUM key, the next step is to embed this copied JavaS
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
-
+- Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)

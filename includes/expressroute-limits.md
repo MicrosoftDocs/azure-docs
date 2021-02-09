@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 07/25/2019
+ ms.date: 01/12/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |
 | Maximum number of routes advertised to Azure private peering with ExpressRoute Standard |4,000 |
 | Maximum number of routes advertised to Azure private peering with ExpressRoute Premium add-on |10,000 |
-| Maximum number of routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection |1000 |
+| Maximum number of routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection |200 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Standard |200 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
