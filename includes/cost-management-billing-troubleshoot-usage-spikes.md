@@ -52,7 +52,7 @@ For Storage usage, we recommend that you use the Storage Analytics tool. It allo
 
 - [Storage Analytics](../articles/storage/common/storage-analytics.md)
 - [Storage Analytics log format](/rest/api/storageservices/Storage-Analytics-Log-Format)
-- [Enable and manage Azure Storage Analytics logs (classic)](../articles/storage/common/manage-storage-analytics-logs)
+- [Enable and manage Azure Storage Analytics logs (classic)](../articles/storage/common/manage-storage-analytics-logs.md)
 
 For network-related usage, you can use network capture tools like [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865)or Fiddler.
 
@@ -62,8 +62,8 @@ For Platform as a Service (PaaS) deployments, [enable Azure diagnostics](../arti
 
 For Infrastructure as a Service (IaaS) deployments, enable [Windows Communication Foundation tracing](/dotnet/framework/wcf/diagnostics/tracing/configuring-tracing).
 
-Enable [Enhanced Logging for IIS 8.5](http/iis/get-started/whats-new-in-iis-85/enhanced-logging-for-iis85).
+Enable [Enhanced Logging for IIS 8.5](/iis/get-started/whats-new-in-iis-85/enhanced-logging-for-iis85).
 
-[Enable diagnostics logging for web apps in Azure App Service](./articles/app-service/troubleshoot-diagnostic-logs.md).
+[Enable diagnostics logging for web apps in Azure App Service](../articles/app-service/troubleshoot-diagnostic-logs.md).
 
 For more details and advice for your situation, contact your Microsoft Customer Success Account Manager to request assistance from a Cloud Solution Architect.
