@@ -172,10 +172,10 @@ Locations where both SIP proxy and media processor components deployed:
 - US (two in US West and US East datacenters)
 - Europe (Amsterdam and Dublin datacenters)
 - Asia (Singapore and Hong Kong datacenters)
+- Australia (AU East and Southeast datacenters)
 
 Locations where only media processors are deployed (SIP flows via the closest datacenter listed above):
 - Japan (JP East and West datacenters)
-- Australia (AU East and Southeast datacenters)
 
 
 ## Media traffic: Codecs
@@ -202,7 +202,7 @@ Certification is in progress. The certified devices are guaranteed to work in al
 ### Conceptual documentation
 
 - [Telephony Concept](./telephony-concept.md)
-- [Plan Your Azure Cloud Calling Solution](./plan-solution.md)
+- [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
