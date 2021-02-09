@@ -30,12 +30,12 @@ This article shows a detailed cost analysis and performance benefits about using
 
 The two sets of graphics in this section show the TCO example.  The number and type of managed disks, the Azure NetApp Files service level, and the capacity for each scenario have been selected to achieve the best price-capacity-performance.  Each graphic is made up of grouped machines (D16 with Azure NetApp Files, compared to D64 with managed disk by example), and prices are broken down for each machine type.  
 
-The first graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v3 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
+The first set of graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v3 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
 
 [ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png#lightbox)
 
 
-The second graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
+The second set of graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
 
 [ ![Graphic that shows overall cost using a 50-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png#lightbox)
  
