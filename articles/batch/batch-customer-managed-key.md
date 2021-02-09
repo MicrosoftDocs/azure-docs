@@ -18,11 +18,6 @@ There are two types of managed identities: [*system-assigned* and *user-assigned
 
 You can either create your Batch account with system-assigned managed identity, or create a separate user-assigned managed identity that will have access to the customer-managed keys. Review the [comparison table](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) to understand the differences and consider which option works best for your solution. For example, if you want to use the same managed identity to access multiple Azure resources, a user-assigned managed identity will be needed. If not, a system-assigned managed identity associated with your Batch account may be sufficient. Using a user-assigned managed identity also gives you the option to enforce customer-managed keys at Batch account creation, as shown [in the example below](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
 
-> [!IMPORTANT]
-> Support for customer-managed keys in Azure Batch is currently in public preview for the West Europe, North Europe, Switzerland North, Central US, South Central US, West Central US, East US, East US 2, West US 2, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Create a Batch account with system-assigned managed identity
 
 If you don't need a separate user-assigned managed identity, you can enable system-assigned managed identity when you create your Batch account.

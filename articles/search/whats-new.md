@@ -7,12 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/08/2021
+ms.date: 02/09/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
+
+## February 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Reset Documents (preview)](search-howto-run-reset-indexers.md) |  Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
+| Availability Zone support | Search services with two or more replicas in certain regions, as listed in [Scale for performance](search-performance-optimization.md), gain resiliency by having replicas in two or more distinct physical locations.  | The region and date of search service creation determine availability. See the performance tuning document for details. |
 
 ## January 2021
 
