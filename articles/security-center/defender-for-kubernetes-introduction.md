@@ -14,11 +14,11 @@ manager: rkarlin
 
 Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications.
 
-Azure Security Center and AKS form the best cloud-native Kubernetes security offering and together they provide environment hardening, workload protection, and run-time protection as outlined below.
+Azure Security Center and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
 
 For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md).
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your AKS cluster is deployed on a virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
 
 ## Availability
 

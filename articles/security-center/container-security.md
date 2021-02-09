@@ -76,21 +76,14 @@ You can see that the items received and analyzed by Security Center include:
 
 - audit logs from the API server
 - raw security events from the Log Analytics agent
+
+    > [!NOTE]
+    > We don't currently support installation of the Log Analytics agent on Azure Kubernetes Service clusters that are running on virtual machine scale sets.
+
 - cluster configuration information from the AKS cluster
 - workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**)
 
 For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
-
-
-
-
-
-
-
-
-
-
-
 
 
 ###  Workload protection best-practices using Kubernetes admission control
