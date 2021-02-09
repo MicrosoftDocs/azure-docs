@@ -19,6 +19,8 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 * You'll need a [**Azure Storage Explorer**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) app installed in your Windows, macOS, or Linux development environment. Azure Storage Explorer is a free tool that enables you to easily manage your Azure cloud storage resources.
 * After the Azure Storage Explorer app is installed, [connect it the storage account](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation.
 
+### Create your tokens
+
 ### [SAS tokens for containers](#tab/Containers)
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.

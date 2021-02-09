@@ -29,7 +29,7 @@ To get started, you'll need:
 
 > [!IMPORTANT]
 >
-> * You can't use the endpoint found on the Keys and Endpoint portal page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 
 * The custom domain endpoint is formatted with your resource name, hostname, and Translator subdirectories:
@@ -53,7 +53,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 ## Create Azure blob storage containers
 
-You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files
+You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files.
 
 1. **A source container**. This container is where you upload your files for translation (required).
 1. **A target container**. This container is where your translated files will be stored (required).  
@@ -61,13 +61,13 @@ You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blob
 
 ### Source and target SAS access tokens for blob storage
 
-The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature(SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
+The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
-* Your source container or source blob must have designated  **read** and **list** access.
-* Your target container or target blob must have designated  **write** and **list** access.
-* Your glossary container or glossary blob must have designated  **read** and **list** access.
+* Your **source** container or blob must have designated  **read** and **list** access.
+* Your **target** container or blob must have designated  **write** and **list** access.
+* Your **glossary** container or blob must have designated  **read** and **list** access.
 
- *See* [Create SAS tokens for Document Translator](create-sas-tokens.md).
+### *See* [Create SAS tokens for Document Translator](create-sas-tokens.md)
 
 > [!TIP]
 >
