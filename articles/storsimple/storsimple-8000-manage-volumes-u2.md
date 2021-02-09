@@ -4,7 +4,7 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/08/2017
+ms.date: 12/09/2017
 ms.author: alkohli
 
 ---
@@ -228,7 +228,7 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
 
 7. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
 
-    ![Save and confirm](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+    ![Save and confirm](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)
 
 8. The Azure portal displays a notification for the job creation that would update the volume. Click on the notification to monitor the status of the volume conversion job.
 
@@ -287,7 +287,7 @@ Complete the following steps to delete a volume.
 
 6. After the volume is deleted, the tabular list of volumes updates to indicate the deletion.
 
-    ![Updated volume list](./media/storsimple-8000-manage-volumes-u2/delete-volume-3.png)
+    ![Updated volume list](./media/storsimple-8000-manage-volumes-u2/delete-volume-03.png)
    
    > [!NOTE]
    > If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Device Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.
