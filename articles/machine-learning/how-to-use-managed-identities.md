@@ -97,7 +97,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
 
 ### Create compute with managed identity to access Docker images for training
 
-To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using
+To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using the below. Learn more about [using managed identity with compute clusters](how-to-create-attach-compute-cluster?tabs=python#managed-identity).
 
 # [Python](#tab/python)
 
