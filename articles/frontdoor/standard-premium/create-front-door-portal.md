@@ -174,7 +174,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     > [!NOTE]
     > When creating a Front Door profile, you must select an origin from the same subscription the Front Door is created in.
    
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Add an origin":::
+   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Add another origin":::
 
 1. Repeat step 8 to add the second origin webapp002 by selecting `webappcontoso-002.azurewebsite.net` as the **Origin host name** and **Origin host header**.
 

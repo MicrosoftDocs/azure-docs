@@ -71,19 +71,21 @@ Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Prob
 > [!WARNING]
 > Since Front Door has many edge environments globally, health probe volume for your origin can be quite high - ranging from 25 requests every minute to as high as 1200 requests per minute, depending on the health probe frequency configured. With the default probe frequency of 30 seconds, the probe volume on your origin should be about 200 requests per minute.
 
-   1. **Status**: Specify whether to turn on the health probing. If you have a single origin in your origin group, you can choose to disable the health probes reducing the load on your application backend. Even if you have multiple origins in the group but only one of them is in enabled state, you can disable health probes.
+* **Status**: Specify whether to turn on the health probing. If you have a single origin in your origin group, you can choose to disable the health probes reducing the load on your application backend. Even if you have multiple origins in the group but only one of them is in enabled state, you can disable health probes.
    
-   1. **Path**: The URL used for probe requests for all the origin in this origin group. For example, if one of your origins is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http://contoso-westus.azurewebsites.net/probe/test.aspx. 
+* **Path**: The URL used for probe requests for all the origin in this origin group. For example, if one of your origins is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http://contoso-westus.azurewebsites.net/probe/test.aspx. 
    
-   1. **Protocol: Defines whether to send the health probe requests from Front Door to your origin with HTTP or HTTPS protocol.
+* **Protocol**: Defines whether to send the health probe requests from Front Door to your origin with HTTP or HTTPS protocol.
    
-   1. **Probe Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
-   > [!NOTE]
-   > For lower load and cost on your origin, Front Door recommends using HEAD requests for health probes.
+* **Probe Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
 
-   1. **Interval(in seconds)**: Defines the frequency of health probes to your origin, or the intervals in which each of the Front Door environments sends a probe.
-   >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your origin receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
+> [!NOTE]
+> For lower load and cost on your origin, Front Door recommends using HEAD requests for health probes.
+
+* **Interval(in seconds)**: Defines the frequency of health probes to your origin, or the intervals in which each of the Front Door environments sends a probe.
+   
+>[!NOTE]
+>For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your origin receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
 #### Load balancing
 Load-balancing settings for the origin group define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different origins in the origin group. The following settings are available for load-balancing configuration:
@@ -99,31 +101,33 @@ Select **Add** to add the origin group to current endpoint. The origin group sho
 ![Origins in origin group](../media/how-to-configure-endpoint-manager/orgin-in-origingroup.png)
 
 ### Add Route
+
 Select **Add** at the Routes view, The **Add a route** page appears. For information how to associate the domain and origin group, see [Create a new Azure Front Door route](how-to-configure-route.md)
 
 ### Add Security
-Select **Add** at the Security view, The **Add a WAF policy** page appears
+
+1. Select **Add** at the Security view, The **Add a WAF policy** page appears
  
-![Add WAF policy](../media/how-to-configure-endpoint-manager/Add-WAF-policy.png)
+    ![Add WAF policy](../media/how-to-configure-endpoint-manager/Add-WAF-policy.png)
 
 1. **WAF Policy**: select a WAF policy you like apply for the selected domain within this endpoint. 
   
    Select **Create New** to create a brand new WAF policy.
 
-![Create new WAF policy](../media/how-to-configure-endpoint-manager/create-new-waf-policy.png)
+    ![Create new WAF policy](../media/how-to-configure-endpoint-manager/create-new-waf-policy.png)
    
-   **Name**: enter a unique name for the new WAF policy. You could edit this policy with more configuration from the Web Application Firewall page.
+    **Name**: enter a unique name for the new WAF policy. You could edit this policy with more configuration from the Web Application Firewall page.
 
-1. **Domains**: select the domain to apply the WAF policy.
+    **Domains**: select the domain to apply the WAF policy.
 
-Select **Add** button. The WAF policy should appear within the Security panel
+1. Select **Add** button. The WAF policy should appear within the Security panel
 
 ![WAF in security view](../media/how-to-configure-endpoint-manager/waf-in-security-view.png)
 
 ## Clean up resources
 To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
 
-    ![AFD route](../media/how-to-configure-endpoint-manager/delete-endpoint.png)
+![AFD route](../media/how-to-configure-endpoint-manager/delete-endpoint.png)
 
 ## Next steps
 To learn about custom domains, continue to the tutorial for adding a custom domain to your AFD endpoint.
