@@ -40,12 +40,16 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 ## Connect your GCP account
 
-Follow the steps below to create your GCP cloud connector. A connector connects your Google Cloud resources at the *organization* level. When you connect an organization, all projects within that organization are added to Security Center.
-
 Create a connector for every organization you want to monitor from Security Center.
 
-> [!TIP]
-> Learn about the Google Cloud resource hierarchy in their online docs [here](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
+
+- You can connect your GCP accounts to ASC in the *organization* level
+- You can connect multiple organizations to one Azure subscription
+- You can connect multiple organizations to multiple Azure subscriptions
+- When you connect an organization, all *projects* within that organization are added to Security Center
+
+Follow the steps below to create your GCP cloud connector. 
 
 ### Step 1. Set up GCP Security Command Center with Security Health Analytics
 
@@ -62,7 +66,7 @@ When you first enable Security Health Analytics, it might take several hours for
 
 ### Step 2. Enable GCP Security Command Center API
 
-1. From Google's **Cloud Console API Library**, select the project you want to connect to Azure Security Center.
+1. From Google's **Cloud Console API Library**, select each project in the organization you want to connect to Azure Security Center.
 1. In the API Library, find and select **Security Command Center API**.
 1. On the API's page, select **ENABLE**.
 
@@ -71,7 +75,11 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 ### Step 3. Create a dedicated service account for the security configuration integration
 
-1. In the **GCP Console**, select the project you want to connect to Security Center.
+1. In the **GCP Console**, select a project from the organization in which you're creating the required service account. 
+
+    > [!NOTE]
+    > When this service account is added at the organization level, it'll be used to access the data gathered by Security Command Center from all of the other enabled projects in the organization. 
+
 1. In the **Navigation menu**, Under **IAM & admin** options, select **Service accounts**.
 1. Select **CREATE SERVICE ACCOUNT**.
 1. Enter an account name, and select **Create**.
@@ -130,7 +138,7 @@ Yes. Security Center's GCP connector connects your Google Cloud resources at the
 
 Create a connector for every GCP organization you want to monitor from Security Center. When you connect an organization, all projects within that organization are added to Security Center.
 
-Learn about the Google Cloud resource hierarchy in Google's online docs [here](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+Learn about the Google Cloud resource hierarchy in [Google's online docs](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
 
 ### Is there an API for connecting my GCP resources to Security Center?
@@ -141,3 +149,4 @@ Yes. To create, edit, or delete Security Center cloud connectors with a REST API
 Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
 
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--Learn about the Google Cloud resource hierarchy in Google's online docs
