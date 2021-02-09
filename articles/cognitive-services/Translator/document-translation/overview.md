@@ -10,23 +10,23 @@ ms.date: 02/09/2021
 
 # What is Document Translation (Preview)?
 
-The Document Translation API translates documents to and from more than 70 languages while preserving source document structure and text formatting. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API translates documents to and from more than 70 languages while preserving document structure and data format.
 
 ## Document Translation key features
 
 1. **Translate large files**.  You can translate whole documents asynchronously.
 1. **Translate multiple files**. You can translate multiple files into multiple languages.
 1. **Preserve source file format**.  You can translate files while preserving the original layout and format.
-1. **Apply custom translation**. You can translate documents using general and [custom translation models](../customization.md#custom-translator)
+1. **Apply custom translation**. You can translate documents using general and [custom translation](../customization.md#custom-translator) models.
 1. **Use custom glossaries**. You can translate documents applying custom glossaries.
 
 ## Document translation
 
-Document translation is accomplished with the following Azure portal resources:
+Document translation requires the following Azure portal resources:
 
 * [**Translator**](https://ms.portal.azure.com/#create/Microsoft). _See_  [Create a Translator Resource](../translator-how-to-signup.md).
 * [**Azure storage account**](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
-* [**Azure blob storage containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Each request requires a source blob container to upload your document files, folders, or glossaries, and a target blob container to store your final translated documents.
+* [**Azure blob storage containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Each request requires a source container to upload your files, folders, or glossaries, and a target container to store your final translated documents.
 
 ## Supported document file formats
 
@@ -34,7 +34,7 @@ Document translation is accomplished with the following Azure portal resources:
 |---|---|--|
 |Adobe PDF|.pdf|Adobe Acrobat portable document format|
 |HTML|.html|Hyper Text Markup Language.|
-|Localisation Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
 |Microsoft Excel|.xlsx|A spreadsheet file for data analysis and documentation.|
 |Microsoft Outlook|.msg|An email message created or saved within Microsoft Outlook.|
 |Microsoft PowerPoint|.pptx| A presentation file used to display content in a slideshow format.|
@@ -47,7 +47,7 @@ Document translation is accomplished with the following Azure portal resources:
 
 | File type| File extension|Description|
 |---|---|--|
-|Localisation Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
 |Tab Separated Values/TAB|.tsv/.tab| a tab-delimited raw-data file used by spreadsheet programs.|
 
 ### Next Step

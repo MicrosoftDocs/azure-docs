@@ -10,7 +10,7 @@ ms.date: 02/09/2021
 
 # Get started with Document Translation (Preview)
 
- In this article, you'll learn to use Document Translation via HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
+ In this article, you'll learn to use Document Translation with HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
 
 ## Prerequisites
 
@@ -28,33 +28,39 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
-1. **Note**: You won't use the endpoint found on the Keys and Endpoint page. *See* [Set your custom endpoint](#set-your-custom-endpoint), above.
 
-## Set your custom endpoint
+> [!IMPORTANT]
+> You won't use the endpoint found on the Keys and Endpoint page for Document Translation. Instead, you will use a custom endpoint for Document Translation requests. *See* [Set your custom endpoint](#set-your-custom-endpoint), below.
+
+## Create your custom endpoint
 
 All API requests to the Document Translation service require a **custom endpoint** URL. **You can't use the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation**.
 
-### Custom endpoint for Document Translator:
+### Custom endpoint for Document Translation
+
+* The custom endpoint URL is formatted with your resource name, hostname, and Translator subdirectories.
+
+* The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
+
+![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png)
+
+**Document Translation custom endpoint**:
 
 ```http
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
 ```
 
-The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
-
-![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png)
-
 ## Create Azure blob storage containers
 
-You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source and target documents:
+You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files
 
-1. **A source container**. This container is where you upload your documents for translation (required).
-1. **A target container**. This container is where your translated documents will be stored (required).  
-1. **A glossary container**. This container is where you store your glossary files (optional).
+1. **A source container**. This container is where you upload your files for translation (required).
+1. **A target container**. This container is where your translated files will be stored (required).  
+1. **A glossary container**. This container is where you upload your glossary files (optional).
 
 ### Source and target SAS access tokens for blob storage
 
-The `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
+The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature(SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
 * Your source container or source blob must have designated  **read** and **list** access.
 * Your target container or target blob must have designated  **write** and **list** access.
@@ -63,8 +69,9 @@ The `sourceUrl`  and `targetUrl`   must include a Shared Access Signature(SAS) t
  *See* [Create SAS tokens with Azure Storage Explorer](create-sas-azure-storage-explorer.md) and [Create SAS tokens in the Azure portal](create-sas-azure-portal.md).
 
 > [!TIP]
-> If you are translating **multiple** documents (blobs) in an operation, **delegate SAS access at the  container level**.  
-> If you are translating a **single** document (blob) in an operation, **delegate SAS access at the blob level**.  
+>
+> * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.  
+> * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.  
 >
 
 ### HTTP headers
@@ -79,20 +86,22 @@ The following headers are included with each Document Translator API request:
 
 ## Submit a Document Translation request (POST)
 
-A batch Document Translation request is submitted to your translation service endpoint via a POST request.
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request.
 
 ### POST request properties
 
 * The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both a `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
+* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs and can optionally contain a `glossaryURL` container address.
 * The `prefix` and `suffix` fields (optional) will be used to filter documents in the container including folders.
 * A value for the  `glossaries`  field (optional) will be applied when the document is being translated.
-* The `targetUrl` for each target language needs to be unique.
+* The `targetUrl` for each target language must be unique.
 
 >[!NOTE]
 > If a file with the same name already exists in the destination, it will be overwritten.
 
 ### POST Request URL and method
+
+The POST request URL is formatted with your custom endpoint appended with the `/batches` method.
 
 ```http
 POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
@@ -102,15 +111,15 @@ POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text
 
 #### Inputs array
 
-The body of the POST request is a JSON array named **inputs**. The inputs array contains a source object and an array of target objects.
+The body of the POST request is a JSON array named **inputs**. The inputs array contains a **source** object and an array of **target** objects.
 
 #### Source object
 
 |property|description|
 |---|---|
-|**`sourceUrl`**| The URL for the container storing your uploaded source documents and the SAS token with read-only access.|
+|**`sourceUrl`**| The URL for the container storing your uploaded source files and the SAS token with read-only access.|
 |**`storageSource`**|The type of cloud storage. Currently, only **"AzureBlob"** is supported. |
-|**`language`**   | Language of source documents  |
+|**`language`**   | Language of source files  |
 |**`filter`**   |**Optional**: Filter definitions:</br>&emsp;&bullet; **prefix**—used to filter blobs by the first parameter of file location path (optional). </br>&emsp;&bullet; **suffix**—To filter blobs by file type  (optional).  |
 
 #### Targets array object
@@ -128,25 +137,23 @@ The body of the POST request is a JSON array named **inputs**. The inputs array 
 | **`format`**  |**Optional:** Format of glossary file.|
 |**`version`** | **Optional:** Version of the format.|
 
-#### Sample HTTP request
+### Sample HTTP request
 
-### Request and URL
+#### Request and URL
 
-```html
+```http
 POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
 ```
 
-*See* [Set your custom endpoint](#set-your-custom-endpoint), above.
-
-### Request headers
+#### Request headers
 
 ```http
 Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
 Content-Type: application/json
-Content-Length: YOUR-CONTENT-LENGTH
+Content-Length: <YOUR-CONTENT-LENGTH>
 ```
 <!-- markdownlint-disable MD024 -->
-### Request body
+#### Request body
 
 ```http
 
@@ -154,7 +161,7 @@ Content-Length: YOUR-CONTENT-LENGTH
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS>",
+                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
                 "storageSource": "AzureBlob",
                 "filter": {
                     "prefix": "News",
@@ -164,7 +171,7 @@ Content-Length: YOUR-CONTENT-LENGTH
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-ACCESS-SAS>",
+                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
                     "storageSource": "AzureBlob",
                     "category": "general",
                     "language": "de"
@@ -175,7 +182,60 @@ Content-Length: YOUR-CONTENT-LENGTH
 }
 ```
 
-### Response: 202 Accepted
+#### Response: 202 Accepted
+
+### Sample HTTP request with glossaryURL
+
+#### Request and URL
+
+```http
+POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+```
+
+#### Request headers
+
+```http
+Ocp-Apim-Subscription-Key: <YOUR-SUBSCRIPTION-KEY>
+Content-Type: application/json
+Content-Length: <YOUR-CONTENT-LENGTH>
+```
+
+#### Request body
+
+```http
+
+{​​​​​​​​
+"inputs": [
+        {​​​​​​​​
+"source": {​​​​​​​​
+"sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
+"storageSource": "AzureBlob",
+"filter": {​​​​​​​​
+"prefix": "simple",
+"suffix": ".docx"
+                }​​​​​​​​,
+"language": "en"
+            }​​​​​​​​,
+"targets": [
+                {​​​​​​​​
+"targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
+"storageSource": "AzureBlob",
+"category": "general",
+"language": "ta",
+"glossaries": [
+                        {​​​​​​​​
+"glossaryUrl": "<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
+"format": "xliff",
+"version": "1.2"
+                        }​​​​​​​​
+                    ]
+                }​​​​​​​​
+            ]
+        }​​​​​​​​
+    ]
+}​​​​​​​​
+
+```
 
 ## Platform setup
 
@@ -248,7 +308,7 @@ gradle init --type basic
   ```
 
 * Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
-*Build and run the sample:
+*Build and run the sample from the root directory:
 
 ```powershell
 gradle build
@@ -277,9 +337,11 @@ gradle run
 >> 1. `subscriptionKey`
 >> 1. `sourceURL`
 >> 1. `targetURL`
+>> 1. `glossaryURL`
 >> 1. `id`  (job ID)
 >>
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
+> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
 > * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
 >
 > See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
@@ -304,7 +366,7 @@ gradle run
 
         private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
         
         static async Task Main(string[] args)
         {
@@ -351,7 +413,7 @@ let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let data = JSON.stringify({"inputs": [
   {
       "source": {
-          "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",
+          "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
           "storageSource": "AzureBlob",
           "language": "en",
           "filter":{
@@ -360,7 +422,7 @@ let data = JSON.stringify({"inputs": [
       },
       "targets": [
           {
-              "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS",
+              "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS",
               "storageSource": "AzureBlob",
               "category": "general",
               "language": "es"}]}]});
@@ -402,7 +464,7 @@ payload= {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS",
+                "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
                 "language": "en",
                 "filter":{
@@ -411,7 +473,7 @@ payload= {
             },
             "targets": [
                 {
-                    "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS",
+                    "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS",
                     "storageSource": "AzureBlob",
                     "category": "general",
                     "language": "es"
@@ -447,7 +509,7 @@ public class DocumentTranslation {
 
     public void post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
+        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
@@ -487,7 +549,7 @@ subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
-var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
@@ -521,7 +583,7 @@ if err != nil {
 
 If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
 
-## Retrieve jobs and job status via HTTP GET
+## Get file formats via HTTP GET
 
 ### [C#](#tab/csharp)
 
@@ -538,7 +600,7 @@ class Program
 
     private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
 
-    static readonly string route = "/batches";
+    static readonly string route = "/documents/formats";
 
     private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
@@ -572,7 +634,7 @@ const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
-let route = '/batches';
+let route = '/documents/formats';
 
 let config = {
   method: 'get',
@@ -604,7 +666,7 @@ public class GetJobs {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
-    String url = endpoint + "/batches";
+    String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
@@ -633,7 +695,7 @@ public class GetJobs {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/batches'
+parameters = '//translator/text/batch/v1.0-preview.1/documents/formats'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -663,7 +725,7 @@ func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
-  uri := endpoint + "/batches"
+  uri := endpoint + "/documents/formats"
   method := "GET"
 
   client := &http.Client {
@@ -694,6 +756,7 @@ func main() {
 ```
 
 ---
+
 ### Response (GET)
 
 If successful, the GET method returns a `200 OK`  response code.
@@ -714,6 +777,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 #### Response: GET Storage Sources
 
+If successful, the GET method returns a `200 OK`  response code and the following value:
 |Property|value|
 |---|---|
 |**value**|List of supported storage sources (currently only AzureBlob is supported by the service).|
@@ -730,9 +794,9 @@ Retrieve a list of supported file formats.
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/documents/formats/
 ```
 
-#### Response: GET Document Formats
+#### Response: GET File Formats
 
-If successful, these methods return a `200 OK` response code and a JSON object with the following values:
+If successful, this method returns a `200 OK` response code and a JSON object with the following values:
 
 |Property|value|
 |---|---|
@@ -755,7 +819,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 #### Response: GET Glossary Formats
 
-If successful, these methods return a `200 OK` response code and a JSON object with the following values:
+If successful, this method returns a `200 OK` response code and a JSON object with the following values:
 
 |Property|value|
 |---|---|
@@ -790,7 +854,7 @@ Get the current status for a single job and a summary of all jobs in a Document 
 #### HTTP request
 
 ```http
-GEThttps://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
 ### GET Jobs
@@ -821,7 +885,7 @@ DELETEhttps://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/tex
 
 If possible, all documents for which translation hasn't started will be canceled.
 
-#### Response: GET Jobs, GET Job Status, and DELETE Job
+#### Response: GET Job Status, GET Jobs, and DELETE Job
 
 If successful, these methods return a `200 OK` response code and a JSON object with the following values:
 
@@ -833,6 +897,19 @@ If successful, these methods return a `200 OK` response code and a JSON object w
 |**status**|Status of the request:|
 |**summary**|List of overall status|
 ||&bullet; **total**—Total number of documents in the job.</br>&bullet; **failed**—Number of documents for which translation failed.</br>&bullet; **success**—Number of completed documents.</br>&bullet; **inProgress**—Number of documents in progress.</br>&bullet; **notYetStarted**—Number of documents pending translation.</br>&bullet; **canceled—Number of documents that have been canceled. |
+
+### GET Document Status
+
+#### Brief overview
+
+Retrieve the status of a specific document in a Document Translation request.
+
+#### HTTP request
+
+```http
+GET  https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/document/{documentId}/
+```
+
 
 ### GET documents
 
@@ -846,17 +923,6 @@ Retrieve the status of all documents in a Document Translation request.
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/
 ```
 
-### GET Document Status
-
-#### Brief overview
-
-Retrieve the status of a specific document in a Document Translation request.
-
-#### HTTP request
-
-```http
-GET  https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/document/{documentId}/
-```
 
 #### Response: GET Documents and GET Document Status
 

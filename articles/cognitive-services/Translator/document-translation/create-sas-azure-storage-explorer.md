@@ -1,11 +1,11 @@
 ---
-title: Create shared access signature (SAS) token for Document Translation containers and blobs with Microsoft storage explorer
+title: Create shared access signature (SAS) token for containers and blobs with Microsoft Storage Explorer
 description: How to create a Shared Access Token (SAS) for containers and blobs with Microsoft Storage Explorer
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ---
 
 # Create SAS tokens with Azure Storage Explorer
@@ -20,7 +20,7 @@ In this article, you'll learn how to create a shared access signature (SAS) toke
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand the Storage Accounts node and select **Blob Containers**.
-1. Expand the Blob Containers node and right-click on a **source container** node or **target container** node to display the options menu.
+1. Expand the Blob Containers node and right-click on a storage **container** node or to display the options menu.
 1. Select **Get Shared Access Signature...** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
@@ -30,19 +30,15 @@ In this article, you'll learn how to create a shared access signature (SAS) toke
     * Review and select **Create**.
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.  
-**Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
+1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
 1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ## [SAS tokens for blobs](#tab/blobs)
 
-> [!NOTE]
-> ✔ If you are translating a single file (blob) in a Document Translation operation,  delegate SAS access at the **blob** level.  
-> ✔ You can't create SAS tokens for blob folders or folder contents collectively. You'll create The SAS token for each blob separately.
-
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
-1. Expand your storage node and select **Blob Containers**
-1. Expand the Blob Containers node and select a **source container** node or **target container** node to display contents in the main window.
-1. Select the blob where you wish to delegate SAS access to display the options menu.
+1. Expand your storage node and select **Blob Containers**.
+1. Expand the Blob Containers node and select a **container** node to display the contents in the main window.
+1. Select the blob where you wish to delegate SAS access and right-click to display the options menu.
 1. Select **Get Shared Access Signature...** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
@@ -51,13 +47,10 @@ In this article, you'll learn how to create a shared access signature (SAS) toke
     * Define your container **Permissions** by checking and/or clearing the appropriate check box.
     * Review and select **Create**.
 1. A new window will appear with the **Blob** name, **URI**, and **Query string** for your blob.  
-**Copy and paste the blob, URI, and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
+1. **Copy and paste the blob, URI, and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
 1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ---
-
-> [!TIP]
-> If you lose or misplace your Blob SAS token, create a new one and update your `sourceURL` and `targetURL` values in your Document Translator POST request with the new SAS query string.
 
 ## Learn more
 

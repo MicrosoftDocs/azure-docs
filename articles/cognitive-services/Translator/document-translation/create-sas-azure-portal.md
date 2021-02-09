@@ -1,29 +1,27 @@
 ---
-title: Create shared access signature (SAS) token for Document Translation blobs with Microsoft storage explorer or in the Azure portal.
-description: How to create a Shared Access Token (SAS) for containers and blobs with Microsoft Storage Explorer or the Azure Portal
+title: Create shared access signature (SAS) token in the Azure portal.
+description: How to create a Shared Access Token (SAS) for blobs with in Azure portal
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ---
 
 # Create SAS tokens in the Azure portal
 
-In this article, you'll learn how to create a shared access signature (SAS) token for your blobs in the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
+In this article, you'll learn how to create a shared access signature (SAS) token for your blob in the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
 
 > [!NOTE]
-> Creating SAS tokens for **containers** directly in the Azure portal is currently not supported. You can use [Azure Storage Explorer](create-sas-azure-storage-explorer.md?tabs=containers) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
+> Creating SAS tokens for **containers** directly in the Azure portal is currently not supported. You can create an SAS token with [**Azure Storage Explorer**](create-sas-azure-storage-explorer.md?tabs=containers) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
 
 ## Prerequisites
 
 To get started, you'll need:
 
-> [!div class="checklist"]
->
-> * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-> * A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-> * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource. It's currently not supported for Document Translation). *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
 
 ## Create your tokens
 
@@ -35,7 +33,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. Select **Signing method** → **User delegation key**.
 
-1. Define your container **Permissions** by checking and/or clearing the appropriate check box.
+1. Define **Permissions** by checking and/or clearing the appropriate check box.
 
 1. Specify the signed key **Start** and **Expiry** times.
 
@@ -46,9 +44,8 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 1. Review then select **Generate SAS token and URL**.
 
 1. The **Blob SAS token** query string and **Blob SAS URL** will be displayed in the lower area of window.  
-**Copy and paste the Blob SAS token query string value in a secure location. It will only be displayed once and cannot be retrieved once the window is closed.**
 
-1. Append the query string to the **`sourceURL`** or **`targetURl`** values in a [Document Translation POST](get-started-with-document-translation.md#submit-a-document-translation-request-post) request body.  
+1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
 
 1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
 
