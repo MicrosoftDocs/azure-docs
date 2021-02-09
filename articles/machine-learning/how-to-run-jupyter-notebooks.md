@@ -94,12 +94,19 @@ The exported file is saved on your computer.
 
 ## Run a notebook or Python script
 
-To run a notebook or a Python script, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
+To run a notebook or a Python script, you first connect to a running [compute instance](concept-compute-instance.md).
 
-1. Select **+** in the notebook or script toolbar. 
-2. Name the Compute and choose a **Virtual Machine Size**. 
-3. Select **Create**.
-4. The compute instance is connected to the file automatically.  You can now run the notebook cells or the Python script using the tool to the left of the compute instance
+* If you don't have a compute instance, use these steps to create one:
+
+    1. In the notebook or script toolbar, to the right of the Compute dropdown, select **+ New Compute**. Depending on your screen size, this may be located under a **...** menu.
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/new-compute.png" alt-text="Create a new compute":::
+    1. Name the Compute and choose a **Virtual Machine Size**. 
+    1. Select **Create**.
+    1. The compute instance is connected to the file automatically.  You can now run the notebook cells or the Python script using the tool to the left of the compute instance.
+
+* If you have a stopped compute instance, select  **Start compute** to the right of the Compute dropdown. Depending on your screen size, this may be located under a **...** menu.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Start compute instance":::
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
