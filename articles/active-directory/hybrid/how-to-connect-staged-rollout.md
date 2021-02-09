@@ -87,9 +87,8 @@ The following scenarios are not supported for staged rollout:
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user’s on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in staged rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
 
-
   >[!NOTE]
-  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
   
 ## Get started with staged rollout
 
@@ -253,5 +252,5 @@ A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD 
 
 ## Next steps
 - [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
-- [Change the sign-in method to password hash synchronization](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [Change sign-in method to pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change the sign-in method to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change sign-in method to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
