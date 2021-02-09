@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/20/2020
+  ms.date: 01/29/2021
 
 highlightedContent:
   items:
@@ -115,6 +115,8 @@ additionalContent:
               url: /dotnet/api/overview/azure/managementgroups
             - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-managementgroups/managementgroups
+            - text: Azure SDK for Python
+              url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
             - text: REST
               url: /rest/api/resources/managementgroups
             - text: Resource Manager templates
