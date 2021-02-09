@@ -13067,11 +13067,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/faq.md",
-      "redirect_url": "/azure/azure-vmware/faq.yml",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
       "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
       "redirect_document_id": false
