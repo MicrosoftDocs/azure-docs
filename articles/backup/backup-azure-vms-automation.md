@@ -527,9 +527,9 @@ Once you restore the disks, go to the next section to create the VM.
 
 If cross-region restore is enabled on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore. Perform the following steps to trigger a restore in the secondary region:
 
-* Step 1: [Fetch the vault ID](backup-azure-vms-automation.md#fetch-the-vault-id) with which your VMs are protected.
-* Step 2: Select the [correct backup item to restore](backup-azure-vms-automation.md#select-the-vm-when-restoring-files).
-* Step 3: Select the appropriate recovery point in the secondary region that you want to use to perform the restore.
+1. [Fetch the vault ID](#fetch-the-vault-id) with which your VMs are protected.
+1. Select the [correct backup item to restore](#select-the-vm-when-restoring-files).
+1. Select the appropriate recovery point in the secondary region that you want to use to perform the restore.
 
     To complete this step, run this command:
 
@@ -538,7 +538,7 @@ If cross-region restore is enabled on the vault with which you've protected your
     $rp=$rp[0]
     ```
 
-* Step 4: Execute the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet with the `-RestoreToSecondaryRegion` parameter to trigger a restore in the secondary region.
+1. Execute the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet with the `-RestoreToSecondaryRegion` parameter to trigger a restore in the secondary region.
 
     To complete this step, run this command:
 
@@ -554,7 +554,7 @@ If cross-region restore is enabled on the vault with which you've protected your
     V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
     ```
 
-* Step 5:Execute the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet with the `-UseSecondaryRegion` parameter to monitor the restore job.
+1. Execute the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet with the `-UseSecondaryRegion` parameter to monitor the restore job.
 
     To complete this step, run this command:
 
