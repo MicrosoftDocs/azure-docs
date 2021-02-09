@@ -125,7 +125,7 @@ Complete je da podignes (recovery) bazu
 
 
 ## Next steps
--	Learn more about [Migrate SQL Server to SQL Managed instance](sql-server-to-managed-instance-guide.md).
+-	Learn more about [Migrate SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 -	Learn more about [Differences between SQL Server and Azure SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
 -	Learn more about [Best practices to cost and size workloads migrated to Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
 
