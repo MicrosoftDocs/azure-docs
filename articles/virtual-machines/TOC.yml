@@ -101,8 +101,6 @@
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
-  - name: FreeBSD Packet Filter
-    href: ./linux/freebsd-pf-nat.md
   - name: Mainframe rehosting
     href: ./workloads/mainframe-rehosting/overview.md
   - name: SQL on Virtual Machines
@@ -586,6 +584,8 @@
         href: ./linux/flatcar-create-upload-vhd.md
       - name: FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
+      - name: FreeBSD Packet Filter
+        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         href: ./linux/oracle-create-upload-vhd.md
       - name: OpenBSD
