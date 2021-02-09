@@ -9,7 +9,7 @@ ms.date: 02/08/2021
 
 # Azure HDInsight versions
 
-HDInsight bundles Apache Hadoop environment components and HDInsight platform into a package that is deployed on a cluster. For more details see [how HDInsight versioning works]().
+HDInsight bundles Apache Hadoop environment components and HDInsight platform into a package that is deployed on a cluster. For more details see [how HDInsight versioning works](hdinsight-overview-versioning.md).
 
 ## Supported HDInsight versions
 
@@ -17,10 +17,10 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 | HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |
 | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 30, 2021 |June 30, 2021 |Yes |
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 30, 2021 |June 30, 2021 |Yes |
 
-*We are extending the support timeframe for certain HDInsight 3.6 cluster types. See [HDInsight 3.6 component versions]().
+*We are extending the support timeframe for certain HDInsight 3.6 cluster types. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md).
 
 ## Retired HDInsight versions
 
