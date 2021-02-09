@@ -34,15 +34,15 @@ If you are unable to connect your data source to Azure Sentinel using any of the
 
 The following table compares essential details about each method for creating custom connectors described in this article. Follow the links for more details about each method.
 
-|Method description  |Serverless  |Cost  |Complexity  |
+|Method description  |Capabilitiy | Serverless    |Complexity  |
 |---------|---------|---------|---------|
-|**[Log Analytics agent](#use-the-azure-monitor-log-analytics-agent-to-create-your-connector)** <br>- File collection only <br>- Best for collecting files from on-premises and IaaS sources     |   No      |  Low       |Low         |
-|**[Logstash](#use-logstash-to-create-your-connector)** <br>- Available plugins plus custom plugin capabilities provide significant flexibility <br>- Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash     |   No; requires a VM or VM cluster to run      | Low        |   Low; supports many scenarios with plugins      |
-|**[Logic Apps](#using-logic-apps-to-create-your-connector)** <br>- Codeless programming has flexibility, but does not allow for implementing algorithms. If there is no available action to suport your requirements, creating a custom action adds complexity. <br>- Best for low-volume cloud sources     |    Yes     |       High; avoid for high-volume data  |   Low; simple, codeless development      |
-|**[PowerShell](#use-powershell-to-create-your-custom-connector)** <br>- Direct support for file collection. PowerShell can be used to collect additional sources, but will require coding and configuring the script as a service. <br>- Best for prototyping and periodic file uploads     |No         | Low        |  Low       |
-|**[Log Analytics API](#create-a-custom-connector-via-the-log-analytics-data-collector-api)** <br>- Supports all capabilities available with the code. <br>- Best for ISVs implementing integration, and for unique collection requirements     | Depends on the implementation        |    Low     |     High    |
-|**[Azure Functions](#use-azure-functions-to-create-your-custom-connector)** <br>- Supports all capabilities available with the code. <br>- Best for high-volume cloud sources, and for unique collection requirements     |  Yes       |Low         |     High; requires programming knowledge    |
-|     |         |         |         |
+|**[Log Analytics agent](#use-the-azure-monitor-log-analytics-agent-to-create-your-connector)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
+|**[Logstash](#use-logstash-to-create-your-connector)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins plus custom plugin capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
+|**[Logic Apps](#using-logic-apps-to-create-your-connector)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming has flexibility, but does not allow for implementing algorithms.<br><br> If there is no available action to support your requirements, creating a custom action adds complexity.    |    Yes         |   Low; simple, codeless development      |
+|**[PowerShell](#use-powershell-to-create-your-custom-connector)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect additional sources, but will require coding and configuring the script as a service.      |No               |  Low       |
+|**[Log Analytics API](#create-a-custom-connector-via-the-log-analytics-data-collector-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
+|**[Azure Functions](#use-azure-functions-to-create-your-custom-connector)** Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
+|     |         |                |
 
 ## Use the Azure Monitor Log Analytics agent to create your connector
 
