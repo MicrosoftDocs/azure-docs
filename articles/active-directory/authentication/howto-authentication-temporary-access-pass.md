@@ -8,10 +8,10 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/09/2021
 
-ms.author: justinha
+ms.author: inbarckms
 author: justinha
 manager: daveba
-ms.reviewer: rateller
+ms.reviewer: inbarckms
 
 ms.collection: M365-identity-device-management
 ---
