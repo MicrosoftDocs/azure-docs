@@ -40,8 +40,19 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
-    - name: Apache components on HDInsight
-      href: ./hdinsight-component-versioning.md
+    - name: Versioning
+      items:
+        - name: Overview
+          href: ./hdinsight-overview-versioning.md
+        - name: HDInsight versions
+          href: ./hdinsight-component-versioning.md
+          items:
+            - name: HDI 4.0 component versions
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDI 3.6 component versions
+              href: ./hdinsight-36-component-versioning.md
+        - name: Service-level agreement
+          href: .hdinsight-service-agreement-versioning.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
     - name: Hortonworks release notes
