@@ -129,8 +129,9 @@ For more information the following tables below indicates T-SQL commands for man
 
 ### Requesting access
 
-To set up active geo-replication between Azure Germany and global Azure, you must request access for your subscription through the Azure portal.
+To migrate a database from Azure Germany to global Azure using geo-replication, your subscription *in global Azure* needs to be enabled to successfully configure the cross-cloud migration.
 
+To enable your global Azure subscription, create a specific type of support request in teh Azure portal. 
 
 1. Open a new [support request ticket](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fportal.microsoftazure.de%2F%23create%2FMicrosoft.Support%2FParameters%2F%257B%250D%250A%2B%2B%2B%2B%2522pesId%2522%253A%2B%2522f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%2522%252C%250D%250A%2B%2B%2B%2B%2522supportTopicId%2522%253A%2B%25229fc72ed5-805f-3894-eb2b-b1f1f6557d2d%2522%252C%250D%250A%2B%2B%2B%2B%2522contextInfo%2522%253A%2B%2522Migration%2Bfrom%2Bcloud%2BGermany%2Bto%2BAzure%2Bglobal%2Bcloud%2B%2528Azure%2BSQL%2BDatabase%2529%2522%252C%250D%250A%2B%2B%2B%2B%2522caller%2522%253A%2B%2522NoSupportPlanCloudGermanyMigration%2522%252C%250D%250A%2B%2B%2B%2B%2522severity%2522%253A%2B%25223%2522%250D%250A%257D&data=04%7C01%7Csstein%40microsoft.com%7C8ffca68429d04f968aa908d8cc7d1747%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637484184920672952%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Waits1lT7h1760cT84sNU%2BTWrFw%2FCOsIAP%2BOaLP8eqk%3D&reserved=0).
 
