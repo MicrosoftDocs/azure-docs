@@ -66,107 +66,72 @@ A global standard sku public IP is used for the frontend of the cross-region loa
 
 * Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
+* Create a health probe with [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig).
+
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
 * Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'MyResourceGroupLB-CR'
-$loc = 'westus'
-$pubIP = 'myPublicIP-CR'
-$sku = 'Standard'
-$all = 'static'
-$tir = 'Global'
+## Create global IP address for load balancer ##
+$ip = @{
+    Name = 'myPublicIP-CR'
+    ResourceGroupName = 'MyResourceGroupLB-CR'
+    Location = 'westus'
+    Sku = 'Standard'
+    Tier = 'Global'
+    AllocationMethod = 'Static'
+}
+$publicIP = New-AzPublicIpAddress @ip
 
-$publicIp = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Tier $tir
-```
+## Create frontend configuration ##
+$fe = @{
+    Name = 'myFrontEnd-CR'
+    PublicIpAddress = $publicIP
+}
+$feip = New-AzLoadBalancerFrontendIpConfig @fe
 
-### Create frontend IP configuration
+## Create back-end address pool ##
+$be = @{
+    Name = 'myBackEndPool-CR'
+}
+$bepool = New-AzLoadBalancerBackendAddressPoolConfig @be
 
+## Create the health probe ##
+$pr = @{
+    Name = 'MyHealthProbe-CR'
+    Protocol = 'HTTP'
+    Port = '80'
+    IntervalInSeconds = '15'
+    ProbeCount = '2'
+    RequestPath = '/'
+}
+$probe = New-AzLoadBalancerProbeConfig @pr
 
+## Create the load balancer rule ##
+$rul = @{
+    Name = 'myHTTPRule-CR'
+    Protocol = 'tcp'
+    FrontendPort = '80'
+    BackendPort = '80'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bepool
+}
+$rule = New-AzLoadBalancerRuleConfig @rul
 
-* Named **myFrontEnd-CR**.
-* Attached to public IP **myPublicIP-CR**.
-
-```azurepowershell-interactive
-## Variables for the commands ##
-$fe = 'myFrontEnd-CR'
-$rg = 'MyResourceGroupLB-CR'
-$loc = 'westus'
-$pubIP = 'myPublicIP-CR'
-
-$publicIp = 
-Get-AzPublicIpAddress -Name $pubIP -ResourceGroupName $rg
-
-$feip = 
-New-AzLoadBalancerFrontendIpConfig -Name $fe -PublicIpAddress $publicIp
-```
-
-### Create back-end address pool
-
-
-
-* Named **myBackEndPool-CR**.
-* The regional load balancers attach to this back-end pool in the remaining steps.
-
-```azurepowershell-interactive
-## Variable for the command ##
-$be = 'myBackEndPool-CR'
-
-$bepool = 
-New-AzLoadBalancerBackendAddressPoolConfig -Name $be
-```
-### Create the load balancer rule
-
-A load balancer rule defines:
-
-* Frontend IP configuration for the incoming traffic.
-* The backend IP pool to receive the traffic.
-* The required source and destination port. 
-
-Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig): 
-
-* Named **myHTTPRule-CR**
-* Listening on **Port 80** in the frontend pool **myFrontEnd-CR**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool-CR** using **Port 80**. 
-* Protocol **TCP**.
-
-```azurepowershell-interactive
-## Variables for the command ##
-$lbr = 'myHTTPRule-CR'
-$pro = 'tcp'
-$port = '80'
-
-## $feip and $bePool are the variables from previous steps. ##
-
-$rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
-```
-
-### Create the load balancer resource
-
-In this section you'll combine all of the variables from the previous steps and create a cross-region load balancer.
-
-
-
-* Named **myLoadBalancer-CR**
-* In **westus**.
-* In resource group **myResourceGroupLB-CR**.
-
-```azurepowershell-interactive
-## Variables for the command ##
-$lbn = 'myLoadBalancer-CR'
-$rg = 'myResourceGroupLB-CR'
-$loc = 'westus'
-$sku = 'Standard'
-$tir = 'Global'
-
-## $feip, $bepool, $probe, $rule are variables with configuration information from previous steps. ##
-
-$lb = 
-New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -LoadBalancingRule $rule -Tier $tir
+## Create cross-region load balancer resource ##
+$lbp = @{
+    ResourceGroupName = 'myResourceGroupLB-CR'
+    Name = 'myLoadBalancer-CR'
+    Location = 'westus'
+    Sku = 'Standard'
+    Tier = 'Global'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bepool
+    LoadBalancingRule = $rule
+    Probe = $probe
+}
+$lb = New-AzLoadBalancer @lbp
 ```
 
 ## Configure backend pool
@@ -176,7 +141,65 @@ In this section, you'll add two regional standard load balancers to the backend 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
 
-**FINISH INSTRUCTIONS HERE WHEN POWERSHELL IS DONE**
+* Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) and [Get-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/get-azloadbalancerfrontendipconfig) to store the regional load balancer information in variables.
+
+* Use [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig) to create the backend address pool configuration for the load balancer.
+
+* Use [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/new-azloadbalancerbackendaddresspool) to add the regional load balancer frontend configuration to the cross-region load balancer backend pool.
+
+```azurepowershell-interactive
+## Place the region one load balancer configuration in a variable ##
+$region1 = @{
+    Name = 'myLoadBalancer-R1'
+    ResourceGroupName = 'CreatePubLBQS-rg-r1'
+}
+$R1 = Get-AzLoadBalancer @region1
+
+## Place the region two load balancer configuration in a variable ##
+$region2 = @{
+    Name = 'myLoadBalancer-R2'
+    ResourceGroupName = 'CreatePubLBQS-rg-r2'
+}
+$R2 = Get-AzLoadBalancer @region2
+
+## Place the region one load balancer front-end configuration in a variable ##
+$region1fe = @{
+    Name = 'MyFrontEnd-R1'
+    LoadBalancer = $R1
+}
+$R1FE = Get-AzLoadBalancerFrontendIpConfig @region1fe
+
+## Place the region two load balancer front-end configuration in a variable ##
+$region2fe = @{
+    Name = 'MyFrontEnd-R2'
+    LoadBalancer = $R2
+}
+$R2FE = Get-AzLoadBalancerFrontendIpConfig @region2fe
+
+## Create the cross-region backend address pool configuration for region 1 ##
+$region1ap = @{
+    Name = 'MyBackendPoolConfig-R1'
+    LoadBalancerFrontendIPConfigurationId = $R1FE.Id
+}
+$beaddressconfigR1 = New-AzLoadBalancerBackendAddressConfig @region1ap
+
+## Create the cross-region backend address pool configuration for region 2 ##
+$region2ap = @{
+    Name = 'MyBackendPoolConfig-R2'
+    LoadBalancerFrontendIPConfigurationId = $R2FE.Id
+}
+$beaddressconfigR2 = New-AzLoadBalancerBackendAddressConfig @region2ap
+
+## Apply the backend address pool configuration for the cross-region load balancer ##
+$bepoolcr = @{
+    ResourceGroupName = 'myResourceGroupLB-CR'
+    LoadBalancerName = 'myLoadBalancer-CR'
+    Name = 'myBackEndPool-CR'
+    LoadBalancerBackendAddress = $beaddressconfigR1,$beaddressconfigR2
+}
+Set-AzLoadBalancerBackendAddressPool @bepoolcr
+
+```
 
 ## Test the load balancer
 
@@ -185,11 +208,12 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 1. Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
 
 ```azurepowershell-interactive
-  ## Variables for command. ##
-  $rg = 'myResourceGroupLB-CR'
-  $ipn = 'myPublicIP-CR'
-    
-  Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
+$ip = @{
+    Name = 'myPublicIP-CR'
+    ResourceGroupName = 'myResourceGroupLB-CR'
+}  
+Get-AzPublicIPAddress @ip | select IpAddress
+
 ```
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
@@ -202,10 +226,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
 
 ```azurepowershell-interactive
-## Variable for command. ##
-$rg = 'myResourceGroupLB-CR'
-
-Remove-AzResourceGroup -Name $rg
+Remove-AzResourceGroup -Name 'myResourceGroupLB-CR'
 ```
 
 ## Next steps
