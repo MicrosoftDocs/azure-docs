@@ -118,7 +118,6 @@ $lbp = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bepool
     LoadBalancingRule = $rule
-    Probe = $probe
 }
 $lb = New-AzLoadBalancer @lbp
 ```
