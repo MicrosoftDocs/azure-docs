@@ -25,7 +25,7 @@ Applicable to Azure Database for PostgreSQL - Single Server and Flexible Server
 
 | Applicable | Cause | Remediation| 
 | ----- | ------ | ---- | 
-| PostgreSQL 9.6, 10, 11 | Changing the server parameter `max_locks_per_transaction` to a higher value than what is [recommended](https://www.postgresql.org/docs/11/kernel-resources.html) could lead to server unable to come up after a restart. | Leave it to the default value (32 or 64) or change to a reasonable value per PostgreSQL [documentation](https://www.postgresql.org/docs/11/kernel-resources.html).  We are working on limiting the high value based on the SKU.  | 
+| PostgreSQL 9.6, 10, 11 | Changing the server parameter `max_locks_per_transaction` to a higher value than what is [recommended](https://www.postgresql.org/docs/11/kernel-resources.html) could lead to server unable to come up after a restart. | Leave it to the default value (32 or 64) or change to a reasonable value per PostgreSQL [documentation](https://www.postgresql.org/docs/11/kernel-resources.html). <br> <br> From the service side, this is being worked on to limit the high value based on the SKU.  | 
 
 ## Next steps
 - See Query Store [best practices](./concepts-query-store-best-practices.md)
