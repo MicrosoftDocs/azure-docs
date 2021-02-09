@@ -28,8 +28,8 @@ ITSMC supports connections with the following ITSM tools:
 -	Cherwell
 
    >[!NOTE]
-> 	As of 1-Oct-2020 Cherwell  ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
-	Existing ITSM connections will be supported.
+> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer be enabled for new customers. New ITSM Connections will not be supported.
+> Existing ITSM connections will be supported.
 
 With ITSMC, you can:
 
