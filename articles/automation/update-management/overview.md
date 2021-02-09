@@ -68,7 +68,7 @@ The following table lists the supported operating systems for update assessments
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Standard including Server Core)<br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br>Windows Server 2012 R2(Datacenter/Standard)<br>Windows Server 2012 |
+|Windows Server 2019 (Datacenter/Standard including Server Core)<br><br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
 |CentOS 6 and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 and 7 (x64)     | Linux agents require access to an update repository.        |
