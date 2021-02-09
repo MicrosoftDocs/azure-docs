@@ -63,17 +63,17 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 ### Configure the Log Analytics agent
 
-1. At the bottom of the Syslog connector blade, click the **Open your workspace advanced settings configuration >** link.
+1. At the bottom of the Syslog connector blade, click the **Open your workspace agents configuration >** link.
 
-1. On the **Advanced settings** blade, select **Data** > **Syslog**. Then add the facilities for the connector to collect.
+1. On the **Agents configuration** blade, select the **Syslog** tab. Then add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
     
     - Add the facilities that your syslog appliance includes in its log headers. 
     
     - If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
 
-1. When you have added all the facilities that you want to monitor, and adjusted any severity options for each one, select the checkbox **Apply below configuration to my machines**.
+1. When you have added all the facilities that you want to monitor, verify that the check boxes for all the desired severities are marked.
 
-1. Select **Save**. 
+1. Select **Apply**. 
 
 1. On your VM or appliance, make sure you're sending the facilities that you specified.
 
