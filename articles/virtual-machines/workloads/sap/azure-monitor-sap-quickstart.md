@@ -85,6 +85,15 @@ Sign in to the Azure portal at https://portal.azure.com
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
 4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
 
+>[Note]
+If Node Exporter is not able to connect with the OS provider on the BM or VM instance then please check the below settings.
+
+1.	Is the Azure monitor is in the same vnet as that of the host machine ?
+2.	Is firewall enabled on host for traffic on port 9100 ? Can be confirmed by running “curl http:<private-ip>:9100/metrics”  from a baremetal/vm running in the same vnet as the host with node_exporter running.
+a.	Incase its not, you can use below commands to enable it
+i.	firewall-cmd --permanent  --add-port=9100/tcp
+ii.	firewall-cmd –reload
+3. If it's a VM machine then please confirm if the NSGs are configured to allow traffic on port 9100. 
 
 ### Microsoft SQL Server provider
 
