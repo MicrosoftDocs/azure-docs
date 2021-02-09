@@ -8,12 +8,10 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: With QnA Maker portal
-    items:
-    - name: Create knowledge base
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Query a knowledge base
-      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+  - name: Create knowledge base on QnA Maker portal
+    href: Quickstarts/create-publish-knowledge-base.md
+  - name: Query a knowledge base with REST APIs
+    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Using client libraries or REST API
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
