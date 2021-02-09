@@ -307,8 +307,6 @@
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Manage proprietary protocols (Horizon)
       href: resources-manage-proprietary-protocols.md
-    - name: Defender for IoT glossary
-      href: references-defender-for-iot-glossary.md
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS API
@@ -322,6 +320,8 @@
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Defender for IoT glossary
+    href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
   - name: Agent-based solution for Device Builders
