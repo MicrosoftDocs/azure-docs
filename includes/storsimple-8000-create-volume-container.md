@@ -27,11 +27,11 @@ ms.author: alkohli
    
       If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
-      ![Volume container blade 3](./media/storsimple-8000-create-volume-container/create-volume-container-06-b.png)
+      ![Volume container blade 3](./media/storsimple-8000-create-volume-container/create-volume-container-06-b.png)<!--New graphic. Source: add-volume-container-bw-setting.-->
 
    7. Click **Create**.
 
-        ![Volume container blade 4](./media/storsimple-8000-create-volume-container/create-volume-container-06.png)
+        <!--![Volume container blade 4](./media/storsimple-8000-create-volume-container/create-volume-container-06.png)-->
    
        You are notified when the volume container is successfully created.
 
