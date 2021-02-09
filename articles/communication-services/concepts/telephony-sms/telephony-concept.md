@@ -32,7 +32,7 @@ You can buy numbers directly from Microsoft. Azure Cloud Calling is an all-in-th
 This is the simplest option that connects ACS to the Public Switched Telephone Network (PSTN) to enable calls to landlines and mobile phones worldwide. 
 With this option, Microsoft acts as your PSTN carrier, as shown in the following diagram:
 
-<diagram>
+![Azure Cloud Calling diagram.](../media/telephony-concept/azure-calling-diagram.png)
 
 If you answer ‘yes’ to the following, then Azure Cloud Calling is the right solution for you:
 - Azure cloud calling is available in your region.
@@ -50,7 +50,7 @@ This option requires an uninterrupted connection to Azure Communication Services
 With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication services. 
 It provides PSTN calling capabilities to your ACS applications even if Azure Cloud Calling is not available in your country/region. 
 
-<diagram>
+![SIP Interface diagram.](../media/telephony-concept/sip-interface-diagram.png)
 
 If you answer ‘yes’ to the following questions, then SIP Interface is the right solution for you:
 
