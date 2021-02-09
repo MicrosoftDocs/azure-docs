@@ -24,7 +24,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 * Natural reading order for the text line output.
 * Handwriting style classification for text lines along with a confidence score (Latin languages only).
 * Extract text only for selected pages for a multi-page document.
-* Available as a [Distroless container](./omputer-vision-how-to-install-containers?tabs=version-3-2) for on-premise deployment.
+* Available as a [Distroless container](./computer-vision-how-to-install-containers?tabs=version-3-2) for on-premise deployment.
 
 [Learn more](concept-recognizing-text.md) about the Read API.
 
