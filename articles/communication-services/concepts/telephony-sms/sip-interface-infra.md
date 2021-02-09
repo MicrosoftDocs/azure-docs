@@ -202,9 +202,9 @@ Certification is in progress. The certified devices are guaranteed to work in al
 ### Conceptual documentation
 
 - [Telephony Concept](./telephony-concept.md)
-- [Plan your Azure Cloud Calling Solution](./plan-solution.md)
+- [Plan Your Azure Cloud Calling Solution](./plan-solution.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
 
-- [Call To Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
