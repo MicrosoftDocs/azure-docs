@@ -1,5 +1,5 @@
 ---
-title: How to run Jupyter notebooks in your workspace
+title: Run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.date: 01/19/2021
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
-# How to run Jupyter Notebooks in your workspace
+# Run Jupyter Notebooks in your workspace
 
 Learn how to run your Jupyter notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
 

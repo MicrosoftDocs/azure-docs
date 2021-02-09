@@ -1,5 +1,5 @@
 ---
-title: How to create and manage files in your workspace
+title: Create and manage files in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how create and manage files in your workspace in Azure Machine Learning studio.
 services: machine-learning
