@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Teams interoperability
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, and screen sharing.
 
@@ -27,7 +27,7 @@ This interoperability allows you to create custom Azure applications that connec
 
 The high-level architecture for this use-case looks like this: 
 
-![Architecture for Teams interop](..//media/call-flows/teams-interop.png)
+![Architecture for Teams interop](./media/call-flows/teams-interop.png)
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms will only be available for Teams users, your custom application will have access to the meeting's core audio, video, and screen sharing capabilities.
 
@@ -41,4 +41,4 @@ Azure Communication Services interoperability is not allowed to Teams deployment
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Join your calling app to a Teams meeting](../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Join your calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
