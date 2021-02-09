@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
  
-Planning your deployment of Direct Routing is key to a successful implementation. This article describes infrastructure and licensing requirements and provides information about SBC connectivity: 
+Planning your deployment of SIP Interface is key to a successful implementation. This article describes infrastructure and licensing requirements and provides information about SBC connectivity: 
 
 - [Infrastructure requirements](#infrastructure-requirements)
 - [SBC domain names](#sbc-domain-names)
@@ -27,7 +27,7 @@ Planning your deployment of Direct Routing is key to a successful implementation
 - [Supported Session Border Controllers (SBCs)](#supported-session-border-controllers-sbcs)
 
 ## Infrastructure requirements
-The infrastructure requirements for the supported SBCs, domains, and other network connectivity requirements to deploy Direct Routing are listed in the following table:  
+The infrastructure requirements for the supported SBCs, domains, and other network connectivity requirements to deploy SIP Interface are listed in the following table:  
 
 |Infrastructure requirement|You need the following|
 |:--- |:--- |
@@ -38,7 +38,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|A FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
 |Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
-|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Direct Routing. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
+|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with SIP Interface. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
 |Connection points for SIP Interface |The connection points for SIP Interface are the following three FQDNs:<br/><br/>`sip.pstnhub.microsoft.com` – Global FQDN, must be tried first.<br/>`sip2.pstnhub.microsoft.com` – Secondary FQDN, geographically maps to the second priority region.<br/>`sip3.pstnhub.microsoft.com` – Tertiary FQDN, geographically maps to the third priority region.<br/><br/>For information on configuration requirements, see [SIP Signaling: FQDNs](#sip-signaling-fqdns).|
 |Firewall IP addresses and ports for SIP signaling and media |The SBC communicates to the following services in the cloud:<br/><br/>SIP Proxy, which handles the signaling<br/>Media Processor, which handles media<br/><br/>These two services have separate IP addresses in Microsoft Cloud, described later in this document.<br/><br/>For more information, see the [Microsoft Teams section]
 |Media Transport Profile|TCP/RTP/SAVP <br/>UDP/RTP/SAVP|
