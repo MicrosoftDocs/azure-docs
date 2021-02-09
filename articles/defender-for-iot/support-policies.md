@@ -16,5 +16,4 @@ This article describes the support, breaking change policies for Defender for Io
 
 ## Servicing information and timelines 
 
-Each general availability (GA) version of Azure Defender for IoT Sensor, and Azure Defender for IoT on premises management console, is supported for up to nine months after its release. Fixes and new functionality are always applied to the latest GA version and will not be applied to older GA versions.
- 
+Microsoft plans to release updates for Azure defender for IoT no less than once per quarter. Each general availability (GA) version of Azure Defender for IoT Sensor, and Azure Defender for IoT on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
