@@ -38,11 +38,14 @@
   - name: Development lifecycle	
     href: Concepts/development-lifecycle-knowledge-base.md	
     displayName: version control, test, index, publish, monitor usage, create
+  - name: Precise answering
+    href: reference-precise-answering.md
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Using QnA Maker and LUIS
     href: choose-natural-language-processing-service.md
+   
 - name: How-to guides
   items:
   - name: Manage Azure resources
@@ -86,16 +89,10 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Azure role-based access control (Azure RBAC)	    
-    href: Concepts/role-based-access-control.md	
-  - name: Active learning	
-    href: Concepts/active-learning-suggestions.md	
   - name: Confidence score	
     href: Concepts/confidence-score.md
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Precise answering
-    href: reference-precise-answering.md
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
