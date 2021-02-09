@@ -50,10 +50,12 @@ The following is required at the Azure side:
 
 Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
 
+<center>
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
-
+</center>
+  
 | Orchestration step | Operation | Details |
-| -- | :----------------------------- | :----------------------------- |
+| :--: | :----------------------------- | :----------------------------- |
 | 1 | Copy database backups from SQL Server to Azure Blob storage. | - Azure blob storage is used as an intermediary storage between SQL Server and SQL MI. <br />- Copy full, differential and log backups from SQL Server to Azure Blob storage using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) or PowerShell. <br />- In case of migrating several databases, a separate folder is required for each database. |
 | 2 | Start the LRS service in the cloud. | - Service can be started with a choice of API call, PowerShell [start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) and CLI [az_sql_midb_log_replay_start cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start). <br />- Once started, the service will take backups from the Azure Blob storage and start restoring them on SQL Managed Instance. |
 | 2.1 | Monitor the operation progress. | - Once all initially uploaded backups are restored, the service will watch for any new files uploaded to the folder and will continuously apply logs based on the LSN chain, until the service is stopped. <br />- Progress of the restore operation can be monitored with a choice of API call, PowerShell [get-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) and CLI [az_sql_midb_log_replay_show cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show). |
