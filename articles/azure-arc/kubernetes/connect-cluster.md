@@ -3,7 +3,7 @@ title: "Connect an Azure Arc-enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
