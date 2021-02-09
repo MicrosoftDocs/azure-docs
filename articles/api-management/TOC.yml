@@ -88,8 +88,7 @@
         href: devops-api-development-templates.md
       - name: Soft-delete
         href: soft-delete.md
-      - name: Diagnostics
-        href: diagnose-solve-problems.md
+
 
 
 - name: How-to guides
@@ -280,6 +279,8 @@
                     href: ../service-fabric/service-fabric-api-management-overview.md
                   - name: Tutorial
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+            - name: Diagnose Issues in Production
+              href: diagnose-solve-problems.md
 - name: Reference
   items:
       - name: Azure CLI
