@@ -18,7 +18,7 @@ Azure Security Center and AKS form a cloud-native Kubernetes security offering w
 
 For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your AKS cluster is deployed on a virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your AKS cluster is deployed on a virtual machine scale set, the Log Analytics agent is not currently supported.
 
 ## Availability
 
