@@ -205,3 +205,15 @@ On the leg between the Cloud Media Processor and ACS SDK app either SILK or G.72
 ## Supported Session Border Controllers (SBCs)
 
 Certification is in progress. The certified devices are guaranteed to work in all scenarios. 
+
+## Next steps
+
+### Conceptual documentation
+
+- [Telephony Concept](./telephony-concept.md)
+- [Plan your Azure Cloud Calling Solution](./plan-solution.md)
+- [Pricing](../pricing.md)
+
+### Quickstarts
+
+- [Call To Phone](../../quickstarts/voice-video-calling/pstn-call.md)
