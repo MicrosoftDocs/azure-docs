@@ -12,16 +12,19 @@ manager: carmonm
 ---
 # Delete your Azure Automation account
 
- You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API.
+ You can delete resources, including your Azure Automation account, through the Azure portal, PowerShell, the Azure CLI, or the REST API.
+
+> [!WARNING]
+> Before you delete an Automation account, keep in mind that you will lose access to all of the features that the account supports (see [Disable your features](#disable-your-features)). Also, if the account is linked to an Azure Monitor Log Analytics workspace, you'll no longer see the data that was being forwarded to the workspace for analysis and reporting.
 
 If you want to delete your Azure Automation account, you'll need to prepare the account first. The high-level steps for deleting your Automation account are:
 
-1. [Disable your features.](#disable-features)
-1. [Unlink your workspace.](#unlink-your-workspace)
-1. [Delete your Automation account.](#delete-your-automation-account)
+1. [Disable your features](#disable-your-features)
+1. [Unlink your workspace](#unlink-your-workspace)
+1. [Delete your Automation account](#delete-your-automation-account)
 
 >[!NOTE]
->Azure Automation allows you to move some resources to a new resource group or subscription. Automation accounts are among the resources that can be moved. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+>Azure Automation allows you to move some resources, including Automation accounts, to a new resource group or subscription. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Disable your features
 
@@ -83,13 +86,15 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 ## Unlink your workspace
 
-Now you can unlink your workspace:
+Once you've disabled all of the applicalble features, you can unlink your workspace:
 
 1. In the Azure portal, select **Automation account** > **Related Resources** > **Linked workspace**.
 
 1. Select **Unlink workspace** to unlink the workspace from your Automation account.
 
     ![Screenshot of Unlinking a workspace from an Automation account](../media/move-account/unlink-workspace.png)
+
+Powershell doesn't provide a cmdlet for unlinking workspaces.
 
 ## Delete your Automation account
 
@@ -105,4 +110,4 @@ Remove-AzAutomationAccount -Name "ContosoAutomationAccount" -Force -ResourceGrou
 
 ## Next steps
 
-To learn about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).
+*Not sure what should go here.*
