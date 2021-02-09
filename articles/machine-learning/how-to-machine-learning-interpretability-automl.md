@@ -46,7 +46,7 @@ Retrieve the explanation from the `best_run`, which includes explanations for bo
 > * Seasonal Average 
 > * Seasonal Naive
 
-### Download engineered feature importance from artifact store
+### Download the engineered feature importances from the best run
 
 You can use `ExplanationClient` to download the engineered feature explanations from the artifact store of the `best_run`. 
 
@@ -58,7 +58,7 @@ engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### Download the raw feature importance from artifact store
+### Download the raw feature importances from the best run
 
 You can use `ExplanationClient` to download the raw feature explanations from the artifact store of the `best_run`.
 
@@ -121,9 +121,9 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
                          explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
-### Use MimicExplainer for computing and visualizing engineered feature importance
+### Use Mimic Explainer for computing and visualizing engineered feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also use `ExplanationDashboard` to view the dashboard visualization of the feature importance values of the generated engineered features by AutoML featurizers.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also navigate to `https://ml.azure.com/` to view the dashboard visualization of the feature importance values of the generated engineered features by AutoML featurizers.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -132,7 +132,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ### Use Mimic Explainer for computing and visualizing raw feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also use `ExplanationDashboard` to view the dashboard visualization of the feature importance values of the raw features.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the raw features. You can also use `https://ml.azure.com/` to view the dashboard visualization of the feature importance values of the raw features.
 
 ```python
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
@@ -193,9 +193,9 @@ with open("myenv.yml","r") as f:
 
 ```
 
-### Write the Scoring Script
+### Create the scoring script
 
-Write the script that will be used to predict on your model and creating inference time explanations.
+Write a script that loads your model and produces predictions and explanations based on a new batch of data.
 
 ```python
 %%writefile score.py
@@ -210,7 +210,7 @@ def init():
     global scoring_explainer
 
     # Retrieve the path to the model file using the model name
-    # Assume original model is named original_prediction_model
+    # Assume original model is named automl_model
     automl_model_path = Model.get_model_path('automl_model')
     scoring_explainer_path = Model.get_model_path('scoring_explainer')
 
