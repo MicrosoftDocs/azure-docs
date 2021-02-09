@@ -40222,6 +40222,11 @@
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
     },
+	 {
+      "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
       "redirect_url": "/azure/vpn-gateway/reset-gateway",
@@ -46060,6 +46065,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-container-faq.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto",
       "redirect_document_id": false
     },
     {
