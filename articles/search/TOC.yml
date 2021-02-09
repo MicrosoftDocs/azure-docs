@@ -212,7 +212,7 @@
     items:
     - name: Create an indexer
       href: search-howto-create-indexers.md
-    - name: Reset and run indexers
+    - name: Run or reset indexers
       href: search-howto-run-reset-indexers.md
     - name: Schedule an indexer
       href: search-howto-schedule-indexers.md

@@ -1,5 +1,5 @@
 ---
-title: Reset and run indexers
+title: Run or reset indexers
 titleSuffix: Azure Cognitive Search
 description: Reset an indexer, skills, or individual documents to refresh all or part of and index or knowledge store.
 
@@ -11,32 +11,60 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ---
 
-# How to reset and run indexers, skills, or documents
+# How to run or reset indexers, skills, or documents
 
-Reset APIs apply to [indexers](search-indexer-overview.md) and are used to set the scope of the next indexer job, triggering a full reprocess, almost as if it were the initial run. A reset becomes operative when you run the indexer on demand, or on the next scheduled run if it's on a schedule.
+Indexer execution can occur when you first create the [indexer](search-indexer-overview.md), when running an indexer on demand, or when setting an indexer on a schedule. After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
 
-The Reset APIs are primarily used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios). A secondary reason might be to force data synchronization between the underlying data source and search index, if somehow the documents appear to be mismatched. Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
+You can clear the high water mark by resetting the indexer if you want to reprocess from scratch. Reset APIs are available at decreasing levels in the object hierarchy:
 
-Reset APIs are available for the following objects:
-
-+ The entire corpus (use [Reset Indexers](#reset-indexers))
++ The entire search corpus (use [Reset Indexers](#reset-indexers))
 + A specific document or list of documents (use [Reset Skills (preview)](#reset-skills))
 + A specific skill or enrichment in a document (use [Reset Documents (preview)](#reset-docs))
 
+The Reset APIs are used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios), or to clear the high water mark and rebuild the index.
+
 If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
 
-A reset flag is cleared after the run is finished. Change detection logic will resume on the next run, picking up any other new or updated values in the rest of the data set.
+Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index that were created on previous runs. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
-> [!NOTE]
-> A reset request determines what is reprocessed (indexer, skill, or document), but does not otherwise affect indexer runtime behavior. If the indexer has run time parameters, field mappings, caching, batch options, and so forth, those settings are all in effect when you run an indexer after having reset it.
+## Run indexers
+
+[Create Indexer](/rest/api/searchservice/create-indexer) creates and runs the indexer unless you create it in a disabled state ("disabled": true). The first run takes a bit longer because its covering object creation as well.
+
+[Run indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with the data source. Blob storage has built-in change detection. Other data sources, such as Azure SQL or Cosmos DB, have to be configured for change detection before the indexer can read just the new and updated rows.
+
+You can run an indexer using any of these approaches:
+
++ Azure portal, using the **Run** command on the indexer page
++ [Run Indexer (REST)](/rest/api/searchservice/run-indexer)
++ [RunIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) in the Azure .NET SDK (or using the equivalent RunIndexer method in another SDK)
+
+Indexer execution is subject to the following limits:
+
++ Maximum number of indexer jobs is 1 per replica  No concurrent jobs.
+
+  If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '<indexer-name>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
+
++ Maximum running time is 2 hours if using a skillset, and 24 hours without. 
+
+  You can stretch out processing by putting the indexer on a schedule. The Free tier has lower run time limits. For the full list, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
 
 <a name="reset-indexers"></a>
 
 ## Reset an indexer
 
-Resetting an indexer is all encompassing. Any document that is populated by an indexer is marked for full processing. All fields, in all documents, are reindexed using the current content in the data source. Any new documents in the underlying source are added to the index as search documents. If you previously [cached enriched documents](search-howto-incremental-index.md), all cached content is replaced.
+Resetting an indexer is all encompassing. Within the search index, any search document that was originally populated by the indexer is marked for full processing. Any new documents found the underlying source will be added to the index as search documents. If the indexer is configured to use a skillset and [caching](search-howto-incremental-index.md), the skillset is rerun and the cache is refreshed.
 
-You can use the portal, [Reset Indexer (REST)](/rest/api/searchservice/reset-indexer), or an [ResetIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) on an Azure SDK to reset an indexer.
+You can reset an indexer using any of these approaches, followed by an indexer run using one of the methods discussed above.
+
++ Azure portal, using the **Reset** command on the indexer page
++ [Reset Indexer (REST)](/rest/api/searchservice/reset-indexer)
++ [ResetIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) in the Azure .NET SDK (or using the equivalent RunIndexer method in another SDK)
+
+A reset flag is cleared after the run is finished. Any regular change detection logic that is operative for your data source will resume on the next run, picking up any other new or updated values in the rest of the data set.
+
+> [!NOTE]
+> A reset request determines what is reprocessed (indexer, skill, or document), but does not otherwise affect indexer runtime behavior. If the indexer has run time parameters, field mappings, caching, batch options, and so forth, those settings are all in effect when you run an indexer after having reset it.
 
 <a name="reset-skills"></a>
 
@@ -48,6 +76,21 @@ You can use the portal, [Reset Indexer (REST)](/rest/api/searchservice/reset-ind
 For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) pertaining to the affected skills are also refreshed.
 
 [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is available through REST **`api-version=2020-06-30-Preview`**.
+
+```http
+POST https://[service name].search.windows.net/skillsets/[skillset name]/resetskills?api-version=2020-06-30-Preview
+{
+    "skillNames" : [
+        "#1",
+        "#5",
+        "#6"
+    ]
+}
+```
+
+You can specify individual skills, as indicated in the example above, but if any of those skills require output from unlisted skills (#2 through #4), unlisted skills will run unless the cache can provide the necessary information. In order for this to be true, cached enrichments for skills #2 through #4 must not have dependency on #1 (listed for reset).
+
+If no skills are specified, the entire skillset is executed and if caching is enabled, the cache is also refreshed.
 
 <a name="reset-docs"></a>
 
@@ -79,9 +122,9 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 }
 ```
 
-The document keys provided in the request are the values from the search index, which can be different from the corresponding fields in the data source. If you are unsure of the key value, [send a query](search-query-create.md) to return the value.
+The document keys provided in the request are values from the search index, which can be different from the corresponding fields in the data source. If you are unsure of the key value, [send a query](search-query-create.md) to return the value.You can use `select` to return just the document key field.
 
-For blobs that are parsed into multiple search documents (for example if you are using [jsonLines or jsonArrays](search-howto-index-json-blobs.md), or [delimitedText](search-howto-index-csv-blobs.md)), the document key is generated by the indexer. When search documents originate from a single blob parent, query the documents you want reprocess to get the correct key. The Reset Documents API cannot infer the field mapping for a generated key.
+For blobs that are parsed into multiple search documents (for example, if you used [jsonLines or jsonArrays](search-howto-index-json-blobs.md), or [delimitedText](search-howto-index-csv-blobs.md)) as a parsing mode, the document key is generated by the indexer and might be unknown to you. In this situation, a query for the document key will be instrumental in providing the correct value.
 
 Calling the API multiple times with different keys appends the new keys to the list of document keys reset. Calling the API with the **`overwrite`** parameter set to true will overwrite the current list of document keys to be reset with the request's payload:
 
@@ -96,9 +139,13 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 }
 ```
 
-### Check the status of the request
+## Check reset status
 
-To check the status of an indexer and to see which document keys are queued up for processing, use [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with **`api-version=06-30-2020-Preview`**. The preview API will return the **`currentState`** section shown below.
+To check the status of a reset and to see which document keys are queued up for processing, use [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with **`api-version=06-30-2020-Preview`**. The preview API will return the **`currentState`** section, which you can find at the end of the Get Indexer Status response.
+
+The "mode" will be **`indexingAllDocs`** for Reset Skills (because potentially all documents are affected, for the fields that are populated through AI enrichment).
+
+For Reset Documents, the mode is set to **`indexingResetDocs`**. The indexer retains this status until all the document keys provided in the reset documents call are processed and no other indexer jobs will execute while the operation is progressing. Finding all of the documents in the document keys list requires cracking each document to locate and match on the key, and this can take a while if the data set is large. If a blob container contains hundreds of blobs, and the docs you want to reset are at the end, the indexer won't find the matching blobs until all of the others have been checked first.
 
 ```json
 "currentState": {
@@ -114,19 +161,7 @@ To check the status of an indexer and to see which document keys are queued up f
 }
 ```
 
-The indexer state is set to **`indexingResetDocs`** until all the document keys provided in the reset documents call are processed. While in this mode, only those documents are indexed. 
-
 After the documents are reprocessed, the indexer returns to the **`indexingAllDocs`** mode and will process any other new or updated documents on the next run.
-
-## Run an indexer job
-
-**Run** invokes indexer processing over the content marked by reset (full search corpus, individual documents, or individual skills). Once the job is finished, any subsequent indexer run operates normally, refreshing search documents based on whether the content has changed, rather than being flagged by reset.
-
-Reset and run are independent tasks. After a reset, you will need to run the indexer using one of these approaches:
-
-+ Azure portal, using the **Run** command on the indexer page
-+ [Run Indexer (REST)](/rest/api/searchservice/run-indexer)
-+ [RunIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) in the Azure .NET SDK (or other SDKs)
 
 ## Next steps
 
