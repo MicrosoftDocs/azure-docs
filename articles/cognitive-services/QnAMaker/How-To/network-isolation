@@ -1,6 +1,11 @@
-
-
-
+---
+title: Network isolation
+description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure.
+ms.service: cognitive-services
+ms.subservice: qna-maker
+ms.topic: conceptual
+ms.date: 11/09/2020
+---
 
 # Recommended settings for network isolation
 
