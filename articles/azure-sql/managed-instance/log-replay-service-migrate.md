@@ -50,9 +50,7 @@ The following is required at the Azure side:
 
 Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
 
-<center>
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
-</center>
   
 | Orchestration step | Operation | Details |
 | :--: | :----------------------------- | :----------------------------- |
