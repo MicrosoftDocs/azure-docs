@@ -61,7 +61,7 @@ Building a custom solution using LRS to migrate a database to the cloud requires
 | **3 Cutover to the cloud when ready**. | - Once all backups have been restored to SQL Managed Instance, complete the cutover by initiating LRS complete operation with a choice of API call, PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) or CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br />- This will cause LRS service to be stopped and database on Managed Instance will be recovered. <br />-	Repoint the application connection string from SQL Server to SQL Managed Instance. <br />- On operation completion database is available for R/W operations in the cloud. |
 
 > [!IMPORTANT]
-> - Database being restored using LRS cannot be used until the migration has been completed. This is because underlying technology for LRS is log shipping in no recovery mode.
+> - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology for LRS is log shipping in no recovery mode.
 > - Log shipping standby mode is not\cannot be supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Server version.
 
 ##Copy backups from SQL Server to Azure Blob storage
