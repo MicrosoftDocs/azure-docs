@@ -192,9 +192,10 @@
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
+      displayName: release, job release
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
-      displayName: concurrent
+      displayName: variable, maximize
       href: batch-parallel-node-tasks.md
     - name: Task dependencies
       href: batch-task-dependencies.md
@@ -205,6 +206,7 @@
     - name: Schedule jobs for efficiency
       href: batch-job-schedule.md
     - name: Check for job and task errors
+      displayName: failure, troubleshoot
       href: batch-job-task-error-checking.md
   - name: Persist job and task output
     href: batch-task-output.md
@@ -217,29 +219,37 @@
     href: monitoring-overview.md
     items:
     - name: Use metrics and diagnostic logs
+      displayName: alert, monitor
       href: batch-diagnostics.md
     - name: Monitor with Application Insights
+      displayName: debug
       href: monitor-application-insights.md
     - name: Count resources by state
       href: batch-get-resource-counts.md
     - name: Query resources efficiently
+      displayName: monitor, queries
       href: batch-efficient-list-queries.md
   - name: Use scripting tools
     items:
     - name: Use Azure PowerShell
+      displayName: ps, scripting, cmdlet
       href: batch-powershell-cmdlets-get-started.md
     - name: Use Azure CLI
+      displayName: command line
       href: batch-cli-get-started.md
-      items:
-      - name: Use Batch CLI templates
-        href: batch-cli-templates.md
+    - name: Use Batch CLI templates
+      diplayName: extension
+      href: batch-cli-templates.md
   - name: Use Batch Node.js SDK
+    displayName: json
     href: batch-nodejs-get-started.md
   - name: Run workloads
     items:
-    - name: MPI jobs
+    - name: MPI 
+      displayName: multi-instance, message passing interface
       href: batch-mpi.md
     - name: Container workloads
+      displayName: docker
       href: batch-docker-container-workloads.md
     - name: Rendering
       items:
@@ -254,6 +264,7 @@
       - name: Rendering application reference
         href: batch-rendering-application-reference.md
       - name: Storage and data movement
+        displayName: rendering, assets
         href: batch-rendering-storage-data-movement.md
       - name: Rendering architectures
         href: batch-rendering-architectures.md
