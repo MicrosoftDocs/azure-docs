@@ -66,8 +66,6 @@ A global standard sku public IP is used for the frontend of the cross-region loa
 
 * Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
-* Create a health probe with [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig).
-
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
 * Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
@@ -223,7 +221,6 @@ In this tutorial, you:
 
 * Created a global IP address.
 * Created a cross-region load balancer.
-* Created a health probe.
 * Created a load-balancing rule.
 * Added regional load balancers to the backend pool of the cross-region load balancer.
 * Tested the load balancer.
