@@ -54,11 +54,11 @@ This article focuses on the migration steps. If you want to learn more about Azu
 * [Azure File Sync overview](./storage-sync-files-planning.md "Overview")
 * [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md)
 
-### StorSimple Service Data Encryption Key
+### StorSimple service data encryption key
 
-When you first set up your StorSimple appliance, it generated a Service Data Encryption Key and instructed you to securely store the key. This key is used to encrypt all data in the associated Azure storage account where the StorSimple appliance stores your files.
+When you first set up your StorSimple appliance, it generated a "service data encryption key" and instructed you to securely store the key. This key is used to encrypt all data in the associated Azure storage account where the StorSimple appliance stores your files.
 
-The service data encryption key is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
+The "service data encryption key" is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
 
 If you can't find the keys in your records, you can retrieve the key from the appliance. Each appliance has a unique encryption key. To retrieve the key:
 
@@ -76,12 +76,12 @@ If you can't find the keys in your records, you can retrieve the key from the ap
 ### StorSimple volume backups
 
 StorSimple offers differential backups on the volume level. Azure file shares also have this ability, called share snapshots.
-Your migration jobs can only move backups, not data from the live volume. So the most recent backup should be on the list of backups moved in a migration.
+Your migration jobs can only move backups, not data from the live volume. So the most recent backup should always be on the list of backups moved in a migration.
 
 Decide if you need to move any older backups during your migration.
 Best practice is to keep this list as small as possible, so your migration jobs complete faster.
 
-To identify critical backups that must be migrated, make a checklist of your backup policies that must be saved. For instance:
+To identify critical backups that must be migrated, make a checklist of your backup policies. For instance:
 * The most recent backup. (Note: The most recent backup should always be part of this list.)
 * One backup a month for 12 months.
 * One backup a year for three years. 
@@ -117,7 +117,7 @@ If you've made a list of your shares, map each share to the storage account wher
 At the end of Phase 1:
 
 * You have a good overview of your StorSimple devices and volumes.
-* The Data Manager service is ready to access your StorSimple volumes in the cloud because you've retrieved your service data encryption key for each StorSimple device.
+* The Data Manager service is ready to access your StorSimple volumes in the cloud because you've retrieved your "service data encryption key" for each StorSimple device.
 * You have a plan for which volumes and backups (if any beyond the most recent) need to be migrated.
 * You know how to map your volumes to the appropriate number of Azure file shares and storage accounts.
 
@@ -349,7 +349,7 @@ Sorts multiple source locations into a new directory structure:
 Your migration jobs are listed under *Job definitions* in the Data Manager resource you've deployed to a resource group.
 From the list of job definitions, select the job you want to run.
 
-In the job blade that opens, you can see your job runs in the lower list. Initially, this list will be empty. At the top of the blade, there is a command called *Run job*. This command will not immediately run the job, it opens the **displayed job run** blade.
+In the job blade that opens, you can see your job runs in the lower list. Initially, this list will be empty. At the top of the blade, there is a command called *Run job*. This command will not immediately run the job, it opens the **Job run** blade:
 
 :::row:::
     :::column:::
