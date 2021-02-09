@@ -27,9 +27,9 @@ If you're having problems installing the My Apps Secure Sign-in Extension:
 
     - **Microsoft Edge.** Running on Windows 10 Anniversary Edition or later.
 
-    - **Google Chrome.** Running on Windows 7 or later, and on Mac OS X or later.
+    - **Google Chrome.** Running on Windows 7 or later, and on macOS X or later.
 
-    - **Mozilla Firefox 26.0 or later.** Running on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
+    - **Mozilla Firefox 26.0 or later.** Running on Windows XP SP2 or later, and on macOS X 10.6 or later.
 
     - **Internet Explorer 11.** Running on Windows 7 or later (limited support).
 
