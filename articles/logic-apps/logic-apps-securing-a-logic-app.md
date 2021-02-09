@@ -177,7 +177,7 @@ Before you enable Azure AD OAuth, review these considerations:
 
 <a name="define-authorization-policy-portal"></a>
 
-#### [Portal](#tab/azure-portal/authorization-policy-portal)
+#### [Portal](#tab/azure-portal)
 
 To enable Azure AD OAuth for your logic app in the Azure portal, add one or more authorization policies to your logic app by following these steps:
 
@@ -211,7 +211,7 @@ To enable Azure AD OAuth for your logic app in the Azure portal, add one or more
 
 <a name="define-authorization-policy-template"></a>
 
-#### [Resource Manager Template](#tab/azure-resource-manager/authorization-policy-template)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 To enable Azure AD OAuth in the ARM template for deploying your logic app, define an authorization policy by following these steps and the syntax below:
 
@@ -309,7 +309,7 @@ Regardless of any IP addresses that you specify, you can still run a logic app t
 
 <a name="restrict-inbound-ip-portal"></a>
 
-#### [Portal](#tab/azure-portal/restrict-inbound-ip-portal)
+#### [Portal](#tab/azure-portal)
 
 To restrict the inbound IP addresses for your logic app through the Azure portal, follow these steps:
 
@@ -343,7 +343,7 @@ To restrict the inbound IP addresses for your logic app through the Azure portal
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### [Resource Manager Template](#tab/azure-resource-manager/restrict-inbound-ip-template)
+#### [Resource Manager Template](#tab/azure-resource-managere)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the permitted inbound IP address ranges in your logic app's resource definition by using the `accessControl` section. In this section, use the `triggers`, `actions`, and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the permitted IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
 
