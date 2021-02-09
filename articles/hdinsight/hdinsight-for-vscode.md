@@ -218,7 +218,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
 10. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
-11. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive / Synapse: Pyspark Interactive** to submit the query. 
+11. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive / Synapse: Pyspark Interactive** to submit the query. 
 
     ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
