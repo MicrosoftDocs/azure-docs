@@ -40,7 +40,7 @@ Verify you have an existing Azure Arc-enabled Kubernetes connected cluster. If y
     └── app.yaml
 ```
 
-In the git repo we have two directories: one containing a Helm Chart and one containing the releases config. In the `releases` directory, the `app.yaml` contains the HelmRelease config, shown below:
+In the Git repo we have two directories: one containing a Helm Chart and one containing the releases config. In the `releases` directory, the `app.yaml` contains the HelmRelease config, shown below:
 
 ```yaml
 apiVersion: helm.fluxcd.io/v1
@@ -74,7 +74,7 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 
 ## Create a configuration
 
-Using the Azure CLI extension for `k8sconfiguration`, link your connected cluster to the example git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
+Using the Azure CLI extension for `k8sconfiguration`, link your connected cluster to the example Git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
 ```console
 az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
