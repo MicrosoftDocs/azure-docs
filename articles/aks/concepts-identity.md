@@ -156,7 +156,7 @@ Alternatively you could give your user the general [Contributor](../role-based-a
 
 See more how to use Azure RBAC to secure the access to the kubeconfig file that gives access to the Kubernetes API [here](control-kubeconfig-access.md).
 
-### Azure RBAC for Kubernetes Authorization (Preview)
+### Azure RBAC for Kubernetes Authorization
 
 With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to enable you to manage permissions and assignments of Azure AD-integrated K8s cluster resources using Azure role definition and role assignments.
 
@@ -169,7 +169,6 @@ But after that, instead of solely relying on Kubernetes RBAC for Authorization, 
 In this scenario you could give users one of the four built-in roles, or create custom roles as you would do with Kubernetes roles but in this case using the Azure RBAC mechanisms and APIs. 
 
 This feature will allow you to, for example, not only give users permissions to the AKS resource across subscriptions but set up and give them the role and permissions that they will have inside each of those clusters that controls the access to the Kubernetes API. For example, you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope and its recipient will be able to list and get all Kubernetes objects from all clusters, but not modify them.
-
 
 #### Built-in roles
 
