@@ -2,7 +2,7 @@
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 02/09/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
@@ -124,23 +124,44 @@ For more information the following tables below indicates T-SQL commands for man
 - Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
 - Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
 - [Point-in-time restore (PITR)](../azure-sql/database/recovery-using-backups.md#point-in-time-restore) backups are only taken on the primary database, this is by design. When migrating databases from Azure Germany using Geo-DR, PITR backups will start happening on the new primary after failover. However, the existing PITR backups (on the previous primary in Azure Germany) will not be migrated. If you need PITR backups to support any point-in-time restore scenarios, you need to restore the database from PITR backups in Azure Germany and then migrate the recovered database to global Azure. 
-- If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on an Azure Germany database, you need to copy and recreate the LTR policy on the new database after migrating to a new region. Long-term retention policies are not migrated with the database. APIs to copy LTR backups to a new region should be released by the end of March.
+- Long-term retention policies are not migrated with the database. If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on your database in Azure Germany, you need to manually copy and recreate the LTR policy on the new database after migrating. Functionality to migrate LTR backups from Azure Germany to global Azure are not currently available.
 
 
 ### Requesting access
 
 To migrate a database from Azure Germany to global Azure using geo-replication, your subscription *in global Azure* needs to be enabled to successfully configure the cross-cloud migration.
 
-To enable your global Azure subscription, create a specific type of support request in teh Azure portal. 
+To enable your global Azure subscription, create a support request in the Azure portal with the following information: 
 
-1. Open a new [support request ticket](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fportal.microsoftazure.de%2F%23create%2FMicrosoft.Support%2FParameters%2F%257B%250D%250A%2B%2B%2B%2B%2522pesId%2522%253A%2B%2522f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%2522%252C%250D%250A%2B%2B%2B%2B%2522supportTopicId%2522%253A%2B%25229fc72ed5-805f-3894-eb2b-b1f1f6557d2d%2522%252C%250D%250A%2B%2B%2B%2B%2522contextInfo%2522%253A%2B%2522Migration%2Bfrom%2Bcloud%2BGermany%2Bto%2BAzure%2Bglobal%2Bcloud%2B%2528Azure%2BSQL%2BDatabase%2529%2522%252C%250D%250A%2B%2B%2B%2B%2522caller%2522%253A%2B%2522NoSupportPlanCloudGermanyMigration%2522%252C%250D%250A%2B%2B%2B%2B%2522severity%2522%253A%2B%25223%2522%250D%250A%257D&data=04%7C01%7Csstein%40microsoft.com%7C8ffca68429d04f968aa908d8cc7d1747%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637484184920672952%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Waits1lT7h1760cT84sNU%2BTWrFw%2FCOsIAP%2BOaLP8eqk%3D&reserved=0).
+1. Open a new [support request ticket]().
+
+2. Complete the form with the following information, and then select **Next: Solutions**
+ 
+   |Field|Value|
+   |:---|:---|
+   |Issue type|Subscription management|
+   |Subscription|The global Azure subscription to migrate the database to|
+   |Summary|Geo-DR migration|
+   |Problem type|Migration and Move|
+   |Problem subtype|Migration from cloud Germany to Azure global cloud|
+
+   :::image type="content" source="media/germany-migration-databases/support-request-basics.png" alt-text="new support request form":::
+
+3. Review the content under the heading: **Information required for database migration using active geo-replication**, then select **Next: Details**. 
+
+   :::image type="content" source="media/germany-migration-databases/support-request-required-information.png" alt-text="required support request information":::
+
+4. On the details page, provide the required information detailed in the previous step:
+   1. Contact information; name, company name, contact email.
+   1. The source (Azure Germany) and target (global Azure) subscription IDs for the migration. If you're migrating databases to multiple global Azure subscriptions, provide unique pairs for each source and target subscription combination.
+   1. Complete the form, then select **Next: Review + create**.
+
+   :::image type="content" source="media/germany-migration-databases/support-request-details.png" alt-text="support request details":::
 
 
-1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
-1. In **Help + support**, select **New support request**.
-1. For **Issue type**, select **Geo-replication, Failover Groups and DB Copy**.
-1. For **Issue sub-type**, select **Migration from German cloud to global cloud**.
-1. For **Subscription**, select the global Azure subscription. The global Azure subscription where the database will be migrated to.
+After reviewing the support request, select **Create**. 
+
+It can take up to 24 hours to process the support request. Confirmation will be sent to the contact email provided.
 
 
 
@@ -221,7 +242,7 @@ To export from the source instance and import to the destination instance:
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
 
 For this approach, you must modify your application. The application needs to write data to more than one cache instance while reading from one of the cache instances. This approach makes sense if the data stored in Azure Cache for Redis meets the following criteria:
-- The data is refreshed on a regular basis. 
+- The data is refreshed regularly. 
 - All data is written to the target Azure Cache for Redis instance.
 - You have enough time for all data to be refreshed.
 
