@@ -11,7 +11,7 @@ ms.date: 11/09/2020
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-* Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+* Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Protect App Service (QnA Runtime) from public access.
 
    ##### Add IPs to App Service allowlist
