@@ -7,14 +7,15 @@ ms.date: 02/09/2021
 
 # Tutorial: Delete an Azure VMware Solution private cloud
 
-If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. An Azure VMware Solution private cloud includes an isolated network domain, one or more provisioned vSphere clusters on dedicated server hosts, and several virtual machines. When a private cloud is deleted, all of the virtual machines, their data, and clusters are deleted. The dedicated bare-metal hosts are securely wiped and returned to the free pool. The network domain provisioned for the customer is deleted.  
+If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. The private cloud includes an isolated network domain, one or more provisioned vSphere clusters on dedicated server hosts, and several virtual machines (VMs). When you delete a private cloud, all of the VMs, their data, and clusters are deleted. The dedicated hosts are securely wiped and returned to the free pool. The network domain provisioned for the customer is also deleted.  
 
 > [!CAUTION]
 > Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered, as it terminates all running workloads and components and destroys all private cloud data and configuration settings, including public IP addresses.
 
 ## Prerequisites
 
-Once a private cloud is deleted, there's no way to recover the virtual machines and their data. If the virtual machine data will be required later, the admin must first back up all of the data before deleting the private cloud.
+If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  There's no way to recover the VMs and their data.
+
 
 ## Delete the private cloud
 
