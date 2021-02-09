@@ -8,7 +8,7 @@ ms.date: 02/8/2021
 
 # Downtime, SLA, and outages workbook
 
-Introducing a simple way to calculate and report SLA(service-level agreement) for Web Tests through a single pane of glass across your Application Insights resources and Azure subscriptions. The Downtime and Outage report provides powerful pre-built queries and data visualizations to enhance your understanding of your customer's connectivity, typical application response time, and experienced down time.
+Introducing a simple way to calculate and report SLA (service-level agreement) for Web Tests through a single pane of glass across your Application Insights resources and Azure subscriptions. The Downtime and Outage report provides powerful pre-built queries and data visualizations to enhance your understanding of your customer's connectivity, typical application response time, and experienced down time.
 
 The SLA workbook template is accessible through the workbook gallery in your Application Insights resource or through the availability tab by selecting **SLA Reports** at the top.
 :::image type="content" source="./media/sla-report/availability.png" alt-text="Screenshot of availability tab with SLA Reports highlighted." lightbox="./media/sla-report/availability.png":::
