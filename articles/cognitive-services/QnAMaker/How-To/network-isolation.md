@@ -56,7 +56,7 @@ ms.date: 11/09/2020
     2. Create a new Cognitive Search resource with Endpoint connectivity (data) set to _Private_. Create the resource in the same region as the QnA Maker resource created in step 1. Learn more about [creating a Cognitive Search resource](../../../search/search-create-service-portal.md), then use this link to go directly to the [creation page of the resource](https://ms.portal.azure.com/#create/Microsoft.Search).
     3. Create a new [Virtual Network resource](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
     4. Configure the VNET on the App service resource created in step 1 of this procedure. Create a new DNS entry in the VNET for new Cognitive Search resource created in step 2. to the Cognitive Search IP address.
-    5. [Associate the App service to the new Cognitive Search resource](../how-to/set-up-qnamaker-service-azure) created in step 2. Then, you can delete the original Cognitive Search resource created in step 1.
+    5. [Associate the App service to the new Cognitive Search resource](../how-to/set-up-qnamaker-service-azure.md) created in step 2. Then, you can delete the original Cognitive Search resource created in step 1.
     
     In the [QnA Maker portal](https://www.qnamaker.ai/), create your first knowledge base.
 
