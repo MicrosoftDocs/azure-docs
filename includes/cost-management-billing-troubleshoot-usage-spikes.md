@@ -33,7 +33,7 @@ The following image shows what a spike in Bandwidth (Data Transfers) looks like.
 
 :::image type="content" source="./media/cost-management-billing-troubleshoot-usage-spikes/data-usage-spike.png" alt-text="Screenshot of Excel showing a usage spike." lightbox="./media/cost-management-billing-troubleshoot-usage-spikes/data-usage-spike.png" :::
 
-The spike is for a particular resource. In this case, row 7 in the Excel file shows the cost values for the Storage account **storageaccountnameazurefile1**. On October 2 2020, the cost has a value near zero (0) USD (2.23043E-06, which equals to 0.000002230431449). You can see a large spike on October 2 2020 and October 3 2020, when the cost goes to 10,000 and 28,000 USD. Costs returned to normal on October 4 2020 (9.29E-07).
+The spike is for a particular resource. In this case, row 7 in the Excel file shows the cost values for the Storage account **storageaccountnameazurefile1**. On October 1 2020, the cost has a value near zero (0) USD (2.23043E-06, which equals to 0.000002230431449). You can see a large spike on October 2 2020 and October 3 2020, when the cost goes to 10,000 and 28,000 USD. Costs returned to normal on October 4 2020 (9.29E-07).
 
 In this example, you identified the resource that incurred a large bandwidth charge, the dates it occurred, and the specific product (Inter-region – Data Transfer Out – Europe). Determine if the spike resulted from a large data transfer. Use the information in the preceding sections to verify your affected resource.
 
