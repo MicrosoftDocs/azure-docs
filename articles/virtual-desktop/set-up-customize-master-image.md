@@ -12,7 +12,7 @@ manager: lizross
 This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 >[!IMPORTANT]
->We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the WIndows Virtual Desktop Agent installed on your device. Using a customized image with the Windows Virtual Desktop Agent can cause problems with the image.  
+>We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Windows Virtual Desktop Agent installed on your VM. Using a customized image with the Windows Virtual Desktop Agent can cause problems with the image, blocking registration, and preventing user session connections.  
 
 ## Create a VM
 
