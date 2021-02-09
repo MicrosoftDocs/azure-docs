@@ -3,7 +3,7 @@ title: Connect to your Azure Percept DK over SSH
 description: Learn how to SSH into your Azure Percept DK with PuTTY
 author: elqu20
 ms.author: v-elqu
-ms.service: azure-percept
+ms.service: rtos #temporary, will update to azure-percept once available
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -54,3 +54,4 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 After successfully connecting to your Azure Percept DK through SSH, you may perform a variety of tasks, including troubleshooting, USB updates, and running the DiagTool or SoftAP Tool.
 
 [comment]: # (Add links to OOBE and next step articles when available.)
+[comment]: # (Update ms.service)
