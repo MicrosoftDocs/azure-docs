@@ -143,7 +143,7 @@ In such a [shared architecture](../choose-natural-language-processing-service.md
 
 ### Active learning from a client application
 
-QnA Maker uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](active-learning-suggestions.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
+QnA Maker uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](/How-To/use-active-learning.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
 
 ### Providing a default answer
 
