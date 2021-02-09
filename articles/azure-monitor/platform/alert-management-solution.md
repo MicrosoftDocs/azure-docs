@@ -61,7 +61,7 @@ Click on the **Alert Management** tile to open the **Alert Management** dashboar
 | Active System Center Operations Manager Alerts |All alerts collected from Operations Manager with any state other than *Closed* grouped by source that generated the alert. |
 | All Active Alerts |All alerts with any severity grouped by alert name. Only includes Operations Manager alerts with any state other than *Closed*. |
 
-If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](../log-query/log-query-overview.md) for alert data.
+If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](../logs/log-query-overview.md) for alert data.
 
 ![Alert Management dashboard](media/alert-management-solution/dashboard.png)
 

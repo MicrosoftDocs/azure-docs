@@ -64,7 +64,7 @@ The following areas of Application Insights can be helpful when evaluating the b
 
 ## Query telemetry data
 
-[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
+[Application Insights Analytics](../azure-monitor/logs/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
 
 Choose **Logs** to explore or query for logged events.
 

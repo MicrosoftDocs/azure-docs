@@ -152,7 +152,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 
 - [Logging overview](ag/ag-overview.md#logging)
 
-- [Azure Monitor log query overview](../azure-monitor/log-query/log-query-overview.md)
+- [Azure Monitor log query overview](../azure-monitor/logs/log-query-overview.md)
 
 - [Overview of Azure Platform logs](../azure-monitor/essentials/platform-logs-overview.md)
 

@@ -108,7 +108,7 @@ When routing IoT Hub platform metrics to Azure Monitor Logs, be aware that:
 
 - Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### SDK version in IoT Hub logs
 

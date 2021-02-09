@@ -36,7 +36,7 @@ For more information, see [Create and manage activity log alerts](../../azure-mo
 
 You can create queries to analyze your logged activity or focus on specific items. For example, perhaps an audit requires you to report on all administrative-level actions performed on a subscription. You can create a query to filter on only these actions and sort the results by user, date, or another value.
 
-For more information, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+For more information, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 ## View user activity across domains
 

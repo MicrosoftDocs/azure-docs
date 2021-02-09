@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Query logs from Start/Stop VMs during off-hours
 
-Azure Automation forwards two types of records to the linked Log Analytics workspace: job logs and job streams. This article reviews the  data available for [query](../azure-monitor/log-query/log-query-overview.md) in Azure Monitor.
+Azure Automation forwards two types of records to the linked Log Analytics workspace: job logs and job streams. This article reviews the  data available for [query](../azure-monitor/logs/log-query-overview.md) in Azure Monitor.
 
 ## Job logs
 

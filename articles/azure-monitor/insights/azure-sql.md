@@ -173,7 +173,7 @@ Automated alerting in Azure SQL Analytics is based on writing a Log Analytics qu
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../alerts/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../log-query/log-query-overview.md) that you can use with a log alert:
+You can easily [create alerts](../alerts/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../logs/log-query-overview.md) that you can use with a log alert:
 
 #### High CPU
 
@@ -294,7 +294,7 @@ While Azure SQL Analytics is free to use, consumption of diagnostics telemetry a
 
 ## Next steps
 
-- Use [log queries](../log-query/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
+- Use [log queries](../logs/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
 - [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
 

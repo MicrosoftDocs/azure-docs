@@ -85,7 +85,7 @@ Filtering details:
 * Filter on `DscResourceStatusData` to return operations for each DSC resource called in the node configuration applied to that resource. 
 * Filter on `DscResourceStatusData` to return error information for any DSC resources that fail.
 
-To learn more about constructing log queries to find data, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+To learn more about constructing log queries to find data, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### Send an email when a State Configuration compliance check fails
 
@@ -194,5 +194,5 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 - For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
-- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 - To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).

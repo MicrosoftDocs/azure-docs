@@ -246,7 +246,7 @@
       items:
       - name: Overview
         displayname: log query, log queries, query, queries
-        href: log-query/log-query-overview.md
+        href: logs/log-query-overview.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

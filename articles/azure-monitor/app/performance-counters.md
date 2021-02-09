@@ -106,7 +106,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## Performance counters in Analytics
-You can search and display performance counter reports in [Analytics](../log-query/log-query-overview.md).
+You can search and display performance counter reports in [Analytics](../logs/log-query-overview.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 

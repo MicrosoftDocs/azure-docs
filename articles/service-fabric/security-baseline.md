@@ -222,7 +222,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [Log Analytics Log Searches](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -264,7 +264,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 **Guidance**: Use Azure Log Analytics workspace queries to query Azure Service Fabric logs.
 
-* [Log Analytics Log Searches](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 

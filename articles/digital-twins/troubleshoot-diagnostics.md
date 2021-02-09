@@ -251,7 +251,7 @@ Here is how to query the logs for your instance.
     - The *Queries* tab contains the example queries that you can load into the editor.
     - The *Filter* tab lets you customize a filtered view of the data that the query returns.
 
-For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
+For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## Next steps
 

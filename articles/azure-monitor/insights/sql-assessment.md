@@ -253,5 +253,5 @@ The results can then be exported to Excel for further review.
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* [Log queries](../log-query/log-query-overview.md) to learn how to analyze detailed SQL Health Check data and recommendations.
+* [Log queries](../logs/log-query-overview.md) to learn how to analyze detailed SQL Health Check data and recommendations.
 

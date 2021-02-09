@@ -24,7 +24,7 @@ Use the dropdown boxes at the top of the screen to change the workspace or the t
 
 [![Screenshot shows the Azure portal menu with Solutions selected and solutions displayed in the Solutions pane.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../log-query/log-query-overview.md).
+Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../logs/log-query-overview.md).
 
 ## List installed monitoring solutions
 
@@ -281,5 +281,5 @@ Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name W
 ## Next steps
 
 * Get a [list of monitoring solutions from Microsoft](../monitor-reference.md).
-* Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.
+* Learn how to [create queries](../logs/log-query-overview.md) to analyze data collected by monitoring solutions.
 * See all [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).

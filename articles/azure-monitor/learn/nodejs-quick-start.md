@@ -127,5 +127,5 @@ When you're done testing, you can delete the resource group and all related reso
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](../log-query/log-query-overview.md)
+> [Find and diagnose performance problems](../logs/log-query-overview.md)
 

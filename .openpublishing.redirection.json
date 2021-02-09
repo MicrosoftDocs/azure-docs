@@ -62969,6 +62969,11 @@
       "source_path_from_root": "/articles/azure-monitor/learn/quick-create-workspace-cli.md",
       "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/log-query-overview.md",
+      "redirect_url": "/azure/azure-monitor/logs/log-query-overview",
+      "redirect_document_id": false
     }
   ]
 }

@@ -147,7 +147,7 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
+* [Understanding log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

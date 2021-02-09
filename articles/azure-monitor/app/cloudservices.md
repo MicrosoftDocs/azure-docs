@@ -28,7 +28,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
+Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md), [querying your data with Analytics](../logs/log-query-overview.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](./monitor-web-app-availability.md) and [add code to your webpages](./javascript.md).
 
@@ -257,7 +257,7 @@ For an overall picture of your system, you can display the key monitoring charts
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../learn/mobile-center-quickstart.md). Create queries in [Analytics](../log-query/log-query-overview.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../learn/mobile-center-quickstart.md). Create queries in [Analytics](../logs/log-query-overview.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.

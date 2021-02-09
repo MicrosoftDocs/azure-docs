@@ -94,7 +94,7 @@ To view EventCounter metrics in [Metric Explorer](../essentials/metrics-charts.m
 
 ## Event counters in Analytics
 
-You can also search and display event counter reports in [Analytics](../log-query/log-query-overview.md), in the **customMetrics** table.
+You can also search and display event counter reports in [Analytics](../logs/log-query-overview.md), in the **customMetrics** table.
 
 For example, run the following query to see what counters are collected and available to query:
 
