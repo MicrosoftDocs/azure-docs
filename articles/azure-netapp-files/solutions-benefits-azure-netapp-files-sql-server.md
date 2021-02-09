@@ -18,13 +18,13 @@ ms.author: b-juche
 ---
 #  Benefits of using Azure NetApp Files for SQL Server deployment
 
-Azure NetApp Files reduces SQL Server total cost of ownership (TCO) up to three times as compared to block storage solutions.  With block storage, virtual machines have imposed limits on I/O and bandwidth for disk operations, network bandwidth limits alone are applied against Azure NetApp Files, and on egress only at that.  In other words, no VM level I/O limits are applied to Azure NetApp Files. Without these I/O limits, SQL Server running on smaller virtual machines connected to Azure NetApp Files can perform as well as SQL Server running on much larger virtual machines. Sizing instances down as such reduces the compute cost to 25% of the former price tag.  *You can reduce compute costs as much as four times with Azure NetApp Files.*  
+Azure NetApp Files reduces SQL Server total cost of ownership (TCO) up to three times as compared to block storage solutions.  With block storage, virtual machines have imposed limits on I/O and bandwidth for disk operations, network bandwidth limits alone are applied against Azure NetApp Files.  In other words, no VM level I/O limits are applied to Azure NetApp Files. Without these I/O limits, SQL Server running on smaller virtual machines connected to Azure NetApp Files can perform as well as SQL Server running on much larger virtual machines. Sizing instances down as such reduces the compute cost to 25% of the former price tag.  *You can reduce compute costs as much as four times with Azure NetApp Files.*  
 
 Compute costs, however, are small compared to SQL Server license costs.  Microsoft SQL Server [licensing](https://download.microsoft.com/download/B/C/0/BC0B2EA7-D99D-42FB-9439-2C56880CAFF4/SQL_Server_2017_Licensing_Datasheet.pdf) is tied to physical core count. As such, decreasing instance size introduces an even larger cost saving for software licensing. *You can reduce software license costs as much as four times with Azure NetApp Files.*
 
 The cost of the storage itself is variable depending on the actual size of the database. Regardless of the storage selected, capacity has cost, whether it is a managed disk or file share.  As database sizes increase and the storage increases in cost, the storage contributes to the TCO increases, affecting the overall cost.  As such, the assertion is adjusted to as follows: *You can reduce SQL Server deployment costs by three times with Azure NetApp Files.* 
 
-This article shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.  It explains that, not only do smaller instances have sufficient CPU to do the database work only possible with block on larger instances, *in many cases, the smaller instances are even more performant than their larger, disk-based counterparts because of Azure NetApp Files.* 
+This article shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment. Not only do smaller instances have sufficient CPU to do the database work only possible with block on larger instances, *in many cases, the smaller instances are even more performant than their larger, disk-based counterparts because of Azure NetApp Files.* 
 
 ## Detailed cost analysis 
 
@@ -69,8 +69,8 @@ Scalability is only part of the story. The other part is latency.  It’s one th
 
 * The D4 drove 26,000 IOPS against Azure NetApp Files at 2.3 ms latency  
 * The D8 drove 51,000 IOPS against Azure NetApp Files at 2.0 ms latency  
-* The D16 drove 88,000 IOPS against Azure NetApp Files at 2.8ms latency
-* The D32 drove 80,000 IOPS against Azure NetApp Files at 2.4ms latency.  
+* The D16 drove 88,000 IOPS against Azure NetApp Files at 2.8 ms latency
+* The D32 drove 80,000 IOPS against Azure NetApp Files at 2.4 ms latency.  
 
 ### S3B Per Instance Type Latency Results
 
