@@ -7,7 +7,7 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/02/2021
-ms.author: yashesvi
+ms.author: yashar
 ---
 
 # Virtual machine size flexibility with Reserved VM Instances
