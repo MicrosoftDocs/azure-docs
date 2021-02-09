@@ -14,64 +14,12 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS now supports Ubuntu 18.04 as the node operating system (OS) in general availability for clusters in kubernetes versions higher than 1.18.8. For versions below 1.18.x, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18.x and onward, the default base is AKS Ubuntu 18.04.
+AKS now supports Ubuntu 18.04 as the default node operating system (OS) in general availability for clusters in kubernetes versions higher than 1.18.8. For versions below 1.18.x, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18.x and onward, the default base is AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
 > Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
 > 
-> It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater. Read about how to [test Ubuntu 18.04 node pools](#use-aks-ubuntu-1804-existing-clusters-preview).
-
-The following section will explain how you case use and test AKS Ubuntu 18.04 on clusters that aren't yet using a kubernetes version 1.18.x or higher, or were created before this feature became generally available, by using the OS configuration preview.
-
-You must have the following resources installed:
-
-- [The Azure CLI][azure-cli-install], version 2.2.0 or later
-- The aks-preview 0.4.35 extension
-
-To install the aks-preview 0.4.35 extension or later, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Register the `UseCustomizedUbuntuPreview` feature:
-
-```azurecli
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-### Use AKS Ubuntu 18.04 on new clusters (Preview)
-
-Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-If you want to create clusters with the AKS Ubuntu 16.04 image, you can do so by omitting the custom `--aks-custom-headers` tag.
-
-### Use AKS Ubuntu 18.04 existing clusters (Preview)
-
-Configure a new node pool to use Ubuntu 18.04. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS for that node pool.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so by omitting the custom `--aks-custom-headers` tag.
+> It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
 
 ## Container runtime configuration
 
@@ -170,7 +118,7 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
   * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
 * Building images - You can continue to use your current docker build workflow as normal, unless you are building imagages inside your AKS cluster. In this case, please consider switching to the recommended approach for building images using [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md), or a more secure in-cluster option like [docker buildx](https://github.com/docker/buildx).
 
-## Generation 2 virtual machines (Preview)
+## Generation 2 virtual machines
 
 Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/generation-2.md). Generation 2 VMs support key features that aren't supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
 
@@ -179,41 +127,7 @@ Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported size
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 
-To use Gen2 VMs during preview, you'll require:
-- The `aks-preview` CLI extension installed.
-- The `Gen2VMPreview` feature flag registered.
-
-Register the `Gen2VMPreview` feature:
-
-```azurecli
-az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-To install the aks-preview CLI extension, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-To update the aks-preview CLI extension, use the following Azure CLI commands:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Use Gen2 VMs on new clusters (Preview)
+### Use Gen2 VMs on new clusters
 Configure the cluster to use Gen2 VMs for the selected SKU when the cluster is created. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation on a new cluster.
 
 ```azurecli
@@ -222,7 +136,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 
 If you want to create a regular cluster using Generation 1 (Gen1) VMs, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more Gen1 or Gen2 VMs as per below.
 
-### Use Gen2 VMs on existing clusters (Preview)
+### Use Gen2 VMs on existing clusters
 Configure a new node pool to use Gen2 VMs. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation for that node pool.
 
 ```azurecli
