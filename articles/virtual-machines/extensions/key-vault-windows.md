@@ -36,23 +36,23 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
   - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
   -  VMSS should have the following identity setting:
 
-    ``` 
-    "identity": {
+  ``` 
+  "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-    "[parameters('userAssignedIdentityResourceId')]": {}
+      "[parameters('userAssignedIdentityResourceId')]": {}
     }
-      }
-    ```
+  }
+  ```
   
   - AKV extension should have this setting:
 
-    ```
-    "authenticationSettings": {
+  ```
+  "authenticationSettings": {
     "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
-    }
-   ```
+  }
+  ```
 
 ## Extension schema
 
