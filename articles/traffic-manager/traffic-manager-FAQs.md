@@ -344,7 +344,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](/rest/api/trafficmanager/), [PowerShell cmdlets](/powershell/module/az.trafficmanager), and [cross-platform Azure CLI](/cli/azure/install-classic-cli).
 
-You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](../azure-monitor/platform/data-platform.md).
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](../azure-monitor//data-platform.md).
 
 ### Can I monitor HTTPS endpoints?
 

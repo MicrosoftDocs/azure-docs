@@ -3296,7 +3296,7 @@ Additional configuration of the content-match `pingText` parameter is controlled
 
 ## Next steps
 
-- [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+- [Get other sample templates for Azure Monitor](..//resource-manager-samples.md).
 - [Learn more about alerts](../platform/alerts-overview.md).
 - [Get a sample to create an action group with Resource Manager template](resource-manager-action-groups.md)
 

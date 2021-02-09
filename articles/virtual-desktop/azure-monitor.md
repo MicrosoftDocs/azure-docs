@@ -165,7 +165,7 @@ To install the Log Analytics agent:
 
 ## Optional: configure alerts
 
-You can configure Azure Monitor for Windows Virtual Desktop to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+You can configure Azure Monitor for Windows Virtual Desktop to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Diagnostic and usage data
 

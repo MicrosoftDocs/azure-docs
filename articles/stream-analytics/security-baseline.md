@@ -194,7 +194,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 * [Azure Stream Analytics provides diagnostic logs and activity data for review](./stream-analytics-job-diagnostic-logs.md)
 

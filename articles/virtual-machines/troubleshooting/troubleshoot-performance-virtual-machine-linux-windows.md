@@ -98,7 +98,7 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### CPU observe trends
 
-When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md).
+When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](../../azure-monitor//data-platform.md).
 
 Spiking – Spiking could be related to a scheduled task/known event. If you can identify the task, determine whether the task runs at the required performance level. If performance is acceptable, you may not need to increase resources.
 

@@ -149,8 +149,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
-* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor//powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor//cli-samples.md)
 
 ## Summary
 

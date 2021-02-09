@@ -116,6 +116,6 @@ The following sample creates an action group.
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](..//resource-manager-samples.md).
 * [Learn more about action groups](../alerts/action-groups.md).
 

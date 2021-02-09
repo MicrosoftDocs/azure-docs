@@ -28,7 +28,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](../platform/data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](..//data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
 
 ## Telemetry type mappings
 

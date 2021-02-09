@@ -91,7 +91,7 @@ AADProvisioningLogs
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/learn/tutorial-response.md).
+To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/alerts/tutorial-response.md).
 
 Alert when there's a spike in failures. Replace the jobID with the jobID for your application.
 

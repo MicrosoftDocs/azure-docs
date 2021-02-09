@@ -235,7 +235,7 @@ Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced
 
 - [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](../../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md)
 

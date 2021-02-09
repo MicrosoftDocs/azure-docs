@@ -234,7 +234,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Azure Security Center for IoT alerts](../defender-for-iot/concept-security-alerts.md)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 

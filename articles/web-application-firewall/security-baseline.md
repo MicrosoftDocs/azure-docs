@@ -193,7 +193,7 @@ Azure Sentinel has a built-in WAF - firewall events workbook, which provides an 
 
 - [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
+- [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -313,7 +313,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 - [How to enable Application Insights for Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
-- [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
+- [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

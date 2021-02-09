@@ -153,7 +153,7 @@ You can access metrics directly from the resource **Overview** page. Here you'll
 
 Clicking on any of those charts will take you to the metrics view where you can create custom charts, query different metrics and much more. 
 
-To learn more about metrics, see [Monitor service metrics](../azure-monitor/platform/data-platform.md).
+To learn more about metrics, see [Monitor service metrics](../azure-monitor//data-platform.md).
 
 ## Alerts and autoscale
 Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../azure-monitor/alerts/alerts-classic-portal.md).

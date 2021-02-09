@@ -275,7 +275,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 

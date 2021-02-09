@@ -124,7 +124,7 @@ Elastic is a search company. As the creators of the Elastic Stack (Elasticsearch
 
 Grafana is an open-source application that enables you to visualize time series metric data.
 
-[Azure Monitor Grafana integration](./grafana-plugin.md)
+[Azure Monitor Grafana integration](../platform/grafana-plugin.md)
 
 ## InfluxData
 

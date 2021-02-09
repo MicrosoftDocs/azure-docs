@@ -18,7 +18,7 @@ Azure Purview admins can use Azure Monitor to track the operational state of Pur
 
 ## Aggregated metrics
 
-The metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
+The metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor//roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
 
 The person who created the Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 

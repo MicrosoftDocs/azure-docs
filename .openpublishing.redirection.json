@@ -61915,7 +61915,7 @@
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
       "redirect_document_id": false
@@ -62978,6 +62978,51 @@
     {
       "source_path": "articles/service-fabric/upgrade-managed-disks.md",
       "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/tutorial-response",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/cli-samples.md",
+      "redirect_url": "/azure/azure-monitor//cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-platform.md",
+      "redirect_url": "/azure/azure-monitor//data-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/partners.md",
+      "redirect_url": "/azure/azure-monitor//partners",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/policy-reference.md",
+      "redirect_url": "/azure/azure-monitor//policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/powershell-samples.md",
+      "redirect_url": "/azure/azure-monitor//powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-samples.md",
+      "redirect_url": "/azure/azure-monitor//resource-manager-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/roles-permissions-security.md",
+      "redirect_url": "/azure/azure-monitor//roles-permissions-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/security-controls-policy.md",
+      "redirect_url": "/azure/azure-monitor//security-controls-policy",
       "redirect_document_id": false
     }
   ]

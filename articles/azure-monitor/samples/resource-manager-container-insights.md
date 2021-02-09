@@ -352,5 +352,5 @@ The following sample enables Azure Monitor for containers on an AKS cluster.
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](..//resource-manager-samples.md).
 * [Learn more about Azure Monitor for containers](../containers/container-insights-overview.md).

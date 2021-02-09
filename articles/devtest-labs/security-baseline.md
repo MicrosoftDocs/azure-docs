@@ -80,7 +80,7 @@ For more information, see the following articles:
 ### 2.7: Enable alerts for anomalous activity
 **Guidance:** Use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure DevTest Labs.
 
-For more information, see the following article: [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+For more information, see the following article: [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring:** Currently not available
 

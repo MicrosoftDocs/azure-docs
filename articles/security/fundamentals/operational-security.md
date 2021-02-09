@@ -196,7 +196,7 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 
 ### Metrics
 
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](../../azure-monitor/platform/data-platform.md) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
+Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](../../azure-monitor//data-platform.md) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
 -	**Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 

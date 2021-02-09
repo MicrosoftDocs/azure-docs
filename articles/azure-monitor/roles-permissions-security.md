@@ -22,8 +22,8 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
-* View alert rules defined in [Azure Alerts](alerts-overview.md)
-* Query for metrics using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](../samples/powershell-samples.md), or [cross-platform CLI](../samples/cli-samples.md).
+* View alert rules defined in [Azure Alerts](../platform/alerts-overview.md)
+* Query for metrics using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](..//powershell-samples.md), or [cross-platform CLI](..//cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](../essentials/diagnostic-settings.md) for a resource.
 * View the [log profile](./activity-log.md#legacy-collection-methods) for a subscription.
@@ -48,7 +48,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 * Publish monitoring dashboards as a shared dashboard.
 * Set [diagnostic settings](../essentials/diagnostic-settings.md) for a resource.\*
 * Set the [log profile](./activity-log.md#legacy-collection-methods) for a subscription.\*
-* Set alert rules activity and settings via [Azure Alerts](alerts-overview.md).
+* Set alert rules activity and settings via [Azure Alerts](../platform/alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
 * Enable or disable monitoring packs in Log Analytics workspace.

@@ -11,7 +11,7 @@ ms.subservice: metrics
 
 # Azure Monitor Metrics metrics aggregation and display explained
 
-This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
+This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](..//data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
 
 This is a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
 
@@ -128,7 +128,7 @@ When the system expects metric data from a resource but doesn't receive it, it r
 
 NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](../essentials/metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in the previous section. When calculating averages that include NULLs, there are fewer data points to take the average from.  This behavior can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
 
-[Custom metrics](../essentials/metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
+[Custom metrics](../essentials/metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](..//data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
 
 Azure Monitor alerts use the values the resource provider writes to the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first.
 

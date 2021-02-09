@@ -23,7 +23,7 @@ For more information, see [Azure Monitor overview](../../azure-monitor/overview.
 
 With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-To access these metrics, complete the instructions in [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md).
+To access these metrics, complete the instructions in [Azure Monitor data platform](../../azure-monitor//data-platform.md).
 
 ### Workspace-level metrics
 

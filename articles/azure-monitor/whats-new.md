@@ -15,7 +15,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### General
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error messages.
-- [Partners who integrate with Azure Monitor](platform/partners.md) - Added section on Event Hub integration.
+- [Partners who integrate with Azure Monitor](/partners.md) - Added section on Event Hub integration.
 
 ### Agents
 - [Cross-resource query Azure Data Explorer by using Azure Monitor](logs/azure-monitor-data-explorer-proxy.md) - New article.
@@ -350,7 +350,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Platform logs
 - [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md) - Added video.
-- [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md) - Added ARM sample using Logs destination type. 
+- [Resource Manager template samples for Azure Monitor](/resource-manager-samples.md) - Added ARM sample using Logs destination type. 
 
 ### Solutions
 - [Monitoring solutions in Azure Monitor](insights/solutions.md) - Added CLI processes.
@@ -431,8 +431,8 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Archive Azure resource logs to storage account](./essentials/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](essentials/activity-log-schema.md)
 - [Azure Activity log](essentials/activity-log.md)
-- [Azure Monitor CLI samples](samples/cli-samples.md)
-- [Azure Monitor PowerShell samples](samples/powershell-samples.md)
+- [Azure Monitor CLI samples](/cli-samples.md)
+- [Azure Monitor PowerShell samples](/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)
 - [Azure Resource Logs supported services and schemas](./essentials/resource-logs-schema.md)
 - [Azure resource logs](essentials/resource-logs.md)
@@ -463,14 +463,14 @@ New and updated articles from restructure and consolidation of platform log cont
 
 - [Azure Monitor FAQ](faq.md) - Added section for Metrics.
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Various changes in preparation for general availability.
-- [Built-in policy definitions for Azure Monitor](./samples/policy-reference.md) - New article.
+- [Built-in policy definitions for Azure Monitor](.//policy-reference.md) - New article.
 - [Customer-owned storage accounts for log ingestion](logs/private-storage.md) - New article.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added cluster proportional billing.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md) - New article.
 
 
 #### New Resource Manager template samples 
-- [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md)
+- [Resource Manager template samples for Azure Monitor](/resource-manager-samples.md)
 - [Resource Manager template samples for action groups](samples/resource-manager-action-groups.md)
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
 - [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)

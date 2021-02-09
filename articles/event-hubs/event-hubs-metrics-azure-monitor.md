@@ -13,7 +13,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor//data-platform.md).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This setting can be configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 

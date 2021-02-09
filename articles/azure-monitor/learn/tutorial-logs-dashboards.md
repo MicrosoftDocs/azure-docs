@@ -86,4 +86,4 @@ Now that we have a query pinned to the dashboard, you will notice it has a gener
 In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Advance to the next tutorial to learn the different responses you can implement based on log query results.  
 
 > [!div class="nextstepaction"]
-> [Respond to events with Log Analytics Alerts](tutorial-response.md)
+> [Respond to events with Log Analytics Alerts](../alerts/tutorial-response.md)

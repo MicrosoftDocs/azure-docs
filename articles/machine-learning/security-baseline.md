@@ -258,7 +258,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [For more information on Azure Machine Learning alerts](monitor-azure-machine-learning.md#alerts)
 
-- [How to alert on Log Analytics workspace log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on Log Analytics workspace log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

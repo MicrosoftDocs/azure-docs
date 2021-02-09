@@ -153,5 +153,5 @@ The following sample creates a .NET Core 3.1 Azure Function app running on a Win
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](..//resource-manager-samples.md).
 * [Learn more about classic Application Insights resources](../app/create-new-resource.md).
