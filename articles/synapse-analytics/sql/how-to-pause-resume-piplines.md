@@ -54,7 +54,7 @@ Identify the list of dedicated SQL pools with a Web Activity that calls the dedi
 
 ![Web activity list for dedicated SQL pools](./media/how-to-pause-resume-pipelines/web-activity-list-sql-pools.png)
 
-The following is a simple Get request using the following call:
+The following code is a simple Get request using the following call:
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools?api-version=2019-06-01-preview
@@ -165,7 +165,7 @@ In this case, we are using activity('CheckState').output.name (the name of the d
 
 ## Pipeline Run Output
 
-When the full pipeline described above is run, You will see the output listed below. When you run the pipeline for the results below, the scope (using the Pipeline Parameter named "ResourceGroup") was set to a single resource group that had one Synapse Workspace that was paused, so it initiated a resume.
+When the full pipeline described above is run, you will see the output listed below. When you ran the pipeline for the results below, the scope (using the Pipeline Parameter named "ResourceGroup") was set to a single resource group that had one Synapse Workspace that was paused, so it initiated a resume.
 
 ![Pipeline run output](./media/how-to-pause-resume-pipelines/pipeline-run-output.png)
 
