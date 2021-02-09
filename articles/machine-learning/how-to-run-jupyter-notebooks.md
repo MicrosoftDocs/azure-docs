@@ -79,6 +79,19 @@ Every notebook is autosaved every 30 seconds. Autosave updates only th
  
 Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
 
+## Export a notebook
+
+In the notebook toolbar, select the menu and then **Export As** to export the notebook as any of the supported types:
+
+* Notebook
+* Python
+* HTML
+* LaTeX
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/export-notebook.png" alt-text="Export a notebook to your computer":::
+
+The exported file is saved on your computer.
+
 ## Run a notebook or Python script
 
 To run a notebook or a Python script, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
@@ -135,9 +148,11 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ## Add new kernels
 
-TThe notebook will automatically find all Jupyter kernels installed on the connected compute instance.   [Use the terminal ](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance.
+[Use the terminal ](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
 
->
+Use the kernel dropdown on the right to change to any of the installed kernels.  
+
+
 ### Status indicators
 
 An indicator next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
