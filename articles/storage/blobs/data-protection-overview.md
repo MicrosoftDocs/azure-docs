@@ -103,14 +103,12 @@ Blob soft delete protects an individual blob, its versions, and its metadata fro
 
 When blob versioning is enabled for a storage account, Azure Storage automatically stores the previous version of a blob each time it is modified or deleted. If a blob is erroneously modified or deleted, you can restore an earlier version to recover your data. For more information about blob versioning, see [Blob versioning](versioning-overview.md).
 
-Microsoft recommends using blob versioning together with container and blob soft delete for superior data protection. Blob soft delete protects a blob's previous versions as well as the current version, so that any version of the blob that is deleted can be restored throughout the soft-delete retention period. For additional information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
-
-> [!NOTE]
-> When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs. For more information, see [Blob versioning and blob snapshots](versioning-overview.md#blob-versioning-and-blob-snapshots).
-
 ### Blob snapshots
 
 A blob snapshot is a copy of a blob taken at a given point in time by your application code. Blob snapshots are similar to blob versions, except that they are manually generated, while blob versions are created automatically on every blob write or delete operation after versioning is enabled for the storage account. For more information about blob snapshots, see [Blob snapshots](snapshots-overview.md).
+
+> [!NOTE]
+> When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs. For more information, see [Blob versioning and blob snapshots](versioning-overview.md#blob-versioning-and-blob-snapshots).
 
 ### Point-in-time restore
 
