@@ -11,7 +11,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Telephony concepts
+# Telephony concept
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -76,7 +76,7 @@ This option requires the following:
 
 ### Conceptual documentation
 
-- [Plan your Azure Cloud Calling Solution](./plan-solution.md)
+- [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Plan for SIP Interface](./sip-interface-infra.md)
 - [Pricing](../pricing.md)
 
