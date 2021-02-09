@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---
+> [!IMPORTANT]
+> The script is currently under maintenance. You can refer to instructions [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) on how to upgrade Public IP addresses from Basic SKU and Standard SKU.
 
 # Upgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
