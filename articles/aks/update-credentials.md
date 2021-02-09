@@ -20,6 +20,8 @@ Alternatively, you can use a managed identity for permissions instead of a servi
 
 You need the Azure CLI version 2.0.65 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+Resetting credentials will cause a [node image upgrade][node-image-upgrade] to occur for your AKS cluster.
+
 ## Update or create a new service principal for your AKS cluster
 
 When you want to update the credentials for an AKS cluster, you can choose to either:
@@ -43,6 +45,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### Reset the existing service principal credential
 
 To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable named *SP_ID* for use in additional command. These commands use Bash syntax.
+
+> [!WARNING]
+> Resetting the credentials causes a node image upgrade to occur for your AKS cluster.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -134,3 +139,4 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: /node-image-upgrade.md
