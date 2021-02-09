@@ -125,9 +125,14 @@ In this section, you create a user called Britta Simon in Zuddl. Work with [Zud
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Zuddl tile in the Access Panel, you should be automatically signed in to the Zuddl for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application** in Azure portal. This will redirect to Zuddl Sign-on URL where you can initiate the login flow. 
+
+* Go to Zuddl Sign-on URL directly and initiate the login flow from there.
+
+* You can use Microsoft My Apps. When you click the Zuddl tile in the My Apps, this will redirect to Zuddl Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## Next steps
 
