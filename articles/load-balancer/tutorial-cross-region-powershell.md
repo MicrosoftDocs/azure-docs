@@ -56,7 +56,7 @@ New-AzResourceGroup @rg
 
 ### Create cross-region load balancer resources
 
-In this section you'll create the resources needed for the cross-region load balancer.
+In this section, you'll create the resources needed for the cross-region load balancer.
 
 A global standard sku public IP is used for the frontend of the cross-region load balancer.
 
@@ -145,7 +145,7 @@ In this section, you'll add two regional standard load balancers to the backend 
 
 * Use [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig) to create the backend address pool configuration for the load balancer.
 
-* Use [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/new-azloadbalancerbackendaddresspool) to add the regional load balancer frontend configuration to the cross-region load balancer backend pool.
+* Use [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/new-azloadbalancerbackendaddresspool) to add the regional load balancer frontend to the cross-region backend pool.
 
 ```azurepowershell-interactive
 ## Place the region one load balancer configuration in a variable ##
