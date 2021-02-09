@@ -29,7 +29,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
-            url: cassandra-mi-vs-cassandra-api.md
+            url: cassandra-api-vs-cassandra-mi.md
           - text: Azure Managed Instance for Apache Cassandra Resource Model
             url: cassandra-managed-instance-resource-model.md
       - linkListType: quickstart
