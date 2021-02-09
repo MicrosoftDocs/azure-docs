@@ -77,7 +77,7 @@ The following two approaches can be utilized to copy the backups to the blob sto
 > [!IMPORTANT]
 > Permissions for the SAS token for Azure Blob storage need to be read only and list. In case of any other permissions, LRS cloud service will fail to start. These security requirements are by design.
 
-## Start the LRS service
+## Start the service
 
 PS, CLI
 
@@ -120,7 +120,7 @@ PS, CLI
 
 Complete je da podignes (recovery) bazu
 
-## Using LRS API
+## Using API
 
 
 
