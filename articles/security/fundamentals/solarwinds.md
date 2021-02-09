@@ -26,7 +26,7 @@ The Solorigate attack is an example of how a systemic-identity compromise can pr
 
 The global administrator account or certificates enable the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
-Providing full security coverage is a [shared responsibility](shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the Solorigate attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
+Providing full security coverage is a [shared responsibility](shared-responsibility.md). This article provides information both about the steps that Microsoft has taken to shut down the Solorigate attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
 
 **Microsoft swiftly took the following steps against the Solorigate attack**:
 
@@ -53,14 +53,14 @@ Providing full security coverage is a [shared responsibility](shared-responsibil
 
 1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known patterns related to the Solorigate attack:
 
-    - [Windows security events](azure/sentinel/connect-windows-security-events.md) 
-    - [Microsoft 365 Defender](azure/sentinel/connect-microsoft-365-defender.md) 
-    - [Microsoft Defender for Office 365](azure/sentinel/connect-office-365-advanced-threat-protection.md) 
-    - [Office 365 logs ](azure/sentinel/connect-office-365.md) 
-    - [Azure Active Directory](azure/sentinel/connect-azure-active-directory.md) 
-    - [Domain name server](azure/sentinel/connect-dns.md) 
+    - [Windows security events](/azure/sentinel/connect-windows-security-events.md) 
+    - [Microsoft 365 Defender](/azure/sentinel/connect-microsoft-365-defender.md) 
+    - [Microsoft Defender for Office 365](/azure/sentinel/connect-office-365-advanced-threat-protection.md) 
+    - [Office 365 logs ](/azure/sentinel/connect-office-365.md) 
+    - [Azure Active Directory](/azure/sentinel/connect-azure-active-directory.md) 
+    - [Domain name server](/azure/sentinel/connect-dns.md) 
  
-1. Use the **SolarWinds Post Compromise Hunting** workbook to [hunt](azure/sentinel/hunting.md) for attack activity related to the Solorigate compromise. 
+1. Use the **SolarWinds Post Compromise Hunting** workbook to [hunt](/azure/sentinel/hunting.md) for attack activity related to the Solorigate compromise. 
 
     In Azure Sentinel, under **Threat management** on the left, navigate to the **Workbooks** and search for the **SolarWinds Post Compromise Hunting** workbook.
 
