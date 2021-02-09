@@ -139,4 +139,4 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[node-image-upgrade]: /node-image-upgrade
+[node-image-upgrade]: ./node-image-upgrade.md
