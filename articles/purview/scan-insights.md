@@ -55,7 +55,17 @@ Based on the time filter value selected, you can see the distribution of success
 
    :::image type="content" source="./media/scan-insights/scan-insights.png" alt-text="View Scan Insights":::
 
+### Deep-dive into scan failures
+
+1. At the bottom of the graph there is a **View more** link for you to explore further. The link opens the  **Scan Status** page within Scan Insights experience. Here you can see a scan name and the number of times it has succeeded, failed or been canceled in the last 30 days.
+
+2. You can explore a specific scan further, by clicking on the **scan name** that will connect you to the scan history within the **Sources** experience of Azure Purview. From the run history page, you can get the run id that will help in further failure investigation.
+
+3. Finally, you can come back to Scan Insights **Scan Status** page by following the bread crumbs on the top right corner of the run history page.
+
 ## Next steps
 
-Learn more about Azure Purview insight reports with
-[Asset Insights](./asset-insights.md)
+* Learn more about Azure Purview **Insights** with
+[Data Insights](./concept-insights.md)
+
+* Learn more about Azure Purview's **Sources** experience with [Sources](./sources-and-scans.md)
