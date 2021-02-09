@@ -1,5 +1,5 @@
 ---
-title: How to migrate - Portal
+title: How to migrate - portal
 description: How to migrate to Cloud Services (extended support) using the Azure portal
 ms.topic: how-to
 ms.service: cloud-services-extended-support
@@ -18,7 +18,7 @@ Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (exte
 
 ## Migrate your Cloud Service Resources (Web/Worker Role Deployments in a Cloud Service)
 
-1. Go to Cloud Services (classic) Portal Blade. 
+1. Go to Cloud Services (classic) portal blade. 
 2. Select the Cloud Service you want to migrate.
 3. Select the Migrate to ARM blade.
     :::image type="content" source="media/in-place-migration-portal-1.png" alt-text="Image shows the Migrate to ARM blade in the Azure portal.":::
@@ -50,7 +50,7 @@ Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (exte
         :::image type="content" source="media/in-place-migration-portal-6.png" alt-text="Image shows testing APIs in portal blade.":::
 
 6.	(Optional) Abort Migration
-    - If abort is successful, the migration has rollback and Cloud Services should not be visible on CS-ES portal blade. Prepare needs to be redone for migration. 
+    - If abort is successful, the migration has rollback and Cloud Services should not be visible on Cloud Services (extended support) portal blade. Prepare needs to be redone for migration. 
     
         :::image type="content" source="media/in-place-migration-portal-7.png" alt-text="Image shows validation passing.":::
 
@@ -59,7 +59,7 @@ Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (exte
         :::image type="content" source="media/in-place-migration-portal-8.png" alt-text="Image shows validation failure error message.":::
 
 7.	Commit Migration
-    - If commit is successful, the migration is completed and all cloud services in the virtual network will be displayed on CS-ES portal blade. Abort is no longer available. 
+    - If commit is successful, the migration is completed and all cloud services in the virtual network will be displayed on Cloud Services (extended support) portal blade. Abort is no longer available. 
     - If commit fails, there was internal server error. Retry should fix the issue. If not, please contact support.
 
 
