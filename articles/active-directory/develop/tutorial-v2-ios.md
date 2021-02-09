@@ -151,7 +151,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-The only value you need to modify above is the value assigned to `kClientID`to be your [Application ID](./developer-glossary.md#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
+The only value you modify above is the value assigned to `kClientID`to be your [Application ID](./developer-glossary.md#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
 ## Configure Xcode project settings
 

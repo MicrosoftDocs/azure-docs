@@ -62,9 +62,9 @@ const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential('your-token-here');
+    const tokenCredential = new AzureCommunicationTokenCredential('<USER ACCESS TOKEN with PSTN scope>');
     callAgent = await callClient.createCallAgent(tokenCredential);
-  //  callButton.disabled = false;
+  //  callPhoneButton.disabled = false;
 }
 
 init();
@@ -118,7 +118,7 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:

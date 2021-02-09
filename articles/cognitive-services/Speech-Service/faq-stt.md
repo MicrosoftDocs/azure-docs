@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
 ---
 
@@ -78,7 +78,7 @@ Both base models and custom models will be retired after some time (see [Model l
 
 **Q: Are my requests logged?**
 
-**A**: By default requests are not logged (neither audio, nor transcription). If necessary, you may select *Log content from this endpoint* option when you [create a custom endpoint](./how-to-custom-speech-train-model.md). You can also enable audio logging in the [Speech SDK](speech-sdk.md) on a per-request basis without creating a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. For subscriptions that use Microsoft-owned storage, they will be available for 30 days.
+**A**: By default requests are not logged (neither audio, nor transcription). If necessary, you may select *Log content from this endpoint* option when you [create a custom endpoint](how-to-custom-speech-train-model.md#deploy-a-custom-model). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis without creating a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. For subscriptions that use Microsoft-owned storage, they will be available for 30 days.
 
 You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with *Log content from this endpoint* enabled. If audio logging is enabled via the SDK, call the [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files.
 

@@ -21,7 +21,7 @@ ms.custom: how-to, devx-track-python, data4ml
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
 
@@ -261,7 +261,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## Troubleshooting
 
 * **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
-  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
+  * If you don't have any outbound [network security group](../virtual-network/network-security-groups-overview.md) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
@@ -291,4 +291,4 @@ If you are using file share for other workloads, such as data transfer, the re
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 
-* [Train with datasets using pipelines](how-to-create-your-first-pipeline.md).
+* [Train with datasets using pipelines](./how-to-create-machine-learning-pipelines.md).

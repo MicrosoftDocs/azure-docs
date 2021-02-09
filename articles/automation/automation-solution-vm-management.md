@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 ---
+
 # Start/Stop VMs during off-hours overview
 
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
@@ -31,7 +32,7 @@ The following are limitations with the current feature:
 
 ## Prerequisites
 
-- The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./manage-runas-account.md). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
+- The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
 - The linked Automation account and Log Analytics workspace need to be in the same resource group.
 
@@ -73,7 +74,7 @@ To enable VMs for the Start/Stop VMs during off-hours feature using an existing 
 You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the preceding section as well as the permissions defined in this section. You also require the following roles:
 
 - Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
-- Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](automation-security-overview.md#permissions).
 - Contributor on the subscription or the following permissions.
 
 | Permission |Scope|

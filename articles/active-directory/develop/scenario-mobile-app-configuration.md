@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform.
 ---
 
 # Configure a mobile app that calls web APIs
@@ -79,7 +79,7 @@ The following sections provide more information about instantiating the applicat
 
 ##### Specify the parent UI, window, or activity
 
-On Android, you need to pass the parent activity before you do the interactive authentication. On iOS, when you use a broker, you need to pass-in `ViewController`. In the same way on UWP, you might want to pass-in the parent window. You pass it in when you acquire the token. But when you're creating the app, you can also specify a callback as a delegate that returns `UIParent`.
+On Android, pass the parent activity before you do the interactive authentication. On iOS, when you use a broker, pass-in `ViewController`. In the same way on UWP, you might want to pass-in the parent window. You pass it in when you acquire the token. But when you're creating the app, you can also specify a callback as a delegate that returns `UIParent`.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)

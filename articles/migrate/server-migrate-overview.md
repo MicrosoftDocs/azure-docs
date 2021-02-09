@@ -39,7 +39,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
 **Deploy the Azure Migrate appliance** | A lightweight appliance that runs on a VMware VM.<br/><br/> The appliance is used to discover and assess machines, and to migrate machines using agentless migration. | Required.<br/><br/> If you've already set up the appliance for assessment,  you can use the same appliance for agentless migration. | Not required.<br/><br/> If you've set up an appliance for assessment, you can leave it in place, or remove it if you're done with assessment.
-**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | You can assess machines before you migrate them, but you don't have to. | Assessment is optional.
+**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | Assessment is optional. | Assessment is optional.
 **Use the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
 **Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required

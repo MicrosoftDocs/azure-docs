@@ -24,9 +24,6 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without needing any additional on-premises components.
 
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 To deploy Seamless SSO, follow these steps.
 
 ## Step 1: Check the prerequisites
@@ -35,7 +32,7 @@ Ensure that the following prerequisites are in place:
 
 * **Set up your Azure AD Connect server**: If you use [Pass-through Authentication](how-to-connect-pta.md) as your sign-in method, no additional prerequisite check is required. If you use [password hash synchronization](how-to-connect-password-hash-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
    - You use version 1.1.644.0 or later of Azure AD Connect. 
-   - If your firewall or proxy allows, add the connections to the allowed list for **\*.msappproxy.net** URLs over port 443. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins.
+   - If your firewall or proxy allows, add the connections to the allowed list for **\*.msappproxy.net** URLs over port 443. If you require a specific URL rather than a wildcard for proxy configuration, you can configure **tenantid.registration.msappproxy.net**, where tenantid is the GUID of the tenant where you are configuring the feature. If URL-based proxy exceptions are not possible in your organization, you can instead allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins.
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.

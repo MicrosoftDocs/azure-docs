@@ -15,8 +15,8 @@ This article documents the security controls built into Azure Relay.
 
 | Security control | Yes/No | Notes | Documentation |
 |---|---|--|--|
-| Private endpoint support| No |  |   |
-| Network isolation and firewalling support| No |  |   |
+| Private endpoint support| Yes |  |   |
+| Network isolation and firewalling support| Yes |  |   |
 | Forced tunneling support| N/A | Relay is the TLS tunnel  |   |
 
 ## Monitoring & logging

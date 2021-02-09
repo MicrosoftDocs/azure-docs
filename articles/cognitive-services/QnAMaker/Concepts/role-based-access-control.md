@@ -1,6 +1,6 @@
 ---
 title: Collaborate with others - QnA Maker
-description:
+description: Learn how to collaborate with other authors and editors using Azure role-based access control.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual

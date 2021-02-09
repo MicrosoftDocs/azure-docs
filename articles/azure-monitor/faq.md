@@ -341,7 +341,9 @@ This is possible if your code sends such data. It can also happen if variables i
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
-### My Instrumentation Key is visible in my web page source. 
+The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
+
+### My Instrumentation Key is visible in my web page source.
 
 * This is common practice in monitoring solutions.
 * It can't be used to steal your data.
@@ -374,6 +376,12 @@ Use a single resource for all the components or roles in a single business syste
 * If there is no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+### How does Application Insights generate device information (Browser, OS, Language, Model)?
+
+The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
+
+Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
 
 ### <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |

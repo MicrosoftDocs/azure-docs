@@ -38,11 +38,23 @@
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+  - name: UI Framework
+    items:
+    - name: Getting started with composite components
+      href: quickstarts/ui-framework/get-started-with-composites.md
+    - name: Getting started with base components
+      href: quickstarts/ui-framework/get-started-with-components.md
+    - name: Create your own UI Framework component
+      href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials
   expanded: false
   items:
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
+  - name: Sign an HTTP request with an HMAC signature using C#
+    href: tutorials/hmac-header-tutorial.md
+  - name: Prepare a web app for Communication Services (Node.js)
+    href: tutorials/building-app-start.md
 - name: Concepts
   expanded: false
   items:
@@ -68,10 +80,18 @@
         href: concepts/voice-video-calling/about-call-types.md
       - name: Teams interoperability
         href: concepts/voice-video-calling/teams-interop.md
+  - name: UI Framework
+    items:
+      - name: UI Framework overview
+        href: concepts/ui-framework/ui-sdk-overview.md
+      - name: UI Framework capabilities
+        href: concepts/ui-framework/ui-sdk-features.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
     href: concepts/call-flows.md
+  - name: Call flow topologies
+    href: concepts/detailed-call-flows.md
   - name: Client libraries and REST APIs
     href: concepts/sdk-options.md 
   - name: Pricing model
@@ -92,6 +112,8 @@
     href: concepts/metrics.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Known issues
+    href: concepts/known-issues.md
 - name: Samples
   items:
   - name: Group calling hero sample

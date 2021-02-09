@@ -1,9 +1,6 @@
 ---
 title: Interactive Query cluster sizing guide in Azure HDInsight
 description: Interactive Query sizing guide in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020

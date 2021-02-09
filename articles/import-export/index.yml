@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Import/Export documentation - Online transfer # < 60 chars
+title: Azure Import/Export documentation # < 60 chars
 summary: Use Azure Import/Export to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. # < 160 chars
 
 metadata:

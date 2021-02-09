@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 02/05/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -380,29 +380,42 @@ When you disable a logic app, no new runs are instantiated. All in-progress and 
 When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## Firewall configuration: IP addresses and service tags
 
-The IP addresses that Azure Logic Apps uses for inbound and outbound calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config#ip-address-configuration).
+When your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](#inbound) and [outbound](#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. *All* logic apps in the same region use the same IP address ranges.
 
-> [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use
-> [service tags](../virtual-network/service-tags-overview.md), rather than
-> specify the Logic Apps IP addresses for each region, described later in this section.
-> These tags work across the regions where the Logic Apps service is available:
->
-> * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
-> * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+For example, to support calls that logic apps in the West US region send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Logic Apps service inbound IP addresses *and* outbound IP addresses that exist in the West US region.
 
-* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and [managed connectors](../connectors/apis-list.md#managed-api-connectors), for example, Azure Storage, SQL Server, Office 365 Outlook, and so on.
+If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](#outbound) in your logic app's Azure region. Plus, if you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding *managed connectors [outbound IP addresses](#outbound)*.
 
-* To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
+For more information about setting up communication settings on the gateway, see these topics:
 
-* To support the calls that [managed connectors](../connectors/apis-list.md#managed-api-connectors) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
+* [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
-* To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### Firewall IP configuration considerations
+
+Before you set up your firewall with IP addresses, review these considerations:
+
+* If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
+
+* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and for [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as Azure Storage, SQL Server, Office 365 Outlook, and so on.
+
+* If your logic apps run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), make sure that you [open these ports too](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* To help you simplify any security rules that you want to create, you can optionally use [service tags](../virtual-network/service-tags-overview.md) instead, rather than specify IP address prefixes for each region. These tags work across the regions where the Logic Apps service is available:
+
+  * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
+
+  * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+
+  * **AzureConnectors**: Represents the IP address prefixes for managed connectors that make inbound webhook callbacks to the Logic Apps service and outbound calls to their respective services, such as Azure Storage or Azure Event Hubs.
+
+* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various other options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -415,11 +428,23 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
-> rather than specify inbound Logic Apps IP address prefixes for each region.
-> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
-> rather than specify inbound managed connector IP address prefixes for each region.
-> These tags work across the regions where the Logic Apps service is available.
-
+> rather than specify inbound Logic Apps IP address prefixes for each region. Optionally, 
+> you can also use the **AzureConnectors** service tag for managed connectors that make 
+> inbound webhook callbacks to the Logic Apps service, rather than specify inbound managed 
+> connector IP address prefixes for each region. These tags work across the regions where 
+> the Logic Apps service is available.
+>
+> The following connectors make inbound webhook callbacks to the Logic Apps service:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, 
+> Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, 
+> Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
+> Shifts for Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP**: The return caller depends on whether the deployment environment is either 
+> multi-tenant Azure or ISE. In the multi-tenant environment, the on-premises data gateway 
+> makes the call back to the Logic Apps service. In an ISE, the SAP connector makes the 
+> call back to the Logic Apps service.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -447,13 +472,16 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64 |
 | North Europe | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39 |
+| Norway East | 51.120.88.93, 51.13.66.86, 51.120.89.182, 51.120.88.77 |
 | South Africa North | 102.133.228.4, 102.133.224.125, 102.133.226.199, 102.133.228.9 |
 | South Africa West | 102.133.72.190, 102.133.72.145, 102.133.72.184, 102.133.72.173 |
 | South Central US | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | South India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Switzerland North | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
+| Switzerland West | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66 |
 | UAE Central | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
+| UAE North | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173 |
 | UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | West Central US | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
@@ -483,9 +511,12 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
-> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
-> rather than specify outbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available. 
+> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**, rather than 
+> specify outbound Logic Apps IP address prefixes for each region. Optionally, you can 
+> also use the **AzureConnectors** service tag for managed connectors that make outbound 
+> calls to their respective services, such as Azure Storage or Azure Event Hubs, rather than 
+> specify outbound managed connector IP address prefixes for each region. These tags work 
+> across the regions where the Logic Apps service is available.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -513,13 +544,16 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 | Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.201.173, 52.231.163.10, 52.231.147.0 - 52.231.147.15, 52.231.148.224 - 52.231.148.255 |
 | North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.126.4, 52.162.242.161, 52.162.107.160 - 52.162.107.175, 52.162.111.192 - 52.162.111.223 |
 | North Europe | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 52.169.28.181, 52.178.150.68, 94.245.91.93, 13.69.227.208 - 13.69.227.223, 13.69.231.192 - 13.69.231.223 |
+| Norway East | 51.120.88.52, 51.120.88.51, 51.13.65.206, 51.13.66.248, 51.13.65.90, 51.13.65.63, 51.13.68.140, 51.120.91.248 | 51.120.100.192, 51.120.92.27, 51.120.98.224 - 51.120.98.239, 51.120.100.192 - 51.120.100.223 |
 | South Africa North | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 102.133.168.167, 40.127.2.94, 102.133.155.0 - 102.133.155.15, 102.133.253.0 - 102.133.253.31 |
 | South Africa West | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 102.133.72.85, 102.133.75.194, 102.37.64.0 - 102.37.64.31, 102.133.27.0 - 102.133.27.15 |
 | South Central US | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 52.171.130.92, 13.65.86.57, 13.73.244.224 - 13.73.244.255, 104.214.19.48 - 104.214.19.63 |
 | South India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.127.26, 13.71.125.22, 20.192.184.32 - 20.192.184.63, 40.78.194.240 - 40.78.194.255 |
 | Southeast Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 52.187.115.69, 52.187.68.19, 13.67.8.240 - 13.67.8.255, 13.67.15.32 - 13.67.15.63 |
 | Switzerland North | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.103.142.22, 51.107.86.217, 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255 |
+| Switzerland West | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83 | 51.107.156.224, 51.107.231.190, 51.107.155.16 - 51.107.155.31, 51.107.156.224 - 51.107.156.255 |
 | UAE Central | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.45, 20.45.67.28, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
+| UAE North | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104 | 65.52.250.208, 40.123.224.120, 40.120.64.64 - 40.120.64.95, 65.52.250.208 - 65.52.250.223 |
 | UK South | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.74.150, 51.140.80.51, 51.140.61.124, 51.105.77.96 - 51.105.77.127, 51.140.148.0 - 51.140.148.15 |
 | UK West | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.141.52.185, 51.141.47.105, 51.141.124.13, 51.140.211.0 - 51.140.211.15, 51.140.212.224 - 51.140.212.255 |
 | West Central US | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 52.161.101.204, 52.161.102.22, 13.78.132.82, 13.71.195.32 - 13.71.195.47, 13.71.199.192 - 13.71.199.223 |

@@ -3,9 +3,6 @@ title: Create, configure Enterprise Security Package clusters - Azure
 description: Learn how to create and configure Enterprise Security Package clusters in Azure HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ---
