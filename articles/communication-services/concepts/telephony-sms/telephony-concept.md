@@ -71,3 +71,16 @@ This option requires the following:
 - Uninterrupted connection to Azure.
 - Deploying and maintaining a supported SBC.
 - A contract with a third-party carrier. (Unless deployed as an option to provide a connection to third-party PBX, analog devices, or other telephony equipment for users who are on ACS.)
+
+## Next steps
+
+### Conceptual documentation
+
+- [Plan your Azure Cloud Calling Solution](./plan-solution.md)
+- [Plan for SIP Interface](./sip-interface-infra.md)
+- [Pricing](../pricing.md)
+
+### Quickstarts
+
+- [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
+- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
