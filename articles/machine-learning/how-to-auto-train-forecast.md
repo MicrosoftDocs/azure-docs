@@ -189,7 +189,9 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
-The amount of data required to successfully train a forecasting model with automated ML is influenced by the values of the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified. The following formula will provide you with the maximum amount of historic data required to construct time series features.
+The amount of data required to successfully train a forecasting model with automated ML is influenced by the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified when you configure your `AutoMLConfig`. 
+
+The following formula calculates the amount of historic data that what would be needed to construct time series features.
 Maximum historic data required: (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
 
 An Error exception will be raised for any series in the dataset that does not meet the required amount of historic data for the relevant settings specified. 
