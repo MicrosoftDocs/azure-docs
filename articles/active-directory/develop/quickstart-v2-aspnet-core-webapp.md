@@ -47,7 +47,7 @@ The following diagram shows how the sample app works:
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
+> 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
 > 1. For **Redirect URI**, enter **https://localhost:44321/**.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
@@ -145,7 +145,7 @@ The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
 
-The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. The application is then configured to sign in users by using the Microsoft identity platform, based on the following information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. The application is then configured to sign in users based on the following information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
