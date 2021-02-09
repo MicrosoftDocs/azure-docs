@@ -208,7 +208,7 @@ RES_GROUP=<my-resource-group>
 
 # Get network profile ID
 # Assumes one profile in virtual network
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query '[0].id' --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
