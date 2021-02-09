@@ -9,6 +9,8 @@ ms.date: 02/08/2021
 
 # HDInsight 4.0 component versions
 
+The OSS component versions associated with HDInsight 4.0 are listed in the following table.
+
 | Component              | HDInsight 4.0 |
 |------------------------|---------------|
 | Apache Hadoop and YARN | 3.1.1         |
@@ -27,6 +29,7 @@ ms.date: 02/08/2021
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 | Mono                   | 4.2.1         |
+
 
 This table lists certain HDInsight 4.0 cluster types that have retired.
 
