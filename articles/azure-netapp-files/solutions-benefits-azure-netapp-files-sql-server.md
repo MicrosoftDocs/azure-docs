@@ -32,14 +32,12 @@ The two sets of graphics in this section show the TCO example.  The number and t
 
 The first graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v3 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
 
+[ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png#lightbox)
 
 
+The second graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
 
-This second graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
-
-
-
-
+[ ![Graphic that shows overall cost using a 50-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png#lightbox)
  
 ## Performance, and lots of it  
 
@@ -65,6 +63,7 @@ As shown below, the results prove that, with Azure NetApp Files, each of the ins
 
 The following diagram summarizes the S3B CPU limits test:
 
+![Diagram that shows average CPU percentage for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-average-cpu.png)
 
 Scalability is only part of the story. The other part is latency.  It’s one thing for smaller virtual machines to have the ability to drive much higher I/O rates. It’s another thing altogether to do so with low single-digit latencies as shown below.  
 
@@ -76,6 +75,8 @@ Scalability is only part of the story. The other part is latency.  It’s one th
 ### S3B per instance type latency results
 
 The following diagram shows the latency for single-instance SQL Server over Azure NetApp Files:
+
+![Diagram that shows latency for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-latency.png)
 
 ## SSB testing tool 
  
@@ -96,5 +97,4 @@ With Azure NetApp Files, you can increase SQL server performance while reducing 
 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Solution architectures using Azure NetApp Files – SQL Server](azure-netapp-files-solution-architectures.md#sql-server) 
-* <link to 3SB benchmarking tool> 
 
