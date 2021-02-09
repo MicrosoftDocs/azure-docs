@@ -9,14 +9,16 @@ ms.author: baanders
 
 ### Functional limits
 
-The table below lists the functional limits of Azure Digital Twins.
+The table below lists the functional limits of Azure Digital Twins. See 
+[Best Practices for Designing Models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)
+for modeling recommendations to operate within these functional limits.
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
 | Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
-| Digital twins | Number of incoming relationships to a single twin. See [Modeling Best Practices](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models) for alternatives. | 5,000 | No |
-| Digital twins | Number of outgoing relationships from a single twin. See [Modeling Best Practices](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models) for alternatives. | 5,000 | No |
+| Digital twins | Number of incoming relationships to a single twin. | 5,000 | No |
+| Digital twins | Number of outgoing relationships from a single twin. | 5,000 | No |
 | Digital twins | Maximum size (of JSON body in a PUT or PATCH request) of a single twin | 32 KB | No |
 | Digital twins | Maximum request payload size | 32 KB | No | 
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
