@@ -20,7 +20,7 @@ If you want to delete your Azure Automation account, you'll need to prepare the 
 1. [Unlink your workspace.](#unlink-your-workspace)
 1. [Delete the Automation account.](#delete-your-automation-account)
 
->![!NOTE]
+>[!NOTE]
 >Azure Automation allows you to move some resources to a new resource group or subscription. Automation accounts are among the resources that can be moved. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Disable features
@@ -93,9 +93,15 @@ Now you can unlink your workspace:
 
 ## Delete your Automation account
 
-You can now delete your Automation account.
+Now that you've deleted or unlinked all of the account's resources, you can delete your Automation account. In the Azure portal, select **All services** > **Automation accounts** and click on the Delete button.
 
-![Screenshot of deleting an Automation account](./media/delete-account-01.png)
+![Screenshot of deleting an Automation account](./media/delete-account-02.png)
+
+If you prefer, you can delete your Automation account by using the [Remove-AzAutomationAccount](/powershell/module/az.automation/remove-azautomationaccount) cmdlet:
+
+```azurepowershell-interactive
+Remove-AzAutomationAccount -Name "ContosoAutomationAccount" -Force -ResourceGroupName "ResourceGroup01"
+```
 
 ## Next steps
 
