@@ -104,7 +104,7 @@ An expired TAP can’t be used. Under the **Authentication methods** for a user,
 1. In the Azure AD portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass (Preview)** authentication method shown in the list, select **Delete**.
 
-## Replacing a TAP 
+## Replace a TAP 
 
 - A user can only have one TAP. The passcode can be used during the start and end time of the TAP.
 - If the user requires a new TAP:
