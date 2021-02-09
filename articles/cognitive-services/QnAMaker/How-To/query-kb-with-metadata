@@ -1,3 +1,31 @@
+---
+title: Contextual filtering using Metadata
+titleSuffix: Azure Cognitive Services
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
+services: cognitive-services
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: qna-maker
+ms.topic: how-to
+ms.date: 09/02/2021
+---
+
+# Get an answer using metadata to filter context
+
+QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../index.yml).
+
+<a name="qna-entity"></a>
+
+## Store questions and answers with a QnA entity
+
+It's important to understand how QnA Maker stores the question and answer data. The following illustration shows a QnA entity:
+
+![Illustration of a QnA entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+
+Each QnA entity has a unique and persistent ID. You can use the ID to make updates to a particular QnA entity.
+
+
+
 <a name="metadata-example"></a>
 
 ## Use metadata to filter answers by custom metadata tags
