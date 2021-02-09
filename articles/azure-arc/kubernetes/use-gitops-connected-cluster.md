@@ -11,7 +11,7 @@ description: "Use GitOps to configure an Azure Arc-enabled Kubernetes cluster (P
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, containers"
 ---
 
-# Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
+# Deploy configurations using GitOps on Arc-enabled Kubernetes cluster (Preview)
 
 GitOps, as it relates to Kubernetes, is the practice of declaring the desired state of Kubernetes cluster configurations (deployments, namespaces, etc.) in a Git repository, followed by a polling and pull-based deployment of these cluster configurations using an operator. 
 
@@ -32,7 +32,7 @@ The Git repository can contain:
 
 A common set of scenarios includes defining a baseline configuration for your organization, such as common Azure roles and bindings, monitoring or logging agents, or cluster-wide services.
 
-The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you have one repository that defines the baseline configuration for your organization. You apply this repository to tens of Kubernetes clusters at once. [Azure Policy can automate](use-azure-policy.md) the creation of a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc-enabled Kubernetes resources within a scope (subscription or resource group).
+The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you have one repository that defines the baseline configuration for your organization, which applies to tens of Kubernetes clusters at once. [Azure Policy can automate](use-azure-policy.md) the creation of a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc-enabled Kubernetes resources within a scope (subscription or resource group).
 
 Walk through the following steps to learn how to apply a set of configurations with `cluster-admin` scope.
 
@@ -44,9 +44,10 @@ Verify you have an existing Azure Arc-enabled Kubernetes connected cluster. If y
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
 
-**Namespaces:** `cluster-config`, `team-a`, `team-b`
-**Deployment:** `cluster-config/azure-vote`
-**ConfigMap:** `team-a/endpoints`
+
+* **Namespaces:** `cluster-config`, `team-a`, `team-b`
+* **Deployment:** `cluster-config/azure-vote`
+* **ConfigMap:** `team-a/endpoints`
 
 The `config-agent` polls Azure for new or updated `sourceControlConfiguration`. This will take up to 30 seconds.
 
@@ -147,12 +148,12 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version 1.2.0+ (default).
-> HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services (AKS) managed clusters.
+> HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services-managed clusters.
 > If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 #### Additional Parameters
 
-To customize the configuration with the following optional parameters:
+Customize the configuration with the following optional parameters:
 
 | Parameter | Description |
 | ------------- | ------------- |
@@ -363,7 +364,7 @@ kubectl -n itops get all
 Delete a `sourceControlConfiguration` using the Azure CLI or Azure Portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure. Full deletion of the associated objects from the cluster should happen within 10 minutes. If the `sourceControlConfiguration` is in a failed state when it is removed, the full deletion of associated objects can take up to an hour.
 
 > [!NOTE]
-> After a `sourceControlConfiguration` with namespace scope is created, users with `edit` role binding on the namespace can deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads. If needed, you can delete this namespace manually with `kubectl`.  
+> After a `sourceControlConfiguration` with `namespace` scope is created, users with `edit` role binding on the namespace can deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads. If needed, you can delete this namespace manually with `kubectl`.  
 > Any changes to the cluster that were the result of deployments from the tracked Git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```azurecli
