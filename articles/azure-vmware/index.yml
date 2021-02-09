@@ -139,7 +139,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
           - text: FAQ
-            url: faq.md
+            url: faq.yml
 
 # card 8
   - title: Troubleshooting
