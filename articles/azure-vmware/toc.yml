@@ -32,6 +32,8 @@
     href: tutorial-deploy-vmware-hcx.md
   - name: 8 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
+  - name: 9 - Delete a private cloud
+    href: tutorial-delete-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
