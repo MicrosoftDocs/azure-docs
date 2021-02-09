@@ -34,7 +34,7 @@ landingContent:
           - text: Add a VM scale set extension to a managed cluster node type (preview)
             url: how-to-managed-cluster-vmss-extension.md
           - text: Enable disk encryption for managed cluster nodes
-            url: how-to-enable-managed-cluster-disk-enryption.md
+            url: how-to-enable-managed-cluster-disk-encryption.md
       - linkListType: whats-new
         links:
           - text: Service Fabric managed clusters FAQ
