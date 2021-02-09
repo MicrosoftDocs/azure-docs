@@ -58,7 +58,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 <sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](./storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
 
 ### File scale targets
 | Attribute | Files in standard file shares  | Files in premium file shares  |
@@ -71,7 +71,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 <sup>1</sup> Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.
 
-<sup>2</sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md).
+<sup>2</sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).
 
 ## Azure File Sync scale targets
 The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
