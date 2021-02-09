@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 08/02/2021
 ---
 # Azure HDInsight release notes
 
