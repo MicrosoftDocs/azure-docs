@@ -24,7 +24,7 @@ ms.date: 11/09/2020
      * Select the IPs of "CognitiveServicesManagement".
      * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
-    We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App    Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
+    We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
 
     ##### Configure App Service Environment to host QnA Maker App Service
     The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
@@ -66,6 +66,5 @@ ms.date: 11/09/2020
 * [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
-
 
 
