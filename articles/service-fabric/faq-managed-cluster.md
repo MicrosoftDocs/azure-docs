@@ -4,13 +4,13 @@ description: Frequently asked questions about Service Fabric managed clusters, i
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 09/28/2020
+ms.date: 02/15/2021
 ms.custom: references_regions
 ---
 
 # Service Fabric managed clusters frequently asked questions
 
-There are many commonly asked questions about what Service Fabric managed clusters (preview) can do and how they should be used. This document covers many of those common questions and their answers.
+Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters (preview).
 
 ## General
 
@@ -24,11 +24,11 @@ Supported regions for the Service Fabric managed clusters preview include `centr
 
 ### Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
 
-At this time you would need to create a new Service Fabric cluster resource to use the new  Service Fabric managed cluster resource type.
+No. At this time you would need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
 
 ### Is there an additional cost for Service Fabric managed clusters?
 
-No, there is no additional cost associated with a Service Fabric managed cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster.
+No. There is no additional cost associated with a Service Fabric managed cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster.
 
 ### Is there a new SLA introduced by the Service Fabric managed cluster resource?
 
@@ -36,33 +36,36 @@ The SLA doesn't change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster?
 
-A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) for more details.
+A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 
 ## Cluster Deployment and Management
 
 ### I run custom script extensions on my Virtual Machine Scale Set, can I continue to do that with a managed Service Fabric resource?
 
-Yes you can still specify VM extensions on a node type. For more information, see the node type extension sample for more details.
+Yes, you can specify VM extensions on managed cluster node types. For more information, see [Add a scale set extension to a Service Fabric managed cluster node type](how-to-managed-cluster-vmss-extension.md).
 
-### I want to have an internal only load balancer, is that possible?
+### I want to have an internal-only load balancer, is that possible?
 
-It isn't currently possible to have an internal only load balancer. We recommended locking down the Network Security Group rules to block any undesired inbound/outbound traffic.
+No. It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
 
-### Can I autoscale my cluster? 
+### Can I autoscale my cluster?
+
 Autoscaling is not currently available in the preview.
 
-### Can I deploy my cluster across availability zones? 
+### Can I deploy my cluster across availability zones?
+
 Cross availability zone clusters are not currently available in the preview.
 
-### Can I select between automatic and manual upgrades for my cluster runtime? 
+### Can I select between automatic and manual upgrades for my cluster runtime?
+
 In the preview, all runtime upgrades will be completed automatically.
 
 ## Applications
 
 ### Is there a local development experience for Service Fabric managed clusters?
 
-The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .NET Application](./service-fabric-quickstart-dotnet.md) for more details on the local development experience.
+The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Set up your development environment](./service-fabric-get-started.md) for more details on the local development experience.
 
 ### Can I deploy my applications as an Azure Resource Manager resource?
 
-In the preview, you can't deploy applications as an Azure Resource Manager resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability.
+Yes. Support has been added to deploy applications as an Azure Resource Manager resource (in addition to deployment using PowerShell and CLI). To get started, see [Deploy a Service Fabric managed cluster application using ARM template](how-to-managed-cluster-app-deployment-template.md).
