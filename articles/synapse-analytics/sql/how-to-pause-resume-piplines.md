@@ -15,21 +15,21 @@ Pause and resume for dedicated SQL pools can be automated using Synapse Pipeline
 
 The following steps will guide you through setting up automated pause and resume.
 
-1. Paremeter setup in your pipeline
+1. Parameter setup in your pipeline
 1. Identify the list of dedicated SQL pools in your Synapse workspace
-1. Remove any irrelevant databases from this list (e.g. master)
+1. Remove any irrelevant databases from this list 
 1. Loop over each dedicated SQL pool and:
     1. Check the state of the dedicated SQL pool
-    1. Depending upon its status, initiate pause or resume
+    1. Depending upon its state, initiate pause or resume
 
-This requires a simple pipeline in Synapse:
+These steps are laid out in a simple pipeline in Synapse:
 
 ![Simple Synapse pipeline](./media/how-to-pause-resume-pipelines/simple-pipeline.png)
 
 
-Depending upon the nature of your environment, the whole process described here may not apply, and you may just want to pick and choose the appropriate step. Typically the process described here would be used to pause or resume all instances in a development, test or PoC environment where the number of instances could vary over time. For a live environment you are more likely to schedule pause/resume on a instance by instance basis so will only need  so will .
+Depending upon the nature of your environment, the whole process described here may not apply, and you may just want to choose the appropriate steps. Typically the process described here would be used to pause or resume all instances in a development, test, or PoC environment where the number of instances could vary over time. For a live environment, you're more likely to schedule pause/resume on an instance by instance basis so will only need step 3.
 
-All of the steps above utilize the REST APIs for Synapse and Azure SQL:
+The above steps above use the REST APIs for Synapse and Azure SQL:
 
 [Dedicated SQL pool operations](/rest/api/synapse/sqlpools)
  
@@ -39,44 +39,44 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
 
 ## Prerequisites
 
-- You will need an [Azure Synapse workspace](../get-started-create-workspace.md)
+- You'll need an [Azure Synapse workspace](../get-started-create-workspace.md)
 
 ## Parameter setup in your pipeline
 
-The examples below are parameter driven, which will allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, SQL servers and/or dedicated SQL pools. These are setup in your Synapse Pipeline under parameters:
+The examples below are parameter driven, which will allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, SQL servers and/or dedicated SQL pools. Select the Parameters tab in your Synapse Pipeline:
 
 ![Synapse pipeline parameters](./media/how-to-pause-resume-pipelines/pipeline-parameters.png)
 
 
 ## Identify the list of dedicated SQL pools in your workspace
 
-This requires a Web Activity that calls the dedicated SQL pools - List By Server REST API request:
+Identify the list of dedicated SQL pools with a Web Activity that calls the dedicated SQL pools - List By Server REST API request:
 
 ![Web activity list for dedicated SQL pools](./media/how-to-pause-resume-pipelines/web-activity-list-sql-pools.png)
 
-This is a simple Get request using the following call:
+The following is a simple Get request using the following call:
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools?api-version=2019-06-01-preview
 ```
 
-Which in the example above I have parameterised using the @concat string function:
+Which in the example above I have parameterized using the @concat string function:
 
 ```
 @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools?api-version=2019-06-01-preview')
 ```
 
-The output is a JSON string that contains a list of the database instances in the SQL server named above. This is passed to the next activity.
+The output is a JSON string that contains a list of the database instances in the SQL server named above. The JSON string is passed to the next activity.
 
 
-## Filter the list to remove any irrelevant databases
+## Filter the list to remove any irrelevant dedicated SQL pools
 
-This requires a Filer Activity that filters based on the values passed from the DBList1 Activity.
+Remove irrelevant dedicated SQL pools with a Filter Activity that filters based on the values passed from the DBList1 Activity.
 
 ![Filter dedicated SQL pools](./media/how-to-pause-resume-pipelines/filter-sql-pools.png)
 
 
-In this example, we are simply extracting the records from the array that are not named master. Other conditions could be applied as required, such as filtering on the sku/name of Synapse Workspace to ensure only valid Synapse SQL pools are identified.
+In this example, we are simply extracting the records from the array that are not named master. Other conditions can be applied as required, such as filtering on the sku/name of the Synapse Workspace to ensure only valid dedicated SQL pools are identified.
 
 Here the command under Items is:
 
@@ -96,7 +96,7 @@ The remaining records in the array are then passed to the next activity.
 
 ## Loop over each record/SQL Pool
 
-Create a ForEach activity to loop over each SQL Pool where the full pipeline with the above activities are being run.
+In the pipeline where the above activities are being run, create a ForEach activity to loop over each dedicated SQL pool.
 
 ![Loop through dedicated SQL pools](./media/how-to-pause-resume-pipelines/loop-through-sql-pools.png)
 
@@ -104,7 +104,7 @@ Alternatively, if you are simply running this for a single SQL Pool, complete St
 
 ### Check the state of the database
 
-This requires a Web Activity, similar to Step1. This activity calls the [Check database state REST API for Azure Synapse][](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+This requires a Web Activity, similar to Step 1. This activity calls the [Check database state REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 ![Check state of dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-sql-pool-state.png)
 
@@ -114,13 +114,13 @@ This again uses a simple Get request using the following call:
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}?api-version=2019-06-01-preview HTTP/1.1
 ```
 
-Which in the example above I have parameterised using the @concat string function:
+Which in the example above I have parameterized using the @concat string function:
 
 ```dotnetcli
 @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
 ```
 
-In this case we are using item().name â€“ the name of the SQL pool from Step 1 â€“ that that was passed to this activity from the ForEach loop. If you are using in a pipeline to control a single database, you can embed the name of your Synapse SQL pool here, or use a parameter from the pipeline (e.g. pipeline().parameters.DatabaseName using the example in Step 0)
+In this case, we are using item().name â€“ the name of the SQL pool from Step 1 â€“ that that was passed to this activity from the ForEach loop. If you are using in a pipeline to control a single database, you can embed the name of your Synapse SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0)
 
 The output is a JSON string that contains details of the SQL pool, including its status (in properties.status). This is passed to the next activity.
 
@@ -155,17 +155,17 @@ The example here is to resume a SQL pool, invoking a POST request using the foll
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}/resume?api-version=2019-06-01-preview HTTP/1.1
 ```
 
-Which in the example above I have parameterised using the @concat string function:
+Which in the example above I have parameterized using the @concat string function:
 
 ```
 @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',activity('CheckState').output.name,'/resume?api-version=2019-06-01-preview')
 ```
 
-In this case we are using activity('CheckState').output.name (the name of the dedicated SQL pool from Step 3a) that that was passed to this activity through the IF Condition loop. If you are using this a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (e.g. pipeline().parameters.DatabaseName using the example in Step 0).
+In this case, we are using activity('CheckState').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the IF Condition loop. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
 
 ## Pipeline Run Output
 
-When the full pipeline described above is run, this is the output you will receive. Note that when I ran the pipeline for the results below, the scope (using the Pipeline Parameter named "ResourceGroup") was set to a single resource group that had one Synapse Workspace that was Paused, so it initiated a Restart.
+When the full pipeline described above is run, You will see the output listed below. When you run the pipeline for the results below, the scope (using the Pipeline Parameter named "ResourceGroup") was set to a single resource group that had one Synapse Workspace that was paused, so it initiated a resume.
 
 ![Pipeline run output](./media/how-to-pause-resume-pipelines/pipeline-run-output.png)
 
@@ -184,5 +184,5 @@ Further details on Managed Identity for Azure Synapse, and how Managed Identity 
 
 [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)
 
-[SQL access control for Synapse pipeline runs](../security/how-to-set-up-access-control#step-73-sql-access-control-for-synapse-pipeline-runs)
+[SQL access control for Synapse pipeline runs](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-synapse-pipeline-runs)
 
