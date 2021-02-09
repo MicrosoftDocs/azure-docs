@@ -62,6 +62,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Secure against systemic-identity compromise
+            url: solarwinds.md
 
   # Card
   - title: Best practices for securing your cloud solutions
