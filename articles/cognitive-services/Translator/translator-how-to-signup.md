@@ -10,19 +10,20 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 01/25/2021
 ---
-# Create a Translator resource 
 
-[Azure Translator](translator-info-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access. In this article, you will learn how to create a Translator resource and retrieve its endpoint and subscription key.
+# Create a Translator resource
+
+In this article, you'll learn how to create a Translator resource in the Azure. [Azure Translator](translator-info-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
 
 ## Prerequisites
 
-To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free 12-month subscription**](https://azure.microsoft.com/free/).
 
 ## Create your resource
 
 The Translator service can be accessed through two different resource types:
 
-* **Single-service** resource types enable access to a single service API key and endpoint.  You can navigate directly to the [**Create Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details. 
+* **Single-service** resource types enable access to a single service API key and endpoint.  You can navigate directly to the [**Create Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
 
 * **Multi-service** resource types enable access to multiple Cognitive Services using a single API key and endpoint. You can navigate directly to the [**Create Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details. The Cognitive Services resource is currently available for the following services:
   * Language ([Translator](../translator/translator-info-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
@@ -41,6 +42,7 @@ The Translator service can be accessed through two different resource types:
 ## Complete your project and instance details
 
 > [!div class="checklist"]
+>
 > * **Subscription**. Select one of your available Azure subscriptions.
 > * **Resource Group**. The Azure resource group that you choose serve as a virtual container for your new resource. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 > * **Resource Region**. Choose **Global** unless your business or application requires a specific region. Translator is a non-regional service—there is no dependency on a specific Azure region. *See* [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
