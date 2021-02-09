@@ -240,7 +240,7 @@ You'll also need to set up local credentials if you want to run the sample direc
 
 ### Run the sample
 
-After completing the above steps, you can directly run the following sample code.
+After completing the above steps, you can directly run the following sample code. Make sure to replace all `<placeholders>` with the details of your own resources.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
 
