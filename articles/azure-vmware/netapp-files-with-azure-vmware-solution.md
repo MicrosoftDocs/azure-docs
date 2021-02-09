@@ -26,11 +26,11 @@ Azure NetApp Files is available in many Azure regions and supports cross-region 
 
 ## Reference architecture
 
-The following diagram illustrates a connection via Azure ExpressRoute to an Azure VMware Solution private cloud. It shows the usage of an Azure NetApp Files share, mounted on  Azure VMware Solution VMs, being accessed by the Azure VMware Solution environment.
+The following diagram illustrates a connection via Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share, which is mounted on Azure VMware Solution VMs.
 
 ![Diagram showing NetApp Files for Azure VMware Solution architecture.](media/net-app-files/net-app-files-topology.png)
 
-This article covers instructions to set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution VMs. In this scenario, we have used the NFS protocol. Azure NetApp Files and Azure VMware Solution are created in the same Azure region.
+This article covers instructions to set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution VMs. In this scenario, we've used the NFS protocol. Azure NetApp Files and Azure VMware Solution are created in the same Azure region.
 
 ## Prerequisites 
 
@@ -78,7 +78,7 @@ The following steps include verification of the pre-configured Azure NetApp File
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
 
-    You can see that the volume anfvolume has a size of 200 GiB and is in capacity pool anfpool1.  It is exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. To learn about Azure NetApp Files volume performance relative to size or "Quota", see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    You can see that the volume anfvolume has a size of 200 GiB and is in capacity pool anfpool1.  It's exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. To learn about Azure NetApp Files volume performance by size or "Quota," see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## Verify pre-configured Azure VMware Solution VM share mapping
 
