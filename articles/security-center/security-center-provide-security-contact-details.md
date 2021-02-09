@@ -58,7 +58,7 @@ You can send email notifications to individuals or to all users with specific Az
 ## Customize the alerts email notifications through the API
 You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](https://docs.microsoft.com/he-il/rest/api/securitycenter/securitycontacts).
 
-This is an example request body:
+This is an example request body for the PUT request when creating a security contact configuration:
 
 ```json
 {
