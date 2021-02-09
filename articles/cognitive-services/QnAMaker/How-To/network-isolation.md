@@ -20,9 +20,9 @@ ms.date: 11/09/2020
     2. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
     3. Please follow these steps to add the IP Address ranges to an allowlist:
 
-      * Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
-      * Select the IPs of "CognitiveServicesManagement".
-      * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
+     * Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
+     * Select the IPs of "CognitiveServicesManagement".
+     * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
     We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App    Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
 
