@@ -37,7 +37,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup>General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
@@ -56,9 +56,9 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum number of SMB Multichannel channels | N/A | 4 |
 | Maximum number of stored access policies per file share | 5 | 5 |
 
-<sup>1</sup>The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
+<sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup>Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
 
 ### File scale targets
 | Attribute | Files in standard file shares  | Files in premium file shares  |
@@ -69,9 +69,9 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)<sup>2</sup> |
 | Maximum concurrent handles | 2,000 handles | 2,000 handles  |
 
-<sup>1</sup>Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.
+<sup>1</sup> Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.
 
-<sup>2</sup>Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md).
+<sup>2</sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md).
 
 ## Azure File Sync scale targets
 The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
@@ -88,7 +88,7 @@ The following table indicates the boundaries of Microsoft's testing and also ind
 | Maximum number of file system objects (directories and files) in a directory | 5 million objects | Yes |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
-| Minimum file size for a file to be tiered | V9 and newer: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4kb, the minimum file size will be 8kb.<br> V8 and older: 64 KiB  | Yes |
+| Minimum file size for a file to be tiered | V9 and newer: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size will be 8 KiB.<br> V8 and older: 64 KiB  | Yes |
 
 > [!Note]  
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.

@@ -75,7 +75,7 @@ az provider register \
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands:
 
 # [Portal](#tab/azure-portal)
-Use either Azure PowerShell or Azure CLI to check on the registeration of the NFS 4.1 feature for Azure Files. 
+Use either Azure PowerShell or Azure CLI to check on the registration of the NFS 4.1 feature for Azure Files. 
 
 # [PowerShell](#tab/azure-powershell)
 ```azurepowershell
