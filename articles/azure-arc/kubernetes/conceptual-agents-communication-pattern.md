@@ -40,7 +40,6 @@ Here's the sequence of steps involved in this process of connecting a cluster to
 
 ## Data exchange between cluster environment and Azure
 
-
 | Data type | Scenario | Communication mode |
 | --------- | -------- | ------------------ |
 | Kubernetes cluster version | Cluster metadata | Agent pushes to Azure |
@@ -66,4 +65,3 @@ Here's the sequence of steps involved in this process of connecting a cluster to
 **Semi-connected:** The managed service identity (MSI) certificate pulled down by the `clusteridentityoperator` is valid for a maximum of 90 days before the certificate expires. Once the certificate expires, the Arc enabled Kubernetes resource stops working and the only way to get all the Arc features working on the cluster again is to delete the Arc enabled Kubernetes resource and agents and create them again. While the certificate is valid for a maximum of 90 days, it is strongly recommended to connect the cluster at least once every 30 days.
 
 **Disconnected:** Kubernetes clusters in completely disconnected environments not having any access to Azure is currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit/up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
-

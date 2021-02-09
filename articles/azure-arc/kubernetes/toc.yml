@@ -22,6 +22,10 @@
       href: create-onboarding-service-principal.md
   - name: Manage
     items:
+    - name: Agent upgrade
+      href: agent-upgrade.md
+  - name: Scenarios
+    items:
     - name: Deploy configurations using GitOps
       href: use-gitops-connected-cluster.md
     - name: Deploy Helm charts using GitOps
