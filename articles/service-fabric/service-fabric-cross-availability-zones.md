@@ -365,8 +365,8 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
 * The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is already present in the cluster.
       The property controls the logical grouping of VMs in upgrade domains.
-          If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
-          If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
+          If value is set to "Parallel": VMs under the nodetype will be grouped in UDs ignoring the zone info in 5 UDs.
+          If value is omitted or set to "Hierarchical": VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
           This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying virtual machine scale set upgrades will still be parallel in all AZ’s.
       This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
 * The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the virtual machine scale set updates which will happen in parallel in all AZ’s at once.
