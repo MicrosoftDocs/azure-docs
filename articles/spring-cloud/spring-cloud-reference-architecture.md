@@ -19,7 +19,7 @@ For deployment options of this architecture that include ARM, Terraform, and CLI
 > [!div class="nextstepaction"]
 > [Quickstart - Azure Spring Cloud Reference Architecture][10]
 
-The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment.
+The artifacts in the repository are designed to provide a foundation for your use of the service that can be customized to your environment. Resources, such as Azure Firewall or Application Gateway, can be grouped in different resource groups or subscriptions that separate out different functions such as IT infrastructure, security, business application teams, etc. 
 
 ## Planning the address space
 
