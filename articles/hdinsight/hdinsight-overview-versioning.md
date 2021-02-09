@@ -9,7 +9,7 @@ ms.date: 02/08/2021
 
 # How versioning works in HDInsight
 
-HDInsight bundles Apache Hadoop components and HDInsight platform into a package that is deployed on a cluster.
+HDInsight service has two main components: a Resource provider and Apache Hadoop components that are deployed on a cluster. 
 
 ## HDInsight Resource provider
 
