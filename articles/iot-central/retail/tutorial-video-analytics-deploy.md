@@ -17,6 +17,10 @@ The following video gives a walkthrough of how to use the _video analytics - obj
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
 
+## Prerequisites
+
+An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+
 ## Deploy the application
 
 Complete the following steps to deploy an IoT Central application using the video analytics application template:
@@ -36,6 +40,14 @@ Complete the following steps to deploy an IoT Central application using the vide
     - Install a local media player to view captured video in AMS.
     - View captured video that shows detected objects.
     - Tidy up.
+
+## Clean up resources
+
+When you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
 
 ## Next steps
 
