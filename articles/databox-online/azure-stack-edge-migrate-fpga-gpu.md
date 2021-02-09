@@ -7,25 +7,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/09/2021
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
 
 This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. The migration procedure involves an overview of migration including a comparison between the two devices, migration considerations, detailed steps, and verification followed by cleanup.
 
-> [!IMPORTANT]
-> Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.
+<!-->> [!IMPORTANT]
+> Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
 
 <!--Migration will result in a downtime. The installation can take around XX hours to complete.  new time estimates etc., also we should be able to take the ASE FPGA workloads to Pro R as well if suited for the scenario? Should we add this somewhere here? -->
 
 ## About migration
 
-Migration is the process of moving workloads and application data  from one storage location to another. This entails making an exact copy of an organization’s current data from one storage device to another storage device - preferably without disrupting or disabling active applications - and then redirecting all input/output (I/O) activity to the new device. 
+Migration is the process of moving workloads and application data from one storage location to another. This entails making an exact copy of an organization’s current data from one storage device to another storage device - preferably without disrupting or disabling active applications - and then redirecting all input/output (I/O) activity to the new device. 
 
 This migration guide provides a step-by-step walkthrough of the steps required to migrate data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. This document is intended for information technology (IT) professionals and knowledge workers who are responsible for operating, deploying, and managing Azure Stack Edge devices in the datacenter. 
 
-This Azure Stack Edge Pro FPGA device is referred to as the *source* device and the Azure Stack Edge Pro GPU device is the *target* device in this article. 
+In this article, the Azure Stack Edge Pro FPGA device is referred to as the *source* device and the Azure Stack Edge Pro GPU device is the *target* device. 
 
 ## Comparison summary
 
@@ -44,9 +44,9 @@ This section provides a comparative summary of capabilities between the Azure St
 To create your migration plan, consider the following information:
 
 - Develop a schedule for migration. 
-- When you migrate data, you will experience a downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described in [Recover the data from your Azure Stack Edge device](azure-stack-edge-gpu-recover-device-failure.md).
+- When you migrate data, you may experience a downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described later in this document.
 - Understand the total length of downtime and communicate it to all the stakeholders.
-- Identify the local data that needs to be migrated from the source device. As a precaution, ensure that all the data on the existing storage has a recent backup. The procedure to back up data on an Azure Stack Edge device is described in [Back up your Azure Stack Edge device](azure-stack-edge-gpu-prepare-device-failure.md).
+- Identify the local data that needs to be migrated from the source device. As a precaution, ensure that all the data on the existing storage has a recent backup. 
 
 
 ## Migration considerations 
@@ -66,7 +66,7 @@ This table summarizes the overall flow for migration, describing the steps requi
 
 | In this phase | Do this step| On this device |
 |---------------|-------------|----------------|
-| Prepare source device*       | 1. Back up configuration data <br>2. Back up share data <br>3. Prepare IoT Edge workloads| Source device  |
+| Prepare source device*       | 1. Record configuration data <br>2. Back up share data <br>3. Prepare IoT Edge workloads| Source device  |
 | Prepare target device*       |1. Create a new order <br>2. Configure and activate| Target device  |
 | Migrate data       | 1. Migrate data from shares <br>2. Redeploy IoT Edge workloads| Target device  |
 | Verify data            |Verify migrated data |Target device  |
@@ -76,13 +76,13 @@ This table summarizes the overall flow for migration, describing the steps requi
 
 ## Prepare source device
 
-The preparation would include identifying the Edge cloud shares and Edge local shares and the IoT Edge modules deployed on the device. 
+The preparation includes that you identify the Edge cloud shares, Edge local shares, and the IoT Edge modules deployed on the device. 
 
-### 1. Back up configuration data
+### 1. Record configuration data
 
 Do these steps on your source device via the local UI.
 
-Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help create the device configuration for the source device. During migration, you'll use this configuration information to configure the new target device. 
+Record the configuration data on the *source* device. Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help you record the device configuration. During migration, you'll use this configuration information to configure the new target device. 
 
 ### 2. Back up share data
 
@@ -117,9 +117,9 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
 
 ### 3. Prepare IoT Edge workloads
 
-- If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](azure-stack-edge-placeholder.md). 
+- If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](azure-stack-edge-gpu-modify-fpga-modules-gpu.md). 
 
-- If you have deployed IoT Edge workloads, the configuration data is shared on a share on the device. Back up the data in these shares.
+<!--- If you have deployed IoT Edge workloads, the configuration data is shared on a share on the device. Back up the data in these shares.-->
 
 
 ## Prepare target device
@@ -186,7 +186,10 @@ Follow these steps to recover the data from local shares:
 
 ### 3. Redeploy IoT Edge workloads
 
-Once the IoT Edge modules are prepared, you will need to deploy IoT Edge workloads on your target device. If you face any errors in deploying IoT Edge modules, see [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md)
+Once the IoT Edge modules are prepared, you will need to deploy IoT Edge workloads on your target device. If you face any errors in deploying IoT Edge modules, see:
+
+- [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md), and 
+- [IoT Edge runtime errors][Manage an Azure Stack Edge Pro GPU device via Windows PowerShell](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
 
 ## Verify data
 
@@ -194,9 +197,9 @@ After migration, verify that all the data has migrated and the workloads have be
 
 ## Erase data, return
 
-After the data migration is complete, erase local data and return the source device. Follow the steps in [Return your Azure Stack Edge Pro device](azure-stack-edge-return-device.md)
+After the data migration is complete, erase local data and return the source device. Follow the steps in [Return your Azure Stack Edge Pro device](azure-stack-edge-return-device.md).
 
 
 ## Next steps
 
-[Learn how to deploy IoT Edge workloads on Azure Stack Edge Pro GPU device](azure-stack-edge-placeholder.md)
+[Learn how to deploy IoT Edge workloads on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-compute-module-simple.md)
