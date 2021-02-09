@@ -14,10 +14,7 @@ ms.author: alkohli
 
 This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. The migration procedure involves an overview of migration including a comparison between the two devices, migration considerations, detailed steps, and verification followed by cleanup.
 
-<!-->> [!IMPORTANT]
-> Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
-
-<!--Migration will result in a downtime. The installation can take around XX hours to complete.  new time estimates etc., also we should be able to take the ASE FPGA workloads to Pro R as well if suited for the scenario? Should we add this somewhere here? -->
+<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
 
 ## About migration
 
