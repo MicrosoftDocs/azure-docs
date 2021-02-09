@@ -42,6 +42,8 @@ landingContent:
             url: ./create-management-group-dotnet.md
           - text: Create a management group (JavaScript)
             url: ./create-management-group-javascript.md
+          - text: Create a management group (Python)
+            url: ./create-management-group-python.md
           - text: Create a management group (REST)
             url: ./create-management-group-rest-api.md
           - text: Deploy resources to management group (ARM templates)
@@ -65,6 +67,8 @@ landingContent:
             url: /dotnet/api/overview/azure/managementgroups
           - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-managementgroups/managementgroups
+          - text: Azure SDK for Python
+            url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
           - text: REST
             url: /rest/api/resources/managementgroups
           - text: Resource Manager templates
