@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ---
 
-# Partner solutions
+# Partner spotlight
 
 Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search and AI enrichment across a range of business and technical scenarios.
 

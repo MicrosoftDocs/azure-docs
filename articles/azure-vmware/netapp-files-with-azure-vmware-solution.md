@@ -2,7 +2,7 @@
 title: Azure NetApp Files with Azure VMware Solution
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/08/2021
 ---
 
 # Azure NetApp Files with Azure VMware Solution
@@ -11,7 +11,7 @@ In this article, we'll walk through the steps of integrating Azure NetApp Files 
 
 ## Azure NetApp Files overview
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure first-party service for migration and running the most demanding enterprise file-workloads in the cloud, including databases, SAP, and high-performance computing applications, with no code changes.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure service for migration and running the most demanding enterprise file-workloads in the cloud. This includes databases, SAP, and high-performance computing applications, with no code changes.
 
 ### Features
 (Services where Azure NetApp Files are used.)
@@ -26,11 +26,11 @@ Azure NetApp Files is available in many Azure regions and supports cross-region 
 
 ## Reference architecture
 
-The following diagram illustrates a connection via Azure ExpressRoute to an Azure VMware Solution private cloud. It shows the usage of an Azure NetApp Files share, mounted on  Azure VMware Solution VMs, being accessed by the Azure VMware Solution environment.
+The following diagram illustrates a connection via Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share, which is mounted on Azure VMware Solution VMs.
 
 ![Diagram showing NetApp Files for Azure VMware Solution architecture.](media/net-app-files/net-app-files-topology.png)
 
-This article covers instructions to set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution VMs. In this scenario, we have used the NFS protocol. Azure NetApp Files and Azure VMware Solution are created in the same Azure region.
+This article covers instructions to set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution VMs. In this scenario, we've used the NFS protocol. Azure NetApp Files and Azure VMware Solution are created in the same Azure region.
 
 ## Prerequisites 
 
@@ -78,11 +78,11 @@ The following steps include verification of the pre-configured Azure NetApp File
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
 
-    You can see that the volume anfvolume, with a size of 200 GiB, was created in capacity pool anfpool1 and exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. For information on Azure NetApp Files volume performance relative to size ("Quota"), see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    You can see that the volume anfvolume has a size of 200 GiB and is in capacity pool anfpool1.  It's exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. To learn about Azure NetApp Files volume performance by size or "Quota," see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## Verify pre-configured Azure VMware Solution VM share mapping
 
-Before showcasing the accessibility of Azure NetApp Files share to an Azure VMware Solution VM, it's important to understand SMB and NFS share mapping. Only after configuring the SMB or NFS volumes, can they be mounted as documented here.
+To make an Azure NetApp Files share accessible to an Azure VMware Solution VM, it's important to understand SMB and NFS share mapping. Only after configuring the SMB or NFS volumes, can they be mounted as documented here.
 
 - SMB share: Create an Active Directory connection before deploying an SMB volume. The specified domain controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection. Once the Active Directory is configured within the Azure NetApp Files account, it will appear as a selectable item while creating SMB volumes.
 
@@ -98,7 +98,7 @@ The following are just a few compelling Azure NetApp Files use cases.
 
 ## Next steps
 
-Once you've integrated Azure NetApp Files with your Azure VMware Solution workloads, you may want to learn more about:
+Now that you've covered integrating Azure NetApp Files with your Azure VMware Solution workloads, you may want to learn about:
 
 - [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
 - [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md).
