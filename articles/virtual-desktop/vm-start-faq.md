@@ -3,7 +3,7 @@ title: Windows Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 02/09/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -13,23 +13,27 @@ This article covers frequently asked questions about the Start VM on Connect fea
 
 ## Are VMs automatically deallocated when a user stops using them?
 
-No, additional policies need to be configured to log of users and leverage Azure automation scripts to deallocate VMs.
+No. You'll need to configure additional policies to sign users out of their sessions and run Azure automation scripts to deallocate virtual machines (VMs).
 
-1.  Connect remotely to the VM where you want to set the policy:
+To configure the deallocation policy:
 
-2.  Open the ‘**Group Policy Editor**‘ and go to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
+1. Connect remotely to the VM that you want to set the policy for.
 
-3.  Locate **Set time limit for disconnected sessions**.
+2. Open the **Group Policy Editor**, then go to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
 
-    - Change the value to ‘**Enabled**‘.
+3. Find the policy that says **Set time limit for disconnected sessions**, then change its value to **Enabled**.
 
-    - Once the setting is set to Enabled, set **End a disconnected session**. Recommendation is not to set the timeframe too low as it may lead to loss of work.
+4. After you've enabled the policy, set **End a disconnected session**.
 
 >[!NOTE]
->Setting the ‘End a disconnected session’ time value too low, may cause your work to be lost if your network connection drops. So do not set this to ‘1 minute’ or ‘5 minutes’.
+>Make sure to set the time limit for the "End a disconnected session" policy to a value greater than five minutes. A low time limit can cause users' sessions to end if their network loses connection for too long, resulting in lost work.
 
-Signing users out won't deallocate the VM. Learn how to [deallocate VMs](../automation/automation-solution-vm-management.md) using Azure Compute guidance.
+Signing users out won't deallocate their VMs. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md).
 
 ## Can users turn off the VM from their clients?
 
-Users can shut down the VM from within the session using the Windows start menu. This action will not deallocate the VM. Learn how to [deallocate VMs](../automation/automation-solution-vm-management.md) using Azure Compute guidance.
+Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md).
+
+## Next steps
+
+If you have more general questions about Windows Virtual Desktop, check out our general [FAQ](faq.md).
